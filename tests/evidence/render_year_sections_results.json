@@ -1,0 +1,173 @@
+{
+  "version": "2.1.1",
+  "coreSha256": "1b9213d43257148511529cf5cae5a8d5463201109f9aa9c9a06cd964b1b380d7",
+  "method": "GET",
+  "anonymous": true,
+  "wikipediaWriteActions": 0,
+  "cases": [
+    {
+      "id": "single",
+      "requests": [
+        {
+          "stage": "before",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "stage": "after",
+          "status": 200,
+          "method": "GET"
+        }
+      ],
+      "passed": true,
+      "before": {
+        "tables": 1,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ],
+          [
+            "21/03/2020",
+            "Local A"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 1
+          }
+        ]
+      },
+      "after": {
+        "tables": 1,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ],
+          [
+            "21/03/2020",
+            "Local A"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "two-years",
+      "requests": [
+        {
+          "stage": "before",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "stage": "after",
+          "status": 200,
+          "method": "GET"
+        }
+      ],
+      "passed": true,
+      "before": {
+        "tables": 1,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ],
+          [
+            "22/03/2021",
+            "Local B"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 1
+          },
+          {
+            "text": "2021",
+            "tableDepth": 1
+          }
+        ]
+      },
+      "after": {
+        "tables": 2,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ],
+          [
+            "22/03/2021",
+            "Local B"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 0
+          },
+          {
+            "text": "2021",
+            "tableDepth": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "verified-colour",
+      "requests": [
+        {
+          "stage": "before",
+          "status": 200,
+          "method": "GET"
+        },
+        {
+          "stage": "after",
+          "status": 200,
+          "method": "GET"
+        }
+      ],
+      "passed": true,
+      "before": {
+        "tables": 1,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 1
+          }
+        ]
+      },
+      "after": {
+        "tables": 1,
+        "rows": [
+          [
+            "21/03/2020",
+            "Local A"
+          ]
+        ],
+        "headings": [
+          {
+            "text": "2020",
+            "tableDepth": 0
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 3,
+  "failed": 0
+}

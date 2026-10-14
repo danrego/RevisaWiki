@@ -1,0 +1,21 @@
+RevisaWiki 2.1.1: resultados de validação, 14 de outubro de 2026
+
+O código entregue é o mesmo código validado, com os hashes registrados em Resultados_RevisaWiki_v2_1_1.json.
+
+12 suítes anteriores: 136283 verificações, sem falhas.
+Regra anual: 61 casos e 263 verificações, sem falhas.
+Conjunto: 1.000 artigos distintos, com 538 biografias confirmadas pela prova independente do conjunto congelado. Núcleo e arquivo completo executados sobre os 1.000 artigos, totalizando 2.000 execuções principais, sem falhas de conteúdo ou diferenças inesperadas. O resultado foi aplicado novamente para conferir estabilidade.
+Navegadores reais no Mac: 582 fluxos agrupados de interface, carregamento e regras, incluindo 36 fluxos da nova regra. Firefox 158.0, Safari 27.0.1 e Chrome 155.0.8059.40. Aplicação, diff, resumo, desfazer e preservação de registros repetidos conferidos. Os três maiores textos, com mais de 500.000 bytes, passaram pelos fluxos de interface.
+Renderização pelo MediaWiki: três casos antes e depois, seis GETs anônimos. Células dos registros preservadas e subtítulos anuais fora das tabelas.
+
+O corpus de regressão não contém casos da nova regra. Sua função nesta atualização foi detectar mudanças inesperadas nas regras anteriores. Os casos anuais foram testados separadamente nas três revisões da lista de tornados e em exemplos positivos, negativos e protegidos.
+
+O aviso de apresentação na revisão 73088488 de Nicolau Maquiavel permanece nos dois relatórios brutos. Só foi qualificado com igualdade exata da origem, da saída e do aviso em relação à prova independente anterior. Não houve supressão de avisos.
+
+Nas revisões 73209168 e 73209386 da Lista de tornados no Brasil, a nova regra separa 28 subtítulos anuais em sete tabelas. A revisão 73209108, anterior à correção pública, permite separar 29 subtítulos em oito tabelas. A tabela do Acre já corrigida na revisão pública fica intacta na regra anual. Todas as linhas de dados são copiadas byte a byte. Nenhum registro repetido é eliminado pelo script.
+
+Os testes nativos usaram somente editores e APIs locais controlados. A renderização pública usou GETs anônimos. Não houve escrita na Wikipédia, uso de sua conta ou publicação. O índice de cópia tem teste próprio, com a área de transferência simulada, registrado separadamente.
+
+Os resultados iniciais de preparação dos testes foram guardados em diagnostics e em arquivos initial. Eles não contam como testes aprovados da entrega final. A cópia inicial do ambiente nativo estava sem três arquivos de apoio. O primeiro teste de renderização não encontrou o certificado local da instalação de Python. Os dois problemas foram corrigidos no ambiente de testes, sem mudar o programa.
+
+Os relatórios permitem conferir o escopo: análises de código não são renderização de todas as páginas, exemplos não são artigos distintos, e o número de verificações de parâmetros não equivale à quantidade de artigos.
