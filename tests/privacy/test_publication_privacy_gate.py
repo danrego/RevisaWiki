@@ -77,6 +77,9 @@ extra_hash=g.hashlib.sha256(extra).hexdigest();g.APPROVED_PUBLIC_CSS_PROPERTIES[
 case('attested CSS never exempts an adjacent account',extra,['unreviewed-wiki-user-destination'])
 del g.APPROVED_PUBLIC_CSS_PROPERTIES[extra_hash]
 del g.APPROVED_PUBLIC_CSS_PROPERTIES[css_hash]
+article=gzip.decompress((P.parents[1]/'tests/v272/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz').read_bytes())
+case('exact reviewed public bibliographic source',article,[])
+case('changed public bibliographic source needs review',article+b' ',['unreviewed-email'])
 for value,expected in [('safe/file.txt',True),('../escape.txt',False),('/absolute/file.txt',False),('safe\\file.txt',False),('',False)]:
  passed=g.safe_relative(value)==expected;results.append({'name':'safe allowlist path '+str(len(results)),'passed':passed})
  if not passed:raise AssertionError('allowlist path safety')

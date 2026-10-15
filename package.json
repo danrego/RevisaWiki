@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -8,21 +8,22 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v271/run_all.cjs",
-    "test:complex": "node tests/v271/run_engine.cjs --complex",
-    "test:regression": "node tests/v271/run_engine.cjs",
+    "test": "node tests/v272/run_all.cjs",
+    "test:complex": "node tests/v272/run_engine.cjs --complex",
+    "test:regression": "node tests/v272/run_engine.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
-    "test:documentation": "python3 scripts/audit_documentation_v271.py",
-    "test:engine": "node tests/v271/run_engine.cjs",
-    "build:index": "python3 scripts/build_index_v271.py",
+    "test:documentation": "python3 scripts/audit_documentation_v272.py",
+    "test:engine": "node tests/v272/run_engine.cjs",
+    "build:index": "python3 scripts/build_index_v272.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:additions": "node tests/v271/test_safe_automation.cjs && node tests/v271/test_diff_reporting.cjs && node tests/v271/test_chat_residues.cjs && node tests/v271/test_chat_permutations.cjs && node tests/v271/test_no_section_buttons.cjs && node tests/v271/test_chemical_syntax.cjs",
+    "test:additions": "node tests/v272/test_safe_automation.cjs && node tests/v272/test_diff_reporting.cjs && node tests/v272/test_chat_residues.cjs && node tests/v272/test_chat_permutations.cjs && node tests/v272/test_no_section_buttons.cjs && node tests/v272/test_chemical_syntax.cjs && node tests/v272/test_table_syntax.cjs && node tests/v272/test_table_guards.cjs",
     "test:previous": "node tests/run_all.cjs",
-    "test:installation": "node tests/v271/run_startup.cjs",
+    "test:installation": "node tests/v272/run_startup.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
     "test:previous261:hotfix": "node tests/v261/hotfix/run_all.cjs",
-    "test:large-articles": "node tests/v271/run_edited_corpus.cjs --final-pin=d3356cd3f9b0ac7d349b06bb514ef007a1f083d54626f8863d2202ae16d7d28c --corpus-pin=0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
+    "test:large-articles": "node tests/v272/run_edited_corpus.cjs --final-pin=a0712658dabadea161e40b795e20d900196528648d3bcb0e8c70c7c408ab2d46 --corpus-pin=0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
     "test:previous262": "node tests/v262/run_all.cjs",
-    "test:previous270": "node tests/v27/run_all.cjs"
+    "test:previous270": "node tests/v27/run_all.cjs",
+    "test:previous271": "node tests/v271/run_all.cjs"
   }
 }

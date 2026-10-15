@@ -29,12 +29,15 @@ APPROVED_PUBLIC_CREDIT_FILES={
   'a18c5e9bd1772123cb476f8c538c13c34e015a6ae730f7567fd569e8eb200ae3',
  }
 }
-# One institutional social identifier occurs in a bibliographic source title.
+# Reviewed public identifiers occur in immutable bibliographic source fields.
 # Approval binds both the complete immutable article bytes and the exact token.
 # A modified article or another email-like identifier still requires review.
 APPROVED_PUBLIC_CITATION_IDENTIFIERS={
  '31ce4a8f12b22feb936ac0e64a3acc46a02026ddc53e5486cb97b0a60c07ba60':{
   'e286e60a87f20a0f6bd9988b63b612465b9b8c4230f97cb312e46c2b11b51001'
+ },
+ '8cac0ca1f3765a0e8153dc15da381cf08abe4844b59d9a4c06df4ba3847b0601':{
+  'c761634a595538dc63bade052d18e2eeb123a13492be4fad238adceda66bb4ca'
  }
 }
 # Three declarations in immutable public site CSS contain a namespace-like tail.

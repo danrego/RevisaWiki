@@ -18,6 +18,6 @@ Run `python3 scripts/check_privacy.py` before publication. For uploads prepared 
 
 Any finding must be resolved before uploading. A passing scan still requires a review of new prose and metadata, since pattern checks cannot recognize every personal identifier.
 
-An immutable article fixture contains a public institutional social identifier in a bibliographic title. The scanner recognizes its email-like shape. The reviewed allowance binds the exact source-content hash and identifier hash, preserving the original citation without allowing other identifiers or modified source bytes. This does not allow personal account details about the owner or editors.
+Two immutable article fixtures contain reviewed public identifiers in bibliographic fields: an institutional social identifier in a source title and a newspaper author's professional contact in the existing author field. The reviewed allowances bind the exact source-content hash and identifier hash, preserving the original citations without allowing other identifiers or modified source bytes. Neither identifies the owner or a Wikipedia editor. These allowances do not permit personal account details about the owner or editors.
 
 An immutable public stylesheet used by the layout tests contains three image-size custom properties that resemble a user namespace. They contain no account name. Their reviewed allowance binds the complete stylesheet hash and each exact declaration. Changes to the stylesheet or an additional account destination still require review.
