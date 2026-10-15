@@ -1,0 +1,52 @@
+RevisaWiki 2.6.1-hotfix.1: instalação
+Programa e dados: 2.6.1
+
+Abra INICIO.html para copiar os arquivos completos. Cada bloco informa o destino, permite copiar o resumo e abre o editor da página correspondente. O código e as versões anteriores ficam em https://github.com/danrego/RevisaWiki. Os arquivos desta correção estão em dist/2.6.1-hotfix.1.
+
+ATUALIZAR A DISTRIBUIÇÃO
+
+1. Em uma instalação nova, copie RevisaWiki_v2_6_1_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js. Se os dados já são da versão 2.6.1, mantenha essa página nesta correção.
+2. Copie RevisaWiki_v2_6_1.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Crie ou atualize Usuário:Daniel G Rego/RevisaWiki/Carregador.js com o conteúdo completo de Carregador_comunitario_RevisaWiki_v2_6_1.js. A página central recebe esse carregador maior, não a chamada curta.
+4. Substitua somente o bloco antigo do RevisaWiki no common.js por Chamada_fixa_RevisaWiki_common.js. Preserve os outros scripts e mantenha uma única chamada.
+5. Copie Documentacao_RevisaWiki_v2_6_1.wiki para Usuário:Daniel G Rego/RevisaWiki.
+6. Recarregue e abra Editar código-fonte. O painel e Configurações → Sobre e diagnóstico devem mostrar 2.6.1. No carregador central, loaderRevision deve indicar 2.6.1-hotfix.1.
+
+O programa e os dados continuam na versão 2.6.1. O nome 2.6.1-hotfix.1 identifica a correção da instalação. Se os dados já estavam atualizados, basta corrigir o núcleo, criar o carregador central e substituir o bloco do common.js. Nenhuma outra parte do common.js precisa ser alterada.
+
+USAR A DISTRIBUIÇÃO COMPARTILHADA
+
+Depois que as páginas da distribuição estiverem atualizadas, coloque apenas Chamada_fixa_RevisaWiki_common.js no seu common.js. Essa chamada curta abre Usuário:Daniel G Rego/RevisaWiki/Carregador.js, que carrega as partes da distribuição. Não é preciso copiar dados, núcleo ou carregador maior para a sua conta.
+
+Se já houver uma instalação anterior, substitua somente o bloco do RevisaWiki. Não acrescente uma segunda chamada. A nova chamada curta permanece igual nas próximas versões. As atualizações ficam nos dados, no núcleo e no carregador central da distribuição.
+
+MANTER UMA CÓPIA PRÓPRIA
+
+1. Copie RevisaWiki_v2_6_1_dados.js para a sua página RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_6_1.js para a sua página RevisaWiki.js.
+3. Crie a sua página RevisaWiki/Carregador.js com Carregador_common_js_RevisaWiki_v2_6_1.js. Ele usa os arquivos da conta conectada.
+4. Coloque Chamada_fixa_RevisaWiki_copia_propria.js no seu common.js, preservando os outros scripts. Use apenas uma das chamadas fixas.
+
+Nas próximas versões, atualize seus dados, núcleo e carregador central, nessa ordem. Mantenha a chamada curta. Se escolher nomes diferentes para as páginas, ajuste os destinos no carregador e na chamada correspondente.
+
+RevisaWiki_v2_6_1_completo.js reúne as partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Instale o programa em duas partes.
+
+CONFERIR A INSTALAÇÃO
+
+Copie apenas o código, sem cercas de Markdown ou marcas de sintaxe. O índice não instala nem publica nada automaticamente.
+
+No editor clássico e no CodeMirror reconhecido, Ajustar código aparece em verde azulado antes de Publicar. No editor de código-fonte de 2017, use o botão azul do painel superior. A comparação e Desfazer ajustes ficam no painel. Os links Editar aqui continuam nos controles das seções.
+
+Se o painel não aparecer, confira os destinos, a cópia completa dos arquivos, a existência da página central e a presença de uma única chamada do RevisaWiki. No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R.
+
+A chamada curta calcula uma chave de cache por intervalo de cinco minutos ao abrir outra página ou recarregar. Ela não fica consultando atualizações numa página aberta e não cria edições na Wikipédia.
+
+TESTES
+
+A correção passou em 18 casos de validação do carregador e de proteção contra transformações ao salvar, além de 3.240 amostras de equivalência da expressão corrigida. Chrome, Firefox e Safari no Mac passaram em seis cenários da instalação, com 210 verificações. Os testes conferem a chamada fixa, o carregador central, o botão Ajustar código e o desfazer. O relatório informa os arquivos executados e separa esta rodada dos resultados anteriores. Não houve edição na Wikipédia.
+
+CONSULTAS E PUBLICAÇÃO
+
+Os cálculos de ajuste e ortografia ficam no navegador. A pré-visualização envia o rascunho para processamento pela Wikipédia sem salvar uma edição. Os recursos de destinos, portais e DOI podem fazer as consultas públicas explicadas no manual.
+
+Ajustar código trabalha no rascunho. Na edição rápida, somente Publicar alterações inicia um envio por clique deliberado. Confira a comparação e a pré-visualização antes de publicar. Leia o texto preparado por Copiar diagnóstico antes de compartilhá-lo.

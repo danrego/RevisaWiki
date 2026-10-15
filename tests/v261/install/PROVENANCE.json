@@ -1,0 +1,41 @@
+{
+  "gate": "ResourceLoader Peast::ES2019 and save-time signature safety",
+  "resourceLoader": {
+    "repository": "wikimedia/mediawiki",
+    "commit": "e6327087b1f750d3adf10278132a9e16b0d188d3",
+    "file": "includes/ResourceLoader/Module.php",
+    "sha256": "dfa23e28a50a1ce3c440e567d06dee63c15afb2562f37232163fdbaf22fb2add",
+    "method": "validateScriptFile",
+    "parserProfile": "Peast::ES2019"
+  },
+  "peast": {
+    "version": "1.18.0",
+    "commit": "9c211ef67a0cf7511f864b6d390fe5939a837d05",
+    "archiveSha256": "6c432fa57e173b4ba806c485701b6b59ba79423cd4e768e61e00d064e18f343e"
+  },
+  "phpRuntime": {
+    "version": "8.3",
+    "packages": {
+      "@php-wasm/universal": "3.1.58",
+      "@php-wasm/node-8-3": "3.1.58"
+    }
+  },
+  "publicAdaptations": [
+    "Portable browser runner embeds the exact frozen product manifest instead of reading its private staging location.",
+    "Browser reports default to the ignored artifacts/v261/install folder.",
+    "Fixture logic and production code are unchanged.",
+    "Only explicit production host guards allow loopback in the served simulator."
+  ],
+  "browserExecution": {
+    "privateRunnerSha256": "86c8e291686554c59558d8fbfeb6ef7fb3155e596b0d3f2993a1e9475a5388c1",
+    "publicPortableRunnerSha256": "d2fc7131406a974996a9b21f7b54977a5764b6a248896a1f2cf6ad2148da6e6b",
+    "changes": [
+      "Frozen production hashes embedded from the same manifest.",
+      "Report directory made portable and ignored."
+    ],
+    "identicalFixtureSha256": {
+      "fixture.js": "25ed913d7fe71da5c92d128dd146bffcc65bc40ca7dfaf3819b5640ebf34b542",
+      "fixture.html": "adcb2ba719e05332493e0d872ca5ad36dd71f139eb2eb06a7d8d9e419795d0cb"
+    }
+  }
+}

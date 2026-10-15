@@ -41,7 +41,7 @@ def identity_findings(text):
  decoded=unquote(text).replace('+',' ')
  owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
  owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
- technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/Dados\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#]|\\.(?=\\s|$))',re.I)
+ technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
  destination=re.compile('(?<![A-Za-z0-9_])(?:User|User[ _]talk|Usuário(?:[ _]Discussão)?|Usuária|Utilizador(?:a)?|Utilisateur(?:rice)?|Benutzer|Utente|Usuario):[^\\s\\]\\[<>|"\\\'`}{][^\\n\\]\\[<>|"\\\'`}{]{0,159}',re.I)
  fictional=re.compile(r'^(?:Teste|Test|Example|Exemplo|Fulano|Beltrano|Sicrano|Editor de teste|Conta de Teste|Nome da Conta|Anônimo|Colaborador)(?:[/ _]|$)',re.I)

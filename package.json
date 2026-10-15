@@ -8,15 +8,17 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v261/run_all.cjs",
-    "test:complex": "node tests/v261/run_engine.cjs --complex",
-    "test:regression": "node tests/v261/run_engine.cjs",
+    "test": "node tests/v261/hotfix/run_all.cjs",
+    "test:complex": "node tests/v261/hotfix/run_engine.cjs --complex",
+    "test:regression": "node tests/v261/hotfix/run_engine.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
-    "test:documentation": "python3 scripts/audit_documentation_v261.py",
-    "test:engine": "node tests/v261/run_engine.cjs",
-    "build:index": "python3 scripts/build_index_v261.py",
+    "test:documentation": "python3 scripts/audit_documentation_v261_hotfix_1.py",
+    "test:engine": "node tests/v261/hotfix/run_engine.cjs",
+    "build:index": "python3 scripts/build_index_v261_hotfix_1.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:additions": "node tests/v261/run_focus.cjs",
-    "test:previous": "node tests/run_all.cjs"
+    "test:additions": "node tests/v261/hotfix/run_focus.cjs",
+    "test:previous": "node tests/run_all.cjs",
+    "test:installation": "node tests/v261/hotfix/run_startup.cjs",
+    "test:previous261": "node tests/v261/run_all.cjs"
   }
 }

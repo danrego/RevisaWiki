@@ -1,0 +1,133 @@
+{
+  "gate": "ResourceLoader Peast::ES2019 and save-time signature safety",
+  "peastVersion": "1.18.0",
+  "cases": 18,
+  "failed": 0,
+  "results": [
+    {
+      "case": "common",
+      "sha256": "2e667bfa702fabebb793ea8dd75d22508d1ef09a33667b96a8e8e318414bd5e3",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "community",
+      "sha256": "9dfbdbca4343db0bb22fb928907fd51f9344c2493a43beb105d25ffc55f2d1c0",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "negative-optional-call",
+      "sha256": "0469cf4a8c8a994f1827e90863183d47b41109dc99aa25439a8947c0469f41b8",
+      "expectedError": true,
+      "error": {
+        "message": "Unexpected: .",
+        "line": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "negative-optional-property",
+      "sha256": "9461adf1c4ad2d5460671c39a3cbf4f422b26b16516f314bea5569861f890a17",
+      "expectedError": true,
+      "error": {
+        "message": "Unexpected: .",
+        "line": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "compatible-call",
+      "sha256": "457b09a8677063d17b319efd75f695037488778870dd477c82368264a8c280ab",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "compatible-property",
+      "sha256": "60eaabdf997821b6a0b110ec7057c820b1cb389acd98474b2a30b22f4478a3db",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "Chamada_fixa_RevisaWiki_common.js",
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "Chamada_fixa_RevisaWiki_copia_propria.js",
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0",
+      "expectedError": false,
+      "error": null,
+      "pass": true
+    },
+    {
+      "case": "baseline-Carregador_common_js_RevisaWiki_v2_6_1.js",
+      "sha256": "8d7aec18d0a00d0334c19a2e62474874717ed5f83c07dbe83ba31722a441fa0e",
+      "expectedError": true,
+      "error": {
+        "message": "Unexpected: .",
+        "line": 26
+      },
+      "pass": true
+    },
+    {
+      "case": "baseline-Carregador_comunitario_RevisaWiki_v2_6_1.js",
+      "sha256": "0ff666b1f1e71ba833e295ee39ac8d3f4c4c94fec033deaacb3db92d75551246",
+      "expectedError": true,
+      "error": {
+        "message": "Unexpected: .",
+        "line": 26
+      },
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-Carregador_common_js_RevisaWiki_v2_6_1.js",
+      "sha256": "2e667bfa702fabebb793ea8dd75d22508d1ef09a33667b96a8e8e318414bd5e3",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-Carregador_comunitario_RevisaWiki_v2_6_1.js",
+      "sha256": "9dfbdbca4343db0bb22fb928907fd51f9344c2493a43beb105d25ffc55f2d1c0",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-Chamada_fixa_RevisaWiki_common.js",
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-Chamada_fixa_RevisaWiki_copia_propria.js",
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-RevisaWiki_v2_6_1.js",
+      "sha256": "30ca5623e14952d28ff9e423c8c040852e115092ab08d6c9513a9aaef14c6af4",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-RevisaWiki_v2_6_1_completo.js",
+      "sha256": "14091c45a9dfa1923238779928555736678d0d6150a5a03e312ee23b7d9593a0",
+      "pass": true
+    },
+    {
+      "case": "save-transform-safe-RevisaWiki_v2_6_1_dados.js",
+      "sha256": "4f63f1c7853de3e30f7c15bea180871ba75b67a1dc4d0bc9d4ed023a7651b1ec",
+      "pass": true
+    },
+    {
+      "case": "signature-safe-fence-regex-equivalence",
+      "samples": 3240,
+      "failed": 0,
+      "pass": true
+    }
+  ],
+  "peastCommit": "9c211ef67a0cf7511f864b6d390fe5939a837d05",
+  "resourceLoaderContract": "Module::validateScriptFile uses Peast::ES2019"
+}

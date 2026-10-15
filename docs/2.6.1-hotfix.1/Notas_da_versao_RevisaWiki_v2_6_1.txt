@@ -1,0 +1,20 @@
+RevisaWiki 2.6.1-hotfix.1
+Programa e dados: 2.6.1
+15 de outubro de 2026
+
+- Correção do carregador para a sintaxe aceita pelo processamento do common.js na Wikipédia. Os controles de edição e o carregamento sob demanda foram mantidos.
+- Chamada curta e fixa no common.js. Ela abre RevisaWiki/Carregador.js, onde passam a ficar as atualizações do carregador. Não é preciso trocar o common.js a cada versão.
+- A página central precisa ser criada antes de usar a chamada fixa. Na distribuição compartilhada, recebe Carregador_comunitario_RevisaWiki_v2_6_1.js. Uma cópia própria usa o outro carregador, com os arquivos da conta conectada.
+- Proteção da expressão regular do núcleo para evitar que uma sequência seja transformada em assinatura ao salvar o JavaScript na Wikipédia.
+- Identificadores de versão e conteúdo nas consultas do núcleo e dos dados para evitar arquivos antigos no cache.
+- O arquivo de dados da 2.6.1 foi mantido. O painel continua mostrando 2.6.1. A correção de instalação tem a identificação 2.6.1-hotfix.1.
+
+A correção passou em 18 casos de validação do carregador e de proteção contra transformações ao salvar, além de 3.240 amostras de equivalência da expressão corrigida. Chrome, Firefox e Safari no Mac passaram em seis cenários da instalação, com 210 verificações. Os testes conferem a chamada fixa, o carregador central, o botão Ajustar código e o desfazer. O relatório informa os arquivos executados e separa esta rodada dos resultados anteriores. Não houve edição na Wikipédia.
+
+As correções de referências, nomes alternativos de Artigo principal, leitura de HTML e cabeçalhos de discussão da 2.6.1 continuam disponíveis. O manual conserva o histórico completo, da versão mais recente para a mais antiga.
+
+Abra INICIO.html para copiar os arquivos na ordem indicada. Em uma instalação nova, comece pelos dados. Se os dados já são da versão 2.6.1, atualize o núcleo, crie o carregador central e substitua somente o bloco antigo do RevisaWiki no common.js. Preserve os outros scripts. A documentação vem por último.
+
+A chamada fixa consulta o carregador ao abrir ou recarregar uma página. A chave de cache usa intervalos de cinco minutos. Não há consulta periódica numa página aberta nem edições automáticas na Wikipédia.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

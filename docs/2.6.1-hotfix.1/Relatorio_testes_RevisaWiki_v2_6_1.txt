@@ -1,0 +1,57 @@
+RevisaWiki 2.6.1-hotfix.1
+Correção da instalação, 15 de outubro de 2026
+Programa e dados continuam na versão 2.6.1.
+
+O erro da linha 26 foi reproduzido com a validação Peast ES2019 usada pelo ResourceLoader. Os navegadores aceitavam o código original, mas a etapa anterior ao carregamento recusava o operador de encadeamento opcional. Os carregadores corrigidos e as duas chamadas fixas passaram nessa validação. Os exemplos que devem falhar continuam falhando.
+
+Também foi retirada a sequência literal de assinatura da expressão que reconhece cercas de código. A forma equivalente com quantificador evita a transformação do texto ao salvar a página JavaScript. A comparação passou em 3.240 amostras, sem diferença de resultado. Os sete arquivos JavaScript desta distribuição não contêm o gatilho literal de três tils.
+
+A etapa de validação e preservação passou em 18 casos. A sintaxe também passou em duas versões do minificador. A verificação do minificador, isoladamente, não substitui o perfil de sintaxe do ResourceLoader.
+
+Chrome 155.0.8059.40, Firefox 158.0 e Safari 27.0.1 passaram, cada um, em dois cenários e 70 verificações. Foram seis cenários e 210 verificações. Os testes usam navegadores reais, com editor e API simulados em páginas locais. Conferem a chamada fixa compartilhada, a cópia própria, o carregamento em etapas, os parâmetros de cache, o botão Ajustar código, a alteração esperada e o desfazer.
+
+A chamada curta abre o carregador central ao navegar ou recarregar. A chave de cache muda por intervalo de cinco minutos. Não há consulta periódica numa página parada, publicação automática ou alteração da conta.
+
+As diferenças do carregador foram conferidas em 11 casos e 71 verificações, incluindo os atalhos de seção, a manutenção da chamada dos callbacks e a leitura do programa somente quando necessária.
+
+As verificações offline desta correção passaram em 1.985 casos e 7.317 verificações, sem falhas. Foram 57 casos de instalação com 269 verificações, 100 regressões pontuais com 540 verificações e 1.828 casos do motor anterior com 6.508 verificações. As asserções do motor foram copiadas sem alteração e executadas nos programas desta correção. A rodada extensa de 128 combinações não foi repetida. Esses números não incluem os testes dos navegadores nem resultados da distribuição anterior.
+
+A documentação e o índice têm verificações próprias de integridade dos arquivos, destinos e cópia completa. Os relatórios ficam em tests/evidence/2.6.1-hotfix.1. Os testes portáteis do validador e dos navegadores ficam em tests/v261/install.
+
+As fontes consultadas e suas revisões estão em tests/v261/install/PROVENANCE.json. Não foram publicados o common.js capturado nem a cópia alterada pela assinatura. Os relatórios usam apenas exemplos de teste e os endereços técnicos de instalação.
+
+A distribuição original 2.6.1 permanece arquivada com seus hashes e resultados. Seus 3.452 casos e 132 cenários de interface não são apresentados como uma nova execução desta correção. Os catálogos e as regras de edição continuam iguais, salvo a escrita equivalente da expressão citada acima e a chave de cache usada no carregamento dos dados.
+
+Nenhum teste editou a Wikipédia, usou a área de transferência do sistema ou tirou capturas de tela. Confira o rascunho e a pré-visualização antes de publicar suas próprias alterações.
+
+ARQUIVOS EXECUTADOS
+
+Carregador_common_js_RevisaWiki_v2_6_1.js
+9908 bytes
+SHA-256: 2e667bfa702fabebb793ea8dd75d22508d1ef09a33667b96a8e8e318414bd5e3
+
+Carregador_comunitario_RevisaWiki_v2_6_1.js
+9910 bytes
+SHA-256: 9dfbdbca4343db0bb22fb928907fd51f9344c2493a43beb105d25ffc55f2d1c0
+
+Chamada_fixa_RevisaWiki_common.js
+695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+
+Chamada_fixa_RevisaWiki_copia_propria.js
+743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+
+RevisaWiki_v2_6_1.js
+915994 bytes
+SHA-256: 30ca5623e14952d28ff9e423c8c040852e115092ab08d6c9513a9aaef14c6af4
+
+RevisaWiki_v2_6_1_completo.js
+2428895 bytes
+SHA-256: 14091c45a9dfa1923238779928555736678d0d6150a5a03e312ee23b7d9593a0
+
+RevisaWiki_v2_6_1_dados.js
+1523933 bytes
+SHA-256: 4f63f1c7853de3e30f7c15bea180871ba75b67a1dc4d0bc9d4ed023a7651b1ec
+
+Código, instruções e evidências: https://github.com/danrego/RevisaWiki
