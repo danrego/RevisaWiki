@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "registeredProjects": {
+    "source": "https://pt.wikipedia.org/w/index.php?oldid=73060837",
+    "revision": 73060837,
+    "sourceSha256": "721c11255259dbe6a0d433b00a11625c19a8e3511cbbb86d88617b1307cca429",
+    "registeredRows": 526,
+    "directRows": 450,
+    "aliasRows": 76,
+    "normalizedKeys": 518,
+    "catalogFile": "registered_projects.json",
+    "catalogSha256": "cd0c56e719cfda91fcc32ee5cedb1bbe70041b4a1da8c25662c35a28ea195271"
+  },
+  "genericProjectOrPortalFallback": {
+    "source": "https://pt.wikipedia.org/w/index.php?oldid=73060844",
+    "revision": 73060844,
+    "sourceSha256": "3b9319a1932d3064d438790ef9e8d6fd0e2e45b2095252d74f14a4745a11ad60",
+    "function": "_getBannerRow",
+    "order": [
+      "Wikipédia:Projetos/<title>",
+      "Portal:<title>"
+    ],
+    "rule": "An existing project or portal is accepted by the module even when no individual registry row exists."
+  },
+  "verifiedPortalAliases": {
+    "sourceCatalog": "Catalogo_portais_RevisaWiki_v2_6.json",
+    "sourceCatalogSha256": "e84949384db5218aed4f1f6b1f9aa4a49fad8dfa19444af3d4f63ae757b1f3d8",
+    "aliases": 100,
+    "catalogFile": "verified_portals.json",
+    "catalogSha256": "c910f527b1c064e638702b6e079997b972d6dc10aef0e112aac7971678aeed6e"
+  },
+  "runtimeReadProof": {
+    "fields": [
+      "input",
+      "requestedTitle",
+      "title",
+      "ns",
+      "pageid",
+      "exists"
+    ],
+    "namespaces": {
+      "Portal:": 100,
+      "Wikipédia:Projetos/": 4
+    },
+    "maximumUnknownInputs": 64,
+    "maximumParallelQueries": 3,
+    "maximumTitlesPerQuery": 50,
+    "deadlineMilliseconds": 6000,
+    "requiresCurrentDraft": true,
+    "wikipediaWrites": 0
+  }
+}

@@ -9,3 +9,11 @@ Article facts, scientific data and bibliographic authors are retained. Script at
 The eight earlier commits were rewritten with generic author and committer metadata. Their dates and order were preserved. The check covered every reachable file and the contents of archives. See [the history check](tests/evidence/2.6.0/privacy/HISTORY_PRIVACY_SUMMARY.json).
 
 If you work from a clone made before this cleanup, make a fresh clone before sending changes. An old clone can bring the removed history back. Rewriting the repository cannot erase other people's copies or guarantee that GitHub immediately removes old cached objects.
+
+## Before each upload
+
+Keep personal information out of project code, comments, documentation, research notes, filenames, test reports, copy-paste indexes and distribution archives. Do not add named editorial credits or identify whose edits were examined. Retain only the agreed technical account links needed for installation and access to the repository. Article facts, bibliographic authors and required third-party license notices remain source material.
+
+Run `python3 scripts/check_privacy.py` before publication. For uploads prepared outside the tracked checkout, run `scripts/publication_privacy_gate.py` with an explicit `--allowlist` covering every file to be uploaded. Check the final packaged bytes, including archive contents, and review new filenames and Git author/committer metadata. Use neutral project identity metadata. Keep authentication files, private evidence, screenshots and machine-local reports outside the publication set.
+
+Any finding must be resolved before uploading. A passing scan still requires a review of new prose and metadata, since pattern checks cannot recognize every personal identifier.

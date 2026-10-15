@@ -1,0 +1,149 @@
+RevisaWiki 2.6.1
+Relatório de testes, 15 de outubro de 2026
+
+RESULTADO DESTA DISTRIBUIÇÃO
+
+Todos os resultados abaixo foram executados nos arquivos finais desta versão.
+Os cinco programas têm seus tamanhos e SHA-256 fixados em
+tests/expected_release_v261.json. Resultados de candidatos anteriores não
+entram nas contagens desta distribuição.
+
+Casos específicos de referências, remissões e aspas: 100 casos, 540 verificações.
+Cabeçalhos de discussão e comprovação de destinos: 186 casos, 938 verificações.
+Consultas públicas simuladas e seus limites: 60 casos, 108 verificações.
+Catálogo completo de projetos: 1.150 casos, 6.434 verificações.
+Contratos anteriores do motor: 1.828 casos, 6.508 verificações.
+Artigos extensos de física e matemática: 128 casos, 1.672 verificações.
+
+Essa rodada somou 3.452 casos e 16.200 verificações, sem falhas. As contagens
+incluem os dois arquivos do programa e combinações de configurações. Elas
+não significam 3.452 artigos diferentes. A rodada de textos extensos usa
+16 artigos acima de 100 KB em oito combinações. As asserções anteriores
+permaneceram intactas. Apenas seu carregador recebeu o caminho da versão
+atual numa pasta temporária, apagada ao terminar.
+
+O catálogo tem 518 nomes e aliases normalizados do registro completo de
+marcas de projeto, além de 100 nomes de portais já conferidos. O teste
+passa por todas as entradas registradas. Nomes fora do catálogo usam
+consultas de leitura antes da conversão. Os testes simulam confirmações,
+ausências, redirecionamentos, desambiguações, falhas de conexão e respostas
+que não correspondem ao nome consultado. Exemplos e linhas rejeitadas
+não geram consultas. A ação admite até 64 nomes novos, em até três
+consultas paralelas, com 50 títulos por consulta e prazo de seis segundos.
+
+Outros cinco testes auxiliares passaram em 131 casos e 504 verificações.
+Eles são apresentados à parte porque repetem parte dos controles acima.
+Esses comandos também funcionam sem indicar um arquivo de protótipo.
+
+CASOS ENVIADOS PARA ESTA CORREÇÃO
+
+Zeid ibn Ra'ad, revisão 73075998: a lista Referência é reconhecida antes
+de procurar uma lista ausente. Ela passa a Referências sem deixar uma
+segunda lista e sem perder parâmetros, grupos ou fontes definidas nela.
+
+Envolvimento dos Estados Unidos em mudanças de regime, revisão 72563561:
+aspas e apóstrofos próximos a etiquetas HTML não escondem mais um
+fechamento já presente. As cinco chamadas AP/Main passam a Artigo
+principal, com seus argumentos preservados. Uma estrutura realmente
+incompleta continua protegida. O motivo fica recolhido em Por que alguns
+ajustes não entraram, sem o aviso genérico sobre o restante do artigo.
+
+As fontes fixadas têm ligação permanente, licença e hash em
+tests/v261/fixtures/source_revisions.json. Os testes também cobrem
+exemplos entre aspas, blocos protegidos, parâmetros numerados contendo =,
+conteúdo preservado e repetição sem produzir novas mudanças.
+
+NAVEGADORES
+
+Chrome 155.0.8059.40: 44 cenários, 958 verificações, nenhuma falha.
+Firefox 158.0: 44 cenários, 958 verificações, nenhuma falha.
+Safari 27.0.1: 44 cenários, 958 verificações, nenhuma falha.
+
+Foram 132 cenários e 2.874 verificações em navegadores reais no Mac.
+Os editores e as respostas de API são simulados em páginas locais.
+O teste usa o botão Ajustar código, o Worker, o diff e a opção de desfazer.
+Também confere os contratos dos adaptadores clássico, CodeMirror e
+código-fonte de 2017. Isso não reproduz todas as instalações possíveis
+do MediaWiki ou dos seus editores.
+
+Criar código insere o cabeçalho inteiro da discussão com um clique,
+mesmo quando há uma seleção parcial. As avaliações e o resumo manual
+permanecem. Há controles para mudança do rascunho durante a consulta,
+cliques repetidos, falha de leitura e inserção parcial pelo adaptador.
+
+O botão de introdução junto ao título foi retirado dos dois carregadores
+e dos dois programas. Os atalhos das seções continuam presentes e abrem
+a seção correta. A consulta de portais foi testada com nomes registrados,
+aliases, nomes confirmados pela API e destinos inexistentes.
+
+As cópias do programa servidas ao teste apenas aceitam o endereço local.
+As diferenças estão registradas em browsers/ADAPTATION.json. Os hashes
+originais são conferidos antes dessa adaptação. Nenhum teste abriu uma
+página de edição da Wikipédia, fez uma edição, tirou capturas de tela ou
+usou a área de transferência do sistema.
+
+DOCUMENTAÇÃO E ÍNDICE
+
+O manual conserva as versões anteriores em ordem da mais recente para
+a mais antiga. O exemplo de instalação contém o carregador comunitário
+atual inteiro. A conferência compara as cópias da documentação, os hashes
+dos cinco programas, os destinos de instalação e o conteúdo dos cartões.
+
+O índice tem cinco cartões e quinze botões de cópia. O teste confere
+conteúdo integral, resumo e destino, além da seleção completa do código
+quando a cópia automática falha. A área de transferência é simulada.
+O resultado final fica em tests/evidence/2.6.1/delivery.
+
+REPRODUZIR E CONFERIR
+
+python3 scripts/build_v261.py
+node tests/v261/run_all.cjs
+node tests/v261/run_engine.cjs --complex
+python3 scripts/audit_documentation_v261.py
+python3 scripts/check_privacy.py
+
+O guia tests/v261/browser/README.md explica os requisitos dos testes de
+navegador. O teste do índice usa Playwright e Chrome instalado:
+node tests/v261/test_index.cjs
+
+Os relatórios desta execução ficam em tests/evidence/2.6.1. Os relatórios
+de versões anteriores permanecem nos seus próprios diretórios. A rodada
+anterior de 2.000 revisões não foi novamente executada nesta correção e
+não é apresentada como aprovação dos arquivos novos.
+
+PRIVACIDADE E LIMITES
+
+Os arquivos novos passaram pela conferência de privacidade, incluindo
+documentação, comentários, nomes de arquivos, evidências e conteúdo dos
+pacotes. Somente os destinos técnicos combinados para instalação e acesso
+ao repositório permanecem. As fontes dos artigos, os autores bibliográficos
+e os avisos obrigatórios de licença das bibliotecas foram conservados.
+
+Os testes não substituem a revisão do rascunho e da pré-visualização.
+Consultas públicas de leitura usadas para conferir os modelos não salvam
+edições. As consultas dos testes de interface são simuladas. Não houve
+edição na Wikipédia durante a preparação desta distribuição.
+
+ARQUIVOS EXECUTADOS
+
+Carregador_common_js_RevisaWiki_v2_6_1.js
+9213 bytes
+SHA-256: 8d7aec18d0a00d0334c19a2e62474874717ed5f83c07dbe83ba31722a441fa0e
+
+Carregador_comunitario_RevisaWiki_v2_6_1.js
+9215 bytes
+SHA-256: 0ff666b1f1e71ba833e295ee39ac8d3f4c4c94fec033deaacb3db92d75551246
+
+RevisaWiki_v2_6_1.js
+915944 bytes
+SHA-256: 57cbf79acde25b45ba28d2bc972ad9180d5a747eaa5f2c8e475f03292d362ba6
+
+RevisaWiki_v2_6_1_completo.js
+2428894 bytes
+SHA-256: ad3fea8d430692f0092ac0503038e8c3fe7483902fc8a9192f30fc04459cad51
+
+RevisaWiki_v2_6_1_dados.js
+1523933 bytes
+SHA-256: 4f63f1c7853de3e30f7c15bea180871ba75b67a1dc4d0bc9d4ed023a7651b1ec
+
+Código, documentação e evidências: https://github.com/danrego/RevisaWiki

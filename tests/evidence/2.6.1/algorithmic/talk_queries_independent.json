@@ -1,0 +1,385 @@
+{
+  "version": "2.6.1",
+  "kind": "independent-discussion-read-proof-queries",
+  "runnerSha256": "b5928490eac7d6f80e122e7c81c8b705a5e3c9894fdb5f017eed0074de4891b9",
+  "cases": [
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "one complete API page creates one bound proof",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "normalized title plus redirect preserves the original request",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects missing",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects own false missing",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects invalid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects remaining redirect",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects empty disambiguation",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects wrong namespace",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects zero pageid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "response rejects string pageid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "unrelated pages never confirm an input",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "cross-namespace route cannot confirm a portal",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "redirect cycle cannot confirm a portal",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "conflicting redirect routes cannot choose a target",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup indented unknown header",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup nowiki unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup comment unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup conversation unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup nested template example",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup invalid later Portal3 field",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup invalid later plain label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected source does not trigger lookup duplicate PD headers",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "invalid article portal has no lookup <nowiki>{{Portal3|Tema remoto ",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "invalid article portal has no lookup {{Exemplo|{{Portal3|Tema remot",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "invalid article portal has no lookup {{Portal3|Tema remoto de teste",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "known registry topics do not need an API request",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "uncatalogued literal uses one read-only query",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "rejected mock read does not invent a project",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "query count and title count stay bounded",
+      "status": "passed",
+      "checks": 4
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1.js",
+      "name": "timeout aborts a pending read without granting proof",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "one complete API page creates one bound proof",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "normalized title plus redirect preserves the original request",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects missing",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects own false missing",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects invalid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects remaining redirect",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects empty disambiguation",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects wrong namespace",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects zero pageid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "response rejects string pageid",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "unrelated pages never confirm an input",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "cross-namespace route cannot confirm a portal",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "redirect cycle cannot confirm a portal",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "conflicting redirect routes cannot choose a target",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup indented unknown header",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup nowiki unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup comment unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup conversation unknown label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup nested template example",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup invalid later Portal3 field",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup invalid later plain label",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected source does not trigger lookup duplicate PD headers",
+      "status": "passed",
+      "checks": 3
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "invalid article portal has no lookup <nowiki>{{Portal3|Tema remoto ",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "invalid article portal has no lookup {{Exemplo|{{Portal3|Tema remot",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "invalid article portal has no lookup {{Portal3|Tema remoto de teste",
+      "status": "passed",
+      "checks": 1
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "known registry topics do not need an API request",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "uncatalogued literal uses one read-only query",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "rejected mock read does not invent a project",
+      "status": "passed",
+      "checks": 2
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "query count and title count stay bounded",
+      "status": "passed",
+      "checks": 4
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_1_completo.js",
+      "name": "timeout aborts a pending read without granting proof",
+      "status": "passed",
+      "checks": 3
+    }
+  ],
+  "checks": 108,
+  "bundles": [
+    {
+      "file": "RevisaWiki_v2_6_1.js",
+      "sha256": "57cbf79acde25b45ba28d2bc972ad9180d5a747eaa5f2c8e475f03292d362ba6",
+      "bytes": 915944
+    },
+    {
+      "file": "RevisaWiki_v2_6_1_completo.js",
+      "sha256": "ad3fea8d430692f0092ac0503038e8c3fe7483902fc8a9192f30fc04459cad51",
+      "bytes": 2428894
+    }
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "passed": 60,
+  "failed": 0,
+  "status": "passed"
+}

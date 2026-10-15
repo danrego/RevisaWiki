@@ -1,0 +1,59 @@
+RevisaWiki 2.6.1: instalação
+
+Abra INICIO.html para copiar os arquivos completos. Cada bloco informa o destino e traz o resumo da edição. O código e as versões anteriores ficam em https://github.com/danrego/RevisaWiki.
+
+ATUALIZAR A DISTRIBUIÇÃO
+
+1. Copie RevisaWiki_v2_6_1_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_6_1.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Substitua somente o bloco antigo do RevisaWiki no common.js pelo conteúdo completo de Carregador_common_js_RevisaWiki_v2_6_1.js. Preserve seus outros scripts.
+4. Copie Documentacao_RevisaWiki_v2_6_1.wiki para Usuário:Daniel G Rego/RevisaWiki.
+5. Confira se dados, núcleo e carregador indicam 2.6.1. Mantenha uma única chamada da ferramenta e recarregue a página sem usar o cache.
+6. Abra Editar código-fonte. O painel ou Configurações > Sobre e diagnóstico deve mostrar 2.6.1. Use Ajustar código e Ver o que mudou para conferir o resultado.
+
+Não basta trocar expectedVersion no carregador antigo. Os três arquivos precisam pertencer à mesma versão. O índice ajuda a atualizar cada página separadamente e não publica nada por conta própria.
+
+PARA OUTROS EDITORES
+
+Depois que os dados e o núcleo da distribuição estiverem na versão 2.6.1, acrescente Carregador_comunitario_RevisaWiki_v2_6_1.js ao seu common.js. Se já usa a ferramenta, substitua somente o bloco inteiro do RevisaWiki. Não acrescente uma segunda chamada.
+
+O carregador comunitário usa as páginas de distribuição. O carregador para cópia própria usa RevisaWiki.js e RevisaWiki/Dados.js da conta conectada. Escolha apenas um deles.
+
+PARA UMA CÓPIA PRÓPRIA
+
+Salve o núcleo e os dados em duas páginas JavaScript da sua conta. Use Carregador_common_js_RevisaWiki_v2_6_1.js. Se escolher outros nomes para as páginas, ajuste os dois destinos. As versões dos dados, do núcleo e do carregador precisam combinar.
+
+RevisaWiki_v2_6_1_completo.js reúne as partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Não cole esse arquivo inteiro numa única página da Wikipédia.
+
+CONFERIR A INSTALAÇÃO
+
+No editor clássico e no CodeMirror reconhecido, o botão verde azulado Ajustar código aparece antes de Publicar. No editor de código-fonte de 2017, use o botão azul do painel superior. A comparação e Desfazer ajustes ficam no painel.
+
+Se o painel não aparecer, confira os endereços, a cópia completa dos arquivos e a presença de uma única chamada do carregador. Cole apenas o código, sem cercas de Markdown ou marcas de sintaxe.
+
+No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R. Sobre e diagnóstico informa as versões recebidas.
+
+O QUE MUDA NA 2.6.1
+
+- O atalho de edição rápida junto ao título da página foi retirado. Os links Editar aqui continuam nos controles das seções.
+- Referência e Referencia passam a ser reconhecidos como listas existentes antes da procura por uma lista ausente. O nome pode virar Referências sem perder os parâmetros ou as fontes definidas na lista.
+- AP, Ap e Main podem virar Artigo principal. A mudança conserva todos os argumentos, os rótulos e a numeração explícita.
+- Criar código monta e insere o cabeçalho da discussão em um clique, com PD primeiro e Marca de projeto depois. Usa o registro completo de marcas e aproveita os portais colados na mesma linha. Nomes fora do catálogo recebem uma consulta pública antes da conversão. A ação não salva a página.
+- A leitura de aspas junto a etiquetas HTML reconhecidas foi corrigida para não interromper a análise de um trecho que já está fechado.
+- Quando ainda existe uma estrutura ambígua, a explicação fica recolhida em Por que alguns ajustes não entraram. Os problemas confirmados continuam no relatório.
+
+O manual conserva o histórico das versões em ordem da mais recente para a mais antiga.
+
+TESTES
+
+A distribuição final passou em 3.452 casos do motor, das discussões e do catálogo de projetos, com 16.200 verificações. Chrome, Firefox e Safari no Mac passaram em 132 cenários de interface, com 2.874 verificações. As contagens incluem os dois formatos do programa e casos repetidos para conferir a preservação do texto. Não são contagens de artigos diferentes. O relatório informa os arquivos executados e o alcance de cada rodada. Não houve edição na Wikipédia.
+
+As verificações usam revisões fixadas e casos de preservação. O relatório separa os arquivos executados, os resultados e os limites da rodada. Nenhum teste publica na Wikipédia.
+
+CONSULTAS E PUBLICAÇÃO
+
+Os cálculos de ajuste e ortografia ficam no navegador. A pré-visualização envia o rascunho para processamento pela Wikipédia, sem salvar uma edição. Os recursos de destinos, portais e DOI podem fazer as consultas públicas descritas no manual.
+
+Ajustar código trabalha no rascunho. Na edição rápida, somente Publicar alterações inicia um envio por clique deliberado. Confira a comparação e a pré-visualização antes de publicar.
+
+Leia o texto preparado por Copiar diagnóstico antes de compartilhá-lo. Não envie informações pessoais, dados de acesso nem capturas do computador inteiro.

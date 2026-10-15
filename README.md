@@ -2,40 +2,39 @@
 
 O botão **Ajustar código** revisa o wikitexto da Wikipédia em português e deixa as mudanças no rascunho, com comparação e opção de desfazer. Na página de leitura, **Editar aqui** abre uma seção para trabalhar no mesmo painel. Somente o clique em **Publicar alterações**, dentro desse editor rápido, inicia o envio.
 
-## Versão 2.6.0
+## Versão 2.6.1
 
-- Abre uma seção na página de leitura, com resumo, prévia visual e os ajustes atuais.
-- Mantém a revisão de origem e o rascunho diante de conflitos, falhas de conexão ou saída para o editor completo.
-- Reconhece parâmetros aceitos nas referências e corrige os falsos avisos de Harvtxt encontrados em Matriz definida.
-- Retira avisos sobre listas curtas e escolhas válidas de colunas, com prazo limitado para a conferência online.
-- Acrescenta onze formas confirmadas de ligações e quatro correções exatas de grafia, após examinar revisões públicas.
+- Reconhece `Referência` e `Referencia` como listas existentes e usa `Referências` sem acrescentar uma lista duplicada.
+- Troca os redirecionamentos locais `AP`, `Ap` e `Main` por `Artigo principal`, mantendo todos os argumentos.
+- Corrige uma leitura de aspas que escondia etiquetas HTML já fechadas e impedia os ajustes no restante do artigo.
+- Recolhe a explicação de trechos preservados em um bloco fechado, sem o aviso genérico sobre código incompleto. Estruturas realmente ambíguas continuam protegidas.
+- Na discussão de um artigo, **Criar código** prepara e insere `PD` e `Marca de projeto` no rascunho com um clique. Converte os portais confirmados para marcas de projeto, aceita vários rótulos na mesma linha e mantém avaliações e comentários existentes.
 
-- Atalhos opcionais que dependiam de páginas pessoais deixaram de ser expandidos.
+- Retira o botão de introdução junto ao título da página e mantém os atalhos de edição das seções.
 
 Os casos ambíguos, as fórmulas, os exemplos e os trechos incompletos têm proteções próprias. O manual explica os limites de cada regra.
 
-[Arquivos completos da 2.6.0](dist/2.6.0/) · [Instalação](docs/2.6.0/Instalacao_RevisaWiki_v2_6.txt) · [Manual para a Wikipédia](docs/2.6.0/Documentacao_RevisaWiki_v2_6.wiki) · [Histórico resumido](docs/2.6.0/Notas_da_versao_RevisaWiki_v2_6.txt) · [Relatório de testes](docs/2.6.0/Relatorio_testes_RevisaWiki_v2_6.txt)
+[Arquivos completos da 2.6.1](dist/2.6.1/) · [Instalação](docs/2.6.1/Instalacao_RevisaWiki_v2_6_1.txt) · [Manual para a Wikipédia](docs/2.6.1/Documentacao_RevisaWiki_v2_6_1.wiki) · [Histórico resumido](docs/2.6.1/Notas_da_versao_RevisaWiki_v2_6_1.txt) · [Relatório de testes](docs/2.6.1/Relatorio_testes_RevisaWiki_v2_6_1.txt)
 
 Baixe os arquivos da distribuição e abra **INICIO.html** para copiar o conteúdo completo, o destino e o resumo da edição. Há links diretos para abrir cada página no editor. O índice não salva nem publica alterações.
 
-Para instalar na ptwiki, use o núcleo e os dados separados. O arquivo que reúne tudo ultrapassa o limite de uma única página. Nesta atualização, substitua o bloco completo do carregador do RevisaWiki. Mudar apenas o número da versão não acrescenta os controles na página de leitura. Preserve os outros scripts do seu common.js.
+Para instalar na ptwiki, use o núcleo e os dados separados. O arquivo que reúne tudo ultrapassa o limite de uma única página. Atualize os dados, o núcleo e o bloco completo do carregador, preservando os outros scripts do seu common.js.
 
 ## Testar e reconstruir
 
 É preciso Node.js 18 ou posterior e Python 3.
 
 ```sh
-python3 scripts/build.py
+python3 scripts/build_v261.py
 npm test
-npm run test:engine
 npm run test:complex
-npm run test:regression
+npm run test:documentation
 npm run test:privacy
 ```
 
-`npm test` confere os arquivos distribuídos e executa os contratos locais. `npm run test:engine` confere as correções de referências e sintaxe, as opções desativadas e os limites do cache. `npm run test:privacy` testa o verificador e confere todos os arquivos acompanhados pelo Git. Os comandos de testes complexos e de regressão ampliam essa conferência. As revisões usadas nos testes ficam nos manifestos, com seus links permanentes e hashes. Nenhum teste publica na Wikipédia.
+`npm test` confere os arquivos distribuídos e executa os casos da correção e os contratos anteriores do motor. `npm run test:complex` acrescenta os artigos maiores. `npm run test:privacy` testa o verificador e confere todos os arquivos acompanhados pelo Git. As revisões usadas nos testes ficam nos manifestos, com seus links permanentes e hashes. Nenhum teste publica na Wikipédia.
 
-A reconstrução parte da distribuição 2.5.0 preservada no repositório e confere o hash de origem e os catálogos empacotados. As quatro grafias novas ficam num complemento separado. O [guia de testes](tests/README.md) explica como obter as revisões para a rodada completa. A publicação nos testes da interface usa respostas simuladas em páginas locais, sem edições na Wikipédia.
+A reconstrução da correção parte dos cinco arquivos verificados da distribuição 2.6.0, sem alterar essa versão. Os catálogos empacotados de manutenção permanecem os mesmos. O catálogo de marcas de projeto e os nomes de portais verificados ficam em `src/v2_6_1/all_portals`, com a revisão usada na conferência. As verificações da correção ficam em `tests/v261`. O [guia de testes](tests/README.md) explica as rodadas anteriores. A publicação nos testes da interface usa respostas simuladas em páginas locais, sem edições na Wikipédia.
 
 ## Privacidade e licença
 
