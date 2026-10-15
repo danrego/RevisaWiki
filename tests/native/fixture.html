@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-br">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RevisaWiki 2.2.1 · teste local</title>
+<style>
+body{margin:0;padding:24px;font:15px/1.6 system-ui;background:#f8f9fa;color:#202122}
+main{max-width:1100px;margin:auto}h1{font-size:22px}
+.mw-ui-button{font:inherit;border:1px solid #a2a9b1;background:#fff;color:#202122;padding:6px 10px;cursor:pointer}
+.mw-ui-button:disabled{opacity:.5}.mw-ui-progressive{background:#36c;color:white}
+textarea{box-sizing:border-box;width:100%;font:13px/1.6 monospace;min-height:160px;background:#fff;color:#202122;border:1px solid #a2a9b1}
+input{font:inherit;width:100%;box-sizing:border-box;margin-top:8px}summary{cursor:pointer}
+#qa-errors{white-space:pre-wrap;color:#b32424}
+</style>
+<main id="mw-content-text">
+<h1>RevisaWiki 2.2.1, teste local</h1>
+<p>Esta página simula o editor e a API. Nenhuma edição é publicada.</p>
+<form id="editform">
+<div id="wikiEditor-ui-toolbar">Editor de código-fonte</div>
+<textarea id="wpTextbox1" aria-label="Código-fonte"></textarea>
+<input id="wpSummary" aria-label="Resumo da edição" value="">
+<input id="wpBaseRevId" type="hidden" value="123">
+<label><input id="wpMinoredit" type="checkbox" style="width:auto"> Esta é uma edição menor</label>
+<div class="editButtons"><span id="wpSaveWidget" class="oo-ui-buttonElement"><button id="wpSave" type="submit" tabindex="5">Publicar alterações</button></span> <span id="wpPreviewWidget" class="oo-ui-buttonElement"><button id="wpPreview" type="submit" tabindex="6">Mostrar previsão</button></span> <span id="wpDiffWidget" class="oo-ui-buttonElement"><button id="wpDiff" type="submit" tabindex="7">Mostrar alterações</button></span></div>
+</form>
+<details><summary>Resultado técnico do teste</summary>
+<p>Consultas: <span id="qa-requests">0</span>. Publicações: <span id="qa-submits">0</span>.</p>
+<pre id="qa-errors"></pre><p id="qa-notice"></p>
+<textarea id="qa-clipboard" aria-label="Diagnóstico copiado"></textarea>
+</details>
+</main>
+<script src="jquery.js"></script>
+<script src="textSelection.js"></script>
+<script src="fixture.js"></script>
+<script src="note_fixture_data.js"></script>
+<script src="fixture_extra.js"></script>
+<script src="fixture_script.js"></script>
+</html>

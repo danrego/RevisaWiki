@@ -1,0 +1,144 @@
+RevisaWiki 2.2.1: instalação
+
+Este pacote está pronto para instalação manual. Nenhuma página da Wikipédia foi alterada para prepará-lo.
+
+Ao terminar, o painel deve mostrar 2.2.1. No editor clássico ou CodeMirror, o botão verde azulado aparecerá antes de Publicar. No editor de código-fonte de 2017, o botão permanece no painel superior.
+
+SE VOCÊ MANTÉM OS ARQUIVOS DE DISTRIBUIÇÃO
+
+1. Copie todo o conteúdo de RevisaWiki_v2_2_1_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js.
+2. Copie todo o conteúdo de RevisaWiki_v2_2_1.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Depois de atualizar as duas partes, abra o seu common.js. Se ele já tem o carregador, troque apenas expectedVersion para '2.2.1'. Mantenha o código que inicia o carregamento ao abrir o editor, seus demais scripts e os recursos da página de usuário.
+4. Se precisar instalar o carregador completo, use Carregador_common_js_RevisaWiki_v2_2_1.js. Substitua apenas o carregador antigo de RevisaWiki ou Ajuste geral. Não substitua todo o common.js.
+5. Mantenha uma única chamada do RevisaWiki. Salve e recarregue a página. No Firefox e no Chrome para Mac, use Command + Shift + R. No Safari, use Option + Command + R.
+6. Abra Editar código-fonte. Confira 2.2.1 no painel ou em Configurações → Sobre e diagnóstico. Clique em Ajustar código e depois em Ver o que mudou. O script não salva a página.
+
+PARA OUTROS EDITORES
+
+O carregador comunitário usa os arquivos da distribuição. Instale Carregador_comunitario_RevisaWiki_v2_2_1.js no seu common.js somente depois que as duas páginas de distribuição estiverem na versão 2.2.1.
+
+Não é preciso copiar o programa inteiro para sua conta. Se já tem o carregador, atualize a versão esperada para 2.2.1, conservando o início do carregamento ao abrir o editor. Preserve as chamadas de outros scripts.
+
+PARA UMA CÓPIA PRÓPRIA
+
+Use duas páginas JavaScript da sua conta, uma para o núcleo e outra para os dados. Carregador_common_js_RevisaWiki_v2_2_1.js usa o nome da conta conectado para formar esses endereços. Se escolher nomes diferentes, ajuste os dois destinos no carregador. O programa e os dados precisam pertencer à mesma versão.
+
+RevisaWiki_v2_2_1_completo.js reúne as duas partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Não cole esse arquivo inteiro numa única página da Wikipédia. Use o núcleo e os dados separados.
+
+SE O PAINEL NÃO APARECER
+
+Confira se abriu Editar código-fonte, se os dois endereços estão corretos e se o carregador foi copiado inteiro, sem cercas de código. O carregamento começa ao abrir o editor. Não é necessário baixar o programa em toda visita a uma página.
+
+Se o carregador informar versões diferentes, confira o núcleo, os dados e expectedVersion. Depois, recarregue a página. Em Configurações → Sobre e diagnóstico, você pode consultar a versão recebida. Se houver dois carregadores, retire apenas a chamada anterior do RevisaWiki.
+
+CONSULTAS E PUBLICAÇÃO
+
+A nova regra de títulos faz uma consulta pública aos destinos de até cinquenta ligações por execução. Não acrescenta Artigo principal quando a página está ausente ou é uma desambiguação. A confirmação é vinculada ao rascunho aberto.
+
+A pré-visualização automática envia o rascunho para processamento pela Wikipédia, sem publicar uma edição. A consulta de DOI pode conferir a pontuação final de até três identificadores suspeitos na Crossref. Essas consultas não salvam páginas nem alteram publicações citadas.
+
+O programa também pode fazer uma consulta pública e anônima ao Wikidata para confirmar a adição de Mulheres. Essa consulta tem limite de seis segundos e pode reutilizar o resultado do mesmo item na aba. A confirmação continua vinculada à pessoa e ao rascunho aberto. Ela não usa sua conta para alterar dados nem publica uma edição.
+
+Aplique os ajustes, leia a comparação e use a pré-visualização normal da Wikipédia antes de salvar. Para compartilhar um problema, abra Sobre e diagnóstico e use Copiar diagnóstico.
+
+ESCOLHA UM CARREGADOR
+
+Os dois blocos abaixo fazem o mesmo carregamento ao abrir o editor, mas usam endereços diferentes. Escolha um deles. Não instale os dois. Mantenha os demais scripts do seu common.js.
+
+CARREGADOR PARA SUA CÓPIA PRÓPRIA
+
+Este bloco usa as páginas RevisaWiki.js e RevisaWiki/Dados.js da conta conectada. Na distribuição compartilhada, ele usa as páginas indicadas nos passos de atualização.
+
+// Carregador de RevisaWiki 2.2.1 para o common.js, ao abrir o editor.
+(function () {
+    'use strict';
+    const expectedVersion = '2.2.1';
+    if (window.RevisaWikiLoaderRegistered) {
+        mw.notify('Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.', {type:'warn',autoHide:false});
+        return;
+    }
+    window.RevisaWikiLoaderRegistered = {version:expectedVersion};
+    let started = false;
+    function loadRevisaWiki() {
+        if (started) return;
+        started = true;
+        const previous = window.RevisaWikiLoadInfo || window.AjusteGeralPTLoadInfo;
+        if (previous) {
+            previous.requests = (previous.requests || 1) + 1;
+            mw.notify('Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.', {type:'warn',autoHide:false});
+            return;
+        }
+        window.RevisaWikiLoadInfo = {expectedVersion,requests:1,state:'loading'};
+        window.AjusteGeralPTLoadInfo = window.RevisaWikiLoadInfo;
+        const user = mw.config.get('wgUserName');
+        if (!user) { window.RevisaWikiLoadInfo.state = 'logged-out'; return; }
+        window.RevisaWikiConfig = Object.assign({dataPage:'User:' + user + '/RevisaWiki/Dados.js'},window.RevisaWikiConfig || {});
+        mw.loader.getScript('/w/index.php?title=' + encodeURIComponent('User:' + user + '/RevisaWiki.js') +
+            '&action=raw&ctype=text/javascript&v=' + expectedVersion).then(async function () {
+            if (window.RevisaWikiModulePromise) await window.RevisaWikiModulePromise;
+            const script = window.RevisaWiki;
+            window.RevisaWikiLoadInfo.state = script ? 'loaded' : window.RevisaWikiModuleError ? 'data-error' : window.RevisaWikiModuleReady ? 'waiting-editor' : 'missing-api';
+            if (!script && !window.RevisaWikiModuleReady) mw.notify('O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.', {type:'error',autoHide:false});
+            else if (script && script.version !== expectedVersion) mw.notify('RevisaWiki carregou a versão ' + script.version +
+                ', mas o carregador pede ' + expectedVersion + '. Atualize os arquivos do script e recarregue a página.', {type:'warn',autoHide:false});
+        }).catch(function () {
+            window.RevisaWikiLoadInfo.state = 'error';
+            mw.notify('Não foi possível carregar RevisaWiki.js. Confira se o arquivo inteiro está salvo na sua página pessoal e recarregue a página.', {type:'error',autoHide:false});
+        });
+    }
+    if (['edit','submit'].includes(mw.config.get('wgAction')) || document.getElementById('wpTextbox1')) loadRevisaWiki();
+    mw.hook('ve.activationComplete').add(loadRevisaWiki);
+    mw.hook('ve.wikitextInteractive').add(loadRevisaWiki);
+    mw.hook('wikipage.content').add(function () {
+        if (document.getElementById('wpTextbox1')) loadRevisaWiki();
+    });
+}());
+
+CARREGADOR COMUNITÁRIO
+
+Este bloco usa as páginas de distribuição. Instale-o depois que essas páginas estiverem na versão 2.2.1.
+
+// Carregador de RevisaWiki 2.2.1 para o common.js, ao abrir o editor.
+(function () {
+    'use strict';
+    const expectedVersion = '2.2.1';
+    if (window.RevisaWikiLoaderRegistered) {
+        mw.notify('Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.', {type:'warn',autoHide:false});
+        return;
+    }
+    window.RevisaWikiLoaderRegistered = {version:expectedVersion};
+    let started = false;
+    function loadRevisaWiki() {
+        if (started) return;
+        started = true;
+        const previous = window.RevisaWikiLoadInfo || window.AjusteGeralPTLoadInfo;
+        if (previous) {
+            previous.requests = (previous.requests || 1) + 1;
+            mw.notify('Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.', {type:'warn',autoHide:false});
+            return;
+        }
+        window.RevisaWikiLoadInfo = {expectedVersion,requests:1,state:'loading'};
+        window.AjusteGeralPTLoadInfo = window.RevisaWikiLoadInfo;
+        const user = mw.config.get('wgUserName');
+        if (!user) { window.RevisaWikiLoadInfo.state = 'logged-out'; return; }
+        window.RevisaWikiConfig = Object.assign({dataPage:'User:Daniel G Rego/RevisaWiki/Dados.js'},window.RevisaWikiConfig || {});
+        mw.loader.getScript('/w/index.php?title=' + encodeURIComponent('User:Daniel G Rego/RevisaWiki.js') +
+            '&action=raw&ctype=text/javascript&v=' + expectedVersion).then(async function () {
+            if (window.RevisaWikiModulePromise) await window.RevisaWikiModulePromise;
+            const script = window.RevisaWiki;
+            window.RevisaWikiLoadInfo.state = script ? 'loaded' : window.RevisaWikiModuleError ? 'data-error' : window.RevisaWikiModuleReady ? 'waiting-editor' : 'missing-api';
+            if (!script && !window.RevisaWikiModuleReady) mw.notify('O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.', {type:'error',autoHide:false});
+            else if (script && script.version !== expectedVersion) mw.notify('RevisaWiki carregou a versão ' + script.version +
+                ', mas o carregador pede ' + expectedVersion + '. Atualize os arquivos do script e recarregue a página.', {type:'warn',autoHide:false});
+        }).catch(function () {
+            window.RevisaWikiLoadInfo.state = 'error';
+            mw.notify('Não foi possível carregar RevisaWiki.js. Confira se o arquivo inteiro está salvo na sua página pessoal e recarregue a página.', {type:'error',autoHide:false});
+        });
+    }
+    if (['edit','submit'].includes(mw.config.get('wgAction')) || document.getElementById('wpTextbox1')) loadRevisaWiki();
+    mw.hook('ve.activationComplete').add(loadRevisaWiki);
+    mw.hook('ve.wikitextInteractive').add(loadRevisaWiki);
+    mw.hook('wikipage.content').add(function () {
+        if (document.getElementById('wpTextbox1')) loadRevisaWiki();
+    });
+}());

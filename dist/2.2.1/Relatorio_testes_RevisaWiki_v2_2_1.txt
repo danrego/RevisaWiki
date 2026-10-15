@@ -1,0 +1,27 @@
+RevisaWiki 2.2.1: conferência da atualização de interface
+
+O botão Ajustar código foi acrescentado antes de Publicar no editor clássico e no CodeMirror. O botão do painel permanece azul. O segundo é verde azulado e usa a mesma função, com o mesmo resumo, comparação e desfazer. No editor de código-fonte de 2017, continua disponível o botão do painel.
+
+As regras e os catálogos são iguais aos da 2.2.0. A comparação do código verifica todas as funções de ajuste e o conteúdo dos catálogos. Só o número de versão e o trecho da interface mudam. Os cinco arquivos executáveis tiveram sua sintaxe e seus hashes conferidos.
+
+NAVEGADORES REAIS NO MAC, COM EDITOR E API SIMULADOS
+
+Chrome 155.0.8059.40: 119 fluxos aprovados, nenhuma falha.
+Firefox 158.0: 119 fluxos aprovados, nenhuma falha.
+Safari 27.0.1: 119 fluxos aprovados, nenhuma falha.
+
+Em cada navegador, 25 fluxos verificam o novo botão e dois usam Enter e espaço com eventos reais de teclado. Foram conferidos a ordem dos controles, widgets OOUI e controles simples, criação de página, CodeMirror, ausência no editor de 2017 e em modelos incompatíveis, ativação tardia, reconstrução do botão nativo, cancelamento e reativação dos dois atalhos. Enter, espaço e clique ajustam o rascunho sem enviar o formulário.
+
+Os outros fluxos repetem ajustes, resumo, comparação, desfazer, falhas simuladas de pré-visualização, três artigos grandes e os carregadores. As respostas da API são simuladas, e os testes recusam ações de escrita. Nenhuma edição foi feita na Wikipédia ou na conta do usuário.
+
+REGRAS REPETIDAS
+
+61 casos de tabelas anuais, com 263 verificações, e 91 casos da 2.2.0, com 299 verificações. Nenhuma falha.
+
+O conjunto anterior de 1.000 artigos, com 538 biografias confirmadas independentemente, pertence à validação da 2.2.0. Esse corpus não foi repetido para esta mudança de interface. A conservação das regras e dos catálogos foi verificada diretamente no código.
+
+CONTRASTE E CÓPIA
+
+O rótulo branco sobre o verde azulado tem contraste de 5,42:1. O botão aceita foco de teclado e preserva a ordem dos controles nativos. O código final mantém a restrição de pt.wikipedia.org. Somente a cópia de teste aceita o endereço local.
+
+O índice passou em 69 conferências de cópia nos três navegadores, sem executar o programa nem fazer chamadas de rede.

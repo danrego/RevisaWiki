@@ -1,0 +1,113 @@
+--- RevisaWiki_v2_2_completo.js
++++ RevisaWiki_v2_2_1_completo.js
+@@ -1,8 +1,11 @@
+ /*
+- * RevisaWiki para a ptwiki, versão 2.2.0, 14 de outubro de 2026.
++ * RevisaWiki para a ptwiki, versão 2.2.1, 14 de outubro de 2026.
+  * Licença: CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+  *
+- * O botão Ajustar código corrige sintaxe, campos de citações e infocaixas,
++ * Ajustar código aparece no painel e, no editor clássico ou CodeMirror,
++ * também antes de Publicar. O atalho inferior tem cor verde azulada,
++ * usa a mesma análise e fica desativado enquanto ela estiver em andamento.
++ * Os botões corrigem sintaxe, campos de citações e infocaixas,
+  * ligações e erros ortográficos previstos nas regras. Organiza notas,
+  * referências e seções finais, conserva as grafias válidas e deixa as
+  * alterações no editor para conferência. O script nunca salva a página.
+@@ -35,7 +38,7 @@
+  */
+ (function RevisaWikiBoot(root) {
+     'use strict';
+-    const VERSION = '2.2.0';
++    const VERSION = '2.2.1';
+     const DEFAULTS = {
+         autoPreview: true, registryDoiCheck: true, biographyStyleChecks: true, automaticTableRepairs: true, tableAccessibility: true,
+         citations: true, dates: true, links: true, references: true, auxiliaryTemplates: true,
+@@ -6107,7 +6110,7 @@
+     if (!supportedPageContext(Number(root.mw.config.get('wgNamespaceNumber')),root.mw.config.get('wgPageContentModel'))) return;
+ 
+     const mw = root.mw;
+-    let $ = null, last = null, panel = null, panelEditor = null;
++    let $ = null, last = null, panel = null, panelEditor = null, publishAdjustment = null;
+     api.uiStatus = 'loading';
+     function sourceTarget() {
+         const target = root.ve && root.ve.init && root.ve.init.target;
+@@ -7116,8 +7119,9 @@
+     let localBusy = false, localTask = null, workerState = null, workerUnavailable = false, localSerial = 0;
+     api.processing = {active: false, engine: null, milliseconds: null, workerFailure: null};
+     function updateBusyControls() {
++        const any = localBusy || onlineBusy;
++        if (publishAdjustment) publishAdjustment.disabled = any;
+         if (!panel) return;
+-        const any = localBusy || onlineBusy;
+         updateAppliedResult();
+         panel.classList.toggle('ajg-local-busy', localBusy);
+         panel.setAttribute('aria-busy', String(any));
+@@ -7663,12 +7667,42 @@
+         const style = node('style', '#revisawiki-ptwiki{box-sizing:border-box;border:1px solid var(--border-color-subtle,#c8ccd1);border-radius:6px;padding:12px 14px;margin:10px 0;background:var(--background-color-base,#fff);color:var(--color-base,#202122);font:14px/1.45 sans-serif;overflow-wrap:anywhere}\n#revisawiki-ptwiki *{box-sizing:border-box}\n#revisawiki-ptwiki [hidden]{display:none!important}\n#revisawiki-ptwiki .ajg-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:4px}\n#revisawiki-ptwiki .ajg-heading strong{font-size:16px}\n#revisawiki-ptwiki .ajg-version{font-size:12px;color:var(--color-subtle,#54595d)}\n#revisawiki-ptwiki .ajg-intro{margin:0 0 10px;color:var(--color-subtle,#54595d);font-size:13px;line-height:1.5}\n#revisawiki-ptwiki .ajg-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px}\n#revisawiki-ptwiki button{min-height:32px;max-width:100%;white-space:normal;border-radius:3px;font-size:13px}\n#revisawiki-ptwiki .ajg-status{margin-top:10px;padding:6px 8px;background:var(--background-color-neutral-subtle,#f8f9fa);border-inline-start:3px solid var(--border-color-subtle,#c8ccd1);font-size:13px}\n#revisawiki-ptwiki[aria-busy=true] .ajg-status{border-inline-start-color:var(--color-progressive,#36c)}\n#revisawiki-ptwiki .ajg-online{margin:10px 0 0;border-top:1px solid var(--border-color-subtle,#c8ccd1);padding-top:7px}\n#revisawiki-ptwiki summary{cursor:pointer;padding:3px 0;font-weight:600}\n#revisawiki-ptwiki summary:focus-visible,#revisawiki-ptwiki button:focus-visible,#revisawiki-ptwiki select:focus-visible{outline:2px solid var(--color-progressive,#36c);outline-offset:2px}\n#revisawiki-ptwiki .ajg-online-intro{margin:6px 0 10px;color:var(--color-subtle,#54595d);font-size:13px}\n#revisawiki-ptwiki .ajg-online-row{display:grid;grid-template-columns:minmax(170px,220px) 1fr;align-items:center;gap:10px;margin:6px 0}\n#revisawiki-ptwiki .ajg-online-row button{width:100%}\n#revisawiki-ptwiki .ajg-online-row p{margin:0;color:var(--color-subtle,#54595d);font-size:13px;line-height:1.5}\n#revisawiki-ptwiki .ajg-online-controls{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}\n#revisawiki-ptwiki .ajg-tools{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:7px;color:var(--color-subtle,#54595d)}\n#revisawiki-ptwiki .ajg-tools>details{min-width:0;flex:1 1 250px;margin:0}\n#revisawiki-ptwiki .ajg-tools>details[open]{flex-basis:100%}\n#revisawiki-ptwiki .ajg-tools summary{font-size:13px}\n#revisawiki-ptwiki .ajg-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:5px 16px;margin:8px 0}\n#revisawiki-ptwiki .ajg-options label{min-height:24px;display:flex!important;align-items:flex-start;gap:5px;margin:0!important;color:var(--color-base,#202122);font-size:13px}\n#revisawiki-ptwiki .ajg-options input{flex:none;margin-top:3px}\n#revisawiki-ptwiki select{max-width:100%;margin-top:7px;padding:4px;background:var(--background-color-base,#fff);color:var(--color-base,#202122);border:1px solid var(--border-color-base,#a2a9b1);border-radius:3px}\n#revisawiki-ptwiki .ajg-report,#revisawiki-ptwiki .ajg-diff{max-height:420px;overflow:auto;scrollbar-gutter:stable;margin-top:8px}\n#revisawiki-ptwiki .ajg-diff:empty{display:none}\n#revisawiki-ptwiki .ajg-comparison-controls{position:sticky;top:0;z-index:1;background:var(--background-color-base,#fff);padding:6px 0;border-bottom:1px solid var(--border-color-subtle,#c8ccd1);margin-bottom:6px}\n#revisawiki-ptwiki .ajg-suggestions>details,#revisawiki-ptwiki .ajg-issue-group{margin-top:8px;padding:7px 9px;border:1px solid var(--border-color-subtle,#c8ccd1);border-radius:4px}\n#revisawiki-ptwiki .ajg-issues ul{padding-inline-start:20px}\n#revisawiki-ptwiki .ajg-issue{padding:4px 0}\n#revisawiki-ptwiki .ajg-issue button{min-height:27px;font-size:12px;padding:3px 7px;margin-top:3px}\n#revisawiki-ptwiki .ajg-diagnostic-text{width:100%;box-sizing:border-box;margin-top:8px;font:12px/1.4 monospace;resize:vertical}\n#revisawiki-ptwiki .ajg-disambig-choice{margin-top:6px}\n#revisawiki-ptwiki .ajg-disambig-choice select{display:block;width:100%}\n#revisawiki-ptwiki .ajg-individual-checks{margin-top:5px}\n#revisawiki-ptwiki .ajg-style-choices details{margin-top:8px}\n#revisawiki-ptwiki pre{color:var(--color-base,#202122);background:var(--background-color-neutral-subtle,#f8f9fa);border:1px solid var(--border-color-subtle,#c8ccd1);border-radius:3px;padding:8px;line-height:1.5;font-size:12px}\n#revisawiki-ptwiki .ajg-diagnostics p{margin:6px 0;font-size:13px}\n#revisawiki-ptwiki .ajg-stop,#revisawiki-ptwiki .ajg-cancel{color:var(--color-destructive,#b32424)}\n@media(max-width:600px){#revisawiki-ptwiki{padding:10px}#revisawiki-ptwiki .ajg-online-row{grid-template-columns:1fr;gap:4px;margin-bottom:12px}#revisawiki-ptwiki .ajg-online-row button{width:auto;justify-self:start}#revisawiki-ptwiki .ajg-options{grid-template-columns:1fr}#revisawiki-ptwiki .ajg-tools>details{flex-basis:100%}}'); style.id = 'revisawiki-panel-style';
+         style.textContent += "\n#revisawiki-ptwiki .ajg-top{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px}\n#revisawiki-ptwiki .ajg-top .ajg-heading{margin:0}\n#revisawiki-ptwiki .ajg-intro{margin:4px 0 0;font-size:13px}\n#revisawiki-ptwiki .ajg-actions .ajg-run{font-weight:600}\n#revisawiki-ptwiki .ajg-run{background:var(--background-color-progressive,#36c);border-color:var(--border-color-progressive,#36c);color:var(--color-inverted,#fff)}\n#revisawiki-ptwiki .ajg-run:hover{background:var(--background-color-progressive--hover,#3056a9)}\n#revisawiki-ptwiki .ajg-result{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:10px 0;margin-top:10px;border-top:1px solid var(--border-color-subtle,#c8ccd1)}\n#revisawiki-ptwiki .ajg-result-copy{flex:1;min-width:160px}\n#revisawiki-ptwiki .ajg-result-title{font-size:14px}\n#revisawiki-ptwiki .ajg-result-count{display:block;color:var(--color-subtle,#54595d);font-size:13px}\n#revisawiki-ptwiki .ajg-result-actions{display:flex;flex-wrap:wrap;gap:6px}\n#revisawiki-ptwiki .ajg-report{max-height:none;overflow:visible;margin-top:0}\n#revisawiki-ptwiki .ajg-diff{max-height:420px;overflow:auto;margin:0}\n#revisawiki-ptwiki .ajg-comparison{border-top:1px solid var(--border-color-subtle,#c8ccd1);padding-top:5px}\n#revisawiki-ptwiki .ajg-change{border-top:1px solid var(--border-color-subtle,#c8ccd1);padding:8px 0}\n#revisawiki-ptwiki .ajg-change-explanation{margin:0 0 6px;font-weight:600;font-size:13px}\n#revisawiki-ptwiki .ajg-context{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-size:13px;line-height:1.55;margin:4px 0 8px;max-height:220px;overflow:auto}\n#revisawiki-ptwiki .ajg-context mark{color:inherit}\n#revisawiki-ptwiki .ajg-before mark{background:var(--background-color-error-subtle,rgba(221,51,51,.18))}\n#revisawiki-ptwiki .ajg-after mark{background:var(--background-color-success-subtle,rgba(0,175,80,.18))}\n#revisawiki-ptwiki .ajg-selection-help{display:none}\n#revisawiki-ptwiki .ajg-selecting .ajg-selection-help{display:block}\n#revisawiki-ptwiki .ajg-change label{font-size:13px;margin-bottom:6px}\n#revisawiki-ptwiki .ajg-change input{width:auto}\n#revisawiki-ptwiki .ajg-choice-item{display:flex;align-items:flex-start;flex-wrap:wrap;gap:4px 8px;margin:5px 0;font-size:13px}\n#revisawiki-ptwiki .ajg-choice-item input{width:auto;flex:none;margin:3px 0 0}\n#revisawiki-ptwiki .ajg-choice-item code{overflow-wrap:anywhere;white-space:pre-wrap;font-size:12px}\n#revisawiki-ptwiki .ajg-comparison-controls{position:static;padding:6px 0}\n#revisawiki-ptwiki .ajg-comparison-controls p{font-size:13px;margin:6px 0}\n#revisawiki-ptwiki .ajg-review-area{margin:8px 0;border-top:1px solid var(--border-color-subtle,#c8ccd1);padding-top:5px}\n#revisawiki-ptwiki .ajg-issue-group{border:0;border-radius:0;padding:2px 0;margin:4px 0}\n#revisawiki-ptwiki .ajg-review-history{margin-top:8px;color:var(--color-subtle,#54595d)}\n#revisawiki-ptwiki .ajg-suggestions>details{border:0;border-top:1px solid var(--border-color-subtle,#c8ccd1);border-radius:0;padding:6px 0}\n#revisawiki-ptwiki .ajg-automatic:empty{display:none}\n#revisawiki-ptwiki .ajg-automatic p{font-size:13px;margin:6px 0}\n#revisawiki-ptwiki .ajg-tools{border-top:1px solid var(--border-color-subtle,#c8ccd1);padding-top:5px;margin-top:8px;gap:6px 20px}\n#revisawiki-ptwiki .ajg-tools>details{flex:0 1 auto}\n#revisawiki-ptwiki .ajg-online{border:0;margin:3px 0;padding:0}\n#revisawiki-ptwiki .ajg-tools .ajg-settings,#revisawiki-ptwiki .ajg-tools .ajg-spelling-settings,#revisawiki-ptwiki .ajg-tools .ajg-diagnostics{margin-top:8px}\n#revisawiki-ptwiki .ajg-online-controls:empty{display:none}\n@media(max-width:600px){#revisawiki-ptwiki .ajg-top{gap:6px}#revisawiki-ptwiki .ajg-result{align-items:flex-start}#revisawiki-ptwiki .ajg-result-actions{width:100%}#revisawiki-ptwiki .ajg-diff{max-height:420px}}\n";
+         style.textContent+='\n#revisawiki-ptwiki .ajg-bytes{display:inline-block;margin-top:4px;font-size:13px;font-weight:600;padding:2px 6px;border-radius:3px}#revisawiki-ptwiki .ajg-bytes-plus{color:var(--color-success,#14866d);background:var(--background-color-success-subtle,#e8f3ee)}#revisawiki-ptwiki .ajg-bytes-minus{color:var(--color-destructive,#b32424);background:var(--background-color-error-subtle,#fee7e6)}#revisawiki-ptwiki .ajg-bytes-neutral{color:var(--color-subtle,#54595d);background:var(--background-color-neutral-subtle,#f8f9fa)}#revisawiki-ptwiki .ajg-minor-status{display:block;font-size:12px;margin-top:3px;color:var(--color-subtle,#54595d)}';
++        style.textContent += "\n#revisawiki-adjust-before-publish{display:inline-block;box-sizing:border-box;margin-inline-end:6px;min-height:32px;padding:6px 12px;border:1px solid #12776b;border-radius:2px;background:#12776b;color:#fff;font:inherit;font-weight:600;line-height:1.3;vertical-align:middle;white-space:nowrap;cursor:pointer}#revisawiki-adjust-before-publish:hover:not(:disabled){background:#0d5d54;border-color:#0d5d54}#revisawiki-adjust-before-publish:active:not(:disabled){background:#09463f;border-color:#09463f}#revisawiki-adjust-before-publish:focus-visible{outline:2px solid #36c;outline-offset:2px}#revisawiki-adjust-before-publish:disabled{background:#eaecf0;border-color:#c8ccd1;color:#72777d;cursor:default}\n";
+         root.document.head.appendChild(style);
+     }
++    // O segundo atalho usa a mesma análise do painel e nunca envia o formulário.
++    function mountPublishAdjustment(adapter) {
++        const save = root.document.getElementById('wpSave');
++        const form = root.document.getElementById('editform');
++        if (stylesMode || !adapter || sourceTarget() || !form || !save || !form.contains(save)) {
++            if (publishAdjustment) publishAdjustment.remove();
++            publishAdjustment = null;
++            return;
++        }
++        // O botão nativo pode estar dentro de um widget OOUI. Preserve esse widget.
++        const widget = save.closest('#wpSaveWidget,.oo-ui-buttonElement');
++        const anchor = widget && form.contains(widget) ? widget : save;
++        if (!anchor.parentNode) return;
++        if (!publishAdjustment || !publishAdjustment.isConnected) {
++            if (publishAdjustment) publishAdjustment.remove();
++            publishAdjustment = button('Ajustar código', () => run(false), 'ajg-save-adjust');
++            publishAdjustment.id = 'revisawiki-adjust-before-publish';
++            publishAdjustment.title = 'Aplicar os ajustes do RevisaWiki ao rascunho. Confira o resultado no painel antes de publicar.';
++            publishAdjustment.setAttribute('aria-label', 'Ajustar código com RevisaWiki');
++            publishAdjustment.setAttribute('aria-controls', 'revisawiki-ptwiki');
++        }
++        if (save.tabIndex > 0) publishAdjustment.tabIndex = save.tabIndex;
++        else publishAdjustment.removeAttribute('tabindex');
++        if (anchor.previousElementSibling !== publishAdjustment)
++            anchor.parentNode.insertBefore(publishAdjustment, anchor);
++        publishAdjustment.disabled = localBusy || onlineBusy;
++    }
++
+     function mount() {
+         if (stylesMode) return mountStyles();
+         const adapter = editor();
+         if (localTask && (!adapter || localTask.adapterId !== adapter.id)) cancelLocalAnalysis();
++        mountPublishAdjustment(adapter);
+         if (!adapter) { if (panel) panel.remove(); panelEditor = null; last = null; comparisonPlan = null; return; }
+         if (panel && panel.isConnected && panelEditor === adapter.id) return;
+         if (panel) panel.remove();
+@@ -7736,6 +7770,7 @@
+         const loadInfo = root.RevisaWikiLoadInfo || root.AjusteGeralPTLoadInfo;
+         if (loadInfo?.expectedVersion && loadInfo.expectedVersion !== VERSION)
+             message('Versão ' + VERSION + ' carregada, mas o carregador pediu ' + loadInfo.expectedVersion + '. Abra Sobre e diagnóstico.');
++        mountPublishAdjustment(adapter);
+         busy(onlineBusy, activeCheck);
+         const openedPanel = panel;
+         const changed = () => { if (panel === openedPanel){onMinorDraftChange();renderIssues();updateAppliedResult();} };
+@@ -7752,6 +7787,7 @@
+         mw.hook('ve.wikitextInteractive').add(mount);
+         mw.hook('ve.deactivationComplete').add(function () {
+             if (localTask) cancelLocalAnalysis();
++            if (publishAdjustment) publishAdjustment.remove(); publishAdjustment = null;
+             if (panel) panel.remove(); panelEditor = null; last = null;
+         });
+         const connectedTargets = new WeakSet();
+@@ -7764,7 +7800,7 @@
+         connectTarget(root.ve && root.ve.init && root.ve.init.target);
+         // Abrir o editor pode inserir a área de texto depois de jQuery.ready.
+         let scheduled = false;
+-        const selector = '#wpTextbox1, #wikiEditor-ui-toolbar, .ve-ui-surface, .cm-editor';
++        const selector = '#wpTextbox1, #wpSave, #wpSaveWidget, #wikiEditor-ui-toolbar, .ve-ui-surface, .cm-editor';
+         const observer = new root.MutationObserver(records => {
+             const relevant = records.some(record => [...record.addedNodes, ...record.removedNodes].some(node =>
+                 node.nodeType === 1 && (node.matches(selector) || node.querySelector(selector))));

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "PSOL header reference before double delimiter",
+    "source": "{| class=\"wikitable\"\n! Data !! Filiados<ref name=\"Filiados\" />!! colspan=\"2\" | Crescimento anual\n|-\n| 2026 || 100 || 10 || 10%\n|}\n",
+    "header": true
+  },
+  {
+    "id": "Federalismo original equals in external URL",
+    "source": "== Ligações externas ==\n\n{{Colunas-lista|2|\n* [https://example.org/?format=html&lang=pt&n=0 Fonte 0]\n* [https://example.org/?format=html&lang=pt&n=1 Fonte 1]\n* [https://example.org/?format=html&lang=pt&n=2 Fonte 2]\n* [https://example.org/?format=html&lang=pt&n=3 Fonte 3]\n* [https://example.org/?format=html&lang=pt&n=4 Fonte 4]\n* [https://example.org/?format=html&lang=pt&n=5 Fonte 5]\n* [https://example.org/?format=html&lang=pt&n=6 Fonte 6]\n* [https://example.org/?format=html&lang=pt&n=7 Fonte 7]\n}}\n",
+    "fixedCount": 8
+  },
+  {
+    "id": "Cite news preserves CS1 citation class",
+    "source": "Texto.<ref>{{Cite news|title=An obituary|newspaper=The New York Times|url=https://example.org/news?a=1&b=2|date=September 4, 1962|last=Author|first=Ada}}</ref>\n{{Referências}}\n",
+    "required": [
+      "{{Citar jornal",
+      "https://example.org/news?a=1&b=2",
+      "An obituary",
+      "The New York Times",
+      "1962",
+      "Author",
+      "Ada"
+    ],
+    "forbidden": [
+      "{{Citation"
+    ]
+  },
+  {
+    "id": "Existing valid Citation is retained",
+    "source": "Texto.<ref>{{Citation|title=Generic work|publisher=Publisher|year=2025|url=https://example.org/generic}}</ref>\n{{Referências}}\n",
+    "required": [
+      "{{Citation",
+      "Generic work",
+      "Publisher",
+      "2025",
+      "https://example.org/generic"
+    ]
+  },
+  {
+    "id": "Ordinary punctuation still moves before ref",
+    "source": "Uma afirmação<ref>Fonte.</ref>.\n{{Referências}}\n",
+    "required": [
+      "Uma afirmação.<ref>Fonte.</ref>"
+    ]
+  }
+]
