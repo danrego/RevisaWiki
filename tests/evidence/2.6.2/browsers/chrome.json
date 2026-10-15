@@ -1,0 +1,213 @@
+{
+  "version": "2.6.2",
+  "build": "2.6.2",
+  "browser": "Chrome",
+  "startedAt": "2026-10-15T21:01:32.137Z",
+  "pinManifestSha256": "2b722375081ca086c43835970b310a43ece6240bcb239047265166f3740375ba",
+  "releaseFiles": {
+    "Carregador_common_js_RevisaWiki_v2_6_2.js": {
+      "sha256": "9d573f1edee87c8a0b1c18f62616dcf3e7d29fec80cd1e71d302268e92e98828",
+      "bytes": 9899
+    },
+    "Carregador_comunitario_RevisaWiki_v2_6_2.js": {
+      "sha256": "42aa73c465d5db2c492fedf8b3b90a04fd45403394c1620cb9b101e7e9aedf30",
+      "bytes": 9901
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+      "bytes": 695
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0",
+      "bytes": 743
+    },
+    "RevisaWiki_v2_6_2.js": {
+      "sha256": "ef101d39d4e945022f1fe6a6b58ba3338fa4aa248a9da045964fc9d2c364aa0c",
+      "bytes": 924119
+    },
+    "RevisaWiki_v2_6_2_completo.js": {
+      "sha256": "c3bb5c5da8fc2ca3f9e48a08a3f5159b3702b6dfc68af3fcb1dd25003889b692",
+      "bytes": 2437020
+    },
+    "RevisaWiki_v2_6_2_dados.js": {
+      "sha256": "f9c174b26a56ea51b5f5ee897c4cc94ec6880577a649c445e5a6c5e63e204ba5",
+      "bytes": 1523933
+    }
+  },
+  "hashes": {
+    "core": "ef101d39d4e945022f1fe6a6b58ba3338fa4aa248a9da045964fc9d2c364aa0c",
+    "data": "f9c174b26a56ea51b5f5ee897c4cc94ec6880577a649c445e5a6c5e63e204ba5",
+    "central": "42aa73c465d5db2c492fedf8b3b90a04fd45403394c1620cb9b101e7e9aedf30",
+    "personal": "9d573f1edee87c8a0b1c18f62616dcf3e7d29fec80cd1e71d302268e92e98828",
+    "shared": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+    "own": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+  },
+  "cityFixture": {
+    "title": "Lista de cidades por temperatura média",
+    "oldid": 73218867,
+    "timestamp": "2026-10-15T20:18:18Z",
+    "bytes": 210679,
+    "lines": 2497,
+    "sha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+    "permalink": "https://pt.wikipedia.org/w/index.php?oldid=73218867",
+    "numericRows": 487
+  },
+  "adaptations": [
+    "Only the ptwiki host guards are extended to localhost for this isolated fixture.",
+    "All API responses are local mocks. No production text or parser logic is altered."
+  ],
+  "tests": [
+    {
+      "name": "shared stable installation chain",
+      "passed": true,
+      "assertions": 45,
+      "milliseconds": 497
+    },
+    {
+      "name": "own stable installation chain",
+      "passed": true,
+      "assertions": 45,
+      "milliseconds": 431
+    },
+    {
+      "name": "complete city-temperature article and exact undo",
+      "passed": true,
+      "assertions": 30,
+      "evidence": {
+        "outputSha256": "30cc28361ca5087cdcf11c206a6376d436bf300cb8029402d9d48cd0d7dcdbd2",
+        "outputBytes": 210126,
+        "numericRows": 487,
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 1507.7000000476837,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "milliseconds": 3428
+    }
+  ],
+  "assertions": 120,
+  "actualWikipediaWrites": 0,
+  "actualNetworkMutations": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/city.wiki"
+    }
+  ],
+  "browserVersion": "155.0.8059.40",
+  "blockedOutsideRequests": 0,
+  "finalSavedFileHashesVerified": true,
+  "cleanup": {
+    "ownSessionClosed": true,
+    "ownProcessExited": true,
+    "exitCode": null,
+    "signalCode": null,
+    "ownProfileRemoved": true,
+    "unknownBrowserSessionsTouched": false
+  },
+  "finishedAt": "2026-10-15T21:01:37.286Z",
+  "runnerSha256": "98ff7d38157350df802b50f0da83dbb74179d207123afdc5853c038a55d8548d",
+  "passed": 3,
+  "failed": 0
+}

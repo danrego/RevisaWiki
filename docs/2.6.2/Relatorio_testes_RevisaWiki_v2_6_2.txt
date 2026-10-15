@@ -1,0 +1,42 @@
+RevisaWiki 2.6.2: resultados dos testes
+15 de outubro de 2026
+
+Os testes abaixo foram executados nos arquivos finais, identificados por SHA-256. Resultados de candidatos anteriores ficaram fora desta contagem.
+
+Motor, instalação e falsos positivos
+
+- Rodada principal: 2230 casos, 8981 verificações, zero falhas.
+- Etiquetas e aspas, com asserções anteriores sem alterações: 50 casos, 173 verificações, zero falhas.
+- Artigos grandes: 16 fontes de pelo menos 100 KB, oito variantes por fonte, 128 casos e 1672 verificações. As duas distribuições produziram os mesmos resultados. Segunda aplicação, fórmulas, trechos literais, fontes e composição das regras foram conferidos.
+- Carregamento: 16 casos do perfil ES2019 do ResourceLoader, assinatura automática e controles negativos, zero falhas. A equivalência da expressão de proteção também passou em 3240 amostras.
+
+O caso que motivou a correção usa https://pt.wikipedia.org/w/index.php?oldid=73218867, com 210679 bytes e SHA-256 4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902. A análise alcança o artigo inteiro e permite as correções já existentes de referências e tabelas. As aspas do original, 487 linhas numéricas, 974 linhas de rótulos e as seis tabelas permanecem intactas.
+
+As referências no início do texto, os atributos literais dir/follow, as ligações externas e as células simples de tabelas completas têm controles próprios. Exemplos de código entre aspas, referências e tabelas realmente incompletas, parâmetros de predefinições e células com continuação em outra linha têm controles de preservação. A leitura fora dos campos confirmados mantém o comportamento anterior, sem tentar classificar uma aspa solta pela pontuação ao redor.
+
+Navegadores reais no macOS
+
+- Chrome 155.0.8059.40: 3 fluxos, 120 verificações.
+- Firefox 158.0: 3 fluxos, 120 verificações.
+- Safari 27.0.1: 3 fluxos, 120 verificações.
+
+Total: 9 fluxos e 360 verificações, zero falhas. As chamadas fixa compartilhada e da cópia própria carregaram seus destinos corretos. O botão Ajustar código processou o artigo integral em Worker, e Desfazer recuperou o SHA-256 original. A saída ajustada foi idêntica nos três navegadores. O teste encerrou somente as sessões e os processos que criou.
+
+Os testes usaram páginas locais e respostas simuladas. Nenhuma edição na Wikipédia, conexão externa dos navegadores, escrita na área de transferência ou captura de tela foi feita. Essa rodada confere esses fluxos, não toda a interface do MediaWiki em produção.
+
+Tempos e limites
+
+Os tempos são medições locais sem isolamento da carga da máquina. O controle de muitas referências com aspas sem par verifica o crescimento do leitor de sintaxe. Ele não estabelece um limite de tempo para toda combinação possível de wikitexto ou para as demais regras do programa. Casos com limites incertos continuam preservados.
+
+O manual, o índice de cópia e o pacote têm conferências próprias, registradas com os arquivos finais. A verificação de privacidade cobre o conjunto preparado para publicação e o conteúdo dos arquivos comprimidos. Os relatórios anteriores permanecem em suas versões e não foram contados como novas execuções.
+
+Arquivos executados
+
+Núcleo: 924119 bytes
+SHA-256: ef101d39d4e945022f1fe6a6b58ba3338fa4aa248a9da045964fc9d2c364aa0c
+Arquivo completo: 2437020 bytes
+SHA-256: c3bb5c5da8fc2ca3f9e48a08a3f5159b3702b6dfc68af3fcb1dd25003889b692
+Dados: 1523933 bytes
+SHA-256: f9c174b26a56ea51b5f5ee897c4cc94ec6880577a649c445e5a6c5e63e204ba5
+
+Comandos, fontes e evidências: https://github.com/danrego/RevisaWiki

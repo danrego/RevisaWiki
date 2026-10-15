@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -8,17 +8,18 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v261/hotfix/run_all.cjs",
-    "test:complex": "node tests/v261/hotfix/run_engine.cjs --complex",
-    "test:regression": "node tests/v261/hotfix/run_engine.cjs",
+    "test": "node tests/v262/run_all.cjs",
+    "test:complex": "node tests/v262/run_engine.cjs --complex",
+    "test:regression": "node tests/v262/run_engine.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
-    "test:documentation": "python3 scripts/audit_documentation_v261_hotfix_1.py",
-    "test:engine": "node tests/v261/hotfix/run_engine.cjs",
-    "build:index": "python3 scripts/build_index_v261_hotfix_1.py",
+    "test:documentation": "python3 scripts/audit_documentation_v262.py",
+    "test:engine": "node tests/v262/run_engine.cjs",
+    "build:index": "python3 scripts/build_index_v262.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:additions": "node tests/v261/hotfix/run_focus.cjs",
+    "test:additions": "node tests/v262/run_quote_boundaries.cjs",
     "test:previous": "node tests/run_all.cjs",
-    "test:installation": "node tests/v261/hotfix/run_startup.cjs",
-    "test:previous261": "node tests/v261/run_all.cjs"
+    "test:installation": "node tests/v262/run_startup.cjs",
+    "test:previous261": "node tests/v261/run_all.cjs",
+    "test:previous261:hotfix": "node tests/v261/hotfix/run_all.cjs"
   }
 }

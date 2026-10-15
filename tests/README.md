@@ -1,6 +1,6 @@
-# Testes do RevisaWiki 2.6.0
+# Testes do RevisaWiki
 
-Os testes usam cópias locais de revisões públicas. Os arquivos de origem têm título, revisão e SHA-256. Nenhum teste salva edições na Wikipédia.
+Os testes usam cópias locais de revisões públicas. Os arquivos de origem têm título, revisão e SHA-256. Nenhum teste salva edições na Wikipédia. Os comandos atuais executam a versão 2.6.2. O [guia da correção](v262/README.md) explica os testes de aspas, instalação, navegadores e cópia.
 
 ## Rodada local
 
@@ -12,19 +12,19 @@ npm run test:regression
 python3 tests/privacy/test_publication_privacy_gate.py
 ```
 
-`npm test` confere os hashes distribuídos e executa os contratos atuais, os casos de controle das versões anteriores e a preservação de galerias. Os dois arquivos executáveis, núcleo com dados separados e distribuição completa, devem produzir o mesmo resultado.
+`npm test` confere os hashes distribuídos e executa a instalação, os casos específicos da correção e as cinco suítes herdadas do motor. Os dois arquivos executáveis, núcleo com dados separados e distribuição completa, devem produzir o mesmo resultado. As asserções anteriores são copiadas sem alterações e recebem um adaptador para carregar a distribuição atual.
 
-`test:engine` confere as correções automáticas herdadas da 2.5 e preservadas na 2.6, incluindo referências, sintaxe, opções desativadas e cache. `test:complex` usa os casos grandes de física e matemática guardados em `tests/v26_engine`. As mutações têm resultados definidos antes da execução. `test:regression` executa as doze suítes herdadas com os ajustes de expectativas documentados em `tests/v25_inherited`, pelo carregador `tests/v26_inherited.cjs`.
+`test:engine` e `test:regression` conferem referências, sintaxe, opções desativadas, composição das regras e fontes preservadas em `v26_engine`. `test:complex` usa 16 artigos de pelo menos 100 KB, com oito variantes por artigo. As mutações têm resultados definidos antes da execução. As doze suítes das versões anteriores continuam disponíveis por `tests/v26_inherited.cjs`, com os ajustes de expectativas documentados em `tests/v25_inherited`.
 
-Para a rodada de 2.000 revisões, siga a obtenção das fontes em [corpus](corpus/README.txt) e execute os programas de [corpus_v26](corpus_v26/README.md). Os resultados dessa rodada não são uma contagem de testes de interface. Os casos gerados de parâmetros e grafia também têm suas contagens separadas.
+Para reproduzir a rodada histórica de 2.000 revisões da 2.6.0, siga a obtenção das fontes em [corpus](corpus/README.txt) e execute os programas de [corpus_v26](corpus_v26/README.md). Esse resultado permanece no diretório da versão que foi executada e não comprova uma nova rodada da 2.6.2. Os testes de interface e os casos gerados de parâmetros e grafia também têm contagens separadas.
 
-`npm run test:additions` confere as novas ligações, grafias, citações abreviadas, portais, escolhas de colunas e limites da edição rápida. Os testes da edição de seção e dos carregadores ficam em `tests/inline_v26`, com os comandos e os requisitos dos navegadores no README próprio.
+`npm run test:additions` confere os limites das aspas nas referências e tabelas, a preservação de código incompleto e o artigo que reproduz a falha. Os testes de navegador desta versão ficam em `v262/browser`. Os testes mais amplos da edição rápida anterior continuam em `inline_v26`, com os comandos e os requisitos dos navegadores no README próprio.
 
 Os testes de navegador usam páginas locais, os navegadores reais no Mac, respostas controladas da API e interceptação da publicação. Eles conferem os editores, o processamento separado, a alternativa sem Worker, a comparação, o resumo, o cancelamento e o desfazer. Capturas de tela não fazem parte do pacote.
 
 ## Evidência e limites
 
-Os relatórios da distribuição ficam em `tests/evidence/2.6.0`. Cada grupo indica a versão e os hashes executados. Resultados de candidatos interrompidos ficam separados da rodada final e não contam como aprovação da distribuição.
+Os relatórios atuais ficam em `tests/evidence/2.6.2`. Os da 2.6.0 e das demais versões permanecem em seus diretórios. Cada grupo indica a versão e os hashes executados. Resultados de candidatos interrompidos ficam separados da rodada final e não contam como aprovação da distribuição.
 
 As expectativas alteradas têm uma explicação e uma conferência própria. O caso de Pillay, por exemplo, passa a esperar a retirada de uma única chamada consecutiva repetida, com todos os demais bytes preservados. Uma fonte sem acesso ou um teste incompleto não é registrado como aprovado.
 
