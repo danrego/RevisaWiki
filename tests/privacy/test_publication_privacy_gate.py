@@ -62,6 +62,21 @@ case('exact attested citation identifier',citation,[])
 case('exact attested citation identifier in gzip',gzip.compress(citation),[])
 case('modified citation identifier needs review again',citation+b' changed',['unreviewed-email'])
 del g.APPROVED_PUBLIC_CITATION_IDENTIFIERS[citation_hash]
+css_property=b'--image-size-'+b'user:'+b'var(--image-size-standard)'
+css=b':root{'+css_property+b';}'
+css_hash=g.hashlib.sha256(css).hexdigest();property_hash=g.hashlib.sha256(css_property).hexdigest()
+case('unreviewed namespace-like CSS still requires review',css,['unreviewed-wiki-user-destination'])
+g.APPROVED_PUBLIC_CSS_PROPERTIES[css_hash]={property_hash}
+case('exact attested CSS property',css,[],path='public.css')
+case('exact attested CSS property in gzip',gzip.compress(css),[])
+case('exact attested CSS property in zip',z(css,'public.css'),[])
+case('modified stylesheet needs review again',css+b' changed',['unreviewed-wiki-user-destination'])
+case('modified CSS property needs review again',css.replace(b'standard',b'changed'),['unreviewed-wiki-user-destination'])
+extra=css+b' User:'+b'Other account'
+extra_hash=g.hashlib.sha256(extra).hexdigest();g.APPROVED_PUBLIC_CSS_PROPERTIES[extra_hash]={property_hash}
+case('attested CSS never exempts an adjacent account',extra,['unreviewed-wiki-user-destination'])
+del g.APPROVED_PUBLIC_CSS_PROPERTIES[extra_hash]
+del g.APPROVED_PUBLIC_CSS_PROPERTIES[css_hash]
 for value,expected in [('safe/file.txt',True),('../escape.txt',False),('/absolute/file.txt',False),('safe\\file.txt',False),('',False)]:
  passed=g.safe_relative(value)==expected;results.append({'name':'safe allowlist path '+str(len(results)),'passed':passed})
  if not passed:raise AssertionError('allowlist path safety')

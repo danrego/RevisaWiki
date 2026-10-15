@@ -37,6 +37,15 @@ APPROVED_PUBLIC_CITATION_IDENTIFIERS={
   'e286e60a87f20a0f6bd9988b63b612465b9b8c4230f97cb312e46c2b11b51001'
  }
 }
+# Three declarations in immutable public site CSS contain a namespace-like tail.
+# Bind the complete stylesheet and each declaration, not arbitrary CSS or names.
+APPROVED_PUBLIC_CSS_PROPERTIES={
+ 'd1ec81ce22ecbfd63a3c8f85d8dba22553faf7a3227dcc9cc4b66901bd4917fb':{
+  '748b28f0fa7be1410947496ce1c8527c76ae1a22ab298388ec0f986d4c880d33',
+  '459e9e5d86a5befe4f08b087168f3901c418a993096b001dde6ddf6663ecca9b',
+  '49e61808257d9d856d5cbec3c7714a4c40b3ec4721da689dfc9a1c512f6228e3'
+ }
+}
 PUBLIC_NOREPLY='revisawiki@reserved.invalid'
 IMAGE_MAGIC=(b'\x89PNG',b'\xff\xd8',b'GIF8',b'RIFF',b'BM',b'%PDF')
 IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.heic','.pdf','.svg'}
@@ -44,13 +53,15 @@ IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.hei
 
 # Privacy adaptation: only technical distribution destinations retain account names.
 TECHNICAL_SCRIPT_TITLE='User:Daniel G Rego/RevisaWiki.js'
-def identity_findings(text):
+def identity_findings(text,reviewed_css=frozenset()):
  from urllib.parse import unquote
  decoded=unquote(text).replace('+',' ')
  owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
  owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
  technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
+ css_property=re.compile(r'--image-size-'+r'user'+r':var\(--image-size-(?:standard|small|large)\)(?=[;}])')
+ masked=css_property.sub(lambda m:' '*len(m.group())if hashlib.sha256(m.group().encode()).hexdigest()in reviewed_css else m.group(),masked)
  destination=re.compile('(?<![A-Za-z0-9_])(?:User|User[ _]talk|Usuário(?:[ _]Discussão)?|Usuária|Utilizador(?:a)?|Utilisateur(?:rice)?|Benutzer|Utente|Usuario):[^\\s\\]\\[<>|"\\\'`}{][^\\n\\]\\[<>|"\\\'`}{]{0,159}',re.I)
  fictional=re.compile(r'^(?:Teste|Test|Example|Exemplo|Fulano|Beltrano|Sicrano|Editor de teste|Conta de Teste|Nome da Conta|Anônimo|Colaborador)(?:[/ _]|$)',re.I)
  result=[]
@@ -101,7 +112,8 @@ class Scanner:
    return
   try:text=data.decode('utf-8')
   except UnicodeDecodeError:self.fail(path,'unreviewed-binary-file');return
-  for rule,count,line in identity_findings(text):self.fail(path,rule,count,line)
+  content_hash=hashlib.sha256(data).hexdigest()
+  for rule,count,line in identity_findings(text,APPROVED_PUBLIC_CSS_PROPERTIES.get(content_hash,set())):self.fail(path,rule,count,line)
   # Imported citation URLs can legitimately contain home-directory-like paths.
   non_url=URL.sub(lambda m:' '*len(m[0]),text)
   for name,rx in RULES.items():
@@ -110,7 +122,6 @@ class Scanner:
    if matches:self.fail(path,name,len(matches),subject[:matches[0].start()].count('\n')+1)
   for literal in self.denied:
    if literal and literal in text:self.fail(path,'private-local-denylist',text.count(literal))
-  content_hash=hashlib.sha256(data).hexdigest()
   reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(content_hash,set())|APPROVED_PUBLIC_CITATION_IDENTIFIERS.get(content_hash,set())
   for m in EMAIL.finditer(text):
    value=m[0]
