@@ -1,0 +1,86 @@
+{
+  "installationLoaderSha256": {
+    "common_js": "6eb9912abcf6f5450dc967edffe87d60f15ec350d617f0b0e1fe3ae0c43f07a0",
+    "comunitario": "e696254f64cb6c3f1f8976dda6516f1a89b87ca5ff1fc9c2c572227f49c764c3"
+  },
+  "browser": "Safari",
+  "scriptSha256": "48e772b4812f3de8dabd164350b2224d2401ca6cf11d6cc9f79c5d67f0da88f7",
+  "dataSha256": "b2c4dab3f3a7b8b6a0278e94bbdeb354a2c03e1dac39a2a2b3e5596ba8560dc4",
+  "modular": true,
+  "mode": "loader",
+  "startedAt": "2026-10-14T20:04:11.466Z",
+  "writeActions": 0,
+  "userPreferencesChanged": false,
+  "tests": [
+    {
+      "name": "modular cold load validates catalog",
+      "passed": true,
+      "result": {
+        "version": "2.2.0",
+        "origin": "wiki",
+        "sha256": "1daf86b796e70e117891abef91e3447ea8c0b211cc03b9966d39920f3f0d4323"
+      }
+    },
+    {
+      "name": "modular cached load avoids catalog request",
+      "passed": true,
+      "result": {
+        "version": "2.2.0",
+        "origin": "cache",
+        "sha256": "1daf86b796e70e117891abef91e3447ea8c0b211cc03b9966d39920f3f0d4323"
+      }
+    },
+    {
+      "name": "modular corrupted cache replaced safely",
+      "passed": true,
+      "result": {
+        "version": "2.2.0",
+        "origin": "wiki",
+        "sha256": "1daf86b796e70e117891abef91e3447ea8c0b211cc03b9966d39920f3f0d4323"
+      }
+    },
+    {
+      "name": "modular wrong-data refuses invalid startup",
+      "passed": true,
+      "result": {
+        "notice": "RevisaWiki não carregou: O pacote de dados não corresponde à versão 2.2.0. Confira se o núcleo e Dados.js são da versão 2.2.0."
+      }
+    },
+    {
+      "name": "modular network-failure refuses invalid startup",
+      "passed": true,
+      "result": {
+        "notice": "RevisaWiki não carregou: Falha local simulada do catálogo Confira se o núcleo e Dados.js são da versão 2.2.0."
+      }
+    },
+    {
+      "name": "modular Worker, adjustment and undo",
+      "passed": true,
+      "result": {
+        "worker": true,
+        "unknownCatalogCases": 2
+      }
+    },
+    {
+      "name": "modular visual editor waits then source activation loads",
+      "passed": true,
+      "result": {
+        "activation": true
+      }
+    },
+    {
+      "name": "modular duplicate import keeps one panel",
+      "passed": true,
+      "result": {
+        "panels": 1
+      }
+    }
+  ],
+  "articles": [],
+  "browserVersion": "27.0.1",
+  "finishedAt": "2026-10-14T20:04:13.126Z",
+  "blockedNetwork": [],
+  "driverErrors": [],
+  "passed": 8,
+  "failed": 0
+}

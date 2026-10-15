@@ -1,0 +1,295 @@
+{
+  "installationLoaderSha256": {
+    "common_js": "6eb9912abcf6f5450dc967edffe87d60f15ec350d617f0b0e1fe3ae0c43f07a0",
+    "comunitario": "e696254f64cb6c3f1f8976dda6516f1a89b87ca5ff1fc9c2c572227f49c764c3"
+  },
+  "browser": "Firefox",
+  "scriptSha256": "48e772b4812f3de8dabd164350b2224d2401ca6cf11d6cc9f79c5d67f0da88f7",
+  "dataSha256": "b2c4dab3f3a7b8b6a0278e94bbdeb354a2c03e1dac39a2a2b3e5596ba8560dc4",
+  "modular": true,
+  "mode": "v22-rules",
+  "startedAt": "2026-10-14T20:02:43.012Z",
+  "writeActions": 0,
+  "userPreferencesChanged": false,
+  "tests": [
+    {
+      "name": "actual MediaWiki HTML regrouping single",
+      "passed": true,
+      "result": {
+        "id": "single",
+        "decision": {
+          "checked": true,
+          "accepted": true,
+          "introduced": [],
+          "resolved": [],
+          "previous": [],
+          "current": [],
+          "tableRegrouping": {
+            "accepted": true,
+            "tables": 1,
+            "years": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "actual MediaWiki HTML regrouping two-years",
+      "passed": true,
+      "result": {
+        "id": "two-years",
+        "decision": {
+          "checked": true,
+          "accepted": true,
+          "introduced": [],
+          "resolved": [],
+          "previous": [],
+          "current": [],
+          "tableRegrouping": {
+            "accepted": true,
+            "tables": 1,
+            "years": 2
+          }
+        }
+      }
+    },
+    {
+      "name": "actual MediaWiki HTML regrouping verified-colour",
+      "passed": true,
+      "result": {
+        "id": "verified-colour",
+        "decision": {
+          "checked": true,
+          "accepted": true,
+          "introduced": [],
+          "resolved": [],
+          "previous": [],
+          "current": [],
+          "tableRegrouping": {
+            "accepted": true,
+            "tables": 1,
+            "years": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables single Worker",
+      "passed": true,
+      "result": {
+        "after": "=== 2020 ===\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 21/03/2020 || Local A\n|-\n| 21/03/2020 || Local A\n|}\n",
+        "engine": "worker"
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables two-years Worker",
+      "passed": true,
+      "result": {
+        "after": "==== 2020 ====\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 21/03/2020 || Local A\n|}\n\n==== 2021 ====\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 22/03/2021 || Local B\n|}\n",
+        "engine": "worker"
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables verified-colour Worker",
+      "passed": true,
+      "result": {
+        "after": "=== 2020 ===\n{| class=\"wikitable\"\n! Data !! Local\n|-\n| style=\"background:{{Cor tempestade|f0}};\" | 21/03/2020 || Local A\n|}\n",
+        "engine": "worker"
+      }
+    },
+    {
+      "name": "caption after small markup one click Worker",
+      "passed": true,
+      "result": {
+        "after": "[[Imagem:Casa.jpg|miniatura|{{Pequeno|1=detalhe}} A casa em [[Tema]]]]\n"
+      }
+    },
+    {
+      "name": "heading lookup exists Worker",
+      "passed": true,
+      "result": {
+        "after": "== Rótulo ==\n{{Artigo principal|Tema}}\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup missing Worker",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup disambiguation Worker",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup self Worker",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "quiet alerts and editorial changes Worker",
+      "passed": true,
+      "result": {
+        "after": "{{Formatar referências}}\nNo {{séc|XIX}}, [[Avicena]] foi citado no livro.<ref name=\"a\">{{Citar livro|titulo=Avicenna no século XIX|data=01/02/2020}}</ref>\n[[Imagem:Casa.jpg|miniatura|Uma casa antiga]]\n{{Referências}}\n"
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables single fallback",
+      "passed": true,
+      "result": {
+        "after": "=== 2020 ===\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 21/03/2020 || Local A\n|-\n| 21/03/2020 || Local A\n|}\n",
+        "engine": "staged"
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables two-years fallback",
+      "passed": true,
+      "result": {
+        "after": "==== 2020 ====\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 21/03/2020 || Local A\n|}\n\n==== 2021 ====\n{| class=\"wikitable\"\n! scope=\"col\" | Data !! scope=\"col\" | Local\n|-\n| 22/03/2021 || Local B\n|}\n",
+        "engine": "staged"
+      }
+    },
+    {
+      "name": "one-click with actual rendered tables verified-colour fallback",
+      "passed": true,
+      "result": {
+        "after": "=== 2020 ===\n{| class=\"wikitable\"\n! Data !! Local\n|-\n| style=\"background:{{Cor tempestade|f0}};\" | 21/03/2020 || Local A\n|}\n",
+        "engine": "staged"
+      }
+    },
+    {
+      "name": "caption after small markup one click fallback",
+      "passed": true,
+      "result": {
+        "after": "[[Imagem:Casa.jpg|miniatura|{{Pequeno|1=detalhe}} A casa em [[Tema]]]]\n"
+      }
+    },
+    {
+      "name": "heading lookup exists fallback",
+      "passed": true,
+      "result": {
+        "after": "== Rótulo ==\n{{Artigo principal|Tema}}\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup missing fallback",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup disambiguation fallback",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "heading lookup self fallback",
+      "passed": true,
+      "result": {
+        "after": "== [[Tema|Rótulo]] ==\nTexto da seção.\n",
+        "requests": [
+          {
+            "action": "query",
+            "prop": "pageprops",
+            "ppprop": "disambiguation",
+            "titles": "Tema",
+            "redirects": 1,
+            "formatversion": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "quiet alerts and editorial changes fallback",
+      "passed": true,
+      "result": {
+        "after": "{{Formatar referências}}\nNo {{séc|XIX}}, [[Avicena]] foi citado no livro.<ref name=\"a\">{{Citar livro|titulo=Avicenna no século XIX|data=01/02/2020}}</ref>\n[[Imagem:Casa.jpg|miniatura|Uma casa antiga]]\n{{Referências}}\n"
+      }
+    }
+  ],
+  "articles": [],
+  "browserVersion": "158.0",
+  "finishedAt": "2026-10-14T20:02:50.011Z",
+  "blockedNetwork": [],
+  "driverErrors": [],
+  "passed": 21,
+  "failed": 0
+}

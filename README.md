@@ -1,36 +1,29 @@
 # RevisaWiki
 
-O RevisaWiki ajuda a revisar o código das páginas da Wikipédia em português. O botão **Ajustar código** aplica as correções previstas nas regras ao rascunho. **Ver o que mudou** mostra a comparação, e **Desfazer ajustes** recupera o texto anterior. A ferramenta não salva nem publica uma edição.
+O RevisaWiki revisa o código das páginas da Wikipédia em português. **Ajustar código** aplica as regras ao rascunho, **Ver o que mudou** mostra a comparação e **Desfazer ajustes** recupera o texto anterior. A ferramenta não salva nem publica uma edição.
 
-A versão disponível é **2.1.1**. Corrige sintaxe de referências, campos de citações e infocaixas, grafias exatas e elementos finais reconhecidos. Também verifica restos de sintaxe de traduções. As regras que acrescentam portais, mostram idade ou reorganizam tabelas têm confirmações e limites próprios.
+A versão atual é **2.2.0**. Além das regras anteriores, corrige a conferência de tabelas divididas por ano, reduz avisos sem ação necessária e pode colocar Artigo principal depois de um título inteiramente formado por uma ligação. Essa remissão exige confirmação de um destino existente e sem desambiguação.
 
 ## Instalação
 
-Baixe o repositório pelo botão **Code → Download ZIP**, descompacte e abra [dist/2.1.1/INICIO.html](dist/2.1.1/INICIO.html) no navegador. O índice tem botões para copiar o conteúdo completo, o resumo da edição e o destino.
+Baixe o repositório em **Code → Download ZIP**, descompacte e abra [o índice de copiar e colar](dist/2.2.0/INICIO.html). Atualize os dados, o programa, apenas o carregador do RevisaWiki no common.js e a documentação, nessa ordem. Preserve seus outros scripts e escolha um único carregador.
 
-1. Atualize [o arquivo de dados](dist/2.1.1/RevisaWiki_v2_1_1_dados.js).
-2. Atualize [o programa](dist/2.1.1/RevisaWiki_v2_1_1.js).
-3. Atualize apenas o carregador do RevisaWiki no `common.js`, preservando os outros scripts.
-4. Atualize [a documentação](dist/2.1.1/Documentacao_RevisaWiki_v2_1_1.wiki).
+[As instruções completas](dist/2.2.0/Instalacao_RevisaWiki_v2_2.txt) incluem os destinos e os dois carregadores. O arquivo completo ultrapassa o limite de uma página da ptwiki. Para instalar, use os dados e o núcleo separados.
 
-[As instruções completas](dist/2.1.1/Instalacao_RevisaWiki_v2_1_1.txt) incluem o carregador para uma cópia própria e o carregador comunitário. Escolha apenas um. O arquivo `RevisaWiki_v2_1_1_completo.js` reúne programa e dados para download e testes, mas excede o limite de uma única página da ptwiki. A instalação usa as duas partes separadas.
+## O que mudou
 
-## O que mudou na 2.1.1
+A pré-visualização compara o plano de divisão anual calculado a partir do código original com as células renderizadas. Todas as linhas, valores e repetições precisam permanecer. Células alteradas, registros apagados ou acrescentados e planos diferentes são recusados. Tabelas que exigem interpretação permanecem fora do ajuste automático.
 
-Um subtítulo anual que esteja sozinho numa linha de tabela pode passar para fora dela. Os registros de cada ano recebem uma tabela, com repetição apenas dos cabeçalhos estáticos. As linhas de dados, as fontes e os atributos são copiados sem mudanças. Registros repetidos permanecem.
+Títulos formados por uma única ligação podem receber uma remissão logo abaixo. Chamadas existentes são preservadas. Datas ambíguas ficam iguais, sem avisos de escolha, e etiquetas de manutenção não são apagadas. Explicações sobre código dinâmico ficam recolhidas em Informações técnicas.
 
-A regra foi preparada a partir da [correção pública na Lista de tornados no Brasil](https://pt.wikipedia.org/w/index.php?diff=73209168&oldid=73209108). Na revisão 73209386, separa 28 subtítulos em sete tabelas e mantém a tabela do Acre já corrigida. Não decide se dois registros descrevem o mesmo tornado. Células que atravessam linhas, tabelas aninhadas ou sem fechamento e modelos que geram linhas continuam para revisão.
+As revisões públicas em Óptica e oito outros artigos ajudaram a conferir ajustes restritos de legendas, marcação de séculos e sete nomes portugueses em ligações. Títulos bibliográficos, autores e alterações de conteúdo não recebem essas trocas.
 
-## Validação
+## Testes
 
-O núcleo e a cópia completa passaram novamente sobre 1.000 artigos distintos do conjunto congelado, incluindo 538 biografias confirmadas pela prova independente. Foram 2.000 execuções principais. As 12 suítes anteriores passaram em 136.283 verificações. A nova regra teve 61 casos, com 263 verificações.
+[O relatório](dist/2.2.0/Relatorio_testes_RevisaWiki_v2_2.txt) separa verificações de regras, fluxos nos navegadores e artigos distintos. Os testes usaram os 1.000 artigos do conjunto congelado, incluindo 538 biografias confirmadas independentemente, e Firefox, Chrome e Safari reais no Mac. As respostas de API dos testes de interface são simuladas. Três exemplos anuais usam HTML realmente renderizado pelo MediaWiki. Nenhuma edição foi feita na Wikipédia.
 
-No Mac, Firefox 158.0, Safari 27.0.1 e Chrome 155.0.8059.40 passaram em 582 fluxos agrupados de interface, carregamento e regras. Os exemplos pequenos da regra anual foram renderizados antes e depois pelo MediaWiki, com as células de dados preservadas. O índice passou em outras 69 verificações, com a área de transferência simulada. Nenhuma edição foi feita na Wikipédia.
-
-Leia [o relatório](dist/2.1.1/Relatorio_testes_RevisaWiki_v2_1_1.txt), [os resultados consolidados](tests/evidence/release_summary.json) e [as instruções para repetir os testes locais](tests/README.md). As contagens de verificações de regras, fluxos de navegador e artigos distintos são diferentes e não devem ser somadas como se fossem páginas.
+Para repetir os testes locais incluídos no repositório, execute `npm test`. Para reconstruir núcleo e dados com os mesmos bytes, execute `python3 scripts/build.py` e repita `npm test`. Esses comandos não repetem o corpus de 1.000 artigos nem abrem os três navegadores. [As instruções de testes](tests/README.md) explicam a cobertura.
 
 ## Código e licença
 
-Os arquivos distribuídos estão em `dist/2.1.1`. A regra acrescentada está em `src/table_year_sections.js`. `scripts/build.py` reconstrói o núcleo e os dados a partir do arquivo completo validado da própria 2.1.1. Os cinco arquivos executáveis precisam conservar os hashes da versão testada. Não há carregadores de versões anteriores no pacote.
-
-O código e a documentação mantêm **CC BY-SA 4.0**, já indicada nos cabeçalhos do RevisaWiki. As revisões permanentes dos scripts usados permanecem no código. Os textos da Wikipédia usados como exemplos de testes têm suas revisões e atribuição em `tests/fixtures/ATRIBUICAO.txt`. Leia [a licença](LICENSE).
+A distribuição atual fica em `dist/2.2.0`, e a 2.1.1 permanece em seu diretório histórico. O código e a documentação mantêm [CC BY-SA 4.0](LICENSE). Os créditos e a atribuição dos textos usados em testes estão nos arquivos. O programa, os dados e o carregador precisam pertencer à mesma versão.
