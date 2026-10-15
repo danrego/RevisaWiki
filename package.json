@@ -1,13 +1,14 @@
 {
   "name": "revisawiki",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "private": true,
-  "description": "Revis\u00e3o de wikitexto da Wikip\u00e9dia em portugu\u00eas",
+  "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/run_all.cjs"
+    "test": "node tests/run_all.cjs",
+    "test:complex": "node tests/engine_qa/portable_engine/run_complex_mutations.cjs --core=dist/2.4.0/RevisaWiki_v2_4.js --complete=dist/2.4.0/RevisaWiki_v2_4_completo.js"
   }
 }

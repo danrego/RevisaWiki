@@ -1,0 +1,960 @@
+{
+  "version": "2.4.0",
+  "script": "<workspace>/outputs/revisawiki_v2_4/RevisaWiki_v2_4.js",
+  "path": "<workspace>/outputs/revisawiki_v2_4/RevisaWiki_v2_4.js",
+  "scriptSha256": "b083ca14afb68e9af221617b3f4cf45e46cf35e26e43762898b6306b0c10abcc",
+  "fixtureSha256": "c05f7044c35db31641a0557dc7896651601eb6adbb6df5835ebc7d4e1a5a9afd",
+  "cases": 189,
+  "checks": 815,
+  "passed": 189,
+  "failed": 0,
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "tests": [
+    {
+      "name": "literal identical boxes in lead and final block",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "literal adjacent infoboxes",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "different box peso=18 toneladas",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different box nome=Ikv 105",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different box imagem=Outra.jpg",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonliteral equality 5",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonliteral equality 6",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonliteral equality 7",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonliteral equality 8",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box <!--Comentário da caixa-->",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box <nowiki>literal</nowiki>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box <ref>Fonte própria da caixa.</ref>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box <ref name=\"a\">Fonte da caixa.</ref>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box <ref name=\"a\"/>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box {{sfn|Autor|2020}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box {{efn|Nota da caixa}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box {{#invoke:Dados|referencia}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference-bearing or dynamic box {{Fonte dinâmica}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 18",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 19",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 20",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 21",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 22",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 23",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 24",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 25",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 26",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 27",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 28",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected or nested boxes 29",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'namespaceNumber': 1, 'discussionPage': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'namespaceNumber': 2, 'pageTitle': 'Usuário:Teste/Testes'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'namespaceNumber': 4, 'pageTitle': 'Wikipédia:Teste'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'sectionOnly': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'infoboxes': False}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'structuralRepairs': False}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'pageRedirect': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "context preserves duplicate boxes {'pageDisambiguation': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "leading empty renderer removed {{Reflist}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "leading empty renderer removed {{Referências}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "leading empty renderer removed <references/>",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "legitimate per-section collectors {{Reflist}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "legitimate per-section collectors {{Referências|nível=3}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "legitimate per-section collectors <references/>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 45",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 46",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 47",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 48",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 49",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 50",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 51",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 52",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 53",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 54",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous references 55",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'namespaceNumber': 1, 'discussionPage': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'namespaceNumber': 2, 'pageTitle': 'Usuário:Teste/Testes'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'sectionOnly': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'references': False}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'structuralRepairs': False}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'pageRedirect': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference context guard {'pageDisambiguation': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "leading empty suppressed renderer is redundant",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "duplicate footer {{Portal3|Suécia}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "inline footer preserved {{Portal3|Suécia}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonfooter occurrence preserved {{Portal3|Suécia}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "duplicate footer {{Commonscat|Infanterikanonvagn 91}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "inline footer preserved {{Commonscat|Infanterikanonvagn 91}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonfooter occurrence preserved {{Commonscat|Infanterikanonvagn 91}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "duplicate footer {{Controle de autoridade}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "inline footer preserved {{Controle de autoridade}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonfooter occurrence preserved {{Controle de autoridade}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "duplicate footer {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "inline footer preserved {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nonfooter occurrence preserved {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different final templates {{Portal3|Suécia}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different final templates {{Commonscat|Ikv 91}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different final templates {{Controle de autoridade|VIAF=123}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "different final templates {{Navbox|nome=Teste|lista1=[[A]]}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Predefinição desconhecida|valor=1}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Esboço}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Notas}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Referências|refs=<ref>Fonte.</ref>}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Commonscat|Ikv 91<ref>Fonte</ref>}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unproved footer duplicate {{Portal3|Suécia|a={{Dados}}}}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 87",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 88",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 89",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 90",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 91",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 92",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "end heading distinct content 93",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "obsolete exact category",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "other category retained !Artigos com descrição curta/Documentação",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other category retained !Artigos sem descrição curta",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other category retained Artigos com descrição curta",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other category retained !Artigos com ligação inválida para o Commons",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other category retained !Artigos que carecem de fontes",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "prose double encoded ampersand",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "protected double encoding 101",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 102",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 103",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 104",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 105",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 106",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 107",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 108",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 109",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 110",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 111",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "protected double encoding 112",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;lt;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;quot;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;#91;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;#x3B1;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other entity retained &amp;amp;amp;",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "whole wiki fence wikitext",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "whole wiki fence wiki",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "whole wiki fence mediawiki",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "other fence language 'javascript'",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other fence language 'lua'",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other fence language 'text'",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other fence language 'html'",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other fence language 'python'",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "other fence language ''",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 128",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 129",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 130",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 131",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 132",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "ambiguous fence 133",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "fence context {'namespaceNumber': 1, 'discussionPage': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "fence context {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "fence context {'sectionOnly': True}",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure <nowiki>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure <pre>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure <blockquote>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure <syntaxhighlight lang=\"wikitext\">",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure <!--",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure {{Exemplo|1=",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected structure [[Imagem:Exemplo.png|miniatura|",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <ref>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <references>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <nowiki>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <pre>",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <syntaxhighlight lang=\"html\">",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding <!--",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding {{Citar web|titulo=",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed protected encoding [[Tema|",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "safe literal nested formatting 152",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "safe literal nested formatting 153",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "safe literal nested formatting 154",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "nested dynamic template safety 155",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "nested dynamic template safety 156",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "presentation container headings 157",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "presentation container headings 158",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "presentation container headings 159",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "headings disabled preserves empty final heading",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed quotation \"",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed quotation “",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "unclosed quotation «",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "frozen incident revision 73212697",
+      "passed": true,
+      "checks": 16
+    },
+    {
+      "name": "frozen incident revision 73212811",
+      "passed": true,
+      "checks": 16
+    },
+    {
+      "name": "frozen incident revision 73212817",
+      "passed": true,
+      "checks": 15
+    },
+    {
+      "name": "opaque unclosed tail <q>",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "opaque unclosed tail <!--",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "opaque unclosed tail <code>",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "opaque unclosed tail <blockquote>",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "closed literal control <q>",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "closed literal control <!--",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "closed literal control <code>",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "closed literal control <blockquote>",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "actual math inequality lookalike tail 72309806",
+      "passed": true,
+      "checks": 11
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"< q <\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"< a <\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"< x <\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"< Q <\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"< q<\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"<\\tq\\t<\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "plain mathematical inequality not HTML \"<  x  <\"",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "genuine attributed q body remains protected",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "preservation still rejects ordinary prose loss",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "preservation still rejects URL loss",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "preservation still rejects image loss",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "preservation still rejects literal protected loss",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "preservation still rejects DOI loss",
+      "passed": true,
+      "checks": 1
+    }
+  ]
+}

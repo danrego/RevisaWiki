@@ -1,0 +1,15 @@
+Este teste funciona sem acesso à rede e não publica edições. Ele usa 16 revisões de artigos de física e matemática com mais de 100 KB e acrescenta três defeitos de sintaxe a cada texto, num total de 48 casos.
+
+Para executar a partir da raiz do repositório, informe os arquivos da distribuição. O módulo de dados deve permanecer ao lado do núcleo.
+
+    node tests/engine_qa/portable_engine/run_complex_mutations.cjs --core=dist/2.4.0/RevisaWiki_v2_4.js --complete=dist/2.4.0/RevisaWiki_v2_4_completo.js --output=artifacts/complex_v24
+
+Também são aceitas as variáveis REVISAWIKI_CORE e REVISAWIKI_COMPLETE. Os caminhos são resolvidos a partir da pasta de execução. Para dividir o trabalho, use --shard=0 --shards=4 e repita com os índices 1, 2 e 3, mantendo a mesma pasta --output.
+
+O teste confere o reparo mínimo exato, a execução completa, a igualdade entre núcleo e arquivo completo, a segunda execução sem mudanças, os inventários de fontes, as fórmulas, os comentários, os identificadores DOI e os erros de sintaxe. Os relatórios guardam hashes dos programas, do teste, do manifesto, dos textos recebidos e dos resultados. Este conjunto pode demorar alguns minutos e fica fora da execução padrão de npm test.
+
+O texto de cada revisão está em fixtures/. Os arquivos são cópias integrais dos textos congelados, sem correções. selected_sources.json informa título, revisão, tamanho, hash SHA-256, URL da revisão e histórico de autoria. A origem de todos os textos é a Wikipédia em português, sob CC BY-SA 4.0. Os históricos indicados no manifesto permitem consultar a autoria de cada artigo.
+
+Licença: https://creativecommons.org/licenses/by-sa/4.0/
+
+A contagem de ocorrências de DOI usa o resultado normal do artigo como comparação. A normalização de referências repetidas pode reunir ocorrências do mesmo DOI numa definição, sem retirar o identificador. Cada valor DOI do texto original precisa continuar presente. A redução de quatro para duas ocorrências de 10.1098/rsta.2019.0168 em Segunda lei da termodinâmica já acontece na execução normal e foi verificada antes da alteração deste teste. A contagem das definições recuperadas em listas de referências permanece estrita.

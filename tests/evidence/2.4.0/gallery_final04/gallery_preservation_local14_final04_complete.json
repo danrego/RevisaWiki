@@ -1,0 +1,150 @@
+{
+  "script": "outputs/revisawiki_v2_4/RevisaWiki_v2_4_completo.js",
+  "scriptSha256": "d4f17d0c0881105ba180440dca888d5539b797ce45ddbdbaa0e8967168214c7d",
+  "contractSha256": "b979ece7f4f6dffb6336238d8400e81ff25387566d44a1f6bbcdb49978cae467",
+  "version": "2.4.0",
+  "realRegressionSources": [
+    {
+      "title": "Cerveja",
+      "revid": 72717005,
+      "file": "fixtures/Cerveja_72717005_source.wiki",
+      "sha256": "9c96d8d0f6a682482f647fde7fc032937aa379c5b332741d5d9b8ee371695f82",
+      "bytes": 80132,
+      "final02ObservedOutputSha256": "d826f33b471607a679ff8772971add5570c24ab8dd16f614536acbe5454aaa3f",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72717005"
+    },
+    {
+      "title": "Renascimento",
+      "revid": 73109500,
+      "file": "fixtures/Renascimento_73109500_source.wiki",
+      "sha256": "b7e7498b56bc19f0f6641b2d7d98f29f0473ea267a523a0288c829deae91280e",
+      "bytes": 174111,
+      "final02ObservedOutputSha256": "e7d005ff0f9f8223caf968e8491f1c83e0f09c17e9c8da837e2c2c466871f62f",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73109500"
+    },
+    {
+      "title": "Fausto Coppi",
+      "revid": 69431006,
+      "file": "fixtures/Fausto_Coppi_69431006_source.wiki",
+      "sha256": "5886d93f72cb3ba2723e1ab836746f0bce05de618b4b44b62aa53c0541c8bc51",
+      "bytes": 35521,
+      "final02ObservedOutputSha256": "5886d93f72cb3ba2723e1ab836746f0bce05de618b4b44b62aa53c0541c8bc51",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69431006"
+    }
+  ],
+  "realCaseOutputs": [
+    {
+      "title": "Cerveja",
+      "revid": 72717005,
+      "outputSha256": "d826f33b471607a679ff8772971add5570c24ab8dd16f614536acbe5454aaa3f",
+      "final02ObservedOutputSha256": "d826f33b471607a679ff8772971add5570c24ab8dd16f614536acbe5454aaa3f",
+      "galleryOccurrences": 7,
+      "exactRawGalleries": 7,
+      "uniqueSourceGalleries": 7
+    },
+    {
+      "title": "Renascimento",
+      "revid": 73109500,
+      "outputSha256": "d0e0315cf01227959701aa5d516cc73cadfd3c54fab2d97b9ac3c828c9c1af77",
+      "final02ObservedOutputSha256": "e7d005ff0f9f8223caf968e8491f1c83e0f09c17e9c8da837e2c2c466871f62f",
+      "galleryOccurrences": 4,
+      "exactRawGalleries": 3,
+      "uniqueSourceGalleries": 4
+    },
+    {
+      "title": "Fausto Coppi",
+      "revid": 69431006,
+      "outputSha256": "eb1ef288fc1f75ad240fadd30a76b317e635a797be888303c5ba35bf3849120f",
+      "final02ObservedOutputSha256": "5886d93f72cb3ba2723e1ab836746f0bce05de618b4b44b62aa53c0541c8bc51",
+      "galleryOccurrences": 2,
+      "exactRawGalleries": 0,
+      "uniqueSourceGalleries": 2
+    }
+  ],
+  "source": {
+    "title": "Ponte",
+    "revid": 71895316,
+    "sourceSha256": "5d17ff4b580810e5dc97a66fa4f3a3bb481911cd9ece86c2528d2838d891c1c5",
+    "observedOutputSha256": "4cc12177ba6d02d29b02c2a712439b32ddcc733d118c669b5f54f23f11aa860b"
+  },
+  "cases": 14,
+  "checks": 42,
+  "passed": 14,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "unchanged foreign gallery must pass identity audit",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "finite Image to Ficheiro gallery namespace conversion is allowed",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "two gallery occurrences may mix unchanged and canonical namespace spellings",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "name": "losing one of two canonically identical galleries must be rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "gallery filename mutation remains rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "gallery caption mutation remains rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "comment mutation remains rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "mathematical literal mutation remains rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "nowiki literal mutation remains rejected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "actual Ponte frozen output retains the complete original tail and gallery",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "actual Ponte full calculate preserves expected output and passes protection audit",
+      "passed": true,
+      "checks": 6
+    },
+    {
+      "name": "actual Cerveja retains every gallery and clears the initial false warning",
+      "passed": true,
+      "checks": 6
+    },
+    {
+      "name": "actual Renascimento retains every gallery and clears the initial false warning",
+      "passed": true,
+      "checks": 6
+    },
+    {
+      "name": "actual Fausto Coppi retains every gallery and clears the initial false warning",
+      "passed": true,
+      "checks": 6
+    }
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "engineChanges": 0,
+  "warningQualificationChanges": 0
+}

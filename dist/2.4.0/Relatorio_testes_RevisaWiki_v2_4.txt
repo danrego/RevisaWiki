@@ -1,0 +1,25 @@
+RevisaWiki 2.4.0: testes dos arquivos finais
+
+A versão modular e a completa foram executadas novamente em 2.000 revisões congeladas. São os dois conjuntos de 1.000 artigos reunidos para a versão 2.3, sem contar fontes repetidas como novos artigos. Um dos conjuntos contém somente textos acima de 102.400 bytes, incluindo física e matemática. Todos passaram nas 48,000 verificações do ensaio. As duas distribuições produziram o mesmo texto, e uma segunda limpeza manteve o resultado.
+
+Foram conferidos hashes das fontes e dos programas, referências, sintaxe, conservação de conteúdo, contabilização UTF-8, limite de cache e elegibilidade de edição menor. O ensaio usa domínio principal, controle de autoridade e reordenação de modelos finais desativados, sem confirmação de edição menor. Os relatórios registram essas opções. Outras opções têm contratos próprios nas baterias de interface e nas históricas.
+
+Os verificadores independentes, sem importar o RevisaWiki, repetiram a conferência de URLs, destinos de ligações, imagens, categorias, identificadores, fórmulas e blocos literais. Passaram 14,000 verificações de conservação. O comparador de tabelas mantém 5 diagnósticos de apresentação, explicitados no JSON. Não foram contados como aprovações nem ocultados. Não houve aumento de tabelas, células ou fechamentos sem resolução.
+
+As fontes podem conter avisos anteriores ao ensaio. Qualificações de conservação exigem a revisão, os hashes e a mensagem exatos e não retiram os avisos do produto. O relatório completo identifica cada caso e as provas correspondentes. Os testes não comprovam fatos históricos, nem avaliam a qualidade das fontes dos artigos.
+
+Os contratos novos conferem os seis tipos de fechamento, as colisões de parâmetros, nomes e grupos de referências, citações literais, conteúdo dinâmico, discussão, seções e domínios protegidos. Tentativas de retirar definições repetidas, alterar grupos, mudar células, inverter linhas ou apagar chamadas recuperadas são recusadas. Os reparos dependentes são aceitos ou rejeitados juntos na comparação. O trecho incompleto preservado precisa permanecer idêntico, incluindo todas as referências nomeadas do trecho anterior.
+
+As mutações em artigos extensos e os contratos de inventário têm relatórios separados. As 12 baterias históricas passaram em 136,283 casos. Esse número inclui combinações sistemáticas de parâmetros e contextos, não artigos diferentes.
+
+Navegadores reais no Mac
+
+Chrome 155.0.8059.40: 128 fluxos históricos e 218 casos independentes aprovados, sem falhas.
+Firefox 158.0: 128 fluxos históricos e 218 casos independentes aprovados, sem falhas.
+Safari 27.0.1: 128 fluxos históricos e 218 casos independentes aprovados, sem falhas.
+
+Os testes usam editores e API locais que recusam gravações. Conferem Worker e execução em etapas, carregadores, botão superior e atalho junto de Publicar, teclado, CodeMirror, resumo, comparação, aceitar/rejeitar, desfazer e erros simulados de pré-visualização. Nenhuma edição, mensagem, alteração de conta ou publicação foi feita na Wikipédia.
+
+A proteção de células usa também uma pré-visualização intermediária do reparo confirmado. Uma tabela que estava incompleta pode então ser exibida, sem permitir que as alterações seguintes apaguem ou reordenem dados. Os exemplos de HTML público herdados são reduzidos. Não foi obtida uma nova pré-visualização pública integral de todos os artigos.
+
+Os testes não certificam todas as extensões pessoais ou mudanças futuras em predefinições. As evidências guardam os hashes exatos dos arquivos e os limites de cada ensaio. O código de produção continua restrito à ptwiki, e só as cópias locais de teste aceitam localhost.

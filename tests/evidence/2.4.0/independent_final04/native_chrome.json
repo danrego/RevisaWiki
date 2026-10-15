@@ -1,0 +1,279 @@
+{
+  "browser": "Chrome",
+  "script": "<workspace>/outputs/revisawiki_v2_4/RevisaWiki_v2_4_completo.js",
+  "scriptSha256": "d4f17d0c0881105ba180440dca888d5539b797ce45ddbdbaa0e8967168214c7d",
+  "fixtureSha256": "7938752542445bb94c93b49943efe16bd3b9ac19ee4cb3e48cafab540d655509",
+  "wikipediaWrites": 0,
+  "remoteWrites": 0,
+  "tests": [
+    {
+      "name": "independent isolated browser corpus",
+      "passed": true,
+      "checks": 0,
+      "result": {
+        "cases": 188,
+        "checks": 376,
+        "passed": 188,
+        "failed": 0,
+        "tests": []
+      }
+    },
+    {
+      "name": "strict repair preview baselines",
+      "passed": true,
+      "checks": 0,
+      "result": {
+        "cases": 10,
+        "checks": 11,
+        "passed": 10,
+        "failed": 0,
+        "tests": [
+          {
+            "name": "exact independent missing-table syntax baseline",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "canonical repair can reveal complete table",
+            "passed": true,
+            "checks": 2
+          },
+          {
+            "name": "repair does not exempt rendered missing cell",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "repair does not exempt rendered changed cell",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "repair does not exempt rendered Unicode cell loss",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "repair does not exempt rendered rows reversed",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "missing intermediate baseline rejected",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "stale intermediate source rejected",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "new visible error after repair rejected",
+            "passed": true,
+            "checks": 1
+          },
+          {
+            "name": "same existing error gaining an occurrence rejected",
+            "passed": true,
+            "checks": 1
+          }
+        ],
+        "wikipediaWrites": 0,
+        "networkRequests": 0
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-template-close Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</ref>",
+        "after": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-backslash-close-tag Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+        "after": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-ref-close-boundary Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</references>",
+        "after": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref></references>"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-empty-named-ref Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\"><ref name=\"b\">Outra fonte.</ref>",
+        "after": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\" /><ref name=\"b\">Outra fonte.</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-ref-format-close Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</ref>",
+        "after": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</small></ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-table-close-eof Worker",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "worker",
+        "before": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+        "after": "{| class=\"wikitable\"\n! scope=\"col\" | Letra !! scope=\"col\" | Valor\n|-\n| A || 1\n|-\n| B || 2\n|}"
+      }
+    },
+    {
+      "name": "actual explicit parameter typo Worker",
+      "passed": true,
+      "checks": 9,
+      "result": {
+        "engine": "worker"
+      }
+    },
+    {
+      "name": "actual safe prefix with exact malformed tail Worker",
+      "passed": true,
+      "checks": 9,
+      "result": {
+        "engine": "worker"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-template-close fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</ref>",
+        "after": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-backslash-close-tag fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+        "after": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-ref-close-boundary fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</references>",
+        "after": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref></references>"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-empty-named-ref fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\"><ref name=\"b\">Outra fonte.</ref>",
+        "after": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\" /><ref name=\"b\">Outra fonte.</ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-ref-format-close fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</ref>",
+        "after": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</small></ref>\n\n{{Referências}}\n\n"
+      }
+    },
+    {
+      "name": "actual adjust/diff/undo syntax-table-close-eof fallback",
+      "passed": true,
+      "checks": 14,
+      "result": {
+        "engine": "staged",
+        "before": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+        "after": "{| class=\"wikitable\"\n! scope=\"col\" | Letra !! scope=\"col\" | Valor\n|-\n| A || 1\n|-\n| B || 2\n|}"
+      }
+    },
+    {
+      "name": "actual explicit parameter typo fallback",
+      "passed": true,
+      "checks": 9,
+      "result": {
+        "engine": "staged"
+      }
+    },
+    {
+      "name": "actual safe prefix with exact malformed tail fallback",
+      "passed": true,
+      "checks": 9,
+      "result": {
+        "engine": "staged"
+      }
+    },
+    {
+      "name": "UI context guard {\"ns\":1}",
+      "passed": true,
+      "checks": 5,
+      "result": {
+        "preserved": true
+      }
+    },
+    {
+      "name": "UI context guard {\"ns\":10,\"title\":\"Predefinição:Teste\"}",
+      "passed": true,
+      "checks": 5,
+      "result": {
+        "preserved": true
+      }
+    },
+    {
+      "name": "UI context guard {\"section\":\"1\"}",
+      "passed": true,
+      "checks": 5,
+      "result": {
+        "preserved": true
+      }
+    },
+    {
+      "name": "actual named family across unresolved boundary",
+      "passed": true,
+      "checks": 10,
+      "result": {
+        "engine": "worker"
+      }
+    }
+  ],
+  "browserVersion": "155.0.8059.40",
+  "blockedRequests": [],
+  "browserErrors": [],
+  "cases": 218,
+  "checks": 616,
+  "passed": 218,
+  "failed": 0,
+  "finishedAt": "2026-10-15T04:12:36.647Z"
+}

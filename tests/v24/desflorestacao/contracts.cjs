@@ -1,0 +1,28 @@
+'use strict';
+require('node:fs').mkdirSync(require('node:path').resolve(__dirname,'../artifacts'),{recursive:true});
+// Frozen independent contracts for the valid-apostrophe markup regression.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const dir=__dirname,root=path.resolve(dir,'../../..'),script=process.env.REVISAWIKI_QA_SCRIPT||path.join(root,'dist/2.4.0/RevisaWiki_v2_4_completo.js'),api=require(script),rows=[];let checks=0;
+const eq=(a,b,m)=>{checks++;assert.deepEqual(a,b,m)},ok=(v,m)=>{checks++;assert(v,m)};
+function test(name,fn){const n=checks;try{fn();rows.push({name,passed:true,checks:checks-n})}catch(e){rows.push({name,passed:false,checks:checks-n,error:e.stack})}}
+const cfg={authorityControl:false,endTemplateOrder:false,namespaceNumber:0,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false,review:false,pageTitle:'Desflorestação'};
+const syntheticCfg={...cfg,bareReferences:false}; // Keep title markup visible to the specific reader regression.
+for(const n of [2,3,5])for(const title of ["IPF's report","O'Brien's forest","rock 'n' roll"]){
+ const mark="'".repeat(n),body='[https://example.invalid/fonte '+mark+title+mark+']',source='Texto.<ref name="a">'+body+'</ref><ref>Outra fonte.</ref> Depois '+mark+'Texto em destaque'+mark+'.\n{{Referências}}';
+ test('valid inline reference markup '+n+' '+title,()=>{const p=api.syntaxRepairPlan(source,cfg);eq(p.edits,[],'Valid reference source needs no repair');eq(p.unresolved,[],'Apostrophes inside formatted titles never hide reference closers or sibling markers');const r=api.calculate({kind:'adjust',source,originalSource:source,options:syntheticCfg});ok(r.text.includes(body),'Exact bibliographic title remains literal');eq(api.cleanup(r.text,syntheticCfg).text,r.text,'Valid source is one-click stable');eq(r.preservation,[],'No source or literal loss');});
+ test('named definition moves to inline use '+n+' '+title,()=>{const source='Prefixo.<ref name="prefixo">Fonte anterior.</ref> \n[[Imagem:Exemplo.jpg|miniatura|Legenda]]\n\nA.<ref name="a"/> Depois '+mark+'Texto em destaque'+mark+'.\n\nB.<ref name="a">'+body+'</ref>\n{{Referências}}',r=api.calculate({kind:'adjust',source,originalSource:source,options:syntheticCfg});ok(r.text.includes(body),'Moving a named definition preserves exact published title');ok(r.text.indexOf(body)<r.text.indexOf('Depois'),'The existing named-definition relocation still executes');eq(api.syntaxRepairPlan(r.text,cfg).unresolved,[],'Relocated valid definition does not create a false opaque tail');eq(api.cleanup(r.text,syntheticCfg).text,r.text,'Relocation and whitespace are stable on the first click');eq(r.preservation,[],'Valid reference family remains intact');});
+}
+for(const n of [2,3,5])for(const body of ['{{Referências]]','<ref>Fonte<\\ref>',"rock 'n' roll {{Referências]]","O'Brien {{Citar web|titulo=Fonte]]"]){
+ const source="'".repeat(n)+body+"'".repeat(n);
+ test('literal malformed example in paired markup '+n+' '+body,()=>{const p=api.syntaxRepairPlan(source,cfg);eq(p.text,source,'Every example byte remains literal');eq(p.edits,[],'No automatic repair inside paired markup');eq(p.unresolved,[],'Closed paired example does not leak malformed tokens outside its boundary');});
+}
+for(const wrapper of [x=>'<!--'+x+'-->',x=>'<math>'+x+'</math>',x=>'<nowiki>'+x+'</nowiki>'])for(const n of [2,3,5]){
+ const source=wrapper("'".repeat(n)+"IPF's {{Referências]]"+"'".repeat(n));
+ test('comments/math/nowiki remain opaque '+n+' '+source.slice(0,12),()=>{const p=api.syntaxRepairPlan(source,cfg);eq(p.text,source,'Exact protected literal source');eq(p.edits,[],'No syntax repairs in protected body');eq(p.unresolved,[],'Protected mathematical/comment apostrophes do not affect the document scanner');});
+}
+const sourceFile=path.join(dir,'source_68784588.wiki');
+test('actual Desflorestação 68784588 original and first-click scan',()=>{
+ ok(fs.existsSync(sourceFile),'Frozen actual source is mandatory');const source=fs.readFileSync(sourceFile,'utf8');eq(crypto.createHash('sha256').update(source).digest('hex'),'d4cdba4a704804652a134c7f2cccf439735c8da291efab6924d9a88d7ba10730','Exact original revision bytes');eq(api.syntaxRepairPlan(source,cfg).unresolved,[],'Original source has no false quote/reference issue');const r=api.calculate({kind:'adjust',source,originalSource:source,options:cfg});eq(api.syntaxRepairPlan(r.text,cfg).unresolved,[],'First complete output stays syntactically readable without false nested refs');eq(api.cleanup(r.text,cfg).text,r.text,'Actual 112KB article is idempotent on the first click');eq(r.preservation,[],'All article/source content remains preserved');ok(r.text.includes("IPF's Proposals for Action"),'Published title preserved exactly');ok(r.changes.some(c=>c.id==='namedRefs'),'Actual reference normalization still executes, rather than globally aborting');const diff=api.comparison(source,r);eq(api.composeChanges(source,diff),r.text,'Exact accept-all composition');eq(api.composeChanges(source,diff.map(h=>({...h,accepted:false}))),source,'Exact reject-all composition');fs.writeFileSync(path.join(dir,'../artifacts/candidate_'+path.basename(script)+'.wiki'),r.text);
+});
+const report={version:api.version,script,scriptSha256:crypto.createHash('sha256').update(fs.readFileSync(script)).digest('hex'),cases:rows.length,checks,passed:rows.filter(x=>x.passed).length,failed:rows.filter(x=>!x.passed).length,wikipediaWrites:0,networkRequests:0,tests:rows};
+fs.writeFileSync(process.env.REVISAWIKI_QA_REPORT||path.join(dir,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({...report,tests:rows.filter(x=>!x.passed)}));process.exitCode=report.failed?1:0;

@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "scope": "Sintaxe, transformação pura da receita e inventários portáteis. Nenhum preparador foi executado por esta auditoria.",
+  "verifiedAt": "2026-10-15T04:30:59.835695+00:00",
+  "freezeLabel": "FINAL04",
+  "scripts": {
+    "work/revisawiki_v2_4/prepare_repository.py": {
+      "bytes": 22605,
+      "sha256": "95934c923ad321f40691e6aca1c313c817c8e6048d5de1647471a8894f44d780"
+    },
+    "work/revisawiki_v2_4/prepare_evidence.py": {
+      "bytes": 4484,
+      "sha256": "af32d7495d0b1a665b2e44d85bad3d03a2767cca02412aea5dc0c57f6c583ea1"
+    },
+    "work/revisawiki_v2_4/prepare_corpus_portable.py": {
+      "bytes": 4207,
+      "sha256": "dac826752adc40870fbb2bc63ae5200e41e8e61fed31fd4832b98662041f8ffd"
+    },
+    "work/revisawiki_v2_4/build_release.py": {
+      "bytes": 13034,
+      "sha256": "b4c872652f1edfaab67f4b92f9af960d3fafe985b4433e0ad12166502b202c63"
+    },
+    "work/revisawiki_v2_4/package_release.py": {
+      "bytes": 12359,
+      "sha256": "13c6089c3106079fc10a2ce318d1b4d4045162fe433d7248f56d0499d2f7eca2"
+    },
+    "work/revisawiki_v2_4_indice/build_index.py": {
+      "bytes": 11372,
+      "sha256": "f0ba632590f87276b275b8dae97ed21f936886695399537743948b579662948e"
+    },
+    "work/revisawiki_v2_4_indice/test_index.cjs": {
+      "bytes": 11331,
+      "sha256": "3cec63bce6b06edb2cc0259b9fd9f5814ef81cae0fe6e4a6a2b3eab171b5933f"
+    }
+  },
+  "purePortableBuilderTransformPassed": true,
+  "injectionHelpers": {
+    "syntax_repairs.js": {
+      "bytes": 34694,
+      "sha256": "0265a1237e3b2006006f9193ab4f907841858cf8fb31e4a5b69481c1fbf8673c"
+    },
+    "sourceproof_inventory.js": {
+      "bytes": 10674,
+      "sha256": "02594bdf20ad5bb6b43226c91c79e83c7548c65a03d69cd21a853d2747eea939"
+    },
+    "integration_rules.js": {
+      "bytes": 5842,
+      "sha256": "215bebf58278aab70b427c9ee0854dcf6338dc95eeb3dd1bed5aa3a765a24c9e"
+    },
+    "parameter_typos.json": {
+      "bytes": 802,
+      "sha256": "a39cf680546135867274b50e6febb81ad1967a7213132a8051365b7b7d6908af"
+    }
+  },
+  "baseFilesRequired": 311,
+  "baseFilesPresent": 311,
+  "baseMutationsAllowedOnlyForCurrentPointers": 8,
+  "requires": [
+    "final_test_freeze.json",
+    "MANIFESTO_ARQUIVOS.json",
+    "índice final testado e ligado aos mesmos bytes",
+    "qa_independent/PORTABLE_V24_MANIFEST.json",
+    "evidence_manifest.json com registros finais explícitos"
+  ],
+  "githubMutationsByThisAudit": 0,
+  "wikipediaWritesByThisAudit": 0,
+  "legacyWarningAmendment": {
+    "oldPattern": "r.warnings.some(w=>/sem fechamento/.test(w))",
+    "newPattern": "r.warnings.some(w=>/sem fechamento|incompleto/i.test(w))",
+    "occurrences": 1,
+    "caseCoverage": 4,
+    "historicalSourceSha256": "1c31a8774a630b3f26c84618310ad07fbf96f5051aafcaec365d5981206b2648",
+    "amendedInMemorySha256": "cd012df66afe102364c3395cb030d82e6fbc98973770218d55021273f6e86525",
+    "historicalFileChangedByPreparer": false
+  },
+  "inheritedTestCommandTargets": "Distribuição histórica 2.3.0. As duas alterações de expectativas 2.4 têm registro separado.",
+  "checkedBuildRecipeSha256": "b4c872652f1edfaab67f4b92f9af960d3fafe985b4433e0ad12166502b202c63",
+  "checkedPortableRecipeSha256": "e782bd04a7cd549524712b820aa7b001f7376c95c7198e23a7026444fa63a81b",
+  "finalReleaseFreezeSha256": "e510e5948e7ef6d0317339c2ed85821f71c0d88d5a11584b9a7c9dabb7a19fd5",
+  "portableSourceInventoriesExact": {
+    "qa": 22,
+    "gallery": 11,
+    "engine": 20
+  },
+  "portableQaManifestSha256": "cf34de8f723b3168227c1cdb15d1ed4b05e0013f7bfc0fb363f5e524d5da8e5e",
+  "portableGalleryManifestSha256": "6feff1a49e6fd852d22b55cedb089693e1bb73638da463a603cc95d118ce25c9",
+  "portableGalleryCasesPerDistribution": 14,
+  "galleryRunsInDefaultNpmTest": true,
+  "complexMutationsCommand": "npm run test:complex",
+  "corpusReadmeLinked": true,
+  "corpusArtifactsIgnored": true,
+  "qaReadmeLinkUsesExistingTxt": true,
+  "engineInventoryEvidence": "work/revisawiki_v2_4/engine_qa/inventory_proof_final04_results.json",
+  "genericUnsuffixedInventoryEvidenceUsed": false,
+  "preparedRepositoryExecutedByThisAudit": false,
+  "indexBuilderExecutedByThisAudit": false,
+  "packageBuilderExecutedByThisAudit": false
+}

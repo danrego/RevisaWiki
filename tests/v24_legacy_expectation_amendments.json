@@ -1,0 +1,16 @@
+{
+  "version": "2.4.0",
+  "source": "tests/v23_independent/run_contracts.cjs",
+  "sourceSha256": "1c31a8774a630b3f26c84618310ad07fbf96f5051aafcaec365d5981206b2648",
+  "amendedSha256": "cd012df66afe102364c3395cb030d82e6fbc98973770218d55021273f6e86525",
+  "amendments": [
+    {
+      "before": "r.warnings.some(w=>/sem fechamento/.test(w))",
+      "after": "r.warnings.some(w=>/sem fechamento|incompleto/i.test(w))",
+      "expectedOccurrences": 1,
+      "reason": "The four opaque-tail cases require the unresolved boundary warning. 2.4 uses incompleto for this same state; all preservation, idempotence and no-extra-collector assertions remain unchanged."
+    }
+  ],
+  "caseCoverage": "Four cases in the existing opaque-tail loop. One exact pattern replacement, not four independent changes.",
+  "historicalFileChanged": false
+}

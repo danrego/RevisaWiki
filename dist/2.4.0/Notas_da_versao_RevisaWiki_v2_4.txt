@@ -1,0 +1,38 @@
+RevisaWiki 2.4.0
+
+Repositório do programa: https://github.com/danrego/RevisaWiki
+
+Atualização preparada em 14 de outubro de 2026. Nenhuma edição foi feita na Wikipédia. A instalação usa duas partes, núcleo e dados. O arquivo completo é fornecido para download e testes locais.
+
+MUDANÇAS
+
+- Reparos de fechamento de predefinições reconhecidas e de barras invertidas em etiquetas finais.
+- Fechamento de referências apenas diante de limites confirmados e reutilização de chamadas nomeadas vazias somente com uma definição única no mesmo grupo.
+- Fechamento de small, sup, sub e span dentro de referências e de tabelas simples que chegam completas ao fim da página.
+- Ampliação da lista de parâmetros de citações com 29 erros exatos, mantendo nomes válidos e campos equivalentes já presentes.
+- Passagem limitada ao trecho completo anterior a código incompleto, preservando a cauda e todas as referências nomeadas.
+- Avisos calculados novamente depois dos reparos, agrupamento das mudanças dependentes na comparação e resumo restrito às alterações mantidas.
+- Conferência da pré-visualização intermediária e da preservação de fontes, chamadas e dados de tabelas recuperados.
+
+USO
+
+O botão azul Ajustar código e o atalho verde azulado antes de Publicar executam os mesmos ajustes. Ver o que mudou e Desfazer ajustes permanecem no painel. A comparação permite rejeitar trechos. O resumo acompanha apenas as mudanças mantidas. O programa ajusta o rascunho, e o editor decide quando salvar.
+
+A documentação completa conserva as explicações dos recursos anteriores e acrescenta um histórico das versões, da mais recente para a mais antiga. Os nomes e parâmetros válidos continuam preservados, sem recomendação de troca apenas para uniformizar a escrita.
+
+TESTES
+
+A validação da 2.4.0 reutiliza os dois conjuntos de 1.000 artigos já usados na 2.3.0, com as mesmas revisões e hashes. A nova execução trabalha sobre essas 2.000 fontes congeladas. Esses números se referem a artigos já reunidos, sem uma nova coleta de 2.000 páginas.
+
+A versão 2.4.0 foi executada novamente nos dois conjuntos congelados de 1.000 artigos usados na 2.3, nas distribuições modular e completa. Passaram todos os artigos nas verificações de sintaxe, referências, conservação, bytes e segunda aplicação. Os contratos novos e históricos passaram também no Firefox, Chrome e Safari reais no Mac, usando páginas locais que recusam gravações. O relatório separa os casos de teste dos artigos, registra os hashes dos arquivos e mantém os diagnósticos de apresentação das tabelas. Nenhuma edição foi feita na Wikipédia.
+
+INSTALAÇÃO
+
+Atualize primeiro RevisaWiki_v2_4_dados.js, depois RevisaWiki_v2_4.js e, por último, expectedVersion para '2.4.0' no carregador. Preserve os demais scripts do common.js e mantenha uma única chamada do RevisaWiki. Instale o carregador comunitário somente depois que as páginas de distribuição estiverem na mesma versão.
+
+O índice de cópia e Instalacao_RevisaWiki_v2_4.txt trazem os destinos e o processo completo. RevisaWiki_v2_4_completo.js reúne programa e dados para download e testes locais. Ele ultrapassa o limite de 2.097.152 bytes por página da ptwiki. O núcleo e os dados ficam abaixo desse limite, em arquivos separados.
+
+LICENÇA E CRÉDITOS
+
+CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+Mantidas as revisões permanentes usadas como fontes dos scripts públicos, além das licenças existentes no código e na documentação.
