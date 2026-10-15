@@ -1,0 +1,781 @@
+{
+  "version": "2.7.0",
+  "build": "2.7.0",
+  "browser": "Safari",
+  "startedAt": "2026-10-15T22:45:03.967Z",
+  "pinManifestSha256": "d8e46135247b6aeffc32b01c03e79127b7472a71b701deb3d49efc9bf6ae21fd",
+  "corpusManifestSha256": "0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
+  "releaseFiles": {
+    "Carregador_common_js_RevisaWiki_v2_7.js": {
+      "sha256": "a03930b84cdc876a1d7eddfb329513372b011fb95613f555f23061080b17acb2",
+      "bytes": 9648
+    },
+    "Carregador_comunitario_RevisaWiki_v2_7.js": {
+      "sha256": "a8668d89b5bec963640fc838906d9da93495374c7e5a13024a737711d25457ec",
+      "bytes": 9650
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+      "bytes": 695
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0",
+      "bytes": 743
+    },
+    "RevisaWiki_v2_7.js": {
+      "sha256": "96ff8165656fa8a283da992538d022f0cc73ae6435b8f878ef55e368360e29f4",
+      "bytes": 950921
+    },
+    "RevisaWiki_v2_7_completo.js": {
+      "sha256": "6800c9dcfbbc2b6eb694347028e0abcf72f7446fd5c49a7b87f0b733e49cdbd1",
+      "bytes": 2464071
+    },
+    "RevisaWiki_v2_7_dados.js": {
+      "sha256": "55309c5538faac54ed445feb6c906a3f826b322628f2dbe41130aec9e85dd7ac",
+      "bytes": 1523933
+    }
+  },
+  "hashes": {
+    "core": "96ff8165656fa8a283da992538d022f0cc73ae6435b8f878ef55e368360e29f4",
+    "data": "55309c5538faac54ed445feb6c906a3f826b322628f2dbe41130aec9e85dd7ac",
+    "central": "a8668d89b5bec963640fc838906d9da93495374c7e5a13024a737711d25457ec",
+    "personal": "a03930b84cdc876a1d7eddfb329513372b011fb95613f555f23061080b17acb2",
+    "shared": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440",
+    "own": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+  },
+  "cityFixture": {
+    "title": "Lista de cidades por temperatura média",
+    "oldid": 73218867,
+    "timestamp": "2026-10-15T20:18:18Z",
+    "bytes": 210679,
+    "lines": 2497,
+    "sha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+    "permalink": "https://pt.wikipedia.org/w/index.php?oldid=73218867",
+    "revid": 73218867,
+    "ns": 0,
+    "kind": "historical-positive-diff-regression",
+    "numericRows": 487
+  },
+  "latestCityFixture": {
+    "title": "Lista de cidades por temperatura média",
+    "revid": 73219315,
+    "timestamp": "2026-10-15T21:27:32Z",
+    "ns": 0,
+    "file": "sources/31_73219315.wiki.gz",
+    "bytes": 210125,
+    "sha256": "417c25824947940f1ca6902962d46506ab5d4d81bf9b3a276f4657165bb881d6",
+    "sha1": "8a0ab44b7997528295144a2607f2412af10db0b7",
+    "permalink": "https://pt.wikipedia.org/w/index.php?oldid=73219315",
+    "compression": "gzip",
+    "compressedBytes": 39767,
+    "compressedSha256": "4be402b62ebec8399a239d1a5840153c2e02dbdb12f0bda72ef8bb075711129b"
+  },
+  "adaptations": [
+    "Only the ptwiki host guards are extended to localhost for this isolated fixture.",
+    "All API responses are local mocks. No production text or parser logic is altered.",
+    "Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.",
+    "The real Worker constructor is observed only to retain result counts for independent UI assertions.",
+    "The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.",
+    "Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact."
+  ],
+  "tests": [
+    {
+      "name": "shared stable installation chain",
+      "passed": true,
+      "assertions": 60,
+      "evidence": {
+        "primaryRoute": "native-source-editor",
+        "readingPageExtraLaunchers": 0,
+        "staleOwnedButtonsRemoved": 4,
+        "nativeLinksPreserved": true,
+        "readingCoreStaysLazy": true,
+        "explicitCoreMountsNoLaunchers": true,
+        "stalePendingRemainsInert": true
+      },
+      "milliseconds": 711
+    },
+    {
+      "name": "own stable installation chain",
+      "passed": true,
+      "assertions": 60,
+      "evidence": {
+        "primaryRoute": "native-source-editor",
+        "readingPageExtraLaunchers": 0,
+        "staleOwnedButtonsRemoved": 4,
+        "nativeLinksPreserved": true,
+        "readingCoreStaysLazy": true,
+        "explicitCoreMountsNoLaunchers": true,
+        "stalePendingRemainsInert": true
+      },
+      "milliseconds": 599
+    },
+    {
+      "name": "complete city-temperature article and exact undo",
+      "passed": true,
+      "assertions": 182,
+      "evidence": {
+        "outputSha256": "30cc28361ca5087cdcf11c206a6376d436bf300cb8029402d9d48cd0d7dcdbd2",
+        "outputBytes": 210126,
+        "numericRows": 487,
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 2491,
+          "workerFailure": null
+        },
+        "byteMetrics": {
+          "before": 210679,
+          "after": 210126,
+          "delta": -553,
+          "added": 2024,
+          "removed": 2577,
+          "changed": 4601,
+          "hunks": 95,
+          "consistent": true,
+          "netExact": true,
+          "precise": true,
+          "precision": "local-diff"
+        },
+        "byteBadge": "−553 bytes",
+        "diff": {
+          "groups": 95,
+          "maximumContextCharacters": 378,
+          "actualTypes": [
+            "referências",
+            "tabelas"
+          ],
+          "selectionGesture": "native-focus-and-space",
+          "trustedSelectionEvent": true,
+          "rejectedChanges": 1,
+          "partialSourceChanged": true,
+          "partialTypes": [
+            "referências",
+            "tabelas"
+          ]
+        },
+        "summaryOwnership": {
+          "automaticUpdatedAfterRejection": true,
+          "automaticClearedAfterManualSourceChange": true,
+          "manualSummaryPreserved": true
+        }
+      },
+      "restoredSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "milliseconds": 9478
+    },
+    {
+      "name": "large full article 73210183",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "Óptica",
+        "revid": 73210183,
+        "sourceBytes": 110491,
+        "inputSha256": "b67d3c4fe3d9a4eb3a353d5df89da15becd0b4c3fdd05f972a37db94958a83e3",
+        "outputBytes": 110501,
+        "outputSha256": "cda1c491329c2bec6ea13c6de7d3eaac5d62201c4c3e15f440b4537446758f0d",
+        "changed": true,
+        "actualTypes": [
+          "imagens",
+          "formatação"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 1855,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "b67d3c4fe3d9a4eb3a353d5df89da15becd0b4c3fdd05f972a37db94958a83e3",
+      "milliseconds": 3900
+    },
+    {
+      "name": "large full article 73187777",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "Guerra Civil no Sudão (2023–presente)",
+        "revid": 73187777,
+        "sourceBytes": 144223,
+        "inputSha256": "30a9a44484d97f613f214a4963ac98fbb907af15f8cb6d796c0b7223739d5753",
+        "outputBytes": 144247,
+        "outputSha256": "c9b29c17d42ab8c680acef08688263a4ffbd6a07702ad6c3d765726492a48fc9",
+        "changed": true,
+        "actualTypes": [
+          "referências",
+          "formatação"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 2323,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "30a9a44484d97f613f214a4963ac98fbb907af15f8cb6d796c0b7223739d5753",
+      "milliseconds": 4697
+    },
+    {
+      "name": "large full article 73199504",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "Ronaldo Nazário",
+        "revid": 73199504,
+        "sourceBytes": 142706,
+        "inputSha256": "e5de297649596519c77b9a38090983daf350a46f2f3a4d9cc48e9e0be9be91b1",
+        "outputBytes": 144360,
+        "outputSha256": "eee24132158419db800834369de9f04128295dfe70e4f1d41baf46f89ab4505f",
+        "changed": true,
+        "actualTypes": [
+          "referências",
+          "formatação"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 2101,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "e5de297649596519c77b9a38090983daf350a46f2f3a4d9cc48e9e0be9be91b1",
+      "milliseconds": 4084
+    },
+    {
+      "name": "large full article 73214020",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "BAE Systems",
+        "revid": 73214020,
+        "sourceBytes": 139112,
+        "inputSha256": "f30da83912e5602a9eee49b98f795e524b5fbcf5bd2637b25a8c83ba2cdac9ce",
+        "outputBytes": 139332,
+        "outputSha256": "3ddc609964664f6e0edba010e3589d5f6c11e3cf4ca1134db41c4a26226be6e1",
+        "changed": true,
+        "actualTypes": [
+          "infocaixas"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 2081,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "f30da83912e5602a9eee49b98f795e524b5fbcf5bd2637b25a8c83ba2cdac9ce",
+      "milliseconds": 4156
+    },
+    {
+      "name": "large full article 73209846",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "Fortaleza",
+        "revid": 73209846,
+        "sourceBytes": 215656,
+        "inputSha256": "94bad6d8f1d7cf10c97f3cc513dda7864ae7e034d2a0b8c6b2963be331c00625",
+        "outputBytes": 218772,
+        "outputSha256": "84a3814b7d57f5ba9f54c2697a1aa0115709cfc01c1bd3a9c3a4a2d965e6c36c",
+        "changed": true,
+        "actualTypes": [
+          "referências",
+          "ligações",
+          "imagens",
+          "formatação"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 4080,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "94bad6d8f1d7cf10c97f3cc513dda7864ae7e034d2a0b8c6b2963be331c00625",
+      "milliseconds": 8087
+    },
+    {
+      "name": "large full article 73187948",
+      "passed": true,
+      "assertions": 23,
+      "evidence": {
+        "title": "The New York Times",
+        "revid": 73187948,
+        "sourceBytes": 183164,
+        "inputSha256": "56bb01f1d4d7794db6d2dee24e19a336c071745f5178e0139e7ec544cf3b225b",
+        "outputBytes": 183271,
+        "outputSha256": "a01aa794375728c6cf5ada3ec3e91daecf52beefc9d407beeae8310a99539056",
+        "changed": true,
+        "actualTypes": [
+          "referências",
+          "infocaixas",
+          "tabelas",
+          "formatação"
+        ],
+        "processing": {
+          "active": false,
+          "engine": "worker",
+          "milliseconds": 2541,
+          "workerFailure": null
+        }
+      },
+      "restoredSha256": "56bb01f1d4d7794db6d2dee24e19a336c071745f5178e0139e7ec544cf3b225b",
+      "milliseconds": 5100
+    },
+    {
+      "name": "four safe automation families and distinct note group",
+      "passed": true,
+      "assertions": 39,
+      "evidence": {
+        "inputSha256": "a548deb84c0210ae85d0265684c67b6f35e21a4b2f3e15c7def09110bf5a67de",
+        "outputSha256": "3727f314adce469b3993e1e8f92d105a3599853b046cc4568dba32838b330aa4",
+        "restoredExact": true,
+        "wholeArticleFenceRemoved": true,
+        "ordinaryExportTokenRemoved": true,
+        "protectedTokenPreserved": true,
+        "legitimateWordPreserved": true,
+        "adjacentTokenClustersRemoved": true,
+        "wordBoundaryPreserved": true
+      },
+      "milliseconds": 705
+    }
+  ],
+  "assertions": 479,
+  "actualWikipediaWrites": 0,
+  "actualNetworkMutations": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/favicon.ico"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/city.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/article.wiki"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    }
+  ],
+  "browserVersion": "27.0.1",
+  "blockedOutsideRequests": 0,
+  "finalSavedFileHashesVerified": true,
+  "finalSourceHashesVerified": true,
+  "cleanup": {
+    "ownSessionClosed": true,
+    "ownProcessExited": true,
+    "exitCode": 0,
+    "signalCode": null,
+    "ownProfileRemoved": true,
+    "unknownBrowserSessionsTouched": false
+  },
+  "finishedAt": "2026-10-15T22:45:46.419Z",
+  "runnerSha256": "d3d9dfd9653488c939cdcf9ade97fcb6449e12b791e68969e8ffb592fcb2060c",
+  "passed": 10,
+  "failed": 0
+}

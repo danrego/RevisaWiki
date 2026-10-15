@@ -29,6 +29,14 @@ APPROVED_PUBLIC_CREDIT_FILES={
   'a18c5e9bd1772123cb476f8c538c13c34e015a6ae730f7567fd569e8eb200ae3',
  }
 }
+# One institutional social identifier occurs in a bibliographic source title.
+# Approval binds both the complete immutable article bytes and the exact token.
+# A modified article or another email-like identifier still requires review.
+APPROVED_PUBLIC_CITATION_IDENTIFIERS={
+ '31ce4a8f12b22feb936ac0e64a3acc46a02026ddc53e5486cb97b0a60c07ba60':{
+  'e286e60a87f20a0f6bd9988b63b612465b9b8c4230f97cb312e46c2b11b51001'
+ }
+}
 PUBLIC_NOREPLY='revisawiki@reserved.invalid'
 IMAGE_MAGIC=(b'\x89PNG',b'\xff\xd8',b'GIF8',b'RIFF',b'BM',b'%PDF')
 IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.heic','.pdf','.svg'}
@@ -102,7 +110,8 @@ class Scanner:
    if matches:self.fail(path,name,len(matches),subject[:matches[0].start()].count('\n')+1)
   for literal in self.denied:
    if literal and literal in text:self.fail(path,'private-local-denylist',text.count(literal))
-  reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(hashlib.sha256(data).hexdigest(),set())
+  content_hash=hashlib.sha256(data).hexdigest()
+  reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(content_hash,set())|APPROVED_PUBLIC_CITATION_IDENTIFIERS.get(content_hash,set())
   for m in EMAIL.finditer(text):
    value=m[0]
    if value==PUBLIC_NOREPLY:continue

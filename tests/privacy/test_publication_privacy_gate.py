@@ -55,6 +55,13 @@ case('exact attested vendor may be relocated',credited,[],path='relocated/vendor
 case('exact attested vendor inside zip',z(credited,'vendor.js'),[])
 case('modified vendor needs review again',credited+b' changed',['unreviewed-email'],path='relocated/vendor.js')
 del g.APPROVED_PUBLIC_CREDIT_FILES[credited_hash]
+citation=b'Institutional citation identifier: '+b'institution'+b'@'+b'example.invalid'
+citation_hash=g.hashlib.sha256(citation).hexdigest();identifier_hash=g.hashlib.sha256((b'institution'+b'@'+b'example.invalid')).hexdigest()
+g.APPROVED_PUBLIC_CITATION_IDENTIFIERS[citation_hash]={identifier_hash}
+case('exact attested citation identifier',citation,[])
+case('exact attested citation identifier in gzip',gzip.compress(citation),[])
+case('modified citation identifier needs review again',citation+b' changed',['unreviewed-email'])
+del g.APPROVED_PUBLIC_CITATION_IDENTIFIERS[citation_hash]
 for value,expected in [('safe/file.txt',True),('../escape.txt',False),('/absolute/file.txt',False),('safe\\file.txt',False),('',False)]:
  passed=g.safe_relative(value)==expected;results.append({'name':'safe allowlist path '+str(len(results)),'passed':passed})
  if not passed:raise AssertionError('allowlist path safety')

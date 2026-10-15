@@ -1,0 +1,38 @@
+'use strict';
+// Aggregate only fresh native runs against the current immutable release pins.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
+const manifestPath=path.resolve(__dirname,'../../expected_release_v270.json');
+const manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);
+const directory=path.resolve(process.argv[2]||process.env.REVISAWIKI_INSTALL_REPORT_DIR||'artifacts/v27/browser');
+const runnerSha256=sha(fs.readFileSync(path.join(__dirname,'run_release.cjs')));
+const corpusManifestBytes=fs.readFileSync(path.join(__dirname,'../fixtures/large_articles/manifest.json'));
+const corpusManifestSha256=sha(corpusManifestBytes),corpus=JSON.parse(corpusManifestBytes);
+const historicalCity=JSON.parse(fs.readFileSync(path.join(__dirname,'../fixtures/city_temperature/source_revision.json')));
+const recentCity=corpus.articles.find(article=>article.title===historicalCity.title);
+const summary={version:'2.7.0',kind:'native-macos-patch-browser-summary',frozenFiles:manifest.files,pinManifestSha256:sha(manifestBytes),runnerSha256,corpusManifestSha256,historicalCitySource:{...historicalCity,revid:historicalCity.oldid},recentCitySource:recentCity,cases:0,checks:0,failed:0,browsers:[],wikipediaWrites:0,networkMutations:0,outsideRequests:0,clipboardWrites:0,screenshots:0,scope:'Thirty local native browser workflows across three installed engines. Ordinary source-editor installation flows and read-page absence checks for all extra section controls. Full source article runs through a real Worker and exact Undo. API responses are fixture-only; this is not a live Wikipedia integration or a complete visual audit.'};
+const articleOutputHashes=new Map();let outputSha256,safeOutputSha256;
+for(const name of ['chrome','firefox','safari']){
+ const bytes=fs.readFileSync(path.join(directory,name+'.json')),report=JSON.parse(bytes);
+ assert.equal(report.version,'2.7.0');assert.equal(report.pinManifestSha256,summary.pinManifestSha256);
+ assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);
+ assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,10);
+ assert.equal(report.runnerError,undefined);assert.equal(report.cleanupError,undefined);assert.equal(report.finalSavedFileHashesVerified,true);
+ for(const field of ['actualWikipediaWrites','actualNetworkMutations','blockedOutsideRequests','clipboardWrites','screenshots'])assert.equal(report[field],0,name+' '+field);
+ assert.equal(report.cleanup.ownSessionClosed,true);assert.equal(report.cleanup.ownProcessExited,true);assert.equal(report.cleanup.ownProfileRemoved,true);assert.equal(report.cleanup.unknownBrowserSessionsTouched,false);
+ assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));
+ assert.equal(report.tests.length,10);assert(report.tests.every(test=>test.passed&&test.assertions>0));
+ for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}
+ const city=report.tests.find(test=>test.name==='complete city-temperature article and exact undo');
+ assert(city);assert.equal(city.evidence.processing.engine,'worker');assert.equal(city.evidence.processing.workerFailure,null);
+ assert.deepEqual(report.latestCityFixture,recentCity);for(const key of ['title','timestamp','bytes','sha256','permalink'])assert.equal(report.cityFixture[key],historicalCity[key]);assert.equal(report.cityFixture.revid,historicalCity.oldid);assert.equal(report.cityFixture.kind,'historical-positive-diff-regression');assert.equal(city.evidence.numericRows,487);assert(city.evidence.diff.groups>=3);assert(city.evidence.diff.actualTypes.length>1);assert(city.evidence.diff.rejectedChanges>0);assert.equal(city.evidence.diff.selectionGesture,'native-focus-and-space');assert.equal(city.evidence.diff.trustedSelectionEvent,true);assert.equal(city.evidence.byteMetrics.netExact,true);assert.equal(city.restoredSha256,report.cityFixture.sha256);
+ outputSha256??=city.evidence.outputSha256;assert.equal(city.evidence.outputSha256,outputSha256,'Exact output parity across installed browsers');
+ for(const test of report.tests.filter(test=>test.name.startsWith('large full article '))){const key=test.evidence.revid;assert.equal(test.evidence.processing.engine,'worker');assert.equal(test.evidence.processing.workerFailure,null);assert.equal(test.restoredSha256,test.evidence.inputSha256);if(articleOutputHashes.has(key))assert.equal(test.evidence.outputSha256,articleOutputHashes.get(key),'Exact diverse source output parity');else articleOutputHashes.set(key,test.evidence.outputSha256);}
+ const safe=report.tests.find(test=>test.name==='four safe automation families and distinct note group');assert(safe);assert.equal(safe.evidence.restoredExact,true);for(const key of ['wholeArticleFenceRemoved','ordinaryExportTokenRemoved','protectedTokenPreserved','legitimateWordPreserved','adjacentTokenClustersRemoved','wordBoundaryPreserved'])assert.equal(safe.evidence[key],true);safeOutputSha256??=safe.evidence.outputSha256;assert.equal(safe.evidence.outputSha256,safeOutputSha256,'Safe-rule output parity across native engines');
+ summary.cases+=report.tests.length;summary.checks+=report.assertions;
+ summary.browsers.push({name:report.browser,version:report.browserVersion,report:name+'.json',reportSha256:sha(bytes),cases:report.tests.length,checks:report.assertions,workerMilliseconds:city.evidence.processing.milliseconds,cityDiff:city.evidence.diff,byteMetrics:city.evidence.byteMetrics,byteBadge:city.evidence.byteBadge,summaryOwnership:city.evidence.summaryOwnership,outputSha256:city.evidence.outputSha256,restoredSha256:city.restoredSha256,cleanup:report.cleanup});
+}
+assert.equal(summary.cases,30);assert(summary.checks>360);
+assert.equal(articleOutputHashes.size,6);summary.safeRuleOutputSha256=safeOutputSha256;summary.diverseSourceOutputHashes=Object.fromEntries(articleOutputHashes);summary.status='passed';summary.finishedAt=new Date().toISOString();
+fs.writeFileSync(path.join(directory,'NATIVE_BROWSER_SUMMARY.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(JSON.stringify({version:summary.version,status:summary.status,cases:summary.cases,checks:summary.checks,failed:summary.failed,browsers:summary.browsers.map(({name,version,workerMilliseconds})=>({name,version,workerMilliseconds})),wikipediaWrites:0,clipboardWrites:0,screenshots:0}));

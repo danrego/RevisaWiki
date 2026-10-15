@@ -17,3 +17,5 @@ Keep personal information out of project code, comments, documentation, research
 Run `python3 scripts/check_privacy.py` before publication. For uploads prepared outside the tracked checkout, run `scripts/publication_privacy_gate.py` with an explicit `--allowlist` covering every file to be uploaded. Check the final packaged bytes, including archive contents, and review new filenames and Git author/committer metadata. Use neutral project identity metadata. Keep authentication files, private evidence, screenshots and machine-local reports outside the publication set.
 
 Any finding must be resolved before uploading. A passing scan still requires a review of new prose and metadata, since pattern checks cannot recognize every personal identifier.
+
+An immutable article fixture contains a public institutional social identifier in a bibliographic title. The scanner recognizes its email-like shape. The reviewed allowance binds the exact source-content hash and identifier hash, preserving the original citation without allowing other identifiers or modified source bytes. This does not allow personal account details about the owner or editors.
