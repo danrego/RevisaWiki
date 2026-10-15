@@ -1,0 +1,48 @@
+RevisaWiki 2.5.0: instalação
+
+O pacote contém os dois arquivos do programa, os carregadores e a documentação. Abra INICIO.html para copiar os blocos completos na ordem indicada. O repositório é https://github.com/danrego/RevisaWiki.
+
+ATUALIZAR A DISTRIBUIÇÃO
+
+1. Copie RevisaWiki_v2_5_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_5.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Depois de atualizar as duas páginas, use expectedVersion = '2.5.0' no carregador do common.js. Preserve os outros scripts e recursos dessa página.
+4. Se precisar substituir o carregador completo, escolha Carregador_common_js_RevisaWiki_v2_5.js. Substitua apenas o carregador antigo do RevisaWiki ou Ajuste geral, sem apagar o restante do common.js.
+5. Mantenha uma única chamada da ferramenta e faça uma recarga completa.
+6. Abra Editar código-fonte. Confira 2.5.0 no painel ou em Configurações > Sobre e diagnóstico. Use Ajustar código e Ver o que mudou. O programa não salva a página.
+
+PARA OUTROS EDITORES
+
+Depois que os dois arquivos de distribuição estiverem na versão 2.5.0, acrescente Carregador_comunitario_RevisaWiki_v2_5.js ao seu common.js. Ele usa as páginas de distribuição. Não é preciso copiar o programa para sua conta.
+
+Se já tem o carregador, atualize a versão esperada e preserve o início do carregamento ao abrir o editor. Os dois carregadores são alternativas. Não instale ambos.
+
+PARA UMA CÓPIA PRÓPRIA
+
+Salve o núcleo e os dados em duas páginas JavaScript da sua conta. O carregador para cópia própria usa RevisaWiki.js e RevisaWiki/Dados.js da conta conectada. Se escolher outros nomes, ajuste os dois destinos. As versões dos dados, do núcleo e do carregador precisam combinar.
+
+RevisaWiki_v2_5_completo.js reúne as duas partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Não cole esse arquivo inteiro numa única página da Wikipédia.
+
+CONFERIR A INSTALAÇÃO
+
+No editor clássico e no CodeMirror reconhecido, o botão verde azulado Ajustar código aparece antes de Publicar. No editor de código-fonte de 2017, use o botão do painel superior. A comparação e Desfazer ajustes ficam no painel.
+
+Se o painel não aparecer, confira os endereços, a cópia completa dos arquivos e uma única chamada do carregador. Copie somente o código, sem cercas como ``` ou marcas de sintaxe. Um endereço errado não é corrigido fechando e abrindo o navegador.
+
+No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R. Sobre e diagnóstico informa as versões recebidas.
+
+O QUE MUDA NA 2.5.0
+
+Ajustar código passa a tratar títulos repetidos antes da introdução, chamadas e listas de referências imediatamente repetidas, citações com os mesmos campos em outra ordem, atributos idênticos duplicados e mais fechamentos trocados reconhecidos. Cada regra tem limites próprios e preserva os casos que exigem interpretação. Também alinha campos de infocaixas reconhecidas já separados por linha. Na discussão completa de um artigo, Preparar discussão oferece uma proposta de PD e marcas de projeto antes de aplicar ao editor.
+
+O manual foi reorganizado. O histórico de versões aparece uma vez, da mais recente para a mais antiga, e os relatórios antigos ficam ligados ao GitHub. Os critérios detalhados das regras estão em Referencia_tecnica_RevisaWiki_v2_5.txt.
+
+TESTES
+
+A distribuição final passou por 48.000 verificações em 2.000 artigos e por 804 verificações de interface em Chrome, Firefox e Safari, sem falhas nessas etapas. Os testes foram locais, sem edições na Wikipédia. Consulte Relatorio_testes_RevisaWiki_v2_5.txt para os demais contratos, os resultados de preservação e os limites de processamento.
+
+CONSULTAS E PUBLICAÇÃO
+
+Os cálculos de ajuste e ortografia ficam no navegador. A pré-visualização envia o rascunho para processamento pela Wikipédia, sem salvar uma edição. Os recursos de destinos, portais e DOI podem fazer as consultas públicas descritas no manual.
+
+Leia a comparação e a pré-visualização normal antes de publicar. O índice, os carregadores e os comandos de conferência não publicam páginas automaticamente. Para relatar um problema, leia o conteúdo preparado por Copiar diagnóstico antes de compartilhá-lo. Não envie capturas do computador inteiro nem informações pessoais.

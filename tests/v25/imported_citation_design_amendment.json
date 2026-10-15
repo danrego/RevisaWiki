@@ -1,0 +1,13 @@
+{
+  "version": "2.5.0",
+  "stage": "before_imported_citation_pipeline_fix",
+  "originalFixtureSha256": "3198fe88cfdb9434e608953facdc3faeed3f45f815d12678978d83bb8545787c",
+  "casesAdded": [
+    "imported_last_ultimo_same_fields",
+    "imported_native_same_fields",
+    "imported_different_authors_stay_separate",
+    "imported_different_pages_stay_separate",
+    "native_accepted_aliases_preserved"
+  ],
+  "reason": "Root found that the existing explicit foreign citation conversion made two source bodies equal only after the new early repair pass, causing an unwanted second-click edit. The integration fixtures require convergence on the first click without merging differing authors or pages and without cosmetic changes to valid native aliases."
+}

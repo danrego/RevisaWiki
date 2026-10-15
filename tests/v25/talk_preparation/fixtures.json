@@ -1,0 +1,322 @@
+{
+  "version": "2.5.0",
+  "design": "Independent expectations from the approved separate-action contract. Read-only article portal lookup, edit only the initial discussion header, retain source messages and existing ratings. No publishing or summary overwriting.",
+  "cases": [
+    {
+      "name": "empty discussion without projects",
+      "source": "",
+      "article": "",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "empty discussion from two article portals",
+      "source": "",
+      "article": "{{Portal3|Cinema|Estados Unidos}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "existing PD gains mark",
+      "source": "{{PD}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "prepared header stays byte exact",
+      "source": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n",
+      "article": "{{Portal3|Cinema|Estados Unidos}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n",
+      "options": {}
+    },
+    {
+      "name": "signed body preserved",
+      "source": "== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "project quality and importance retained",
+      "source": "{{Marca de projeto|B|Cinema|3|importância=alta}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Estados Unidos}}",
+      "expected": "{{PD}}\n{{Marca de projeto|B|Cinema|3|importância=alta|Estados Unidos|?}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "explicit numbered existing mark is not merged",
+      "source": "{{Marca de projeto|1=B|2=Cinema|3=1}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Estados Unidos}}",
+      "expected": "{{PD}}\n{{Marca de projeto|1=B|2=Cinema|3=1}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "unfamiliar existing project retained",
+      "source": "{{Marca de projeto|B|Projeto desconhecido|2}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n{{Marca de projeto|B|Projeto desconhecido|2|Cinema|?}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "isolated Portal3 header converted",
+      "source": "{{Portal3|Cinema|Estados Unidos}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "rendered literal portals converted",
+      "source": "Portal do cinema Portal dos Estados Unidos\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "ordinary portal sentence preserved",
+      "source": "Eu coloquei Portal do cinema aqui.\n",
+      "article": "",
+      "expected": "{{PD}}\nEu coloquei Portal do cinema aqui.\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "portal line in body remains literal",
+      "source": "== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\nPortal do cinema\n",
+      "article": "",
+      "expected": "{{PD}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\nPortal do cinema\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "unknown prefix portal is retained",
+      "source": "{{Portal3|Cinema|Portal inexistente}}\n",
+      "article": "",
+      "expected": "{{PD}}\n{{Portal3|Cinema|Portal inexistente}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "unknown article project skipped",
+      "source": "",
+      "article": "{{Portal3|Cinema|Portal inexistente}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "references are not article portals",
+      "source": "",
+      "article": "Texto.<ref>{{Portal3|Cinema}}</ref>",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "malformed ref is not article portal",
+      "source": "",
+      "article": "<ref>{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "nowiki is not article portal",
+      "source": "",
+      "article": "<nowiki>{{Portal3|Cinema}}</nowiki>",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "comment is not article portal",
+      "source": "",
+      "article": "<!-- {{Portal3|Cinema}} -->",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "nested infobox portal is not principal",
+      "source": "",
+      "article": "{{Info/Biografia|nome=Nome|módulo={{Portal3|Cinema}}}}",
+      "expected": "{{PD}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "Portal alias project mapping",
+      "source": "",
+      "article": "{{Portal3|Biografias|Desporto|Filme}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Biografia|?|Esporte|?|Cinema|?}}\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "duplicate PD is untouched",
+      "source": "{{PD}}\n{{PD}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n{{PD}}\n",
+      "options": {}
+    },
+    {
+      "name": "duplicate marks are untouched",
+      "source": "{{Marca de projeto|?|Cinema|?}}\n{{Marca de projeto|?|Cinema|?}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{Marca de projeto|?|Cinema|?}}\n{{Marca de projeto|?|Cinema|?}}\n",
+      "options": {}
+    },
+    {
+      "name": "signed comment mark is untouched",
+      "source": "== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n{{Marca de projeto|?|Cinema|?}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n{{Marca de projeto|?|Cinema|?}}\n",
+      "options": {}
+    },
+    {
+      "name": "inline two banners are untouched",
+      "source": "{{PD}}{{Marca de projeto|?|Cinema|?}}\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}{{Marca de projeto|?|Cinema|?}}\n",
+      "options": {}
+    },
+    {
+      "name": "protected example content retained",
+      "source": "<nowiki>{{Marca de projeto|?|Cinema|?}}</nowiki>\n",
+      "article": "",
+      "expected": "{{PD}}\n<nowiki>{{Marca de projeto|?|Cinema|?}}</nowiki>\n",
+      "options": {},
+      "expectedSummary": "{{PD}}"
+    },
+    {
+      "name": "header comment retained",
+      "source": "<!-- Manter este comentário. -->\n{{PD}}\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?}}\n<!-- Manter este comentário. -->\n== Comentários ==\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "CRLF retained",
+      "source": "{{PD}}\r\n== Comentários ==\r\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\r\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "{{PD}}\r\n{{Marca de projeto|?|Cinema|?}}\r\n== Comentários ==\r\nO artigo precisa de fontes. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\r\n",
+      "options": {},
+      "expectedSummary": "{{PD}}{{Marca de projeto}}"
+    },
+    {
+      "name": "scope main article",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "namespaceNumber": 0
+      }
+    },
+    {
+      "name": "scope template talk",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "namespaceNumber": 11
+      }
+    },
+    {
+      "name": "scope sectionOnly",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "sectionOnly": true
+      }
+    },
+    {
+      "name": "scope explicit section",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "section": 1
+      }
+    },
+    {
+      "name": "scope non-wikitext content",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "contentModel": "javascript"
+      }
+    },
+    {
+      "name": "scope non-wikitext model",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "model": "javascript"
+      }
+    },
+    {
+      "name": "scope redirect flag",
+      "source": "",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "",
+      "options": {
+        "pageRedirect": true
+      }
+    },
+    {
+      "name": "redirect source retained",
+      "source": "#REDIRECIONAMENTO [[Discussão:Destino]]\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "#REDIRECIONAMENTO [[Discussão:Destino]]\n",
+      "options": {}
+    },
+    {
+      "name": "redirect preceded by comment retained",
+      "source": "<!-- Cabeçalho mantido. -->\n#REDIRECIONAMENTO [[Discussão:Destino]]\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "<!-- Cabeçalho mantido. -->\n#REDIRECIONAMENTO [[Discussão:Destino]]\n",
+      "options": {}
+    },
+    {
+      "name": "preformatted initial PD retained",
+      "source": "  {{PD}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "  {{PD}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {}
+    },
+    {
+      "name": "preformatted Portal3 retained",
+      "source": "  {{Portal3|Cinema}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "  {{Portal3|Cinema}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {}
+    },
+    {
+      "name": "preformatted literal portal retained",
+      "source": "  Portal do cinema\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "  Portal do cinema\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {}
+    },
+    {
+      "name": "same-line comment before header retained",
+      "source": "<!-- Comentário no cabeçalho. --> {{PD}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "article": "{{Portal3|Cinema}}",
+      "expected": "<!-- Comentário no cabeçalho. --> {{PD}}\n== Comentários ==\nMensagem assinada. colaborador 12h34min de 1 de janeiro de 2026 (UTC)\n",
+      "options": {}
+    }
+  ]
+}

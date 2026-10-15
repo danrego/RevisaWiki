@@ -1,0 +1,14 @@
+The original 156-case design remains saved as fixtures_v1_frozen.json and design_v1_manifest.json.
+
+After initial execution, the test contract was clarified with the root agent, not silently changed to match implementation:
+- Two renderer-inside-ref cases are now negative. A references renderer in a citation body is invalid placement and is not an allowed renderer profile.
+- A sole unclosed ref inside an explicit paired references container may have a multiparagraph body. The explicit container gives the boundary, so all body text is retained and the single </ref> insertion is authorized.
+- A ref around dynamic #invoke remains a conservative negative, as root required. It may expand hidden reference syntax.
+- The implementation ruleId now uses the same stable public counter IDs, whereas the initial API proposal used syntax-... IDs. Tests accept either spelling and still require the exact per-family counter.
+- Three balanced nested content examples accept either byte-identical refusal or the independently written minimum closer repair. This was frozen before the first implementation read.
+
+Parameter scope clarifications:
+- The final new alias map has 29 entries. publicadoo already belonged to 2.3 and is explicitly asserted not to be counted as new.
+- Unsigned discussion text may be the editor's own new message under existing rules. The unsupported blanket direct-helper discussion expectation was replaced by full-pipeline exact preservation of a signed discussion.
+- publicado belongs to the publisher family, so its English collision is publisher. The initial work choice was an incorrect semantic assumption, corrected independently from the catalog and parameterFamily mapping.
+- Legacy opaque-tail assertions accept an equivalent explicit incomplete-tail warning rather than requiring the exact old wording sem fechamento.

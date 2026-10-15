@@ -1,0 +1,29 @@
+{
+  "version": "2.5.0",
+  "scope": [
+    {
+      "test": "opaque DOI literal alteration",
+      "reason": "A prova da fonte confere os blocos literais depois da mesma normalização aplicada aos dois textos. A proteção de conteúdo literal já existente também continua exigida, sem mudar seu código.",
+      "guards": [
+        "syntaxRepairSourceProof",
+        "lost-protected"
+      ]
+    },
+    {
+      "test": "destructive reference mutations",
+      "guards": [
+        "syntaxRepairSourceProof",
+        "lost-repaired-reference",
+        "safeComposition"
+      ],
+      "reason": "Cada mutação parte da saída completa e deve mudar o texto. Definições, autores, páginas, grupos, nomes, ocorrências e chamadas continuam sendo conferidos."
+    },
+    {
+      "test": "Ken Jennings parser-only byte identity",
+      "option": {
+        "infoboxes": false
+      },
+      "reason": "Esse teste desliga a formatação da infocaixa para isolar a correção do leitor de aspas. O teste completo do mesmo artigo mantém a formatação habilitada."
+    }
+  ]
+}

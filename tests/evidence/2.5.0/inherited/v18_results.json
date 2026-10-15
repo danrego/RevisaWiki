@@ -1,0 +1,238 @@
+{
+  "version": "2.5.0",
+  "scriptSha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+  "passed": 56,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "version and inherited catalog values unchanged",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|nome=X|nome=X}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|nome=A|nome=A|nome=B}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|nome=A|NOME=B}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|NOME=A}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|campo_invalido=}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|campo_invalido=Valor}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|imagem=}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Info/Biografia|campo_futuro=}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Futuro|NOME=A|campo_futuro=}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|nome=A|nome= A}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|1=child|1=child}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|1=child|2=child}}",
+      "passed": true
+    },
+    {
+      "name": "automatic parameters {{Navbox|nome=A|título={{Pequeno|A=B}}|nome=A}}",
+      "passed": true
+    },
+    {
+      "name": "accepted native citation aliases retained",
+      "passed": true
+    },
+    {
+      "name": "parameter automation switches work separately",
+      "passed": true
+    },
+    {
+      "name": "literal examples and protected comments unchanged",
+      "passed": true
+    },
+    {
+      "name": "positional parameters never removed as empty names",
+      "passed": true
+    },
+    {
+      "name": "unknown filled values are not removed",
+      "passed": true
+    },
+    {
+      "name": "identical anonymous refs reused ",
+      "passed": true
+    },
+    {
+      "name": "identical anonymous refs reused nota",
+      "passed": true
+    },
+    {
+      "name": "interleaved families receive non-overlapping edits",
+      "passed": true
+    },
+    {
+      "name": "existing ref names cannot collide",
+      "passed": true
+    },
+    {
+      "name": "definition stays at the first call",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref>F p. 5</ref><ref>F p. 6</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref>F</ref><ref group=\"nota\">F</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref>F</ref>{{Referências}}<ref>F</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries {{Info/Biografia|notas=<ref>F</ref>}}<ref>F</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref name=\"{{Nome}}\">Z</ref><ref>F</ref><ref>F</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref follow=\"x\">F</ref><ref>F</ref>",
+      "passed": true
+    },
+    {
+      "name": "ref boundaries <ref>{{sfn|Silva|2020}}</ref><ref>{{sfn|Silva|2020}}</ref>",
+      "passed": true
+    },
+    {
+      "name": "dynamic person name does not block anonymous refs",
+      "passed": true
+    },
+    {
+      "name": "section and opt-out retain anonymous refs",
+      "passed": true
+    },
+    {
+      "name": "different citation pages not merged",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"a\",\"á\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"á\",\"a\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"😀\",\"😃\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"\\ud800\",\"x\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"a😀b\",\"a😃b\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"ABC\",\"XYZ\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"\",\"中文\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"á中文😀\",\"á中文😀\"]",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 [\"\\r\\n\",\"\\n\"]",
+      "passed": true
+    },
+    {
+      "name": "zero net bytes still has changed-byte volume",
+      "passed": true
+    },
+    {
+      "name": "fallback without TextEncoder",
+      "passed": true
+    },
+    {
+      "name": "link formatting qualifies when baseline confirmed",
+      "passed": true
+    },
+    {
+      "name": "identical refs can be minor without losing sources",
+      "passed": true
+    },
+    {
+      "name": "missing baseline never permits minor",
+      "passed": true
+    },
+    {
+      "name": "zero-net content replacement is not minor",
+      "passed": true
+    },
+    {
+      "name": "activating invalid parameter is not minor",
+      "passed": true
+    },
+    {
+      "name": "facts, destinations, sources and new templates are not minor",
+      "passed": true
+    },
+    {
+      "name": "size limit uses added plus removed",
+      "passed": true
+    },
+    {
+      "name": "hunk count, section and namespace restrictions",
+      "passed": true
+    },
+    {
+      "name": "disabled rules reproduce v1.7 on nested code",
+      "passed": true
+    },
+    {
+      "name": "memo remains coherent over changing and reverting inputs",
+      "passed": true
+    },
+    {
+      "name": "cache history is bounded",
+      "passed": true
+    }
+  ],
+  "qaTarget": {
+    "version": "2.5.0",
+    "script": "<workspace>/outputs/revisawiki_v2_5/RevisaWiki_v2_5.js",
+    "sha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+    "suiteSha256": "6f694774994dc62d2692d872c73333d16c1dc52fe78e459bc5b1d6465708303a"
+  }
+}

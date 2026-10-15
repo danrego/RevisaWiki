@@ -1,0 +1,26 @@
+{
+  "version": "2.5.0",
+  "reason": "Compare the complete result of the existing citation converter to avoid a second-run-only consolidation. Equal duplicate and empty cleanup is accepted only when that existing converter already performs it. Conflicting resulting fields remain ineligible.",
+  "oldExpectation": "Raw equal duplicate citation fields always block new consolidation.",
+  "newExpectation": "Existing approved equal-duplicate cleanup can establish equality; the first body remains literal until ordinary cleanup.",
+  "fixtures": [
+    {
+      "name": "existing equal duplicate cleanup creates citation equivalence",
+      "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+      "expected": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref name=\"ref-auto-1\" />",
+      "rule": "safeEquivalentCitations"
+    },
+    {
+      "name": "existing invalid parameter capitalization cleanup creates equality",
+      "source": "<ref>{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|Titulo=Fonte}}</ref>",
+      "expected": "<ref name=\"ref-auto-1\">{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref name=\"ref-auto-1\" />",
+      "rule": "safeEquivalentCitations"
+    }
+  ],
+  "acceptedAliasSignatureScope": {
+    "oldExpectation": "Cite web and Citar web with the same raw unaccented titulo field share a signature.",
+    "observedExistingConversion": "The English call converts titulo to título; the accepted native titulo alias stays literal. Their resulting field names therefore differ.",
+    "replacementPositive": "The template-alias comparison now supplies título in both calls, so the complete converted field sets really match.",
+    "newNegative": "Accepted native parameter aliases that the existing converter intentionally preserves are not guessed equivalent by the new comparison."
+  }
+}

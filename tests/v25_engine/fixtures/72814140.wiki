@@ -1,0 +1,815 @@
+{{Descrição curta|Tipo de espaço vetorial na matemática}}
+{{Para|a curva de preenchimento de espaço|Curva de Hilbert}}
+[[Ficheiro:Standing waves on a string.gif|thumb|O estado de uma [[corda vibrante]] pode ser modelado como um ponto num espaço de Hilbert. A decomposição de uma corda vibrante nas suas vibrações em diferentes [[harmônico]]s é dada pela projeção do ponto sobre os [[Sistema de coordenadas|eixos de coordenadas]] no espaço.]]
+
+Na [[matemática]], um '''espaço de Hilbert''' é um [[espaço com produto interno]] [[número real|real]] ou [[número complexo|complexo]] que é também um [[espaço métrico completo]] em relação à métrica induzida pelo [[produto interno]]. Ele generaliza a noção de [[espaço euclidiano]] para [[Dimensão infinita|dimensões infinitas]]. O produto interno, que é o análogo do [[produto escalar]] do [[cálculo vetorial]], permite que comprimentos e ângulos sejam definidos. Além disso, a [[Espaço métrico completo|completude]] significa que existem [[Limite (matemática)|limites]] suficientes no espaço para permitir o uso das técnicas do cálculo. Um espaço de Hilbert é um caso especial de um [[espaço de Banach]].
+
+Os espaços de Hilbert foram estudados a partir da primeira década do século XX por [[David Hilbert]], [[Erhard Schmidt]] e [[Frigyes Riesz]]. Eles são ferramentas indispensáveis nas teorias de [[equação diferencial parcial|equações diferenciais parciais]], [[Formulação matemática da mecânica quântica|mecânica quântica]], [[análise de Fourier]] (que inclui aplicações ao [[processamento de sinais]] e à [[transferência de calor]]) e na [[teoria ergódica]] (que forma a base matemática da [[termodinâmica]]). [[John von Neumann]] cunhou o termo ''espaço de Hilbert'' para o conceito abstrato que subjaz a muitas destas diversas aplicações. O sucesso dos métodos dos espaços de Hilbert inaugurou uma era muito frutífera para a [[análise funcional]]. Além dos espaços vetoriais euclidianos clássicos, exemplos de espaços de Hilbert incluem [[Função quadrado integrável|espaços de funções quadrado-integráveis]], [[Espaço de sequências|espaços de sequências]], [[Espaço de Sobolev|espaços de Sobolev]] consistindo em [[Função generalizada|funções generalizadas]] e [[Espaço de Hardy|espaços de Hardy]] de [[Função holomorfa|funções holomorfas]].
+
+A intuição geométrica desempenha um papel importante em muitos aspetos da teoria dos espaços de Hilbert. Análogos exatos do [[teorema de Pitágoras]] e da [[lei do paralelogramo]] verificam-se num espaço de Hilbert. A um nível mais profundo, a [[Projeção (álgebra linear)|projeção]] [[Perpendicularidade|perpendicular]] sobre um [[Subespaço vetorial|subespaço linear]] desempenha um papel significativo em problemas de [[otimização matemática]] e noutros aspetos da teoria. Um elemento de um espaço de Hilbert pode ser inequivocamente especificado pelas suas coordenadas em relação a uma [[base ortonormal]], em analogia com as [[Sistema de coordenadas cartesianas|coordenadas cartesianas]] na geometria clássica. Quando esta [[Base (álgebra linear)|base]] é [[Conjunto enumerável|infinitamente enumerável]], ela permite identificar o espaço de Hilbert com o espaço das [[Sequência (matemática)|sequências infinitas]] que são [[Espaço Lp|quadrado-somáveis]]. Este último espaço é frequentemente referido na literatura mais antiga como ''o'' espaço de Hilbert.
+
+== Definição e ilustração ==
+
+=== Exemplo motivador: espaço vetorial euclidiano ===
+Um dos exemplos mais familiares de um espaço de Hilbert é o [[espaço vetorial euclidiano]] que consiste em [[Vetor euclidiano|vetores]] tridimensionais, denotado por <math>\mathbf{R}^3</math>, e equipado com o [[produto escalar]]. O produto escalar toma dois vetores {{math|'''x'''}} e {{math|'''y'''}}, e produz um número real {{math|'''x''' ⋅ '''y'''}}. Se {{math|'''x'''}} e {{math|'''y'''}} são representados em [[Sistema de coordenadas cartesianas|coordenadas cartesianas]], então o produto escalar é definido por:<ref name="axler24-p182">{{harvnb|Axler|2024|loc=6A Produtos Internos e Normas|p=182}}</ref>
+<math display="block">\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \cdot \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = x_1 y_1 + x_2 y_2 + x_3 y_3 \,.</math>
+
+O produto escalar satisfaz as propriedades:<ref name=axler24-p182 />
+# É [[Relação simétrica|simétrico]] em {{math|'''x'''}} e {{math|'''y'''}}: {{math|1='''x''' ⋅ '''y''' = '''y''' ⋅ '''x'''}}.
+# É [[Função linear|linear]] no seu primeiro argumento: {{math|1=(''a'''''x'''<sub>1</sub> + ''b'''''x'''<sub>2</sub>) ⋅ '''y''' = ''a''('''x'''<sub>1</sub> ⋅ '''y''') + ''b''('''x'''<sub>2</sub> ⋅ '''y''')}} para quaisquer [[Escalar (matemática)|escalares]] {{mvar|a}}, {{mvar|b}}, e vetores {{math|'''x'''<sub>1</sub>}}, {{math|'''x'''<sub>2</sub>}}, e {{math|'''y'''}}.{{nota de rodapé|Também é linear no seu segundo argumento, por extensão da primeira propriedade.}}
+# É [[Forma bilinear definida|positivo definido]]: para todos os vetores {{math|'''x'''}}, {{math|'''x''' ⋅ '''x''' ≥ 0 }}, com igualdade [[se e somente se]] {{math|1= '''x''' = '''0'''}}.
+
+Uma operação sobre pares de vetores que, tal como o produto escalar, satisfaz estas três propriedades é conhecida como um [[produto interno]] (real). Um [[espaço vetorial]] equipado com tal produto interno é conhecido como um [[espaço com produto interno]] (real). Todo espaço com produto interno de dimensão finita é também um espaço de Hilbert.<ref>No entanto, algumas fontes chamam os espaços de dimensão finita com estas propriedades de espaços pré-Hilbert, reservando o termo "espaço de Hilbert" para espaços de dimensão infinita; ver, ex., {{harvnb|Levitan|2001}}.</ref> A característica básica do produto escalar que o conecta com a geometria euclidiana é que ele está relacionado tanto com o comprimento (ou [[Norma (matemática)|norma]]) de um vetor, denotado por <math>\|\mathbf{x}\|</math>, quanto com o ângulo <math>\theta</math> entre dois vetores <math>\mathbf{x}</math> e <math>\mathbf{y}</math> através da fórmula<ref>{{citar livro
+ | ultimo1 = Olver | primeiro1 = Peter J.
+ | ultimo2 = Shakiban | primeiro2 = Chehrzad
+ | doi = 10.1007/978-3-319-91041-3
+ | isbn = 9783319910413
+ | pagina = 137
+ | editora = Springer International Publishing
+ | serie = Undergraduate Texts in Mathematics
+ | titulo = Applied Linear Algebra
+ | ano = 2018}}</ref>
+<math display="block">\mathbf{x}\cdot\mathbf{y} = \left\|\mathbf{x}\right\| \left\|\mathbf{y}\right\| \, \cos\theta \,.</math>
+
+[[Ficheiro:Completeness in Hilbert space.png|thumb|right|Completude significa que uma série de vetores (em azul) resulta num vetor de deslocamento líquido [[bem definido]] (em laranja).]]
+O [[cálculo multivariável]] no espaço euclidiano baseia-se na capacidade de calcular [[Limite (matemática)|limites]], e de ter critérios úteis para concluir que os limites existem. Uma [[Série (matemática)|série matemática]]
+<math display="block">\sum_{n=0}^\infty \mathbf{x}_n</math>
+consistindo de vetores em {{math|'''R'''<sup>3</sup>}} é [[Convergência absoluta|absolutamente convergente]] contanto que a soma dos comprimentos convirja como uma série ordinária de números reais:<ref>{{harvnb|Marsden|1974|loc=§2.8}}</ref>
+<math display="block">\sum_{k=0}^\infty \|\mathbf{x}_k\| < \infty \,.</math>
+Assim como numa série de escalares, uma série de vetores que converge absolutamente também converge para algum vetor limite {{math|'''L'''}} no espaço euclidiano, no sentido de que
+<math display="block">\lim_{N\to\infty}\left\| \mathbf{L} - \sum_{k=0}^N \mathbf{x}_k \right\|=0.</math>
+Esta propriedade expressa a ''completude'' do espaço euclidiano: que uma série que converge absolutamente também converge no sentido ordinário.<ref>{{harvtxt|Kainth|2023}}. Para a completude do espaço euclidiano, veja a Definição 4.37 e o Exemplo 4.38, p. 108; para a equivalência da completude com a propriedade de que séries absolutamente convergentes convergem, veja o Teorema 4.44, p. 110.</ref>
+
+Os espaços de Hilbert são frequentemente considerados sobre os [[número complexo|números complexos]]. O [[plano complexo]] denotado por {{math|'''C'''}} é equipado com uma noção de magnitude, o [[Valor absoluto|módulo complexo]] {{math|{{abs|''z''}}}}, que é definido como a raiz quadrada do produto de {{mvar|z}} pelo seu [[complexo conjugado]]:<ref name=vince>{{citar livro
+ | ultimo = Vince | primeiro = John
+ | doi = 10.1007/978-3-319-94637-5
+ | isbn = 9783319946375
+ | editora = Springer International Publishing
+ | titulo = Imaginary Mathematics for Computer Science
+ | ano = 2018}}</ref>
+<math display="block">|z|^2 = z\overline{z} \,.</math>
+
+Se {{math|1=''z'' = ''x'' + ''iy''}} é uma decomposição de {{mvar|z}} nas suas partes real e imaginária, então o módulo é o comprimento euclidiano bidimensional usual:<ref name=vince/>
+<math display="block">|z| = \sqrt{x^2 + y^2} \,.</math>
+
+O produto interno de um par de números complexos {{mvar|z}} e {{mvar|w}} é o produto de {{mvar|z}} com o complexo conjugado de {{mvar|w}}:<ref name=andhec>{{citar livro|titulo=Elementary Linear Algebra|primeiro1=Stephen|ultimo1=Andrilli|primeiro2=David|ultimo2=Hecker|ano=2010|editora=Elsevier|isbn=9780080886251|paginas=446–447}}</ref>
+<math display="block">\langle z, w\rangle = z\overline{w}\,.</math>
+
+Este tem valor complexo. A parte real de {{math|⟨''z'', ''w''⟩}} fornece o [[produto escalar]] euclidiano bidimensional usual.<ref name=andhec/>
+
+Um segundo exemplo é o espaço {{math|'''C'''<sup>2</sup>}} cujos elementos são pares de números complexos {{math|1=''z'' = (''z''<sub>1</sub>, ''z''<sub>2</sub>)}}. Então um produto interno de {{mvar|z}} com outro vetor deste tipo {{math|1=''w'' = (''w''<sub>1</sub>, ''w''<sub>2</sub>)}} é dado por<ref name=andhec/>
+<math display="block">\langle z, w\rangle = z_1\overline{w}_1 + z_2\overline{w}_2 \,.</math>
+
+A parte real de {{math|⟨''z'', ''w''⟩}} é então o produto escalar euclidiano quadridimensional. Este produto interno é ''hermitiano'' simétrico, o que significa que o resultado da troca de {{mvar|z}} e {{mvar|w}} é o complexo conjugado:<ref name=andhec/>
+<math display="block">\langle w, z\rangle = \overline{\langle z, w\rangle}\,.</math>
+
+=== Definição ===
+Um ''espaço de Hilbert'' é um [[espaço com produto interno]] [[Número real|real]] ou [[Número complexo|complexo]] que é também um [[espaço métrico completo]] em relação à função de distância [[Topologia induzida|induzida]] pelo produto interno.<ref name="General">O material matemático nesta seção pode ser encontrado em qualquer bom livro de análise funcional, como {{harvtxt|Dieudonné|1960}}, {{harvtxt|Hewitt|Stromberg|1965}}, {{harvtxt|Reed|Simon|1980}} ou {{harvtxt|Rudin|1987}}.</ref>
+
+Dizer que um espaço vetorial complexo {{math|''H''}} é um ''espaço com produto interno complexo'' significa que existe um produto interno <math>\langle x, y \rangle</math> associando um número complexo a cada par de elementos <math>x, y</math> de {{math|''H''}} que satisfaz as seguintes propriedades:{{sfnp|Axler|2024|pp=183–184}}
+# O produto interno é conjugado simétrico; isto é, o produto interno de um par de elementos é igual ao [[complexo conjugado]] do produto interno dos elementos trocados: <math display=block> \langle y, x\rangle = \overline{\langle x, y\rangle}\,.</math> Importante, isto implica que <math>\langle x, x\rangle</math> é um número real.{{sfnp|Axler|2024|pp=183–184}}
+# O produto interno é [[Função linear|linear]] no seu primeiro argumento.{{nota de rodapé|Em algumas convenções, os produtos internos são, em vez disso, lineares nos seus segundos argumentos.}} Para todos os números complexos <math>a</math> e <math>b,</math>{{sfnp|Axler|2024|pp=183–184}} <math display=block> \langle ax_1 + bx_2, y\rangle = a\langle x_1, y\rangle + b\langle x_2, y\rangle\,.</math>
+# O produto interno de um elemento consigo mesmo é [[Forma bilinear definida|positivo definido]]:{{sfnp|Axler|2024|pp=183–184}} <math display=block>\begin{alignat}{4}
+  \langle x, x\rangle > 0 & \quad \text{ se } x \neq 0, \\
+  \langle x, x\rangle = 0 & \quad \text{ se } x = 0\,.
+\end{alignat}</math>
+
+Segue das propriedades 1 e 2 que um produto interno complexo é ''[[Aplicação antilinear|antilinear]]'', também chamado de ''linear conjugado'', no seu segundo argumento, significando que{{sfnp|Axler|2024|loc=Propriedades 6(d) e 6(e)|p=185}}
+<math display=block>\langle x, ay_1 + by_2\rangle = \bar{a}\langle x, y_1\rangle + \bar{b}\langle x, y_2\rangle\,.</math>
+
+Um ''espaço com produto interno real'' é definido da mesma forma, exceto que {{math|''H''}} é um espaço vetorial real e o produto interno assume valores reais. Tal produto interno será uma [[aplicação bilinear]] e <math>(H, H, \langle \cdot, \cdot \rangle)</math> formará um [[sistema dual]].{{sfn|ps=|Schaefer|Wolff|1999|pp=122-202}}
+
+[[Ficheiro:Triangle inequality in a metric space.svg|thumb|upright=1.2|Ilustração da desigualdade triangular com a função de distância em cada lado]]
+A [[Norma (matemática)|norma]] é a função de valor real{{sfnp|Axler|2024|p=186}}
+<math display=block>\|x\| = \sqrt{\langle x, x \rangle}\,,</math>
+e a distância <math>d</math> entre dois pontos <math>x, y</math> em {{math|''H''}} é definida em termos da norma por
+<math display=block>d(x, y) = \|x - y\| = \sqrt{\langle x - y, x - y \rangle}\,.</math>
+Aqui, <math> d(x,y) </math> é uma função de distância{{sfnp|Dieudonné|1960|loc=Seção V.1}}, significando primeiramente que é simétrica em <math>x</math> e <math>y,</math> em segundo lugar que a distância entre <math>x</math> e ele próprio é zero, e caso contrário a distância entre <math>x</math> e <math>y</math> deve ser positiva, e por fim que a [[desigualdade triangular]] se verifica, significando que o comprimento de um lado de um triângulo {{math|''xyz''}} não pode exceder a soma dos comprimentos dos outros dois lados:{{sfnp|Dieudonné|1960|loc=Seção III.1}}
+<math display=block>d(x, z) \leq d(x, y) + d(y, z)\,.</math>
+
+Esta última propriedade é, em última análise, uma consequência da mais fundamental [[desigualdade de Cauchy-Schwarz]], que afirma
+<math display=block>\left|\langle x, y\rangle\right| \leq \|x\| \|y\|</math>
+com igualdade se e somente se <math>x</math> e <math>y</math> forem [[Independência linear|linearmente dependentes]].{{sfnp|Dieudonné|1960|loc=Seção VI.2}}
+
+Com uma função de distância definida desta forma, qualquer espaço com produto interno é um [[espaço métrico]], e às vezes é conhecido como um ''espaço pré-Hilbert''.{{sfnp|Dieudonné|1960|loc=Seção VI.2}} Qualquer espaço pré-Hilbert que seja adicionalmente também um [[Espaço métrico completo|espaço completo]] é um espaço de Hilbert.<ref>{{harvnb|Roman|2008|loc=p. 327}}</ref>
+
+A ''[[Espaço métrico completo|completude]]'' de {{math|''H''}} é expressa usando uma forma do [[critério de Cauchy]] para sequências em {{math|''H''}}: um espaço pré-Hilbert {{math|''H''}} é completo se cada [[sequência de Cauchy]] [[Limite (matemática)|converge em relação a esta norma]] para um elemento no espaço. A completude pode ser caracterizada pela seguinte condição equivalente: se uma série de vetores
+<math display=block>\sum_{k=0}^\infty u_k</math>
+[[Convergência absoluta|converge absolutamente]] no sentido de que
+<math display=block>\sum_{k=0}^\infty\|u_k\| < \infty\,,</math>
+então a série converge em {{math|''H''}}, no sentido de que as [[Soma parcial|somas parciais]] convergem para um elemento de {{math|''H''}}.<ref>{{harvnb|Roman|2008|loc=p. 330 Teorema 13.8}}</ref>
+
+Como um espaço normado completo, os espaços de Hilbert são por definição também [[Espaço de Banach|espaços de Banach]].{{sfnp|Kainth|2023|loc=Definição 4.37|p=108}} Como tal, eles são [[Espaço vetorial topológico|espaços vetoriais topológicos]], nos quais as noções [[Topologia|topológicas]] como a [[Conjunto aberto|abertura]] e o [[Conjunto fechado|fechamento]] de subconjuntos estão [[Expressão bem definida|bem definidas]].{{sfn|Schaefer|Wolff|1999|pp=40–41}} De especial importância é a noção de um [[Subespaço vetorial|subespaço linear]] fechado de um espaço de Hilbert que, com o produto interno induzido por [[Restrição (matemática)|restrição]], é também completo (sendo um conjunto fechado num espaço métrico completo) e, portanto, um espaço de Hilbert por direito próprio.{{sfn|Halmos|1957|loc=Seção 10}}
+
+=== Segundo exemplo: espaços de sequências ===
+O [[espaço de sequências]] <math display=inline> \ell^2 </math> consiste em todas as [[Sequência (matemática)|sequências infinitas]] {{math|1='''z''' = (''z''<sub>1</sub>, ''z''<sub>2</sub>, ...)}} de números complexos tais que a [[Série (matemática)|série]] de suas normas ao quadrado [[Série convergente|converge]]:<ref name="Stein 2005">{{harvnb|Stein|Shakarchi|2005|p=163}}</ref>
+<math display="block">\sum_{n=1}^\infty |z_n|^2</math>
+
+O produto interno em {{math|''l''<sup>2</sup>}} é definido por:<ref name="Stein 2005"/>
+<math display="block">\langle \mathbf{z}, \mathbf{w}\rangle = \sum_{n=1}^\infty z_n \overline{w}_n \,,</math>
+
+A série para o produto interno converge como consequência da [[desigualdade de Cauchy-Schwarz]] e da convergência assumida das duas séries de normas ao quadrado.{{sfn|Deitmar|2005|p=26}}
+
+A completude do espaço verifica-se desde que, sempre que uma série de elementos de <math display=inline> \ell^2 </math> convirja absolutamente (em norma), então ela convirja para um elemento de <math display=inline> \ell^2 </math>. A prova é elementar na [[análise matemática]], e permite que séries matemáticas de elementos do espaço sejam manipuladas com a mesma facilidade que as séries de números complexos (ou vetores num espaço euclidiano de dimensão finita).<ref>{{harvnb|Dieudonné|1960}}</ref>
+
+== História ==
+[[Ficheiro:Hilbert.jpg|thumb|right|[[David Hilbert]]]]
+Antes do desenvolvimento dos espaços de Hilbert, outras generalizações dos espaços euclidianos eram conhecidas pelos [[Matemática|matemáticos]] e [[Física|físicos]]. Em particular, a ideia de um [[Espaço vetorial|espaço linear abstrato (espaço vetorial)]] havia ganhado alguma força no final do século XIX:<ref>Em grande parte a partir do trabalho de [[Hermann Grassmann]], a pedido de [[August Ferdinand Möbius]] {{harv|Boyer|Merzbach|1991|pp=584–586}}. O primeiro relato axiomático moderno de espaços vetoriais abstratos apareceu, em última análise, no relato de [[Giuseppe Peano]] de 1888 ({{harvnb|Grattan-Guinness|2000|loc=§5.2.2}}; {{harvnb|O'Connor|Robertson|1996}}).</ref> este é um espaço cujos elementos podem ser somados e multiplicados por escalares (tais como [[número real|reais]] ou [[Número complexo|complexos]]) sem necessariamente identificar estes elementos com [[Vetor (geometria)|vetores "geométricos"]], tais como vetores de posição e de momento em sistemas físicos. Outros objetos estudados pelos matemáticos na viragem do século XX, em particular os espaços de [[Sequência (matemática)|sequências]] (incluindo [[Série (matemática)|séries]]) e os espaços de funções,<ref>Um relato detalhado da história dos espaços de Hilbert pode ser encontrado em {{harvnb|Bourbaki|1987}}.</ref> podem ser naturalmente pensados como espaços lineares. As funções, por exemplo, podem ser somadas ou multiplicadas por escalares constantes, e estas operações obedecem às leis algébricas satisfeitas pela adição e pela multiplicação escalar de vetores espaciais.<ref>{{harvnb|Hewitt|Stromberg|1965|loc=Capítulo 2}}</ref>
+
+Na primeira década do século XX, desenvolvimentos paralelos levaram à introdução dos espaços de Hilbert. A primeira delas foi a observação, que surgiu durante o estudo de [[David Hilbert]] e [[Erhard Schmidt]] sobre as [[Equação integral|equações integrais]], de que duas funções de valor real [[Função quadrado integrável|quadrado-integráveis]] {{mvar|f}} e {{mvar|g}} num intervalo {{math|[''a'', ''b'']}} têm um ''produto interno''<ref>{{harvnb|Schmidt|1908}}</ref>
+: <math>\langle f, g \rangle = \int_a^b f(x)g(x)\, \mathrm{d}x</math>
+que tem muitas das propriedades familiares do produto escalar euclidiano. Em particular, a ideia de uma família [[Ortogonalidade|ortogonal]] de funções tem significado. Schmidt explorou a semelhança deste produto interno com o produto escalar usual para provar um análogo da [[Teorema espetral|decomposição espetral]] para um operador da forma
+: <math>f(x) \mapsto \int_a^b K(x, y) f(y)\, \mathrm{d}y</math>
+onde {{mvar|K}} é uma função contínua simétrica em {{mvar|x}} e {{mvar|y}}. A [[expansão em autofunções]] resultante expressa a função {{mvar|K}} como uma série da forma
+: <math>K(x, y) = \sum_n \lambda_n\varphi_n(x)\varphi_n(y)</math>
+onde as funções {{mvar|φ<sub>n</sub>}} são ortogonais no sentido de que {{math|1=⟨''φ''<sub>''n''</sub>, ''φ''<sub>''m''</sub>⟩ = 0}} para todos os {{math|''n'' ≠ ''m''}}. Os termos individuais nesta série são por vezes referidos como soluções de produto elementares. No entanto, existem expansões de autofunções que falham em convergir num sentido adequado para uma função quadrado-integrável: o ingrediente que falta, que garante a convergência, é a completude.<ref>{{harvnb|Titchmarsh|1946|loc=§IX.1}}</ref>
+
+O segundo desenvolvimento foi o [[integral de Lebesgue]], uma alternativa ao [[integral de Riemann]] introduzido por [[Henri Lebesgue]] em 1904.<ref>{{harvnb|Lebesgue|1904}}. Mais detalhes sobre a história da teoria da integração podem ser encontrados em {{harvtxt|Bourbaki|1987}} e {{harvtxt|Saks|2005}}.</ref> O integral de Lebesgue possibilitou a integração de uma classe muito mais ampla de funções. Em 1907, [[Frigyes Riesz]] e [[Ernst Sigismund Fischer]] provaram de forma independente que o espaço {{math|''L''<sup>2</sup>}} de funções quadrado-integráveis de Lebesgue é um [[espaço métrico completo]].<ref>{{harvnb|Bourbaki|1987}}</ref> Como consequência da interação entre a geometria e a completude, os resultados do século XIX de [[Joseph Fourier]], [[Friedrich Bessel]] e [[Marc-Antoine Parseval]] sobre [[Série trigonométrica|séries trigonométricas]] transitaram facilmente para estes espaços mais gerais, resultando num aparato geométrico e analítico agora habitualmente conhecido como o [[teorema de Riesz-Fischer]].<ref>{{harvnb|Dunford|Schwartz|1958|loc=§IV.16}}</ref>
+
+Outros resultados básicos foram provados no início do século XX. Por exemplo, o [[teorema da representação de Riesz]] foi estabelecido de forma independente por [[Maurice Fréchet]] e [[Frigyes Riesz]] em 1907.<ref>Em {{harvtxt|Dunford|Schwartz|1958|loc=§IV.16}}, o resultado de que todo funcional linear em {{math|''L''<sup>2</sup>[0,1]}} é representado por integração é atribuído conjuntamente a {{harvtxt|Fréchet|1907}} e {{harvtxt|Riesz|1907}}. O resultado geral, de que o dual de um espaço de Hilbert é identificado com o próprio espaço de Hilbert, pode ser encontrado em {{harvtxt|Riesz|1934}}.</ref> [[John von Neumann]] cunhou o termo ''espaço de Hilbert abstrato'' na sua obra sobre [[Operador autoadjunto|operadores hermitianos]] ilimitados.<ref>{{harvnb|von Neumann|1929}}</ref> Embora outros matemáticos como [[Hermann Weyl]] e [[Norbert Wiener]] já tivessem estudado espaços de Hilbert particulares com grande detalhe, muitas vezes de um ponto de vista fisicamente motivado, von Neumann deu-lhes o primeiro tratamento completo e axiomático.<ref>{{harvnb|Kline|1972|p=1092}}</ref> Von Neumann usou-os mais tarde no seu trabalho seminal sobre os fundamentos da mecânica quântica,<ref>{{harvnb|Hilbert|Nordheim|von Neumann|1927}}</ref> e no seu trabalho contínuo com [[Eugene Wigner]]. O nome "espaço de Hilbert" foi logo adotado por outros, por exemplo, por Hermann Weyl no seu livro sobre a mecânica quântica e a [[teoria dos grupos]].<ref name="Weyl31">{{harvnb|Weyl|1931}}</ref>
+
+O significado do conceito de um espaço de Hilbert foi sublinhado com a constatação de que ele oferece uma das melhores [[Formulação matemática da mecânica quântica|formulações matemáticas da mecânica quântica]].<ref>{{harvnb|Prugovečki|1981|pp=1–10}}</ref> Em resumo, os estados de um sistema mecânico quântico são vetores num certo espaço de Hilbert, os observáveis são [[Operador hermitiano|operadores hermitianos]] nesse espaço, as [[Simetria (física)|simetrias]] do sistema são [[Operador unitário|operadores unitários]], e as [[Medição na mecânica quântica|medições]] são [[Projeção (álgebra linear)|projeções ortogonais]]. A relação entre as simetrias da mecânica quântica e os operadores unitários forneceu um ímpeto para o desenvolvimento da [[teoria de representação]] [[Representação unitária|unitária]] de [[Grupo (matemática)|grupos]], iniciada na obra de 1928 de Hermann Weyl.<ref name="Weyl31" /> Por outro lado, no início da década de 1930, tornou-se claro que a mecânica clássica pode ser descrita em termos do espaço de Hilbert ([[mecânica clássica de Koopman-von Neumann]]) e que certas propriedades de [[Sistema dinâmico|sistemas dinâmicos]] clássicos podem ser analisadas utilizando técnicas de espaço de Hilbert no âmbito da [[teoria ergódica]].<ref name="von Neumann 1932">{{harvnb|von Neumann|1932}}</ref>
+
+A álgebra dos [[Observável|observáveis]] na mecânica quântica é naturalmente uma álgebra de operadores definida num espaço de Hilbert, de acordo com a formulação da [[mecânica matricial]] da teoria quântica de [[Werner Heisenberg]].<ref>{{harvnb|Peres|1993|pp=79–99}}</ref> Von Neumann começou a investigar as [[Álgebra de operadores|álgebras de operadores]] na década de 1930, como [[Anel (matemática)|anéis]] de operadores num espaço de Hilbert. O tipo de álgebras estudado por von Neumann e os seus contemporâneos são agora conhecidos como [[Álgebra de von Neumann|álgebras de von Neumann]].<ref>{{harvnb|Murphy|1990|p=112}}</ref> Na década de 1940, [[Israel Gelfand]], [[Mark Naimark]] e [[Irving Segal]] deram uma definição de um tipo de álgebras de operadores chamadas [[Álgebra C*|álgebras C*]] que, por um lado, não faziam referência a um espaço de Hilbert subjacente e, por outro, extrapolavam muitas das características úteis das álgebras de operadores que tinham sido previamente estudadas. O teorema espetral para operadores autoadjuntos, em particular, que fundamenta grande parte da teoria dos espaços de Hilbert existente, foi generalizado para álgebras C*.<ref>{{harvnb|Murphy|1990|p=72}}</ref> Estas técnicas são agora básicas na análise harmônica abstrata e na teoria de representação.<ref>{{harvnb|Murphy|1990|pp=1–3}}</ref><ref>{{harvnb|Folland|2016|loc=Prefácio e Capítulo 5}}</ref>
+
+== Exemplos ==
+
+=== Espaços de Lebesgue ===
+{{Artigo principal|Espaço Lp}}
+
+Os espaços de Lebesgue são [[Espaço de funções|espaços de funções]] associados a [[Espaço de medida|espaços de medida]] {{math|(''X'', ''M'', ''μ'')}}, onde {{math|''X''}} é um conjunto, {{math|''M''}} é uma [[Sigma-álgebra|σ-álgebra]] de subconjuntos de {{math|''X''}}, e {{math|''μ''}} é uma [[Medida (matemática)|medida contavelmente aditiva]] em {{math|''M''}}. Seja {{math|''L''<sup>2</sup>(''X'', ''μ'')}} o espaço daquelas funções mensuráveis de valor complexo em {{math|''X''}} para as quais o [[integral de Lebesgue]] do quadrado do [[valor absoluto]] da função é finito, isto é, para uma função {{math|''f''}} em {{math|''L''<sup>2</sup>(''X'', ''μ'')}},
+<math display="block"> \int_X |f|^2 \, \mathrm{d} \mu < \infty \,, </math>
+e onde as funções são identificadas se e somente se diferirem apenas num [[conjunto de medida nula]].
+
+O produto interno das funções {{math|''f''}} e {{math|''g''}} em {{math|''L''<sup>2</sup>(''X'', ''μ'')}} é então definido como
+<math display="block">\langle f, g\rangle = \int_X f(t) \overline{g(t)} \, \mathrm{d} \mu(t) </math> ou <math display="block"> \langle f, g\rangle = \int_X \overline{f(t)} g(t) \, \mathrm{d} \mu(t) \,,</math>
+
+onde a segunda forma (conjugação do primeiro elemento) é comumente encontrada na literatura de [[física teórica]]. Para {{math|''f''}} e {{math|''g''}} em {{math|''L''<sup>2</sup>}}, o integral existe por causa da desigualdade de Cauchy-Schwarz, e define um produto interno no espaço. Equipado com este produto interno, {{math|''L''<sup>2</sup>}} é de fato completo.<ref>{{harvnb|Halmos|1957|loc=Seção 42}}</ref> O integral de Lebesgue é essencial para garantir a completude: em domínios de números reais, por exemplo, não há funções suficientes que sejam [[Integral de Riemann|integráveis à Riemann]].<ref>{{harvnb|Hewitt|Stromberg|1965}}</ref>
+
+Os espaços de Lebesgue aparecem em muitos contextos naturais.<ref>{{harvnb|Halmos|1957|loc=Seção 42}}</ref> Os espaços {{math|''L''<sup>2</sup>('''R''')}} e {{math|''L''<sup>2</sup>([0,1])}} de funções quadrado-integráveis em relação à [[medida de Lebesgue]] na reta real e no intervalo unitário, respetivamente, são domínios naturais nos quais se definem a transformada de Fourier e as séries de Fourier.<ref>{{harvnb|Dennery|Krzywicki|1995|pp=197,223–224}}</ref> Noutras situações, a medida pode ser algo diferente da medida de Lebesgue ordinária na reta real. Por exemplo, se {{math|''w''}} for qualquer função mensurável positiva, o espaço de todas as funções mensuráveis {{math|''f''}} no intervalo {{math|[0, 1]}} satisfazendo
+<math display="block">\int_0^1 \bigl|f(t)\bigr|^2 w(t)\, \mathrm{d}t < \infty</math>
+é chamado de [[Espaço Lp|espaço {{math|''L''<sup>2</sup>}} ponderado]] {{math|''L''{{su|p=2|b=''w''|lh=0.8em}}([0, 1])}}, e {{math|''w''}} é chamada de função peso. O produto interno é definido por
+<math display="block">\langle f, g\rangle = \int_0^1 f(t) \overline{g(t)} w(t) \, \mathrm{d}t \,.</math>
+
+O espaço ponderado {{math|''L''{{su|p=2|b=''w''|lh=0.8em}}([0, 1])}} é idêntico ao espaço de Hilbert {{math|''L''<sup>2</sup>([0, 1], ''μ'')}} onde a medida {{math|''μ''}} de um conjunto mensurável à Lebesgue {{math|''A''}} é definida por
+<math display="block">\mu(A) = \int_A w(t)\,\mathrm{d}t \,.</math>
+
+Espaços {{math|''L''<sup>2</sup>}} ponderados como este são frequentemente usados para estudar [[polinômios ortogonais]], porque diferentes famílias de polinômios ortogonais são ortogonais em relação a diferentes funções de ponderação.<ref>{{citar livro | ultimo1 = Abramowitz | primeiro1 = Milton | ultimo2 = Stegun | primeiro2 = Irene A. | capitulo = Orthogonal Polynomials | ano = 1965 | titulo = Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables | serie = Applied Mathematics Series | volume = 55 | pagina = 773 | url = http://people.math.sfu.ca/~andrei/HandBookOfMathematicalFunctions_AMS55.pdf}}</ref>
+
+=== Espaços de Sobolev ===
+Os [[espaço de Sobolev|espaços de Sobolev]], denotados por {{math|''H''{{i sup|''s''}}}} ou {{math|''W''{{i sup|''s'',2}}}}, são espaços de Hilbert. Estes são um tipo especial de [[espaço de funções]] no qual a [[Derivada|diferenciação]] pode ser realizada, mas que (diferentemente de outros [[Espaço de Banach|espaços de Banach]] como os [[Espaço de Hölder|espaços de Hölder]]) suportam a estrutura de um produto interno. Porque a diferenciação é permitida, os espaços de Sobolev são um cenário conveniente para a teoria das [[equação diferencial parcial|equações diferenciais parciais]].<ref name="BeJoSc81" /> Eles também formam a base da teoria dos [[Método direto no cálculo de variações|métodos diretos no cálculo de variações]].<ref>{{harvnb|Giusti|2003}}</ref>
+
+Para {{math|''s''}} um [[número inteiro|inteiro]] não negativo e {{math|Ω ⊂ '''R'''<sup>''n''</sup>}}, o espaço de Sobolev {{math|''H''<sup>''s''</sup>(Ω)}} contém funções {{math|''L''<sup>2</sup>}} cujas [[Derivada fraca|derivadas fracas]] de ordem até {{math|''s''}} também são {{math|''L''<sup>2</sup>}}. O produto interno em {{math|''H''<sup>''s''</sup>(Ω)}} é
+<math display="block">\langle f, g\rangle = \int_\Omega f(x)\bar{g}(x)\,\mathrm{d}x + \int_\Omega D f(x)\cdot D\bar{g}(x)\,\mathrm{d}x + \cdots + \int_\Omega D^s f(x)\cdot D^s \bar{g}(x)\, \mathrm{d}x</math>
+onde o ponto indica o produto escalar no espaço euclidiano das derivadas parciais de cada ordem. Os espaços de Sobolev também podem ser definidos quando {{math|''s''}} não é um inteiro.
+
+Os espaços de Sobolev também são estudados do ponto de vista da teoria espetral, baseando-se mais especificamente na estrutura do espaço de Hilbert. Se {{math|Ω}} for um domínio adequado, então pode-se definir o espaço de Sobolev {{math|''H''<sup>''s''</sup>(Ω)}} como o espaço de [[Potencial de Bessel|potenciais de Bessel]];<ref>{{harvnb|Stein|1970}}</ref> grosso modo,
+<math display="block">H^s(\Omega) = \left\{ (1-\Delta)^{-s/2}f \mathrel{\Big|} f\in L^2(\Omega)\right\} \,.</math>
+
+Aqui {{math|Δ}} é o laplaciano e {{math|(1 − Δ)<sup>−''s''&hairsp;/&hairsp;2</sup>}} é entendido em termos do [[teorema do mapeamento espetral]]. Além de fornecer uma definição viável de espaços de Sobolev para {{math|''s''}} não inteiro, esta definição também possui propriedades particularmente desejáveis sob a [[transformada de Fourier]] que a tornam ideal para o estudo de [[Operador pseudo-diferencial|operadores pseudo-diferenciais]]. Usando estes métodos numa [[variedade riemanniana]] [[Espaço compacto|compacta]], pode-se obter por exemplo a [[decomposição de Hodge]], que é a base da [[teoria de Hodge]].<ref>Detalhes podem ser encontrados em {{harvtxt|Warner|1983}}.</ref>
+
+=== Espaços de funções holomorfas ===
+==== Espaços de Hardy ====
+Os [[Espaço de Hardy|espaços de Hardy]] são espaços de funções, que surgem na [[análise complexa]] e na [[análise harmônica]], cujos elementos são certas [[Função holomorfa|funções holomorfas]] num domínio complexo.<ref>Uma referência geral sobre espaços de Hardy é o livro {{harvtxt|Duren|1970}}.</ref> Seja {{math|''U''}} o [[disco unitário]] no plano complexo. Então o espaço de Hardy {{math|''H''<sup>2</sup>(''U'')}} é definido como o espaço de funções holomorfas {{math|''f''}} em {{math|''U''}} de tal modo que as médias
+<math display="block">M_r(f) = \frac{1}{2\pi} \int_0^{2\pi} \left|f\bigl(re^{i\theta}\bigr)\right|^2 \, \mathrm{d}\theta</math>
+permanecem limitadas para {{math|''r'' < 1}}. A norma neste espaço de Hardy é definida por
+<math display="block">\left\|f\right\|_2 = \lim_{r \to 1} \sqrt{M_r(f)} \,.</math>
+
+Os espaços de Hardy no disco estão relacionados às séries de Fourier. Uma função {{math|''f''}} está em {{math|''H''<sup>2</sup>(''U'')}} se e somente se
+<math display="block">f(z) = \sum_{n=0}^\infty a_n z^n</math>
+onde
+<math display="block">\sum_{n=0}^\infty |a_n|^2 < \infty \,.</math>
+
+Portanto, {{math|''H''<sup>2</sup>(''U'')}} consiste nas funções que são ''L''<sup>2</sup> no círculo, e cujos coeficientes de Fourier de frequência negativa se anulam.
+
+==== Espaços de Bergman ====
+Os [[Espaço de Bergman|espaços de Bergman]] são outra família de espaços de Hilbert de funções holomorfas.<ref>{{harvnb|Krantz|2002|loc=§1.4}}</ref> Seja {{math|''D''}} um conjunto aberto limitado no [[plano complexo]] (ou num espaço complexo de dimensão superior) e seja {{math|''L''<sup>2, ''h''</sup>(''D'')}} o espaço das funções holomorfas {{math|''f''}} em {{math|''D''}} que também estão em {{math|''L''<sup>2</sup>(''D'')}} no sentido de que
+<math display="block">\|f\|^2 = \int_D |f(z)|^2\,\mathrm{d}\mu(z) < \infty \,,</math>
+onde o integral é tomado em relação à medida de Lebesgue em {{math|''D''}}. Claramente, {{math|''L''<sup>2, ''h''</sup>(''D'')}} é um subespaço de {{math|''L''<sup>2</sup>(''D'')}}; de fato, é um subespaço [[Conjunto fechado|fechado]], e portanto um espaço de Hilbert por direito próprio. Esta é uma consequência da estimativa, válida em subconjuntos [[Espaço compacto|compactos]] {{math|''K''}} de {{math|''D''}}, de que
+<math display="block">\sup_{z\in K} \left|f(z)\right| \le C_K \left\|f\right\|_2 \,,</math>
+que por sua vez decorre da [[fórmula integral de Cauchy]]. Portanto, a convergência de uma sequência de funções holomorfas em {{math|''L''<sup>2</sup>(''D'')}} implica também a [[Convergência uniforme#Convergência quase uniforme|convergência compacta]], e logo a função limite também é holomorfa. Outra consequência desta desigualdade é que o funcional linear que avalia uma função {{math|''f''}} num ponto de {{math|''D''}} é de fato contínuo em {{math|''L''<sup>2,''h''</sup>(''D'')}}. O teorema da representação de Riesz implica que o funcional de avaliação pode ser representado como um elemento de {{math|''L''<sup>2,''h''</sup>(''D'')}}. Portanto, para cada {{math|''z'' ∈ ''D''}}, existe uma função {{math|''η''<sub>''z''</sub> ∈ ''L''<sup>2,''h''</sup>(''D'')}} tal que
+<math display="block">f(z) = \int_D f(\zeta)\overline{\eta_z(\zeta)}\,\mathrm{d}\mu(\zeta)</math>
+para todo {{math|''f'' ∈ ''L''<sup>2,''h''</sup>(''D'')}}. O integrando
+<math display="block">K(\zeta, z) = \overline{\eta_z(\zeta)}</math>
+é conhecido como o [[núcleo de Bergman]] de {{math|''D''}}. Este [[núcleo integral]] satisfaz uma propriedade de reprodução
+<math display="block">f(z) = \int_D f(\zeta)K(\zeta, z)\,\mathrm{d}\mu(\zeta) \,.</math>
+
+Um espaço de Bergman é um exemplo de um [[espaço de Hilbert de reprodução de núcleo]], que é um espaço de Hilbert de funções juntamente com um núcleo {{math|''K''(''ζ'', ''z'')}} que verifica uma propriedade de reprodução análoga a esta. O espaço de Hardy {{math|''H''<sup>2</sup>(''D'')}} também admite um núcleo de reprodução, conhecido como o [[núcleo de Szegő]].<ref>{{harvnb|Krantz|2002|loc=§1.5}}</ref> Os núcleos de reprodução também são comuns noutras áreas da matemática. Por exemplo, na [[análise harmônica]], o [[núcleo de Poisson]] é um núcleo de reprodução para o espaço de Hilbert de [[Função harmônica|funções harmônicas]] quadrado-integráveis na [[Bola (matemática)|bola unitária]]. Este último é um espaço de Hilbert porque o teorema do valor médio para funções harmônicas implica avaliações de pontos limitadas em <math>L^2</math>, do que se deduz que é um subespaço fechado de <math>L^2</math>.<ref>{{citar periódico
+ |ultimo1=Nishio
+ |primeiro1=Masaharu
+ |ultimo2=Tanaka
+ |primeiro2=Kiyoki
+ |titulo=Harmonic Bergman kernels and Toeplitz operators on the ball with radial measures
+ |periodico=Rev. Roumaine Math. Pures Appl.
+ |volume=62
+ |numero=1
+ |ano=2017
+ |paginas=155-169
+}}</ref>
+
+== Aplicações ==
+Muitas das aplicações dos espaços de Hilbert exploram o fato de que os espaços de Hilbert suportam generalizações de conceitos geométricos simples, como [[Operador de projeção|projeção]] e [[mudança de base]], a partir do seu cenário usual de dimensão finita. Em particular, a [[teoria espetral]] de [[Operador linear|operadores lineares]] [[Operador autoadjunto|autoadjuntos]] [[Função contínua|contínuos]] num espaço de Hilbert generaliza a [[decomposição espetral]] usual de uma [[Matriz (matemática)|matriz]], e isto frequentemente desempenha um papel importante nas aplicações da teoria a outras áreas da matemática e da física.<ref>{{harvnb|Reed|Simon|1980|loc=Capítulos VI–VIII}}</ref>
+
+=== Teoria de Sturm-Liouville ===
+{{Artigos principais|Teoria de Sturm-Liouville|Teoria espetral das equações diferenciais ordinárias}}
+
+[[Ficheiro:Harmonic partials on strings.svg|right|thumb|Os [[harmônico]]s de uma corda vibrante. Estas são [[Expansão em autofunções|autofunções]] de um problema de Sturm-Liouville associado. Os autovalores 1, {{sfrac|1|2}}, {{sfrac|1|3}}, ... formam a [[Série harmônica (música)|série harmônica]] (musical).]]
+Na teoria das [[equação diferencial ordinária|equações diferenciais ordinárias]], os métodos espetrais num espaço de Hilbert adequado são usados para estudar o comportamento dos autovalores e das autofunções das equações diferenciais. Por exemplo, o [[Teoria de Sturm-Liouville|problema de Sturm-Liouville]] surge no estudo dos harmônicos de ondas numa corda de violino ou num tambor, e é um problema central nas [[equação diferencial ordinária|equações diferenciais ordinárias]].<ref>{{harvnb|Young|1988|loc=Capítulo 9}}</ref> O problema é uma equação diferencial da forma
+<math display="block"> -\frac{\mathrm{d}}{\mathrm{d}x}\left[p(x)\frac{\mathrm{d}y}{\mathrm{d}x}\right] + q(x)y = \lambda w(x)y</math>
+para uma função desconhecida {{math|''y''}} num intervalo {{math|[''a'', ''b'']}}, satisfazendo [[condições de contorno de Robin]] homogêneas gerais
+<math display="block">\begin{cases}
+  \alpha y(a)+\alpha' y'(a) &= 0 \\
+  \beta y(b) + \beta' y'(b) &= 0 \,.
+\end{cases}</math>
+As funções {{math|''p''}}, {{math|''q''}} e {{math|''w''}} são dadas antecipadamente, e o problema é encontrar a função {{math|''y''}} e as constantes {{math|''λ''}} para as quais a equação tem uma solução. O problema só tem soluções para certos valores de {{math|''λ''}}, chamados autovalores do sistema, e isto é uma consequência do teorema espetral para [[Operador compacto|operadores compactos]] aplicado ao [[operador integral]] definido pela [[função de Green]] para o sistema. Além disso, outra consequência deste resultado geral é que os autovalores {{math|''λ''}} do sistema podem ser arranjados numa sequência crescente tendendo ao infinito.<ref>{{harvnb|Pedersen|1995|loc=§4.4}}</ref>{{nota de rodapé|Os autovalores do núcleo de Fredholm são {{math|{{sfrac|1|''λ''}}}}, que tendem a zero.}}
+
+=== Equações diferenciais parciais ===
+Os espaços de Hilbert formam uma ferramenta básica no estudo das [[equação diferencial parcial|equações diferenciais parciais]].<ref name="BeJoSc81">{{harvnb|Bers|John|Schechter|1981}}</ref> Para muitas classes de equações diferenciais parciais, tais como as [[Equação diferencial parcial elíptica|equações elípticas]] lineares, é possível considerar uma solução generalizada (conhecida como solução [[Derivada fraca|fraca]]) ampliando a classe de funções. Muitas formulações fracas envolvem a classe das [[Espaço de Sobolev|funções de Sobolev]], que é um espaço de Hilbert. Uma formulação fraca adequada reduz-se a um problema geométrico, o problema analítico de encontrar uma solução ou, o que muitas vezes é mais importante, mostrar que uma solução existe e é única para os dados de contorno fornecidos. Para as equações elípticas lineares, um resultado geométrico que garante a solucionabilidade única para uma grande classe de problemas é o [[teorema de Lax-Milgram]]. Esta estratégia constitui o rudimento do [[método de Galerkin]] (um [[método dos elementos finitos]]) para a solução numérica de equações diferenciais parciais.<ref>Mais detalhes sobre os métodos dos elementos finitos a partir deste ponto de vista podem ser encontrados em {{harvtxt|Brenner|Scott|2005}}.</ref>
+
+Um exemplo típico é a [[equação de Poisson]] {{math|1=−Δ''u'' = ''g''}} com [[condições de contorno de Dirichlet]] num domínio limitado {{math|Ω}} em {{math|'''R'''<sup>2</sup>}}. A formulação fraca consiste em encontrar uma função {{math|''u''}} tal que, para todas as funções continuamente diferenciáveis {{math|''v''}} em {{math|Ω}} que se anulam na fronteira:
+<math display="block">\int_\Omega \nabla u\cdot\nabla v = \int_\Omega gv\,.</math>
+
+Isto pode ser reformulado em termos do espaço de Hilbert {{math|''H''{{su|p=1|b=0}}(Ω)}} que consiste nas funções {{math|''u''}} de tal modo que {{math|''u''}}, juntamente com as suas derivadas parciais fracas, são quadrado-integráveis em {{math|Ω}}, e se anulam na fronteira. A questão então reduz-se a encontrar {{math|''u''}} neste espaço de tal forma que para todo {{math|''v''}} neste espaço
+<math display="block">a(u, v) = b(v)</math>
+
+onde {{math|''a''}} é uma [[forma bilinear]] contínua, e {{math|''b''}} é um [[funcional linear]] contínuo, dados respetivamente por
+<math display="block">a(u, v) = \int_\Omega \nabla u\cdot\nabla v,\quad b(v)= \int_\Omega gv\,.</math>
+
+Como a equação de Poisson é [[Equação diferencial parcial elíptica|elíptica]], deduz-se da desigualdade de Poincaré que a forma bilinear {{math|''a''}} é [[Função coerciva|coerciva]]. O teorema de Lax-Milgram garante então a existência e a unicidade das soluções desta equação.<ref>{{harvnb|Brezis|2010}}, seção 9.5</ref>
+
+Os espaços de Hilbert permitem que muitas equações diferenciais parciais elípticas sejam formuladas de forma semelhante, e o teorema de Lax-Milgram é então uma ferramenta básica na sua análise. Com modificações adequadas, técnicas semelhantes podem ser aplicadas às [[Equação diferencial parcial parabólica|equações diferenciais parciais parabólicas]] e a certas [[Equação diferencial parcial hiperbólica|equações diferenciais parciais hiperbólicas]].<ref>{{harvnb|Evans|1998}}</ref>
+
+=== Teoria ergódica ===
+[[Ficheiro:BunimovichStadium.svg|thumb|right|O caminho de uma bola de [[Bilhar dinâmico|bilhar]] no [[estádio de Bunimovich]] é descrito por um [[sistema dinâmico]] ergódico.]]
+O campo da [[teoria ergódica]] é o estudo do comportamento a longo prazo de [[sistema dinâmico|sistemas dinâmicos]] [[Teoria do caos|caóticos]]. O caso prototípico de um campo ao qual a teoria ergódica se aplica é a [[termodinâmica]], na qual — embora o estado microscópico de um sistema seja extremamente complicado (é impossível entender o conjunto de colisões individuais entre partículas de matéria) — o comportamento médio ao longo de intervalos de tempo suficientemente longos é tratável. As [[leis da termodinâmica]] são asserções sobre tal comportamento médio. Em particular, uma formulação da [[lei zero da termodinâmica]] assevera que, ao longo de escalas de tempo suficientemente longas, a única medição funcionalmente independente que se pode fazer de um sistema termodinâmico em equilíbrio é a sua energia total, sob a forma de [[temperatura]].<ref>{{harvtxt|Pathria|1996}}, Capítulos 2 e 3</ref>
+
+Um sistema dinâmico ergódico é aquele para o qual, além da energia — medida pelo [[Hamiltoniano (mecânica quântica)|hamiltoniano]] —, não existem outras [[Constante de movimento|quantidades conservadas]] funcionalmente independentes no [[espaço de fase]]. Mais explicitamente, suponha que a energia {{math|''E''}} é fixa, e seja {{math|Ω<sub>''E''</sub>}} o subconjunto do espaço de fase que consiste em todos os estados de energia {{math|''E''}} (uma superfície de energia), e seja {{math|''T''<sub>''t''</sub>}} o operador de evolução no espaço de fase. O sistema dinâmico é ergódico se toda função mensurável invariante em {{math|Ω<sub>''E''</sub>}} for constante [[Quase sempre|quase em toda parte]].<ref>{{harvtxt|Einsiedler|Ward|2011}}, Proposição 2.14.</ref> Uma função invariante {{math|''f''}} é aquela para a qual
+<math display="block">f(T_tw) = f(w)</math>
+para todo {{math|''w''}} em {{math|Ω<sub>''E''</sub>}} e todo o tempo {{math|''t''}}. O [[teorema de Liouville]] implica que existe uma [[Teoria da medida|medida]] {{math|''μ''}} na superfície de energia que é invariante sob a [[Simetria de translação|translação no tempo]]. Como resultado, a translação no tempo é uma [[transformação unitária]] do espaço de Hilbert {{math|''L''<sup>2</sup>(Ω<sub>''E''</sub>, ''μ'')}} que consiste em funções quadrado-integráveis na superfície de energia {{math|Ω<sub>''E''</sub>}} em relação ao produto interno
+<math display="block">\left\langle f, g\right\rangle_{L^2\left(\Omega_E, \mu\right)} = \int_{\Omega_E} f\bar{g}\,\mathrm{d}\mu\,.</math>
+
+O teorema ergódico médio de von Neumann<ref name="von Neumann 1932"/> afirma o seguinte:
+* Se {{math|''U''<sub>''t''</sub>}} é um [[semigrupo]] (fortemente contínuo) a um parâmetro de operadores unitários num espaço de Hilbert {{math|''H''}}, e {{math|''P''}} é a projeção ortogonal no espaço dos pontos fixos comuns de {{math|''U''<sub>''t''</sub>}}, {{math|1={''x''  ∈''H'' {{!}} ''U''<sub>''t''</sub>''x'' = ''x'', ∀''t'' > 0}<nowiki/>}}, então <math display="block"> Px = \lim_{T\to\infty} \frac{1}{T} \int_0^T U_tx\,\mathrm{d}t\,.</math>
+
+Para um sistema ergódico, o conjunto fixo da evolução temporal consiste apenas nas funções constantes, então o teorema ergódico implica o seguinte: para qualquer função {{math|''f'' ∈ ''L''<sup>2</sup>(Ω<sub>''E''</sub>, ''μ'')}},<ref>{{harvnb|Reed|Simon|1980}}</ref>
+<math display="block">\underset{T\to\infty}{L^2 - \lim} \frac{1}{T}\int_0^T f(T_tw)\,\mathrm{d}t = \int_{\Omega_E} f(y)\,\mathrm{d}\mu(y)\,.</math>
+
+Isto é, a média de longo prazo de um observável {{math|''f''}} é igual ao seu valor esperado numa superfície de energia.<ref>{{harvnb|Reed|Simon|1980}}</ref>
+
+=== Análise de Fourier ===
+[[Ficheiro:Sawtooth Fourier Analysys.svg|thumb|right|Sobreposição de funções de base de onda senoidal (abaixo) para formar uma onda dente de serra (acima)]]
+[[Ficheiro:Harmoniki.png|thumb|right|[[Harmônicos esféricos]], uma base ortonormal para o espaço de Hilbert de funções quadrado-integráveis na esfera, apresentada num gráfico ao longo da direção radial]]
+Um dos objetivos básicos da [[análise de Fourier]] é o de decompor uma função numa [[combinação linear]] (possivelmente infinita) de dadas funções de base: a [[série de Fourier]] associada. A série clássica de Fourier associada a uma função {{math|''f''}} definida no intervalo {{math|[0, 1]}} é uma série da forma
+<math display="block">\sum_{n=-\infty}^\infty a_n e^{2\pi in\theta}</math>
+onde
+<math display="block">a_n = \int_0^1f(\theta)\;\!e^{-2\pi in\theta}\,\mathrm{d}\theta\,.</math>
+
+O exemplo da adição dos primeiros termos de uma série de Fourier para uma função dente de serra é mostrado na figura. As funções de base são ondas senoidais com comprimentos de onda {{math|{{sfrac|''λ''|''n''}}}} (para {{math|''n''}} inteiro) mais curtos do que o comprimento de onda {{math|''λ''}} do próprio dente de serra (exceto para {{math|1=''n'' = 1}}, a onda ''fundamental'').
+
+Um problema significativo nas séries clássicas de Fourier indaga em que sentido a série de Fourier converge, se é que converge, para a função {{math|''f''}}. Os métodos do espaço de Hilbert fornecem uma resposta possível a esta questão.<ref>Um tratamento das séries de Fourier a partir deste ponto de vista está disponível, por exemplo, em {{harvtxt|Rudin|1987}} ou {{harvtxt|Folland|2009}}.</ref> As funções {{math|1=''e<sub>n</sub>''(''θ'') = ''e''<sup>2π''inθ''</sup>}} formam uma base ortogonal do espaço de Hilbert {{math|''L''<sup>2</sup>([0, 1])}}. Consequentemente, qualquer função quadrado-integrável pode ser expressa como uma série
+<math display="block">f(\theta) = \sum_n a_n e_n(\theta)\,,\quad a_n = \langle f, e_n\rangle</math>
+e, além disso, esta série converge no sentido do espaço de Hilbert (isto é, na [[Convergência em média|média {{math|''L''<sup>2</sup>}}]]).
+
+O problema também pode ser estudado do ponto de vista abstrato: todo espaço de Hilbert tem uma [[base ortonormal]], e todo elemento do espaço de Hilbert pode ser escrito de uma forma única como uma soma de múltiplos desses elementos da base. Os coeficientes que aparecem nestes elementos da base são por vezes conhecidos abstratamente como os coeficientes de Fourier do elemento do espaço.<ref>{{harvnb|Halmos|1957|loc=§5}}</ref> A abstração é especialmente útil quando é mais natural usar diferentes funções de base para um espaço tal como {{math|''L''<sup>2</sup>([0, 1])}}. Em muitas circunstâncias, é desejável não decompor uma função em funções trigonométricas, mas sim em [[polinômios ortogonais]] ou [[Ondeleta|wavelets]] por exemplo,<ref>{{harvnb|Bachman|Narici|Beckenstein|2000}}</ref> e em dimensões superiores em [[harmônicos esféricos]].<ref>{{harvnb|Stein|Weiss|1971|loc=§IV.2}}</ref>
+
+Por exemplo, se {{math|''e''<sub>''n''</sub>}} são quaisquer funções de base ortonormal de {{math|''L''<sup>2</sup>[0, 1]}}, então uma dada função em {{math|''L''<sup>2</sup>[0, 1]}} pode ser aproximada como uma combinação linear finita<ref>{{harvnb|Lanczos|1988|pp=212–213}}</ref>
+<math display="block">f(x) \approx f_n (x) = a_1 e_1 (x) + a_2 e_2(x) + \cdots + a_n e_n (x)\,.</math>
+
+Os coeficientes <math>\{a_j\}</math> são selecionados para tornar a magnitude da diferença <math>\|f - f_n\|^2</math> o menor possível. Geometricamente, a [[#Melhor aproximação|melhor aproximação]] é a [[#Complementos ortogonais e projeções|projeção ortogonal]] de <math>f</math> no subespaço constituído por todas as combinações lineares dos <math>\{e_j\}</math>, e pode ser calculada por<ref>{{harvnb|Lanczos|1988|loc=Equação 4-3.10}}</ref>
+<math display="block">a_j = \int_0^1 \overline{e_j(x)}f (x) \, \mathrm{d}x\,.</math>
+
+O fato de esta fórmula minimizar a diferença <math>\|f - f_n\|^2</math> é uma consequência da desigualdade de Bessel e da fórmula de Parseval.
+
+Em várias aplicações a problemas físicos, uma função pode ser decomposta em [[Expansão em autofunções|autofunções]] fisicamente significativas de um [[operador diferencial]] (tipicamente o [[operador de Laplace]]): isto constitui o fundamento para o estudo espetral das funções, em referência ao [[Teorema espetral|espetro]] do operador diferencial.<ref>A referência clássica para métodos espetrais é {{harvnb|Courant|Hilbert|1953}}. Um relato mais atualizado é {{harvnb|Reed|Simon|1975}}.</ref> Uma aplicação física concreta envolve o problema de [[ouvir a forma de um tambor]]: dados os modos fundamentais de vibração que uma pele de tambor é capaz de produzir, pode-se inferir a forma do próprio tambor?<ref>{{harvnb|Kac|1966}}</ref> A formulação matemática desta questão envolve os [[Autovalor de Dirichlet|autovalores de Dirichlet]] da equação de Laplace no plano, que representam os modos fundamentais de vibração em analogia direta com os inteiros que representam os modos fundamentais de vibração da corda de violino.
+
+A [[teoria espetral]] também fundamenta certos aspetos da [[transformada de Fourier]] de uma função. Ao passo que a análise de Fourier decompõe uma função definida num [[conjunto compacto]] no espetro discreto do laplaciano (que corresponde às vibrações de uma corda de violino ou de um tambor), a transformada de Fourier de uma função é a decomposição de uma função definida em todo o espaço euclidiano nas suas componentes no [[espetro contínuo]] do laplaciano. A transformação de Fourier também é geométrica, num sentido tornado preciso pelo [[teorema de Plancherel]], que afirma que é uma [[isometria]] de um espaço de Hilbert (o "domínio do tempo") para outro (o "domínio da frequência"). Esta propriedade de isometria da transformação de Fourier é um tema recorrente na [[análise harmônica]] abstrata (uma vez que reflete a conservação de energia para a transformada contínua de Fourier), como evidenciado, por exemplo, pelo [[teorema de Plancherel para funções esféricas]] que ocorre na [[análise harmônica não comutativa]].{{sfn|Helgason|1984|loc=Capítulo IV}}
+
+=== Mecânica quântica ===
+[[Ficheiro:HAtomOrbitals.png|right|thumb|Os [[Orbital atômico|orbitais]] de um [[elétron]] num [[átomo de hidrogênio]] são [[Expansão em autofunções|autofunções]] da [[energia]].]]
+{{Artigo principal|Formulação matemática da mecânica quântica}}
+
+Na formulação matematicamente rigorosa da [[mecânica quântica]], desenvolvida por [[John von Neumann]],<ref>{{harvnb|von Neumann|1955}}</ref> os estados possíveis (mais precisamente, os [[Estado puro|estados puros]]) de um sistema mecânico quântico são representados por [[Vetor unitário|vetores unitários]] (chamados ''vetores de estado'') que residem num espaço de Hilbert separável complexo, conhecido como o [[Espaço de estados (física)|espaço de estados]], bem definido até a um número complexo de norma 1 (o [[fator de fase]]). Por outras palavras, os estados possíveis são pontos na [[Espaço projetivo|projetivização]] de um espaço de Hilbert, geralmente chamado de [[espaço projetivo complexo]]. A natureza exata deste espaço de Hilbert é dependente do sistema; por exemplo, os estados de posição e de momento para uma única partícula não-relativística de spin zero é o espaço de todas as funções [[Função quadrado integrável|quadrado-integráveis]], enquanto os estados para o spin de um único próton são elementos unitários do espaço de Hilbert complexo bidimensional dos [[espinor]]es. Cada observável é representado por um [[operador linear]] [[Operador autoadjunto|autoadjunto]] atuando no espaço de estados. Cada autoestado de um observável corresponde a um [[autovetor]] do operador, e o [[autovalor]] associado corresponde ao valor do observável nesse autoestado.<ref>{{harvnb|Holevo|2001|p=17}}</ref>
+
+O produto interno entre dois vetores de estado é um número complexo conhecido como a [[amplitude de probabilidade]]. Durante uma [[Medição na mecânica quântica|medição ideal de um sistema mecânico quântico]], a probabilidade de um sistema colapsar de um dado estado inicial para um autoestado particular é dada pelo quadrado do [[valor absoluto]] das amplitudes de probabilidade entre os estados inicial e final.<ref>{{harvnb|Rieffel|Polak|2011|p=55}}</ref> Os resultados possíveis de uma medição são os autovalores do operador — o que explica a escolha de operadores autoadjuntos, pois todos os autovalores devem ser reais. A distribuição de probabilidade de um observável num dado estado pode ser encontrada calculando a decomposição espetral do operador correspondente.<ref>{{harvnb|Peres|1993|p=101}}</ref>
+
+Para um sistema geral, os estados tipicamente não são puros, mas são, em vez disso, representados como misturas estatísticas de estados puros, ou estados mistos, dados por [[Matriz de densidade|matrizes de densidade]]: operadores autoadjuntos de [[Traço (álgebra linear)|traço]] um sobre um espaço de Hilbert.<ref>{{harvnb|Peres|1993|pp=73}}</ref> Além disso, para sistemas mecânicos quânticos gerais, os efeitos de uma única medição podem influenciar outras partes de um sistema de uma forma que é descrita, por sua vez, por uma [[medida com valor de operador positivo]]. Assim, a estrutura tanto dos estados quanto dos observáveis na teoria geral é consideravelmente mais complexa do que a idealização para os estados puros.<ref>{{harvnb|Nielsen|Chuang|2000|p=90}}</ref>
+
+=== Teoria das probabilidades ===
+Na [[teoria das probabilidades]], os espaços de Hilbert também têm diversas aplicações. Aqui, um espaço de Hilbert fundamental é o espaço das [[Variável aleatória|variáveis aleatórias]] num dado [[espaço de probabilidade]], possuindo classe <math>L^2</math> (primeiro e segundo [[Momento (matemática)|momentos]] finitos). Uma operação comum na estatística é a de centrar uma variável aleatória subtraindo a sua [[Valor esperado|esperança matemática]]. Assim, se <math>X</math> é uma variável aleatória, então <math>X - E(X)</math> é o seu centramento. Na perspetiva do espaço de Hilbert, esta é a projeção ortogonal de <math>X</math> sobre o [[Núcleo (álgebra linear)|núcleo]] do operador de esperança matemática, que é um [[Funcional linear|funcional linear contínuo]] no espaço de Hilbert (de facto, o produto interno com a variável aleatória constante 1), e por isso este núcleo é um subespaço fechado.<ref>{{citar web
+ |ultimo=Green
+ |primeiro=Ben
+ |autorlink=Ben Green (matemático)
+ |titulo=A Brief Primer on Conditional Expectation
+ |url=https://people.maths.ox.ac.uk/greenbj/papers/conditional-expect.pdf
+}}</ref>
+
+A [[esperança condicional]] tem uma interpretação natural no espaço de Hilbert.<ref>{{harvtxt|Billingsley|1986}}, p. 477, ex. 34.13</ref> Suponha que seja dado um espaço de probabilidade <math>(\Omega, P, \mathcal B)</math>, onde <math>\mathcal B</math> é uma [[sigma-álgebra]] no conjunto <math>\Omega</math>, e <math>P</math> é uma [[medida de probabilidade]] no espaço de medida <math>(\Omega, \mathcal B)</math>. Se <math>\mathcal F\le\mathcal B</math> é uma sigma-subálgebra de <math>\mathcal B</math>, então a esperança condicional <math>E[X\mid\mathcal F]</math> é a projeção ortogonal de <math>X</math> sobre o subespaço de <math>L^2(\Omega, P)</math> constituído pelas funções mensuráveis em <math>\mathcal F</math>. Se a variável aleatória <math>X</math> em <math>L^2(\Omega, P)</math> for independente da sigma-álgebra <math>\mathcal F</math>, então a esperança condicional <math>E(X\mid\mathcal F) = E(X)</math>, isto é, a sua projeção sobre as funções mensuráveis em <math>\mathcal F</math> é constante. Equivalentemente, a projeção do seu centramento é zero.
+
+Em particular, se duas variáveis aleatórias <math>X</math> e <math>Y</math> (em <math>L^2(\Omega, P)</math>) são independentes, então as variáveis aleatórias centradas <math>X-E(X)</math> e <math>Y-E(Y)</math> são ortogonais. (Isto significa que as duas variáveis têm [[covariância]] nula: são [[Correlação|não correlacionadas]].) Nesse caso, o teorema de Pitágoras no núcleo do operador de esperança implica que as [[variância]]s de <math>X</math> e <math>Y</math> satisfazem a identidade:
+<math display="block">\operatorname{Var}(X+Y) = \operatorname{Var}(X) + \operatorname{Var}(Y),</math>
+por vezes chamada de teorema de Pitágoras da estatística, e é de importância na [[regressão linear]].<ref>{{harvnb|Stapleton|1995}}</ref> Como {{harvtxt|Stapleton|1995}} o coloca, "a [[análise de variância]] pode ser vista como a decomposição do comprimento ao quadrado de um vetor na soma dos comprimentos ao quadrado de vários vetores, usando o Teorema de Pitágoras."
+
+A teoria dos [[martingal]]es pode ser formulada em espaços de Hilbert. Um martingale num espaço de Hilbert é uma sequência <math>x_1,x_2,\dots</math> de elementos de um espaço de Hilbert de tal forma que, para cada {{math|''n''}}, <math>x_n</math> é a projeção ortogonal de <math>x_{n+1}</math> sobre o envoltório linear de <math>x_1,\dots,x_n</math>.<ref>{{harvtxt|Hewitt|Stromberg|1965}}, Exercício 16.45.</ref> Se os <math>x_k</math> forem variáveis aleatórias, isto reproduz a definição habitual de um martingale (discreto): a esperança de <math>x_{n+1}</math>, condicionada a <math>x_1,\dots,x_n</math>, é igual a <math>x_n</math>.
+
+Os espaços de Hilbert também são usados ao longo dos fundamentos do [[cálculo de Itô]].<ref>{{harvnb|Karatzas|Shreve|2019}}, Capítulo 3</ref> A qualquer [[martingal]]e quadrado-integrável, é possível associar uma norma de Hilbert no espaço de classes de equivalência de [[Processo progressivamente mensurável|processos progressivamente mensuráveis]] em relação ao martingale (usando a [[variação quadrática]] do martingale como medida). O [[integral de Itô]] pode ser construído definindo-o primeiro para os [[Processo simples|processos simples]] e explorando depois a sua densidade no espaço de Hilbert. Um resultado notável é então a [[isometria de Itô]], que atesta que para qualquer martingale ''M'' com medida de variação quadrática <math>d\langle M\rangle_t</math>, e para qualquer processo progressivamente mensurável ''H'':<ref>{{harvnb|Karatzas|Shreve|2019|loc=Capítulo 3}}</ref>
+<math display="block">E\left[\left(\int_0^tH_s \, dM_s\right)^2\right] = E\left[\int_0^tH_s^2 \, d\langle M\rangle_s\right]</math>
+sempre que a esperança matemática do lado direito seja finita.
+
+Uma aplicação mais profunda dos espaços de Hilbert que é especialmente importante na teoria dos [[Processo gaussiano|processos gaussianos]] é uma tentativa, devido a [[Leonard Gross]] e a outros, de dar sentido a certas integrais formais sobre espaços de dimensão infinita, como a [[Formulações da mecânica quântica|integral de caminho de Feynman]] da [[teoria quântica de campos]]. O problema com integrais como esta é que não existe uma [[medida de Lebesgue em dimensão infinita]]. A noção de um [[espaço abstrato de Wiener]] permite construir uma medida num espaço de Banach {{math|''B''}} que contém um espaço de Hilbert {{math|''H''}}, chamado de [[espaço de Cameron-Martin]], como um subconjunto denso, a partir de uma medida de conjunto de cilindros finitamente aditiva em {{math|''H''}}. A medida resultante em {{math|''B''}} é aditiva de forma enumerável e invariante sob a translação por elementos de {{math|''H''}}, e isto fornece uma maneira matematicamente rigorosa de pensar na [[medida de Wiener]] como uma medida gaussiana adaptada ao espaço de Sobolev <math>H^1([0,\infty))</math>.<ref>Em geral, esta medida é suportada em {{math|''B''}}, não em {{math|''H''}}.{{harvtxt|Stroock|2011|loc=Capítulo 8}}</ref>
+
+=== Perceção de cor ===
+{{Artigo principal|Visão em cores#Matemática da percepção de cor}}
+
+Qualquer cor física verdadeira pode ser representada por uma combinação de [[Cor espetral|cores espetrais]] puras. Como as cores físicas podem ser compostas por qualquer número de cores espetrais, o espaço das cores físicas pode ser adequadamente representado por um espaço de Hilbert sobre as cores espetrais. Os seres humanos possuem [[Tricromatismo|três tipos de células cone]] para a perceção das cores, pelo que as cores percetíveis podem ser representadas pelo espaço euclidiano tridimensional. O mapeamento linear de muitos-para-um do espaço de Hilbert de cores físicas para o espaço euclidiano de cores percetíveis pelo ser humano explica a razão pela qual muitas cores físicas distintas podem ser percecionadas pelos seres humanos como sendo idênticas (por exemplo, luz amarela pura contra uma mistura de luz vermelha e verde, ver ''[[Metamerismo (cor)|Metamerismo]]'').<ref>{{citar livro|capitulo=Mind and nature|autor=[[Hermann Weyl]]|titulo=Mind and nature: selected writings on philosophy, mathematics, and physics|ano=2009|editora=Princeton University Press|bibcode=2009mnsw.book.....W }}</ref><ref>{{citar periódico|titulo=Geometry of color perception. Part 2: perceived colors from real quantum states and Hering's rebit|primeiro=M.|ultimo=Berthier|ano=2020|periodico=The Journal of Mathematical Neuroscience|volume=10|numero=1 |article-number=14 |doi=10.1186/s13408-020-00092-x |pmid=32902776 |pmc=7481323 |doi-access=free }}</ref>
+
+== Propriedades ==
+
+=== Identidade pitagórica ===
+Dois vetores {{math|''u''}} e {{math|''v''}} num espaço de Hilbert {{math|''H''}} são ortogonais quando {{math|1=⟨''u'', ''v''⟩ = 0}}. A notação para isto é {{math|''u'' ⊥ ''v''}}. De forma mais geral, quando {{math|''S''}} é um subconjunto em {{math|''H''}}, a notação {{math|''u'' ⊥ ''S''}} significa que {{math|''u''}} é ortogonal a todo elemento de {{math|''S''}}.
+
+Quando {{math|''u''}} e {{math|''v''}} são ortogonais, tem-se
+<math display="block">\|u + v\|^2 = \langle u + v, u + v \rangle = \langle u, u \rangle + 2 \, \operatorname{Re} \langle u, v \rangle + \langle v, v \rangle= \|u\|^2 + \|v\|^2\,.</math>
+
+Por indução em {{math|''n''}}, isto é estendido para qualquer família {{math|''u''<sub>1</sub>, ..., ''u<sub>n</sub>''}} de {{math|''n''}} vetores ortogonais,
+<math display="block">\left\|u_1 + \cdots + u_n\right\|^2 = \left\|u_1\right\|^2 + \cdots + \left\|u_n\right\|^2 .</math>
+
+Embora a identidade pitagórica (ou teorema de Pitágoras) declarada seja válida em qualquer espaço com produto interno, a completude é necessária para a extensão da identidade pitagórica às séries.<ref>{{harvnb|Reed|Simon|1980}}, Teorema 12.6</ref> Uma série {{math|Σ''u<sub>k</sub>''}} de vetores ''ortogonais'' converge em {{math|''H''}} se e somente se a série de quadrados de normas convergir, e
+<math display="block">\Biggl\|\sum_{k=0}^\infty u_k \Biggr\|^2 = \sum_{k=0}^\infty \left\|u_k\right\|^2\,.</math>
+Adicionalmente, a soma de uma série de vetores ortogonais é independente da ordem em que é tomada.
+
+=== Identidade do paralelogramo e polarização ===
+[[Ficheiro:Color parallelogram.svg|right|thumb|Geometricamente, a identidade do paralelogramo assevera que {{math|1=AC<sup>2</sup> + BD<sup>2</sup> = 2(AB<sup>2</sup> + AD<sup>2</sup>)}}. Por outras palavras, a soma dos quadrados das diagonais é o dobro da soma dos quadrados de quaisquer dois lados adjacentes]]
+Por definição, todo espaço de Hilbert é também um [[espaço de Banach]]. Além disso, em todo espaço de Hilbert, verifica-se a seguinte [[Lei do paralelogramo|identidade do paralelogramo]]:<ref>{{harvnb|Reed|Simon|1980}}, p. 38</ref>
+<math display="block">\|u + v\|^2 + \|u - v\|^2 = 2\bigl(\|u\|^2 + \|v\|^2\bigr)\,.</math>
+
+Por outro lado, todo espaço de Banach no qual a identidade do paralelogramo se verifica é um espaço de Hilbert, e o produto interno é inequivocamente determinado pela norma pela [[identidade de polarização]].<ref>{{harvnb|Young|1988|p=23}}</ref> Para espaços de Hilbert reais, a identidade de polarização é
+<math display="block">\langle u, v\rangle = \tfrac{1}{4}\bigl(\|u + v\|^2 - \|u - v\|^2\bigr)\,.</math>
+
+Para espaços de Hilbert complexos, ela é
+<math display="block">\langle u, v\rangle = \tfrac{1}{4}\bigl(\|u + v\|^2 - \|u - v\|^2 + i\|u + iv\|^2 - i\|u - iv\|^2\bigr)\,.</math>
+
+A lei do paralelogramo implica que qualquer espaço de Hilbert é um [[Espaço uniformemente convexo|espaço de Banach uniformemente convexo]].<ref>{{harvnb|Clarkson|1936}}</ref>
+
+=== Melhor aproximação ===
+Esta subseção emprega o [[Teorema da projeção em espaços de Hilbert|teorema da projeção de Hilbert]]. Se {{math|''C''}} é um subconjunto convexo fechado não vazio de um espaço de Hilbert {{math|''H''}} e {{math|''x''}} um ponto em {{math|''H''}}, existe um ponto único {{math|''y'' ∈ ''C''}} que minimiza a distância entre {{math|''x''}} e os pontos em {{math|''C''}},<ref>{{harvnb|Rudin|1987|loc=Teorema 4.10}}</ref>
+<math display="block"> y \in C \,, \quad \|x - y\| = \operatorname{dist}(x, C) = \min \bigl\{ \|x - z\| \mathrel{\big|} z \in C \bigr\}\,.</math>
+
+Isto é equivalente a dizer que existe um ponto com norma mínima no conjunto convexo transladado {{math|1=''D'' = ''C'' − ''x''}}. A prova consiste em mostrar que toda sequência minimizadora {{math|(''d<sub>n</sub>'') ⊂ ''D''}} é de Cauchy (usando a identidade do paralelogramo) e, portanto, converge (usando completude) para um ponto em {{math|''D''}} que tem norma mínima. Mais genericamente, isto verifica-se em qualquer espaço de Banach uniformemente convexo.<ref>{{harvnb|Dunford|Schwartz|1958|loc=II.4.29}}</ref>
+
+Quando este resultado é aplicado a um subespaço fechado {{math|''F''}} de {{math|''H''}}, pode-se mostrar que o ponto {{math|''y'' ∈ ''F''}} mais próximo de {{math|''x''}} é caracterizado por<ref>{{harvnb|Rudin|1987|loc=Teorema 4.11}}</ref>
+<math display="block"> y \in F \,, \quad x - y \perp F \,.</math>
+
+Este ponto {{math|''y''}} é a ''projeção ortogonal'' de {{math|''x''}} sobre {{math|''F''}}, e o mapeamento {{math|''P<sub>F</sub>'' : ''x'' → ''y''}} é linear (veja ''[[#Complementos ortogonais e projeções|Complementos ortogonais e projeções]]''). Este resultado é especialmente significativo na [[matemática aplicada]], especialmente na [[análise numérica]], onde forma a base dos métodos dos [[mínimos quadrados]].<ref>
+{{citar livro
+ | ultimo1 = Blanchet | primeiro1 = Gérard | ultimo2 = Charbit | primeiro2 = Maurice
+ | titulo = Digital Signal and Image Processing Using MATLAB
+ | editora = Wiley | volume = 1 | edicao = Second | data = 2014
+ | local = New Jersey | paginas = 349–360 | isbn = 978-1848216402
+}}</ref>
+
+Em particular, quando {{math|''F''}} não é igual a {{math|''H''}}, pode-se encontrar um vetor não-nulo {{math|''v''}} ortogonal a {{math|''F''}} (selecionando {{math|''x'' ∉ ''F''}} e {{math|1=''v'' = ''x'' − ''y''}}). Um critério muito útil é obtido aplicando-se esta observação ao subespaço fechado {{math|''F''}} gerado por um subconjunto {{math|''S''}} de {{math|''H''}}.
+: Um subconjunto {{math|''S''}} de {{math|''H''}} abrange (''spans'') um subespaço vetorial denso se (e somente se) o vetor 0 for o único vetor {{math|''v'' ∈ ''H''}} ortogonal a {{math|''S''}}.
+
+=== Dualidade ===
+O [[Espaço dual|espaço dual contínuo]] {{math|''H''*}} é o espaço de todas as funções lineares [[Função contínua (topologia)|contínuas]] do espaço {{math|''H''}} no corpo base. Ele carrega uma norma natural, definida por
+<math display="block">\|\varphi\| = \sup_{\|x\|=1, x\in H} |\varphi(x)| \,.</math>
+Esta norma satisfaz a [[lei do paralelogramo]], e, portanto, o espaço dual é também um espaço com produto interno, onde este produto interno pode ser definido em termos desta norma dual usando a [[identidade de polarização]]. O espaço dual também é completo, pelo que é um espaço de Hilbert por direito próprio.
+Se {{math|1=''e''<sub>•</sub> = (''e''<sub>''i''</sub>)<sub>''i'' ∈ ''I''</sub>}} é uma base ortonormal completa para {{mvar|H}}, então o produto interno no espaço dual de quaisquer dois <math>f, g \in H^*</math> é
+<math display="block">\langle f, g \rangle_{H^{*}} = \sum_{i \in I} f (e_i) \overline{g (e_i)}</math>
+onde todos os termos nesta série, exceto os contáveis, são zero.
+
+O [[teorema da representação de Riesz]] proporciona uma descrição conveniente do espaço dual. A cada elemento {{math|''u''}} de {{math|''H''}}, há um elemento único {{math|''φ<sub>u</sub>''}} de {{math|''H''*}}, definido por
+<math display="block">\varphi_u(x) = \langle x, u\rangle </math>
+onde, além disso, <math>\left\| \varphi_u \right\| = \left\| u \right\|.</math>
+
+O teorema da representação de Riesz afirma que o mapa de {{math|''H''}} para {{math|''H''*}} definido por {{math|''u'' ↦ ''φ<sub>u</sub>''}} é [[Função sobrejetiva|sobrejetivo]], o que faz deste mapa um isomorfismo [[Aplicação antilinear|antilinear]] [[Isometria|isométrico]].<ref>{{harvnb|Weidmann|1980|loc=Teorema 4.8}}</ref> Então, para cada elemento {{math|''φ''}} do dual {{math|''H''*}} existe um e apenas um {{math|''u<sub>φ</sub>''}} em {{math|''H''}} tal que
+<math display="block">\langle x, u_\varphi\rangle = \varphi(x)</math>
+para todo {{math|''x'' ∈ ''H''}}. O produto interno no espaço dual {{math|''H''*}} satisfaz
+<math display="block"> \langle \varphi, \psi \rangle = \langle u_\psi, u_\varphi \rangle \,.</math>
+
+A inversão da ordem no lado direito restaura a linearidade em {{math|''φ''}} a partir da antilinearidade de {{math|''u<sub>φ</sub>''}}. No caso real, o isomorfismo antilinear de {{math|''H''}} para o seu dual é, na verdade, um isomorfismo, de modo que os espaços de Hilbert reais são naturalmente isomorfos aos seus próprios duais.
+
+O vetor representante {{math|''u<sub>φ</sub>''}} é obtido da seguinte maneira. Quando {{math|''φ'' ≠ 0}}, o [[Núcleo (álgebra linear)|núcleo]] {{math|1=''F'' = Ker(''φ'')}} é um subespaço vetorial fechado de {{math|''H''}}, não igual a {{math|''H''}}, consequentemente existe um vetor não-nulo {{math|''v''}} ortogonal a {{math|''F''}}. O vetor {{math|''u''}} é um múltiplo escalar adequado {{math|''λv''}} de {{math|''v''}}. A exigência de que {{math|1=''φ''(''v'') = ⟨''v'', ''u''⟩}} produz
+<math display="block"> u = \langle v, v \rangle^{-1} \, \overline{\varphi (v)} \, v \,.</math>
+
+Esta correspondência {{math|''φ'' ↔ ''u''}} é explorada pela [[notação bra-ket]] popular na [[física]].<ref>{{harvnb|Peres|1993|pp=77–78}}</ref> É comum na física assumir que o produto interno, denotado por <math>\langle x | y \rangle</math>, é linear à direita,
+<math display="block">\langle x | y \rangle = \langle y, x \rangle \,.</math>
+O resultado <math>\langle x | y \rangle</math> pode ser visto como a ação do funcional linear <math>\langle x |</math> (o ''bra'') no vetor <math>| y \rangle</math> (o ''ket'').
+
+O teorema da representação de Riesz não se baseia fundamentalmente apenas na presença de um produto interno, mas também na completude do espaço. De fato, o teorema implica que o [[Espaço dual|dual topológico]] de qualquer espaço com produto interno pode ser identificado com a sua completude.<ref>{{harvtxt|Weidmann|1980|loc=Exercício 4.11}}</ref> Uma consequência imediata do teorema da representação de Riesz é também que um espaço de Hilbert {{math|''H''}} é [[Espaço reflexivo|reflexivo]], o que significa que o mapa natural de {{math|''H''}} para o seu [[Espaço dual#Espaço bidual|espaço bidual]] é um isomorfismo.
+
+=== Sequências fracamente convergentes ===
+{{Artigo principal|Convergência fraca (espaço de Hilbert)}}
+
+Num espaço de Hilbert {{math|''H''}}, uma sequência {{math|{''x<sub>n</sub>''}<nowiki/>}} é [[Topologia fraca|fracamente convergente]] para um vetor {{math|''x'' ∈ ''H''}} quando
+<math display="block">\lim_n \langle x_n, v \rangle = \langle x, v \rangle</math>
+para todo {{math|''v'' ∈ ''H''}}.
+
+Por exemplo, qualquer sequência ortonormal {{math|{''f<sub>n</sub>''}<nowiki/>}} converge fracamente para 0, como uma consequência da [[desigualdade de Bessel]]. Toda sequência fracamente convergente {{math|{''x<sub>n</sub>''}<nowiki/>}} é limitada, pelo [[teorema de Banach-Steinhaus]] (princípio da limitação uniforme).
+
+Em contrapartida, toda sequência limitada num espaço de Hilbert admite subsequências fracamente convergentes ([[teorema de Banach-Alaoglu]]).<ref>{{harvnb|Weidmann|1980|loc=§4.5}}</ref> Este facto pode ser usado para provar resultados de minimização para funcionais [[Função convexa|convexos]] contínuos, da mesma forma que o [[teorema de Bolzano-Weierstrass]] é usado para funções contínuas em {{math|'''R'''<sup>''d''</sup>}}. Entre várias variantes, uma afirmação simples é a seguinte:<ref>{{harvnb|Buttazzo|Giaquinta|Hildebrandt|1998|loc=Teorema 5.17}}</ref>
+: Se <math>f : H \to \mathbb{R}</math> for uma função contínua convexa tal que <math>f(x)</math> tende para <math>+\infty</math> quando <math>\|x\|</math> tende para <math>\infty</math>, então <math>f</math> admite um mínimo em algum ponto <math>x_0 \in H</math>.
+
+Este fato (e as suas várias generalizações) é fundamental para os [[Método direto no cálculo de variações|métodos diretos]] no [[cálculo de variações]]. Resultados de minimização para funcionais convexos são também uma consequência direta do fato ligeiramente mais abstrato de que subconjuntos convexos fechados limitados num espaço de Hilbert {{math|''H''}} são [[Topologia fraca|fracamente compactos]], uma vez que {{math|''H''}} é reflexivo. A existência de subsequências fracamente convergentes é um caso especial do [[teorema de Eberlein-Šmulian]].{{sfn|Schaefer|Wolff|1999|pp=185-190}}
+
+=== Propriedades de espaço de Banach ===
+Qualquer propriedade geral dos [[Espaço de Banach|espaços de Banach]] continua a verificar-se para os espaços de Hilbert. O [[teorema da aplicação aberta]] afirma que uma transformação linear [[Função sobrejetiva|sobrejetiva]] [[Função contínua|contínua]] de um espaço de Banach para outro é um [[Aplicação aberta|mapeamento aberto]] significando que envia conjuntos abertos para conjuntos abertos. Um corolário é o [[Teorema da transformação linear contínua inversa|teorema da inversa limitada]], segundo o qual uma função linear contínua e [[Bijeção|bijetiva]] de um espaço de Banach para outro é um isomorfismo (ou seja, um mapa linear contínuo cuja inversa é também contínua). Este teorema é consideravelmente mais simples de provar no caso dos espaços de Hilbert do que nos espaços de Banach em geral.<ref>{{harvnb|Halmos|1982|loc=Problema 52, 58}}</ref> O teorema da aplicação aberta é equivalente ao [[teorema do gráfico fechado]], que assevera que uma função linear de um espaço de Banach para outro é contínua se e somente se o seu gráfico for um [[conjunto fechado]].<ref>{{harvnb|Rudin|1973}}</ref> No caso dos espaços de Hilbert, isto é fundamental no estudo de [[Operador ilimitado|operadores ilimitados]] (veja ''[[Operador fechado]]'').<ref>{{harvnb|Rudin|1973}}</ref>
+
+O [[teorema de Hahn-Banach]] (geométrico) assevera que um conjunto convexo fechado pode ser separado de qualquer ponto exterior a ele por meio de um [[hiperplano]] do espaço de Hilbert. Isto é uma consequência imediata da propriedade da [[#Melhor aproximação|melhor aproximação]]: se {{math|''y''}} é o elemento de um conjunto convexo fechado {{math|''F''}} mais próximo de {{math|''x''}}, então o hiperplano separador é o plano perpendicular ao segmento {{math|''xy''}} que passa pelo seu ponto médio.<ref>{{harvnb|Trèves|1967|loc=Capítulo 18}}</ref>
+
+== Operadores em espaços de Hilbert ==
+{{Artigo principal|Teoria de operadores}}
+
+=== Operadores limitados ===
+Os [[operador linear|operadores lineares]] [[Função contínua|contínuos]] {{math|''A'' : ''H''<sub>1</sub> → ''H''<sub>2</sub>}} de um espaço de Hilbert {{math|''H''<sub>1</sub>}} para um segundo espaço de Hilbert {{math|''H''<sub>2</sub>}} são ''[[Operador linear limitado|limitados]]'' no sentido de que mapeiam [[Conjunto limitado|conjuntos limitados]] em conjuntos limitados.<ref>Uma referência geral para esta seção é {{harvtxt|Rudin|1973}}, capítulo 12.</ref> Inversamente, se um operador é limitado, então ele é contínuo. O espaço de tais operadores lineares limitados possui uma [[Norma (matemática)|norma]], a [[norma de operador]], dada por
+<math display="block">\lVert A \rVert = \sup \bigl\{\| Ax \| \mathrel{\big|} \| x \| \leq 1 \bigr\}\,.</math>
+
+A soma e a composição de dois operadores lineares limitados são novamente limitadas e lineares. Para ''y'' em ''H''<sub>2</sub>, o mapa que envia {{math|''x'' ∈ ''H''<sub>1</sub>}} para {{math|⟨''Ax'', ''y''⟩}} é linear e contínuo, e de acordo com o [[teorema da representação de Riesz]] pode, portanto, ser representado na forma
+<math display="block">\left\langle x, A^* y \right\rangle = \langle Ax, y \rangle</math>
+para algum vetor {{math|''A''*''y''}} em {{math|''H''<sub>1</sub>}}. Isto define outro operador linear limitado {{math|''A''* : ''H''<sub>2</sub> → ''H''<sub>1</sub>}}, o [[Operador adjunto|adjunto]] de {{mvar|''A''}}. O adjunto satisfaz {{math|1=''A''** = ''A''}}. Quando o teorema da representação de Riesz é usado para identificar cada espaço de Hilbert com o seu espaço dual contínuo, pode-se mostrar que o adjunto de {{mvar|A}} é idêntico à [[Matriz transposta|transposta]] {{math|<sup>t</sup>''A'' : ''H''<sub>2</sub>* → ''H''<sub>1</sub>*}} de {{mvar|A}}, a qual, por definição, envia <math>\psi \in H_2^{*}</math> para o funcional <math>\psi \circ A \in H_1^{*}.</math>
+
+O conjunto {{math|B(''H'')}} de todos os operadores lineares limitados em {{math|''H''}} (ou seja, operadores {{math|''H'' → ''H''}}), juntamente com as operações de adição e composição, a norma e a operação adjunta, é uma [[álgebra C*]], que é um tipo de [[álgebra de operadores]].
+
+Um elemento {{math|''A''}} de {{math|B(''H'')}} é chamado de 'autoadjunto' ou 'hermitiano' se {{math|1=''A''* = ''A''}}. Se {{math|''A''}} for hermitiano e {{math|⟨''Ax'', ''x''⟩ ≥ 0}} para todo {{math|''x''}}, então {{math|''A''}} é chamado de 'não-negativo', escrito {{math|''A'' ≥ 0}}; se a igualdade se verificar apenas quando {{math|1=''x'' = 0}}, então {{math|''A''}} é chamado de 'positivo'. O conjunto de operadores autoadjuntos admite uma [[Relação de ordem|ordem parcial]], na qual {{math|''A'' ≥ ''B''}} se {{math|''A'' − ''B'' ≥ 0}}. Se {{math|''A''}} tiver a forma {{math|''B''*''B''}} para algum {{math|''B''}}, então {{math|''A''}} é não-negativo; se {{math|''B''}} for inversível, então {{math|''A''}} é positivo. A recíproca também é verdadeira no sentido de que, para um operador não-negativo {{math|''A''}}, existe uma única [[Raiz quadrada de uma matriz|raiz quadrada]] não-negativa {{math|''B''}} tal que
+<math display="block">A = B^2 = B^*B\,.</math>
+
+Num sentido tornado preciso pelo [[teorema espetral]], os operadores autoadjuntos podem ser utilmente pensados como operadores que são "reais". Um elemento {{math|''A''}} de {{math|B(''H'')}} é chamado de ''normal'' se {{math|1=''A''*''A'' = ''AA''*}}. Os operadores normais decompõem-se na soma de um operador autoadjunto e de um múltiplo imaginário de um operador autoadjunto
+<math display="block">A = \frac{A + A^*}{2} + i\frac{A - A^*}{2i}</math>
+que comutam entre si. Os operadores normais também podem ser utilmente pensados em termos de suas partes real e imaginária.
+
+Um elemento {{math|''U''}} de {{math|B(''H'')}} é chamado de [[operador unitário|unitário]] se {{math|''U''}} for inversível e a sua inversa for dada por {{math|''U''*}}. Isto também pode ser expresso exigindo-se que {{math|''U''}} seja sobrejetor e {{math|1=⟨''Ux'', ''Uy''⟩ = ⟨''x'', ''y''⟩}} para todos os {{math|''x'', ''y'' ∈ ''H''}}. Os operadores unitários formam um [[Grupo (matemática)|grupo]] sob a composição, o qual é o [[grupo de isometria]] de {{math|''H''}}.
+
+Um elemento de {{math|B(''H'')}} é [[Operador compacto|compacto]] se enviar conjuntos limitados para conjuntos [[Conjunto relativamente compacto|relativamente compactos]]. Equivalentemente, um operador limitado {{math|''T''}} é compacto se, para qualquer sequência limitada {{math|{''x<sub>k</sub>''}<nowiki/>}}, a sequência {{math|{''Tx<sub>k</sub>''}<nowiki/>}} possuir uma subsequência convergente. Muitos [[operador integral|operadores integrais]] são compactos e, de facto, definem uma classe especial de operadores conhecidos como [[Operador de Hilbert-Schmidt|operadores de Hilbert-Schmidt]], que são especialmente importantes no estudo de [[equação integral|equações integrais]]. Os [[Operador de Fredholm|operadores de Fredholm]] são operadores que diferem de um operador compacto por um operador inversível, e são equivalentemente caracterizados como operadores com um [[Núcleo (álgebra linear)|núcleo]] e [[conúcleo]] de dimensão finita.{{sfn|Conway|1994|loc=Capítulo 9}} Os operadores de Fredholm correspondem, portanto, aos elementos inversíveis da [[álgebra de Calkin]]. Os operadores de Fredholm podem ser intuitivamente pensados como operadores que são inversíveis módulo efeitos de dimensão finita.
+
+O índice de um operador de Fredholm {{math|''T''}} é definido por
+<math display="block">\operatorname{index} T = \dim\ker T - \dim\operatorname{coker} T \,.</math>
+O índice é um invariante de [[homotopia]] e desempenha um papel profundo na [[geometria diferencial]] através do [[teorema do índice de Atiyah-Singer]].
+
+=== Operadores ilimitados ===
+Os [[Operador ilimitado|operadores ilimitados]] também são tratáveis em espaços de Hilbert e têm aplicações importantes na [[mecânica quântica]].<ref>Veja {{harvtxt|Prugovečki|1981}}, {{harvtxt|Reed|Simon|1980|loc=Capítulo VIII}} e {{harvtxt|Folland|1989}}.</ref> Um operador ilimitado {{math|''T''}} num espaço de Hilbert {{math|''H''}} é definido como um operador linear cujo domínio {{math|''D''(''T'')}} é um subespaço linear de {{math|''H''}}. Muitas vezes o domínio {{math|''D''(''T'')}} é um subespaço denso de {{math|''H''}}, caso em que {{math|''T''}} é conhecido como um [[operador densamente definido]].
+
+O adjunto de um operador ilimitado densamente definido é definido essencialmente da mesma maneira que para os operadores limitados. Os [[Operador autoadjunto|operadores ilimitados autoadjuntos]] desempenham o papel dos ''observáveis'' na formulação matemática da mecânica quântica. Exemplos de operadores ilimitados autoadjuntos no espaço de Hilbert {{math|''L''<sup>2</sup>('''R''')}} são:<ref>{{harvnb|Prugovečki|1981|loc=III, §1.4}}</ref>
+* Uma extensão adequada do operador diferencial <math display="block">(A f)(x) = -i \frac{\mathrm{d}}{\mathrm{d}x} f(x) \,,</math> onde {{math|''i''}} é a unidade imaginária e {{math|''f''}} é uma função diferenciável de suporte compacto.
+* O operador de multiplicação por {{math|''x''}}: <math display="block">(B f) (x) = x f(x)\,. </math>
+
+Estes correspondem aos observáveis de [[Momento linear|momento]] e de [[Operador de posição|posição]], respetivamente. Nem {{math|''A''}} nem {{math|''B''}} estão definidos em todo o {{math|''H''}}, uma vez que, no caso de {{math|''A''}}, a derivada não precisa de existir, e no caso de {{math|''B''}}, a função produto não precisa de ser quadrado-integrável. Em ambos os casos, o conjunto de argumentos possíveis forma subespaços densos de {{math|''L''<sup>2</sup>('''R''')}}.
+
+== Construções ==
+
+=== Somas diretas ===
+Dois espaços de Hilbert {{math|''H''<sub>1</sub>}} e {{math|''H''<sub>2</sub>}} podem ser combinados noutro espaço de Hilbert, chamado de [[Soma direta de módulos#Soma direta de espaços de Hilbert|soma direta (ortogonal)]],<ref>{{harvnb|Dunford|Schwartz|1958|loc=IV.4.17-18}}</ref> e denotado por
+<math display="block">H_1 \oplus H_2 \,,</math>
+
+que consiste no conjunto de todos os [[Par ordenado|pares ordenados]] {{math|(''x''<sub>1</sub>, ''x''<sub>2</sub>)}} onde {{math|''x''<sub>''i''</sub> ∈ ''H''<sub>''i''</sub>}}, {{math|1=''i'' = 1, 2}}, e o produto interno é definido por
+<math display="block">\bigl\langle (x_1, x_2), (y_1, y_2)\bigr\rangle_{H_1 \oplus H_2} = \left\langle x_1, y_1\right\rangle_{H_1} + \left\langle x_2, y_2\right\rangle_{H_2} \,.</math>
+
+Mais geralmente, se {{math|''H''<sub>''i''</sub>}} é uma família de espaços de Hilbert indexada por {{nowrap|''i'' ∈ ''I''}}, então a soma direta dos {{math|''H''<sub>''i''</sub>}}, denotada por
+<math display="block">\bigoplus_{i \in I}H_i</math>
+consiste no conjunto de todas as famílias indexadas
+<math display="block">x = (x_i \in H_i \mid i \in I) \in \prod_{i \in I}H_i</math>
+no [[produto cartesiano]] dos {{math|''H''<sub>''i''</sub>}} tal que
+<math display="block">\sum_{i \in I} \|x_i\|^2 < \infty \,.</math>
+
+O produto interno é definido por
+<math display="block">\langle x, y\rangle = \sum_{i \in I} \left\langle x_i, y_i\right\rangle_{H_i} \,.</math>
+
+Cada um dos {{math|''H''<sub>''i''</sub>}} está incluído como um subespaço fechado na soma direta de todos os {{math|''H''<sub>''i''</sub>}}. Além disso, os {{math|''H''<sub>''i''</sub>}} são ortogonais aos pares. Inversamente, se existe um sistema de subespaços fechados, {{math|''V''<sub>''i''</sub>}}, {{math|''i'' ∈ ''I''}}, num espaço de Hilbert {{math|''H''}}, que são ortogonais aos pares e cuja expansão linear (''linear span'') é densa em {{math|''H''}}, então {{math|''H''}} é canonicamente isomorfo à soma direta dos {{math|''V<sub>i</sub>''}}. Neste caso, {{math|''H''}} é chamado de soma direta interna dos {{math|''V<sub>i</sub>''}}. Uma soma direta (interna ou externa) é também equipada com uma família de projeções ortogonais {{math|''E<sub>i</sub>''}} sobre o {{math|''i''}}-ésimo somando direto {{math|''H<sub>i</sub>''}}. Estas projeções são limitadas, autoadjuntas, e operadores [[Idempotência|idempotentes]] que satisfazem a condição de ortogonalidade
+<math display="block">E_i E_j = 0,\quad i \neq j \,.</math>
+
+O [[teorema espetral]] para operadores autoadjuntos [[Operador compacto|compactos]] num espaço de Hilbert {{math|''H''}} assevera que {{math|''H''}} se divide na soma direta ortogonal dos autoespaços de um operador, e fornece também uma decomposição explícita do operador como uma soma de projeções sobre os autoespaços. A soma direta de espaços de Hilbert também aparece na mecânica quântica como o [[espaço de Fock]] de um sistema contendo um número variável de partículas, onde cada espaço de Hilbert na soma direta corresponde a um [[Graus de liberdade (física)|grau de liberdade]] adicional para o sistema mecânico quântico. Na [[teoria de representação]], o [[teorema de Peter-Weyl]] garante que qualquer [[representação unitária]] de um [[grupo compacto]] num espaço de Hilbert se divide como a soma direta de representações de dimensão finita.<ref>{{citar livro | ultimo=Folland | primeiro=Gerald B. | titulo=A Course in Abstract Harmonic Analysis | edicao=2nd | editora=CRC Press | ano=2016}}</ref>
+
+=== Produtos tensoriais ===
+{{Artigo principal|Produto tensorial de espaços de Hilbert}}
+
+Se {{math|''x''<sub>1</sub>, ''y''<sub>1</sub> ∊ ''H''<sub>1</sub>}} e {{math|''x''<sub>2</sub>, ''y''<sub>2</sub> ∊ ''H''<sub>2</sub>}}, então define-se um produto interno no [[produto tensorial]] (ordinário) da seguinte forma. Nos [[Tensor simples|tensores simples]], seja
+<math display="block"> \langle x_1 \otimes x_2, \, y_1 \otimes y_2 \rangle = \langle x_1, y_1 \rangle \, \langle x_2, y_2 \rangle \,.</math>
+
+Esta fórmula estende-se então por [[Forma sesquilinear|sesquilinearidade]] para um produto interno em {{math|''H''<sub>1</sub> ⊗ ''H''<sub>2</sub>}}. O produto tensorial hilbertiano de {{math|''H''<sub>1</sub>}} e {{math|''H''<sub>2</sub>}}, às vezes denotado por {{math|''H''<sub>1</sub> <math>\widehat{\otimes}</math> ''H''<sub>2</sub>}}, é o espaço de Hilbert obtido completando {{math|''H''<sub>1</sub> ⊗ ''H''<sub>2</sub>}} para a métrica associada a este produto interno.<ref>{{harvnb|Weidmann|1980|loc=§3.4}}</ref>
+
+Um exemplo é fornecido pelo espaço de Hilbert {{math|''L''<sup>2</sup>([0, 1])}}. O produto tensorial hilbertiano de duas cópias de {{math|''L''<sup>2</sup>([0, 1])}} é isometricamente e linearmente isomorfo ao espaço {{math|''L''<sup>2</sup>([0, 1]<sup>2</sup>)}} de funções quadrado-integráveis no quadrado {{math|[0, 1]<sup>2</sup>}}. Este isomorfismo envia um tensor simples {{math|''f''<sub>1</sub> ⊗ ''f''<sub>2</sub>}} para a função
+<math display="block">(s, t) \mapsto f_1(s) \, f_2(t)</math>
+no quadrado.
+
+Este exemplo é típico no sentido que se segue.<ref>{{harvnb|Kadison|Ringrose|1983|loc=Teorema 2.6.4}}</ref> Associado a cada produto tensorial simples {{math|''x''<sub>1</sub> ⊗ ''x''<sub>2</sub>}} está o operador de posto um de {{math|''H''{{su|p=∗|b=1|lh=0.8em}}}} para {{math|''H''<sub>2</sub>}} que mapeia um dado {{math|''x''* ∈ ''H''{{su|p=∗|b=1|lh=0.8em}}}} como
+<math display="block">x^* \mapsto x^*(x_1) x_2 \,.</math>
+
+Este mapeamento definido em tensores simples estende-se a uma identificação linear entre {{math|''H''<sub>1</sub> ⊗ ''H''<sub>2</sub>}} e o espaço de operadores de posto finito de {{math|''H''{{su|p=∗|b=1|lh=0.8em}}}} para {{math|''H''<sub>2</sub>}}. Isto estende-se a uma isometria linear do produto tensorial hilbertiano <math>H_1\mathbin{\widehat{\otimes}}H_2</math> com o espaço de Hilbert {{math|''HS''(''H''{{su|p=∗|b=1|lh=0.8em}}, ''H''<sub>2</sub>)}} de [[Operador de Hilbert-Schmidt|operadores de Hilbert-Schmidt]] de {{math|''H''{{su|p=∗|b=1|lh=0.8em}}}} para {{math|''H''<sub>2</sub>}}.
+
+A identificação de operadores com espaços de produtos tensoriais generaliza-se para outras normas tensoriais. Por exemplo, o [[produto tensorial injetivo]] <math>H_1\mathbin{\widehat{\otimes}}_{\varepsilon}H_2</math> pode ser identificado isometricamente com os [[Operador compacto em espaço de Hilbert|operadores compactos]] de {{math|''H''{{su|p=∗|b=1|lh=0.8em}}}} para {{math|''H''<sub>2</sub>}}, enquanto o [[produto tensorial projetivo]] <math>H_1\mathbin{\widehat{\otimes}}_{\pi}H_2</math>, pode ser identificado isometricamente com os [[Classe de traço|operadores de classe de traço]] de {{math|''H''{{su|p=∗|b=1|lh=0.8em}}}} para {{math|''H''<sub>2</sub>}}, sendo ambos os fatos implicados pela satisfação da [[propriedade de aproximação]] pelos espaços de Hilbert.<ref>{{citar livro |ultimo=Ryan |primeiro=Raymond |titulo=Introduction to Tensor Products of Banach Spaces |editora=Springer London |ano=2002 |paginas=76–80}}</ref>
+
+== Bases ortonormais ==
+A noção de uma [[base ortonormal]] da álgebra linear é generalizada para o caso dos espaços de Hilbert.<ref>{{harvnb|Dunford|Schwartz|1958|loc=§IV.4}}</ref> Num espaço de Hilbert {{math|''H''}}, uma base ortonormal é uma família {{math|{''e''<sub>''k''</sub>}<sub>''k'' ∈ ''B''</sub>}} de elementos de {{math|''H''}} que satisfaz as condições:
+# ''Ortogonalidade'': Quaisquer dois elementos diferentes de {{math|''B''}} são ortogonais: {{math|1=⟨''e<sub>k</sub>'', ''e<sub>j</sub>''⟩ = 0}} para todos os {{math|''k'', ''j'' ∈ ''B''}} com {{nowrap|''k'' ≠ ''j''}}.
+# ''Normalização'': Todo elemento da família tem norma 1: <math>\|e_k\| = 1</math> para todos os {{math|''k'' ∈ ''B''}}.
+# ''Completude'': A [[expansão linear]] (''linear span'') da família {{math|''e''<sub>''k''</sub>}}, {{math|''k'' ∈ ''B''}}, é [[Conjunto denso|densa]] em ''H''.
+
+Um sistema de vetores que satisfaça as duas primeiras condições de base é chamado de sistema ortonormal ou conjunto ortonormal (ou sequência ortonormal se {{math|''B''}} for [[Conjunto enumerável|enumerável]]). Um tal sistema é sempre [[Independência linear|linearmente independente]].<ref>{{harvnb|Halmos|1957|loc=Seção 42}}</ref>
+
+Apesar do nome, uma base ortonormal não é, em geral, uma base no sentido da álgebra linear ([[Base de Hamel]]). Mais precisamente, uma base ortonormal é uma base de Hamel se e somente se o espaço de Hilbert for um espaço vetorial de dimensão finita.<ref>{{harvnb|Roman|2008|loc=p. 218}}</ref>
+
+A completude de um sistema ortonormal de vetores de um espaço de Hilbert pode ser reformulada de forma equivalente como:
+: para todo {{math|''v'' ∈ ''H''}}, se {{math|1=⟨''v'', ''e''<sub>''k''</sub>⟩ = 0}} para todo {{math|''k'' ∈ ''B''}}, então {{math|1=''v'' = '''0'''}}.
+
+Isto está relacionado com o facto de que o único vetor ortogonal a um subespaço linear denso é o vetor nulo, pois se {{math|''S''}} for qualquer conjunto ortonormal e {{math|''v''}} for ortogonal a {{math|''S''}}, então {{math|''v''}} é ortogonal ao fecho da expansão linear de {{math|''S''}}, que é todo o espaço.
+
+Exemplos de bases ortonormais incluem:
+* o conjunto {{math|{(1, 0, 0), (0, 1, 0), (0, 0, 1)}<nowiki/>}} forma uma base ortonormal de {{math|'''R'''<sup>3</sup>}} com o [[produto escalar]];
+* a sequência {{math|{&hairsp;''f''<sub>''n''</sub> {{!}} ''n'' ∈ '''Z'''}<nowiki/>}} com {{math|1=''f''<sub>''n''</sub>(''x'') = [[Função exponencial|exp]](2π''inx'')}} forma uma base ortonormal do espaço complexo {{math|''L''<sup>2</sup>([0, 1])}};
+
+No caso de dimensão infinita, uma base ortonormal não será uma base no sentido da [[álgebra linear]]; para distinguir as duas, a última base é também chamada de [[Base (álgebra linear)|base de Hamel]]. O facto de a expansão linear dos vetores da base ser densa implica que todo vetor no espaço pode ser escrito como a soma de uma série infinita, e a ortogonalidade implica que esta decomposição é única.{{sfn|MacCluer|2009|loc=Teorema 1.33}}
+
+=== Espaços de sequências ===
+O espaço <math>\ell_2</math> de sequências quadrado-somáveis de números complexos é o conjunto de sequências infinitas<ref name="Stein 2005"/>
+<math display="block">(c_1, c_2, c_3, \dots)</math>
+de números reais ou complexos de tal forma que
+<math display="block">\left|c_1\right|^2 + \left|c_2\right|^2 + \left|c_3\right|^2 + \cdots < \infty \,.</math>
+
+Este espaço tem uma base ortonormal:
+<math display="block">\begin{align}
+  e_1 &= (1, 0, 0, \dots) \\
+  e_2 &= (0, 1, 0, \dots) \\
+      & \ \ \vdots
+\end{align}</math>
+
+Este espaço é a generalização de dimensão infinita do espaço <math>\ell_2^n</math> de vetores de dimensão finita. É geralmente o primeiro exemplo usado para mostrar que, em espaços de dimensão infinita, um conjunto que é [[Conjunto fechado|fechado]] e [[Conjunto limitado|limitado]] não é necessariamente [[Espaço sequencialmente compacto|compacto (sequencialmente)]] (como é o caso em todos os espaços de dimensão ''finita''). De facto, o conjunto de vetores ortonormais acima mostra isso: É uma sequência infinita de vetores na bola unitária (isto é, a bola de pontos com norma menor ou igual a um). Este conjunto é claramente limitado e fechado; no entanto, nenhuma subsequência destes vetores converge para nada e, consequentemente, a bola unitária em <math>\ell_2</math> não é compacta. Intuitivamente, isso ocorre porque "há sempre outra direção de coordenadas" para a qual os elementos seguintes da sequência podem fugir.{{sfn|MacCluer|2009|pp=77-78}}
+
+Pode-se generalizar o espaço <math>\ell_2</math> de muitas maneiras. Por exemplo, se {{math|''B''}} é um conjunto qualquer, então pode-se formar um espaço de Hilbert de sequências com conjunto de índices {{math|''B''}}, definido por<ref>{{harvnb|Rudin|1987}}, Definição 3.7</ref>
+<math display="block">\ell^2(B) =\biggl\{ x : B \xrightarrow{x} \mathbf{C} \mathrel{\bigg|} \sum_{b \in B} \left|x (b)\right|^2 < \infty \biggr\} \,.</math>
+
+O somatório sobre ''B'' é aqui definido por
+<math display="block">\sum_{b \in B} \left|x (b)\right|^2 = \sup \sum_{n=1}^N \left|x(b_n)\right|^2</math>
+o [[Supremo e ínfimo|supremo]] sendo tomado sobre todos os subconjuntos finitos de {{math|''B''}}. Segue-se que, para que esta soma seja finita, todo elemento de {{math|''l''<sup>2</sup>(''B'')}} tem apenas um número enumerável de termos não nulos. Este espaço torna-se um espaço de Hilbert com o produto interno
+<math display="block">\langle x, y \rangle = \sum_{b \in B} x(b)\overline{y(b)}</math>
+
+para todo {{math|''x'', ''y'' ∈ ''l''<sup>2</sup>(''B'')}}. Aqui, a soma também tem apenas um número enumerável de termos não nulos e é incondicionalmente convergente pela desigualdade de Cauchy-Schwarz.
+
+Uma base ortonormal de {{math|''l''<sup>2</sup>(''B'')}} é indexada pelo conjunto {{math|''B''}}, dada por
+: <math display="block">e_b(b') = \begin{cases}
+  1 & \text{se } b=b'\\
+  0 & \text{caso contrário.}
+\end{cases}</math>
+
+{{Âncora|Desigualdade de Bessel}}
+{{Âncora|Fórmula de Parseval}}
+
+=== Desigualdade de Bessel e fórmula de Parseval ===
+Seja {{math|''f''<sub>1</sub>, ..., ''f''<sub>''n''</sub>}} um sistema ortonormal finito em {{math|''H''}}. Para um vetor arbitrário {{math|''x'' ∈ ''H''}}, seja
+<math display="block">y = \sum_{j=1}^n \langle x, f_j \rangle \, f_j \,.</math>
+
+Então {{math|1=⟨''x'', ''f''<sub>''k''</sub>⟩ = ⟨''y'', ''f''<sub>''k''</sub>⟩}} para todo {{math|1=''k'' = 1, ..., ''n''}}. Resulta que {{math|''x'' − ''y''}} é ortogonal a cada {{math|''f''<sub>''k''</sub>}}, logo {{math|''x'' − ''y''}} é ortogonal a {{math|''y''}}. Utilizando a identidade pitagórica duas vezes, conclui-se que
+<math display="block">\|x\|^2 = \|x - y\|^2 + \|y\|^2 \ge \|y\|^2 = \sum_{j=1}^n\bigl|\langle x, f_j \rangle\bigr|^2 \,.</math>
+
+Seja {{math|{''f''<sub>''i''</sub>}, ''i'' ∈ ''I''}}, um sistema ortonormal arbitrário em {{math|''H''}}. Aplicando a desigualdade precedente a todo subconjunto finito {{math|''J''}} de {{math|''I''}} obtém-se a desigualdade de Bessel:<ref>Para o caso de conjuntos de índices finitos, veja, por exemplo, {{harvnb|Halmos|1957|loc=§5}}. Para conjuntos de índices infinitos, veja {{harvnb|Weidmann|1980|loc=Teorema 3.6}}.</ref>
+<math display="block">\sum_{i \in I}\bigl|\langle x, f_i \rangle\bigr|^2 \le \|x\|^2, \quad x \in H</math>
+(de acordo com a definição de [[Série (matemática)#Somatórios sobre conjuntos de índices gerais|soma de uma família arbitrária]] de números reais não-negativos).
+
+Geometricamente, a desigualdade de Bessel implica que a projeção ortogonal de {{math|''x''}} sobre o subespaço linear expandido pelos {{math|''f<sub>i</sub>''}} tem norma que não excede a de {{math|''x''}}. Em duas dimensões, esta é a afirmação de que o comprimento do cateto de um triângulo retângulo não pode exceder o comprimento da hipotenusa.<ref>{{harvnb|Halmos|1957|loc=Seção 8}}</ref>
+
+A desigualdade de Bessel é um trampolim para o resultado mais forte chamado [[identidade de Parseval]], que governa o caso quando a desigualdade de Bessel é, na verdade, uma igualdade. Por definição, se {{math|{''e''<sub>''k''</sub>}<sub>''k'' ∈ ''B''</sub>}} é uma base ortonormal de {{math|''H''}}, então todo elemento {{math|''x''}} de {{math|''H''}} pode ser escrito como
+<math display="block">x = \sum_{k \in B} \left\langle x, e_k \right\rangle \, e_k \,.</math>
+
+Mesmo que {{math|''B''}} seja não-enumerável, a desigualdade de Bessel garante que a expressão é bem definida e consiste apenas de enumeráveis termos não-nulos. Esta soma é chamada de expansão de Fourier de {{math|''x''}}, e os coeficientes individuais {{math|⟨''x'', ''e''<sub>''k''</sub>⟩}} são os coeficientes de Fourier de {{math|''x''}}. A identidade de Parseval assevera então que<ref name="Hewitt 1965">{{harvtxt|Hewitt|Stromberg|1965|loc=Teorema 16.26}}</ref>
+<math display="block">\|x\|^2 = \sum_{k\in B}|\langle x, e_k\rangle|^2 \,.</math>
+
+Inversamente,<ref name="Hewitt 1965"/> se {{math|{''e''<sub>''k''</sub>}<nowiki/>}} é um conjunto ortonormal de tal forma que a identidade de Parseval se verifique para todo {{math|''x''}}, então {{math|{''e''<sub>''k''</sub>}<nowiki/>}} é uma base ortonormal.
+
+=== Dimensão de Hilbert ===
+Como consequência do [[lema de Zorn]], ''todo'' espaço de Hilbert admite uma base ortonormal; além disso, quaisquer duas bases ortonormais do mesmo espaço têm a mesma [[Número cardinal|cardinalidade]], chamada de dimensão de Hilbert do espaço.<ref>{{harvnb|Levitan|2001}}. Muitos autores, como {{harvtxt|Dunford|Schwartz|1958|loc=§IV.4}}, referem-se a isto apenas como a dimensão. A menos que o espaço de Hilbert seja de dimensão finita, isto não é a mesma coisa que a sua dimensão como espaço linear (a cardinalidade de uma base de Hamel).</ref> Por exemplo, uma vez que {{math|''l''<sup>2</sup>(''B'')}} possui uma base ortonormal indexada por {{math|''B''}}, a sua dimensão de Hilbert é a cardinalidade de {{math|''B''}} (que pode ser um número inteiro finito, ou um [[número cardinal]] enumerável ou não enumerável).
+
+A dimensão de Hilbert não é maior do que a [[Dimensão (álgebra linear)|dimensão de Hamel]] (a dimensão usual de um espaço vetorial).<ref>{{citar web|ultimo=Koashi|primeiro=Masato|titulo=Appendix: Linear algebra|url=https://www.nii.ac.jp/qis/first-quantum/symposium/2011/pdf/koashi03_summerSchool2011.pdf}}</ref>
+
+Como consequência da identidade de Parseval,<ref>{{harvtxt|Hewitt|Stromberg|1965|loc=Teorema 16.29}}</ref> se {{math|{''e''<sub>''k''</sub>}<sub>''k'' ∈ ''B''</sub>}} é uma base ortonormal de {{math|''H''}}, então o mapa {{math|Φ : ''H'' → ''l''<sup>2</sup>(''B'')}} definido por {{math|1=Φ(''x'') = ⟨x, ''e''<sub>''k''</sub>⟩<sub>''k''∈''B''</sub>}} é um isomorfismo isométrico de espaços de Hilbert: é um mapeamento linear bijetivo tal que
+<math display="block">\bigl\langle \Phi (x), \Phi(y) \bigr\rangle_{l^2(B)} = \left\langle x, y \right\rangle_H</math>
+para todos os {{math|''x'', ''y'' ∈ ''H''}}. O [[número cardinal]] de {{math|''B''}} é a dimensão de Hilbert de {{math|''H''}}. Desta forma, todo espaço de Hilbert é isometricamente isomorfo a um espaço de sequências {{math|''l''<sup>2</sup>(''B'')}} para algum conjunto {{math|''B''}}.
+
+=== Espaços separáveis ===
+Por definição, um espaço de Hilbert é [[Espaço separável|separável]] desde que contenha um subconjunto enumerável denso. Em conjunto com o lema de Zorn, isto significa que um espaço de Hilbert é separável se e somente se admitir uma base ortonormal [[Conjunto enumerável|enumerável]]. Todos os espaços de Hilbert separáveis de dimensão infinita são, portanto, isometricamente isomorfos ao [[Espaço Lp|espaço de sequências quadrado-somáveis]],{{sfn|Teschl|2009|loc=Teorema 1.6}} <math>\ell^2.</math>
+
+No passado, exigia-se frequentemente que os espaços de Hilbert fossem separáveis como parte da definição.<ref>{{harvnb|Prugovečki|1981|loc=I, §4.2}}</ref>
+
+==== Na teoria quântica de campos ====
+A maioria dos espaços utilizados na física são separáveis, e como estes são todos isomorfos uns aos outros, frequentemente se refere a qualquer espaço de Hilbert separável de dimensão infinita como "''o'' espaço de Hilbert" ou apenas "espaço de Hilbert".<ref>{{harvtxt|von Neumann|1955}} define um espaço de Hilbert por meio de uma base de Hilbert enumerável, que equivale a um isomorfismo isométrico com ''l''<sup>2</sup>. A convenção ainda persiste na maioria dos tratamentos rigorosos da mecânica quântica; veja, por exemplo, {{harvnb|Sobrino|1996|loc=Apêndice B}}.</ref> Mesmo na [[teoria quântica de campos]], a maioria dos espaços de Hilbert são de fato separáveis, como estipulado pelos [[axiomas de Wightman]].
+
+No entanto, às vezes argumenta-se que espaços de Hilbert não separáveis também são importantes na teoria quântica de campos, aproximadamente porque os sistemas na teoria possuem um número infinito de [[Graus de liberdade (física)|graus de liberdade]]. É necessário ter cuidado aqui: o [[Produto tensorial de espaços de Hilbert|produto tensorial de Hilbert]] infinito ''completo'' de enumeráveis espaços de Hilbert de dimensão maior que um é geralmente não separável, ao passo que o [[Produto tensorial de espaços de Hilbert#Produto tensorial infinito de espaços de Hilbert|produto tensorial infinito incompleto]] formado em relação a um vetor de referência escolhido é separável quando os fatores são separáveis e em número enumerável. Por exemplo, um [[Bóson|campo bosônico]] pode ser naturalmente pensado como surgindo de uma construção de produto tensorial cujos fatores representam osciladores harmônicos em cada ponto do espaço. A partir desta perspetiva, um produto tensorial completo não separável pode aparecer naturalmente, embora nas aplicações físicas se trabalhe habitualmente num subespaço separável distinguido ou numa representação na qual os observáveis estão definidos.<ref name="Streater">{{harvnb|Streater|Wightman|1964|pp=86–87}}</ref>
+
+== Complementos ortogonais e projeções ==
+{{Artigo principal|Complemento ortogonal}}
+
+Se {{math|''S''}} é um subconjunto de um espaço de Hilbert {{math|''H''}}, o conjunto de vetores ortogonais a {{math|''S''}} é definido por
+<math display="block">S^\perp = \left\{ x \in H \mid \langle x, s \rangle = 0\ \text{ para todo } s \in S \right\} \,.</math>
+
+O conjunto {{math|''S''<sup>⊥</sup>}} é um subespaço [[Conjunto fechado|fechado]] de {{math|''H''}} (o que pode ser provado facilmente usando a linearidade e continuidade do produto interno) e, portanto, forma por si só um espaço de Hilbert. Se {{math|''V''}} é um subespaço fechado de {{math|''H''}}, então {{math|''V''<sup>⊥</sup>}} é chamado de {{em|[[complemento ortogonal]]}} de {{math|''V''}}. De facto, todo {{math|''x'' ∈ ''H''}} pode então ser escrito de forma única como {{math|1=''x'' = ''v'' + ''w''}}, com {{math|''v'' ∈ ''V''}} e {{math|''w'' ∈ ''V''<sup>⊥</sup>}}. Portanto, {{math|''H''}} é a soma direta interna de Hilbert de {{math|''V''}} e {{math|''V''<sup>⊥</sup>}}.
+
+O operador linear {{math|''P<sub>V</sub>'' : ''H'' → ''H''}} que mapeia {{math|''x''}} para {{math|''v''}} é chamado de {{em|[[Projeção (álgebra linear)|projeção ortogonal]]}} sobre {{math|''V''}}. Existe uma correspondência biunívoca [[Transformação natural|natural]] entre o conjunto de todos os subespaços fechados de {{math|''H''}} e o conjunto de todos os operadores autoadjuntos limitados {{math|''P''}} tais que {{math|1=''P''<sup>2</sup> = ''P''}}. Especificamente,
+
+;Teorema
+: A projeção ortogonal {{math|''P<sub>V</sub>''}} é um operador linear autoadjunto em {{math|''H''}} de norma ≤ 1 com a propriedade {{math|1=''P''{{su|p=2|b=''V''}} = ''P<sub>V</sub>''}}. Além disso, qualquer operador linear autoadjunto {{math|''E''}} tal que {{math|1=''E''<sup>2</sup> = ''E''}} é da forma {{math|''P<sub>V</sub>''}}, onde {{math|''V''}} é a imagem de {{math|''E''}}. Para todo {{math|''x''}} em {{math|''H''}}, {{math|''P<sub>V</sub>''(''x'')}} é o único elemento {{math|''v''}} de {{math|''V''}} que [[Teorema da projeção em espaços de Hilbert|minimiza a distância]] <math>\|x - v\|</math>.
+
+Isto fornece a interpretação geométrica de {{math|''P<sub>V</sub>''(''x'')}}: é a melhor aproximação de ''x'' por elementos de ''V''.<ref>{{harvnb|Young|1988|loc=Teorema 15.3}}</ref>
+
+As projeções {{math|''P<sub>U</sub>''}} e {{math|''P<sub>V</sub>''}} são chamadas mutuamente ortogonais se {{math|1=''P''<sub>''U''</sub>''P''<sub>''V''</sub> = 0}}. Isto é equivalente a {{math|''U''}} e {{math|''V''}} serem ortogonais como subespaços de {{math|''H''}}. A soma de duas projeções {{math|''P''<sub>''U''</sub>}} e {{math|''P''<sub>''V''</sub>}} é uma projeção apenas se {{math|''U''}} e {{math|''V''}} forem ortogonais entre si, e nesse caso {{math|1=''P''<sub>''U''</sub> + ''P''<sub>''V''</sub> = ''P''<sub>''U''+''V''</sub>}}.<ref>{{harvnb|von Neumann|1955}}, Teorema 16</ref> A composição {{math|''P''<sub>''U''</sub>''P''<sub>''V''</sub>}} geralmente não é uma projeção; de facto, a composição é uma projeção se e somente se as duas projeções comutarem, e nesse caso {{math|1=''P''<sub>''U''</sub>''P''<sub>''V''</sub> = ''P''<sub>''U''∩''V''</sub>}}.<ref>{{harvnb|von Neumann|1955|loc=Teorema 14}}</ref>
+
+Ao restringir o contradomínio ao espaço de Hilbert {{math|''V''}}, a projeção ortogonal {{math|''P''<sub>''V''</sub>}} dá origem a um mapeamento de projeção {{math|''π'' : ''H'' → ''V''}}; é o adjunto da [[aplicação de inclusão]]
+<math display="block">i : V \to H \,,</math>
+significando que
+<math display="block">\left\langle i x, y\right\rangle_H = \left\langle x, \pi y \right\rangle_V</math>
+para todos os {{math|''x'' ∈ ''V''}} e {{math|''y'' ∈ ''H''}}.
+
+A norma de operador da projeção ortogonal {{math|''P''<sub>''V''</sub>}} sobre um subespaço fechado não nulo {{math|''V''}} é igual a 1:
+<math display="block">\|P_V\| = \sup_{x \in H, x \neq 0} \frac{\|P_V x\|}{\|x\|} = 1 \,.</math>
+
+Todo subespaço fechado ''V'' de um espaço de Hilbert é, portanto, a imagem de um operador {{math|''P''}} de norma um tal que {{math|1=''P''<sup>2</sup> = ''P''}}. A propriedade de possuir operadores de projeção apropriados caracteriza os espaços de Hilbert:{{sfn|Kakutani|1939}}
+
+* Um espaço de Banach de dimensão superior a 2 é (isometricamente) um espaço de Hilbert se e somente se, para todo subespaço fechado {{math|''V''}}, existir um operador {{math|''P''<sub>''V''</sub>}} de norma um cuja imagem é {{math|''V''}} tal que {{math|1=''P''{{su|b=''V''|p=2}} = ''P''<sub>''V''</sub>}}.{{sfn|Kakutani|1939}}
+
+Enquanto este resultado caracteriza a estrutura métrica de um espaço de Hilbert, a estrutura de um espaço de Hilbert como um [[espaço vetorial topológico]] pode, por si só, ser caracterizada em termos da presença de subespaços complementares:{{sfn|Lindenstrauss|Tzafriri|1971}}
+* Um espaço de Banach {{math|''X''}} é topologicamente e linearmente isomorfo a um espaço de Hilbert se e somente se, para todo subespaço fechado {{math|''V''}}, existir um subespaço fechado {{math|''W''}} tal que {{math|''X''}} seja igual à soma direta interna {{math|''V'' ⊕ ''W''}}.{{sfn|Lindenstrauss|Tzafriri|1971}}
+
+O complemento ortogonal satisfaz alguns resultados mais elementares. É uma [[Função monotônica|função monótona]] no sentido de que se {{math|''U'' ⊂ ''V''}}, então {{math|''V''<sup>⊥</sup> ⊆ ''U''<sup>⊥</sup>}} com a igualdade a verificar-se se e somente se {{math|''V''}} estiver contido no [[Fecho (topologia)|fecho]] de {{math|''U''}}. Este resultado é um caso especial do [[teorema de Hahn-Banach]]. O fecho de um subespaço pode ser completamente caracterizado em termos do complemento ortogonal: se {{math|''V''}} é um subespaço de {{math|''H''}}, então o fecho de {{math|''V''}} é igual a {{math|''V''<sup>⊥⊥</sup>}}. O complemento ortogonal é assim uma [[conexão de Galois]] na [[Relação de ordem|ordem parcial]] de subespaços de um espaço de Hilbert. Em geral, o complemento ortogonal de uma soma de subespaços é a interseção dos complementos ortogonais:<ref>{{harvnb|Halmos|1957|loc=§12}}</ref>
+<math display="block">\biggl(\sum_i V_i\biggr)^\perp = \bigcap_i V_i^\perp \,.</math>
+
+Se os {{math|''V''<sub>''i''</sub>}} forem adicionalmente fechados, então
+<math display="block">\overline{\sum_i V_i^\perp \vphantom\Big|} = \biggl(\bigcap_i V_i\biggr)^\perp \,.</math>
+
+== Teoria espetral ==
+Existe uma [[teoria espetral]] bem desenvolvida para operadores autoadjuntos num espaço de Hilbert, que é aproximadamente análoga ao estudo de [[Matriz simétrica|matrizes simétricas]] sobre os reais ou matrizes autoadjuntas sobre os números complexos.<ref>Um relato geral da teoria espetral em espaços de Hilbert pode ser encontrado em {{harvtxt|Riesz|Sz.-Nagy|1990}}. Um relato mais sofisticado na linguagem das álgebras C* encontra-se em {{harvtxt|Rudin|1973}} ou {{harvtxt|Kadison|Ringrose|1997}}</ref> No mesmo sentido, pode-se obter uma "diagonalização" de um operador autoadjunto como uma soma adequada (na verdade, um integral) de operadores de projeção ortogonal.
+
+O [[espetro de um operador]] {{math|''T''}}, denotado por {{math|''σ''(''T'')}}, é o conjunto de números complexos {{math|''λ''}} tais que {{math|''T'' − ''λ''}} não possui uma inversa contínua. Se {{math|''T''}} é limitado, então o espetro é sempre um [[conjunto compacto]] no plano complexo, e reside dentro do disco <math>|z| \le \|T\|</math>. Se {{math|''T''}} é autoadjunto, então o espetro é real. De facto, está contido no intervalo {{math|[''m'', ''M'']}} onde
+<math display="block">m = \inf_{\|x\|=1}\langle Tx, x\rangle \,,\quad M = \sup_{\|x\|=1}\langle Tx, x\rangle \,.</math>
+
+Além disso, tanto {{math|''m''}} quanto {{math|''M''}} estão de facto contidos no espetro.
+
+Os autoespaços de um operador {{math|''T''}} são dados por
+<math display="block">H_\lambda = \ker(T - \lambda)\,.</math>
+
+Ao contrário do que acontece com matrizes finitas, nem todo elemento do espetro de {{math|''T''}} tem de ser um autovalor: o operador linear {{math|''T'' − ''λ''}} pode não ter uma inversa apenas porque não é sobrejetivo. Elementos do espetro de um operador no sentido geral são conhecidos como ''valores espetrais''. Como os valores espetrais não precisam de ser autovalores, a decomposição espetral é muitas vezes mais subtil do que em dimensões finitas.<ref>{{citar web|ultimo=Kowalski |primeiro=Emmanuel |titulo=Spectral theory in Hilbert spaces |url=https://people.math.ethz.ch/~kowalski/spectral-theory.pdf}}</ref>
+No entanto, o [[teorema espetral]] de um operador autoadjunto {{math|''T''}} assume uma forma particularmente simples se, adicionalmente, for assumido que {{math|''T''}} é um [[operador compacto]]. O [[Operador compacto em espaço de Hilbert#Teorema espetral|teorema espetral para operadores autoadjuntos compactos]] afirma:<ref name="st4csao">Veja, por exemplo, {{harvtxt|Riesz|Sz.-Nagy|1990|loc=Capítulo VI}} ou {{harvnb|Weidmann|1980|loc=Capítulo 7}}. Este resultado já era conhecido por {{harvtxt|Schmidt|1908}} no caso de operadores decorrentes de núcleos integrais.</ref>
+* Um operador autoadjunto compacto {{math|''T''}} tem apenas um número enumerável (ou finito) de valores espetrais. O espetro de {{math|''T''}} não tem nenhum [[ponto de acumulação]] no plano complexo exceto possivelmente o zero. Os autoespaços de {{math|''T''}} decompõem {{math|''H''}} numa soma direta ortogonal: <math display="block">H = \bigoplus_{\lambda\in\sigma(T)}H_\lambda \,.</math> Além disso, se {{math|''E<sub>λ</sub>''}} denota a projeção ortogonal sobre o autoespaço {{math|''H<sub>λ</sub>''}}, então <math display="block">T = \sum_{\lambda\in\sigma(T)} \lambda E_\lambda \,,</math> onde a soma converge em relação à norma em {{math|B(''H'')}}.<ref name="st4csao"/>
+
+Este teorema é especialmente importante para [[operador integral|operadores integrais]] em {{math|''L''<sup>2</sup>}} com núcleos quadrado-integráveis, uma vez que estes operadores são de Hilbert-Schmidt e, portanto, compactos.{{sfn|Teschl|2009|loc=Lema 6.10}}
+
+O teorema espetral geral para operadores autoadjuntos envolve uma espécie de [[integral de Riemann-Stieltjes]] com valor de operador, em vez de um somatório infinito.<ref>{{harvnb|Riesz|Sz.-Nagy|1990|loc=§§107–108}}</ref> A ''família espetral'' associada a {{math|''T''}} associa a cada número real λ um operador {{math|''E<sub>λ</sub>''}}, que é a projeção sobre o espaço nulo (núcleo) do operador {{math|(''T'' − ''λ'')<sup>+</sup>}}, onde a parte positiva de um operador autoadjunto é definida por
+<math display="block">A^+ = \tfrac{1}{2}\Bigl(\sqrt{A^2} + A\Bigr) \,.</math>
+
+Os operadores {{math|''E<sub>λ</sub>''}} são monotonicamente crescentes em relação à ordem parcial definida nos operadores autoadjuntos; os autovalores correspondem precisamente às descontinuidades de salto. Tem-se o teorema espetral, que assevera
+<math display="block">T = \int_\mathbf{R} \lambda\, \mathrm{d}E_\lambda \,.</math>
+
+O integral é entendido como um integral de Riemann-Stieltjes, convergente em relação à norma em {{math|B(''H'')}}. Em particular, tem-se a representação integral ordinária de valor escalar
+<math display="block">\langle Tx, y\rangle = \int_{\mathbf{R}} \lambda\,\mathrm{d}\langle E_\lambda x, y\rangle \,.</math>
+
+Uma decomposição espetral de certa forma semelhante verifica-se para operadores normais, embora, como o espetro pode agora conter números complexos não reais, a medida de Stieltjes com valor de operador {{math|d''E<sub>λ</sub>''}} deva ser substituída por uma [[resolução da identidade]].
+
+Uma aplicação importante dos métodos espetrais é o [[teorema do mapeamento espetral]], que permite aplicar a um operador autoadjunto {{math|''T''}} qualquer função complexa contínua {{math|''f''}} definida no espetro de {{math|''T''}} através da formação do integral
+<math display="block">f(T) = \int_{\sigma(T)} f(\lambda)\,\mathrm{d}E_\lambda \,.</math>
+
+O [[cálculo funcional contínuo]] resultante tem aplicações em particular aos [[operador pseudo-diferencial|operadores pseudo-diferenciais]].<ref>{{harvnb|Shubin|1987}}</ref>
+
+A teoria espetral de operadores autoadjuntos ''ilimitados'' é apenas marginalmente mais difícil do que a de operadores limitados. O espetro de um operador ilimitado é definido exatamente da mesma forma que para os operadores limitados: {{math|''λ''}} é um valor espetral se o [[operador resolvente]]
+<math display="block">R_\lambda = (T - \lambda)^{-1}</math>
+
+falhar em ser um operador contínuo bem definido. A autoadjunção de {{math|''T''}} ainda garante que o espetro é real. Assim, a ideia essencial de trabalhar com operadores ilimitados é observar em vez disso o resolvente {{math|''R<sub>λ</sub>''}} onde {{math|''λ''}} é não real. Este é um operador normal ''limitado'', que admite uma representação espetral que pode então ser transferida para uma representação espetral do próprio {{math|''T''}}. Desta forma, a ideia essencial de trabalhar com operadores ilimitados é estudar o resolvente {{math|1=''R''<sub>''λ''</sub> = (''T'' − ''λ'')<sup>−1</sup>}} no conjunto resolvente, uma vez que é um operador limitado e pode ser analisado pela teoria espetral limitada.{{sfn|Teschl|2009|loc=§2.4}}
+
+Uma versão precisa do teorema espetral neste caso é:<ref>{{harvnb|Rudin|1973|loc=Teorema 13.30}}</ref>
+
+;Teorema
+: Dado um operador autoadjunto densamente definido {{math|''T''}} num espaço de Hilbert {{math|''H''}}, corresponde-lhe uma única [[resolução da identidade]] {{math|''E''}} nos conjuntos de Borel de {{math|'''R'''}}, tal que <math display="block">\langle Tx, y \rangle = \int_\mathbf{R} \lambda \, \mathrm{d}E_{x,y}(\lambda)</math> para todos os {{math|''x'' ∈ ''D''(''T'')}} e {{math|''y'' ∈ ''H''}}. A medida espetral {{math|''E''}} está concentrada no espetro de {{math|''T''}}.
+
+Existe também uma versão do teorema espetral que se aplica a operadores normais ilimitados.<ref>{{citar periódico
+ | ultimo = Bernau | primeiro = S. J.
+ | periodico = [[Pacific Journal of Mathematics]]
+ | paginas = 391–406
+ | titulo = The spectral theorem for unbounded normal operators
+ | url = https://projecteuclid.org/euclid.pjm/1102993709
+ | volume = 19
+ | ano = 1966
+ | numero = 3
+ | doi = 10.2140/pjm.1966.19.391
+ }}</ref>
+
+== Ver também ==
+* [[Função afim]]
+* [[Função identidade]]
+* [[Função não expansiva]]
+* [[Mapeamento contrativo]]
+* [[Transformação geométrica]]
+
+== Notas ==
+<references group="nota"/>
+
+{{Referências}}
+
+== Bibliografia ==
+# Botelho, Geraldo. Fundamentos de Análise Funcional, 2<sup>a</sup> edição, Rio de Janeiro, 2015, Sociedade Brasileira de Matemática (SBM);
+# [[Flavio Ulhoa Coelho|Coelho, Flavio Ulhoa]]. Um Curso de Álgebra Linear, 2<sup>a</sup> edição, São Paulo, 2013, Editora da Universidade de São Paulo (EDUSP);
+# Kreyzig, Erwin. Introductory Functional Analysis with Applications, 1978.
+* {{citation |último=Axler |primeiro=Sheldon |título=Linear Algebra Done Right | volume= |páginas=296 | series=[[Undergraduate Texts in Mathematics]] |data=2024 |edição=4th |publicado=[[Springer Publishing]] |autorlink=Sheldon Axler|url=https://linear.axler.net/LADR4e.pdf}}
+* {{citation |último1=Bachman |primeiro1=George |último2=Narici |primeiro2=Lawrence |último3=Beckenstein |primeiro3=Edward |título=Fourier and wavelet analysis |publicado=[[Springer-Verlag]] |local=Berlin, New York | series=Universitext | isbn=978-0-387-98899-3 | mr=1729490 |ano=2000}}.
+* {{citation|último1= Bers|primeiro1=Lipman|autorlink=Lipman Bers|primeiro2=Fritz|último2= John|author-link2=Fritz John |primeiro3= Martin |último3= Schechter|título=Partial differential equations |publicado= American Mathematical Society|ano=1981|isbn=978-0-8218-0049-2}}.
+* {{citation|primeiro=Patrick|último=Billingsley|título=Probability and measure|ano=1986|publicado=Wiley}}.
+* {{citation|último=Bourbaki|primeiro=Nicolas|autorlink=Nicolas Bourbaki|título=Spectral theories|series=Elements of mathematics|publicado= Springer-Verlag|local=Berlin|ano=1986|isbn=978-0-201-00767-1}}.
+* {{citation|último=Bourbaki|primeiro=Nicolas|autorlink=Nicolas Bourbaki|título=Topological vector spaces|series=Elements of mathematics|publicado= Springer-Verlag|local=Berlin|ano=1987|isbn=978-3-540-13627-9}}.
+* {{citation|último1=Boyer|primeiro1=Carl Benjamin|author-link1=Carl Benjamin Boyer|último2=Merzbach|primeiro2=Uta C|autorlink2=Uta Merzbach|ano=1991|título=A History of Mathematics|edição=2nd|publicado=John Wiley & Sons, Inc.|isbn=978-0-471-54397-8|url=https://archive.org/details/historyofmathema00boye}}.
+* {{citation|último1=Brenner|primeiro1=S.|primeiro2=R. L.|último2=Scott|título=The Mathematical Theory of Finite Element Methods|edição=2nd|publicado=Springer|ano=2005|isbn=978-0-387-95451-6}}.
+* {{citation |autorlink=Haim Brezis |primeiro=Haim|último=Brezis|título=Functional analysis, Sobolev spaces, and partial differential equations|publicado=Springer|ano=2010}}.
+* {{citation |último1=Buttazzo |primeiro1=Giuseppe |último2=Giaquinta |primeiro2=Mariano |último3=Hildebrandt |primeiro3=Stefan |título=One-dimensional variational problems |publicado=The Clarendon Press Oxford University Press | series=Oxford Lecture Series in Mathematics and its Applications | isbn=978-0-19-850465-8 | mr=1694383 |ano=1998 | volume=15}}.
+* {{citation|último=Clarkson|primeiro=J. A.|título=Uniformly convex spaces|periódico=Trans. Amer. Math. Soc.|volume=40|ano=1936|páginas=396–414|doi=10.2307/1989630|número=3|jstor=1989630|doi-access=free}}.
+* {{citation|último=Conway |primeiro=John B.|título=A Course in Functional Analysis|edição=2nd|publicado=Springer |ano=1990| series=Graduate Texts in Mathematics | volume=96| isbn=978-0-387-97245-9}}.
+* {{citation|último1=Courant|primeiro1=Richard|autorlink=Richard Courant|primeiro2=David|último2=Hilbert|author-link2=David Hilbert|título=Methods of Mathematical Physics, Vol. I|publicado=Interscience|ano=1953}}.
+*{{citation
+ |último= Deitmar |primeiro= Anton
+ |edição= 2nd
+ | isbn = 0-387-22837-3
+ | mr = 2121678
+ |publicado= Springer-Verlag, New York
+ | series = Universitext
+ |título= A First Course in Harmonic Analysis
+ |ano= 2005}}.
+* {{citation |último1=Dennery |primeiro1=Philippe |último2=Krzywicki |primeiro2=André |título=Mathematics for Physicists |publicado=Dover |ano=1995 |anooriginal=1967 |isbn=0-486-69193-4}}.
+* {{citation |último= Dieudonné |primeiro= Jean |autorlink=Jean Dieudonné|título= Foundations of Modern Analysis|publicado= Academic Press|ano= 1960}}.
+* {{citation|último=Dirac|primeiro=P.A.M.|autorlink=Paul Dirac|título=The Principles of Quantum Mechanics |publicado=Clarendon Press|local=Oxford|ano=1930|títulolink=The Principles of Quantum Mechanics}}.
+* {{citation|último1=Dunford|primeiro1=N.|primeiro2=J.T.|último2=Schwartz|author-link2=Jacob T. Schwartz|título=Linear operators, Parts I and II|publicado=Wiley-Interscience|ano=1958}}.
+* {{citation|último= Duren|primeiro=P.|título=Theory of H<sup>p</sup>-Spaces|ano=1970|publicado= Academic Press|local= New York}}.
+* {{citation|último1=Einsiedler|primeiro1=Manfred|último2=Ward|primeiro2=Thomas|título=Ergodic theory with a view towards number theory|publicado=Springer|ano=2011}}.
+* {{citation |autorlink=Lawrence C. Evans |primeiro=L. C. |último=Evans |título=Partial Differential Equations |publicado=American Mathematical Society |local=Providence |ano=1998 |isbn=0-8218-0772-2 }}.
+<!--* {{citation |último1=Feintuch |primeiro1=Avraham |último2=Saeks |primeiro2=Richard |título=System theory |publicado=Academic Press Inc. [Harcourt Brace Jovanovich Publishers] |local=London | series=Pure and Applied Mathematics | isbn=978-0-12-251750-1 | mr=663906 |ano=1982 | volume=102}}.-->
+* {{citation |título=Fourier analysis and its application |primeiro=Gerald B.|último=Folland |url=https://books.google.com/books?as_isbn=0-8218-4790-2 |isbn=978-0-8218-4790-9 |publicado=American Mathematical Society Bookstore |ano=2009 |edição=Reprint of Wadsworth and Brooks/Cole 1992}}.
+* {{citation|último=Folland|primeiro=Gerald B.|título=Harmonic analysis in phase space|series=Annals of Mathematics Studies|volume= 122|publicado=Princeton University Press|ano= 1989|isbn= 978-0-691-08527-2}}.
+* {{citation|último=Fréchet|primeiro=Maurice|título=Sur les ensembles de fonctions et les opérations linéaires|periódico=C. R. Acad. Sci. Paris|volume=144|páginas=1414–1416|ano=1907}}.
+* {{citation|último=Fréchet|primeiro=Maurice|título=Sur les opérations linéaires|ano=1904|periódico=Transactions of the American Mathematical Society|volume=5|número=4|páginas=493–499|doi=10.2307/1986278|jstor=1986278}}.
+* {{citation|último=Giusti|primeiro=Enrico|título=Direct Methods in the Calculus of Variations|publicado=World Scientific|ano=2003|isbn=978-981-238-043-2}}.
+* {{citation |último1=Grattan-Guinness |primeiro1=Ivor |título=The search for mathematical roots, 1870–1940 |publicado=[[Princeton University Press]] | series=Princeton Paperbacks | isbn=978-0-691-05858-0 | mr=1807717 |ano=2000}}.
+* {{citation|último=Halmos|primeiro=Paul|autorlink=Paul Halmos|título=Introduction to Hilbert Space and the Theory of Spectral Multiplicity|ano=1957|publicado=Chelsea Pub. Co}}
+* {{citation|último=Halmos|primeiro=Paul|autorlink=Paul Halmos|título=A Hilbert Space Problem Book|ano=1982|publicado=Springer-Verlag|isbn=978-0-387-90685-0}}.
+* {{citation |último=Helgason |primeiro=Sigurdur |título=Groups and Geometric Analysis: Integral Geometry, Invariant Differential Operators, and Spherical Functions |publicado=Academic Press |ano=1984}}
+* {{citation|último1= Hewitt|primeiro1= Edwin|último2= Stromberg|primeiro2= Karl|título= Real and Abstract Analysis|ano= 1965|publicado= Springer-Verlag|local= New York}}.
+* {{citation|último1=Hilbert|primeiro1=David| author-link1 = David Hilbert|último2=Nordheim|primeiro2= Lothar Wolfgang| author-link2= Lothar Nordheim|último3= von Neumann|primeiro3= John|author-link3= John von Neumann|título= Über die Grundlagen der Quantenmechanik|periódico= Mathematische Annalen| volume = 98|páginas= 1–30|ano= 1927| doi=10.1007/BF01451579|doi-access=| s2cid=120986758}}.
+* {{citation|último=Holevo |primeiro=Alexander S. |autorlink=Alexander Holevo |título=Statistical Structure of Quantum Theory |publicado=Springer |series=Lecture Notes in Physics |ano=2001 |isbn=3-540-42082-7|oclc=318268606}}.
+* {{citation|último=Kac|primeiro=Mark|autorlink=Mark Kac|título=Can one hear the shape of a drum?|periódico=[[American Mathematical Monthly]]|volume=73|número=4, part 2|ano=1966|páginas=1–23|doi=10.2307/2313748|jstor=2313748}}.
+* {{citation |último1=Kadison |primeiro1=Richard V. |último2=Ringrose |primeiro2=John R. |título=Fundamentals of the theory of operator algebras. Vol. I |publicado=[[American Mathematical Society]] |local=Providence, R.I. | series=Graduate Studies in Mathematics | isbn=978-0-8218-0819-1 | mr=1468229 |ano=1997 | volume=15}}.
+* {{citation |último1=Kadison |primeiro1=Richard V. |último2=Ringrose |primeiro2=John R. |ano= 1983 |título=Fundamentals of the Theory of Operator Algebras, Vol. I: Elementary Theory |local= New York |publicado= Academic Press, Inc.}}
+*{{citation
+ |último= Kainth |primeiro= Surinder Pal Singh
+ | doi = 10.1007/978-981-99-2738-8
+ | isbn = 9789819927388
+ |publicado= Springer Nature Singapore
+ |título= A Comprehensive Textbook on Metric Spaces
+ |ano= 2023| doi-access = free
+ }}
+* {{citation|último1=Karatzas|primeiro1=Ioannis|último2=Shreve|primeiro2=Steven|ano=2019|título=Brownian Motion and Stochastic Calculus|publicado=Springer|edição=2nd|isbn=978-0-387-97655-6}}
+* {{citation |último1=Kakutani |primeiro1=Shizuo |autorlink1=Shizuo Kakutani |título=Some characterizations of Euclidean space | mr=0000895 |ano=1939 |periódico=Japanese Journal of Mathematics | volume=16 |páginas=93–97| doi=10.4099/jjm1924.16.0_93 | doi-access=free }}.
+* {{citation |último1=Kline |primeiro1=Morris |autorlink1=Morris Kline |título=Mathematical thought from ancient to modern times, Volume 3 |ano=1972 |publicado=[[Oxford University Press]] |edição=3rd | isbn=978-0-19-506137-6 |data-publicacao=1990 | url=https://archive.org/details/mathematicalthou00morr }}.
+* {{citation |último1= Kolmogorov |primeiro1= Andrey | author-link1 = Andrey Kolmogorov |último2= Fomin|primeiro2= Sergei V.| author-link2 = Sergei Fomin|título= Introductory Real Analysis |ano= 1970|edição= Revised English edition, trans. by Richard A. Silverman (1975)|publicado= Dover Press| isbn = 978-0-486-61226-3| url = https://archive.org/details/introductoryreal00kolm_0}}.
+* {{citation |último1=Krantz |primeiro1=Steven G. |autorlink=Steven Krantz|título=Function Theory of Several Complex Variables |publicado=[[American Mathematical Society]] |local=Providence, R.I. | isbn=978-0-8218-2724-6 |ano=2002}}.
+* {{citation |último=Lanczos |primeiro=Cornelius |título=Applied analysis | isbn=978-0-486-65656-4 |publicado=Dover Publications |ano=1988 |edição=Reprint of 1956 Prentice-Hall | url=https://books.google.com/books?as_isbn=0-486-65656-X}}.
+* {{citation|último=Lebesgue|primeiro=Henri|título=Leçons sur l'intégration et la recherche des fonctions primitives|url=https://books.google.com/books?id=VfUKAAAAYAAJ&q=%22Lebesgue%22%20%22Le%C3%A7ons%20sur%20l'int%C3%A9gration%20et%20la%20recherche%20des%20fonctions%20...%22&pg=PA1|ano=1904|publicado=Gauthier-Villars}}.
+* {{springer|id=H/h047380|title=Hilbert space|first=B.M. |last=Levitan}}.
+* {{citation |último1=Lindenstrauss |primeiro1=J. |último2=Tzafriri |primeiro2=L. |título=On the complemented subspaces problem | mr=0276734 |ano=1971 |periódico=[[Israel Journal of Mathematics]] | issn=0021-2172 | volume=9 |páginas=263–269 | doi=10.1007/BF02771592 | doi-access= |número=2| s2cid=119575718 }}.
+* {{citation|último=MacCluer|primeiro=Barbara|ano=2009|título=Elementary functional analysis|publicado=Springer|series=Graduate Texts in Mathematics|volume=253}}
+* {{citation |último1=Marsden |primeiro1=Jerrold E. |autorlink1=Jerrold E. Marsden |título=Elementary classical analysis |publicado=W. H. Freeman and Co. | mr=0357693 |ano=1974}}.
+* {{citation |último=Murphy |primeiro=Gerald J. |título=C*-algebras and Operator Theory |publicado=Academic Press |ano=1990 |isbn=0-12-511360-9}}.
+* {{citation|último=von Neumann|primeiro=John|autorlink=John von Neumann|título=Allgemeine Eigenwerttheorie Hermitescher Funktionaloperatoren|periódico=Mathematische Annalen| volume = 102|páginas= 49–131|ano= 1929| doi=10.1007/BF01782338| s2cid=121249803}}.
+* {{citation |último=von Neumann |primeiro=John|autorlink=John von Neumann|título=Physical Applications of the Ergodic Hypothesis|ano=1932|periódico=Proc Natl Acad Sci USA|volume=18|páginas=263–266|doi=10.1073/pnas.18.3.263|pmid=16587674|número=3|pmc=1076204|jstor=86260|bibcode = 1932PNAS...18..263N | doi-access=free}}.
+* {{citation |último1=von Neumann |primeiro1=John |autorlink1=John von Neumann |título=Mathematical Foundations of Quantum Mechanics |publicado=[[Princeton University Press]] | series=Princeton Landmarks in Mathematics | isbn=((978-0-691-02893-4))<!-- isbn links to reprint of same edition --> | mr=1435976|ano=1955|títulolink=Mathematical Foundations of Quantum Mechanics |translator-first=Robert T. |translator-last=Beyer}}.
+* {{citation|último1=Nielsen|primeiro1=Michael A.|author-link1=Michael Nielsen |último2=Chuang|primeiro2=Isaac L. |author-link2=Isaac Chuang |título=Quantum Computation and Quantum Information|títulolink=Quantum Computation and Quantum Information|publicado=[[Cambridge University Press]]|local=Cambridge|ano=2000|edição=1st|oclc=634735192|isbn=978-0-521-63503-5}}.
+* {{MacTutor|class=HistTopics|id=Abstract_linear_spaces|title=Abstract linear spaces|date=1996}}
+* {{citation |último=Pathria |primeiro=RK |título=Statistical mechanics|publicado=Academic Press|edição=2|ano=1996}}.
+* {{citation |último1=Pedersen |primeiro1=Gert |título=Analysis Now |publicado=[[Springer-Verlag]] |local=Berlin, New York | series=Graduate Texts in Mathematics | isbn=978-1-4612-6981-6 |ano=1995 | volume=118 | mr=0971256 }}
+* {{citation |último=Peres |primeiro=Asher |autorlink= Asher Peres |título=[[Quantum Theory: Concepts and Methods]] |publicado=Kluwer |ano=1993 |isbn=0-7923-2549-4 |oclc=28854083}}
+* {{citation|último=Prugovečki|primeiro=Eduard|título=Quantum mechanics in Hilbert space|publicado=Dover|edição=2nd|ano=1981|data-publicacao=2006|isbn=978-0-486-45327-9}}.
+* {{citation |último1=Reed |primeiro1=Michael|autorlink=Michael C. Reed|primeiro2=Barry|último2=Simon|author-link2=Barry Simon|series=Methods of Modern Mathematical Physics|título=Functional Analysis (vol I of 4 vols)|publicado=Academic Press|ano=1980|isbn= 978-0-12-585050-6}}.
+* {{citation |último1=Reed |primeiro1=Michael|autorlink=Michael C. Reed|primeiro2=Barry|último2=Simon|author-link2=Barry Simon|título=Fourier Analysis, Self-Adjointness (vol II of 4 vols)|series=Methods of Modern Mathematical Physics|publicado=Academic Press|ano=1975|isbn=9780125850025 }}.
+* {{citation|títulolink= Quantum Computing: A Gentle Introduction |título=Quantum Computing: A Gentle Introduction|último1=Rieffel|primeiro1=Eleanor G.|último2=Polak|primeiro2=Wolfgang H.|data=2011-03-04|publicado=MIT Press|isbn=978-0-262-01506-6|língua=en|autorlink=Eleanor Rieffel}}.
+* {{citation |último=Riesz |primeiro=Frigyes |autorlink=Frigyes Riesz|título=Sur une espèce de Géométrie analytique des systèmes de fonctions sommables|periódico=C. R. Acad. Sci. Paris|volume=144|páginas=1409–1411|ano=1907}}.
+* {{citation |último=Riesz |primeiro=Frigyes |autorlink=Frigyes Riesz|título=Zur Theorie des Hilbertschen Raumes|periódico=Acta Sci. Math. Szeged |volume=7|páginas=34–38|ano=1934}}.
+* {{citation |último1=Riesz |primeiro1=Frigyes |autorlink=Frigyes Riesz|primeiro2=Béla|último2=Sz.-Nagy|author-link2=Béla Szőkefalvi-Nagy|título=Functional analysis|publicado=Dover|ano=1990|isbn= 978-0-486-66289-3}}.
+* {{citation |último=Roman |primeiro=Stephen |título=Advanced Linear Algebra |edição=Third | series=[[Graduate Texts in Mathematics]] |publicado= Springer |data=2008|páginas= | isbn=978-0-387-72828-5 |autorlink=Steven Roman}}
+* {{Rudin Walter Functional Analysis|edition=1}} <!-- {{sfn | Rudin | 1991 | p=}} -->
+* {{citation |último=Rudin |primeiro=Walter|autorlink=Walter Rudin|título=Real and Complex Analysis|ano=1987|publicado=McGraw-Hill|isbn=978-0-07-100276-9}}.
+* {{citation |último=Saks |primeiro=Stanisław |autorlink=Stanisław Saks|título=Theory of the integral|publicado=Dover|ano=2005|edição=2nd Dover|isbn=978-0-486-44648-6}}; originally published ''Monografje Matematyczne'', vol. 7, Warszawa, 1937.
+* {{Schaefer Wolff Topological Vector Spaces|edition=2}} <!-- {{sfn | Schaefer | 1999 | p=}} -->
+* {{citation|último=Schmidt|primeiro=Erhard|autorlink=Erhard Schmidt|título=Über die Auflösung linearer Gleichungen mit unendlich vielen Unbekannten|periódico=Rend. Circ. Mat. Palermo|volume=25|páginas=63–77|ano=1908 | doi=10.1007/BF03029116| s2cid=120666844}}.
+* {{citation |último1=Shubin |primeiro1=M. A. |título=Pseudodifferential operators and spectral theory |publicado=[[Springer-Verlag]] |local=Berlin, New York | series=Springer Series in Soviet Mathematics | isbn=978-3-540-13621-7 | mr=883081 |ano=1987}}.
+* {{citation |último1=Sobrino |primeiro1=Luis |título=Elements of non-relativistic quantum mechanics |periódico=<!-- Citation bot--> |publicado=World Scientific Publishing Co. Inc. |local=River Edge, New Jersey | isbn=978-981-02-2386-1 | mr=1626401 |ano=1996| bibcode=1996lnrq.book.....S | doi=10.1142/2865 | doi-access= }}.
+* {{citation|último=Stapleton|primeiro=James|título=Linear statistical models|publicado=John Wiley and Sons|ano=1995}}.
+* {{citation |último=Stewart |primeiro=James|título=Calculus: Concepts and Contexts|edição=3rd|publicado=Thomson/Brooks/Cole|ano=2006}}.
+* {{citation |último=Stein |primeiro=E|título=Singular Integrals and Differentiability Properties of Functions|publicado=Princeton Univ. Press|ano=1970|isbn=978-0-691-08079-6|url-access=registration|url=https://archive.org/details/singularintegral0000stei}}.
+* {{citation|último1=Stein|primeiro1=Elias|author-link1=Elias Stein|primeiro2=Guido|último2=Weiss|author-link2=Guido Weiss|título=Introduction to Fourier Analysis on Euclidean Spaces|publicado=Princeton University Press|ano=1971|isbn=978-0-691-08078-9|local=Princeton, N.J.|url-access=registration|url=https://archive.org/details/introductiontofo0000stei}}.
+* {{citation |último1=Stein|primeiro1=E|último2=Shakarchi|primeiro2=R|título=Real analysis, measure theory, integration, and Hilbert spaces|publicado=Princeton University Press|ano=2005}}.
+* {{citation|último1=Streater|primeiro1=Ray|author-link1=Ray Streater|último2=Wightman|primeiro2=Arthur|author-link2=Arthur Wightman|título= PCT, Spin and Statistics and All That|ano=1964|publicado=W. A. Benjamin, Inc}}.
+* {{citation|último=Stroock|primeiro=Daniel|título=Probability theory: an analytic view|publicado=Cambridge University Press|ano=2011|edição=2}}.
+* {{citar livro|último= Teschl| given = Gerald|autorlink=Gerald Teschl|título=Mathematical Methods in Quantum Mechanics; With Applications to Schrödinger Operators|publicado=[[American Mathematical Society]]|local= [[Providence, Rhode Island|Providence]]|ano=2009 |url=https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/ |isbn=978-0-8218-4660-5 }}.
+* {{citation|último=Titchmarsh|primeiro=Edward Charles|autorlink=Edward Charles Titchmarsh|título=Eigenfunction expansions, part 1|ano=1946|publicado=Clarendon Press|local=Oxford University}}.
+* {{citation|primeiro=François|último=Trèves|título=Topological Vector Spaces, Distributions and Kernels|publicado=Academic Press|ano=1967}}.
+* {{citation |último1=Warner |primeiro1=Frank |título=Foundations of Differentiable Manifolds and Lie Groups |publicado=[[Springer-Verlag]] |local=Berlin, New York | isbn=978-0-387-90894-6 |ano=1983}}.
+* {{citation |último1=Weidmann |primeiro1=Joachim |título=Linear operators in Hilbert spaces |publicado=[[Springer-Verlag]] |local=Berlin, New York | series=Graduate Texts in Mathematics | isbn=978-0-387-90427-6 | mr=566954 |ano=1980 | volume=68}}.
+* {{citation |último=Weyl|primeiro=Hermann|autorlink=Hermann Weyl|título= The Theory of Groups and Quantum Mechanics|ano= 1931|publicado=Methuen and Company|translator-first=H. P.|translator-last=Robertson}}; reprinted, Dover Publications, 1950, {{isbn|978-0-486-60269-1}}.
+* {{citation|último=Young|primeiro=Nicholas|título=An introduction to Hilbert space|publicado=Cambridge University Press|ano=1988|zbl=0645.46024|isbn=978-0-521-33071-8}}.
+
+
+
+{{Álgebra}}
+{{Controle de autoridade}}
+
+{{DEFAULTSORT:Espaco Hilbert}}
+[[Categoria:Análise funcional]]
+[[Categoria:David Hilbert]]

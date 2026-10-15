@@ -1,0 +1,19 @@
+{
+  "version": "2.5.0",
+  "assertion": "Live test snapshot remains unchanged: Pillay",
+  "stage": "independent expectation amendment proposed before root applies patch",
+  "testSourceSha256": "f26696fc0c45f606640f0f89a8e45b1f344770b449bc106ffbf461c6bdb3c0ba",
+  "fixture": {
+    "title": "Navanethem Pillay",
+    "oldid": 73182716,
+    "sha256": "e76889dc68dceb66ac61f5054ad972bc8180dab6c30d99314487f18226039dad",
+    "bytes": 70047
+  },
+  "reason": "The newly approved consecutive named-reference rule removes exactly one immediately duplicated ohchr22 reuse. The 2.4 output was identical to the fixture. Every other byte, every complete source definition and the article prose are unchanged.",
+  "oldExpectedSuffix": ".replace('a Assembleia Nobel soubesse de sua morte.]]','a Assembleia Nobel soubesse de sua morte]]').replace('em entrevista coletiva.]]','em entrevista coletiva]]'):s;",
+  "newExpectedSuffix": ".replace('a Assembleia Nobel soubesse de sua morte.]]','a Assembleia Nobel soubesse de sua morte]]').replace('em entrevista coletiva.]]','em entrevista coletiva]]'):article==='Pillay'?s.replace('<ref name=\"ohchr22\" /><ref name=\"ohchr22\" />','<ref name=\"ohchr22\" />'):s;",
+  "guardBeforeExpected": "        if(article==='Pillay') {\n            assert.equal(require('node:crypto').createHash('sha256').update(s).digest('hex'),'e76889dc68dceb66ac61f5054ad972bc8180dab6c30d99314487f18226039dad');\n            assert.equal(s.split('<ref name=\"ohchr22\" /><ref name=\"ohchr22\" />').length-1,1);\n        }\n",
+  "expectedOutputSha256": "5128406174a182147c234ccb869cd7e9d8580dcbfb37a65e6b814c6fc427ab87",
+  "expectedBytes": 70025,
+  "independentProof": "pillay_expectation_review.json"
+}

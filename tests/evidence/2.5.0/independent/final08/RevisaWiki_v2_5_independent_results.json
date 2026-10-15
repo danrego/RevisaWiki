@@ -1,0 +1,444 @@
+{
+  "version": "2.5.0",
+  "script": "RevisaWiki_v2_5.js",
+  "scriptSha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+  "fixtureSha256": "22afeaefec569949d8183712ba74b402ead9ae4693da92992712864128c19fe3",
+  "cases": 86,
+  "checks": 338,
+  "passed": 86,
+  "failed": 0,
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "tests": [
+    {
+      "name": "isolated title_heading_at_top",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated title_heading_after_blank",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated title_heading_after_infobox",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated introduction_heading_at_top",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated title_with_underscores",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated heading_for_different_subject",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_different_capitalization",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_is_subsection",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_before_nonmatching_lead",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_without_bold_introduction",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated heading_after_existing_prose",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_used_by_local_fragment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_used_by_underscore_fragment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_used_by_samepage_fragment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated explicit_anchor_in_lead",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_with_explicit_html_id",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_with_link",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_inside_comment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_inside_nowiki",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_inside_table",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_inside_reference",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_inside_template",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_in_user_namespace",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_in_talk_namespace",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_in_template_namespace",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_in_section_edit",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_new_section_edit",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_dynamic_title",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_page_redirect",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_followed_by_another_heading",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_prose_ambiguous_unclosed_template",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_disambiguation_page",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_title_with_parenthetical_qualifier",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated adjacent_named_calls",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated adjacent_named_calls_with_space",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated adjacent_named_calls_different_groups",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated adjacent_undefined_calls",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated adjacent_conflicting_definitions",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated named_calls_separated_by_prose",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated named_calls_in_nowiki",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated reordered_citation_parameters",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "isolated different_citation_pages",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated different_citation_authors",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated citation_extra_comment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated identical_ref_attributes",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated conflicting_ref_attributes",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated case_sensitive_ref_attribute_values",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated unknown_ref_attributes",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated duplicate_collector_adjacent",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated different_collector_groups",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated collector_with_embedded_definition",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated collector_with_intervening_prose",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated known_template_closer_bracebracket",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated unknown_template_closer_bracebracket",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated known_template_closer_bracketbrace",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "isolated unknown_template_closer_bracketbrace",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_for_longer_bold_name",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_after_unverified_info_template",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_title_fragment_escaped",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_title_fragment_old_encoding",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_with_external_local_fragment",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_comment_between_subject_name",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_plain_prefix_different_person",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_after_hatnote_unverified",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_with_reference_before_lead",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "isolated heading_with_intro_anchor_use",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "integrated title_heading_at_top",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "integrated title_heading_after_blank",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "integrated title_heading_after_infobox",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "integrated introduction_heading_at_top",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "integrated title_with_underscores",
+      "passed": true,
+      "checks": 8
+    },
+    {
+      "name": "integrated heading_without_bold_introduction",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated heading_title_with_parenthetical_qualifier",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated adjacent_named_calls",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated adjacent_named_calls_with_space",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated reordered_citation_parameters",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated identical_ref_attributes",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated duplicate_collector_adjacent",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated known_template_closer_bracebracket",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated known_template_closer_bracketbrace",
+      "passed": true,
+      "checks": 7
+    },
+    {
+      "name": "integrated imported_last_ultimo_same_fields",
+      "passed": true,
+      "checks": 11
+    },
+    {
+      "name": "integrated imported_native_same_fields",
+      "passed": true,
+      "checks": 13
+    },
+    {
+      "name": "integrated imported_different_authors_stay_separate",
+      "passed": true,
+      "checks": 12
+    },
+    {
+      "name": "integrated imported_different_pages_stay_separate",
+      "passed": true,
+      "checks": 13
+    },
+    {
+      "name": "integrated native_accepted_aliases_preserved",
+      "passed": true,
+      "checks": 12
+    },
+    {
+      "name": "integrated imported_exact_root_regression",
+      "passed": true,
+      "checks": 11
+    }
+  ]
+}

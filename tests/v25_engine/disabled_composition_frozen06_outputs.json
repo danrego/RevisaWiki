@@ -1,0 +1,458 @@
+{
+  "candidate": "06",
+  "version": "2.5.0",
+  "files": {
+    "RevisaWiki_v2_5.js": "80e6576711d2236647f45b818a65b6318809009d7b3fcad73d1f8d027c8f1592",
+    "RevisaWiki_v2_5_completo.js": "bf171a5a7b3dfecb7f6b3d6295d934707e171d67225d73d9aec7a1aecd679d10"
+  },
+  "cases": {
+    "RevisaWiki_v2_5.js:dates:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|date=October 1, 2020}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|date=1 de outubro de 2020}}</ref>",
+      "sourceSha256": "38a6effe6fb07a4e99e4c420aae5d1c0ae6f0f9451ae6d92b4d3419d69a56f4b",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "dates": false
+      },
+      "text": "<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|data=October 1, 2020}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=Fonte|data=1 de outubro de 2020}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4cbf8175e16f7eccf7ce2c30dad9704b1954832c6568bc52a2cf4df981019ed8"
+    },
+    "RevisaWiki_v2_5.js:dates:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|date=October 1, 2020}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|date=1 de outubro de 2020}}</ref>",
+      "sourceSha256": "38a6effe6fb07a4e99e4c420aae5d1c0ae6f0f9451ae6d92b4d3419d69a56f4b",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "dates": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|data=1 de outubro de 2020}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "ad9aafb8d7cd5e2b28e4ba4f31c93d2330e212ba4523aedcc1a49615298ce9ed"
+    },
+    "RevisaWiki_v2_5.js:authors:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|author=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|author=Ana Silva|author2=Bia Costa}}</ref>",
+      "sourceSha256": "3e97e6101cf40a010573098ef87cf585828b83ee4d2ab6cbe5c21dc6227c5476",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "authors": false
+      },
+      "text": "<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|autor=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=Fonte|autor=Ana Silva|autor2=Bia Costa}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "128193c8ffefcc3367c6fa3bcdd9280c2b6d3859f71ff640592f344918e7c094"
+    },
+    "RevisaWiki_v2_5.js:authors:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|author=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|author=Ana Silva|author2=Bia Costa}}</ref>",
+      "sourceSha256": "3e97e6101cf40a010573098ef87cf585828b83ee4d2ab6cbe5c21dc6227c5476",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "authors": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|autor=Ana Silva|autor2=Bia Costa}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "5aa56a5110815626472d327ed115e928001aa789438ed5bc5f49fa7a618b413d"
+    },
+    "RevisaWiki_v2_5.js:automaticParameterNames:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "automaticParameterNames": false
+      },
+      "text": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4717118a6e246328f0199df6082aafcf939cd47a9a01a7b5279e6364d256a97f"
+    },
+    "RevisaWiki_v2_5.js:automaticParameterNames:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "automaticParameterNames": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessodata=2024-01-01}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "9e13d54fd72531bad6406660b02ef0b9e2bac52403bbdcb4b60a38e28a8bdeb3"
+    },
+    "RevisaWiki_v2_5.js:citationRepairs:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citationRepairs": false
+      },
+      "text": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4717118a6e246328f0199df6082aafcf939cd47a9a01a7b5279e6364d256a97f"
+    },
+    "RevisaWiki_v2_5.js:citationRepairs:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citationRepairs": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessodata=2024-01-01}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "9e13d54fd72531bad6406660b02ef0b9e2bac52403bbdcb4b60a38e28a8bdeb3"
+    },
+    "RevisaWiki_v2_5.js:citations:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>",
+      "sourceSha256": "a7af770686661ef62ee3f5b9f963424122411e36d17fd8f0d974f95c87ce0ca6",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citations": false
+      },
+      "text": "<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "c1b8b141b5064112418706ee6f449e3a2e3a1a413934d5117f0a58d933996ccd"
+    },
+    "RevisaWiki_v2_5.js:citations:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>",
+      "sourceSha256": "a7af770686661ef62ee3f5b9f963424122411e36d17fd8f0d974f95c87ce0ca6",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citations": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|último=Silva}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "ed290a836092931260dbf784828558fdb4d89184d8e844c91bece0c42e3644ec"
+    },
+    "RevisaWiki_v2_5.js:links:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=[[Página]]}}</ref>",
+      "sourceSha256": "f70822c6e98d0e7a144f281a6b611a7c2ed61eef6291c99cf319a061bcf90c5e",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "links": false
+      },
+      "text": "<ref>{{Citar web|título=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=[[Página]]}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "7544d57de5a872fb10a14219108cb801d762ce09fd1b46c81f5104a1952e3cb5"
+    },
+    "RevisaWiki_v2_5.js:links:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=[[Página]]}}</ref>",
+      "sourceSha256": "f70822c6e98d0e7a144f281a6b611a7c2ed61eef6291c99cf319a061bcf90c5e",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "links": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=[[Página]]|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "0deb990f023357834cb05be3e00e317f44247651823a275ff147582729db924c"
+    },
+    "RevisaWiki_v2_5.js:bareReferences:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "30a869ee22981920125336eb54ce60f5a76acfd6925b4d75fc249a18ac873d22",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "bareReferences": false
+      },
+      "text": "<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "b2b79f4714a63912b5660e54684f69053e6d625a8915ac7826dc9e514c6fe40a"
+    },
+    "RevisaWiki_v2_5.js:bareReferences:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "30a869ee22981920125336eb54ce60f5a76acfd6925b4d75fc249a18ac873d22",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "bareReferences": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|título=Fonte}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "2720bca9d207c847bf51c8fb92b96ed7399762e116625c54f2e9d5c621e07c03"
+    },
+    "RevisaWiki_v2_5.js:multilingual:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "17774038847e3509964db154b0723d2b40ac64c64b5897b68cb3a75192fdfb23",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "multilingual": false
+      },
+      "text": "<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "0af65064646528f608530a2f3692ba24010e57644c3c4fc166e25900b52429eb"
+    },
+    "RevisaWiki_v2_5.js:multilingual:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "17774038847e3509964db154b0723d2b40ac64c64b5897b68cb3a75192fdfb23",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "multilingual": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "bd7016dee1ae2f247489de45821f5b9449149c56e386cb95204a3d0249831ce7"
+    },
+    "RevisaWiki_v2_5_completo.js:dates:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|date=October 1, 2020}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|date=1 de outubro de 2020}}</ref>",
+      "sourceSha256": "38a6effe6fb07a4e99e4c420aae5d1c0ae6f0f9451ae6d92b4d3419d69a56f4b",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "dates": false
+      },
+      "text": "<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|data=October 1, 2020}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=Fonte|data=1 de outubro de 2020}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4cbf8175e16f7eccf7ce2c30dad9704b1954832c6568bc52a2cf4df981019ed8"
+    },
+    "RevisaWiki_v2_5_completo.js:dates:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|date=October 1, 2020}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|date=1 de outubro de 2020}}</ref>",
+      "sourceSha256": "38a6effe6fb07a4e99e4c420aae5d1c0ae6f0f9451ae6d92b4d3419d69a56f4b",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "dates": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|data=1 de outubro de 2020}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "ad9aafb8d7cd5e2b28e4ba4f31c93d2330e212ba4523aedcc1a49615298ce9ed"
+    },
+    "RevisaWiki_v2_5_completo.js:authors:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|author=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|author=Ana Silva|author2=Bia Costa}}</ref>",
+      "sourceSha256": "3e97e6101cf40a010573098ef87cf585828b83ee4d2ab6cbe5c21dc6227c5476",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "authors": false
+      },
+      "text": "<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|autor=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=Fonte|autor=Ana Silva|autor2=Bia Costa}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "128193c8ffefcc3367c6fa3bcdd9280c2b6d3859f71ff640592f344918e7c094"
+    },
+    "RevisaWiki_v2_5_completo.js:authors:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|author=Ana Silva; Bia Costa}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|author=Ana Silva|author2=Bia Costa}}</ref>",
+      "sourceSha256": "3e97e6101cf40a010573098ef87cf585828b83ee4d2ab6cbe5c21dc6227c5476",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "authors": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|autor=Ana Silva|autor2=Bia Costa}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "5aa56a5110815626472d327ed115e928001aa789438ed5bc5f49fa7a618b413d"
+    },
+    "RevisaWiki_v2_5_completo.js:automaticParameterNames:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "automaticParameterNames": false
+      },
+      "text": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4717118a6e246328f0199df6082aafcf939cd47a9a01a7b5279e6364d256a97f"
+    },
+    "RevisaWiki_v2_5_completo.js:automaticParameterNames:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "automaticParameterNames": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessodata=2024-01-01}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "9e13d54fd72531bad6406660b02ef0b9e2bac52403bbdcb4b60a38e28a8bdeb3"
+    },
+    "RevisaWiki_v2_5_completo.js:citationRepairs:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citationRepairs": false
+      },
+      "text": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "4717118a6e246328f0199df6082aafcf939cd47a9a01a7b5279e6364d256a97f"
+    },
+    "RevisaWiki_v2_5_completo.js:citationRepairs:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessdoata=2024-01-01}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|acessodata=2024-01-01}}</ref>",
+      "sourceSha256": "a6e0896339d62694f02165f472cac7aab66342f3d352f22e6e3342d319c06348",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citationRepairs": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|titulo=Fonte|url=https://example.invalid/a|acessodata=2024-01-01}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "9e13d54fd72531bad6406660b02ef0b9e2bac52403bbdcb4b60a38e28a8bdeb3"
+    },
+    "RevisaWiki_v2_5_completo.js:citations:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>",
+      "sourceSha256": "a7af770686661ef62ee3f5b9f963424122411e36d17fd8f0d974f95c87ce0ca6",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citations": false
+      },
+      "text": "<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "c1b8b141b5064112418706ee6f449e3a2e3a1a413934d5117f0a58d933996ccd"
+    },
+    "RevisaWiki_v2_5_completo.js:citations:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>",
+      "sourceSha256": "a7af770686661ef62ee3f5b9f963424122411e36d17fd8f0d974f95c87ce0ca6",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "citations": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=Fonte|url=https://example.invalid/a|último=Silva}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "ed290a836092931260dbf784828558fdb4d89184d8e844c91bece0c42e3644ec"
+    },
+    "RevisaWiki_v2_5_completo.js:links:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=[[Página]]}}</ref>",
+      "sourceSha256": "f70822c6e98d0e7a144f281a6b611a7c2ed61eef6291c99cf319a061bcf90c5e",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "links": false
+      },
+      "text": "<ref>{{Citar web|título=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|título=[[Página]]}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "7544d57de5a872fb10a14219108cb801d762ce09fd1b46c81f5104a1952e3cb5"
+    },
+    "RevisaWiki_v2_5_completo.js:links:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=[[Página]]}}</ref>",
+      "sourceSha256": "f70822c6e98d0e7a144f281a6b611a7c2ed61eef6291c99cf319a061bcf90c5e",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "links": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|título=[[Página]]|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "0deb990f023357834cb05be3e00e317f44247651823a275ff147582729db924c"
+    },
+    "RevisaWiki_v2_5_completo.js:bareReferences:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "30a869ee22981920125336eb54ce60f5a76acfd6925b4d75fc249a18ac873d22",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "bareReferences": false
+      },
+      "text": "<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "b2b79f4714a63912b5660e54684f69053e6d625a8915ac7826dc9e514c6fe40a"
+    },
+    "RevisaWiki_v2_5_completo.js:bareReferences:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "30a869ee22981920125336eb54ce60f5a76acfd6925b4d75fc249a18ac873d22",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "bareReferences": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|título=Fonte}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "2720bca9d207c847bf51c8fb92b96ed7399762e116625c54f2e9d5c621e07c03"
+    },
+    "RevisaWiki_v2_5_completo.js:multilingual:false": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "17774038847e3509964db154b0723d2b40ac64c64b5897b68cb3a75192fdfb23",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "multilingual": false
+      },
+      "text": "<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>\n\n{{Referências}}\n\n",
+      "outputSha256": "0af65064646528f608530a2f3692ba24010e57644c3c4fc166e25900b52429eb"
+    },
+    "RevisaWiki_v2_5_completo.js:multilingual:true": {
+      "source": "{{Descrição curta|Exemplo}}\n<ref>{{Книга|заглавие=Livro|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref>",
+      "sourceSha256": "17774038847e3509964db154b0723d2b40ac64c64b5897b68cb3a75192fdfb23",
+      "options": {
+        "namespaceNumber": 0,
+        "authorityControl": false,
+        "biographyPortal": false,
+        "automaticBiographyPortals": false,
+        "minorBaseConfirmed": false,
+        "multilingual": true
+      },
+      "text": "<ref name=\"ref-auto-1\">{{Citar livro|título=Livro|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />\n\n{{Referências}}\n\n",
+      "outputSha256": "bd7016dee1ae2f247489de45821f5b9449149c56e386cb95204a3d0249831ce7"
+    }
+  }
+}

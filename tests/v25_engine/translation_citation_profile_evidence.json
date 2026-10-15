@@ -1,0 +1,218 @@
+{
+  "version": "2.5.0",
+  "catalog": "Catalogo_traducoes_RevisaWiki_v2_4.json",
+  "catalogSha256": "828a4b568e36b901d280a4cd3d27e649e8eb6f70818955247d69e434035e78ca",
+  "cases": [
+    {
+      "case": "Russian registered book",
+      "language": "ru",
+      "template": "Книга",
+      "knownTarget": "Citar livro",
+      "profileSource": {
+        "language": "ru",
+        "title": "Шаблон:Книга",
+        "oldid": 155333102
+      },
+      "evidence": "Frozen translation profile",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "См. также",
+          "Примечания",
+          "Литература",
+          "Ссылки"
+        ],
+        "templateConversions": [
+          "Книга",
+          "Статья",
+          "Cite journal",
+          "Cite news",
+          "Примечания"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{Книга|заглавие=Livro|автор=Ana Silva|ссылка=https://example.invalid/a}}",
+      "second": "{{Citar livro|título=Livro|autor=Ana Silva|url=https://example.invalid/a}}"
+    },
+    {
+      "case": "Korean registered web",
+      "language": "ko",
+      "template": "웹 인용",
+      "knownTarget": "Citar web",
+      "profileSource": {
+        "language": "ko",
+        "title": "틀:웹 인용",
+        "oldid": 40659255
+      },
+      "evidence": "Frozen translation profile",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "같이 보기",
+          "각주",
+          "주석",
+          "참고 문헌",
+          "외부 링크"
+        ],
+        "templateConversions": [
+          "웹 인용",
+          "저널 인용",
+          "각주",
+          "뉴스 인용",
+          "전거 통제",
+          "서적 인용"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{웹 인용|제목=Fonte|url=https://example.invalid/a}}",
+      "second": "{{Citar web|título=Fonte|url=https://example.invalid/a}}"
+    },
+    {
+      "case": "Arabic registered web",
+      "language": "ar",
+      "template": "استشهاد ويب",
+      "knownTarget": "Citar web",
+      "profileSource": {
+        "language": "ar",
+        "title": "قالب:استشهاد بويب",
+        "oldid": 70331151
+      },
+      "evidence": "Frozen translation profile",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "انظر أيضًا",
+          "انظر أيضا",
+          "ملاحظات",
+          "مراجع",
+          "المراجع",
+          "مصادر",
+          "وصلات خارجية",
+          "روابط خارجية"
+        ],
+        "templateConversions": [
+          "استشهاد بخبر",
+          "استشهاد بدورية محكمة",
+          "مراجع",
+          "استشهاد بويب",
+          "ضبط استنادي",
+          "استشهاد بكتاب"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{استشهاد ويب|عنوان=Fonte|مسار=https://example.invalid/a}}",
+      "second": "{{Citar web|título=Fonte|url=https://example.invalid/a}}"
+    },
+    {
+      "case": "Cantonese registered web",
+      "language": "zh-yue",
+      "template": "引網",
+      "knownTarget": "Citar web",
+      "profileSource": {
+        "language": "zh-yue",
+        "title": "Template:引網",
+        "oldid": 833065
+      },
+      "evidence": "Frozen translation profile",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "睇埋",
+          "註",
+          "參考",
+          "參考資料",
+          "拎",
+          "出面網頁",
+          "外部連結"
+        ],
+        "templateConversions": [
+          "引書",
+          "Cite news",
+          "引網",
+          "Cite journal",
+          "Reflist",
+          "Authority control"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{引網|title=Fonte|url=https://example.invalid/a}}",
+      "second": "{{Citar web|título=Fonte|url=https://example.invalid/a}}"
+    },
+    {
+      "case": "Chinese shared Cite web alias",
+      "language": "zh",
+      "template": "Template:Cite web",
+      "knownTarget": "Citar web",
+      "profileSource": {
+        "language": "zh-yue",
+        "title": "Template:引網",
+        "oldid": 833065
+      },
+      "evidence": "Frozen translation profile",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "参见",
+          "參見",
+          "注释",
+          "註釋",
+          "参考资料",
+          "參考資料",
+          "参考文献",
+          "參考文獻",
+          "外部链接",
+          "外部連結"
+        ],
+        "templateConversions": [
+          "Reflist",
+          "Authority control",
+          "Cite web",
+          "Cite book",
+          "Cite news",
+          "Cite journal"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{Template:Cite web|title=Fonte|url=https://example.invalid/a}}",
+      "second": "{{Citar web|título=Fonte|url=https://example.invalid/a}}"
+    },
+    {
+      "case": "Japanese shared Cite news alias",
+      "language": "ja",
+      "template": "Cite news",
+      "knownTarget": "Citar jornal",
+      "profileSource": null,
+      "evidence": "Japanese coverage lists Cite news; existing native citation map converts this shared alias",
+      "coverage": {
+        "namespaces": true,
+        "imageOptions": true,
+        "magicwords": true,
+        "headings": [
+          "関連項目",
+          "脚注",
+          "注釈",
+          "出典",
+          "参考文献",
+          "外部リンク"
+        ],
+        "templateConversions": [
+          "Cite news",
+          "Normdaten"
+        ],
+        "unverifiedTemplates": "review only"
+      },
+      "first": "{{Cite news|title=Fonte|url=https://example.invalid/a}}",
+      "second": "{{Citar jornal|título=Fonte|url=https://example.invalid/a}}"
+    }
+  ]
+}

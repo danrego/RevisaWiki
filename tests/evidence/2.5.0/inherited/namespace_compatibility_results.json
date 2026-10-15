@@ -1,0 +1,64 @@
+{
+  "version": "2.5.0",
+  "scriptSha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+  "tests": [
+    {
+      "name": "migration preserves all explicit R calls",
+      "ok": true
+    },
+    {
+      "name": "migration preserves spaced #tag ref calls and follow",
+      "ok": true
+    },
+    {
+      "name": "R helpers use the same reference transaction as their definition",
+      "ok": true
+    },
+    {
+      "name": "partial helper migration is refused by safeComposition",
+      "ok": true
+    },
+    {
+      "name": "explicit dynamic R names prevent automatic migration",
+      "ok": true
+    },
+    {
+      "name": "spaced #tag targets reserve collision names",
+      "ok": true
+    },
+    {
+      "name": "template definitions preserve their exported reference names",
+      "ok": true
+    },
+    {
+      "name": "template definitions do not create reusable global reference names",
+      "ok": true
+    },
+    {
+      "name": "template parameter fallback definitions do not move to unconditional text",
+      "ok": true
+    },
+    {
+      "name": "neutral generation avoids entity-equivalent existing names",
+      "ok": true
+    },
+    {
+      "name": "neutral generation avoids R helper call names",
+      "ok": true
+    },
+    {
+      "name": "section editing preserves migration family names",
+      "ok": true
+    },
+    {
+      "name": "signed Portuguese discussions remain unchanged",
+      "ok": true
+    }
+  ],
+  "qaTarget": {
+    "version": "2.5.0",
+    "script": "<workspace>/outputs/revisawiki_v2_5/RevisaWiki_v2_5.js",
+    "sha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+    "suiteSha256": "dd99a66830f1830865018f7f0c79da720a8c86fd00599b4caa16195f7314bb9f"
+  }
+}

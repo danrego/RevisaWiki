@@ -1,0 +1,79 @@
+{
+  "version": "2.5.0",
+  "stage": "before_imported_citation_comparator_fix",
+  "legacyVersion": "2.4.0",
+  "legacySha256": "d4f17d0c0881105ba180440dca888d5539b797ce45ddbdbaa0e8967168214c7d",
+  "fixtureSha256": "22afeaefec569949d8183712ba74b402ead9ae4693da92992712864128c19fe3",
+  "cases": 6,
+  "failed": 0,
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "tests": [
+    {
+      "name": "imported_last_ultimo_same_fields",
+      "sourceSha256": "f5d6fb394b1e121d3557b9f22f10c0336eab87a0f8666cf8533e731634d59902",
+      "legacy2_4OutputSha256": "1ff836a99160d5ae04449c3db1156cc3da8e2931ca58ddab21513b2cabad4ff4",
+      "bodies": [
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|data=2024}}",
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|data=2024}}"
+      ],
+      "completeFieldSetsEqual": true,
+      "expectedDefinitions": 1
+    },
+    {
+      "name": "imported_native_same_fields",
+      "sourceSha256": "dc458bac66a0d28662895bcef3f979cb0541c953d743494fb21a5250506749c4",
+      "legacy2_4OutputSha256": "cdb16b82d872f7d74064f517714faaf33ca13ea357a2ff6ec3fab4dc44e814ae",
+      "bodies": [
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|data=2024}}",
+        "{{citar web|último=Silva|data=2024|url=https://example.org/fonte|título=Fonte publicada}}"
+      ],
+      "completeFieldSetsEqual": true,
+      "expectedDefinitions": 1
+    },
+    {
+      "name": "imported_different_authors_stay_separate",
+      "sourceSha256": "5e008fc7ca81f0d879429d106a911cc60f1b3b1e01d28c6ff92e996c72e8ffc3",
+      "legacy2_4OutputSha256": "c159d69e67cc3b388aa66d8161e87983a9a61d7b45c57614045d3d00d43364db",
+      "bodies": [
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|data=2024}}",
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Souza|data=2024}}"
+      ],
+      "completeFieldSetsEqual": false,
+      "expectedDefinitions": 2
+    },
+    {
+      "name": "imported_different_pages_stay_separate",
+      "sourceSha256": "0ea0b6b2a401d3e6799aaa39191f3e1cd617280ef26b6b83dfbe15e6e6ad9e92",
+      "legacy2_4OutputSha256": "91bc86f7543ec9825b018aa10c0cc313b42eaac941408a24f4e36ca9ab363c00",
+      "bodies": [
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|páginas=10|data=2024}}",
+        "{{Citar web|título=Fonte publicada|url=https://example.org/fonte|último=Silva|páginas=11|data=2024}}"
+      ],
+      "completeFieldSetsEqual": false,
+      "expectedDefinitions": 2
+    },
+    {
+      "name": "native_accepted_aliases_preserved",
+      "sourceSha256": "bd2047441d2733855f9f43adbef8731aed38c87f78e44077fd74502fd7d17163",
+      "legacy2_4OutputSha256": "bbaef5ded23ac027bfb5acf40e0009ada441b4b4fa0b300dcc5edb99289585da",
+      "bodies": [
+        "{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|last=Silva|data=2024}}",
+        "{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|data=2024}}"
+      ],
+      "completeFieldSetsEqual": false,
+      "expectedDefinitions": 2
+    },
+    {
+      "name": "imported_exact_root_regression",
+      "sourceSha256": "55c12679eeba49a34699dd2d57afdcaddfd3f91c306ce5ea44c16f716cda4c1f",
+      "legacy2_4OutputSha256": "200fc55845988fcc5271f07ede8cc00769b3d992fb029d8ed3daae7ee7bc0eb5",
+      "bodies": [
+        "{{Citar web|título=Página|url=https://example.org|último=Página}}",
+        "{{Citar web|url=https://example.org|título=Página|último=Página}}"
+      ],
+      "completeFieldSetsEqual": true,
+      "expectedDefinitions": 1
+    }
+  ]
+}

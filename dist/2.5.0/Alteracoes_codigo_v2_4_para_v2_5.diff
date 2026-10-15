@@ -1,0 +1,874 @@
+--- RevisaWiki_v2_4_completo.js
++++ RevisaWiki_v2_5_completo.js
+@@ -1,45 +1,27 @@
+ /*
+- * RevisaWiki para a ptwiki, versão 2.4.0, 14 de outubro de 2026.
++ * RevisaWiki para a ptwiki, versão 2.5.0, 15 de outubro de 2026.
+  * Licença: CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+  *
+- * Ajustar código aparece no painel e, no editor clássico ou CodeMirror,
+- * também antes de Publicar. O atalho inferior tem cor verde azulada,
+- * usa a mesma análise e fica desativado enquanto ela estiver em andamento.
+- * Os botões corrigem sintaxe, campos de citações e infocaixas,
+- * ligações e erros ortográficos previstos nas regras. Organiza notas,
+- * referências e seções finais, conserva as grafias válidas e deixa as
+- * alterações no editor para conferência. O script nunca salva a página.
+- * O relatório mostra o que mudou, permite comparar e desfazer o resultado
+- * e separa problemas pendentes de informações técnicas.
++ * Ajustar código corrige os padrões previstos de sintaxe, citações,
++ * infocaixas, ligações, notas, seções finais e grafia. A versão 2.5 trata
++ * títulos repetidos antes da introdução, chamadas consecutivas da mesma
++ * referência, citações iguais com campos em outra ordem, atributos
++ * duplicados idênticos e mais fechamentos trocados reconhecidos. Também
++ * alinha os campos das infocaixas já escritas com um campo por linha.
++ * Preparar discussão monta PD e marcas dos projetos confirmados nos portais
++ * do artigo, preservando as avaliações e as mensagens existentes.
+  *
+- * A versão 2.4 recupera fechamentos de sintaxe em padrões comprovados,
+- * antes de executar os ajustes normais. Referências e tabelas exigem
+- * limites reconhecidos. Um trecho incompleto preservado não autoriza
+- * mudanças no seu conteúdo nem nas famílias de referências que o cruzam.
+- * Os reparos aparecem na comparação, no relatório e no resumo da edição.
++ * As alterações ficam no editor. O relatório permite comparar, escolher
++ * quais mudanças manter e desfazer o resultado. O script não salva páginas.
++ * Referências, tabelas, exemplos e fórmulas têm proteções próprias. Um trecho
++ * incompleto não autoriza alterar o conteúdo que não pôde ser lido.
+  *
+- * A versão 2.3 confere cópias idênticas de infocaixas e chamadas finais,
+- * organiza listas globais redundantes sem misturar grupos ou listas locais,
+- * preserva listas sem título nas conversões e retira resíduos conhecidos
+- * de tradução. A pré-visualização verifica os dados e as fontes que ficam.
+- *
+- * Um título formado por uma única ligação pode receber Artigo principal
+- * abaixo da seção, após confirmar que o destino existe e não é uma
+- * desambiguação. A divisão de tabelas por ano conserva as linhas, as células
+- * e as repetições. A pré-visualização só aceita essa reorganização quando
+- * ela corresponde ao plano calculado a partir do código original.
+- * Nomes portugueses confirmados em ligações, séculos e legendas recebem
+- * ajustes restritos, com proteção de citações e trechos literais.
+- *
+- * O catálogo adapta código de 23 edições linguísticas: inglês, francês,
+- * alemão, espanhol, russo, ucraniano, turco, hebraico, italiano, romeno,
+- * coreano, japonês, chinês, cantonês, vietnamita, tailandês, neerlandês,
+- * dinamarquês, sueco, norueguês bokmål, norueguês nynorsk, finlandês e árabe.
+- * Traduzir a prosa, avaliar as fontes e resolver casos sem equivalência
+- * confirmada continua sendo tarefa do editor. Controle de autoridade e
+- * portais adicionais exigem os sinais previstos nas regras e consultas.
+- * Conversas assinadas, definições de predefinições e campos bibliográficos
+- * têm proteções próprias. As grafias dni e Dni são preservadas.
++ * Há regras de código para 23 edições: inglês, francês, alemão, espanhol,
++ * russo, ucraniano, turco, hebraico, italiano, romeno, coreano, japonês,
++ * chinês, cantonês, vietnamita, tailandês, neerlandês, dinamarquês, sueco,
++ * norueguês bokmål, norueguês nynorsk, finlandês e árabe. A ferramenta não
++ * traduz a prosa nem avalia a qualidade das fontes. Portais e controle de
++ * autoridade exigem as confirmações previstas em cada regra.
+  *
+  * Agradecimentos aos scripts e às revisões anteriores.
+  * Fontes e histórico nos links permanentes:
+@@ -49,7 +31,7 @@
+  */
+ (function RevisaWikiBoot(root) {
+     'use strict';
+-    const VERSION = '2.4.0';
++    const VERSION = '2.5.0';
+     const DEFAULTS = {
+         syntaxRepairs: true, partialSyntaxRecovery: true, structuralRepairs: true, translationResidues: true, autoPreview: true, registryDoiCheck: true, biographyStyleChecks: true, automaticTableRepairs: true, tableAccessibility: true,
+         citations: true, dates: true, links: true, references: true, auxiliaryTemplates: true,
+@@ -63,10 +45,17 @@
+         markup: true, categories: true, endMatter: true, maintenance: true, shortcuts: true, review: true, autoSummary: true
+     };
+     const GROUP_LABELS = {
++        infoboxAlignment:'Alinhamento dos campos da infocaixa',
++        redundantLeadHeading:'Título repetido antes da introdução retirado',
++        safeAdjacentReferenceCalls:'Chamadas consecutivas da mesma referência retiradas',
++        safeEquivalentCitations:'Citações iguais com campos em outra ordem reutilizadas',
++        safeDuplicateAttributes:'Atributos repetidos com valores iguais consolidados',
++        safeMixedTemplateClosers:'Fechamentos trocados de predefinições corrigidos',
++        safeAdjacentCollectors:'Listas vazias de referências repetidas retiradas',
+         syntaxTemplateClosers:'Fechamentos de predefinições recuperados', syntaxTagTypos:'Fechamentos de etiquetas corrigidos',
+         syntaxReferenceClosers:'Referências sem fechamento recuperadas', syntaxNamedRefReuse:'Chamadas nominais de referências recuperadas',
+         syntaxFormattingClosers:'Formatação interna de referências fechada', syntaxTableClosers:'Tabelas simples fechadas no fim da página',
+-        preservedUnresolvedTail:'Trecho completo ajustado com cauda incompleta preservada',
++        preservedUnresolvedTail:'Trecho completo ajustado sem alterar a parte incompleta',
+         repeatedInfoboxes: 'Cópias idênticas de infocaixas retiradas', repeatedFooterTemplates: 'Chamadas finais idênticas retiradas',
+         relocatedReferenceList: 'Lista global de referências posicionada no final', redundantReferenceLists: 'Chamadas redundantes de referências retiradas',
+         emptyEndHeadings: 'Títulos vazios das seções finais retirados', rendererHeadingPreserved: 'Listas sem cabeçalho preservadas na conversão',
+@@ -1633,11 +1622,24 @@
+             else if(view.slice(i,i+2)==='{{'){stack.push({start:i,size:2});i+=2;}else i++;}
+         return {nodes,unclosed:stack};
+     }
++    function v25SyntaxQuoteReferenceEnd(view,opening) {
++        if(!opening||opening.name!=='ref'||opening.close||opening.typo||/[\r\n]/.test(opening.raw))return null;
++        const attrs=v24SyntaxAttrs(opening.attrs);if(!v24SyntaxLiteralIdentity(attrs))return null;if(opening.self)return opening.end;
++        const lineEnd=view.indexOf('\n',opening.end),limit=lineEnd<0?view.length:lineEnd;
++        for(let at=opening.end;at<limit;){const tag=v24SyntaxTag(view,at);if(!tag){at++;continue;}
++            if(tag.end>limit||/[\r\n]/.test(tag.raw))return null;
++            if(tag.name==='ref'){if(!tag.close||tag.typo||tag.attrs.trim())return null;return tag.end;}at=tag.end;}
++        return null;
++    }
+     function v24SyntaxMarkupQuote(view,start,insideRef=false) {
+         if(view[start-1]==="'")return null;const open=view.slice(start).match(/^('{2,5})(?!')/);if(!open)return null;
+         const stack=[open[1].length];let i=start+open[1].length,content=false;
+         for(;i<view.length;){if(/[\r\n]/.test(view[i]))return null;
+-            if(insideRef&&view[i]==='<'){const tag=v24SyntaxTag(view,i);if(tag?.name==='ref')return null;}
++            if(view[i]==='<'){const tag=v24SyntaxTag(view,i);if(insideRef&&tag?.name==='ref')return null;
++                // Apostrophes in a complete inline citation cannot close
++                // formatting that began in the surrounding prose. An outer
++                // quoted example still stays opaque through its real closer.
++                if(!insideRef&&tag?.name==='ref'&&!tag.close){const end=v25SyntaxQuoteReferenceEnd(view,tag);if(end!==null){content=true;i=end;continue;}}}
+             if(view[i]!=="'"){content=true;i++;continue;}
+             let end=i+1;while(view[end]==="'")end++;const size=end-i;
+             if(size===1){content=true;i=end;continue;}
+@@ -1858,7 +1860,7 @@
+         if(typeof before!=='string'||typeof after!=='string'||!plan||plan.source!==before||plan.proof?.source!==before||plan.sourceHash!==v24SyntaxHash(before))return false;
+         const regenerated=syntaxRepairPlan(before,cfg);return regenerated.text===after&&plan.text===after&&JSON.stringify(regenerated.edits)===JSON.stringify(plan.edits);
+     }
+-    function syntaxRepairEquivalenceSource(source,cfg={}) { return syntaxRepairPlan(source,cfg).text; }
++    function v24LegacySyntaxRepairEquivalenceSource(source,cfg={}) { return syntaxRepairPlan(source,cfg).text; }
+ 
+     // 2.4: source retention proof for objects recovered by syntax repair.
+     // Inputs expected/actual have already received the same reference-name
+@@ -1969,7 +1971,7 @@
+     }
+ 
+     // O plano vem sempre do texto recebido, nunca de uma prova fornecida pelo editor.
+-    function syntaxRepairSourceProof(before,after,options={}) {
++    function v24LegacySyntaxRepairSourceProof(before,after,options={}) {
+         const result={applied:false,accepted:true,ok:true,reason:'',repairs:0};
+         if(before===after)return result;
+         const cfg=pageContextOptions({...DEFAULTS,...options}),plan=syntaxRepairPlan(before,cfg);
+@@ -2010,8 +2012,8 @@
+             return reject('Uma chamada de referência recuperada pelo reparo foi retirada ou renomeada.');
+         return result;
+     }
+-    function syntaxRepairTransactions(before,after,hunks) {
+-        if(before===after||!syntaxRepairPlan(before,{...DEFAULTS,namespaceNumber:0}).edits.length)return hunks;
++    function v24LegacySyntaxRepairTransactions(before,after,hunks,options={}) {
++        if(before===after||!syntaxRepairPlan(before,pageContextOptions({...DEFAULTS,namespaceNumber:0,...options})).edits.length)return hunks;
+         // As regras seguintes dependeram da estrutura reparada. A seleção é atômica.
+         return hunks.map(h=>({...h,transaction:'syntax-repair-transaction',dependent:hunks.length>1}));
+     }
+@@ -3464,7 +3466,7 @@
+         const missing = []; words(before).forEach(x => { const n = available.get(x) || 0; if (n) available.set(x, n - 1); else missing.push(x); });
+         return missing;
+     }
+-    function preservationAudit(before, after, options={}) {
++    function v24LegacyPreservationAudit(before, after, options={}) {
+         const findings = [], issue = (code, message, needle) => findings.push({code, message, start: needle ? after.indexOf(needle) : -1, severity: 'warning'});
+         const endpoints = s => new Set((protectedView(s).match(/(?:https?:\/\/|\/\/)[^\s<>\]{}|"']+/g) || [])
+             .filter(u => !/^(?:https?:)?\/\/(?:[a-z-]+\.)?(?:wikipedia\.org|pt\.m\.wikipedia\.org)\/wiki\//i.test(u)));
+@@ -3546,7 +3548,7 @@
+         }
+         return pos + delta;
+     }
+-    function* comparisonStages(before, result) {
++    function* comparisonStages(before, result, options={}) {
+         const trace = [];
+         for (const step of result.trace || []) {
+             trace.push({...step, edits: diffHunks(step.before, step.after)});
+@@ -3562,10 +3564,10 @@
+             }
+             return {...h, id: 'change-' + index, accepted: true,
+                 reasons: reasons.size ? [...reasons] : ['Ajustes de código']};
+-        })));
+-    }
+-    function comparison(before, result) {
+-        const steps = comparisonStages(before, result); let next;
++        })),options);
++    }
++    function comparison(before, result, options={}) {
++        const steps = comparisonStages(before, result, options); let next;
+         do { next = steps.next(); } while (!next.done);
+         return next.value;
+     }
+@@ -3767,15 +3769,15 @@
+             (group ? 'o grupo "' + group + '"' : 'as referências comuns') + '. Confira a pré-visualização, a lista pode vir de outra predefinição.', 0);
+         return findings.concat(numericReferenceAudit(source), options.shortCitationChecks === false ? [] : shortCitationAudit(source));
+     }
+-    function safeComposition(before, after) {
+-        const syntaxProof=syntaxRepairSourceProof(before,after);
++    function v24LegacySafeComposition(before, after, options={}) {
++        const syntaxProof=v24LegacySyntaxRepairSourceProof(before,after,options);
+         if(syntaxProof.applied&&!syntaxProof.accepted)return syntaxProof.reason;
+         const s = maskProtected(after, () => {}).text;
+         const existingSyntax = new Set(syntaxAudit(before).map(f => f.code + ':' + f.message));
+         const introducedSyntax = syntaxAudit(after).find(f => !existingSyntax.has(f.code + ':' + f.message));
+         if (introducedSyntax) return introducedSyntax.message + ' A seleção deixaria código incompleto.';
+-        const existing = new Set(referenceAudit(before).filter(f => f.severity === 'error').map(f => f.code + f.message));
+-        const introduced = referenceAudit(after).find(f => f.severity === 'error' && !existing.has(f.code + f.message));
++        const existing = new Set(referenceAudit(before,options).filter(f => f.severity === 'error').map(f => f.code + f.message));
++        const introduced = referenceAudit(after,options).find(f => f.severity === 'error' && !existing.has(f.code + f.message));
+         return introduced ? introduced.message + ' Algumas alterações de referências precisam ser mantidas juntas.' : ''; 
+     }
+     function automaticParameters(raw,cfg,bump) {
+@@ -6169,7 +6171,7 @@
+             ['categories', 'categorias'], ['images', 'imagens'], ['spans', 'tabelas'],
+             ['headings', 'seções'], ['formatting', 'formatação']])
+             if (a[key] !== b[key]) topics.push(label);
+-        if(kinds.some(k=>/^syntax(?:Template|Tag|Reference|Named|Formatting|Table)/.test(k)))topics.unshift('sintaxe');
++        if(kinds.some(k=>/^(?:syntax(?:Template|Tag|Reference|Named|Formatting|Table)|safeMixedTemplateClosers|safeDuplicateAttributes)/.test(k)))topics.unshift('sintaxe');
+         if (summarySpellingChanged(before, after)) topics.push('ortografia');
+         if (!topics.length) topics.push('sintaxe e formatação');
+         return topics;
+@@ -6281,7 +6283,9 @@
+         cfg.biographyOriginalSource=source;
+         const bump = id => counts.set(id, (counts.get(id) || 0) + 1);
+         const warn = message => warnings.add(message);
+-        const syntactic=automaticSyntaxRepairs(source,cfg,bump,warn);
++        const safeRepairs=automaticSafeRepairs(source,cfg,bump);
++        const leadHeading=automaticLeadHeadingCleanup(safeRepairs,cfg,bump);
++        const syntactic=automaticSyntaxRepairs(leadHeading,cfg,bump,warn);
+         const recovery=syntaxRepairPrefix(syntactic,cfg);
+         if(cfg.partialSyntaxRecovery!==false&&recovery.unresolved.length&&recovery.end>0&&recovery.end<syntactic.length){
+             yield 'Conferindo o trecho completo anterior ao código sem fechamento...';
+@@ -6301,7 +6305,7 @@
+             return {text,changes:[...counts].map(([id,count])=>({id,label:GROUP_LABELS[id]||id,count})),
+                 warnings:[...warnings],removedDescriptions:[],suggestions:[],audit:referenceAudit(text,cfg),
+                 syntaxIsolation:{start:recovery.end,tailUnchanged:tail===syntactic.slice(recovery.end)},
+-                trace:cfg.captureTrace&&text!==source?[{label:'Reparos de sintaxe e ajustes locais com cauda preservada',before:source,after:text}]:[]};
++                trace:cfg.captureTrace&&text!==source?[{label:'Reparos de sintaxe e ajustes locais com parte incompleta preservada',before:source,after:text}]:[]};
+         }
+         const residues=removeKnownTranslationResidues(syntactic,cfg,bump,warn);
+         const structured=automaticStructureCleanup(residues,cfg,bump,warn);
+@@ -6444,6 +6448,8 @@
+         yield 'Conferindo o código e as referências...';
+         s=captionTerminalPeriods(s,cfg,bump);
+         checkpoint('Ponto final de legendas');
++        s=automaticInfoboxAlignment(s,cfg,bump);
++        checkpoint('Alinhamento dos campos da infocaixa');
+         diagnostics(s, cfg, warn);
+         structuralAudit(shield.restore(s),cfg).forEach(f=>warn(f.message));
+         citationRepairWarnings(s, cfg, warn);
+@@ -6746,24 +6752,24 @@
+     function* calculationSteps(job) {
+         const cfg = job.options || {};
+         yield 'Lendo o código-fonte...';
+-        if (job.kind === 'comparison') return {kind:'comparison',text:job.source,hunks:yield* comparisonStages(job.originalSource,{text:job.source})};
++        if (job.kind === 'comparison') return {kind:'comparison',text:job.source,hunks:yield* comparisonStages(job.originalSource,{text:job.source},cfg)};
+         if (job.kind === 'styles') return {kind:'styles',text:job.source,...templateStylesAudit(job.source)};
+         if (job.kind === 'audit') return {kind:'audit',text:job.source,changes:[],warnings:[],suggestions:cfg.tableChecks===false||discussionProtectionRanges(job.source,pageContextOptions(cfg)).length?[]:tableSuggestions(job.source),
+             localReports:{references:referenceAudit(job.source,cfg),syntax:syntaxAudit(job.source),translation:cfg.multilingual?translationAudit(job.source):[],
+                 tables:cfg.tableChecks===false?[]:tableAnalysis(job.source).findings,biographies:biographyStyleAudit(job.source,cfg),dates:cfg.dateChecks===false?[]:dateAudit(job.source)}};
+         if (job.safetySource !== undefined) {
+-            const problem = safeComposition(job.safetySource, job.source);
++            const problem = safeComposition(job.safetySource, job.source, cfg);
+             if (problem) throw new Error(problem + ' A escolha não foi aplicada.');
+         }
+         let result;
+         if (job.kind === 'spelling') {
+             yield 'Conferindo a lista de ortografia...';
+             result = spellingReview(job.source, cfg);
+-            if (job.previousSource !== undefined) result.preservation = preservationAudit(job.previousSource, job.source).filter(f => f.code !== 'lost-prose');
++            if (job.previousSource !== undefined) result.preservation = preservationAudit(job.previousSource, job.source, cfg).filter(f => f.code !== 'lost-prose');
+             else result.preservation = [];
+             if (job.originalSource !== undefined && job.previousSource !== undefined) {
+                 result.comparisonBefore = job.originalSource;
+-                result.appliedHunks = yield* comparisonStages(job.originalSource, {text:job.source});
++                result.appliedHunks = yield* comparisonStages(job.originalSource, {text:job.source}, cfg);
+             }
+             return result;
+         }
+@@ -6782,11 +6788,11 @@
+         if (job.kind === 'adjust') {
+             yield 'Preparando a comparação dos ajustes...';
+             result.comparisonBefore = job.originalSource ?? job.source;
+-            result.hunks = yield* comparisonStages(result.comparisonBefore, result);
++            result.hunks = yield* comparisonStages(result.comparisonBefore, result, cfg);
+         }
+         if (job.kind === 'refresh' && job.originalSource !== undefined) {
+             result.comparisonBefore = job.originalSource;
+-            result.appliedHunks = yield* comparisonStages(job.originalSource, {text:result.text});
++            result.appliedHunks = yield* comparisonStages(job.originalSource, {text:result.text}, cfg);
+         }
+         const byteBefore=job.originalSource??job.source;
+         const byteHunks=result.hunks||result.appliedHunks||diffHunks(byteBefore,result.text);
+@@ -7024,7 +7030,7 @@
+                 return result;
+             }
+             // Uma tentativa de isolar o reparo evita dezenas de pedidos em páginas grandes.
+-            const hunks = comparison(task.source,result), families = new Map();
++            const hunks = comparison(task.source,result,options), families = new Map();
+             hunks.forEach((h,index)=>{
+                 const key = h.transaction || (h.reasons||[]).join('|') || 'change-'+index;
+                 if (!families.has(key)) families.set(key,[]); families.get(key).push(h);
+@@ -7035,7 +7041,7 @@
+             for (const key of (preferred.length ? preferred : keys).slice(0,2)) {
+                 const omitted = new Set(families.get(key));
+                 const candidate = composeChanges(task.source,hunks.map(h=>({...h,accepted:!omitted.has(h)})));
+-                if (candidate === task.source || candidate === result.text || safeComposition(task.source,candidate)) continue;
++                if (candidate === task.source || candidate === result.text || safeComposition(task.source,candidate,options)) continue;
+                 const parsed = await taskParse(task,candidate);
+                 decision=syntaxPreviewDecision(before,syntaxBaseline,parsed,root.DOMParser,task.source,candidate,options);
+                 if (decision.accepted) { isolated = {candidate,key,decision}; break; }
+@@ -7047,7 +7053,7 @@
+             fresh.previewCheck = {status:'rollback',checked:true,accepted:true,
+                 introduced:initialDecision.introduced,
+                 omitted:isolated?.key || 'Todos os ajustes desta execução'};
+-            fresh.hunks = comparison(fresh.comparisonBefore ?? task.source,fresh);
++            fresh.hunks = comparison(fresh.comparisonBefore ?? task.source,fresh,options);
+             fresh.changes = candidate===task.source ? [] : [{id:'verifiedRetainedRepairs',label:'Ajustes conferidos mantidos',count:fresh.hunks.length}];
+             fresh.warnings.push(isolated ? 'Um conjunto de ajustes foi desfeito porque introduziu erro na pré-visualização: '+isolated.key+'.' :
+                 'Os ajustes desta execução foram recusados porque introduziram erros na pré-visualização. O texto anterior foi preservado.');
+@@ -7060,7 +7066,492 @@
+         } finally { task.previewSession = null; task.preflightRequests = []; }
+     }
+ 
+-    const api = {syntaxRepairPlan,automaticSyntaxRepairs,syntaxRepairPrefix,syntaxRepairEquivalence,syntaxRepairEquivalenceSource,
++    // 2.5: source-bound corrections for complete, literal references and tags.
++    // This helper is inserted inside RevisaWikiBoot, after the 2.4 parsers.
++    const V25_SAFE_TABLE_ATTRIBUTES = new Set(['class','style','border','cellpadding','cellspacing','width','align']);
++    const V25_SAFE_REFERENCE_ATTRIBUTES = new Set(['name','group']);
++    const v25SafePlanCache=[];let v25SafePlanCacheBytes=0;
++    function v25SafeCacheOptions(cfg) {
++        return JSON.stringify(Object.keys(DEFAULTS).map(key=>[key,cfg[key]===undefined?DEFAULTS[key]:cfg[key]]));
++    }
++    function v25SafeRemember(plan,options,allowCache=true) {
++        const seen=new Set(),measure=value=>{if(typeof value==='string')return value.length*2+32;if(value&&typeof value==='object'){if(seen.has(value))return 0;seen.add(value);return 160+Object.entries(value).reduce((n,[key,item])=>n+key.length*2+measure(item),0);}return 16;};
++        const weight=measure(plan)+plan.source.length*2+options.length*2+256;
++        const freeze=value=>{if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};freeze(plan);
++        if(allowCache&&weight<=16777216){v25SafePlanCache.push({source:plan.source,options,plan,weight});v25SafePlanCacheBytes+=weight;
++            while(v25SafePlanCache.length>6||v25SafePlanCacheBytes>16777216)v25SafePlanCacheBytes-=v25SafePlanCache.shift().weight;}
++        return plan;
++    }
++    function v25SafeRepairCacheStatus() {return {entries:v25SafePlanCache.length,bytes:v25SafePlanCacheBytes,maxEntries:6,maxBytes:16777216};}
++    function v25SafeAttributeEntries(raw) {
++        const entries=[],re=/\s+([a-z][a-z0-9-]*)\s*=\s*(?:"([^"<>]*)"|'([^'<>]*)'|([^\s"'=<>`]+))/gi;let m,last=0;
++        while((m=re.exec(raw))){if(raw.slice(last,m.index).trim())return null;entries.push({key:m[1].toLowerCase(),value:m[2]??m[3]??m[4],start:m.index,end:re.lastIndex});last=re.lastIndex;}
++        return raw.slice(last).trim()?null:entries;
++    }
++    function v25SafeAttributes(raw,allowed) {
++        const entries=v25SafeAttributeEntries(raw);if(!entries||entries.some(e=>!allowed.has(e.key)||/[{}\[\]<>|&\r\n\uE000-\uF8FF]/.test(e.value)))return null;
++        const values=new Map(),duplicates=[];
++        for(const e of entries){if(values.has(e.key)){if(values.get(e.key)!==e.value)return null;duplicates.push(e);}else values.set(e.key,e.value);}
++        return {entries,values,duplicates};
++    }
++    function v25SafeDuplicateAttributeEdits(source,cfg={}) {
++        if(v24SyntaxScan(source).issues.length)return [];
++        const protectedRanges=v24SyntaxProtected(source).ranges,edits=[];
++        for(let i=0;i<source.length;){const t=v24SyntaxTag(source,i);if(!t){i++;continue;}i=t.end;
++            if(t.close||!['ref','table'].includes(t.name)||t.name==='ref'&&cfg.references===false||t.name==='table'&&(cfg.automaticTableRepairs===false||cfg.tableChecks===false)||protectedRanges.some(r=>r.start<t.end&&r.end>t.start))continue;
++            const parsed=v25SafeAttributes(t.attrs,t.name==='ref'?V25_SAFE_REFERENCE_ATTRIBUTES:V25_SAFE_TABLE_ATTRIBUTES);if(!parsed?.duplicates.length)continue;
++            const at=t.start+t.raw.indexOf(t.attrs);for(const duplicate of parsed.duplicates)edits.push({start:at+duplicate.start,end:at+duplicate.end,text:'',ruleId:'safeDuplicateAttributes',proof:{tag:t.name,key:duplicate.key,value:duplicate.value,openingStart:t.start,condition:'all attributes literal; repeated keys have exactly equal values'}});
++        }
++        // Wikitext table headers use the same finite attribute grammar.
++        if(cfg.automaticTableRepairs===false||cfg.tableChecks===false)return edits;
++        const re=/^\{\|([^\r\n]*)(?:\r?$)/gm;let m;
++        while((m=re.exec(source))){const start=m.index,end=start+m[0].length;if(protectedRanges.some(r=>r.start<end&&r.end>start))continue;
++            const parsed=v25SafeAttributes(m[1],V25_SAFE_TABLE_ATTRIBUTES);if(!parsed?.duplicates.length)continue;
++            for(const duplicate of parsed.duplicates)edits.push({start:start+2+duplicate.start,end:start+2+duplicate.end,text:'',ruleId:'safeDuplicateAttributes',proof:{tag:'wikitable',key:duplicate.key,value:duplicate.value,openingStart:start,condition:'literal table opening; repeated keys have exactly equal values'}});
++        }
++        return edits;
++    }
++    function v25SafeMixedTemplateEdits(source) {
++        const shield=v24SyntaxProtected(source),view=shield.view,edits=[],re=/\{\{([^{}]*?)(\}\]|\]\})(?=[ \t]*(?:<\s*[/\\]\s*(?:ref|references)\s*>|\r?$))/gm;let m;
++        while((m=re.exec(view))){const start=m.index,end=re.lastIndex,body=m[1],profile=v24SyntaxTemplateProfile(body);if(!profile||shield.ranges.some(r=>r.start<end&&r.end>start))continue;
++            const prefix=v24SyntaxApply(view.slice(0,start),edits),context=v24SyntaxContext(prefix,prefix.length);if(context.templates.length||context.tables.length||context.links.length||context.external.length||context.html.some(t=>!['ref','references'].includes(t.name)))continue;
++            const lineStart=view.lastIndexOf('\n',start-1)+1,before=view.slice(lineStart,start),refPrefix=/^\s*(?:<\s*references\b[^>]*>\s*)?<\s*ref\b[^>]*>\s*$/i.test(before);
++            const refBodyStart=profile.kind==='citation'&&context.html.at(-1)?.name==='ref'&&!prefix.slice(context.html.at(-1).end).trim()&&context.html.filter(t=>t.name==='ref').length===1;
++            if(before.trim()&&!refPrefix&&!refBodyStart)continue;
++            const suffix=view.slice(end).match(/^[ \t]*/)[0].length,follow=v24SyntaxTag(view,end+suffix),inline=!!follow&&follow.close&&['ref','references'].includes(follow.name);
++            if(inline&&profile.kind!=='citation'||inline&&follow.name==='references'&&!(context.html.at(-1)?.name==='ref'&&context.html.at(-2)?.name==='references'))continue;
++            if(body.includes('\n')&&body.trim().split(/\r?\n/).slice(1).some(line=>line.trim()&&!/^\s*\|/.test(line)))continue;
++            edits.push({start:end-2,end,text:'}}',ruleId:'safeMixedTemplateClosers',proof:{template:profile.name,profile:profile.kind,condition:'finite literal profile and the same explicit boundaries as the 2.4 repair'}});
++        }
++        return edits;
++    }
++    function v25SafeCompleteReferences(source) {
++        const scan=v24SyntaxScan(source);if(scan.issues.length)return null;
++        const parsed=v24SyntaxReferences(source);if(parsed.unclosed.length||parsed.empties.length||parsed.refs.some(r=>!r.valid||!r.attrs||!v24SyntaxLiteralIdentity(r.attrs)||r.container&&!r.container.valid))return null;
++        return parsed;
++    }
++    function v25SafeAdjacentReferenceEdits(source) {
++        const parsed=v25SafeCompleteReferences(source);if(!parsed)return [];
++        const definitions=new Map(),blocked=new Set(),key=r=>JSON.stringify([r.group,r.attrs.name]);
++        for(const r of parsed.refs){if(!r.attrs.name||r.body===null)continue;const k=key(r);if(!r.body.trim()||!v24SyntaxBodySafe(r.body)){blocked.add(k);continue;}if(!definitions.has(k))definitions.set(k,new Set());definitions.get(k).add(r.body);}
++        const edits=[];let previous=null;
++        for(const r of parsed.refs){const k=key(r),valid=r.body===null&&r.attrs.name&&definitions.get(k)?.size===1&&!blocked.has(k)&&!r.container;
++            if(valid&&previous&&key(previous)===k&&/^[ \t]*$/.test(source.slice(previous.end,r.start))&&previous.renderer.valid&&r.renderer.valid){edits.push({start:r.start,end:r.end,text:'',ruleId:'safeAdjacentReferenceCalls',proof:{name:r.attrs.name,group:r.group,definitionBodies:1,condition:'consecutive calls with equal literal identity and one nonconflicting definition body'}});}
++            previous=valid?r:null;
++        }
++        return edits;
++    }
++    function v25SafeCitationSignature(body,cfg={}) {
++        const c={...DEFAULTS,...cfg},noop=()=>{};let original=body.trim();if(/[<>\uE000-\uF8FF]/.test(original))return null;
++        if(c.bareReferences&&original.startsWith('[')&&!original.startsWith('[[')){const refs=refTokens(simpleReferences('<ref>'+original+'</ref>',noop));if(refs.length===1&&refs[0].body!==null)original=refs[0].body;}
++        if(!original.startsWith('{{')||!original.endsWith('}}')||/[{}]/.test(original.slice(2,-2)))return null;
++        const originalParts=v24SyntaxParts(original.slice(2,-2));if(!originalParts)return null;
++        // Use the same conversion as ordinary citation cleanup. Only its
++        // resulting complete field set is compared. The first original body
++        // remains unchanged until that existing cleanup pass runs.
++        let raw=v24InventoryTemplate(original,c);if(c.links){raw=wikiURLs(raw,noop);raw=cleanLinks(raw,noop);}if(!raw.startsWith('{{')||!raw.endsWith('}}')||/[<>\uE000-\uF8FF]/.test(raw))return null;
++        const inner=raw.slice(2,-2);if(/[{}]/.test(inner))return null;const parts=v24SyntaxParts(inner);if(!parts||parts.length<3)return null;
++        const name=v24SyntaxName(parts[0].text),canonical=CITE_NAMES[name];if(!canonical)return null;
++        const entries=[],seen=new Set();for(const part of parts.slice(1)){const at=part.text.indexOf('=');if(at<1)return null;const key=part.text.slice(0,at).trim(),value=part.text.slice(at+1).trim();
++            // Resulting parameter names and values remain exact. No further
++            // equivalence between publisher/editor or other families is guessed.
++            if(!/^[\p{L}\p{N} _-]+$/u.test(key)||!value||seen.has(key)||/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(value))return null;
++            seen.add(key);entries.push([key,value]);}
++        if(!entries.some(([key])=>['title','titulo','título'].includes(key)))return null;
++        return JSON.stringify([v24SyntaxName(canonical),entries.sort((a,b)=>a[0].localeCompare(b[0]))]);
++    }
++    function v25SafeCitationReferenceEdits(source,cfg={}) {
++        const parsed=v25SafeCompleteReferences(source);if(!parsed)return [];
++        const uses=referenceNameUses(source);if(uses.some(u=>/[{}\uE000-\uF8FF]/.test(u.value)))return [];
++        const names=new Set(uses.map(u=>decodedReferenceName(u.value))),families=new Map(),renderers=rendererRanges(parsed.view),outerTemplates=v24SyntaxTemplates(parsed.view).nodes;
++        // A malformed or computed ref helper can reserve names unseen by the
++        // literal ref parser. Decline this naming pass in that whole source.
++        if(/\{\{\{/.test(parsed.view)||/\{\{\s*#tag\s*:\s*ref\b/i.test(parsed.view))return [];
++        for(const r of parsed.refs){if(r.attrs.name||r.body===null||r.container||Object.keys(r.attrs).some(k=>k!=='group')||outerTemplates.some(n=>n.start<r.start&&r.start<n.end))continue;
++            const signature=v25SafeCitationSignature(r.body,cfg);if(!signature)continue;const region=renderers.filter(n=>n.end<=r.start).length,k=JSON.stringify([r.group,region,signature]);
++            if(!families.has(k))families.set(k,[]);families.get(k).push(r);}
++        const edits=[];let counter=1;
++        for(const family of families.values()){if(family.length<2)continue;let name;do{name='ref-auto-'+counter++;}while(names.has(name));names.add(name);
++            const group=family[0].group?' group="'+family[0].group+'"':'';family.forEach((r,index)=>edits.push({start:r.start,end:r.end,text:'<ref name="'+name+'"'+group+(index?' />':'>'+r.body+'</ref>'),ruleId:'safeEquivalentCitations',proof:{name,group:r.group,signature:v25SafeCitationSignature(r.body,cfg),originalBody:r.body,definitionStart:family[0].start,occurrences:family.length,condition:'complete equal field sets after the existing citation conversion; same literal group and collector region'}}));}
++        return edits;
++    }
++    function v25SafeCollectorEdits(source) {
++        const scan=v24SyntaxScan(source);if(scan.issues.length)return [];
++        const collectors=[];for(let i=0;i<scan.tokens.length;i++){const t=scan.tokens[i];if(t.name!=='references'||t.close||t.templateDepth||t.linkDepth||t.tableDepth)continue;
++            const attrs=v24SyntaxAttrs(t.attrs);if(!attrs||!attrs.group||Object.keys(attrs).some(k=>!['group','responsive'].includes(k))||Object.values(attrs).some(v=>!v.trim()||v!==v.trim()||/[{}<>\[\]|&\r\n]/.test(v)))continue;
++            if(t.self)collectors.push({...t,key:JSON.stringify(Object.entries(attrs).sort())});else {const close=scan.tokens[i+1];if(close?.name==='references'&&close.close&&!close.typo&&!close.attrs.trim()&&!source.slice(t.end,close.start).trim()){collectors.push({...t,end:close.end,key:JSON.stringify(Object.entries(attrs).sort())});i++;}}}
++        const edits=[];let previous=null;for(const c of collectors){if(previous&&previous.key===c.key&&/^\s*$/.test(source.slice(previous.end,c.start)))edits.push({start:c.start,end:c.end,text:'',ruleId:'safeAdjacentCollectors',proof:{attributes:c.key,condition:'adjacent empty collectors; identical complete literal attribute sets; no intervening content'}});previous=c;}
++        return edits;
++    }
++    function v25SafeRepairPlan(source,cfg={}) {
++        if(typeof source!=='string')throw new TypeError('O texto precisa ser uma string.');const plan={source,sourceHash:v24SyntaxHash(source),text:source,steps:[],edits:[]};
++        if(!v24SyntaxScope(cfg))return {...plan,disabled:true};
++        // Registry proofs have an expiry time. Do not cache a plan that uses
++        // them, so a later call must check the existing proof conditions again.
++        const allowCache=!Array.isArray(cfg.doiRepairProofs)||cfg.doiRepairProofs.length===0,cacheOptions=v25SafeCacheOptions(cfg),cachedIndex=allowCache?v25SafePlanCache.findIndex(item=>item.source===source&&item.options===cacheOptions):-1;
++        if(cachedIndex>=0){const [cached]=v25SafePlanCache.splice(cachedIndex,1);v25SafePlanCache.push(cached);return cached.plan;}
++        const stage=(name,find)=>{const edits=find(plan.text);if(!edits.length)return;const before=plan.text,after=v24SyntaxApply(before,edits);if(before===after)return;plan.steps.push({name,before,after,edits});plan.edits.push(...edits);plan.text=after;};
++        stage('mixed-template-closers',s=>{const edits=v25SafeMixedTemplateEdits(s);if(!edits.length)return edits;
++            const candidate=v24SyntaxApply(s,edits),legacy=syntaxRepairPlan(candidate,cfg);if(!legacy.unresolved.length)return edits;
++            // Both mixed replacements keep their two-character width. The
++            // legacy plan's safe-prefix offset therefore still belongs to s.
++            // Never repair a token inside an enclosing unresolved tail.
++            if(cfg.partialSyntaxRecovery===false)return [];
++            return edits.filter(e=>e.start<legacy.safePrefixEnd&&e.end<=legacy.safePrefixEnd);});
++        stage('duplicate-literal-attributes',s=>v25SafeDuplicateAttributeEdits(s,cfg));
++        if(cfg.references!==false){stage('equivalent-complete-citations',cfg.automaticIdenticalReferences===false?()=>[]:s=>v25SafeCitationReferenceEdits(s,cfg));stage('consecutive-named-reference-calls',v25SafeAdjacentReferenceEdits);stage('adjacent-empty-collectors',v25SafeCollectorEdits);}
++        return v25SafeRemember(plan,cacheOptions,allowCache);
++    }
++    function automaticSafeRepairs(source,cfg={},bump=()=>{}) {
++        const plan=v25SafeRepairPlan(source,cfg);for(const step of plan.steps)for(const edit of step.edits)bump(edit.ruleId);return plan.text;
++    }
++    function v25SafeRepairEquivalence(before,after,plan,cfg={}) {
++        if(!plan||plan.source!==before||plan.sourceHash!==v24SyntaxHash(before))return false;
++        const fresh=v25SafeRepairPlan(before,cfg);return fresh.text===after&&plan.text===after&&JSON.stringify(fresh.steps)===JSON.stringify(plan.steps);
++    }
++
++    // A abertura já identifica o assunto. Só o título redundante é retirado.
++    function v25LeadTitle(value) {
++        const text=String(value||'').normalize('NFC').replace(/_/g,' ').replace(/\s+/g,' ').trim();
++        return text?text[0].toLocaleUpperCase('pt')+text.slice(1):'';
++    }
++    function v25LeadHeadingPlan(source,cfg={}) {
++        const plan={source,text:source,edits:[]},title=v25LeadTitle(cfg.pageTitle);
++        if(!title||cfg.namespaceNumber!==0||cfg.sectionOnly||cfg.section!==undefined&&cfg.section!==null&&cfg.section!==''||
++            cfg.discussionPage||cfg.headings===false||cfg.structuralRepairs===false||!v24SyntaxScope(cfg)||
++            /[{}\[\]<>#|\r\n]/.test(title))return plan;
++        const candidate=/^[ \t]*==[ \t]*([^=\r\n]+?)[ \t]*==[ \t]*(?:\r?\n|$)/m.exec(source);
++        if(!candidate||![title,'Introdução'].includes(v25LeadTitle(candidate[1]))||v24SyntaxScan(source).issues.length)return plan;
++        const view=scanProtectedView(source);
++        if(/\{\{\s*(?:desambiguação|desambiguacao|disambig|dab)\s*(?:\||\}\})/i.test(view)||
++            /\{\{\s*(?:âncora|ancora|anchor)\s*[|}]/i.test(view)||/\bid\s*=/.test(view))return plan;
++        const match=/^([ \t]*==[ \t]*([^=\r\n]+?)[ \t]*==[ \t]*)(?:\r?\n|$)/m.exec(view);
++        if(!match||match[0]!==source.slice(match.index,match.index+match[0].length))return plan;
++        const heading=v25LeadTitle(match[2]);
++        if(heading!==title&&heading!=='Introdução')return plan;
++        // Before the first heading, allow only whitespace, comments and a
++        // complete known infobox. Arbitrary templates may emit article prose.
++        const prefix=source.slice(0,match.index),nodes=v24SyntaxTemplates(scanProtectedView(prefix)).nodes;
++        let remainder=prefix.replace(/<!--[\s\S]*?-->/g,m=>' '.repeat(m.length));
++        for(const n of nodes.filter(n=>!nodes.some(p=>p!==n&&p.start<n.start&&p.end>=n.end))){
++            const name=v24SyntaxName(prefix.slice(n.start+2,n.end-2).split('|')[0]);
++            if(!/^info\//.test(name)||!Object.prototype.hasOwnProperty.call(INFOBOX_CATALOG,name))return plan;
++            remainder=remainder.slice(0,n.start)+' '.repeat(n.end-n.start)+remainder.slice(n.end);
++        }
++        if(remainder.trim())return plan;
++        // Keep the heading whenever a link might depend on a section anchor.
++        // This deliberately includes encoded and legacy fragments and links to
++        // other pages. Leaving one redundant heading is safer than breaking an
++        // anchor whose normalization cannot be confirmed from local source.
++        if(/\[\[[^\]\r\n]*(?:#|%23|\.23)/i.test(view)||
++            /https?:\/\/[^\s<>]*(?:#|%23|\.23)/i.test(view)||
++            /\bhref\s*=[^\r\n>]*(?:#|%23|\.23)/i.test(view))return plan;
++        const end=match.index+match[0].length,tail=source.slice(end).replace(/^\s+/,''),
++            subject=title.replace(/ \([^()]+\)$/,'');
++        const bold=tail.startsWith("'''"),lead=bold?tail.slice(3):tail;
++        if(!lead.startsWith(subject))return plan;
++        if(bold&&!lead.slice(subject.length).startsWith("'''"))return plan;
++        const rest=lead.slice(subject.length).replace(/^'''/,'');
++        if(!/^[ \t]+[^\s=|{}<>]/u.test(rest)||!bold&&!/^[ \t]+(?:é|foi|são|foram|designa|denomina|refere-se)(?=[ \t.,])/u.test(rest))return plan;
++        const edit={start:match.index,end,text:'',ruleId:'redundantLeadHeading',proof:{title,heading,subject,condition:'first literal H2; opening already names subject; no local anchor use'}};
++        return {...plan,text:source.slice(0,edit.start)+source.slice(edit.end),edits:[edit]};
++    }
++    function automaticLeadHeadingCleanup(source,cfg={},bump=()=>{}) {
++        const plan=v25LeadHeadingPlan(source,cfg);for(const edit of plan.edits)bump(edit.ruleId);return plan.text;
++    }
++
++    // The comparison baseline is regenerated from the exact source. It only
++    // contains the finite repairs approved by the 2.5 and 2.4 rule sets.
++    function v25ApprovedSyntaxPlan(source,options={}) {
++        const cfg=pageContextOptions({...DEFAULTS,...options}),safe=v25SafeRepairPlan(source,cfg),heading=v25LeadHeadingPlan(safe.text,cfg),legacy=syntaxRepairPlan(heading.text,cfg);
++        return {source,cfg,safe,heading,legacy,preLegacy:heading.text,text:legacy.text,newRepairs:safe.edits.length+heading.edits.length,repairs:safe.edits.length+heading.edits.length+legacy.edits.length};
++    }
++    function v25ReferenceProofNormalization(source,cfg={}) {
++        const c={...DEFAULTS,...cfg,namespaceNumber:0},noop=()=>{},shield=maskProtected(source,noop);let text=shield.text;if(c.bareReferences)text=simpleReferences(text,noop);
++        // Use the same literal protection as ordinary cleanup. A reference
++        // containing nowiki or another protected block must not acquire a
++        // proof-only generated name that the real cleanup cannot assign.
++        const edits=[];for(const ref of refTokens(text)){if(ref.body===null)continue;
++            let body=mapTemplateTree(ref.body,raw=>{const converted=v24InventoryTemplate(raw,c);return CITE_NAMES[parsedTemplate(converted).name]?converted:raw;});if(c.links){body=wikiURLs(body,noop);body=cleanLinks(body,noop);}
++            if(body!==ref.body)edits.push({start:ref.openEnd,end:ref.openEnd+ref.body.length,text:body});}
++        text=applyEdits(text,edits);text=normalizeNumericReferenceNames(text,c,noop,noop);text=neutralAutomaticReferenceNames(text,c,noop);text=normalizeRefs(text,c,noop,noop);
++        return shield.restore(automaticIdenticalReferences(text,c,noop));
++    }
++    function v25ReferenceMarkerInventory(source) {
++        const view=protectedView(source),renderers=rendererRanges(view),counts=new Map();
++        for(const ref of refTokens(view)){if(inRange(ref.start,renderers))continue;const attrs=attrsOf(ref.attrs);if(!attrs)continue;const key=JSON.stringify([attrs.group||'',attrs.name||'']);counts.set(key,(counts.get(key)||0)+1);}
++        return counts;
++    }
++    function v25ReferenceBindingSequence(source,cfg={}) {
++        const view=protectedView(source),renderers=rendererRanges(view),refs=refTokens(view),definitions=new Map(),identity=(group,name)=>JSON.stringify([group,name]);
++        for(const ref of refs){if(ref.body===null||!ref.body.trim())continue;const attrs=attrsOf(ref.attrs);if(!attrs||!attrs.name)continue;
++            const parent=renderers.find(r=>r.start<=ref.start&&ref.start<r.end),group=attrs.group||(parent?v24InventoryRendererGroup(source,parent):''),key=identity(group,attrs.name);
++            if(!definitions.has(key))definitions.set(key,new Set());definitions.get(key).add(v24InventoryBody(ref.body,cfg));}
++        return refs.filter(ref=>!inRange(ref.start,renderers)).map(ref=>{const attrs=attrsOf(ref.attrs);if(!attrs)return ['unparsed',ref.attrs,ref.body];
++            const group=attrs.group||'',name=attrs.name||'';if(ref.body!==null)return [group,'resolved',v24InventoryBody(ref.body,cfg)];
++            const bodies=definitions.get(identity(group,name));return bodies?[group,'resolved',...Array.from(bodies).sort()]:[group,'unresolved',name];});
++    }
++    function v25ProtectedLiteralInventory(source) {
++        const shield=maskProtected(source,()=>{}),counts=new Map();for(const token of shield.text.matchAll(/\uE000AJGX*\d+\uE001/g)){
++            const key=normalizeGallery(shield.restore(token[0]));counts.set(key,(counts.get(key)||0)+1);}return counts;
++    }
++    function v25HTMLTableInventory(source,cfg={}) {
++        const tokens=v24SyntaxScan(source).tokens,stack=[],keys=[];
++        for(const token of tokens){if(token.name!=='table'||token.self)continue;if(!token.close)stack.push(token);else {const opening=stack.pop();if(opening)keys.push(v24InventoryBody(source.slice(opening.end,token.start),cfg));}}
++        return v24InventoryCount(keys);
++    }
++    function v25RepairObjectProof(plan,expected,actual) {
++        const result={accepted:true,reason:''},reject=reason=>({...result,accepted:false,reason}),cfg=plan.cfg;
++        // Compare against the approved baseline, where the intentional
++        // definition/call consolidation has already happened. Multiplicity,
++        // groups, names, all citation fields and bodies still participate.
++        if(!v24InventoryContains(v24InventoryReferences(expected,cfg),v24InventoryReferences(actual,cfg)))return reject('Uma definição de referência perdeu o nome, grupo, conteúdo ou uma ocorrência fora dos ajustes confirmados.');
++        if(!v24InventoryContains(v25ReferenceMarkerInventory(expected),v25ReferenceMarkerInventory(actual)))return reject('Uma chamada de referência foi retirada ou renomeada fora dos ajustes confirmados.');
++        if(JSON.stringify(v25ReferenceBindingSequence(expected,cfg))!==JSON.stringify(v25ReferenceBindingSequence(actual,cfg)))return reject('A ordem das chamadas ou a ligação com o conteúdo da referência foi alterada fora dos ajustes confirmados.');
++        if(!v24InventoryContains(v25ProtectedLiteralInventory(expected),v25ProtectedLiteralInventory(actual)))return reject('Um exemplo, comentário ou bloco literal foi alterado fora dos ajustes confirmados.');
++        const wantedTemplates=new Map(),wantedTableIndexes=new Set();let touchedHTMLTable=false;
++        for(const step of plan.safe.steps){
++            if(step.name==='mixed-template-closers'){
++                const nodes=templates(protectedView(step.after)).nodes,inventory=v24InventoryTemplates(step.after,cfg);
++                for(const edit of step.edits){const matches=nodes.filter(n=>n.start<=edit.start&&edit.start<n.end&&parsedTemplate(step.after.slice(n.start,n.end)).name===edit.proof.template).sort((a,b)=>a.end-a.start-(b.end-b.start));
++                    if(!matches.length)return reject('A predefinição corrigida não tem um limite confirmado.');const node=matches[0],values=inventory.filter(x=>x.node.start===node.start&&x.node.end===node.end);if(!values.length)return reject('Não foi possível conferir os dados da predefinição corrigida.');for(const value of values)wantedTemplates.set(value.key,value.kind);}
++            }
++            if(step.name==='duplicate-literal-attributes')for(const edit of step.edits){if(edit.proof.tag==='table')touchedHTMLTable=true;if(edit.proof.tag!=='wikitable')continue;
++                const index=tableAnalysis(step.before).tables.findIndex(t=>t.start===edit.proof.openingStart);if(index<0)return reject('A tabela com atributos repetidos não tem um limite confirmado.');wantedTableIndexes.add(index);}
++        }
++        if(wantedTemplates.size){const before=v24InventoryTemplates(expected,cfg),after=v24InventoryCount(v24InventoryTemplates(actual,cfg).map(x=>x.key));
++            for(const [key,kind]of wantedTemplates){const amount=before.filter(x=>x.key===key).length,required=['renderer','portal-slot'].includes(kind)?1:amount;if(!amount||(after.get(key)||0)<required)return reject('Uma predefinição corrigida perdeu a chamada, os dados ou uma ocorrência.');}}
++        if(wantedTableIndexes.size){const tables=tableAnalysis(plan.text).tables,wanted=new Set();for(const index of wantedTableIndexes){if(!tables[index])return reject('A tabela corrigida deixou de existir no texto confirmado.');wanted.add(v24InventoryTable(plan.text,tables[index],cfg));}
++            const before=v24InventoryCount(tableAnalysis(expected).tables.map(t=>v24InventoryTable(expected,t,cfg)).filter(key=>wanted.has(key))),after=v24InventoryCount(tableAnalysis(actual).tables.map(t=>v24InventoryTable(actual,t,cfg)));
++            if(!before.size||!v24InventoryContains(before,after))return reject('A tabela corrigida perdeu uma célula, legenda, conteúdo ou a ordem das linhas.');}
++        if(touchedHTMLTable&&!v24InventoryContains(v25HTMLTableInventory(expected,cfg),v25HTMLTableInventory(actual,cfg)))return reject('Uma tabela HTML corrigida perdeu conteúdo ou uma ocorrência.');
++        return result;
++    }
++    function syntaxRepairSourceProof(before,after,options={}) {
++        if(before===after)return {applied:false,accepted:true,ok:true,reason:'',repairs:0};
++        const plan=v25ApprovedSyntaxPlan(before,options);if(!plan.newRepairs)return v24LegacySyntaxRepairSourceProof(before,after,options);
++        const result={applied:true,accepted:true,ok:true,reason:'',repairs:plan.repairs,baseline:plan.text,newRepairs:plan.newRepairs},reject=reason=>({...result,accepted:false,ok:false,reason});
++        const next=v25ApprovedSyntaxPlan(after,options);if(next.newRepairs||next.legacy.edits.length)return reject('A seleção deixou um ajuste confirmado incompleto.');
++        const legacy=v24LegacySyntaxRepairSourceProof(plan.preLegacy,after,options);if(!legacy.accepted)return reject(legacy.reason);
++        const approved=syntaxRepairPlan(plan.text,plan.cfg),current=syntaxRepairPlan(after,plan.cfg),counts=issues=>issues.reduce((out,issue)=>(out[issue.code]=(out[issue.code]||0)+1,out),Object.create(null));
++        const oldIssues=counts(approved.unresolved),newIssues=counts(current.unresolved);if(Object.entries(newIssues).some(([key,value])=>value>(oldIssues[key]||0)))return reject('A seleção introduziu código sem fechamento ou outra estrutura incompleta.');
++        if(approved.unresolved.length&&!after.endsWith(plan.text.slice(approved.safePrefixEnd)))return reject('O trecho incompleto preservado foi alterado.');
++        const objectProof=v25RepairObjectProof(plan,v25ReferenceProofNormalization(plan.text,plan.cfg),v25ReferenceProofNormalization(after,plan.cfg));if(!objectProof.accepted)return reject(objectProof.reason);
++        return result;
++    }
++    function syntaxRepairEquivalenceSource(source,cfg={}) {return v25ApprovedSyntaxPlan(source,cfg).text;}
++    function preservationAudit(before,after,options={}) {
++        const plan=v25ApprovedSyntaxPlan(before,options);if(!plan.newRepairs)return v24LegacyPreservationAudit(before,after,options);
++        const findings=v24LegacyPreservationAudit(plan.preLegacy,after,options),proof=syntaxRepairSourceProof(before,after,options);
++        if(!proof.accepted&&!findings.some(f=>f.code==='lost-repaired-reference'))findings.push({code:'lost-repaired-reference',message:proof.reason,start:-1,severity:'warning'});
++        return findings;
++    }
++    function safeComposition(before,after,options={}) {
++        const plan=v25ApprovedSyntaxPlan(before,options);if(!plan.newRepairs)return v24LegacySafeComposition(before,after,options);
++        const proof=syntaxRepairSourceProof(before,after,options);return proof.accepted?v24LegacySafeComposition(plan.preLegacy,after,options):proof.reason;
++    }
++    function syntaxRepairTransactions(before,after,hunks,options={}) {
++        if(before===after)return hunks;const plan=v25ApprovedSyntaxPlan(before,options);
++        if(!plan.newRepairs)return v24LegacySyntaxRepairTransactions(before,after,hunks,options);
++        return hunks.map(h=>({...h,transaction:'syntax-repair-transaction',dependent:hunks.length>1}));
++    }
++
++    // Alinha somente o espaço antes de "=" em infocaixas já abertas em linhas.
++    // Os nomes, valores e a ordem dos campos ficam como estavam.
++    function v25InfoboxAlignmentPlan(source,cfg={}) {
++        const plan={source,text:source,edits:[],boxes:[]};
++        if(cfg.namespaceNumber!==0||cfg.sectionOnly||cfg.section!==undefined&&cfg.section!==null&&cfg.section!==''||
++            cfg.discussionPage||cfg.infoboxes===false||cfg.markup===false||
++            cfg.contentModel&&cfg.contentModel!=='wikitext'||cfg.model&&cfg.model!=='wikitext'||
++            !/\{\{[^\r\n|{}]+\r?\n[ \t]*\|/.test(source))return plan;
++        const shield=maskProtected(source,()=>{});
++        if(shield.unclosed)return plan;
++        let view=scanProtectedView(source);
++        if(malformedRefs(view))return plan;
++        view=v24SyntaxMaskRanges(view,refTokens(view));
++        const inventory=templates(view);
++        if(inventory.unclosed.length)return plan;
++        for(const node of inventory.nodes.filter(n=>n.depth===0)) {
++            const raw=source.slice(node.start,node.end),visible=view.slice(node.start,node.end),p=parsedTemplate(visible);
++            if(!Object.prototype.hasOwnProperty.call(INFOBOX_CATALOG,p.name)||
++                !/^[ \t]*$/.test(source.slice(source.lastIndexOf('\n',node.start-1)+1,node.start))||
++                !/^[ \t]*(?:\r?\n|$)/.test(source.slice(node.end))||!/\r?\n[ \t]*\}\}$/.test(raw)||
++                !/^[^\r\n]+\r?\n[ \t]*$/.test(p.parts[0])||p.parts.length<2)continue;
++            const fields=[];let offset=2+p.parts[0].length,valid=true,width=22,indentation=null;
++            for(let index=1;index<p.parts.length;index++) {
++                const part=raw.slice(offset+1,offset+1+p.parts[index].length),pipe=node.start+offset;
++                // A top-level pipe must open its own physical source line.
++                const indent=source.slice(source.lastIndexOf('\n',pipe-1)+1,pipe);
++                if(!/^[ \t]*$/.test(indent)||indentation!==null&&indent!==indentation) {valid=false;break;}
++                indentation=indent;
++                const key=part.match(/^( *)([\p{L}\p{N}_ /().:-]+?)([ \t]*)=([\s\S]*)$/u);
++                if(!key||!key[2].trim()||/[\r\n]/.test(key[4].replace(/\r?\n[ \t]*$/,''))) {valid=false;break;}
++                const prefix=key[1]+key[2],length=Array.from(prefix).length;
++                width=Math.max(width,length+1);
++                if(width>48) {valid=false;break;}
++                fields.push({name:key[2],value:key[4],prefix,length,
++                    start:pipe+1+prefix.length,end:pipe+1+prefix.length+key[3].length});
++                offset+=1+p.parts[index].length;
++            }
++            if(!valid||fields.length!==p.parts.length-1)continue;
++            const edits=fields.map(field=>({start:field.start,end:field.end,text:' '.repeat(width-field.length),
++                ruleId:'infoboxAlignment'})).filter(edit=>source.slice(edit.start,edit.end)!==edit.text);
++            if(!edits.length)continue;
++            const next=applyEdits(raw,edits.map(edit=>({...edit,start:edit.start-node.start,end:edit.end-node.start}))),
++                beforeParts=splitParts(visible.slice(2,-2)),afterView=scanProtectedView(next),
++                afterParts=splitParts(v24SyntaxMaskRanges(afterView,refTokens(afterView)).slice(2,-2));
++            // A second parse must have exactly the same field boundaries and data.
++            if(beforeParts.length!==afterParts.length||beforeParts.some((part,index)=>index===0?part!==afterParts[index]:
++                part.replace(/[ \t]*=/,'=')!==afterParts[index].replace(/[ \t]*=/,'=')))continue;
++            plan.edits.push(...edits);
++            plan.boxes.push({start:node.start,end:node.end,name:p.name,width,fields:fields.length});
++        }
++        plan.text=applyEdits(source,plan.edits);return plan;
++    }
++    function automaticInfoboxAlignment(source,cfg={},bump=()=>{}) {
++        const plan=v25InfoboxAlignmentPlan(source,cfg);
++        for(const box of plan.boxes)bump('infoboxAlignment');
++        return plan.text;
++    }
++    function v25InfoboxAlignmentSourceProof(source,result,cfg={}) {
++        const plan=v25InfoboxAlignmentPlan(source,cfg);
++        return {accepted:result===plan.text,applied:plan.edits.length>0,boxes:plan.boxes.length,
++            reason:result===plan.text?'Only the exact planned infobox key padding changed.':'Candidate differs from the source-bound spacing plan.'};
++    }
++
++    // Estes nomes foram conferidos no Módulo:Avaliação/Marcas. Um portal
++    // existente, por si só, não confirma a existência de uma marca de projeto.
++    // https://pt.wikipedia.org/w/index.php?oldid=73060837
++    const V25_TALK_PROJECTS = Object.freeze({
++        'cinema':'Cinema','filme':'Cinema','estados unidos':'Estados Unidos',
++        'estados unidos da américa':'Estados Unidos',
++        'biografia':'Biografia','biografias':'Biografia','brasil':'Brasil',
++        'frança':'França','portugal':'Portugal','história':'História',
++        'física':'Física','matemática':'Matemática','política':'Política',
++        'esportes':'Esporte','desporto':'Esporte','futebol':'Futebol',
++        'literatura':'Literatura','música':'Música'
++    });
++    function v25TalkProject(value) {
++        const key=String(value).normalize('NFC').replace(/_/g,' ').trim().toLocaleLowerCase('pt');
++        return Object.prototype.hasOwnProperty.call(V25_TALK_PROJECTS,key)?V25_TALK_PROJECTS[key]:null;
++    }
++    function v25PortalProjects(raw,strict=true) {
++        const p=parsedTemplate(raw),projects=[];
++        if(!['portal','portal2','portal3'].includes(p.name))return null;
++        let implicit=1;const seen=new Set();
++        for(const part of p.parts.slice(1)) {
++            const match=part.match(/^\s*(\d+)\s*=([\s\S]*)$/),slot=match?Number(match[1]):implicit++,value=match?match[2]:part;
++            if(!Number.isSafeInteger(slot)||slot<1||slot>64||seen.has(slot)||/[{}<>\[\]=]/.test(value))return null;
++            seen.add(slot);if(!value.trim())continue;
++            const project=v25TalkProject(value);if(!project){if(strict)return null;else continue;}
++            if(!projects.includes(project))projects.push(project);
++        }
++        return projects.length?projects:null;
++    }
++    function v25ArticleProjectPortals(article) {
++        if(typeof article!=='string'||article.length>4194304)return [];
++        let view=scanProtectedView(article);if(malformedRefs(view))return [];
++        view=v24SyntaxMaskRanges(view,refTokens(view));
++        const inventory=templates(view),projects=[];
++        if(inventory.unclosed.length)return [];
++        for(const item of inventory.nodes.filter(n=>n.depth===0)) {
++            const found=v25PortalProjects(article.slice(item.start,item.end),false);
++            if(found)for(const project of found)if(!projects.includes(project))projects.push(project);
++        }
++        return projects;
++    }
++    function v25PlainTalkPortals(line) {
++        let rest=line.trim(),projects=[];
++        if(!rest)return null;
++        while(rest) {
++            const match=rest.match(/^Portal\s+(?:do|da|dos|das|de)\s+(.+?)(?=\s+Portal\s+(?:do|da|dos|das|de)\s+|$)/iu);
++            if(!match)return null;
++            const project=v25TalkProject(match[1]);if(!project)return null;
++            if(!projects.includes(project))projects.push(project);
++            rest=rest.slice(match[0].length).trim();
++        }
++        return projects.length?projects:null;
++    }
++    function v25TalkPreparationPlan(source,article='',cfg={}) {
++        const result={source,text:source,changed:false,projects:[],summary:'',reason:'',removedPortals:0};
++        if(typeof source!=='string'||source.length>4194304||cfg.namespaceNumber!==1||cfg.sectionOnly||
++            cfg.section!==undefined&&cfg.section!==null&&cfg.section!==''||
++            cfg.contentModel&&cfg.contentModel!=='wikitext'||cfg.model&&cfg.model!=='wikitext'||
++            cfg.pageRedirect||/^\s*#(?:redirect|redirecionamento)\b/iu.test(scanProtectedView(source))) {
++            result.reason='Use a edição completa da discussão de um artigo.';return result;
++        }
++        const prefix=source.slice(0,65536),inventory=templates(prefix),byStart=new Map(inventory.nodes.filter(n=>n.depth===0).map(n=>[n.start,n]));
++        const headers=[],portals=[];let cursor=0;
++        while(cursor<prefix.length) {
++            const ws=prefix.slice(cursor).match(/^\s+/);if(ws){cursor+=ws[0].length;continue;}
++            if(prefix.startsWith('<!--',cursor)) {const end=prefix.indexOf('-->',cursor+4);if(end<0)break;cursor=end+3;continue;}
++            const item=byStart.get(cursor);
++            if(item) {
++                const raw=source.slice(item.start,item.end),p=parsedTemplate(raw),entry={...item,raw,name:p.name,p};
++                if(source.lastIndexOf('\n',cursor-1)+1!==cursor){
++                    result.reason='Há código com recuo ou conteúdo na mesma linha do cabeçalho. O texto foi preservado.';return result;
++                }
++                // Somente predefinições isoladas no cabeçalho. Nunca leia texto
++                // de conversas ou exemplos como se fosse uma escolha de projeto.
++                if(!/^[ \t]*(?:\r?\n|$)/.test(source.slice(item.end)))break;
++                headers.push(entry);const found=v25PortalProjects(raw);
++                if(found)portals.push({...entry,projects:found});
++                cursor=item.end;continue;
++            }
++            const end=source.indexOf('\n',cursor),line=source.slice(cursor,end<0?source.length:end),found=v25PlainTalkPortals(line);
++            if(!found)break;
++            if(source.lastIndexOf('\n',cursor-1)+1!==cursor){
++                result.reason='Há texto com recuo antes dos portais. O cabeçalho foi preservado.';return result;
++            }
++            portals.push({start:cursor,end:end<0?source.length:end,raw:line,projects:found});cursor=end<0?source.length:end+1;
++        }
++        const pd=headers.filter(h=>['pd','cabeçalho de discussão'].includes(h.name));
++        const marks=headers.filter(h=>h.name==='marca de projeto');
++        const all=templates(scanProtectedView(source)).nodes.filter(item=>{
++            const name=parsedTemplate(source.slice(item.start,item.end)).name;
++            return ['pd','cabeçalho de discussão','marca de projeto'].includes(name);
++        });
++        if(all.some(item=>!headers.some(h=>h.start===item.start&&h.end===item.end))){
++            result.reason='Há um cabeçalho ou marca fora do início da página. O texto foi preservado.';return result;
++        }
++        if(pd.length>1||marks.length>1){result.reason='Há cabeçalhos ou marcas repetidos. O texto foi preservado.';return result;}
++        const projects=v25ArticleProjectPortals(article);
++        for(const entry of portals)for(const project of entry.projects)if(!projects.includes(project))projects.push(project);
++        result.projects=projects;
++        let mark=marks[0]?.raw||'',mergeable=true,known=[];
++        if(mark) {
++            const positional=marks[0].p.parts.slice(1).filter(part=>!/^\s*[^|={}\r\n]+\s*=/.test(part));
++            if(marks[0].p.parts.slice(1).some(part=>/^\s*\d+\s*=/.test(part))||!positional.length||positional.length%2!==1)mergeable=false;
++            else for(let i=1;i<positional.length;i+=2) {
++                if(/[{}<>\[\]]/.test(positional[i])){mergeable=false;break;}
++                known.push(v25TalkProject(positional[i])||positional[i].trim());
++            }
++            if(mergeable)for(const project of projects)if(!known.includes(project)){
++                mark=mark.slice(0,-2)+'|'+project+'|?}}';known.push(project);
++            }
++        } else if(projects.length)mark='{{Marca de projeto|?|'+projects.map(p=>p+'|?').join('|')+'}}';
++        const newLine=source.includes('\r\n')?'\r\n':'\n',edits=[];
++        // Remove somente as chamadas que puderam ser convertidas e só depois
++        // de confirmar que todos os projetos estão representados na marca.
++        const converted=mergeable&&!!mark?portals:[];
++        for(const entry of [...pd,...(mark&&mergeable?marks:[]),...converted]) {
++            let end=entry.end;if(source.startsWith('\r\n',end))end+=2;else if(source[end]==='\n')end++;
++            edits.push({start:entry.start,end,text:''});
++        }
++        let body=applyEdits(source,edits).replace(/^(?:[ \t]*\r?\n)+/,'');
++        const pdText=pd[0]?.raw||'{{PD}}',newHeader=pdText+(mark&&mergeable?newLine+mark:'');
++        const text=newHeader+(body?newLine+body:'')+(body?'':newLine);
++        result.text=text;result.changed=text!==source;result.removedPortals=converted.length;
++        result.summary=mark?'{{PD}}{{Marca de projeto}}':'{{PD}}';
++        result.reason=result.changed?'Cabeçalho preparado. Confira o código antes de aplicá-lo.':'O cabeçalho já está preparado.';
++        return result;
++    }
++
++    const api = {v25LeadTitle,v25LeadHeadingPlan,automaticLeadHeadingCleanup,
++        v25InfoboxAlignmentPlan,automaticInfoboxAlignment,v25InfoboxAlignmentSourceProof,
++        v25TalkPreparationPlan,v25ArticleProjectPortals,
++        v25SafeRepairPlan,automaticSafeRepairs,v25SafeRepairEquivalence,v25SafeCitationSignature,v25SafeRepairCacheStatus,v25ApprovedSyntaxPlan,v25RepairObjectProof,
++        syntaxRepairPlan,automaticSyntaxRepairs,syntaxRepairPrefix,syntaxRepairEquivalence,syntaxRepairEquivalenceSource,
+         syntaxRepairSourceProof,syntaxRepairInventoryProof,syntaxPreviewDecision,syntaxRepairTransactions,syntaxPrefixOptions,
+         syntaxRepairCacheStatus:()=>({entries:v24SyntaxPlanCache.size,estimatedBytes:v24SyntaxPlanCacheBytes,maximumEstimatedBytes:4194304}),
+         structuralArticlePlan,automaticStructureCleanup,structuralAudit,preserveLegacyRendererLayout,renderedStructuralTableProof,structuralReferenceBank,
+@@ -7184,6 +7675,51 @@
+             write: value => { $(input).val(value).trigger('input').trigger('change'); },
+             restore(value) { this.write(value); }};
+     }
++    async function prepareTalkHeader() {
++        if(localBusy||onlineBusy||Number(mw.config.get('wgNamespaceNumber'))!==1||editingSection()!==null)return;
++        const adapter=editor();if(!adapter)return;
++        const source=adapter.read(),openedPanel=panel,title=String(mw.config.get('wgTitle')||'');
++        if(!title){message('Não foi possível confirmar o título do artigo.');return;}
++        const old=panel.querySelector('.ajg-talk-draft');if(old)old.remove();
++        const control=panel.querySelector('.ajg-prepare-talk');if(control)control.disabled=true;
++        message('Consultando os portais do artigo, sem publicar...');
++        try {
++            const response=await new mw.Api().get({action:'query',formatversion:2,titles:title,
++                prop:'revisions',rvprop:'ids|content',rvslots:'main',rvlimit:1});
++            if(panel!==openedPanel||editor()?.id!==adapter.id||adapter.read()!==source)throw new Error('O texto mudou durante a consulta. Tente novamente.');
++            const page=response.query?.pages?.[0],revision=page?.revisions?.[0],slot=revision?.slots?.main;
++            if(!page||page.missing||page.ns!==0||!slot||typeof slot.content!=='string'||slot.contentmodel&&slot.contentmodel!=='wikitext')
++                throw new Error('O código do artigo não ficou disponível. O rascunho foi preservado.');
++            const plan=v25TalkPreparationPlan(source,slot.content,{namespaceNumber:1,sectionOnly:false,
++                contentModel:mw.config.get('wgPageContentModel')||'wikitext',pageRedirect:!!mw.config.get('wgIsRedirect')});
++            if(!plan.changed){message(plan.reason);return;}
++            const wrap=node('div',undefined,'ajg-talk-draft');
++            wrap.append(node('p','Cabeçalho proposto. Projetos confirmados: '+(plan.projects.join(', ')||'nenhum nos portais reconhecidos')+'.'));
++            wrap.append(snippet(plan.text));
++            wrap.append(node('p','Resumo da edição: '+plan.summary));
++            const apply=button('Aplicar ao editor',()=>{
++                if(localBusy||onlineBusy||panel!==openedPanel||editor()?.id!==adapter.id||adapter.read()!==source){
++                    message('O texto mudou. Prepare a discussão novamente.');return;
++                }
++                const summary=summaryEditor(),prior=summary?.snapshot(),summaryText=summary?.read()||'';
++                adapter.write(plan.text);
++                if(adapter.read()!==plan.text){message('O editor não confirmou a alteração. Confira o rascunho.');return;}
++                rememberEdit(adapter,source,plan.text,'discussion','Cabeçalho e marcas de projeto');
++                // A ação tem um resumo próprio. Nunca substitua o resumo manual.
++                if(summary&&currentOptions(false).autoSummary!==false&&!summaryText.trim()){
++                    summary.write(plan.summary);
++                    if(last)last.summary={id:summary.id,before:prior,after:plan.summary,prefix:''};
++                }
++                wrap.remove();updateAppliedResult();
++                message('Cabeçalho aplicado ao rascunho. Confira o resultado antes de salvar.');
++            },'ajg-talk-apply');
++            const dismiss=button('Fechar',()=>wrap.remove(),'ajg-talk-dismiss');
++            wrap.append(apply,dismiss);panel.querySelector('.ajg-status').after(wrap);
++            message(plan.reason);
++        } catch(error){if(panel===openedPanel)message('Não foi possível preparar a discussão: '+error.message);}
++        finally {if(control?.isConnected)control.disabled=localBusy||onlineBusy;}
++    }
++
+     function personalConfig() { return root.RevisaWikiConfig || root.AjusteGeralPTConfig || {}; }
+     function automaticSummary(kinds, topics) {
+         const cfg = personalConfig();
+@@ -7798,7 +8334,7 @@
+         });
+     }
+     function showComparison(adapter, before, result, applied) {
+-        const hunks = result.hunks || comparison(before, result);
++        const hunks = result.hunks || comparison(before, result, currentOptions(false));
+         comparisonPlan = {id: adapter.id, before, after: result.text, current: applied ? result.text : before,
+             hunks, groups: comparisonDisplayGroups(before, result.text, hunks), applied};
+         const box = panel.querySelector('.ajg-diff'); box.replaceChildren();
+@@ -8723,6 +9259,7 @@
+         const back = control('Desfazer ajustes', undo, 'ajg-undo', 'Restaurar o texto anterior aos ajustes do RevisaWiki, se você ainda não tiver feito outras alterações.', 'undo'); back.disabled = !last;
+         const stop = control('Cancelar análise', cancelLocalAnalysis, 'ajg-stop', 'Interromper a análise local antes de aplicar os ajustes.', 'stop'); stop.hidden = true;
+         actions.append(control('Ajustar código', () => run(false), 'mw-ui-progressive ajg-run', 'Aplicar ajustes de código e grafias selecionadas ao texto aberto, sem publicar.', 'adjust'));
++        if(namespace===1&&editingSection()===null)actions.append(control('Preparar discussão',prepareTalkHeader,'ajg-prepare-talk','Preparar PD e marcas dos projetos confirmados nos portais do artigo, sem publicar.','prepare-talk'));
+         const top = node('div', undefined, 'ajg-top'); top.append(heading, actions);
+         const resultSummary = node('div', undefined, 'ajg-result'); resultSummary.hidden = true;
+         const resultCopy = node('div', undefined, 'ajg-result-copy');

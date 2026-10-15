@@ -1,31 +1,29 @@
-# Repetir os testes
+# Testes do RevisaWiki 2.5.0
 
-Com Node.js 18 ou posterior, execute `npm test`. O comando verifica os arquivos de distribuição, repete os contratos anteriores contra as duas distribuições 2.4.0 e executa `tests/v24/run_all.cjs` e `tests/v24_gallery/run_all.cjs`. Não baixa artigos, não acessa a Wikipédia e não abre contas. Não equivale a repetir os conjuntos de artigos.
+Os testes usam cópias locais de revisões públicas. Os arquivos de origem têm título, revisão e SHA-256. Nenhum teste salva edições na Wikipédia.
 
-`python3 scripts/build.py` reproduz a receita de injeção da versão, usando a distribuição histórica 2.3.0 e os arquivos em `src`. Compara os resultados com `tests/expected_release.json`, sem atualizar esse registro. Execute `npm test` depois da reconstrução.
+## Rodada local
 
-Os arquivos anteriores permanecem com seus bytes originais. O adaptador `v24_legacy_regressions.cjs` aponta os contratos para o programa 2.4.0. Nos quatro casos de cauda incompleta, uma única expectativa de aviso também aceita a palavra "incompleto", usada pela 2.4 para a mesma fronteira sem fechamento. A troca ocorre apenas na cópia em memória. `v24_legacy_expectation_amendments.json` guarda o padrão exato, a razão e os hashes antes e depois. As verificações de preservação, estabilidade e ausência de listas repetidas continuam iguais.
+```sh
+npm test
+npm run test:engine
+npm run test:complex
+npm run test:regression
+python3 tests/privacy/test_publication_privacy_gate.py
+```
 
-## Galerias e mutações em artigos extensos
+`npm test` confere os hashes distribuídos e executa os contratos atuais, os casos de controle das versões anteriores e a preservação de galerias. Os dois arquivos executáveis, núcleo com dados separados e distribuição completa, devem produzir o mesmo resultado.
 
-A execução padrão inclui os quatorze contratos de [preservação de galerias](v24_gallery/README.md) nas duas distribuições. As fontes reais de Ponte, Cerveja, Renascimento e Fausto Coppi ficam junto dos contratos, com revisões, hashes e atribuição.
+`test:engine` confere as correções automáticas da 2.5, incluindo referências, sintaxe, opções desativadas e cache. `test:complex` usa os casos grandes de física e matemática guardados em `tests/v25_engine`. As mutações têm resultados definidos antes da execução. `test:regression` executa as doze suítes herdadas com os ajustes de expectativas documentados em `tests/v25_inherited`.
 
-`npm run test:complex` executa separadamente as 48 mutações em 16 artigos extensos de física e matemática. Esse ensaio pode demorar alguns minutos e não faz parte de `npm test`. Confere núcleo e arquivo completo, referências, tabelas, fórmulas, inventários e segunda aplicação. Os comandos para dividir a execução e os limites estão em [engine_qa/portable_engine/LEIA-ME.txt](engine_qa/portable_engine/LEIA-ME.txt).
+Para a rodada de 2.000 revisões, siga a obtenção das fontes em [corpus](corpus/README.txt) e execute os programas de [corpus_v25](corpus_v25/README.md). Os resultados dessa rodada não são uma contagem de testes de interface. Os casos gerados de parâmetros e grafia também têm suas contagens separadas.
 
-## Bateria histórica separada
+Os testes de navegador usam páginas locais, os navegadores reais no Mac, respostas controladas da API e interceptação da publicação. Eles conferem os editores, o processamento separado, a alternativa sem Worker, a comparação, o resumo, o cancelamento e o desfazer. Capturas de tela não fazem parte do pacote.
 
-`python3 tests/inherited/run.py` mantém a configuração histórica e testa a distribuição completa **2.3.0**. Esse comando reproduz a bateria da 2.3.0. Seus resultados não constituem uma execução da 2.4.0. Os arquivos em `tests/inherited` continuam congelados.
+## Evidência e limites
 
-A execução local da bateria para a 2.4.0 tem duas expectativas de `reference_audit_tests` atualizadas: fechamento de referência de uma linha no fim da página e preservação de famílias de referências diante de um coletor sem fechamento. `v24_inherited_expectation_amendments.json` guarda os casos e as razões. Os resultados efetivamente executados para a 2.4.0 ficam no relatório da versão e em `tests/evidence/2.4.0`.
+Os relatórios da distribuição ficam em `tests/evidence/2.5.0`. Cada grupo indica a versão e os hashes executados. Resultados de candidatos interrompidos ficam separados da rodada final e não contam como aprovação da distribuição.
 
-## Navegadores e artigos
+As expectativas alteradas têm uma explicação e uma conferência própria. O caso de Pillay, por exemplo, passa a esperar a retirada de uma única chamada consecutiva repetida, com todos os demais bytes preservados. Uma fonte sem acesso ou um teste incompleto não é registrado como aprovado.
 
-As instruções próprias dos testes novos ficam em [v24/README.txt](v24/README.txt). Os testes nativos exigem os aplicativos indicados e são separados dos contratos locais. A interface e as respostas de API simuladas não certificam todos os scripts pessoais de uma sessão real.
-
-Os dois conjuntos de 1.000 artigos usados na 2.3.0 fornecem as mesmas revisões congeladas para os testes de artigos da 2.4.0. Uma nova execução sobre essas 2.000 fontes não é uma nova coleta de 2.000 artigos. O relatório da versão informa as execuções efetivamente concluídas.
-
-As [instruções da bateria de artigos da 2.4](corpus_v24/README.md) trazem os comandos do repetidor portátil e dos verificadores independentes. As fontes precisam corresponder às revisões e aos hashes dos dois manifestos.
-
-Os manifestos, reprodutores e relatórios históricos permanecem em `tests/corpus`, `tests/inherited` e `tests/evidence`. As evidências novas ficam em `tests/evidence/2.4.0`. Seu índice identifica exatamente os arquivos incorporados. Uma execução antiga não é apresentada como revalidação da 2.4.0.
-
-A reconstituição de artigos usa somente as revisões e hashes registrados nos manifestos, por GET público. Ela é uma ação separada e não faz parte de `npm test`. Nenhum destes comandos publica páginas na Wikipédia.
+Os relatórios das versões anteriores permanecem nos seus diretórios. As regras novas não dispensam a revisão editorial do artigo nem a pré-visualização antes de salvar.

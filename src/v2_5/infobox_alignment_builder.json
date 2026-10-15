@@ -1,0 +1,17 @@
+{
+  "helper": "infobox_alignment.js",
+  "sha256": "08f31ca8b7457e3c898e228e762429a4bfbc56fb647d68d73d18380e80bf1418",
+  "insertBefore": "    const api = {",
+  "exports": [
+    "v25InfoboxAlignmentPlan",
+    "automaticInfoboxAlignment",
+    "v25InfoboxAlignmentSourceProof"
+  ],
+  "pipeline": "source = automaticInfoboxAlignment(source,cfg,bump);",
+  "pipelinePosition": "after captionTerminalPeriods, before diagnostics, masked source",
+  "label": {
+    "infoboxAlignment": "Alinhamento dos campos da infocaixa"
+  },
+  "options": "namespaceNumber === 0, full wikitext article, cfg.infoboxes !== false, cfg.markup !== false",
+  "proof": "Exact independently planned key-padding edits. Names, field order, all bytes after equals and all remaining source bytes are preserved."
+}

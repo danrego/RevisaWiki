@@ -1,0 +1,118 @@
+{
+  "version": "2.5.0",
+  "date": "2026-10-15",
+  "status": "passed_with_documented_browser_size_limit",
+  "releaseFiles": {
+    "Carregador_common_js_RevisaWiki_v2_5.js": {
+      "sha256": "490e266506987007056dd83a8d40f6bb8ca00d2aeaa9d8dff6f0971a96f2195f",
+      "bytes": 2999
+    },
+    "RevisaWiki_v2_5.js": {
+      "sha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+      "bytes": 831916
+    },
+    "RevisaWiki_v2_5_completo.js": {
+      "sha256": "c1eaefb2f231031b07822678102672321893a031ad40fca48a3daf8a4dafbaf2",
+      "bytes": 2350437
+    },
+    "RevisaWiki_v2_5_dados.js": {
+      "sha256": "f446f78ca7d789d257da952260697e4f9047164f3e7db5cff206043f97ef30ff",
+      "bytes": 1523933
+    },
+    "Carregador_comunitario_RevisaWiki_v2_5.js": {
+      "sha256": "d46326227e7d0362a0759df89b7e65e127935678e318eab6fd67cb9a9cba101e",
+      "bytes": 3001
+    }
+  },
+  "corpus": {
+    "articles": 2000,
+    "corpusChecks": 48000,
+    "bothBundlesByteIdentical": 2000,
+    "idempotentExecutions": 4000,
+    "independentSourceChecks": 14000,
+    "independentSourceFlags": 0,
+    "independentTableChecks": 14000,
+    "rawTableFlagsRetained": 5,
+    "exactlyInheritedPresentationFlags": 5,
+    "newTableCellDifferences": 0,
+    "qualifiedSourcePresentationWarnings": 1,
+    "sourceStatistics": {
+      "explicitBiographies": 590,
+      "articlesAbove100KiB": 1191,
+      "articlesAbove1MiB": 2,
+      "largestInputBytes": 1910746,
+      "totalInputBytes": 212660797
+    }
+  },
+  "inheritedRegression": {
+    "suites": 12,
+    "checks": 136283,
+    "failed": 0
+  },
+  "independentContracts": {
+    "executions": 2566,
+    "checks": 11410,
+    "failed": 0
+  },
+  "engineContracts": {
+    "cases": 1956,
+    "checks": 8180,
+    "complexCases": 128,
+    "complexScopeDeclined": 16,
+    "failed": 0
+  },
+  "nativeInterface": {
+    "checks": 804,
+    "passed": 804,
+    "failed": 0,
+    "checksPerBrowser": 268,
+    "browsers": [
+      "Chrome",
+      "Firefox",
+      "Safari"
+    ],
+    "localPagesOnly": true
+  },
+  "giantBrowserDiagnostics": {
+    "checks": 6,
+    "passed": 5,
+    "timeouts": 1,
+    "sourceBytes": 1910746,
+    "interfaceDecisionsVerified": 3,
+    "limitation": "Chrome applied the expected result. Firefox and Safari preserved the exact source and empty summary at the inherited 60-second interface deadline. Separate Firefox Worker replay matched the expected result. Separate Safari Worker replay exceeded its 180-second diagnostic limit and was not counted as passed.",
+    "failed": 1,
+    "failureReason": "Safari standalone Worker diagnostic timeout at 180 seconds, retained as a non-passing result."
+  },
+  "documentation": {
+    "checks": 60,
+    "passed": 60,
+    "failed": 0
+  },
+  "privacyUnitControls": 34,
+  "wikipediaWrites": 0,
+  "screenshotsPublished": 0,
+  "evidenceDirectory": "tests/evidence/2.5.0",
+  "installation": {
+    "modularRequired": true,
+    "wikiPageLimitBytes": 2097152,
+    "siteinfoCheckedOn": "2026-10-15"
+  },
+  "countingNote": "Contract executions and generated parameter/spelling cases are not additional articles. Copy-index tests are separate from the804 application UI checks.",
+  "evidence": {
+    "corpus": "tests/evidence/2.5.0/corpus/FINAL_CORPUS_SUMMARY.json",
+    "independent": "tests/evidence/2.5.0/independent/summary.json",
+    "engine": "tests/evidence/2.5.0/engine/summary.json",
+    "inherited": "tests/evidence/2.5.0/inherited/summary.json",
+    "native": "tests/evidence/2.5.0/native/native_final08_summary_public.json",
+    "giantDiagnostics": "tests/evidence/2.5.0/native/giant_final08_summary_public.json"
+  },
+  "copyIndex": {
+    "checks": 69,
+    "passed": 69,
+    "failed": 0,
+    "perBrowser": 23,
+    "systemClipboardAccesses": 0,
+    "screenshotsCreated": 0,
+    "unexpectedNetworkRequests": 0
+  }
+}

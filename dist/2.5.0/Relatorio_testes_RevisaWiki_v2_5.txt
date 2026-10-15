@@ -1,0 +1,35 @@
+RevisaWiki 2.5.0, relatório de testes
+15 de outubro de 2026
+
+Arquivos testados
+Os hashes e tamanhos dos cinco arquivos executáveis estão no relatório JSON. O núcleo, com dados separados, e o arquivo completo produziram o mesmo resultado nas 2.000 revisões.
+
+Artigos e preservação
+- 2.000 revisões distintas, com 48.000 verificações aprovadas e 4.000 reaplicações sem novas mudanças.
+- 590 biografias confirmadas e 1.191 artigos acima de 100 KiB. A maior entrada tem 1.910.746 bytes.
+- 14.000 verificações independentes de fontes, sem ocorrências novas.
+- 14.000 verificações independentes de tabelas, cobrindo 10.101 tabelas. Os cinco avisos brutos de apresentação foram mantidos. A comparação com a 2.4 confirmou que as diferenças de células e cabeçalhos já existiam, sem diferenças novas nos dados.
+- Uma ocorrência de apresentação já existente nas fontes tem sua conferência documentada. Os diagnósticos brutos foram preservados.
+
+Contratos locais
+- 12 suítes de regressão herdadas, com 136.283 verificações aprovadas.
+- 2.566 execuções de contratos independentes, com 11.410 asserções aprovadas.
+- 1.956 casos da matriz das regras, com 8.180 asserções aprovadas. Seus 128 casos complexos incluem 16 controles em que a regra deve preservar o trecho por falta de confirmação suficiente.
+Essas contagens incluem combinações geradas e execuções das duas distribuições. Elas não são artigos adicionais.
+
+Navegadores reais no Mac
+Os testes de interface passaram no Chrome, Firefox e Safari, com 268 verificações em cada navegador, 804 no total. As páginas de teste são locais e a publicação é interceptada.
+
+Os seis diagnósticos extras com uma fonte de 1.910.746 bytes tiveram cinco aprovações e um limite de tempo. O Chrome aplicou o resultado esperado. No Firefox e no Safari, a interface preservou o texto original e o resumo vazio ao atingir o limite de 60 segundos já existente na 2.4. A execução isolada do processamento no Firefox confirmou o resultado esperado. A execução isolada no Safari ultrapassou o prazo de diagnóstico de 180 segundos e não foi contada como aprovada. Esse ensaio não é uma promessa de tempo de execução em outros computadores.
+
+Índice de cópia
+O índice final passou em 69 verificações, 23 por navegador. Os testes conferiram os textos completos, destinos, resumos, downloads e a cópia manual. A área de transferência foi simulada, sem acesso à área de transferência real. Não houve capturas de tela nem pedidos inesperados à rede.
+
+Documentação e privacidade
+A documentação passou em 60 verificações. O verificador de privacidade tem 34 controles próprios. O pacote e a lista efetiva de envio passam por conferência antes da publicação. Caminhos locais, logs do computador, capturas de tela e o pedido privado ao suporte do GitHub não fazem parte da distribuição.
+
+Instalação
+Use núcleo e dados separados na Wikipédia. O arquivo completo ultrapassa o limite de 2.097.152 bytes de uma única página, confirmado pela API da ptwiki em 15 de outubro de 2026.
+
+Evidências
+Os relatórios detalhados, fontes congeladas, revisões e hashes estão em tests/evidence/2.5.0 no repositório. Os avisos anteriores e as expectativas alteradas têm justificativas próprias. Nenhum teste ou etapa desta entrega publicou edições na Wikipédia.

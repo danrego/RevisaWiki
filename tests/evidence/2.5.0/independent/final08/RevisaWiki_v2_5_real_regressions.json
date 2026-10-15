@@ -1,0 +1,92 @@
+{
+  "version": "2.5.0",
+  "script": "RevisaWiki_v2_5.js",
+  "scriptSha256": "6b6e802b00ca8e6688f28ac792b7becb26f86c362fc5be74f4a44478169211c6",
+  "cases": 13,
+  "checks": 31,
+  "failed": 0,
+  "passed": 13,
+  "sourceHashes": [
+    {
+      "title": "Ken Jennings",
+      "revid": 73139500,
+      "inputSha": "8bcec1af092b3268053c0c15daf5585183d965d6c442627f780a9f650c434b25",
+      "outputSha": "bb5cef6d26ba66f0742d6c7c0bf8fecf819abb54696f3ec7811d7b5f00ec8298"
+    },
+    {
+      "title": "Ciência indígena",
+      "revid": 73045540,
+      "inputSha": "9ae0ab7eb68049bebafc962ee2977ddda02df653e95415f821f1345d72451b90",
+      "outputSha": "497e307372d140cfe1554ee82ce1ffd6a612e02213e220e6eafdde40ef01f70c"
+    }
+  ],
+  "tests": [
+    {
+      "name": "source-bound real regression Ken Jennings",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "source-bound real regression Ciência indígena",
+      "passed": true,
+      "checks": 4
+    },
+    {
+      "name": "reference boundary malformed italic pairing must not hide half a reference",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "reference boundary balanced italic text with a complete reference remains readable",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "reference boundary italic literal example with complete reference tags stays protected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "reference boundary italic literal example of unclosed ref stays protected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "reference boundary literal malformed template within italic text stays protected",
+      "passed": true,
+      "checks": 1
+    },
+    {
+      "name": "reference boundary balanced bold text with reference stays readable",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "generated-name proof rejects wrong single binding",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "generated-name proof rejects missing one occurrence",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "generated-name proof rejects balanced two binding swap",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "generated-name proof rejects lost exact DOI literal",
+      "passed": true,
+      "checks": 2
+    },
+    {
+      "name": "generated-name proof rejects changed group",
+      "passed": true,
+      "checks": 2
+    }
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0
+}

@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+"""Check an explicit publication tree without printing matched private values.
+
+Default scope is git ls-files. --allowlist accepts a JSON list of relative paths
+or an object with a files list/dictionary. Archives are inspected recursively.
+Private additional literals can be supplied in a local JSON file with --denylist;
+that file must stay outside the publication tree.
+"""
+import argparse, collections, gzip, hashlib, io, json, pathlib, re, subprocess, sys, zipfile
+
+MAX_MEMBER=128*1024*1024
+MAX_TOTAL=768*1024*1024
+MAX_DEPTH=4
+RULES={
+ 'private-home-path':re.compile(r'/(?:Users|home)/[^/\s"<>]+/|[A-Z]:[\\/]Users[\\/][^\\/\s"<>]+[\\/]',re.I),
+ 'private-workspace-id':re.compile(r'g-p-[a-f0-9]{20,}',re.I),
+ 'private-temporary-path':re.compile(r'/(?:private/)?var/folders/[A-Za-z0-9_/-]{8,}'),
+ 'local-file-url':re.compile(r'file:'+r'//[^\s"<>]+',re.I),
+ 'embedded-image':re.compile(r'data:image/[^;,]+;base64,[A-Za-z0-9+/=]{100,}',re.I),
+ 'github-private-image-link':re.compile(r'https?://(?:user-images\.githubusercontent\.com|private-user-images\.githubusercontent\.com|github\.com/user-attachments)/[^\s"<>]+',re.I),
+ 'secret-token':re.compile(r'(?:github_pat_[A-Za-z0-9_]{15,}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----|central'+r'authLoginToken=|Bearer\s+[A-Za-z0-9._-]{20,})'),
+}
+URL=re.compile(r'https?://[^\s"<>]+',re.I)
+EMAIL=re.compile(r'\b[A-Za-z0-9.!#$%&*+/?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.(?:[A-Za-z]{2,63}|xn--[A-Za-z0-9-]{2,59})(?![A-Za-z0-9-])')
+# Exact reviewed public vendor bytes, with the same two original credit emails.
+APPROVED_PUBLIC_CREDIT_FILES={
+ 'c28d1b9e6e83901da233beffb0524866165746e46c050a53467a40ae2fd13a6a':{
+  '5803a8c7911909ffb80f687f0046a1cd22b007c3343a4414204f0cdea9fefee3',
+  'a18c5e9bd1772123cb476f8c538c13c34e015a6ae730f7567fd569e8eb200ae3',
+ }
+}
+PUBLIC_NOREPLY='revisawiki@reserved.invalid'
+IMAGE_MAGIC=(b'\x89PNG',b'\xff\xd8',b'GIF8',b'RIFF',b'BM',b'%PDF')
+IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.heic','.pdf','.svg'}
+
+
+# Privacy adaptation: only technical distribution destinations retain account names.
+TECHNICAL_SCRIPT_TITLE='User:Daniel G Rego/RevisaWiki.js'
+def identity_findings(text):
+ from urllib.parse import unquote
+ decoded=unquote(text).replace('+',' ')
+ owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
+ owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
+ technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+r'/(?:RevisaWiki(?:\.js|/Dados\.js)?|common\.js)(?=$|[\s\]\[<>"\'`|}?&#])',re.I)
+ masked=technical.sub(lambda m:' '*len(m.group()),decoded)
+ destination=re.compile(r'(?:User|User[ _]talk|Usuário(?:[ _]Discussão)?|Usuária|Utilizador(?:a)?|Utilisateur(?:rice)?|Benutzer|Utente|Usuario):[^\s\]\[<>|"\'`}{][^\n\]\[<>|"\'`}{]{0,159}',re.I)
+ fictional=re.compile(r'^(?:Teste|Test|Example|Exemplo|Fulano|Beltrano|Sicrano|Editor de teste|Conta de Teste|Nome da Conta|Anônimo|Colaborador)(?:[/ _]|$)',re.I)
+ result=[]
+ matches=[m for m in destination.finditer(masked)if not fictional.match(m.group().split(':',1)[1])]
+ if matches:result.append(('unreviewed-wiki-user-destination',len(matches),masked[:matches[0].start()].count('\n')+1))
+ matches=list(re.finditer(owner_pattern,masked,re.I))
+ if matches:result.append(('nontechnical-owner-identity',len(matches),masked[:matches[0].start()].count('\n')+1))
+ return result
+
+def safe_relative(value):
+ p=pathlib.PurePosixPath(value)
+ return bool(value) and not p.is_absolute() and '..' not in p.parts and '\\' not in value and '\0' not in value
+
+def load_allowlist(path):
+ x=json.loads(path.read_text())
+ if isinstance(x,dict):x=x.get('files',x.get('paths',[]))
+ if isinstance(x,dict):return list(x)
+ if isinstance(x,list):return [v if isinstance(v,str)else v['path']for v in x]
+ raise ValueError('Unsupported allowlist schema')
+
+class Scanner:
+ def __init__(self,denylist):self.findings=[];self.files=0;self.archives=0;self.total=0;self.denied=denylist
+ def fail(self,path,rule,count=1,line=None):
+  value={'file':path if safe_relative(path.split('!/',1)[0])else '[unsafe-entry-name]','rule':rule,'matches':count}
+  if line is not None:value['line']=line
+  self.findings.append(value)
+ def scan(self,path,data,depth=0):
+  self.files+=1;self.total+=len(data)
+  if len(data)>MAX_MEMBER or self.total>MAX_TOTAL or depth>MAX_DEPTH:self.fail(path,'archive-or-file-size-limit');return
+  if pathlib.PurePosixPath(path).suffix.lower()in IMAGE_SUFFIXES or data.startswith(IMAGE_MAGIC):self.fail(path,'image-or-screenshot-file');return
+  if data.startswith(b'\x1f\x8b'):
+   self.archives+=1
+   try:
+    with gzip.GzipFile(fileobj=io.BytesIO(data))as h:plain=h.read(MAX_MEMBER+1)
+   except Exception:self.fail(path,'unreadable-gzip');return
+   self.scan(path+'!/content',plain,depth+1);return
+  if data.startswith(b'PK\x03\x04'):
+   self.archives+=1
+   try:
+    with zipfile.ZipFile(io.BytesIO(data))as z:
+     for info in z.infolist():
+      if info.is_dir():continue
+      if not safe_relative(info.filename):self.fail(path,'unsafe-archive-member-name');continue
+      if info.file_size>MAX_MEMBER or info.flag_bits&1:self.fail(path,'unsupported-archive-member');continue
+      with z.open(info)as h:plain=h.read(MAX_MEMBER+1)
+      self.scan(path+'!/'+info.filename,plain,depth+1)
+   except Exception:self.fail(path,'unreadable-zip')
+   return
+  try:text=data.decode('utf-8')
+  except UnicodeDecodeError:self.fail(path,'unreviewed-binary-file');return
+  for rule,count,line in identity_findings(text):self.fail(path,rule,count,line)
+  # Imported citation URLs can legitimately contain home-directory-like paths.
+  non_url=URL.sub(lambda m:' '*len(m[0]),text)
+  for name,rx in RULES.items():
+   subject=non_url if name in {'private-home-path','private-workspace-id','private-temporary-path'}else text
+   matches=list(rx.finditer(subject))
+   if matches:self.fail(path,name,len(matches),subject[:matches[0].start()].count('\n')+1)
+  for literal in self.denied:
+   if literal and literal in text:self.fail(path,'private-local-denylist',text.count(literal))
+  reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(hashlib.sha256(data).hexdigest(),set())
+  for m in EMAIL.finditer(text):
+   value=m[0]
+   if value==PUBLIC_NOREPLY:continue
+   digest=hashlib.sha256(value.encode()).hexdigest()
+   if digest in reviewed_emails:continue
+   self.fail(path,'unreviewed-email',1,text[:m.start()].count('\n')+1)
+
+
+def run(argv=None):
+ ap=argparse.ArgumentParser(description=__doc__)
+ ap.add_argument('--root',type=pathlib.Path,default=pathlib.Path('.'))
+ ap.add_argument('--allowlist',type=pathlib.Path)
+ ap.add_argument('--denylist',type=pathlib.Path)
+ ap.add_argument('--report',type=pathlib.Path)
+ args=ap.parse_args(argv);root=args.root.resolve()
+ paths=load_allowlist(args.allowlist)if args.allowlist else subprocess.check_output(['git','ls-files','-z'],cwd=root).decode().split('\0')[:-1]
+ denied=json.loads(args.denylist.read_text())if args.denylist else []
+ if not isinstance(denied,list)or not all(isinstance(x,str)for x in denied):raise ValueError('The private denylist must contain only strings')
+ scan=Scanner(denied)
+ for name in paths:
+  if not safe_relative(name):scan.fail('[unsafe-entry-name]','unsafe-publication-path');continue
+  p=root/name
+  if p.is_symlink():scan.fail(name,'unreviewed-symlink');continue
+  if not p.is_file():scan.fail(name,'missing-publication-file');continue
+  scan.scan(name,p.read_bytes())
+ result={'status':'passed'if not scan.findings else'failed','allowlistedFiles':len(paths),'inspectedMembers':scan.files,'archivesInspected':scan.archives,'inspectedBytes':scan.total,'findingCount':len(scan.findings),'findings':scan.findings,'matchedPrivateValuesIncluded':False,'networkRequests':0,'wikipediaWrites':0}
+ if args.report:args.report.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+ print(json.dumps(result,ensure_ascii=False,indent=2))
+ return 1 if scan.findings else 0
+if __name__=='__main__':
+ try:exit_code=run()
+ except Exception as error:
+  print(json.dumps({'status':'failed','errorType':type(error).__name__,'matchedPrivateValuesIncluded':False,'networkRequests':0}))
+  exit_code=2
+ sys.exit(exit_code)

@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),manifest=require('./expected_release.json');
-assert.equal(manifest.version,'2.4.0');
+assert.equal(manifest.version,'2.5.0');
 for(const [name,proof]of Object.entries(manifest.files)){
  const bytes=fs.readFileSync(path.join(root,'dist',manifest.version,name));
  assert.equal(bytes.length,proof.bytes,name+' byte length');

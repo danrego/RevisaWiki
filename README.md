@@ -1,48 +1,43 @@
 # RevisaWiki
 
-O RevisaWiki ajusta o código das páginas da Wikipédia em português e deixa o resultado no editor para conferência. **Ver o que mudou** abre a comparação. **Desfazer ajustes** recupera o texto anterior. A ferramenta não salva páginas.
+O RevisaWiki ajusta wikitexto da Wikipédia em português. O botão **Ajustar código** deixa as mudanças no editor, com comparação e opção de desfazer. O script não publica páginas.
 
-A versão atual é [**2.4.0**](dist/2.4.0/Notas_da_versao_RevisaWiki_v2_4.txt). Os reparos de sintaxe entram antes dos demais ajustes, nos padrões e limites explicados na [documentação completa](dist/2.4.0/Documentacao_RevisaWiki_v2_4.wiki).
+## Versão 2.5.0
 
-## Instalação
+- Retira títulos redundantes antes da introdução quando a abertura confirma o assunto.
+- Reutiliza citações iguais com campos em outra ordem e retira chamadas consecutivas repetidas da mesma referência.
+- Corrige atributos idênticos repetidos, fechamentos mistos reconhecidos e listas vazias de notas repetidas do mesmo grupo.
+- Alinha os sinais de igual em infocaixas já escritas com um campo por linha, preservando os valores.
+- O botão **Preparar discussão** monta `{{PD}}` e as marcas dos projetos confirmados nos portais do artigo. A proposta só entra no editor depois de **Aplicar ao editor**.
+- Reúne o histórico de versões em ordem decrescente e separa os detalhes de testes das instruções de uso.
 
-Baixe o repositório em **Code → Download ZIP** e abra [o índice de copiar e colar](dist/2.4.0/INICIO.html). Atualize dados, programa, carregador e documentação nessa ordem. Preserve os outros scripts do common.js e mantenha uma única chamada do RevisaWiki.
+Os casos ambíguos, as fórmulas, os exemplos e os trechos incompletos têm proteções próprias. O manual explica os limites de cada regra.
 
-[As instruções completas](dist/2.4.0/Instalacao_RevisaWiki_v2_4.txt) trazem os destinos e os dois carregadores. A instalação na Wikipédia usa núcleo e dados separados.
+[Arquivos completos da 2.5.0](dist/2.5.0/) · [Instalação](docs/2.5.0/Instalacao_RevisaWiki_v2_5.txt) · [Manual para a Wikipédia](docs/2.5.0/Documentacao_RevisaWiki_v2_5.wiki) · [Histórico resumido](docs/2.5.0/Notas_da_versao_RevisaWiki_v2_5.txt) · [Relatório de testes](docs/2.5.0/Relatorio_testes_RevisaWiki_v2_5.txt)
 
-## Testes
+Baixe os arquivos da distribuição e abra **INICIO.html** para copiar o conteúdo completo, o destino e o resumo da edição. Há links diretos para abrir cada página no editor. O índice não salva nem publica alterações.
 
-[O relatório da 2.4.0](dist/2.4.0/Relatorio_testes_RevisaWiki_v2_4.txt) identifica as fontes, os resultados executados e os limites da validação. Os resultados das versões anteriores permanecem em seus diretórios.
+Para instalar na ptwiki, use o núcleo e os dados separados. O arquivo que reúne tudo ultrapassa o limite de uma única página. Preserve os outros scripts do seu common.js.
 
-`npm test` confere os arquivos finais e repete os contratos incluídos. `python3 scripts/build.py` reconstrói os mesmos bytes sem atualizar os hashes esperados. [As instruções de testes](tests/README.md) separam os contratos locais, os testes de navegador e os conjuntos de artigos.
+## Testar e reconstruir
 
-## Histórico
+É preciso Node.js 18 ou posterior e Python 3.
 
-As versões estão em ordem da mais recente para a mais antiga. As entregas de revisão que conservaram um número estão reunidas na mesma linha. A documentação completa guarda as explicações dos recursos anteriores.
+```sh
+python3 scripts/build.py
+npm test
+npm run test:engine
+npm run test:complex
+npm run test:regression
+npm run test:privacy
+```
 
-| Versão | Mudanças |
-| --- | --- |
-| 2.4.0 | Reparos de fechamento antes dos demais ajustes, 29 erros exatos de nomes de parâmetros e ajuste do trecho completo anterior a uma cauda incompleta. Referências nomeadas ficam protegidas nessa passagem. Os avisos são conferidos novamente depois dos reparos. |
-| 2.3.0 | Retirada de cópias idênticas de infocaixas e chamadas finais, consolidação de listas globais redundantes e reparos de resíduos conhecidos de copiar e colar. Conservação de separadores entre dígitos e das fontes no bloco final. |
-| 2.2.1 | Atalho Ajustar código antes do botão Publicar, com as mesmas regras e os mesmos catálogos da 2.2.0. |
-| 2.2.0 | Correção da conferência de tabelas, remissões depois de títulos de seções e redução de avisos sem ação necessária. Reparos de apresentação conferidos em revisões públicas. |
-| 2.1.1 | Separação de subtítulos anuais em tabelas reconhecidas, mantendo os registros e as referências. |
-| 2.1.0 | Ampliação das profissões e dos portais de biografias, confirmação própria para Mulheres e revisão da leitura de notas e das respostas de pré-visualização. |
-| 2.0.1 | Reparo do argumento de Colunas-lista, conversão de Cite news para Citar jornal e proteção dos separadores de tabelas junto a referências. |
-| 2.0.0 | Reparos confirmados de citações e tabelas, conferência automática da pré-visualização e separação entre o programa e os catálogos na instalação. |
-| 1.9.1 | Preservação de dni e Dni, proteção contra a adição redundante de Brasil quando há portal de estado brasileiro e uso de parâmetros posicionais em chamadas simples de Portal3. |
-| 1.9.0 | Grafias exatas em Ajustar código, inicial minúscula nas profissões da infocaixa, portais pela infocaixa, idade com confirmação de pessoa viva, abertura nos espaços de wikitexto e nomes neutros para referências. |
-| 1.8.0 | Melhoria do processamento, reutilização de referências idênticas, reparos automáticos de parâmetros, contador de bytes e marcação de edição menor para mudanças mecânicas confirmadas. |
-| 1.7.0 | Ampliação do catálogo, colunas de referências a partir de seis entradas, preservação de nomes alternativos válidos e conferência de citações abreviadas. |
-| 1.6.0 | Reorganização do painel e do relatório, comparação com linhas de contexto, resumos automáticos revistos e correções de estabilidade. |
-| 1.5.0 | Conferência de tabelas e datas, escolhas para desambiguações, conferência integrada, resumos específicos e diagnóstico copiável. Conferência experimental de TemplateStyles. |
-| 1.4.0 | Ampliação da sintaxe importada, controle de autoridade e organização das seções finais. A entrega de biografias com o mesmo número acrescentou Biografias em artigos com infocaixa individual reconhecida. |
-| 1.3.0 | Ampliação do catálogo ortográfico, propostas de possíveis palavras repetidas e lista pessoal de palavras. |
-| 1.2.1 | Revisão do uso de colunas nas referências e ajuste automático de colunas em listas compatíveis de Leitura adicional e Ligações externas. |
-| 1.2.0 | Reutilização da leitura de predefinições na pontuação das referências, processamento separado quando disponível, andamento visível e cancelamento. Reorganização do painel. |
-| 1.1.0 | Conferência ortográfica separada, com contexto e escolhas por ocorrência. As regras de código da 1.0 foram mantidas. |
-| 1.0.0 | Adoção do nome RevisaWiki, com as regras do Ajuste geral 2.6, comparação, escolhas por trecho, desfazer e resumo automático sem nome de usuário. |
+`npm test` confere os arquivos distribuídos e executa os contratos locais. `npm run test:engine` confere as correções de referências e sintaxe, as opções desativadas e os limites do cache. `npm run test:privacy` testa o verificador e confere todos os arquivos acompanhados pelo Git. Os comandos de testes complexos e de regressão ampliam essa conferência. As revisões usadas nos testes ficam nos manifestos, com seus links permanentes e hashes. Nenhum teste publica na Wikipédia.
 
-## Código e licença
+A reconstrução parte da distribuição 2.4.0 preservada no repositório e confere o hash de origem e o conteúdo dos catálogos. O [guia de testes](tests/README.md) explica como obter as revisões para a rodada completa.
 
-Os arquivos das distribuições anteriores permanecem preservados. Código e documentação usam [CC BY-SA 4.0](LICENSE), com os créditos e a atribuição das fontes nos arquivos.
+## Privacidade e licença
+
+Os arquivos publicados passam pela [conferência de privacidade](docs/PRIVACIDADE.md). Logs temporários, caminhos do computador e capturas de tela ficam fora da publicação. A [nota sobre o histórico](PRIVACY.md) explica a limpeza dos relatórios antigos.
+
+Código sob [CC BY-SA 4.0](LICENSE). Os créditos e as revisões dos scripts consultados estão no cabeçalho e no manual.
