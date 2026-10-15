@@ -1,0 +1,136 @@
+{
+  "entries": [
+    {
+      "title": "Nicolau Maquiavel",
+      "revid": 73088488,
+      "inputSha256": "b51e6e40f0102df6adbdeb43b0a27c0ae0a06dc636963e3c99cb5586621802c5",
+      "expectedPreservationWarnings": [
+        {
+          "code": "lost-prose",
+          "message": "Conferir palavras retiradas do texto visível: Ficheiro. Mudanças de apresentação podem explicar o aviso.",
+          "start": -1,
+          "severity": "warning"
+        }
+      ],
+      "sourceBound": true,
+      "reason": "An existing unclosed image/wiki-link makes a technical Ficheiro namespace token leak into the core plain-prose word check. The namespace spelling change is presentation only. Malformed source was not guessed or repaired.",
+      "proofFile": "tests/evidence/2.3.0/nicolau_namespace_warning_proof.json",
+      "proofSha256": "b61699cd387f057353f1a81abf08497f59e344c9ecfdc29abc49887bd631eac0"
+    },
+    {
+      "title": "Estrela",
+      "revid": 72504980,
+      "inputSha256": "966df1e88791cf4789ba54cb65565f4e97e38d325daa52c48d7eaa80381d8368",
+      "expectedOutputSha256": "691486bfb4af8cc500a4c38afa4e9153f4fb211d7257418f940a49fcc696a547",
+      "expectedPreservationWarnings": [
+        {
+          "code": "lost-prose",
+          "message": "Conferir palavras retiradas do texto visível: thumb, thumb, left, thumb, thumb, thumb, thumb, left, thumb, thumb, left, thumb, thumb. Mudanças de apresentação podem explicar o aviso.",
+          "start": -1,
+          "severity": "warning"
+        }
+      ],
+      "sourceBound": true,
+      "exactPreviousVersionOutputVerified": true,
+      "reason": "Pre-existing thumbnail/left image-option tokens reach the plain-prose guard in this exact source revision. The output is byte-identical to 2.2.1; independent comparisons retain all image captions, files, categories and table cells. The production warning stays visible.",
+      "proofFiles": [
+        {
+          "file": "tests/evidence/2.3.0/estrela_baseline_warning_probe.json",
+          "sha256": "bb84ad9fa4b39c4a7d24438a515061d4cc447a077dee5481d6efce4bda6d78f2"
+        },
+        {
+          "file": "tests/evidence/2.3.0/estrela_independent_warning_proof.json",
+          "sha256": "a355f51b927df401fdf6050eaebb0349649f322d7dbe7b82e5e70394aac68db8"
+        }
+      ]
+    },
+    {
+      "title": "Franz Boas",
+      "revid": 72705838,
+      "inputSha256": "d6da168b07c47484b12f99b1cc56c2764c8d58951d2b1172b850273bc992dc31",
+      "expectedOutputSha256": "0a2b67d8c5d4ac9f29c26a682ccbc697abaf68a8816d8dfe06d56d4c4824702e",
+      "expectedPreservationWarnings": [
+        {
+          "code": "lost-prose",
+          "message": "Conferir palavras retiradas do texto visível: thumb, thumb, right, File, thumb. Mudanças de apresentação podem explicar o aviso.",
+          "start": -1,
+          "severity": "warning"
+        }
+      ],
+      "sourceBound": true,
+      "exactPreviousVersionOutputVerified": true,
+      "reason": "Pre-existing thumb/right/File image syntax reaches the plain-prose guard in this exact source revision. Output is byte-identical to 2.2.1; independent image/caption/file/category/table comparison passes. Production warning remains visible.",
+      "proofFiles": [
+        {
+          "file": "tests/evidence/2.3.0/franz_baseline_warning_probe.json",
+          "sha256": "54201548ec2399b62dcf0f4f5e8ad30851d4f2bc5317b77746e011b7771d083f"
+        },
+        {
+          "file": "tests/evidence/2.3.0/franz_independent_warning_proof.json",
+          "sha256": "50beb0f4e0ab857828af5a72b50391f6a99c6e0f6ff47d763c7bd9bfb3073702"
+        }
+      ]
+    },
+    {
+      "title": "Estatísticas do Botafogo de Futebol e Regatas",
+      "revid": 73026558,
+      "inputSha256": "03f85fe6823dd83e67655fcc91526df0e9dc79a643f243e89d7b90097ecb7ad9",
+      "expectedOutputSha256": "da3d7677b85fc1acb4fcedc42bfec572f1c488c63a46bed1a73a3c8b3d23e31e",
+      "expectedPreservationWarnings": [
+        {
+          "code": "lost-url",
+          "message": "URL retirada pelo ajuste: https://https://ge.globo.com/futebol/times/botafogo/noticia/2026/05/22/barboza-se-despede-do-botafogo-em-publicacao-nas-redes-sociais.ghtml.",
+          "start": -1,
+          "severity": "warning"
+        }
+      ],
+      "sourceBound": true,
+      "exactPreviousVersionOutputVerified": true,
+      "reason": "Only this exact source revision/hash and this single literal duplicated-protocol URL. No general acceptance of removed source URLs.",
+      "proofFiles": [
+        {
+          "file": "tests/evidence/2.3.0/botafogo_baseline_warning_probe.json",
+          "sha256": "4c3155449d1cbe9aaadc1b7c265758c8d19fa6ed28c5e8eb3576c32b049b3ba7"
+        },
+        {
+          "file": "tests/evidence/2.3.0/botafogo_independent_warning_proof.json",
+          "sha256": "f21b2034d7388de46645e1140669efcc993cc24b15f93de12f02d8422d8d7cd8"
+        }
+      ]
+    },
+    {
+      "title": "Revolução Mexicana",
+      "revid": 73117564,
+      "inputSha256": "02425dd9e25b9eca5ecdbde2714c3d4fc4d15b6e38e9f6631fd07f2a555d9631",
+      "expectedOutputSha256": "1f5c1dee6792cc1d78c3ff74749beff6278a5927cfe2f08b7c23c2d8e301cb4c",
+      "expectedPreservationWarnings": [
+        {
+          "code": "lost-identifier",
+          "message": "Identificador de publicação retirado pelo ajuste: isbn=ISBN9706863206.",
+          "start": -1,
+          "severity": "warning"
+        },
+        {
+          "code": "lost-identifier",
+          "message": "Identificador de publicação retirado pelo ajuste: isbn=ISBN9683802680.",
+          "start": -1,
+          "severity": "warning"
+        }
+      ],
+      "sourceBound": true,
+      "exactPreviousVersionOutputVerified": true,
+      "reason": "Only this exact revision/hash and these two redundant literal ISBN prefixes; every ISBN digit remains unchanged and both ISBN-10 check digits are valid.",
+      "proofFiles": [
+        {
+          "file": "tests/evidence/2.3.0/revolucao_mexicana_baseline_warning_probe.json",
+          "sha256": "ba18ec84b1fd3ac53cb2b05090d55435c08dc151b6ade4d27d53ee0ba6416589"
+        },
+        {
+          "file": "tests/evidence/2.3.0/revolucao_mexicana_independent_warning_proof.json",
+          "sha256": "8e67f87e3845599861a2e539a38874c5e6bf77a77e743a3d12c66a07a62abc99"
+        }
+      ]
+    }
+  ],
+  "policy": "Exact source revision/hash and exact warning list only; no wildcard warning exemption. Production warnings are not hidden or removed."
+}

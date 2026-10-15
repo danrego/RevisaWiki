@@ -1,0 +1,1365 @@
+[
+  {
+    "name": "literal identical boxes in lead and final block",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n* [[Lista de tanques]]\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n\n* [[Lista de tanques]]\n",
+    "options": {},
+    "reason": "The same literal box remains once; independent visible prose stays exact.",
+    "component": "structure"
+  },
+  {
+    "name": "literal adjacent infoboxes",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "different box peso=18 toneladas",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 91|peso=18 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 91|peso=18 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "A single differing field forbids deletion, even if box names match.",
+    "component": "structure"
+  },
+  {
+    "name": "different box nome=Ikv 105",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 105|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 105|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "A single differing field forbids deletion, even if box names match.",
+    "component": "structure"
+  },
+  {
+    "name": "different box imagem=Outra.jpg",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Outra.jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Outro objeto ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Outra.jpg}}\n",
+    "options": {},
+    "reason": "A single differing field forbids deletion, even if box names match.",
+    "component": "structure"
+  },
+  {
+    "name": "nonliteral equality 5",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91| peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91| peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "No equivalence inference across order, whitespace, comment or duplicate fields.",
+    "component": "structure"
+  },
+  {
+    "name": "nonliteral equality 6",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|peso=16,3 toneladas|nome=Ikv 91|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|peso=16,3 toneladas|nome=Ikv 91|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "No equivalence inference across order, whitespace, comment or duplicate fields.",
+    "component": "structure"
+  },
+  {
+    "name": "nonliteral equality 7",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91<!--nota-->|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91<!--nota-->|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "No equivalence inference across order, whitespace, comment or duplicate fields.",
+    "component": "structure"
+  },
+  {
+    "name": "nonliteral equality 8",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Info/Arma|nome=Ikv 91|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "No equivalence inference across order, whitespace, comment or duplicate fields.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box <!--Comentário da caixa-->",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<!--Comentário da caixa-->|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<!--Comentário da caixa-->|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<!--Comentário da caixa-->|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<!--Comentário da caixa-->|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box <nowiki>literal</nowiki>",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<nowiki>literal</nowiki>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<nowiki>literal</nowiki>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<nowiki>literal</nowiki>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<nowiki>literal</nowiki>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box <ref>Fonte própria da caixa.</ref>",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref>Fonte própria da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref>Fonte própria da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref>Fonte própria da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref>Fonte própria da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box <ref name=\"a\">Fonte da caixa.</ref>",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\">Fonte da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\">Fonte da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\">Fonte da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\">Fonte da caixa.</ref>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box <ref name=\"a\"/>",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\"/>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\"/>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\"/>|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas<ref name=\"a\"/>|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box {{sfn|Autor|2020}}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{sfn|Autor|2020}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{sfn|Autor|2020}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{sfn|Autor|2020}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{sfn|Autor|2020}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box {{efn|Nota da caixa}}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{efn|Nota da caixa}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{efn|Nota da caixa}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{efn|Nota da caixa}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{efn|Nota da caixa}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box {{#invoke:Dados|referencia}}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{#invoke:Dados|referencia}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{#invoke:Dados|referencia}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{#invoke:Dados|referencia}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{#invoke:Dados|referencia}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "reference-bearing or dynamic box {{Fonte dinâmica}}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{Fonte dinâmica}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{Fonte dinâmica}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{Fonte dinâmica}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas{{Fonte dinâmica}}|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Citation numbering or dynamic template effects are not inferred.",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 18",
+    "source": "<nowiki>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</nowiki>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<nowiki>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</nowiki>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 19",
+    "source": "<pre>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</pre>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<pre>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</pre>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 20",
+    "source": "<syntaxhighlight lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</syntaxhighlight>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<syntaxhighlight lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</syntaxhighlight>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 21",
+    "source": "<!--{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n-->\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<!--{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n-->\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 22",
+    "source": "<source lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</source>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<source lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</source>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 23",
+    "source": "<ref>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</ref>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<ref>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n</ref>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 24",
+    "source": "{{Exemplo|1={{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Exemplo|1={{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 25",
+    "source": "{| class=\"wikitable\"\n| {{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n|}\n\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{| class=\"wikitable\"\n| {{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n|}\n\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 26",
+    "source": "[[Imagem:Exemplo.png|miniatura|{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n]]\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "[[Imagem:Exemplo.png|miniatura|{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n]]\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 27",
+    "source": "<table><tr><td>\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n</td></tr></table>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<table><tr><td>\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n</td></tr></table>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 28",
+    "source": "<div class=\"comparison\">\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n</div>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "<div class=\"comparison\">\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\n</div>\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "protected or nested boxes 29",
+    "source": "\"{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\"\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "\"{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n\"\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'namespaceNumber': 1, 'discussionPage': True}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "namespaceNumber": 1,
+      "discussionPage": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste/doc"
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'namespaceNumber': 2, 'pageTitle': 'Usuário:Teste/Testes'}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "namespaceNumber": 2,
+      "pageTitle": "Usuário:Teste/Testes"
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'namespaceNumber': 4, 'pageTitle': 'Wikipédia:Teste'}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "namespaceNumber": 4,
+      "pageTitle": "Wikipédia:Teste"
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'sectionOnly': True}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'infoboxes': False}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "infoboxes": false
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'structuralRepairs': False}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'pageRedirect': True}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "pageRedirect": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "context preserves duplicate boxes {'pageDisambiguation': True}",
+    "source": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {
+      "pageDisambiguation": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "leading empty renderer removed {{Reflist}}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n{{Reflist}}\n",
+    "expected": "\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n{{Referências}}\n",
+    "options": {},
+    "reason": "Retain a unique final renderer, all citation bytes unchanged.",
+    "component": "structure"
+  },
+  {
+    "name": "leading empty renderer removed {{Referências}}",
+    "source": "{{Referências}}\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n{{Referências}}\n",
+    "expected": "\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n{{Referências}}\n",
+    "options": {},
+    "reason": "Retain a unique final renderer, all citation bytes unchanged.",
+    "component": "structure"
+  },
+  {
+    "name": "leading empty renderer removed <references/>",
+    "source": "<references/>\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n<references/>\n",
+    "expected": "\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref>\n== Ver também ==\n* [[Lista de tanques]]\n{{Referências}}\n",
+    "options": {},
+    "reason": "Retain a unique final renderer, all citation bytes unchanged.",
+    "component": "structure"
+  },
+  {
+    "name": "legitimate per-section collectors {{Reflist}}",
+    "source": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Reflist}}\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n{{Reflist}}\n",
+    "expected": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Reflist}}\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "legitimate per-section collectors {{Referências|nível=3}}",
+    "source": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências|nível=3}}\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n{{Referências|nível=3}}\n",
+    "expected": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências|nível=3}}\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n{{Referências|nível=3}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "legitimate per-section collectors <references/>",
+    "source": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n<references/>\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n<references/>\n",
+    "expected": "== Primeiro tema ==\nTexto.<ref name=\"a\">Fonte A.</ref>\n<references/>\n== Segundo tema ==\nTexto.<ref name=\"b\">Fonte B.</ref>\n<references/>\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 45",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref><ref name=\"a\" group=\"nota\">Nota A.</ref>\n{{Referências|grupo=nota|título=Notas}}\n{{Referências}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref><ref name=\"a\" group=\"nota\">Nota A.</ref>\n{{Referências|grupo=nota|título=Notas}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 46",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref name=\"a\"/>\n{{Reflist|refs=<ref name=\"a\">Fonte definida na lista.</ref>}}\n{{Reflist}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref name=\"a\"/>\n{{Reflist|refs=<ref name=\"a\">Fonte definida na lista.</ref>}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 47",
+    "source": "O '''Ikv 91''' é um veículo sueco.{{sfn|Autor|2020}}\n{{Referências}}\n{{Referências}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.{{sfn|Autor|2020}}\n{{Referências}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 48",
+    "source": "{{Ficha|referencias=sim}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "{{Ficha|referencias=sim}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 49",
+    "source": "{{Reflist|group=nota}}\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref><ref group=\"nota\">Nota.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist|group=nota}}\nO '''Ikv 91''' é um veículo sueco.<ref name=\"a\">Fonte A.</ref><ref group=\"nota\">Nota.</ref>\n{{Reflist}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 50",
+    "source": "{{Reflist|1=2|2=nota}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist|1=2|2=nota}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 51",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Referências|lista=Autor}}\n{{Referências}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Referências|lista=Autor}}\n{{Referências}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 52",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n<references><ref name=\"b\">Fonte B.</ref></references>\n<references/>\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n<references><ref name=\"b\">Fonte B.</ref></references>\n<references/>\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 53",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n<references responsive=\"0\"/>\n<references/>\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n<references responsive=\"0\"/>\n<references/>\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 54",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n== História ==\nTexto.<ref>Fonte B.</ref>\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n== História ==\nTexto.<ref>Fonte B.</ref>\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "ambiguous references 55",
+    "source": "O '''Ikv 91''' é um veículo sueco.<ref group=\"nota\">Nota explicativa.</ref>\n{{Notas}}\n{{Referências}}\n{{Notas}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.<ref group=\"nota\">Nota explicativa.</ref>\n{{Notas}}\n{{Referências}}\n{{Notas}}\n",
+    "options": {},
+    "reason": "Keep groups, metadata, refs= definitions, dynamic sources and legitimate local consumption.",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'namespaceNumber': 1, 'discussionPage': True}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "namespaceNumber": 1,
+      "discussionPage": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste/doc"
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'namespaceNumber': 2, 'pageTitle': 'Usuário:Teste/Testes'}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "namespaceNumber": 2,
+      "pageTitle": "Usuário:Teste/Testes"
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'sectionOnly': True}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'references': False}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "references": false
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'structuralRepairs': False}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'pageRedirect': True}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "pageRedirect": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "reference context guard {'pageDisambiguation': True}",
+    "source": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "{{Reflist}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Reflist}}\n",
+    "options": {
+      "pageDisambiguation": true
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "leading empty suppressed renderer is redundant",
+    "source": "{{Referências|nível=0}}\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n{{Referências}}\n",
+    "expected": "\nO '''Ikv 91''' é um veículo sueco.<ref>Fonte A.</ref>\n\n{{Referências}}\n\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "duplicate footer {{Portal3|Suécia}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n\n{{Portal3|Suécia}}\n{{Portal3|Suécia}}\n[[Categoria:Tanques da Suécia]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n\n{{Portal3|Suécia}}\n\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "inline footer preserved {{Portal3|Suécia}}",
+    "source": "O '''Ikv 91''' é um veículo sueco. {{Portal3|Suécia}} {{Portal3|Suécia}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco. {{Portal3|Suécia}} {{Portal3|Suécia}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nonfooter occurrence preserved {{Portal3|Suécia}}",
+    "source": "{{Portal3|Suécia}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Portal3|Suécia}}\n",
+    "expected": "{{Portal3|Suécia}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Portal3|Suécia}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "duplicate footer {{Commonscat|Infanterikanonvagn 91}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n\n{{Commonscat|Infanterikanonvagn 91}}\n{{Commonscat|Infanterikanonvagn 91}}\n[[Categoria:Tanques da Suécia]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n\n{{Commonscat|Infanterikanonvagn 91}}\n\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "inline footer preserved {{Commonscat|Infanterikanonvagn 91}}",
+    "source": "O '''Ikv 91''' é um veículo sueco. {{Commonscat|Infanterikanonvagn 91}} {{Commonscat|Infanterikanonvagn 91}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco. {{Commonscat|Infanterikanonvagn 91}} {{Commonscat|Infanterikanonvagn 91}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nonfooter occurrence preserved {{Commonscat|Infanterikanonvagn 91}}",
+    "source": "{{Commonscat|Infanterikanonvagn 91}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Commonscat|Infanterikanonvagn 91}}\n",
+    "expected": "{{Commonscat|Infanterikanonvagn 91}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Commonscat|Infanterikanonvagn 91}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "duplicate footer {{Controle de autoridade}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n\n{{Controle de autoridade}}\n{{Controle de autoridade}}\n[[Categoria:Tanques da Suécia]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n\n{{Controle de autoridade}}\n\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "inline footer preserved {{Controle de autoridade}}",
+    "source": "O '''Ikv 91''' é um veículo sueco. {{Controle de autoridade}} {{Controle de autoridade}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco. {{Controle de autoridade}} {{Controle de autoridade}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nonfooter occurrence preserved {{Controle de autoridade}}",
+    "source": "{{Controle de autoridade}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Controle de autoridade}}\n",
+    "expected": "{{Controle de autoridade}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Controle de autoridade}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "duplicate footer {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n\n{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n[[Categoria:Tanques da Suécia]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n\n{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "inline footer preserved {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+    "source": "O '''Ikv 91''' é um veículo sueco. {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}} {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco. {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}} {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nonfooter occurrence preserved {{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}",
+    "source": "{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n",
+    "expected": "{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\nO '''Ikv 91''' é um veículo sueco.\n== História ==\nTexto próprio.\n{{Navbox|nome=Teste|título=Veículos|lista1=[[Ikv 91]]}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "different final templates {{Portal3|Suécia}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Portal3|Suécia}}\n{{Portal3|Militar}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Portal3|Suécia}}\n{{Portal3|Militar}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "different final templates {{Commonscat|Ikv 91}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Commonscat|Ikv 91}}\n{{Commonscat|Ikv 105}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Commonscat|Ikv 91}}\n{{Commonscat|Ikv 105}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "different final templates {{Controle de autoridade|VIAF=123}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Controle de autoridade|VIAF=123}}\n{{Controle de autoridade|VIAF=456}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Controle de autoridade|VIAF=123}}\n{{Controle de autoridade|VIAF=456}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "different final templates {{Navbox|nome=Teste|lista1=[[A]]}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Navbox|nome=Teste|lista1=[[A]]}}\n{{Navbox|nome=Teste|lista1=[[B]]}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Navbox|nome=Teste|lista1=[[A]]}}\n{{Navbox|nome=Teste|lista1=[[B]]}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Predefinição desconhecida|valor=1}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Predefinição desconhecida|valor=1}}\n{{Predefinição desconhecida|valor=1}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Predefinição desconhecida|valor=1}}\n{{Predefinição desconhecida|valor=1}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Esboço}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Esboço}}\n{{Esboço}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Esboço}}\n{{Esboço}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Notas}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Notas}}\n{{Notas}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Notas}}\n{{Notas}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Referências|refs=<ref>Fonte.</ref>}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Referências|refs=<ref>Fonte.</ref>}}\n{{Referências|refs=<ref>Fonte.</ref>}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Referências|refs=<ref>Fonte.</ref>}}\n{{Referências|refs=<ref>Fonte.</ref>}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Commonscat|Ikv 91<ref>Fonte</ref>}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Commonscat|Ikv 91<ref>Fonte</ref>}}\n{{Commonscat|Ikv 91<ref>Fonte</ref>}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Commonscat|Ikv 91<ref>Fonte</ref>}}\n{{Commonscat|Ikv 91<ref>Fonte</ref>}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unproved footer duplicate {{Portal3|Suécia|a={{Dados}}}}",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n{{Portal3|Suécia|a={{Dados}}}}\n{{Portal3|Suécia|a={{Dados}}}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n{{Portal3|Suécia|a={{Dados}}}}\n{{Portal3|Suécia|a={{Dados}}}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 87",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n* [[Lista de tanques]]\n== Ver também ==\n* [[Tanque]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n* [[Lista de tanques]]\n== Ver também ==\n* [[Tanque]]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 88",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Ligações externas ==\n=== Museus ===\n* [https://example.invalid Museu]\n== Ligações externas ==\n* [https://example.invalid/outro Outro]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Ligações externas ==\n=== Museus ===\n* [https://example.invalid Museu]\n== Ligações externas ==\n* [https://example.invalid/outro Outro]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 89",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\nFonte sem lista.\n{{Referências}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\nFonte sem lista.\n{{Referências}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 90",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n=== Referências ===\n{{Referências|nível=3}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n=== Referências ===\n{{Referências|nível=3}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 91",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n<!-- nota de seção -->\n{{Referências}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n<!-- nota de seção -->\n{{Referências}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 92",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n{{Referências|título=Fontes}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n{{Referências|título=Fontes}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "end heading distinct content 93",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n{{Referências|nível=0}}\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Referências ==\n{{Referências|nível=0}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "obsolete exact category",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other category retained !Artigos com descrição curta/Documentação",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos com descrição curta/Documentação]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos com descrição curta/Documentação]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other category retained !Artigos sem descrição curta",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos sem descrição curta]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos sem descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other category retained Artigos com descrição curta",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:Artigos com descrição curta]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other category retained !Artigos com ligação inválida para o Commons",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos com ligação inválida para o Commons]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos com ligação inválida para o Commons]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other category retained !Artigos que carecem de fontes",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos que carecem de fontes]]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n[[Categoria:!Artigos que carecem de fontes]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "prose double encoded ampersand",
+    "source": "A empresa Hägglund &amp;amp; Söner fabricou o veículo.\n",
+    "expected": "A empresa Hägglund &amp; Söner fabricou o veículo.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 101",
+    "source": "<nowiki>A &amp;amp; B</nowiki>\n",
+    "expected": "<nowiki>A &amp;amp; B</nowiki>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 102",
+    "source": "<pre>A &amp;amp; B</pre>\n",
+    "expected": "<pre>A &amp;amp; B</pre>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 103",
+    "source": "<ref>A &amp;amp; B</ref>\n",
+    "expected": "<ref>A &amp;amp; B</ref>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 104",
+    "source": "{{Citar web|titulo=A &amp;amp; B}}\n",
+    "expected": "{{Citar web|titulo=A &amp;amp; B}}\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 105",
+    "source": "https://example.invalid/?s=A%20&amp;amp;%20B\n",
+    "expected": "https://example.invalid/?s=A%20&amp;amp;%20B\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 106",
+    "source": "\"A &amp;amp; B\"\n",
+    "expected": "\"A &amp;amp; B\"\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 107",
+    "source": "''A &amp;amp; B''\n",
+    "expected": "''A &amp;amp; B''\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 108",
+    "source": "[https://example.invalid A &amp;amp; B]\n",
+    "expected": "[https://example.invalid A &amp;amp; B]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 109",
+    "source": "[[Tema|A &amp;amp; B]]\n",
+    "expected": "[[Tema|A &amp;amp; B]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 110",
+    "source": "<!--A &amp;amp; B-->\n",
+    "expected": "<!--A &amp;amp; B-->\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 111",
+    "source": "<math>A &amp;amp; B</math>\n",
+    "expected": "<math>A &amp;amp; B</math>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "protected double encoding 112",
+    "source": "<syntaxhighlight lang=\"html\">A &amp;amp; B</syntaxhighlight>\n",
+    "expected": "<syntaxhighlight lang=\"html\">A &amp;amp; B</syntaxhighlight>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;",
+    "source": "Expressão &amp; preservada.\n",
+    "expected": "Expressão &amp; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;lt;",
+    "source": "Expressão &amp;lt; preservada.\n",
+    "expected": "Expressão &amp;lt; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;quot;",
+    "source": "Expressão &amp;quot; preservada.\n",
+    "expected": "Expressão &amp;quot; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;#91;",
+    "source": "Expressão &amp;#91; preservada.\n",
+    "expected": "Expressão &amp;#91; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;#x3B1;",
+    "source": "Expressão &amp;#x3B1; preservada.\n",
+    "expected": "Expressão &amp;#x3B1; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other entity retained &amp;amp;amp;",
+    "source": "Expressão &amp;amp;amp; preservada.\n",
+    "expected": "Expressão &amp;amp;amp; preservada.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "whole wiki fence wikitext",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "whole wiki fence wiki",
+    "source": "```wiki\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "whole wiki fence mediawiki",
+    "source": "```mediawiki\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language 'javascript'",
+    "source": "```javascript\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```javascript\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language 'lua'",
+    "source": "```lua\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```lua\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language 'text'",
+    "source": "```text\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```text\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language 'html'",
+    "source": "```html\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```html\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language 'python'",
+    "source": "```python\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```python\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "other fence language ''",
+    "source": "```\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 128",
+    "source": "```wikitext\nO '''Ikv 91''' é um veículo sueco.\n```\n",
+    "expected": "```wikitext\nO '''Ikv 91''' é um veículo sueco.\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 129",
+    "source": "Introdução antes.\n```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "Introdução antes.\n```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 130",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\nPosfácio depois.\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\nPosfácio depois.\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 131",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 132",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n```wikitext\nOutro exemplo\n```\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n```wikitext\nOutro exemplo\n```\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "ambiguous fence 133",
+    "source": "<syntaxhighlight>```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```</syntaxhighlight>\n",
+    "expected": "<syntaxhighlight>```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```</syntaxhighlight>\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "fence context {'namespaceNumber': 1, 'discussionPage': True}",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {
+      "namespaceNumber": 1,
+      "discussionPage": true
+    },
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "fence context {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste/doc'}",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste/doc"
+    },
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "fence context {'sectionOnly': True}",
+    "source": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "expected": "```wikitext\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n'''Ikv 91''' é um veículo sueco.\n== História ==\nFoi fabricado na Suécia.\n[[Categoria:Tanques da Suécia]]\n```\n",
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected structure <nowiki>",
+    "source": "<nowiki>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "<nowiki>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure <pre>",
+    "source": "<pre>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "<pre>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure <blockquote>",
+    "source": "<blockquote>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "<blockquote>{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure <syntaxhighlight lang=\"wikitext\">",
+    "source": "<syntaxhighlight lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "<syntaxhighlight lang=\"wikitext\">{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure <!--",
+    "source": "<!--{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "<!--{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure {{Exemplo|1=",
+    "source": "{{Exemplo|1={{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "{{Exemplo|1={{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected structure [[Imagem:Exemplo.png|miniatura|",
+    "source": "[[Imagem:Exemplo.png|miniatura|{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "expected": "[[Imagem:Exemplo.png|miniatura|{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n{{Reflist}}\n{{Reflist}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed protected encoding <ref>",
+    "source": "<ref>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<ref>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding <references>",
+    "source": "<references>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<references>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding <nowiki>",
+    "source": "<nowiki>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<nowiki>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding <pre>",
+    "source": "<pre>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<pre>A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding <syntaxhighlight lang=\"html\">",
+    "source": "<syntaxhighlight lang=\"html\">A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<syntaxhighlight lang=\"html\">A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding <!--",
+    "source": "<!--A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "<!--A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding {{Citar web|titulo=",
+    "source": "{{Citar web|titulo=A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "{{Citar web|titulo=A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "unclosed protected encoding [[Tema|",
+    "source": "[[Tema|A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "expected": "[[Tema|A &amp;amp; B\n[[Categoria:!Artigos com descrição curta]]\n",
+    "options": {},
+    "reason": "",
+    "component": "residues"
+  },
+  {
+    "name": "safe literal nested formatting 152",
+    "source": "{{Info/Arma|nome=Ikv 91|peso={{nowrap|16,3 toneladas}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso={{nowrap|16,3 toneladas}}|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso={{nowrap|16,3 toneladas}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "safe literal nested formatting 153",
+    "source": "{{Info/Arma|nome={{lang|sv|Ikv 91}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome={{lang|sv|Ikv 91}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome={{lang|sv|Ikv 91}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "safe literal nested formatting 154",
+    "source": "{{Info/Arma|nome={{flag|Suécia}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome={{flag|Suécia}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome={{flag|Suécia}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nested dynamic template safety 155",
+    "source": "{{Info/Arma|nome=Ikv 91|peso={{nowrap|{{#expr:1+2}}}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso={{nowrap|{{#expr:1+2}}}}|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome=Ikv 91|peso={{nowrap|{{#expr:1+2}}}}|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome=Ikv 91|peso={{nowrap|{{#expr:1+2}}}}|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "nested dynamic template safety 156",
+    "source": "{{Info/Arma|nome={{flag|{{PAGENAME}}}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome={{flag|{{PAGENAME}}}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "{{Info/Arma|nome={{flag|{{PAGENAME}}}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\nO '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n{{Info/Arma|nome={{flag|{{PAGENAME}}}}|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "presentation container headings 157",
+    "source": "<div class=\"comparison\">\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n</div>\n",
+    "expected": "<div class=\"comparison\">\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n</div>\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "presentation container headings 158",
+    "source": "<table><tr><td>\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n</td></tr></table>\n",
+    "expected": "<table><tr><td>\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n</td></tr></table>\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "presentation container headings 159",
+    "source": "<div class=\"comparison\">\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n",
+    "expected": "<div class=\"comparison\">\n== Ver também ==\n== Ligações externas ==\n* [https://example.invalid Fonte]\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "headings disabled preserves empty final heading",
+    "source": "O '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n\n== Ligações externas ==\n* [https://example.invalid Fonte]\n",
+    "expected": "O '''Ikv 91''' é um veículo sueco.\n== Ver também ==\n\n== Ligações externas ==\n* [https://example.invalid Fonte]\n",
+    "options": {
+      "headings": false
+    },
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed quotation \"",
+    "source": "\"\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "\"\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed quotation “",
+    "source": "“\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "“\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  },
+  {
+    "name": "unclosed quotation «",
+    "source": "«\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "expected": "«\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n{{Info/Arma|nome=Ikv 91|peso=16,3 toneladas|imagem=Ikv 90 rolling (cropped).jpg}}\n",
+    "options": {},
+    "reason": "",
+    "component": "structure"
+  }
+]

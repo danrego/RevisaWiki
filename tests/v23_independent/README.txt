@@ -1,0 +1,5 @@
+Contratos de estrutura escritos com expectativas independentes. Os casos ambíguos exigem preservação byte a byte. Casos positivos desconsideram somente espaço em branco entre blocos retirados.
+
+run_contracts.cjs usa a distribuição completa, ou REVISAWIKI_QA_SCRIPT para indicar outro arquivo. Os diretórios ref_punctuation, reference_headers e reference_columns incluem os contratos de pontuação, cabeçalhos e bancos de referências. O comando principal npm test repete os quatro conjuntos nas duas distribuições. Resultados e candidatos derivados ficam em artifacts/, ignorados pelo Git. As fontes originais estão em tests/fixtures/v23, e as evidências executadas em tests/evidence/2.3.0.
+
+preview_browser_tests.js usa DOMParser real. native/run_preview.cjs o executa em uma página local, sem contas, pedidos à Wikipédia ou publicação. native/run_late_regressions.cjs repete os casos adicionais de pontuação, cabeçalhos e bancos de referências. As fontes do incidente, as outras revisões reais e o exemplo reduzido mantêm atribuição em tests/fixtures/v23/ATTRIBUTION.txt.

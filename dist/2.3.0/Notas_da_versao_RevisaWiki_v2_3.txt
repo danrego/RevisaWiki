@@ -1,0 +1,41 @@
+RevisaWiki 2.3.0
+
+Atualização preparada em 14 de outubro de 2026. Nenhuma edição foi feita na Wikipédia. A distribuição mantém duas partes para instalação, núcleo e dados, porque o arquivo completo ultrapassa o limite de 2 MiB por página.
+
+MUDANÇAS
+
+- Retirada de uma cópia literalmente idêntica de infocaixa em padrões reconhecidos, sem escolher entre campos divergentes nem alterar comparações legítimas.
+- Retirada de chamadas finais estáticas idênticas de portais, outros projetos, controle de autoridade e caixas de navegação reconhecidas.
+- Consolidação de listas globais simples redundantes no bloco final, com conservação das referências e proteção de grupos, refs= e listas por seção.
+- Preservação de listas sem cabeçalho na conversão de Reflist, usando nível=0 quando a consolidação não se aplica.
+- Aviso específico para infocaixas com o mesmo nome e campos diferentes, ou chamada de Referências que ainda gera um título antes da introdução.
+- Retirada de títulos finais comprovadamente vazios, conservando seções com conteúdos próprios e subseções.
+- Tratamento restrito da categoria !Artigos com descrição curta, de &amp;amp; em prosa comum e de cercas externas de Markdown em artigos reconhecidos.
+- Preservação de desigualdades como < q < 1,3 na leitura do código, sem confundi-las com etiquetas HTML. Blocos protegidos realmente sem fechamento impedem acréscimos ao bloco final.
+- Conferência das infocaixas, caixas de navegação e referências na pré-visualização quando uma retirada de cópias altera esses elementos.
+- Preservação de separadores de números decimais e horários junto a referências, com leitura de letras e dígitos Unicode e resultado estável na segunda passagem.
+- Limpeza do título Referências restrita à chamada imediatamente seguinte, sem cortar entradas bibliográficas ou endereços anteriores.
+- Conferência de que a configuração de duas colunas continua fora de refs=, mantendo a chamada quando essa separação não é confirmada.
+
+USO
+
+O botão azul Ajustar código e o atalho verde azulado antes de Publicar executam os mesmos ajustes. Ver o que mudou e Desfazer ajustes permanecem no painel. O programa ajusta o rascunho e não publica a página.
+
+Os novos reparos exigem o artigo inteiro do domínio principal. Tabelas, exemplos, citações, código calculado e conteúdo distinto mantêm as proteções próprias. Casos incertos não recebem um alerta genérico de repetição.
+
+TESTES
+
+A distribuição final foi testada nos dois conjuntos de 1.000 artigos, incluindo 1.000 novas fontes acima de 100 KB, e nas versões modular e completa. Passou também nos contratos independentes de estrutura e pré-visualização, nas baterias históricas e nos fluxos locais do Firefox, Chrome e Safari no Mac. Cinco fontes mantêm avisos antigos vinculados a revisões e hashes exatos, com provas separadas de conservação. O relatório da versão identifica as fontes, as auditorias reaproveitadas após comparação exata, os casos corrigidos e os limites dos testes. Nenhuma edição foi feita na Wikipédia.
+
+As três revisões do incidente Infanterikanonvagn 91, casos positivos, controles de falsos positivos e idempotência integram a validação. Os arquivos do novo conjunto de artigos têm mais de 102.400 bytes de wikitexto e incluem física e matemática. Os relatórios distinguem resultados desta versão dos testes históricos.
+
+INSTALAÇÃO
+
+Atualize primeiro RevisaWiki_v2_3_dados.js, depois RevisaWiki_v2_3.js e, por último, expectedVersion para '2.3.0' no carregador. Preserve os demais scripts do common.js e mantenha uma única chamada do RevisaWiki. Instale o carregador comunitário somente depois que as páginas de distribuição estiverem na mesma versão.
+
+O índice de cópia e o arquivo Instalacao_RevisaWiki_v2_3.txt trazem os destinos e o processo completo. RevisaWiki_v2_3_completo.js é fornecido para download e testes locais, sem substituir as duas partes da instalação.
+
+LICENÇA E CRÉDITOS
+
+CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+Mantidas as revisões permanentes usadas como fontes dos scripts públicos, além das licenças existentes no código e na documentação.

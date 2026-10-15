@@ -1,0 +1,357 @@
+[
+  {
+    "name": "non-adjacent earlier heading 0{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 0{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 0<references/>",
+    "source": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto geral sem lista.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 1{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 1{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 1<references/>",
+    "source": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n; Gerais\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 2{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 2{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 2<references/>",
+    "source": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 3{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 3{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 3<references/>",
+    "source": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n: Explicação preservada.\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 4{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 4{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 4<references/>",
+    "source": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\nTexto.<ref name=\"a\">Fonte A.</ref>\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 5{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 5{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 5<references/>",
+    "source": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n=== Bibliografia geral ===\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 6{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 6{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 6<references/>",
+    "source": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n<!-- Comentário preservado -->\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 7{{Reflist}}",
+    "source": "Introdução.\n== Referências ==\n\n\n; Específicas\n{{Reflist}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 7{{Referências}}",
+    "source": "Introdução.\n== Referências ==\n\n\n; Específicas\n{{Referências}}\n",
+    "expected": "Introdução.\n== Referências ==\n\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "non-adjacent earlier heading 7<references/>",
+    "source": "Introdução.\n== Referências ==\n\n\n; Específicas\n<references/>\n",
+    "expected": "Introdução.\n== Referências ==\n\n\n; Específicas\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1''''",
+    "source": "== Referências ==\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1'''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1'''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1'\\n'''",
+    "source": "== Referências ==\n\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1'\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1'\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1' \\n\\t\\n'''",
+    "source": "== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1' \\n\\t\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 1' \\n\\t\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2''''",
+    "source": "== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2'''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2'''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2'\\n'''",
+    "source": "== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2'\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2'\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2' \\n\\t\\n'''",
+    "source": "== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2' \\n\\t\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 2' \\n\\t\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3''''",
+    "source": "== Referências ==\n== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3'''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3'''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n== Referências ==\n== Referências ==\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3'\\n'''",
+    "source": "== Referências ==\n\n== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3'\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n\n== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3'\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n\n== Referências ==\n\n== Referências ==\n\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3' \\n\\t\\n'''",
+    "source": "== Referências ==\n \n\t\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3' \\n\\t\\n''Texto.\\n'",
+    "source": "Texto.\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n{{Referências}}\n"
+  },
+  {
+    "name": "adjacent empty headers 3' \\n\\t\\n''Texto.\\n\\n'",
+    "source": "Texto.\n\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n== Referências ==\n \n\t\n{{Reflist}}\n",
+    "expected": "Texto.\n\n{{Referências}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|nível=0}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|nível=0}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|nível=0}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|nível=3}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|nível=3}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|nível=3}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|título=Fontes}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|título=Fontes}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|título=Fontes}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|Fontes}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|Fontes}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|Fontes}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|1=Fontes|2=2}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|1=Fontes|2=2}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|1=Fontes|2=2}}\n"
+  },
+  {
+    "name": "explicit metadata preserved {{Referências|título=Notas|grupo=nota}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|título=Notas|grupo=nota}}\n",
+    "expected": "Texto.\n== Referências ==\n\n{{Referências|título=Notas|grupo=nota}}\n"
+  },
+  {
+    "name": "matching own heading {{Referências|título=Referências|nível=2}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|título=Referências|nível=2}}\n",
+    "expected": "Texto.\n{{Referências|título=Referências|nível=2}}\n"
+  },
+  {
+    "name": "matching own heading {{Referências|nível=2}}",
+    "source": "Texto.\n== Referências ==\n\n{{Referências|nível=2}}\n",
+    "expected": "Texto.\n{{Referências|nível=2}}\n"
+  },
+  {
+    "name": "older heading not suffix 59",
+    "source": "== Referências ==\nTexto original.\n== História ==\nTexto da seção.\n{{Reflist}}\n",
+    "expected": "== Referências ==\nTexto original.\n== História ==\nTexto da seção.\n{{Referências}}\n"
+  },
+  {
+    "name": "older heading not suffix 60",
+    "source": "== Referências ==\nTexto original.\n\n== Ligações externas ==\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Reflist}}\n",
+    "expected": "== Referências ==\nTexto original.\n\n== Ligações externas ==\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "older heading not suffix 61",
+    "source": "== Referências ==\nTexto original.\n* [https://example.invalid/one Fonte com ''ênfase'']\n\n{{Reflist}}\n",
+    "expected": "== Referências ==\nTexto original.\n* [https://example.invalid/one Fonte com ''ênfase'']\n\n{{Referências}}\n"
+  },
+  {
+    "name": "older heading not suffix 62",
+    "source": "== Referências ==\nTexto original.\n== Referências gerais ==\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Reflist}}\n",
+    "expected": "== Referências ==\nTexto original.\n== Referências gerais ==\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n{{Referências}}\n"
+  },
+  {
+    "name": "protected collector/header nowiki",
+    "source": "<nowiki>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</nowiki>",
+    "expected": "<nowiki>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</nowiki>"
+  },
+  {
+    "name": "protected collector/header comment",
+    "source": "<!--== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n-->",
+    "expected": "<!--== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n-->"
+  },
+  {
+    "name": "protected collector/header pre",
+    "source": "<pre>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</pre>",
+    "expected": "<pre>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</pre>"
+  },
+  {
+    "name": "protected collector/header code",
+    "source": "<code>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</code>",
+    "expected": "<code>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</code>"
+  },
+  {
+    "name": "protected collector/header q",
+    "source": "<q>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</q>",
+    "expected": "<q>== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n</q>"
+  },
+  {
+    "name": "protected collector/header quote template",
+    "source": "{{Citação|== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n}}",
+    "expected": "{{Citação|== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n}}"
+  },
+  {
+    "name": "protected collector/header nested template",
+    "source": "{{Info|dados1=== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n}}",
+    "expected": "{{Info|dados1=== Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n}}"
+  },
+  {
+    "name": "protected collector/header wikitable",
+    "source": "{| class=\"wikitable\"\n| == Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n\n|}\n",
+    "expected": "{| class=\"wikitable\"\n| == Referências ==\n; Gerais\n* [https://example.invalid/one Tóquio, Fonte um]\n* [https://example.invalid/two Diagrama de Tóquio, Fonte dois]\n* [https://example.invalid/three Tóquio, Fonte três]\n; Específicas\n{{Reflist}}\n\n|}\n"
+  }
+]

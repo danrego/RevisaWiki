@@ -1,15 +1,21 @@
 # Repetir os testes
 
-Com Node.js 18 ou posterior, execute `npm test`. O comando confere os cinco arquivos executáveis, compara o código das regras e os catálogos com a 2.2.0 e repete os 61 casos de tabelas por ano e 91 casos de apresentação. Não acessa a Wikipédia nem abre os navegadores.
+Com Node.js 18 ou posterior, execute `npm test`. O comando confere os cinco arquivos executáveis, repete os casos de tabelas e apresentação da 2.2 e executa os contratos independentes da 2.3 nas duas distribuições. Eles incluem preservação da estrutura, pontuação junto às referências, cabeçalhos e colunas nos bancos de referências. As revisões reais que revelaram os problemas estão incluídas. Sua ausência interrompe os testes. Não acessa a Wikipédia nem abre navegadores. Não repete automaticamente o corpus de 2.000 artigos.
 
-Para reconstruir o programa e os dados, execute `python3 scripts/build.py` e depois `npm test`. Os bytes resultantes precisam corresponder aos hashes guardados em `tests/expected_release.json`.
+Execute `python3 scripts/build.py` e depois `npm test` para reconstruir o programa e os dados. Os bytes precisam corresponder aos hashes guardados em `tests/expected_release.json`.
+
+`python3 tests/inherited/run.py` repete separadamente as 12 suítes históricas, com 136.283 casos e suas fontes congeladas incluídas. O comando não faz parte de npm test e não precisa de acesso à Wikipédia. Consulte [as instruções da bateria histórica](inherited/README.md).
 
 ## Navegadores no Mac
 
-Os testes locais do novo botão estão em `tests/native/run_native.cjs`. Eles servem arquivos em 127.0.0.1, usam uma API simulada e recusam ações de escrita. Somente a cópia de teste aceita o endereço local. A distribuição mantém sua verificação de pt.wikipedia.org.
+Instale Playwright, ou indique seu caminho por `REVISAWIKI_PLAYWRIGHT_MODULE`. Os testes usam os aplicativos Firefox, Google Chrome e Safari instalados no Mac, com páginas locais. Para Safari, habilite a automação remota no menu Desenvolvedor e use uma sessão por vez.
 
-Instale a biblioteca Playwright, ou indique seu caminho por `REVISAWIKI_PLAYWRIGHT_MODULE`. São usados os aplicativos Firefox, Google Chrome e Safari já instalados no Mac. Para Safari, habilite a automação remota no menu Desenvolvedor. Use uma sessão de Safari por vez.
+`node tests/native/run_native.cjs Chrome` repete os fluxos do botão em um editor simulado. Troque Chrome por Firefox ou Safari. Para os carregadores, use `node tests/native/run_native.cjs Chrome dist/2.3.0/RevisaWiki_v2_3.js install-loaders`.
 
-Execute `node tests/native/run_native.cjs Chrome`, `node tests/native/run_native.cjs Firefox` e `node tests/native/run_native.cjs Safari` para os 25 fluxos do novo botão em cada navegador. Para repetir os carregadores, acrescente o caminho `dist/2.2.1/RevisaWiki_v2_2_1.js` e o modo `install-loaders` ao comando. Esses comandos não abrem sua conta nem enviam edições.
+`node tests/v23_independent/native/run_preview.cjs Chrome` repete as verificações de DOMParser, incluindo as caixas e referências originais do exemplo reduzido do incidente. O HTML foi obtido por GET público e anônimo. Os testes usam cópias locais, recusam rede externa e não abrem contas.
 
-O modo histórico `ui` também usa três artigos grandes do corpus local anterior, que não integra este repositório. Seus resultados executados estão em `tests/evidence/2.2.1`. Os testes de navegador usam respostas simuladas e não certificam toda extensão ou script pessoal que possa estar instalado no editor.
+`node tests/v23_independent/native/run_late_regressions.cjs Chrome` repete os casos adicionais de pontuação, números, cabeçalhos e bancos de referências no navegador real. Troque Chrome por Firefox ou Safari. Os resultados e candidatos locais ficam em `tests/v23_independent/artifacts/`, ignorado pelo Git.
+
+O modo `ui` e a parte de artigos grandes do modo `structural-v23` precisam dos corpus locais, que não integram o GitHub. Os manifestos e as evidências identificam os oldids e hashes. `tests/corpus/fetch_fixed_revisions.py` permite baixar o novo conjunto por revisões fixas, mediante consultas públicas somente de leitura. Confira o README do corpus para o caminho de destino e o comando.
+
+Os resultados executados ficam em `tests/evidence/2.3.0`. Testes com API simulada não certificam todos os scripts pessoais ou extensões que possam estar instalados em um editor.

@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
-const root=path.resolve(__dirname,'..'),script=path.join(root,'dist/2.2.1/RevisaWiki_v2_2_1.js'),a=require(script),cfg={...a.defaults,namespaceNumber:0,authorityControl:false,endTemplateOrder:false};
+const root=path.resolve(__dirname,'..'),script=path.join(root,'dist/2.3.0/RevisaWiki_v2_3.js'),a=require(script),cfg={...a.defaults,namespaceNumber:0,authorityControl:false,endTemplateOrder:false};
 fs.mkdirSync(path.join(__dirname,'artifacts'),{recursive:true});
 const rows=[];let checks=0;const eq=(x,y,m)=>{checks++;assert.deepEqual(x,y,m)},ok=(x,m)=>{checks++;assert(x,m)};
 function test(name,fn){let n=checks;try{fn();rows.push({name,passed:true,checks:checks-n})}catch(e){rows.push({name,passed:false,error:e.stack})}}

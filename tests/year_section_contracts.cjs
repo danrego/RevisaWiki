@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
-const root=path.resolve(__dirname,'..'),script=path.join(root,'dist/2.2.1/RevisaWiki_v2_2_1.js'),a=require(script);
+const root=path.resolve(__dirname,'..'),script=path.join(root,'dist/2.3.0/RevisaWiki_v2_3.js'),a=require(script);
 fs.mkdirSync(path.join(__dirname,'artifacts'),{recursive:true});
 const cases=[];let checks=0;const eq=(x,y,label)=>{checks++;assert.deepEqual(x,y,label);},ok=(x,label)=>{checks++;assert(x,label);};
 const header='! Data\n! Lugar\n! Fonte\n';

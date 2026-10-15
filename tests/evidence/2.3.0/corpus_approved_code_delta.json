@@ -1,0 +1,36 @@
+{
+  "previousRun": "release_final_001",
+  "scope": "Only six exact replacements reviewed for refPunctuation, normalizeLists and referenceColumnPlans. Every other production byte must stay unchanged, and the data companion must be identical.",
+  "replacements": [
+    {
+      "function": "refPunctuation",
+      "before": "            if (tail && /[\\p{L}\\p{N}\\])'\"”»]$/u.test(s.slice(0, first.start))) {",
+      "after": "            if(tail&&/[.,:]/.test(tail[1])&&/[\\p{N}]$/u.test(s.slice(0,first.start))&&/^[\\p{N}]/u.test(s.slice(end+tail[0].length)))continue;\n            if (tail && /[\\p{L}\\p{N}\\])'\"”»]$/u.test(s.slice(0, first.start))) {"
+    },
+    {
+      "function": "refPunctuation",
+      "before": "text: tail[1] + s.slice(first.start, end)}",
+      "after": "text: tail[1] + s.slice(first.start, end) + (/^[\\p{L}\\p{N}]/u.test(s.slice(end+tail[0].length))?' ':'')}"
+    },
+    {
+      "function": "refPunctuation",
+      "before": "            } else if (/^[\\p{L}\\p{N}]/u.test(s.slice(end))) {",
+      "after": "            } else if (/^[\\p{L}\\p{N}]/u.test(s.slice(end)) && !(/[\\p{N}][.,:]$/u.test(s.slice(0,first.start)) && /^[\\p{N}]/u.test(s.slice(end)))) {"
+    },
+    {
+      "function": "normalizeLists",
+      "before": "            const h = before.match(/(?:^==[ \\t]*Referências[ \\t]*==[ \\t]*\\n[ \\t\\n]*)+$/m);",
+      "after": "            const h = before.match(/(?:^|\\n)((?:==[ \\t]*Referências[ \\t]*==[ \\t]*\\n[ \\t\\n]*)+)$/);"
+    },
+    {
+      "function": "normalizeLists",
+      "before": "            const start = before.length - h[0].length;",
+      "after": "            const start = before.length - h[1].length;"
+    },
+    {
+      "function": "referenceColumnPlans",
+      "before": "                    after = translatedEntries(p, entries);\n                }\n            }\n            plans.push({start:n.start,end:n.end,before:raw,after,group,count,code,message:reason});",
+      "after": "                    after = translatedEntries(p, entries);\n                }\n            }\n            if(after){\n                // Conferir se o parâmetro novo continua fora do texto das referências.\n                const check=foreignEntries(parsedTemplate(after)),fields=check.filter(e=>combined?['col_ref','ref_col'].includes(e.key):norm(e.key)==='estilo'||e.key==='5');\n                if(fields.length!==1||!(combined?fields[0].value.trim()==='2':/(?:^|;)\\s*column-count\\s*:\\s*2\\s*(?:;|$)/i.test(fields[0].value)))continue;\n            }\n            plans.push({start:n.start,end:n.end,before:raw,after,group,count,code,message:reason});"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+RevisaWiki 2.3.0: testes da distribuição final
+
+Foram executados 2.000 artigos congelados, nas distribuições modular e completa. Os novos 1.000 artigos têm todos mais de 102.400 bytes. Os outros 1.000 repetem o conjunto histórico, sem sobreposição de títulos e oldids. As saídas das duas distribuições coincidem, mantêm a contabilização UTF-8 e permanecem iguais na segunda execução.
+
+O novo conjunto tem 153,837,981 bytes, entre 102,481 e 588,957 por artigo. Contém 69 artigos com <math>, 10,916 fórmulas, 640 textos com tabelas, 9,572 tabelas e 218,458 etiquetas <ref>. As contagens são do wikitexto, sem avaliar a qualidade de cada fonte ou fórmula. A seleção inclui física e matemática, além de outros temas extensos.
+
+O corpus usa páginas do domínio principal, sem confirmação de edição menor. Controle de autoridade e reordenação do bloco final ficam desativados nesse ensaio congelado. Essas opções têm contratos separados nas baterias históricas e de interface. O manifesto e os relatórios registram os demais parâmetros do ensaio.
+
+CORPUS E CONSERVAÇÃO
+
+O primeiro ensaio executou 48,000 verificações e encontrou os casos corrigidos antes da entrega. A revalidação executou novamente a limpeza das 2.000 fontes nas duas distribuições finais e a segunda aplicação, com 32,080 verificações adicionais. Passaram todos os artigos. Foram conferidos hashes das fontes, referências, sintaxe, prosa, URLs, imagens, identificadores, blocos protegidos, fórmulas, consistência de bytes, limites do cache e idempotência. Os manifestos mantêm as fontes originais intactas.
+
+Em 1,990 artigos, as auditorias anteriores foram reaproveitadas somente após confirmar a mesma fonte, a mesma saída e o mesmo relatório de alterações, byte a byte. Os demais 10 receberam nova auditoria integral de calculate, referências, sintaxe e conservação. O harness exige que as únicas mudanças entre as compilações sejam seis substituições exatas nas três funções corrigidas, com todos os demais bytes e os dados inalterados. O relatório separa a primeira execução da revalidação, sem somar artigos repetidos como fontes novas.
+
+Cinco fontes mantêm avisos preexistentes no produto, qualificados somente para suas revisões, hashes e mensagens exatos. Estrela, revisão 72504980, e Franz Boas, 72705838, usam opções técnicas de imagens que chegam ao detector de prosa. Nicolau Maquiavel, 73088488, já tem uma ligação de imagem sem fechamento. Estatísticas do Botafogo de Futebol e Regatas, 73026558, tem um protocolo https:// duplicado que é corrigido sem mudar o destino. Revolução Mexicana, 73117564, tem dois prefixos ISBN redundantes, retirados sem alterar nenhum dígito. Há provas independentes de conservação e comparação com a 2.2.1 para os casos indicados. Não há exceção geral para perda de conteúdo e nenhum aviso foi apagado do produto para fazer os testes passarem.
+
+Os parsers independentes repetiram a conferência nas 2.000 saídas finais, sem importar o RevisaWiki. A conservação de destinos, URLs, identificadores e blocos literais passou em 14.000 verificações. A comparação literal de tabelas conserva nove diagnósticos de apresentação, já presentes no primeiro ensaio e com saídas idênticas à 2.2.1 nos casos documentados. Eles incluem pontos finais de legendas e representações por predefinições. Não foram contados como nove aprovações nem ocultados. Não houve novas tabelas ou células sem resolução, e as diferenças brutas ficam nas evidências.
+
+INCIDENTE E FALSOS POSITIVOS
+
+As revisões 73212697, 73212811 e 73212817 de Infanterikanonvagn 91 foram reproduzidas integralmente. Uma nova consulta pública e anônima confirmou que a revisão atual ainda é a 73212817, idêntica à fonte testada. A versão final mantém uma infocaixa e uma lista global, conserva as duas definições de referências e não marca o reparo como edição menor. Os testes conferem também aceitar/rejeitar alterações, resumo e bytes.
+
+O exemplo de pré-visualização usa as duas caixas e citações originais, com texto reduzido. Seu HTML anterior e posterior foi obtido por GET público e anônimo. A pré-visualização pública do candidato integral excedeu o limite de URL e não foi concluída. Os testes do artigo integral são de fonte, conservação e idempotência. Os testes visuais usam o exemplo reduzido e casos construídos com expectativas independentes.
+
+Caixas divergentes, comparações, conteúdo calculado, HTML de apresentação, referências por seção ou grupo, refs= e exemplos literais permanecem protegidos. Os testes tentam retirar campos, títulos de fontes, ligações, referências implícitas repetidas e linhas de tabelas. Essas perdas são recusadas.
+
+A bateria encontrou um erro antigo em Objetos próximos da Terra, revisão 72309806: a desigualdade < q < 1,3 era confundida com uma etiqueta. O leitor agora conserva a expressão e reconhece as referências seguintes. Blocos protegidos realmente sem fechamento também impedem acréscimos ao bloco final. A correção foi repetida no artigo de 135 KB e em controles sintéticos positivos e negativos.
+
+Outros três casos corrigidos foram História da ciência, revisão 71855786, com pontuação de referências que precisava ficar estável já na primeira passagem, Lista das estruturas e edifícios mais altos de Tóquio, 72350938, com um cabeçalho de referências que provocava cortes na bibliografia, e Lista dos locais de protesto do movimento Occupy, 72221307, com parâmetros de colunas que cresciam a cada passagem. A correção preserva separadores numéricos em vários alfabetos e mantém a configuração de colunas quando o novo parâmetro não pode ser reconhecido fora do banco refs=. Os testes exigem conservar as URLs e os textos desses artigos.
+
+NAVEGADORES REAIS NO MAC
+
+Chrome 155.0.8059.40: 128 fluxos de interface e carregadores aprovados, sem falhas. Mais 32 casos independentes no mesmo navegador, com 160 verificações, sem falhas.
+Firefox 158.0: 128 fluxos de interface e carregadores aprovados, sem falhas. Mais 32 casos independentes no mesmo navegador, com 160 verificações, sem falhas.
+Safari 27.0.1: 128 fluxos de interface e carregadores aprovados, sem falhas. Mais 32 casos independentes no mesmo navegador, com 160 verificações, sem falhas.
+
+Os testes repetem o botão azul e o atalho verde azulado, teclado, CodeMirror, cancelamento, Worker e execução em etapas, comparação, resumo, desfazer e recuperação de falhas simuladas. Incluem três artigos históricos acima de 500 KB e Mecânica quântica, Função zeta de Riemann e Teoria das cordas. Os editores e a API são locais e recusam ações de gravação.
+
+Os contratos independentes executam 775 casos e 3.175 verificações em cada distribuição, além dos 32 casos e 160 verificações por navegador. As 12 baterias históricas passaram em 136.283 casos, incluindo combinações sistemáticas de parâmetros e contextos. Esse número não é uma contagem de artigos distintos.
+
+LIMITES E REPRODUÇÃO
+
+Os ensaios não certificam todas as extensões pessoais, todas as versões futuras de predefinições ou a correção factual dos artigos. Respostas simuladas não substituem conferir o resultado no editor. O programa mantém sua restrição ao domínio pt.wikipedia.org. Somente as cópias de teste aceitam endereço local.
+
+Nenhuma edição, publicação, alteração de conta ou mensagem foi feita na Wikipédia. O GitHub recebe somente código, documentação, instruções e evidências verificadas.
+
+O índice de cópia passou em 69 verificações nos três navegadores, sem executar o programa ou fazer chamadas de rede.
