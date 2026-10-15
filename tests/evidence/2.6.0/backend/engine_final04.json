@@ -1,0 +1,85 @@
+{
+  "version": "2.6.0",
+  "candidate": "FINAL04",
+  "kind": "repair-engine-contracts",
+  "frozenFiles": {
+    "RevisaWiki_v2_6_completo.js": {
+      "sha256": "1a1b6a83b853925575dfbf9743083c51b1cc1774123e8442530217f8ba9844bb",
+      "bytes": 2402846
+    },
+    "Carregador_comunitario_RevisaWiki_v2_6.js": {
+      "sha256": "4e5b3ea61a593e26f920a3f785f521ee4b31b491461e34a4259903b6b7dc0d10",
+      "bytes": 9443
+    },
+    "RevisaWiki_v2_6_dados.js": {
+      "sha256": "d39be94a9bf8a3def3de24e9cb82bcc65e994725e4f567be7985d2ede5495895",
+      "bytes": 1523933
+    },
+    "RevisaWiki_v2_6.js": {
+      "sha256": "d1588ed15732ccb99f572d15cf2a09f92627ebd09b1d4f34a43006993e09e3d5",
+      "bytes": 890122
+    },
+    "Carregador_common_js_RevisaWiki_v2_6.js": {
+      "sha256": "f20086eea56687c53cf47a17dadf6f643178fe8e36896cce7b03fd8d247655dd",
+      "bytes": 9441
+    }
+  },
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "rawCommandLogsPublished": false,
+  "sourcePathsSanitized": true,
+  "status": "passed",
+  "recordedExitCode": 0,
+  "sourceLogName": "revisawiki26_engine_final04.log",
+  "sourceLogSha256": "2cfa6b7899dcfdbde13676a5a61c33c0e2a2f07fc084d417d7697e6eef499846",
+  "suites": [
+    {
+      "suite": "contracts",
+      "logLine": 1,
+      "cases": 1618,
+      "checks": 5366,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "suite": "integration",
+      "logLine": 2,
+      "cases": 120,
+      "checks": 722,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "suite": "composition-options",
+      "logLine": 3,
+      "cases": 32,
+      "checks": 256,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "suite": "quote-lexer",
+      "logLine": 4,
+      "cases": 42,
+      "checks": 86,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "suite": "corpus-regressions",
+      "logLine": 5,
+      "cases": 16,
+      "checks": 78,
+      "failed": 0,
+      "status": "passed"
+    }
+  ],
+  "totalCases": 1828,
+  "totalChecks": 6508,
+  "binding": {
+    "method": "Every suite imports tests/v26_engine/engine.cjs, which verifies all frozen byte lengths, SHA-256 values and exact API version before loading either bundle.",
+    "currentHarnessSha256": "c792ab191004be82738768e75894e3421b83be64eff654e62d7e4d5a0e442667",
+    "expectedManifestSha256": "12a37c3d810e4cf20dc132c1b4348bf07b6394f7c52b73f8ddbbb833936055ac"
+  },
+  "countingNote": "These five disjoint engine suites exclude the separate complex-shard run."
+}

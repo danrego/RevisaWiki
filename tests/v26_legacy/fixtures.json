@@ -1,0 +1,1303 @@
+[
+  {
+    "name": "literal known template close ]] {{Referências}}",
+    "source": "{{Referências]]",
+    "expected": "{{Referências}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "renderer in ref remains invalid ]]",
+    "source": "<ref name=\"中文\">{{Referências]]</ref>",
+    "expected": "<ref name=\"中文\">{{Referências]]</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "literal known template close ]] {{Citar web",
+    "source": "{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]",
+    "expected": "{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "bounded ref citation close ]] {{Citar web",
+    "source": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</ref>",
+    "expected": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "literal known template close ]] {{Citar livro",
+    "source": "{{Citar livro|titulo=Livro|autor=Ana]]",
+    "expected": "{{Citar livro|titulo=Livro|autor=Ana}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "bounded ref citation close ]] {{Citar livro",
+    "source": "<ref name=\"中文\">{{Citar livro|titulo=Livro|autor=Ana]]</ref>",
+    "expected": "<ref name=\"中文\">{{Citar livro|titulo=Livro|autor=Ana}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "isolated known template between prose ]]",
+    "source": "Primeiro parágrafo.\n\n{{Referências]]\n\nÚltimo parágrafo.",
+    "expected": "Primeiro parágrafo.\n\n{{Referências}}\n\nÚltimo parágrafo.",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "literal known template close } {{Referências}}",
+    "source": "{{Referências}",
+    "expected": "{{Referências}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "renderer in ref remains invalid }",
+    "source": "<ref name=\"中文\">{{Referências}</ref>",
+    "expected": "<ref name=\"中文\">{{Referências}</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "literal known template close } {{Citar web",
+    "source": "{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}",
+    "expected": "{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "bounded ref citation close } {{Citar web",
+    "source": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}</ref>",
+    "expected": "<ref name=\"中文\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "literal known template close } {{Citar livro",
+    "source": "{{Citar livro|titulo=Livro|autor=Ana}",
+    "expected": "{{Citar livro|titulo=Livro|autor=Ana}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "bounded ref citation close } {{Citar livro",
+    "source": "<ref name=\"中文\">{{Citar livro|titulo=Livro|autor=Ana}</ref>",
+    "expected": "<ref name=\"中文\">{{Citar livro|titulo=Livro|autor=Ana}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "isolated known template between prose }",
+    "source": "Primeiro parágrafo.\n\n{{Referências}\n\nÚltimo parágrafo.",
+    "expected": "Primeiro parágrafo.\n\n{{Referências}}\n\nÚltimo parágrafo.",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 14",
+    "source": "{{Desconhecida|a=b]]",
+    "expected": "{{Desconhecida|a=b]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 15",
+    "source": "{{Referências]]]",
+    "expected": "{{Referências]]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 16",
+    "source": "{{Referências]",
+    "expected": "{{Referências]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 17",
+    "source": "{{Referências}}]]",
+    "expected": "{{Referências}}]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 18",
+    "source": "{{Referências",
+    "expected": "{{Referências",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 19",
+    "source": "{{{Referências]]",
+    "expected": "{{{Referências]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 20",
+    "source": "{{Referências|x={{Dado]]",
+    "expected": "{{Referências|x={{Dado]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 21",
+    "source": "{{Citar web|titulo=Fecho ]] no título",
+    "expected": "{{Citar web|titulo=Fecho ]] no título",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 22",
+    "source": "Prosa {{Referências]] texto depois.",
+    "expected": "Prosa {{Referências]] texto depois.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 23",
+    "source": "[[Destino|{{Referências]]",
+    "expected": "[[Destino|{{Referências]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 24",
+    "source": "{{Exemplo|codigo={{Referências]]}}",
+    "expected": "{{Exemplo|codigo={{Referências]]}}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "ambiguous template 25",
+    "source": "{|\n| {{Referências]]\n|}",
+    "expected": "{|\n| {{Referências]]\n|}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 26",
+    "source": "<nowiki>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</nowiki>",
+    "expected": "<nowiki>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</nowiki>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 27",
+    "source": "<pre>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</pre>",
+    "expected": "<pre>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</pre>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 28",
+    "source": "<code>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</code>",
+    "expected": "<code>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</code>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 29",
+    "source": "<syntaxhighlight lang=\"wikitext\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</syntaxhighlight>",
+    "expected": "<syntaxhighlight lang=\"wikitext\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</syntaxhighlight>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 30",
+    "source": "<!--{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]-->",
+    "expected": "<!--{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]-->",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 31",
+    "source": "<q>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</q>",
+    "expected": "<q>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</q>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 32",
+    "source": "<blockquote>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</blockquote>",
+    "expected": "<blockquote>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</blockquote>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 33",
+    "source": "\"{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]\"",
+    "expected": "\"{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]\"",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 34",
+    "source": "'{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]'",
+    "expected": "'{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]'",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 35",
+    "source": "<math>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</math>",
+    "expected": "<math>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</math>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 36",
+    "source": "<nowiki>{{Referências]]</nowiki>",
+    "expected": "<nowiki>{{Referências]]</nowiki>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 37",
+    "source": "<pre>{{Referências]]</pre>",
+    "expected": "<pre>{{Referências]]</pre>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 38",
+    "source": "<code>{{Referências]]</code>",
+    "expected": "<code>{{Referências]]</code>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 39",
+    "source": "<syntaxhighlight lang=\"wikitext\">{{Referências]]</syntaxhighlight>",
+    "expected": "<syntaxhighlight lang=\"wikitext\">{{Referências]]</syntaxhighlight>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 40",
+    "source": "<!--{{Referências]]-->",
+    "expected": "<!--{{Referências]]-->",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 41",
+    "source": "<q>{{Referências]]</q>",
+    "expected": "<q>{{Referências]]</q>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 42",
+    "source": "<blockquote>{{Referências]]</blockquote>",
+    "expected": "<blockquote>{{Referências]]</blockquote>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 43",
+    "source": "\"{{Referências]]\"",
+    "expected": "\"{{Referências]]\"",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 44",
+    "source": "'{{Referências]]'",
+    "expected": "'{{Referências]]'",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "protected known typo 45",
+    "source": "<math>{{Referências]]</math>",
+    "expected": "<math>{{Referências]]</math>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing ref",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "expected": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing references",
+    "source": "<references><ref name=\"a\">Fonte.</ref><\\references>",
+    "expected": "<references><ref name=\"a\">Fonte.</ref></references>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing small",
+    "source": "<ref><small>Fonte<\\small></ref>",
+    "expected": "<ref><small>Fonte</small></ref>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing sup",
+    "source": "<ref><sup>Fonte<\\sup></ref>",
+    "expected": "<ref><sup>Fonte</sup></ref>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing sub",
+    "source": "<ref><sub>Fonte<\\sub></ref>",
+    "expected": "<ref><sub>Fonte</sub></ref>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash closing span",
+    "source": "<ref><span>Fonte<\\span></ref>",
+    "expected": "<ref><span>Fonte</span></ref>",
+    "rule": "syntax-backslash-close-tag",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 52",
+    "source": "<ref>Fonte<\\reff>",
+    "expected": "<ref>Fonte<\\reff>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 53",
+    "source": "<ref>Fonte<\\ref x>",
+    "expected": "<ref>Fonte<\\ref x>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 54",
+    "source": "Texto literal <\\ref> sem abertura.",
+    "expected": "Texto literal <\\ref> sem abertura.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 55",
+    "source": "<ref name=\"x>Fonte<\\ref>",
+    "expected": "<ref name=\"x>Fonte<\\ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 56",
+    "source": "<ref>{{#invoke:Fonte|main}}<\\ref>",
+    "expected": "<ref>{{#invoke:Fonte|main}}<\\ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 57",
+    "source": "<ref>Fonte</reff>",
+    "expected": "<ref>Fonte</reff>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 58",
+    "source": "<ref>Fonte</ ref>",
+    "expected": "<ref>Fonte</ ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unmatched ambiguous close 59",
+    "source": "<ref>Fonte<ref/>",
+    "expected": "<ref>Fonte<ref/>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash literal <nowiki>",
+    "source": "<nowiki><ref>Fonte<\\ref></nowiki>",
+    "expected": "<nowiki><ref>Fonte<\\ref></nowiki>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash literal <!--",
+    "source": "<!--<ref>Fonte<\\ref>-->",
+    "expected": "<!--<ref>Fonte<\\ref>-->",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash literal <math>",
+    "source": "<math><ref>Fonte<\\ref></math>",
+    "expected": "<math><ref>Fonte<\\ref></math>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash literal <q>",
+    "source": "<q><ref>Fonte<\\ref></q>",
+    "expected": "<q><ref>Fonte<\\ref></q>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "backslash literal \"",
+    "source": "\"<ref>Fonte<\\ref>\"",
+    "expected": "\"<ref>Fonte<\\ref>\"",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "safe ref body boundary 65",
+    "source": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</references>",
+    "expected": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref></references>",
+    "rule": "syntax-ref-close-boundary",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "safe ref body boundary 66",
+    "source": "<references group=\"nota\"><ref name=\"a\" group=\"nota\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</references>",
+    "expected": "<references group=\"nota\"><ref name=\"a\" group=\"nota\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref></references>",
+    "rule": "syntax-ref-close-boundary",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "safe ref body boundary 67",
+    "source": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>",
+    "rule": "syntax-ref-close-boundary",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "safe ref body boundary 68",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n",
+    "expected": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n</ref>",
+    "rule": "syntax-ref-close-boundary",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "explicit references bounds multiparagraph body",
+    "source": "<references><ref>Fonte\n\nProsa solta.</references>",
+    "expected": "<references><ref>Fonte\n\nProsa solta.</ref></references>",
+    "rule": "syntax-ref-close-boundary",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 70",
+    "source": "Texto.<ref>Texto aberto.\n\nOutro parágrafo da biografia.",
+    "expected": "Texto.<ref>Texto aberto.\n\nOutro parágrafo da biografia.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 71",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n== Ligações externas ==\n* [https://example.invalid Mais]",
+    "expected": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n== Ligações externas ==\n* [https://example.invalid Mais]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 72",
+    "source": "<references><ref><ref>Fonte</references>",
+    "expected": "<references><ref><ref>Fonte</references>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 73",
+    "source": "<references><ref>{{Fonte|valor=1}</references>",
+    "expected": "<references><ref>{{Fonte|valor=1}</references>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 74",
+    "source": "<ref follow=\"x\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "<ref follow=\"x\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 75",
+    "source": "<ref group=\"nota\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n{{Referências}}",
+    "expected": "<ref group=\"nota\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n{{Referências}}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 76",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n[[Categoria:Teste]]",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n[[Categoria:Teste]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe ref boundary 77",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n<!-- fim não fechado",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}\n<!-- fim não fechado",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unique same group empty ref ",
+    "source": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\"><ref name=\"b\">Outra fonte.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\nTexto.<ref name=\"a\"/><ref name=\"b\">Outra fonte.</ref>",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unique same group empty ref  group=\"nota\"",
+    "source": "<ref name=\"a\" group=\"nota\">Fonte única.</ref>\nTexto.<ref name=\"a\" group=\"nota\"><ref name=\"b\" group=\"nota\">Outra fonte.</ref>",
+    "expected": "<ref name=\"a\" group=\"nota\">Fonte única.</ref>\nTexto.<ref name=\"a\" group=\"nota\"/><ref name=\"b\" group=\"nota\">Outra fonte.</ref>",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unique same group empty ref  group=\"中文\"",
+    "source": "<ref name=\"a\" group=\"中文\">Fonte única.</ref>\nTexto.<ref name=\"a\" group=\"中文\"><ref name=\"b\" group=\"中文\">Outra fonte.</ref>",
+    "expected": "<ref name=\"a\" group=\"中文\">Fonte única.</ref>\nTexto.<ref name=\"a\" group=\"中文\"/><ref name=\"b\" group=\"中文\">Outra fonte.</ref>",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "named definition follows malformed use",
+    "source": "Texto.<ref name=\"a\"><ref name=\"b\">B.</ref>\n<ref name=\"a\">Fonte única.</ref>",
+    "expected": "Texto.<ref name=\"a\"/><ref name=\"b\">B.</ref>\n<ref name=\"a\">Fonte única.</ref>",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "bank definition supplies empty use",
+    "source": "Texto.<ref name=\"a\"><ref name=\"b\">B.</ref>\n{{Referências|refs=<ref name=\"a\">Fonte única.</ref>}}",
+    "expected": "Texto.<ref name=\"a\"/><ref name=\"b\">B.</ref>\n{{Referências|refs=<ref name=\"a\">Fonte única.</ref>}}",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 83",
+    "source": "<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 84",
+    "source": "<ref name=\"a\" group=\"nota\">Fonte única.</ref>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\" group=\"nota\">Fonte única.</ref>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 85",
+    "source": "<ref name=\"a\">Fonte A.</ref><ref name=\"a\">Fonte B.</ref>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte A.</ref><ref name=\"a\">Fonte B.</ref>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 86",
+    "source": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">Prosa.<ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">Prosa.<ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 87",
+    "source": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\" follow=\"b\"><ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\" follow=\"b\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 88",
+    "source": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\" group=\"{{Grupo}}\"><ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\" group=\"{{Grupo}}\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 89",
+    "source": "<nowiki><ref name=\"a\">Fonte única.</ref></nowiki>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "expected": "<nowiki><ref name=\"a\">Fonte única.</ref></nowiki>\n<ref name=\"a\"><ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 90",
+    "source": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">{{Dado}}<ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">{{Dado}}<ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe named reuse 91",
+    "source": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">\n== Nova seção ==\n<ref name=\"b\">B.</ref>",
+    "expected": "<ref name=\"a\">Fonte única.</ref>\n<ref name=\"a\">\n== Nova seção ==\n<ref name=\"b\">B.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "format wholly within ref small",
+    "source": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</ref>",
+    "expected": "<ref>Fonte <small>中文 10⁻⁶, E=mc².</small></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "format wholly within ref sup",
+    "source": "<ref>Fonte <sup>中文 10⁻⁶, E=mc².</ref>",
+    "expected": "<ref>Fonte <sup>中文 10⁻⁶, E=mc².</sup></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "format wholly within ref sub",
+    "source": "<ref>Fonte <sub>中文 10⁻⁶, E=mc².</ref>",
+    "expected": "<ref>Fonte <sub>中文 10⁻⁶, E=mc².</sub></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "format wholly within ref span",
+    "source": "<ref>Fonte <span>中文 10⁻⁶, E=mc².</ref>",
+    "expected": "<ref>Fonte <span>中文 10⁻⁶, E=mc².</span></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "span literal attributes wholly within ref",
+    "source": "<ref><span style=\"font-size:90%\">Fonte</ref>",
+    "expected": "<ref><span style=\"font-size:90%\">Fonte</span></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "nested ref format closure",
+    "source": "<ref><small>Fonte <sup>2</ref>",
+    "expected": "<ref><small>Fonte <sup>2</sup></small></ref>",
+    "rule": "syntax-ref-format-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 98",
+    "source": "<small>Texto.<ref>Fonte.</ref>",
+    "expected": "<small>Texto.<ref>Fonte.</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 99",
+    "source": "<ref><small>Fonte.</ref></small>",
+    "expected": "<ref><small>Fonte.</ref></small>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 100",
+    "source": "<ref><small><sup>Fonte</small></ref>",
+    "expected": "<ref><small><sup>Fonte</small></ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 101",
+    "source": "<ref><div>Fonte</ref>",
+    "expected": "<ref><div>Fonte</ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 102",
+    "source": "<ref><math>x<sup>2</math></ref>",
+    "expected": "<ref><math>x<sup>2</math></ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 103",
+    "source": "<ref><nowiki><small>Fonte</nowiki></ref>",
+    "expected": "<ref><nowiki><small>Fonte</nowiki></ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe formatting 104",
+    "source": "<ref><small>Fonte<ref name=\"a\"/></ref>",
+    "expected": "<ref><small>Fonte<ref name=\"a\"/></ref>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "regular literal table EOF ''",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n|}",
+    "rule": "syntax-table-close-eof",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "regular literal table EOF '\\n'",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n|}",
+    "rule": "syntax-table-close-eof",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "regular literal table EOF '\\n\\n'",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n\n",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n\n|}",
+    "rule": "syntax-table-close-eof",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 108",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\nTexto depois da tabela.",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\nTexto depois da tabela.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 109",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 110",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2 || 3",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2 || 3",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 111",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| {{Dado}} || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| {{Dado}} || 2",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 112",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| <ref>Fonte.</ref> || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| <ref>Fonte.</ref> || 2",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 113",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n{|\n| Interna\n|}",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n{|\n| Interna\n|}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 114",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| rowspan=\"2\" | B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| rowspan=\"2\" | B || 2",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 115",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || {{{valor|2}}}",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || {{{valor|2}}}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 116",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n[[Categoria:Teste]]",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n[[Categoria:Teste]]",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 117",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n== Seção ==",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n== Seção ==",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 118",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n<!-- comentário não fechado",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2\n<!-- comentário não fechado",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 119",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || <math>x</math>",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || <math>x</math>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 120",
+    "source": "{|\nTexto sem células.",
+    "expected": "{|\nTexto sem células.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 121",
+    "source": "<nowiki>{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2</nowiki>",
+    "expected": "<nowiki>{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2</nowiki>",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "unsafe table EOF 122",
+    "source": "{{Exemplo|1={| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2}}",
+    "expected": "{{Exemplo|1={| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2}}",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "nested malformed template remains bounded 123",
+    "source": "<ref>{{Citar web|titulo=[[Destino|中文]]|url=https://example.invalid]]</ref>",
+    "expected": "<ref>{{Citar web|titulo=[[Destino|中文]]|url=https://example.invalid]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "",
+    "optionalExpected": "<ref>{{Citar web|titulo=[[Destino|中文]]|url=https://example.invalid}}</ref>"
+  },
+  {
+    "name": "nested malformed template remains bounded 124",
+    "source": "<ref>{{Citar web|titulo={{lang|zh|中文}}|url=https://example.invalid]]</ref>",
+    "expected": "<ref>{{Citar web|titulo={{lang|zh|中文}}|url=https://example.invalid]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "",
+    "optionalExpected": "<ref>{{Citar web|titulo={{lang|zh|中文}}|url=https://example.invalid}}</ref>"
+  },
+  {
+    "name": "nested malformed template remains bounded 125",
+    "source": "<ref>{{Citar web|titulo=<math>E=mc^2</math>|url=https://example.invalid]]</ref>",
+    "expected": "<ref>{{Citar web|titulo=<math>E=mc^2</math>|url=https://example.invalid]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "",
+    "optionalExpected": "<ref>{{Citar web|titulo=<math>E=mc^2</math>|url=https://example.invalid}}</ref>"
+  },
+  {
+    "name": "group inherited from references bank",
+    "source": "Texto.<ref name=\"a\" group=\"nota\"><ref name=\"b\" group=\"nota\">B.</ref>\n<references group=\"nota\"><ref name=\"a\">Fonte única.</ref></references>",
+    "expected": "Texto.<ref name=\"a\" group=\"nota\"/><ref name=\"b\" group=\"nota\">B.</ref>\n<references group=\"nota\"><ref name=\"a\">Fonte única.</ref></references>",
+    "rule": "syntax-empty-named-ref",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary 1 < q < 2",
+    "source": "A relação é 1 < q < 2.",
+    "expected": "A relação é 1 < q < 2.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary 1 < a < 2",
+    "source": "A relação é 1 < a < 2.",
+    "expected": "A relação é 1 < a < 2.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary x < sup < y",
+    "source": "A relação é x < sup < y.",
+    "expected": "A relação é x < sup < y.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary 0 < ref < 1",
+    "source": "A relação é 0 < ref < 1.",
+    "expected": "A relação é 0 < ref < 1.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary x <span",
+    "source": "A relação é x <span.",
+    "expected": "A relação é x <span.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary 1 < q< 2",
+    "source": "A relação é 1 < q< 2.",
+    "expected": "A relação é 1 < q< 2.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "math ordinary 中文 < 参考 < 漢字",
+    "source": "A relação é 中文 < 参考 < 漢字.",
+    "expected": "A relação é 中文 < 参考 < 漢字.",
+    "rule": null,
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "combined tag typo and known template closer",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]<\\ref>",
+    "expected": "Texto.<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "combined known template and explicit bank boundary",
+    "source": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶]]</references>",
+    "expected": "<references><ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}</ref></references>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-template-close {'sectionOnly': True}",
+    "source": "{{Referências]]",
+    "expected": "{{Referências]]",
+    "rule": null,
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-template-close {'discussionPage': True, 'namespaceNumber': 1}",
+    "source": "{{Referências]]",
+    "expected": "{{Referências]]",
+    "rule": null,
+    "options": {
+      "discussionPage": true,
+      "namespaceNumber": 1
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-template-close {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste'}",
+    "source": "{{Referências]]",
+    "expected": "{{Referências]]",
+    "rule": null,
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste"
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-template-close {'structuralRepairs': False}",
+    "source": "{{Referências]]",
+    "expected": "{{Referências]]",
+    "rule": null,
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-backslash-close-tag {'sectionOnly': True}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "rule": null,
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-backslash-close-tag {'discussionPage': True, 'namespaceNumber': 1}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "rule": null,
+    "options": {
+      "discussionPage": true,
+      "namespaceNumber": 1
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-backslash-close-tag {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste'}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "rule": null,
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste"
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-backslash-close-tag {'structuralRepairs': False}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}<\\ref>",
+    "rule": null,
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-close-boundary {'sectionOnly': True}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": null,
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-close-boundary {'discussionPage': True, 'namespaceNumber': 1}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": null,
+    "options": {
+      "discussionPage": true,
+      "namespaceNumber": 1
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-close-boundary {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste'}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": null,
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste"
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-close-boundary {'structuralRepairs': False}",
+    "source": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "expected": "<ref>{{Citar web|url=https://example.invalid/fonte|titulo=Fonte sobre 中文 e 10⁻⁶}}",
+    "rule": null,
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-format-close {'sectionOnly': True}",
+    "source": "<ref><sup>2</ref>",
+    "expected": "<ref><sup>2</ref>",
+    "rule": null,
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-format-close {'discussionPage': True, 'namespaceNumber': 1}",
+    "source": "<ref><sup>2</ref>",
+    "expected": "<ref><sup>2</ref>",
+    "rule": null,
+    "options": {
+      "discussionPage": true,
+      "namespaceNumber": 1
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-format-close {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste'}",
+    "source": "<ref><sup>2</ref>",
+    "expected": "<ref><sup>2</ref>",
+    "rule": null,
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste"
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-ref-format-close {'structuralRepairs': False}",
+    "source": "<ref><sup>2</ref>",
+    "expected": "<ref><sup>2</ref>",
+    "rule": null,
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-table-close-eof {'sectionOnly': True}",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "rule": null,
+    "options": {
+      "sectionOnly": true
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-table-close-eof {'discussionPage': True, 'namespaceNumber': 1}",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "rule": null,
+    "options": {
+      "discussionPage": true,
+      "namespaceNumber": 1
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-table-close-eof {'namespaceNumber': 10, 'pageTitle': 'Predefinição:Teste'}",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "rule": null,
+    "options": {
+      "namespaceNumber": 10,
+      "pageTitle": "Predefinição:Teste"
+    },
+    "reason": ""
+  },
+  {
+    "name": "context guard syntax-table-close-eof {'structuralRepairs': False}",
+    "source": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "expected": "{| class=\"wikitable\"\n! Letra !! Valor\n|-\n| A || 1\n|-\n| B || 2",
+    "rule": null,
+    "options": {
+      "structuralRepairs": false
+    },
+    "reason": ""
+  }
+]

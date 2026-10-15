@@ -1,0 +1,799 @@
+{
+  "version": "2.6.0",
+  "candidateSha256": "1a1b6a83b853925575dfbf9743083c51b1cc1774123e8442530217f8ba9844bb",
+  "browser": "Chrome",
+  "mode": "feature",
+  "startedAt": "2026-10-15T16:28:54.149Z",
+  "actualWikipediaWrites": 0,
+  "actualNetworkMutations": 0,
+  "screenshots": 0,
+  "tests": [
+    {
+      "name": "mounts once and preserves every native section link",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": {
+        "buttons": 4
+      }
+    },
+    {
+      "name": "loads exact revision-bound nested non-ASCII section",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": {
+        "section": "2",
+        "base": 100
+      }
+    },
+    {
+      "name": "manual editing and preview do not publish",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": {
+        "previewCalls": 1
+      }
+    },
+    {
+      "name": "Enter, composition, checkbox and synthetic publish cannot publish",
+      "passed": true,
+      "checks": 4,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "real explicit click publishes one pinned frozen local payload",
+      "passed": true,
+      "checks": 12,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "simulatedSaveCalls": 1,
+        "realWikipediaWrites": 0
+      }
+    },
+    {
+      "name": "accessible compact controls vector",
+      "passed": true,
+      "checks": 10,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "accessible compact controls vector-2022",
+      "passed": true,
+      "checks": 10,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "accessible compact controls monobook",
+      "passed": true,
+      "checks": 10,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "one session owns both pending load and later dirty draft",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "cancel dirty draft needs deliberate discard and restores focus",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "late load cannot resurrect cancelled editor",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines missing-page",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines suppressed-source",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines protected",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines non-wikitext",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines stale-display",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "source load declines moved-target",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "failed load can close and retry same section",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "unsupported edit link stays native cross-origin",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "unsupported edit link stays native malformed-link",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "unsupported edit link stays native transclusion",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "preview races ignore stale response even if transport ignores abort",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": {
+        "previewRequests": 2
+      }
+    },
+    {
+      "name": "failed preview retries unchanged source",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "preview live input is debounced and disposal stops work",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": {
+        "previewRequests": 2
+      }
+    },
+    {
+      "name": "empty live preview never polls and toggling back retries unchanged text",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "preview hooks stay scoped and never alter private loader registry",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "unchanged section never publishes even with manual summary",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "total summary character limit blocks oversized publication",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "account change after loading prevents publication",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "server nochange response opens only the confirmed existing revision",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "confirmed save preserves a later native draft and retains revision link",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "later draft survives confirmed publication in-flight",
+      "passed": true,
+      "checks": 10,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "later draft survives confirmed publication after-success",
+      "passed": true,
+      "checks": 10,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "publication failure preserves draft conflict",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft page-deleted",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft invalid-section",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft identity-error",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft bad-token",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft abusefilter-warning",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft abusefilter-disallow",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft captcha",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft unexpected-save",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "uncertain",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft unknown-result",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "uncertain",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "publication failure preserves draft network-error",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "uncertain",
+        "simulatedSaveCalls": 1
+      }
+    },
+    {
+      "name": "known conflict handoff keeps stale-base draft open after further typing",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "large nested section retains exact full context without extra global templates",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": {
+        "sectionBytes": 192024,
+        "pageBytes": 192222
+      }
+    },
+    {
+      "name": "lead section0 has an independent exact source range",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "cleanup uses the existing section engine with diff and exact undo",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": {
+        "changed": true
+      }
+    },
+    {
+      "name": "coexists with native/history context oldid",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "coexists with native/history context diff",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "coexists with native/history context visual-editor",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "coexists with native/history context native-editor",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "new inline editor cannot compete with DiscussionTools or another source editor",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "native editor appearing after open prevents inline publication",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "copy draft uses in-memory clipboard stub only",
+      "passed": true,
+      "checks": 4,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "session recovery is offered only for exact wiki title section and revision",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "recovery rejects mismatching origin",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "recovery rejects mismatching title",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "recovery rejects mismatching section",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "recovery rejects mismatching base",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "recovery rejects mismatching savedAt",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "cancelling a clean section preserves unrelated recovery draft",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "custom summary expands names and warns about unknown placeholders",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "explicit minor and watch payload preferences",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "explicit minor and watch payload watch",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "explicit minor and watch payload unwatch",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "explicit minor and watch payload nochange",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "fresh revision guard refuses changed source move-before-save",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict"
+      }
+    },
+    {
+      "name": "fresh revision guard refuses changed source revision-before-save",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict"
+      }
+    },
+    {
+      "name": "fresh revision guard refuses changed source delete-before-save",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "conflict"
+      }
+    },
+    {
+      "name": "fresh revision guard refuses changed source read-before-save-failure",
+      "passed": true,
+      "checks": 7,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": {
+        "state": "rejected"
+      }
+    },
+    {
+      "name": "Wiktionary-specific tab globals never affect ptwiki sections",
+      "passed": true,
+      "checks": 4,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "500 Unicode characters remain within MediaWiki summary limit",
+      "passed": true,
+      "checks": 4,
+      "trustedEvents": [
+        {
+          "className": "mw-ui-button mw-ui-progressive rw26-publish",
+          "text": "Publicar alterações"
+        }
+      ],
+      "result": true
+    },
+    {
+      "name": "copy remains available when session storage is unavailable",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "download creates only the exact local wiki draft",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "native editor handoff restores draft only after explicit recovery",
+      "passed": true,
+      "checks": 11,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "automatic preview starts before and after parses concurrently",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": {
+        "concurrent": 2
+      }
+    },
+    {
+      "name": "new parse error rolls back automatic correction without false summary",
+      "passed": true,
+      "checks": 6,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "automatic preview failure is quiet and never reported as successful",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "typing during parallel automatic preview preserves newer user text",
+      "passed": true,
+      "checks": 5,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "automatic preview deadline aborts and ignores late unabortable response",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": {
+        "elapsedMilliseconds": 12100
+      }
+    }
+  ],
+  "browserVersion": "155.0.8059.40",
+  "completedAt": "2026-10-15T16:29:29.922Z",
+  "blockedOutsideRequests": 0,
+  "passed": 81,
+  "failed": 0,
+  "checks": 554
+}

@@ -1,0 +1,358 @@
+{
+  "installationLoaderSha256": {
+    "common_js": "f20086eea56687c53cf47a17dadf6f643178fe8e36896cce7b03fd8d247655dd",
+    "comunitario": "4e5b3ea61a593e26f920a3f785f521ee4b31b491461e34a4259903b6b7dc0d10"
+  },
+  "browser": "Firefox",
+  "scriptSha256": "d1588ed15732ccb99f572d15cf2a09f92627ebd09b1d4f34a43006993e09e3d5",
+  "dataSha256": "d39be94a9bf8a3def3de24e9cb82bcc65e994725e4f567be7985d2ede5495895",
+  "modular": true,
+  "mode": "install-loaders",
+  "startedAt": "2026-10-15T16:33:06.124Z",
+  "writeActions": 0,
+  "userPreferencesChanged": false,
+  "tests": [
+    {
+      "name": "installation common_js read page does not request kernel",
+      "passed": true,
+      "result": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "installation common_js first editor activation loads once",
+      "passed": true,
+      "result": {
+        "requests": [
+          "/w/index.php?title=User%3AConta%20de%20Teste%2FRevisaWiki.js&action=raw&ctype=text/javascript&v=2.6.0",
+          "/w/index.php?title=User%3AConta%20de%20Teste%2FRevisaWiki%2FDados.js&action=raw&ctype=text/javascript"
+        ],
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation common_js repeated hooks never duplicate request",
+      "passed": true,
+      "result": {
+        "requests": 2
+      }
+    },
+    {
+      "name": "installation common_js duplicate registration warns without reloading",
+      "passed": true,
+      "result": {
+        "warning": true
+      }
+    },
+    {
+      "name": "installation common_js visual activation fetches once and waits for source",
+      "passed": true,
+      "result": {
+        "state": "waiting-editor"
+      }
+    },
+    {
+      "name": "installation common_js switch to source starts real core and exact undo",
+      "passed": true,
+      "result": {
+        "requestsBeforeSource": 1,
+        "requestsAfterSource": 1
+      }
+    },
+    {
+      "name": "installation common_js edit loads automatically",
+      "passed": true,
+      "result": {
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation common_js submit loads automatically",
+      "passed": true,
+      "result": {
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation common_js handles failure",
+      "passed": true,
+      "result": {
+        "state": "error",
+        "notifications": [
+          {
+            "message": "Não foi possível carregar RevisaWiki.js. Confira se o arquivo inteiro está salvo na sua página pessoal e recarregue a página.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation common_js handles mismatch",
+      "passed": true,
+      "result": {
+        "state": "loaded",
+        "notifications": [
+          {
+            "message": "RevisaWiki carregou a versão 1.9.1, mas o carregador pede 2.6.0. Atualize os arquivos do script e recarregue a página.",
+            "options": {
+              "type": "warn",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation common_js handles missing-api",
+      "passed": true,
+      "result": {
+        "state": "missing-api",
+        "notifications": [
+          {
+            "message": "O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation common_js handles data-error",
+      "passed": true,
+      "result": {
+        "state": "data-error",
+        "notifications": [
+          {
+            "message": "O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation common_js handles waiting-editor",
+      "passed": true,
+      "result": {
+        "state": "waiting-editor",
+        "notifications": []
+      }
+    },
+    {
+      "name": "installation common_js handles previous-loader",
+      "passed": true,
+      "result": {
+        "state": "loaded",
+        "notifications": [
+          {
+            "message": "Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.",
+            "options": {
+              "type": "warn",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation common_js anonymous does not request personal code",
+      "passed": true,
+      "result": {
+        "state": "logged-out"
+      }
+    },
+    {
+      "name": "installation comunitario read page does not request kernel",
+      "passed": true,
+      "result": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "installation comunitario first editor activation loads once",
+      "passed": true,
+      "result": {
+        "requests": [
+          "/w/index.php?title=User%3ADaniel%20G%20Rego%2FRevisaWiki.js&action=raw&ctype=text/javascript&v=2.6.0"
+        ],
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation comunitario repeated hooks never duplicate request",
+      "passed": true,
+      "result": {
+        "requests": 1
+      }
+    },
+    {
+      "name": "installation comunitario duplicate registration warns without reloading",
+      "passed": true,
+      "result": {
+        "warning": true
+      }
+    },
+    {
+      "name": "installation comunitario visual activation fetches once and waits for source",
+      "passed": true,
+      "result": {
+        "state": "waiting-editor"
+      }
+    },
+    {
+      "name": "installation comunitario switch to source starts real core and exact undo",
+      "passed": true,
+      "result": {
+        "requestsBeforeSource": 1,
+        "requestsAfterSource": 1
+      }
+    },
+    {
+      "name": "installation comunitario edit loads automatically",
+      "passed": true,
+      "result": {
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation comunitario submit loads automatically",
+      "passed": true,
+      "result": {
+        "load": {
+          "expectedVersion": "2.6.0",
+          "requests": 1,
+          "state": "loaded"
+        }
+      }
+    },
+    {
+      "name": "installation comunitario handles failure",
+      "passed": true,
+      "result": {
+        "state": "error",
+        "notifications": [
+          {
+            "message": "Não foi possível carregar RevisaWiki.js. Confira se o arquivo inteiro está salvo na sua página pessoal e recarregue a página.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation comunitario handles mismatch",
+      "passed": true,
+      "result": {
+        "state": "loaded",
+        "notifications": [
+          {
+            "message": "RevisaWiki carregou a versão 1.9.1, mas o carregador pede 2.6.0. Atualize os arquivos do script e recarregue a página.",
+            "options": {
+              "type": "warn",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation comunitario handles missing-api",
+      "passed": true,
+      "result": {
+        "state": "missing-api",
+        "notifications": [
+          {
+            "message": "O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation comunitario handles data-error",
+      "passed": true,
+      "result": {
+        "state": "data-error",
+        "notifications": [
+          {
+            "message": "O arquivo foi recebido, mas RevisaWiki não iniciou. Confira se colou o código completo e consulte o console do navegador.",
+            "options": {
+              "type": "error",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation comunitario handles waiting-editor",
+      "passed": true,
+      "result": {
+        "state": "waiting-editor",
+        "notifications": []
+      }
+    },
+    {
+      "name": "installation comunitario handles previous-loader",
+      "passed": true,
+      "result": {
+        "state": "loaded",
+        "notifications": [
+          {
+            "message": "Há mais de um carregador de RevisaWiki no common.js. Mantenha uma única chamada e recarregue a página.",
+            "options": {
+              "type": "warn",
+              "autoHide": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "installation comunitario anonymous does not request personal code",
+      "passed": true,
+      "result": {
+        "state": "logged-out"
+      }
+    }
+  ],
+  "articles": [],
+  "browserVersion": "158.0",
+  "finishedAt": "2026-10-15T16:33:11.893Z",
+  "blockedNetwork": [],
+  "driverErrors": [],
+  "passed": 30,
+  "failed": 0
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "name": "two adjacent named calls",
+    "source": "<ref name=\"a\">Fonte</ref> Texto.<ref name=\"a\"/><ref name=\"a\"/>",
+    "expected": "<ref name=\"a\">Fonte</ref> Texto.<ref name=\"a\"/>",
+    "rule": "safeAdjacentReferenceCalls"
+  },
+  {
+    "name": "three adjacent named calls",
+    "source": "<ref name=\"a\">Fonte</ref> Texto.<ref name=\"a\"/> <ref name='a'/>\t<ref name=a />",
+    "expected": "<ref name=\"a\">Fonte</ref> Texto.<ref name=\"a\"/> \t",
+    "rule": "safeAdjacentReferenceCalls"
+  },
+  {
+    "name": "grouped adjacent named calls",
+    "source": "<ref name=\"a\" group=\"nota\">Nota</ref> Texto.<ref name=\"a\" group=\"nota\"/><ref group='nota' name='a'/>",
+    "expected": "<ref name=\"a\" group=\"nota\">Nota</ref> Texto.<ref name=\"a\" group=\"nota\"/>",
+    "rule": "safeAdjacentReferenceCalls"
+  },
+  {
+    "name": "two citation parameter orders",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|autor=Ana|data=2024}}</ref> Outro.<ref>{{Citar web|data=2024|autor=Ana|titulo=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "Texto.<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|autor=Ana|data=2024}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "duplicate reference attribute",
+    "source": "Texto.<ref name=\"a\" name='a'>Fonte</ref>",
+    "expected": "Texto.<ref name=\"a\">Fonte</ref>",
+    "rule": "safeDuplicateAttributes"
+  },
+  {
+    "name": "duplicate grouped reference attributes",
+    "source": "Texto.<ref group=nota name=a group=nota name=a>Fonte</ref>",
+    "expected": "Texto.<ref group=nota name=a>Fonte</ref>",
+    "rule": "safeDuplicateAttributes"
+  },
+  {
+    "name": "duplicate html table attribute",
+    "source": "<table class=\"wikitable\" class='wikitable'><tr><td>Um</td></tr></table>",
+    "expected": "<table class=\"wikitable\"><tr><td>Um</td></tr></table>",
+    "rule": "safeDuplicateAttributes"
+  },
+  {
+    "name": "duplicate wikitext table attribute",
+    "source": "{| class=\"wikitable\" class='wikitable'\n| Um\n|}",
+    "expected": "{| class=\"wikitable\"\n| Um\n|}",
+    "rule": "safeDuplicateAttributes"
+  },
+  {
+    "name": "portal mixed right bracket closer",
+    "source": "{{Portal|Biologia}]",
+    "expected": "{{Portal|Biologia}}",
+    "rule": "safeMixedTemplateClosers"
+  },
+  {
+    "name": "portal mixed left bracket closer",
+    "source": "{{Portal|Biologia]}",
+    "expected": "{{Portal|Biologia}}",
+    "rule": "safeMixedTemplateClosers"
+  },
+  {
+    "name": "reference citation mixed closer",
+    "source": "Texto.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}]</ref>",
+    "expected": "Texto.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+    "rule": "safeMixedTemplateClosers"
+  },
+  {
+    "name": "two empty grouped collectors",
+    "source": "<references group=\"nota\"/>\n<references group='nota'/>",
+    "expected": "<references group=\"nota\"/>\n",
+    "rule": "safeAdjacentCollectors"
+  },
+  {
+    "name": "paired and self closing empty collectors",
+    "source": "<references group=\"nota\"> \n</references>\n<references group=\"nota\"/>",
+    "expected": "<references group=\"nota\"> \n</references>\n",
+    "rule": "safeAdjacentCollectors"
+  },
+  {
+    "name": "existing equal duplicate cleanup creates citation equivalence",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing invalid parameter capitalization cleanup creates equality",
+    "source": "<ref>{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|Titulo=Fonte}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing english last and ultimo aliases normalize before comparison",
+    "source": "<ref>{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref>{{Cite web|url=https://example.org|title=Página|ultimo=Página}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing english title and titulo normalize before comparison",
+    "source": "<ref>{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref>{{Cite web|url=https://example.org|titulo=Página|last=Página}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing empty citation field cleanup creates equality",
+    "source": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|autor=}}</ref>\n<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Citar web|titulo=Fonte|url=https://example.invalid/a|autor=}}</ref>\n<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Russian registered book canonical conversion in first pass",
+    "source": "<ref>{{Книга|заглавие=Livro|автор=Ana Silva|ссылка=https://example.invalid/a}}</ref> Outro.<ref>{{Citar livro|título=Livro|autor=Ana Silva|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Книга|заглавие=Livro|автор=Ana Silva|ссылка=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Korean registered web canonical conversion in first pass",
+    "source": "<ref>{{웹 인용|제목=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{웹 인용|제목=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Arabic registered web canonical conversion in first pass",
+    "source": "<ref>{{استشهاد ويب|عنوان=Fonte|مسار=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{استشهاد ويب|عنوان=Fonte|مسار=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Cantonese registered web canonical conversion in first pass",
+    "source": "<ref>{{引網|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{引網|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Chinese shared Cite web alias canonical conversion in first pass",
+    "source": "<ref>{{Template:Cite web|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Template:Cite web|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "Japanese shared Cite news alias canonical conversion in first pass",
+    "source": "<ref>{{Cite news|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar jornal|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Cite news|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing simple external reference conversion establishes first pass equality",
+    "source": "<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">[https://example.invalid/a Fonte]</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  },
+  {
+    "name": "existing redundant wiki link cleanup establishes first pass equality",
+    "source": "<ref>{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=[[Página]]}}</ref>",
+    "expected": "<ref name=\"ref-auto-1\">{{Cite web|title=[[Página|Página]]|url=https://example.invalid/a}}</ref> Outro.<ref name=\"ref-auto-1\" />",
+    "rule": "safeEquivalentCitations"
+  }
+]

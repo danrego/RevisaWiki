@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -9,12 +9,13 @@
   },
   "scripts": {
     "test": "node tests/run_all.cjs",
-    "test:complex": "node tests/v25_engine/run_complex_all.cjs",
-    "test:regression": "node tests/v25_inherited/run.cjs",
+    "test:complex": "node tests/v26_engine/run_complex_all.cjs",
+    "test:regression": "node tests/v26_inherited.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
-    "test:documentation": "python3 src/v2_5/audit_documentation.py --final",
-    "test:engine": "node tests/run_engine_v25.cjs",
+    "test:documentation": "python3 src/v2_6/audit_documentation.py --final",
+    "test:engine": "node tests/run_engine_v26.cjs",
     "build:index": "python3 scripts/build_index.py",
-    "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py"
+    "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
+    "test:additions": "node tests/run_additions_v26.cjs"
   }
 }

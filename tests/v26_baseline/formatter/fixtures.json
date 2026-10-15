@@ -1,0 +1,328 @@
+{
+  "version": "2.5.0",
+  "design": "Only horizontal key padding before existing equals signs, width=max(22, longest Unicode codepoint key width + 1), maximum 48. Frozen independently from the Tati diff before running the helper. No copied biography edits.",
+  "publicSource": {
+    "title": "Tati Barra",
+    "oldid": 73203969,
+    "newid": 73216566,
+    "oldSourceSha256": "7df69b773646268c288b74d29da3e58b6389c9b7e05b7b34dd1e9036b85e1b54",
+    "newSourceSha256": "04ccea0bca4a15ce06f0f1200128b9676b22a6460cc643a8fa94d77393f08a36",
+    "oldBoxSha256": "c969c54d62a79a68fc1270e93954917beaaa66e42a273c84a0d3d78c566cb214",
+    "newBoxSha256": "0018d007f936380942efda8c492731880276a25b65b266cc37e6037123a5625f",
+    "expectedOldBoxSha256": "7af5bffb82861bd4590f211647402f782c8dd9b5f09bc5b8ed42811f66dca1cc"
+  },
+  "cases": [
+    {
+      "name": "Tati frozen old infobox",
+      "source": "{{Info/Político\n|nome = Tati Barra\n|nome_comp = Tatiane Calabria Coelho\n|título = [[Assembleia Legislativa do Pará|Deputada estadual]] do Pará\n|mandato = ''A tomar posse''\n|nacionalidade = [[brasil]]eira\n|partido = [[Partido Liberal (2006)|PL]]\n|ocupação = médica<ref name=\"Radar\" />\n|data_nascimento       = {{Dni|27|9|1989}}<ref name=\"TSEOficial2026\" />\n|local_nascimento      = [[Belém (Pará)|Belém]], [[Pará]]<ref name=\"Nascimento20261009\" />\n}}",
+      "expected": "{{Info/Político\n|nome                  = Tati Barra\n|nome_comp             = Tatiane Calabria Coelho\n|título                = [[Assembleia Legislativa do Pará|Deputada estadual]] do Pará\n|mandato               = ''A tomar posse''\n|nacionalidade         = [[brasil]]eira\n|partido               = [[Partido Liberal (2006)|PL]]\n|ocupação              = médica<ref name=\"Radar\" />\n|data_nascimento       = {{Dni|27|9|1989}}<ref name=\"TSEOficial2026\" />\n|local_nascimento      = [[Belém (Pará)|Belém]], [[Pará]]<ref name=\"Nascimento20261009\" />\n}}",
+      "options": {}
+    },
+    {
+      "name": "Tati frozen latest already aligned",
+      "source": "{{Info/Político\n|nome                  = Tati Barra\n|nome_comp             = Tatiane Calabria Coelho\n|título                = [[Assembleia Legislativa do Pará|Deputada estadual]] do Pará\n|mandato               = ''A tomar posse''\n|nacionalidade         = [[brasil]]eira\n|cônjuge               = [[Rogério Barra]]\n|partido               = [[Partido Liberal (2006)|PL]]\n|ocupação              = médica<ref name=\"Radar\" />\n|data_nascimento       = {{Dni|27|9|1989}}<ref name=\"TSEOficial2026\" />\n|local_nascimento      = [[Belém (Pará)|Belém]], [[Pará]]<ref name=\"Nascimento20261009\" />\n}}",
+      "expected": "{{Info/Político\n|nome                  = Tati Barra\n|nome_comp             = Tatiane Calabria Coelho\n|título                = [[Assembleia Legislativa do Pará|Deputada estadual]] do Pará\n|mandato               = ''A tomar posse''\n|nacionalidade         = [[brasil]]eira\n|cônjuge               = [[Rogério Barra]]\n|partido               = [[Partido Liberal (2006)|PL]]\n|ocupação              = médica<ref name=\"Radar\" />\n|data_nascimento       = {{Dni|27|9|1989}}<ref name=\"TSEOficial2026\" />\n|local_nascimento      = [[Belém (Pará)|Belém]], [[Pará]]<ref name=\"Nascimento20261009\" />\n}}",
+      "options": {}
+    },
+    {
+      "name": "simple two named fields",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome                  = Nome\n|ocupação              = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "no spaces before equals",
+      "source": "{{Info/Biografia\n|nome=Nome\n|ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome                  =Nome\n|ocupação              =escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "inline date ref and links remain exact",
+      "source": "{{Info/Biografia\n|nome=Nome\n|data_nascimento={{dni|1|2|1980}}<ref>{{Citar web|url=https://example.org?a=1|titulo=Nome}}</ref>\n|local_nascimento=[[França|Paris]]\n}}",
+      "expected": "{{Info/Biografia\n|nome                  =Nome\n|data_nascimento       ={{dni|1|2|1980}}<ref>{{Citar web|url=https://example.org?a=1|titulo=Nome}}</ref>\n|local_nascimento      =[[França|Paris]]\n}}",
+      "options": {}
+    },
+    {
+      "name": "plain pipe inside inline ref remains exact",
+      "source": "{{Info/Biografia\n|nome=Nome<ref>Fonte | suplemento = 2</ref>\n|ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome                  =Nome<ref>Fonte | suplemento = 2</ref>\n|ocupação              =escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "nested inline template remains exact",
+      "source": "{{Info/Biografia\n|nome=Nome\n|módulo={{Info/Biografia|nome=X|ocupação=Y}}\n}}",
+      "expected": "{{Info/Biografia\n|nome                  =Nome\n|módulo                ={{Info/Biografia|nome=X|ocupação=Y}}\n}}",
+      "options": {}
+    },
+    {
+      "name": "CRLF retained",
+      "source": "{{Info/Biografia\r\n|nome = Nome\r\n|ocupação = escritora\r\n}}",
+      "expected": "{{Info/Biografia\r\n|nome                  = Nome\r\n|ocupação              = escritora\r\n}}",
+      "options": {}
+    },
+    {
+      "name": "leading field spaces retained",
+      "source": "{{Info/Biografia\n| nome = Nome\n| ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n| nome                 = Nome\n| ocupação             = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "key spelling and uppercase retained",
+      "source": "{{Info/Biografia\n|Nome = Nome\n|ocupacao = Escritora\n}}",
+      "expected": "{{Info/Biografia\n|Nome                  = Nome\n|ocupacao              = Escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "adaptive width counts Unicode codepoints",
+      "source": "{{Info/Biografia\n|nome = Nome\n|campo_ááááááááááááááááááá = valor\n}}",
+      "expected": "{{Info/Biografia\n|nome                      = Nome\n|campo_ááááááááááááááááááá = valor\n}}",
+      "options": {}
+    },
+    {
+      "name": "empty values retained",
+      "source": "{{Info/Biografia\n|nome=\n|ocupação = \n}}",
+      "expected": "{{Info/Biografia\n|nome                  =\n|ocupação              = \n}}",
+      "options": {}
+    },
+    {
+      "name": "duplicates retained without choosing values",
+      "source": "{{Info/Biografia\n|nome=A\n|nome=B\n}}",
+      "expected": "{{Info/Biografia\n|nome                  =A\n|nome                  =B\n}}",
+      "options": {}
+    },
+    {
+      "name": "surrounding prose exact",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\nTexto completo.\n",
+      "expected": "{{Info/Biografia\n|nome                  = Nome\n|ocupação              = escritora\n}}\nTexto completo.\n",
+      "options": {}
+    },
+    {
+      "name": "compact box unchanged",
+      "source": "{{Info/Biografia|nome=Nome|ocupação=escritora}}",
+      "expected": "{{Info/Biografia|nome=Nome|ocupação=escritora}}",
+      "options": {}
+    },
+    {
+      "name": "mixed compact line unchanged",
+      "source": "{{Info/Biografia\n|nome=Nome|ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome=Nome|ocupação=escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "unknown infobox unchanged",
+      "source": "{{Info/Não catalogada\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Não catalogada\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "ordinary template unchanged",
+      "source": "{{Citar web\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Citar web\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "multiline outer value unchanged",
+      "source": "{{Info/Biografia\n|nome=Nome\n|ocupação=escritora\n e professora\n}}",
+      "expected": "{{Info/Biografia\n|nome=Nome\n|ocupação=escritora\n e professora\n}}",
+      "options": {}
+    },
+    {
+      "name": "multiline nested template unchanged",
+      "source": "{{Info/Biografia\n|nome=Nome\n|módulo={{Info/Biografia\n|nome=Pessoa\n}}\n}}",
+      "expected": "{{Info/Biografia\n|nome=Nome\n|módulo={{Info/Biografia\n|nome=Pessoa\n}}\n}}",
+      "options": {}
+    },
+    {
+      "name": "nested unknown wrapper unchanged",
+      "source": "{{Bloco\n|conteúdo={{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n}}",
+      "expected": "{{Bloco\n|conteúdo={{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n}}",
+      "options": {}
+    },
+    {
+      "name": "inline italic example unchanged",
+      "source": "''{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}''",
+      "expected": "''{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}''",
+      "options": {}
+    },
+    {
+      "name": "nowiki example unchanged",
+      "source": "<nowiki>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</nowiki>",
+      "expected": "<nowiki>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</nowiki>",
+      "options": {}
+    },
+    {
+      "name": "pre example unchanged",
+      "source": "<pre>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</pre>",
+      "expected": "<pre>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</pre>",
+      "options": {}
+    },
+    {
+      "name": "syntaxhighlight example unchanged",
+      "source": "<syntaxhighlight>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</syntaxhighlight>",
+      "expected": "<syntaxhighlight>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</syntaxhighlight>",
+      "options": {}
+    },
+    {
+      "name": "code example unchanged",
+      "source": "<code>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</code>",
+      "expected": "<code>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</code>",
+      "options": {}
+    },
+    {
+      "name": "blockquote example unchanged",
+      "source": "<blockquote>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</blockquote>",
+      "expected": "<blockquote>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</blockquote>",
+      "options": {}
+    },
+    {
+      "name": "q example unchanged",
+      "source": "<q>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</q>",
+      "expected": "<q>\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n</q>",
+      "options": {}
+    },
+    {
+      "name": "comment example unchanged",
+      "source": "<!--\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n-->",
+      "expected": "<!--\n{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n-->",
+      "options": {}
+    },
+    {
+      "name": "quotation template unchanged",
+      "source": "{{Citação\n|texto={{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n}}",
+      "expected": "{{Citação\n|texto={{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n}}",
+      "options": {}
+    },
+    {
+      "name": "unclosed box unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n",
+      "options": {}
+    },
+    {
+      "name": "unclosed comment unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n<!-- comentário",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}\n<!-- comentário",
+      "options": {}
+    },
+    {
+      "name": "unclosed ref unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome<ref>Fonte\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome<ref>Fonte\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "dynamic key unchanged",
+      "source": "{{Info/Biografia\n|{{Nome}} = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|{{Nome}} = Nome\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "extremely long key unchanged",
+      "source": "{{Info/Biografia\n|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx = Nome\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "unexplained line after value unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\nlinha solta\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\nlinha solta\n|ocupação = escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "positional argument unchanged",
+      "source": "{{Info/Biografia\n|Nome\n|ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n|Nome\n|ocupação=escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "closing brace shares value line unchanged",
+      "source": "{{Info/Biografia\n|nome=Nome\n|ocupação=escritora}}",
+      "expected": "{{Info/Biografia\n|nome=Nome\n|ocupação=escritora}}",
+      "options": {}
+    },
+    {
+      "name": "namespace 1 unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "namespaceNumber": 1
+      }
+    },
+    {
+      "name": "namespace 10 unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "namespaceNumber": 10
+      }
+    },
+    {
+      "name": "namespace omitted unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "namespaceNumber": null
+      }
+    },
+    {
+      "name": "section edit unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "sectionOnly": true
+      }
+    },
+    {
+      "name": "section numeric unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "section": 2
+      }
+    },
+    {
+      "name": "discussion config unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "discussionPage": true
+      }
+    },
+    {
+      "name": "infoboxes option disabled",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "infoboxes": false
+      }
+    },
+    {
+      "name": "markup option disabled",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "markup": false
+      }
+    },
+    {
+      "name": "non wikitext model unchanged",
+      "source": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome = Nome\n|ocupação = escritora\n}}",
+      "options": {
+        "contentModel": "javascript"
+      }
+    },
+    {
+      "name": "different field indentation retained",
+      "source": "{{Info/Biografia\n|nome=Nome\n  |ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n|nome=Nome\n  |ocupação=escritora\n}}",
+      "options": {}
+    },
+    {
+      "name": "uniform field indentation retained",
+      "source": "{{Info/Biografia\n  |nome=Nome\n  |ocupação=escritora\n}}",
+      "expected": "{{Info/Biografia\n  |nome                  =Nome\n  |ocupação              =escritora\n}}",
+      "options": {}
+    }
+  ]
+}

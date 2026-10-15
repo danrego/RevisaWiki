@@ -1,0 +1,258 @@
+[
+  {
+    "name": "ordinary inline known citation 0",
+    "source": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文]]</ref>",
+    "expected": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 1",
+    "source": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文]]<\\ref>",
+    "expected": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 2",
+    "source": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}</ref>",
+    "expected": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 3",
+    "source": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}<\\ref>",
+    "expected": "Texto.<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 4",
+    "source": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文]]</ref>",
+    "expected": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 5",
+    "source": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文]]<\\ref>",
+    "expected": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 6",
+    "source": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}</ref>",
+    "expected": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "ordinary inline known citation 7",
+    "source": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}<\\ref>",
+    "expected": "[[Destino|中文]].<ref name=\"a\">{{Citar web|url=https://example.invalid/fonte|titulo=Fonte 中文}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Discovered gap: ordinary prose before the explicit opening ref must not hide a fully bounded citation body."
+  },
+  {
+    "name": "verified live missing template Citar relatorio ]] isolated",
+    "source": "{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar relatorio ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar relatorio } isolated",
+    "source": "{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar relatorio } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar relatorio|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar conferencia ]] isolated",
+    "source": "{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar conferencia ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar conferencia } isolated",
+    "source": "{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar conferencia } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar conferencia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar enciclopedia ]] isolated",
+    "source": "{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar enciclopedia ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar enciclopedia } isolated",
+    "source": "{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar enciclopedia } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar enciclopedia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar documento ]] isolated",
+    "source": "{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar documento ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar documento } isolated",
+    "source": "{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live missing template Citar documento } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar documento|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar noticia ]] isolated",
+    "source": "{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar noticia ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar noticia } isolated",
+    "source": "{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar noticia } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar noticia|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar video ]] isolated",
+    "source": "{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]",
+    "expected": "{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar video ]] inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04]]</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar video } isolated",
+    "source": "{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}",
+    "expected": "{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  },
+  {
+    "name": "verified live existing redirect Citar video } inline ref",
+    "source": "Texto.<ref name=\"verificada\">{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}</ref>",
+    "expected": "Texto.<ref name=\"verificada\">{{Citar video|titulo=Fonte 中文|url=https://example.invalid/alias-final04}}</ref>",
+    "rule": "syntax-template-close",
+    "options": {},
+    "reason": "Independent exact-name contract from the frozen 2026-10-15 API evidence. Missing names cannot authorize closure inference; existing noticia/video redirects remain usable."
+  }
+]

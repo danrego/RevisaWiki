@@ -1,0 +1,129 @@
+[
+  {
+    "id": "preview-apply-diff-exact-undo",
+    "source": "",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n",
+    "action": "apply",
+    "expectedSummary": "{{PD}}{{Marca de projeto}}"
+  },
+  {
+    "id": "merge-preserves-ratings-and-comment",
+    "source": "{{Marca de projeto|3|Cinema|2|motivo=texto conferido|rev=20261001}}\n{{PD}}\n== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "expected": "{{PD}}\n{{Marca de projeto|3|Cinema|2|motivo=texto conferido|rev=20261001|Estados Unidos|?}}\n== Debate ==\nTexto original.\n",
+    "action": "apply",
+    "expectedSummary": "{{PD}}{{Marca de projeto}}"
+  },
+  {
+    "id": "preserve-translated-attribution",
+    "source": "{{Traduzido|en|Example|oldid=1}}\n== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n{{Traduzido|en|Example|oldid=1}}\n== Debate ==\nTexto original.\n",
+    "action": "apply",
+    "expectedSummary": "{{PD}}{{Marca de projeto}}"
+  },
+  {
+    "id": "existing-header-alias-stable",
+    "source": "{{Cabeçalho de discussão}}\n{{Marca de projeto|?|Cinema|2}}\n== Debate ==\nTexto original.\n",
+    "article": "{{Portal3|Cinema}}\n",
+    "action": "no-change"
+  },
+  {
+    "id": "manual-summary-retained",
+    "source": "",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n",
+    "action": "apply",
+    "initialSummary": "Meu resumo manual",
+    "expectedSummary": "Meu resumo manual"
+  },
+  {
+    "id": "preview-dismiss-does-not-edit",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "action": "dismiss"
+  },
+  {
+    "id": "failed-read-preserves-editor",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "articleFailure": true,
+    "action": "error"
+  },
+  {
+    "id": "missing-article-preserves-editor",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "articleMissing": true,
+    "action": "error"
+  },
+  {
+    "id": "nonarticle-response-preserves-editor",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "articleNamespace": 2,
+    "action": "error"
+  },
+  {
+    "id": "edit-during-read-preserved",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "action": "race",
+    "raceText": "== Debate ==\nTexto original.\nNova mensagem.\n"
+  },
+  {
+    "id": "header-in-conversation-not-moved",
+    "source": "== Debate ==\nTexto original.\n{{PD}}\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "action": "no-change"
+  },
+  {
+    "id": "unknown-portals-never-invent-projects",
+    "source": "",
+    "article": "{{Portal3|Portal inexistente}}\n",
+    "action": "apply",
+    "expected": "{{PD}}\n",
+    "expectedSummary": "{{PD}}"
+  },
+  {
+    "id": "plain-talk-portals-converted",
+    "source": "Portal do Cinema Portal dos Estados Unidos\n== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n",
+    "action": "apply",
+    "expected": "{{PD}}\n{{Marca de projeto|?|Cinema|?|Estados Unidos|?}}\n== Debate ==\nTexto original.\n",
+    "expectedSummary": "{{PD}}{{Marca de projeto}}"
+  },
+  {
+    "id": "change-after-preview-prevents-apply",
+    "source": "== Debate ==\nTexto original.\n",
+    "article": "O artigo.\n{{Portal3|Cinema|Estados Unidos|Portal inexistente}}\n",
+    "action": "stale-preview",
+    "raceText": "== Debate ==\nTexto original.\nNova mensagem.\n"
+  },
+  {
+    "id": "comment-prefixed-redirect-preserved",
+    "source": "<!-- Cabeçalho existente -->\n#REDIRECIONAMENTO [[Discussão:Outro]]\n",
+    "article": "{{Portal3|Cinema}}\n",
+    "action": "no-change"
+  },
+  {
+    "id": "wiki-redirect-flag-preserved",
+    "source": "Texto do redirecionamento preservado.\n",
+    "article": "{{Portal3|Cinema}}\n",
+    "action": "no-change",
+    "isRedirect": true
+  },
+  {
+    "id": "indented-pd-header-preserved",
+    "source": "  {{PD}}\n== Debate ==\nTexto original.\n",
+    "article": "{{Portal3|Cinema}}\n",
+    "action": "no-change"
+  },
+  {
+    "id": "same-line-comment-before-header-preserved",
+    "source": "<!-- Observação existente -->{{PD}}\n== Debate ==\nTexto original.\n",
+    "article": "{{Portal3|Cinema}}\n",
+    "action": "no-change"
+  }
+]

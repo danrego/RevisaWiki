@@ -1,0 +1,42 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=__dirname,bundle=path.resolve(process.env.REVISAWIKI_BUNDLE||[path.join(root,'../../dist/2.6.0/RevisaWiki_v2_6.js'),path.join(root,'patched_v25.js')].find(p=>fs.existsSync(p))||'missing-release.js'),api=require(bundle),aliases=JSON.parse(fs.readFileSync(path.join(root,'linked_name_aliases.json'),'utf8'));
+const base={namespaceNumber:0,pageTitle:'Teste de ligações',links:true,authorityControl:false,biographyPortal:false,automaticBiographyPortals:false,livingBirthAge:false,registryDoiCheck:false,autoPreview:false,autoMinor:false};
+let cases=0,checks=0;const failures=[],records=[],fixtures=[];
+function test(name,source,expected,options={}){cases++;let count=0;try{const cfg={...base,...options},actual=api.canonicalPortugueseLinks(source,cfg,()=>{count++;});assert.equal(actual,expected);checks++;assert.equal(api.canonicalPortugueseLinks(actual,cfg),actual);checks++;records.push({name,status:'passed',changes:count});fixtures.push({name,source,expected,options});}catch(e){failures.push({name,message:e.message});}}
+for(const [alias,canonical]of Object.entries(aliases)){
+ test(alias+' bare link','Texto [['+alias+']].','Texto [['+canonical+']].');
+ test(alias+' explicit matching label','Texto [['+canonical+'|'+alias+']].','Texto [['+canonical+']].');
+ test(alias+' explicit canonical target with foreign label','[['+alias+'|'+canonical+']]','[['+alias+'|'+canonical+']]');
+ test(alias+' custom label','[['+alias+'|Nome usado pela fonte]]','[['+alias+'|Nome usado pela fonte]]');
+ test(alias+' fragment','[['+alias+'#História]]','[['+alias+'#História]]');
+ test(alias+' homonym','[['+alias+' (homônimo)]]','[['+alias+' (homônimo)]]');
+ test(alias+' interwiki','[[:en:'+alias+']]','[[:en:'+alias+']]');
+ test(alias+' category','[[Categoria:'+alias+']]','[[Categoria:'+alias+']]');
+ test(alias+' literal','<nowiki>[['+alias+']]</nowiki>','<nowiki>[['+alias+']]</nowiki>');
+ test(alias+' comment','<!-- [['+alias+']] -->','<!-- [['+alias+']] -->');
+ test(alias+' reference','<ref>[['+alias+']]</ref>','<ref>[['+alias+']]</ref>');
+ test(alias+' source title','{{Citar livro|título=[['+alias+']]}}','{{Citar livro|título=[['+alias+']]}}');
+ test(alias+' malformed source title','{{Citar livro|título=[['+alias+']]','{{Citar livro|título=[['+alias+']]');
+ test(alias+' quote template','{{Citação|[['+alias+']]}}','{{Citação|[['+alias+']]}}');
+ test(alias+' foreign language','{{lang|en|[['+alias+']]}}','{{lang|en|[['+alias+']]}}');
+ test(alias+' italic foreign label',"''[["+alias+"]]''","''[["+alias+"]]''");
+ test(alias+' double quote','Ele escreveu "[['+alias+']]".','Ele escreveu "[['+alias+']]".');
+ test(alias+' single quote',"Ele escreveu '[["+alias+"]]'.","Ele escreveu '[["+alias+"]]'.");
+ test(alias+' entity quote','&quot;[['+alias+']]&quot;','&quot;[['+alias+']]&quot;');
+ test(alias+' curly single quote','‘[['+alias+']]’','‘[['+alias+']]’');
+ test(alias+' unfinished double quote','Ele escreveu "[['+alias+']].','Ele escreveu "[['+alias+']].');
+ test(alias+' q HTML','<q>[['+alias+']]</q>','<q>[['+alias+']]</q>');
+ test(alias+' pre','<pre>[['+alias+']]</pre>','<pre>[['+alias+']]</pre>');
+ test(alias+' no links option','[['+alias+']]','[['+alias+']]',{links:false});
+ test(alias+' template definition','[['+alias+']]','[['+alias+']]',{namespaceNumber:10,pageTitle:'Predefinição:Exemplo'});
+ test(alias+' signed talk','Comentário [['+alias+']] 12h00min de 1 de janeiro de 2020 (UTC)','Comentário [['+alias+']] 12h00min de 1 de janeiro de 2020 (UTC)',{namespaceNumber:1,discussionPage:true});
+ test(alias+' lower-case alias','[['+alias.toLocaleLowerCase('pt')+']]','[['+alias.toLocaleLowerCase('pt')+']]');
+ test(alias+' source prose',alias+' é o nome usado.',alias+' é o nome usado.');
+ const integrated=api.calculate({kind:'adjust',source:'Texto [['+alias+']].',options:base});assert.equal(integrated.text.includes('[['+canonical+']]'),true);checks++;assert.equal(api.preservationAudit('Texto [['+alias+']].',integrated.text,base).filter(f=>/^lost-/.test(f.code||'')).length,0);checks++;
+ const candidate=api.v26ConfirmedLinkedName(alias,alias);assert.equal(candidate.canonical,canonical);checks++;assert.equal(api.v26ConfirmedLinkedName(alias+' (homônimo)',alias),null);checks++;
+}
+for(const value of ['Hómece','Homs','Barém','Bahrein','Iêmem','Iémen','Yemen','Dicaearco','Avicenne','Ibne Sal','Al-Khwarizmī','Al-Haytham','Maomé','Óptica','Ótica','Mecca (banda)','mecca'])test('Excluded '+value,'[['+value+']]','[['+value+']]');
+for(const [a,b]of [['Al-Kindi','Alquindi'],['Nimrud','Ninrude']])test('Inherited '+a,'[['+a+']]','[['+b+']]');
+const report={version:'2.6.0',kind:'verified-linked-name-expansion',bundleSha256:crypto.createHash('sha256').update(fs.readFileSync(bundle)).digest('hex'),cases,checks,failures,status:failures.length?'failed':'passed',records,wikipediaWrites:0,networkRequests:0};
+if(process.env.REVISAWIKI_UPDATE_FIXTURES==='1')fs.writeFileSync(path.join(root,'linked_name_fixtures.json'),JSON.stringify(fixtures,null,2)+'\n');if(process.env.REVISAWIKI_REPORT_DIR){fs.mkdirSync(process.env.REVISAWIKI_REPORT_DIR,{recursive:true});fs.writeFileSync(path.join(process.env.REVISAWIKI_REPORT_DIR,'linked_name_test_report.json'),JSON.stringify(report,null,2)+'\n');}console.log(JSON.stringify({status:report.status,cases,checks,failures}));if(failures.length)process.exitCode=1;

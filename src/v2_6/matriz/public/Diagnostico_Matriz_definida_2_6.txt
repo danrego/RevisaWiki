@@ -1,0 +1,24 @@
+Matriz definida: citações abreviadas e tempo de análise
+Verificado em 15 de outubro de 2026
+
+A revisão 73217323 do artigo tem 51.134 bytes de código e 470 chamadas de matemática. A renderização consultada pela API contém 755.458 bytes de HTML. Os três destinos citados no aviso do RevisaWiki existem nessa renderização:
+
+* CITEREFAxler2024 recebe 14 ligações.
+* CITEREFBoydVandenberghe2004 recebe 14 ligações.
+* CITEREFHornJohnson2013 recebe 13 ligações.
+
+As chamadas harvtxt e as referências estavam funcionando. O diagnóstico local reconhecia as formas portuguesas de autor e ano, mas deixava de reconhecer campos aceitos como last, last1, year e date usados em Citar livro. A correção da 2.6 aplica a lista de aliases somente durante essa conferência. Também reconhece sobrenome e sobrenome1. Não traduz, converte ou reescreve as citações por causa desse diagnóstico.
+
+As citações com destino realmente ausente e as obras diferentes que disputam o mesmo identificador continuam sendo apontadas. Identidades dinâmicas que o código local não consegue confirmar permanecem incertas. A versão não deduz que Smith e Smithson sejam a mesma pessoa nem trata um ref escolhido pelo editor como prova de outro identificador.
+
+O perfil local anterior ao reparo mediu aproximadamente 460 ms na 2.5 e 423 ms na candidata 2.6, com 186 ms e 184 ms na repetição. Esse diagnóstico foi feito no Node, com a exportação do gerador de etapas para medir os intervalos. Não é uma medição no navegador nem uma reprodução da conexão do usuário. A lentidão relatada não apareceu no cálculo local.
+
+A conferência online anterior fazia as pré-visualizações do texto de origem e do resultado em sequência, com limite de 15 segundos por pedido. Nesta página, não havia candidatos a consultas adicionais de DOI, grupos de notas ou remissões de cabeçalhos. Há, porém,470 fórmulas para renderizar. O tempo da renderização e da conexão pode aumentar a espera. Nenhum pedido de publicação foi feito para investigar o caso.
+
+Os testes direcionados cobrem campos ingleses e portugueses, autores numerados, campos duplicados conflitantes, ano incorreto, sobrenome diferente, ref=none, ref literal, âncoras explícitas, obras duplicadas, identidades dinâmicas e o código completo dessa revisão. São 50 casos e 152 verificações por distribuição. Na execução das distribuições finais, o texto de Matriz definida ficou exatamente como estava e os três avisos incorretos não apareceram.
+
+Origem: https://pt.wikipedia.org/w/index.php?oldid=73217323
+Histórico e autores: https://pt.wikipedia.org/w/index.php?title=Matriz_definida&action=history
+Licença do texto de teste: CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+
+Os arquivos anchor_evidence.json e source_provenance.json registram as consultas públicas e os hashes. Os resultados das distribuições finais ficam em final04/core e final04/full. Não houve autenticação nem edição na Wikipédia.

@@ -1,0 +1,44 @@
+{
+  "scope": "Current privacy-gate source policy follow-up, not runtime or historical run adaptation.",
+  "sourceFileRecords": [
+    {
+      "path": "scripts/publication_privacy_gate.py",
+      "scope": "Two privacy-scanner regex boundary constants only.",
+      "PythonASTEqualExceptTwoRegexConstants": true,
+      "completeTechnicalPathRequired": true,
+      "personalPageSuffixNotAllowed": true,
+      "namespaceWordBoundaryRequired": true,
+      "inputSha256": "ad697eb66f9d4684c2306e7dd11985364b7375ea502190fa324289ce2d22fd55",
+      "outputSha256": "70e1c7e76e61117d31b8d3fb8fddc9957f7952fb987953e9f6e833408738532c",
+      "runtimeBundleChanges": 0,
+      "historicalMeasurementsRetagged": 0
+    },
+    {
+      "path": "tests/privacy/test_publication_privacy_gate.py",
+      "scope": "Three new privacy boundary controls only.",
+      "PythonASTEqualExceptThreeNewControlCalls": true,
+      "existingAssertionsPreserved": true,
+      "newBoundaryControls": 3,
+      "inputSha256": "0606e82ec3baa5515e251515f262c471267b937f57096a61e1a857405f236bd8",
+      "outputSha256": "de212aab86147a7701dbbf182a760026804cc5d7c3a170d72d255c5f1926908a",
+      "runtimeBundleChanges": 0,
+      "historicalMeasurementsRetagged": 0
+    }
+  ],
+  "oldHashReferences": [
+    {
+      "path": "scripts/publication_privacy_gate.py",
+      "oldHashReferences": []
+    },
+    {
+      "path": "tests/privacy/test_publication_privacy_gate.py",
+      "oldHashReferences": []
+    }
+  ],
+  "runtimeBundleChanges": 0,
+  "historicalMeasurementFieldsRetagged": 0,
+  "status": "passed",
+  "privacyControlsPassed": 41,
+  "privacyControlsFailed": 0,
+  "allPriorPrivacyAssertionsPreserved": true
+}

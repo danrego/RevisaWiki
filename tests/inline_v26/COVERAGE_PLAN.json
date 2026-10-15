@@ -1,0 +1,355 @@
+{
+  "version": "2.6.0",
+  "status": "current-coverage-specification",
+  "gadgetRevision": 91689859,
+  "facilities": [
+    {
+      "id": 1,
+      "name": "View-page section affordance",
+      "tests": [
+        "mounts once and preserves every native section link",
+        "lead section0 has an independent exact source range"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 2,
+      "name": "Skin presentation",
+      "tests": [
+        "accessible compact controls vector",
+        "accessible compact controls vector-2022",
+        "accessible compact controls monobook"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 3,
+      "name": "Inline specific section source",
+      "tests": [
+        "loads exact revision-bound nested non-ASCII section",
+        "large nested section retains exact full context without extra global templates",
+        "lead section0 has an independent exact source range"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 4,
+      "name": "One session including pending loads",
+      "tests": [
+        "one session owns both pending load and later dirty draft",
+        "late load cannot resurrect cancelled editor"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 5,
+      "name": "Target from native edit link",
+      "tests": [
+        "unsupported edit link stays native cross-origin",
+        "unsupported edit link stays native malformed-link",
+        "unsupported edit link stays native transclusion"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 6,
+      "name": "Transclusion source mapping",
+      "tests": [
+        "unsupported edit link stays native transclusion"
+      ],
+      "disposition": "native-fallback-tested",
+      "adaptation": "Ambiguous/transcluded section targets remain in the native editor rather than guessing a source page."
+    },
+    {
+      "id": 7,
+      "name": "Heading summaries",
+      "tests": [
+        "total summary character limit blocks oversized publication",
+        "custom summary expands names and warns about unknown placeholders",
+        "500 Unicode characters remain within MediaWiki summary limit"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 8,
+      "name": "Wiktionary language tabs",
+      "tests": [
+        "Wiktionary-specific tab globals never affect ptwiki sections"
+      ],
+      "adaptation": "ptwiki does not use Wiktionary dictionary-language tabs. Those globals are never read.",
+      "disposition": "not-applicable-isolation-tested"
+    },
+    {
+      "id": 9,
+      "name": "Source loading",
+      "tests": [
+        "source load declines missing-page",
+        "source load declines suppressed-source",
+        "source load declines protected",
+        "source load declines non-wikitext",
+        "source load declines stale-display",
+        "source load declines moved-target",
+        "failed load can close and retry same section",
+        "loads exact revision-bound nested non-ASCII section"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 10,
+      "name": "Resizable source area",
+      "tests": [
+        "accessible compact controls vector",
+        "accessible compact controls vector-2022",
+        "accessible compact controls monobook"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 11,
+      "name": "Manual summary",
+      "tests": [
+        "manual editing and preview do not publish",
+        "custom summary expands names and warns about unknown placeholders",
+        "native editor handoff restores draft only after explicit recovery"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 12,
+      "name": "Keyboard behavior",
+      "tests": [
+        "Enter, composition, checkbox and synthetic publish cannot publish"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 13,
+      "name": "Minor edit",
+      "tests": [
+        "real explicit click publishes one pinned frozen local payload",
+        "explicit minor and watch payload preferences",
+        "explicit minor and watch payload watch",
+        "explicit minor and watch payload unwatch",
+        "explicit minor and watch payload nochange"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 14,
+      "name": "Human publication",
+      "tests": [
+        "manual editing and preview do not publish",
+        "Enter, composition, checkbox and synthetic publish cannot publish",
+        "real explicit click publishes one pinned frozen local payload",
+        "cleanup uses the existing section engine with diff and exact undo"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 15,
+      "name": "Publishing state controls",
+      "tests": [
+        "real explicit click publishes one pinned frozen local payload",
+        "confirmed save preserves a later native draft and retains revision link",
+        "later draft survives confirmed publication in-flight",
+        "later draft survives confirmed publication after-success"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 16,
+      "name": "Section save payload",
+      "tests": [
+        "real explicit click publishes one pinned frozen local payload",
+        "explicit minor and watch payload preferences",
+        "explicit minor and watch payload watch",
+        "explicit minor and watch payload unwatch",
+        "explicit minor and watch payload nochange",
+        "fresh revision guard refuses changed source move-before-save",
+        "fresh revision guard refuses changed source revision-before-save",
+        "fresh revision guard refuses changed source delete-before-save",
+        "fresh revision guard refuses changed source read-before-save-failure"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 17,
+      "name": "Cancel",
+      "tests": [
+        "cancel dirty draft needs deliberate discard and restores focus",
+        "late load cannot resurrect cancelled editor",
+        "cancelling a clean section preserves unrelated recovery draft"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 18,
+      "name": "Optional preview",
+      "tests": [
+        "manual editing and preview do not publish",
+        "preview live input is debounced and disposal stops work",
+        "empty live preview never polls and toggling back retries unchanged text"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 19,
+      "name": "Preview scheduling",
+      "tests": [
+        "preview races ignore stale response even if transport ignores abort",
+        "preview live input is debounced and disposal stops work",
+        "empty live preview never polls and toggling back retries unchanged text"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 20,
+      "name": "Changed-text caching",
+      "tests": [
+        "failed preview retries unchanged source",
+        "empty live preview never polls and toggling back retries unchanged text"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 21,
+      "name": "Preview parse context",
+      "tests": [
+        "manual editing and preview do not publish",
+        "large nested section retains exact full context without extra global templates",
+        "cleanup uses the existing section engine with diff and exact undo"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 22,
+      "name": "Preview ordering",
+      "tests": [
+        "preview races ignore stale response even if transport ignores abort",
+        "preview live input is debounced and disposal stops work",
+        "typing during parallel automatic preview preserves newer user text",
+        "automatic preview deadline aborts and ignores late unabortable response"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 23,
+      "name": "Preview off",
+      "tests": [
+        "preview live input is debounced and disposal stops work",
+        "empty live preview never polls and toggling back retries unchanged text"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 24,
+      "name": "Content hooks",
+      "tests": [
+        "mounts once and preserves every native section link",
+        "preview hooks stay scoped and never alter private loader registry"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 25,
+      "name": "Summary placeholders",
+      "tests": [
+        "custom summary expands names and warns about unknown placeholders"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 26,
+      "name": "Invalid placeholders and summary retention",
+      "tests": [
+        "total summary character limit blocks oversized publication",
+        "custom summary expands names and warns about unknown placeholders",
+        "500 Unicode characters remain within MediaWiki summary limit"
+      ],
+      "disposition": "implemented-and-tested"
+    },
+    {
+      "id": 27,
+      "name": "After-save content",
+      "tests": [
+        "real explicit click publishes one pinned frozen local payload",
+        "server nochange response opens only the confirmed existing revision",
+        "confirmed save preserves a later native draft and retains revision link",
+        "later draft survives confirmed publication in-flight",
+        "later draft survives confirmed publication after-success"
+      ],
+      "disposition": "implemented-and-tested",
+      "adaptation": "Confirmed oldid full reload with saved-revision fallback link replaces partial DOM replacement and private loader-registry mutations."
+    },
+    {
+      "id": 28,
+      "name": "After-save integration",
+      "tests": [
+        "real explicit click publishes one pinned frozen local payload",
+        "preview hooks stay scoped and never alter private loader registry",
+        "confirmed save preserves a later native draft and retains revision link"
+      ],
+      "disposition": "implemented-and-tested",
+      "adaptation": "Confirmed oldid full reload with saved-revision fallback link replaces partial DOM replacement and private loader-registry mutations."
+    },
+    {
+      "id": 29,
+      "name": "Error handling",
+      "tests": [
+        "publication failure preserves draft conflict",
+        "publication failure preserves draft page-deleted",
+        "publication failure preserves draft invalid-section",
+        "publication failure preserves draft identity-error",
+        "publication failure preserves draft bad-token",
+        "publication failure preserves draft abusefilter-warning",
+        "publication failure preserves draft abusefilter-disallow",
+        "publication failure preserves draft captcha",
+        "publication failure preserves draft unexpected-save",
+        "publication failure preserves draft unknown-result",
+        "publication failure preserves draft network-error",
+        "known conflict handoff keeps stale-base draft open after further typing",
+        "fresh revision guard refuses changed source move-before-save",
+        "fresh revision guard refuses changed source revision-before-save",
+        "fresh revision guard refuses changed source delete-before-save",
+        "fresh revision guard refuses changed source read-before-save-failure"
+      ],
+      "disposition": "implemented-and-tested"
+    }
+  ],
+  "extraSafety": [
+    "native-editor-coexistence",
+    "visual-editor-refusal",
+    "discussiontools-refusal",
+    "oldid-refusal",
+    "diff-refusal",
+    "no-edit-rights",
+    "non-wikitext",
+    "protected-source",
+    "dirty-unload",
+    "handoff-exact-identity",
+    "handoff-expiry",
+    "handoff-storage-failure",
+    "copy-draft",
+    "large-section",
+    "large-page-small-section",
+    "cross-section-ref",
+    "section-no-global-endmatter",
+    "cleanup-diff-undo",
+    "existing-classic-editor",
+    "existing-codemirror-editor"
+  ],
+  "networkPolicy": {
+    "realWikipediaWrites": 0,
+    "saveResponses": "local mocked API only",
+    "screenshots": false,
+    "authentication": false
+  },
+  "executionResults": "tests/evidence/2.6.0/browsers/COVERAGE_RESULTS_FINAL04.json",
+  "executionSummary": "tests/evidence/2.6.0/browsers/INDEPENDENT_BROWSER_FINAL04.json",
+  "summaryLimit": {
+    "maximum": 500,
+    "unit": "Unicode code points",
+    "appliesTo": "complete expanded visible edit summary"
+  },
+  "executionNote": "This file specifies the implemented coverage. Only versioned completed execution reports establish pass counts. Earlier candidate and interrupted browser runs are excluded."
+}

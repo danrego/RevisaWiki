@@ -1,0 +1,87 @@
+{
+  "version": "2.6.0",
+  "candidateSha256": "1a1b6a83b853925575dfbf9743083c51b1cc1774123e8442530217f8ba9844bb",
+  "loaderSha256": "f20086eea56687c53cf47a17dadf6f643178fe8e36896cce7b03fd8d247655dd",
+  "coreSha256": "d1588ed15732ccb99f572d15cf2a09f92627ebd09b1d4f34a43006993e09e3d5",
+  "dataSha256": "d39be94a9bf8a3def3de24e9cb82bcc65e994725e4f567be7985d2ede5495895",
+  "browser": "Firefox",
+  "mode": "loader-own",
+  "startedAt": "2026-10-15T16:30:46.167Z",
+  "actualWikipediaWrites": 0,
+  "actualNetworkMutations": 0,
+  "screenshots": 0,
+  "tests": [
+    {
+      "name": "lazy loader leaves reading free of core data and API requests",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": [
+        [
+          "launcherButtons",
+          {
+            "type": "number",
+            "value": 4
+          }
+        ]
+      ]
+    },
+    {
+      "name": "lazy first click loads actual modular section 1",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": [
+        [
+          "scriptRequests",
+          {
+            "type": "number",
+            "value": 2
+          }
+        ]
+      ]
+    },
+    {
+      "name": "lazy first click loads actual modular section 0",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": [
+        [
+          "scriptRequests",
+          {
+            "type": "number",
+            "value": 1
+          }
+        ]
+      ]
+    },
+    {
+      "name": "lazy loader failure restores launch control and retains native fallback",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "lazy catalog failure releases control and can retry actual data boot",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "same loader starts native source engine with exact undo",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": true
+    }
+  ],
+  "browserVersion": "158.0",
+  "completedAt": "2026-10-15T16:30:50.483Z",
+  "blockedOutsideRequests": 0,
+  "passed": 6,
+  "failed": 0,
+  "checks": 60
+}

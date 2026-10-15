@@ -1,0 +1,70 @@
+{
+  "version": "2.6.0",
+  "candidateSha256": "627ed044999ed50180795e25fe9f4f38565d89af072c3b43939de3fc4c98ca5c",
+  "loaderSha256": "f20086eea56687c53cf47a17dadf6f643178fe8e36896cce7b03fd8d247655dd",
+  "coreSha256": "0f7d9ef8c5398f61a1dc3e7353ed739286c00437b8eae666d0afeab890338863",
+  "dataSha256": "d39be94a9bf8a3def3de24e9cb82bcc65e994725e4f567be7985d2ede5495895",
+  "browser": "Chrome",
+  "activationMethod": "trusted pointer",
+  "mode": "loader-own",
+  "startedAt": "2026-10-15T17:38:46.386Z",
+  "actualWikipediaWrites": 0,
+  "actualNetworkMutations": 0,
+  "screenshots": 0,
+  "tests": [
+    {
+      "name": "lazy loader leaves reading free of core data and API requests",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": {
+        "launcherButtons": 4
+      }
+    },
+    {
+      "name": "lazy first click loads actual modular section 1",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": {
+        "scriptRequests": 2
+      }
+    },
+    {
+      "name": "lazy first click loads actual modular section 0",
+      "passed": true,
+      "checks": 13,
+      "trustedEvents": [],
+      "result": {
+        "scriptRequests": 1
+      }
+    },
+    {
+      "name": "lazy loader failure restores launch control and retains native fallback",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "lazy catalog failure releases control and can retry actual data boot",
+      "passed": true,
+      "checks": 8,
+      "trustedEvents": [],
+      "result": true
+    },
+    {
+      "name": "same loader starts native source engine with exact undo",
+      "passed": true,
+      "checks": 9,
+      "trustedEvents": [],
+      "result": true
+    }
+  ],
+  "browserVersion": "155.0.8059.40",
+  "completedAt": "2026-10-15T17:38:47.947Z",
+  "blockedOutsideRequests": 0,
+  "passed": 6,
+  "failed": 0,
+  "checks": 60
+}

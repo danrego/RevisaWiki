@@ -1,0 +1,794 @@
+[
+  {
+    "name": "filosófo prose",
+    "source": "Ele usou filosófo em sua análise.",
+    "expected": "Ele usou filósofo em sua análise.",
+    "options": {}
+  },
+  {
+    "name": "filosófo punctuation",
+    "source": "Eram filosófo, ou outros profissionais.",
+    "expected": "Eram filósofo, ou outros profissionais.",
+    "options": {}
+  },
+  {
+    "name": "filosófo option off",
+    "source": "Ele era filosófo.",
+    "expected": "Ele era filosófo.",
+    "options": {
+      "automaticSpelling": false
+    }
+  },
+  {
+    "name": "filosófo allowed",
+    "source": "Ele era filosófo.",
+    "expected": "Ele era filosófo.",
+    "options": {
+      "spellingAllowedWords": [
+        "filosófo"
+      ]
+    }
+  },
+  {
+    "name": "filosófo ignored",
+    "source": "Ele era filosófo.",
+    "expected": "Ele era filosófo.",
+    "options": {
+      "spellingIgnoredRules": [
+        "word:filosófo"
+      ]
+    }
+  },
+  {
+    "name": "filosófo proper subject",
+    "source": "Ele era filosófo.",
+    "expected": "Ele era filosófo.",
+    "options": {
+      "pageTitle": "filosófo"
+    }
+  },
+  {
+    "name": "filosófo bold subject",
+    "source": "'''filosófo''' era o assunto.",
+    "expected": "'''filosófo''' era o assunto.",
+    "options": {}
+  },
+  {
+    "name": "filosófo upper case",
+    "source": "Filosófo foi usado.",
+    "expected": "Filosófo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófo longer token",
+    "source": "filosófox foi usado.",
+    "expected": "filosófox foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófo hyphenated token",
+    "source": "pré-filosófo foi usado.",
+    "expected": "pré-filosófo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected reference",
+    "source": "<ref>Ele era filosófo.</ref>",
+    "expected": "<ref>Ele era filosófo.</ref>",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected citation",
+    "source": "{{Citar livro|título=filosófo|autor=Pessoa}}",
+    "expected": "{{Citar livro|título=filosófo|autor=Pessoa}}",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected quote",
+    "source": "\"Ele era filosófo.\"",
+    "expected": "\"Ele era filosófo.\"",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected apostrophe",
+    "source": "'Ele era filosófo.'",
+    "expected": "'Ele era filosófo.'",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected curly",
+    "source": "“Ele era filosófo.”",
+    "expected": "“Ele era filosófo.”",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected entity quote",
+    "source": "&quot;Ele era filosófo.&quot;",
+    "expected": "&quot;Ele era filosófo.&quot;",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected italic",
+    "source": "''Ele era filosófo.''",
+    "expected": "''Ele era filosófo.''",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected parentheses",
+    "source": "Ele era (filosófo).",
+    "expected": "Ele era (filosófo).",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected link",
+    "source": "[[filosófo]]",
+    "expected": "[[filosófo]]",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected pipe label",
+    "source": "[[Pessoa|filosófo]]",
+    "expected": "[[Pessoa|filosófo]]",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected nowiki",
+    "source": "<nowiki>filosófo</nowiki>",
+    "expected": "<nowiki>filosófo</nowiki>",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected comment",
+    "source": "<!-- filosófo -->",
+    "expected": "<!-- filosófo -->",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected code",
+    "source": "<code>filosófo</code>",
+    "expected": "<code>filosófo</code>",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected foreign",
+    "source": "{{lang|fr|filosófo}}",
+    "expected": "{{lang|fr|filosófo}}",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected heading",
+    "source": "== filosófo ==",
+    "expected": "== filosófo ==",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected bibliography",
+    "source": "== Bibliografia ==\n* filosófo foi usado.",
+    "expected": "== Bibliografia ==\n* filosófo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected meta",
+    "source": "A palavra filosófo foi usada.",
+    "expected": "A palavra filosófo foi usada.",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected url",
+    "source": "https://example.invalid/filosófo",
+    "expected": "https://example.invalid/filosófo",
+    "options": {}
+  },
+  {
+    "name": "filosófo protected template",
+    "source": "{{Exemplo|filosófo}}",
+    "expected": "{{Exemplo|filosófo}}",
+    "options": {}
+  },
+  {
+    "name": "filosófos prose",
+    "source": "Ele usou filosófos em sua análise.",
+    "expected": "Ele usou filósofos em sua análise.",
+    "options": {}
+  },
+  {
+    "name": "filosófos punctuation",
+    "source": "Eram filosófos, ou outros profissionais.",
+    "expected": "Eram filósofos, ou outros profissionais.",
+    "options": {}
+  },
+  {
+    "name": "filosófos option off",
+    "source": "Ele era filosófos.",
+    "expected": "Ele era filosófos.",
+    "options": {
+      "automaticSpelling": false
+    }
+  },
+  {
+    "name": "filosófos allowed",
+    "source": "Ele era filosófos.",
+    "expected": "Ele era filosófos.",
+    "options": {
+      "spellingAllowedWords": [
+        "filosófos"
+      ]
+    }
+  },
+  {
+    "name": "filosófos ignored",
+    "source": "Ele era filosófos.",
+    "expected": "Ele era filosófos.",
+    "options": {
+      "spellingIgnoredRules": [
+        "word:filosófos"
+      ]
+    }
+  },
+  {
+    "name": "filosófos proper subject",
+    "source": "Ele era filosófos.",
+    "expected": "Ele era filosófos.",
+    "options": {
+      "pageTitle": "filosófos"
+    }
+  },
+  {
+    "name": "filosófos bold subject",
+    "source": "'''filosófos''' era o assunto.",
+    "expected": "'''filosófos''' era o assunto.",
+    "options": {}
+  },
+  {
+    "name": "filosófos upper case",
+    "source": "Filosófos foi usado.",
+    "expected": "Filosófos foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófos longer token",
+    "source": "filosófosx foi usado.",
+    "expected": "filosófosx foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófos hyphenated token",
+    "source": "pré-filosófos foi usado.",
+    "expected": "pré-filosófos foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected reference",
+    "source": "<ref>Ele era filosófos.</ref>",
+    "expected": "<ref>Ele era filosófos.</ref>",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected citation",
+    "source": "{{Citar livro|título=filosófos|autor=Pessoa}}",
+    "expected": "{{Citar livro|título=filosófos|autor=Pessoa}}",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected quote",
+    "source": "\"Ele era filosófos.\"",
+    "expected": "\"Ele era filosófos.\"",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected apostrophe",
+    "source": "'Ele era filosófos.'",
+    "expected": "'Ele era filosófos.'",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected curly",
+    "source": "“Ele era filosófos.”",
+    "expected": "“Ele era filosófos.”",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected entity quote",
+    "source": "&quot;Ele era filosófos.&quot;",
+    "expected": "&quot;Ele era filosófos.&quot;",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected italic",
+    "source": "''Ele era filosófos.''",
+    "expected": "''Ele era filosófos.''",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected parentheses",
+    "source": "Ele era (filosófos).",
+    "expected": "Ele era (filosófos).",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected link",
+    "source": "[[filosófos]]",
+    "expected": "[[filosófos]]",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected pipe label",
+    "source": "[[Pessoa|filosófos]]",
+    "expected": "[[Pessoa|filosófos]]",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected nowiki",
+    "source": "<nowiki>filosófos</nowiki>",
+    "expected": "<nowiki>filosófos</nowiki>",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected comment",
+    "source": "<!-- filosófos -->",
+    "expected": "<!-- filosófos -->",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected code",
+    "source": "<code>filosófos</code>",
+    "expected": "<code>filosófos</code>",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected foreign",
+    "source": "{{lang|fr|filosófos}}",
+    "expected": "{{lang|fr|filosófos}}",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected heading",
+    "source": "== filosófos ==",
+    "expected": "== filosófos ==",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected bibliography",
+    "source": "== Bibliografia ==\n* filosófos foi usado.",
+    "expected": "== Bibliografia ==\n* filosófos foi usado.",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected meta",
+    "source": "A palavra filosófos foi usada.",
+    "expected": "A palavra filosófos foi usada.",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected url",
+    "source": "https://example.invalid/filosófos",
+    "expected": "https://example.invalid/filosófos",
+    "options": {}
+  },
+  {
+    "name": "filosófos protected template",
+    "source": "{{Exemplo|filosófos}}",
+    "expected": "{{Exemplo|filosófos}}",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto prose",
+    "source": "Ele usou juriconsulto em sua análise.",
+    "expected": "Ele usou jurisconsulto em sua análise.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto punctuation",
+    "source": "Eram juriconsulto, ou outros profissionais.",
+    "expected": "Eram jurisconsulto, ou outros profissionais.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto option off",
+    "source": "Ele era juriconsulto.",
+    "expected": "Ele era juriconsulto.",
+    "options": {
+      "automaticSpelling": false
+    }
+  },
+  {
+    "name": "juriconsulto allowed",
+    "source": "Ele era juriconsulto.",
+    "expected": "Ele era juriconsulto.",
+    "options": {
+      "spellingAllowedWords": [
+        "juriconsulto"
+      ]
+    }
+  },
+  {
+    "name": "juriconsulto ignored",
+    "source": "Ele era juriconsulto.",
+    "expected": "Ele era juriconsulto.",
+    "options": {
+      "spellingIgnoredRules": [
+        "word:juriconsulto"
+      ]
+    }
+  },
+  {
+    "name": "juriconsulto proper subject",
+    "source": "Ele era juriconsulto.",
+    "expected": "Ele era juriconsulto.",
+    "options": {
+      "pageTitle": "juriconsulto"
+    }
+  },
+  {
+    "name": "juriconsulto bold subject",
+    "source": "'''juriconsulto''' era o assunto.",
+    "expected": "'''juriconsulto''' era o assunto.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto upper case",
+    "source": "Juriconsulto foi usado.",
+    "expected": "Juriconsulto foi usado.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto longer token",
+    "source": "juriconsultox foi usado.",
+    "expected": "juriconsultox foi usado.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto hyphenated token",
+    "source": "pré-juriconsulto foi usado.",
+    "expected": "pré-juriconsulto foi usado.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected reference",
+    "source": "<ref>Ele era juriconsulto.</ref>",
+    "expected": "<ref>Ele era juriconsulto.</ref>",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected citation",
+    "source": "{{Citar livro|título=juriconsulto|autor=Pessoa}}",
+    "expected": "{{Citar livro|título=juriconsulto|autor=Pessoa}}",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected quote",
+    "source": "\"Ele era juriconsulto.\"",
+    "expected": "\"Ele era juriconsulto.\"",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected apostrophe",
+    "source": "'Ele era juriconsulto.'",
+    "expected": "'Ele era juriconsulto.'",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected curly",
+    "source": "“Ele era juriconsulto.”",
+    "expected": "“Ele era juriconsulto.”",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected entity quote",
+    "source": "&quot;Ele era juriconsulto.&quot;",
+    "expected": "&quot;Ele era juriconsulto.&quot;",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected italic",
+    "source": "''Ele era juriconsulto.''",
+    "expected": "''Ele era juriconsulto.''",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected parentheses",
+    "source": "Ele era (juriconsulto).",
+    "expected": "Ele era (juriconsulto).",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected link",
+    "source": "[[juriconsulto]]",
+    "expected": "[[juriconsulto]]",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected pipe label",
+    "source": "[[Pessoa|juriconsulto]]",
+    "expected": "[[Pessoa|juriconsulto]]",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected nowiki",
+    "source": "<nowiki>juriconsulto</nowiki>",
+    "expected": "<nowiki>juriconsulto</nowiki>",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected comment",
+    "source": "<!-- juriconsulto -->",
+    "expected": "<!-- juriconsulto -->",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected code",
+    "source": "<code>juriconsulto</code>",
+    "expected": "<code>juriconsulto</code>",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected foreign",
+    "source": "{{lang|fr|juriconsulto}}",
+    "expected": "{{lang|fr|juriconsulto}}",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected heading",
+    "source": "== juriconsulto ==",
+    "expected": "== juriconsulto ==",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected bibliography",
+    "source": "== Bibliografia ==\n* juriconsulto foi usado.",
+    "expected": "== Bibliografia ==\n* juriconsulto foi usado.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected meta",
+    "source": "A palavra juriconsulto foi usada.",
+    "expected": "A palavra juriconsulto foi usada.",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected url",
+    "source": "https://example.invalid/juriconsulto",
+    "expected": "https://example.invalid/juriconsulto",
+    "options": {}
+  },
+  {
+    "name": "juriconsulto protected template",
+    "source": "{{Exemplo|juriconsulto}}",
+    "expected": "{{Exemplo|juriconsulto}}",
+    "options": {}
+  },
+  {
+    "name": "examplo prose",
+    "source": "Ele usou examplo em sua análise.",
+    "expected": "Ele usou exemplo em sua análise.",
+    "options": {}
+  },
+  {
+    "name": "examplo punctuation",
+    "source": "Eram examplo, ou outros profissionais.",
+    "expected": "Eram exemplo, ou outros profissionais.",
+    "options": {}
+  },
+  {
+    "name": "examplo option off",
+    "source": "Ele era examplo.",
+    "expected": "Ele era examplo.",
+    "options": {
+      "automaticSpelling": false
+    }
+  },
+  {
+    "name": "examplo allowed",
+    "source": "Ele era examplo.",
+    "expected": "Ele era examplo.",
+    "options": {
+      "spellingAllowedWords": [
+        "examplo"
+      ]
+    }
+  },
+  {
+    "name": "examplo ignored",
+    "source": "Ele era examplo.",
+    "expected": "Ele era examplo.",
+    "options": {
+      "spellingIgnoredRules": [
+        "word:examplo"
+      ]
+    }
+  },
+  {
+    "name": "examplo proper subject",
+    "source": "Ele era examplo.",
+    "expected": "Ele era examplo.",
+    "options": {
+      "pageTitle": "examplo"
+    }
+  },
+  {
+    "name": "examplo bold subject",
+    "source": "'''examplo''' era o assunto.",
+    "expected": "'''examplo''' era o assunto.",
+    "options": {}
+  },
+  {
+    "name": "examplo upper case",
+    "source": "Examplo foi usado.",
+    "expected": "Examplo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "examplo longer token",
+    "source": "examplox foi usado.",
+    "expected": "examplox foi usado.",
+    "options": {}
+  },
+  {
+    "name": "examplo hyphenated token",
+    "source": "pré-examplo foi usado.",
+    "expected": "pré-examplo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "examplo protected reference",
+    "source": "<ref>Ele era examplo.</ref>",
+    "expected": "<ref>Ele era examplo.</ref>",
+    "options": {}
+  },
+  {
+    "name": "examplo protected citation",
+    "source": "{{Citar livro|título=examplo|autor=Pessoa}}",
+    "expected": "{{Citar livro|título=examplo|autor=Pessoa}}",
+    "options": {}
+  },
+  {
+    "name": "examplo protected quote",
+    "source": "\"Ele era examplo.\"",
+    "expected": "\"Ele era examplo.\"",
+    "options": {}
+  },
+  {
+    "name": "examplo protected apostrophe",
+    "source": "'Ele era examplo.'",
+    "expected": "'Ele era examplo.'",
+    "options": {}
+  },
+  {
+    "name": "examplo protected curly",
+    "source": "“Ele era examplo.”",
+    "expected": "“Ele era examplo.”",
+    "options": {}
+  },
+  {
+    "name": "examplo protected entity quote",
+    "source": "&quot;Ele era examplo.&quot;",
+    "expected": "&quot;Ele era examplo.&quot;",
+    "options": {}
+  },
+  {
+    "name": "examplo protected italic",
+    "source": "''Ele era examplo.''",
+    "expected": "''Ele era examplo.''",
+    "options": {}
+  },
+  {
+    "name": "examplo protected parentheses",
+    "source": "Ele era (examplo).",
+    "expected": "Ele era (examplo).",
+    "options": {}
+  },
+  {
+    "name": "examplo protected link",
+    "source": "[[examplo]]",
+    "expected": "[[examplo]]",
+    "options": {}
+  },
+  {
+    "name": "examplo protected pipe label",
+    "source": "[[Pessoa|examplo]]",
+    "expected": "[[Pessoa|examplo]]",
+    "options": {}
+  },
+  {
+    "name": "examplo protected nowiki",
+    "source": "<nowiki>examplo</nowiki>",
+    "expected": "<nowiki>examplo</nowiki>",
+    "options": {}
+  },
+  {
+    "name": "examplo protected comment",
+    "source": "<!-- examplo -->",
+    "expected": "<!-- examplo -->",
+    "options": {}
+  },
+  {
+    "name": "examplo protected code",
+    "source": "<code>examplo</code>",
+    "expected": "<code>examplo</code>",
+    "options": {}
+  },
+  {
+    "name": "examplo protected foreign",
+    "source": "{{lang|fr|examplo}}",
+    "expected": "{{lang|fr|examplo}}",
+    "options": {}
+  },
+  {
+    "name": "examplo protected heading",
+    "source": "== examplo ==",
+    "expected": "== examplo ==",
+    "options": {}
+  },
+  {
+    "name": "examplo protected bibliography",
+    "source": "== Bibliografia ==\n* examplo foi usado.",
+    "expected": "== Bibliografia ==\n* examplo foi usado.",
+    "options": {}
+  },
+  {
+    "name": "examplo protected meta",
+    "source": "A palavra examplo foi usada.",
+    "expected": "A palavra examplo foi usada.",
+    "options": {}
+  },
+  {
+    "name": "examplo protected url",
+    "source": "https://example.invalid/examplo",
+    "expected": "https://example.invalid/examplo",
+    "options": {}
+  },
+  {
+    "name": "examplo protected template",
+    "source": "{{Exemplo|examplo}}",
+    "expected": "{{Exemplo|examplo}}",
+    "options": {}
+  },
+  {
+    "name": "Valid Eu filosofo com meus colegas.",
+    "source": "Eu filosofo com meus colegas.",
+    "expected": "Eu filosofo com meus colegas.",
+    "options": {}
+  },
+  {
+    "name": "Valid Ela filosofa com seus colegas.",
+    "source": "Ela filosofa com seus colegas.",
+    "expected": "Ela filosofa com seus colegas.",
+    "options": {}
+  },
+  {
+    "name": "Valid O filósofo escreveu um texto.",
+    "source": "O filósofo escreveu um texto.",
+    "expected": "O filósofo escreveu um texto.",
+    "options": {}
+  },
+  {
+    "name": "Valid Os filósofos escreveram textos.",
+    "source": "Os filósofos escreveram textos.",
+    "expected": "Os filósofos escreveram textos.",
+    "options": {}
+  },
+  {
+    "name": "Valid Ela era uma jurisconsulta.",
+    "source": "Ela era uma jurisconsulta.",
+    "expected": "Ela era uma jurisconsulta.",
+    "options": {}
+  },
+  {
+    "name": "Valid O exemplo foi explicado.",
+    "source": "O exemplo foi explicado.",
+    "expected": "O exemplo foi explicado.",
+    "options": {}
+  },
+  {
+    "name": "Valid É um acto de investigação.",
+    "source": "É um acto de investigação.",
+    "expected": "É um acto de investigação.",
+    "options": {}
+  },
+  {
+    "name": "Valid É um fato da investigação.",
+    "source": "É um fato da investigação.",
+    "expected": "É um fato da investigação.",
+    "options": {}
+  }
+]

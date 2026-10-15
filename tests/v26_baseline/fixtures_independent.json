@@ -1,0 +1,725 @@
+{
+  "version": "2.5.0",
+  "design": "Expectations written from the agreed behavior before implementation. No result is inferred from engine output.",
+  "cases": [
+    {
+      "name": "title_heading_at_top",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "title_heading_after_blank",
+      "rule": "leadHeading",
+      "source": "\n== João da Silva ==\n\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "\n\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "title_heading_after_infobox",
+      "rule": "leadHeading",
+      "source": "{{Info/Biografia|nome=João da Silva}}\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "{{Info/Biografia|nome=João da Silva}}\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "introduction_heading_at_top",
+      "rule": "leadHeading",
+      "source": "== Introdução ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "title_with_underscores",
+      "rule": "leadHeading",
+      "source": "== João_da_Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_for_different_subject",
+      "rule": "leadHeading",
+      "source": "== José da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== José da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_different_capitalization",
+      "rule": "leadHeading",
+      "source": "== João da silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_is_subsection",
+      "rule": "leadHeading",
+      "source": "=== João da Silva ===\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "=== João da Silva ===\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_before_nonmatching_lead",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\nA família Silva viveu no Brasil.\n",
+      "expected": "== João da Silva ==\nA família Silva viveu no Brasil.\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_without_bold_introduction",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\nJoão da Silva é um escritor brasileiro.\n",
+      "expected": "João da Silva é um escritor brasileiro.\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_after_existing_prose",
+      "rule": "leadHeading",
+      "source": "'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n== João da Silva ==\nOutros dados.\n",
+      "expected": "'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n== João da Silva ==\nOutros dados.\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_used_by_local_fragment",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[#João da Silva|Seção inicial]]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[#João da Silva|Seção inicial]]\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_used_by_underscore_fragment",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[#João_da_Silva|Seção inicial]]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[#João_da_Silva|Seção inicial]]\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_used_by_samepage_fragment",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[João da Silva#João da Silva|Seção inicial]]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n[[João da Silva#João da Silva|Seção inicial]]\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "explicit_anchor_in_lead",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n{{âncora|primeiro}}\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n{{âncora|primeiro}}\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_with_explicit_html_id",
+      "rule": "leadHeading",
+      "source": "== <span id=\"pessoa\">João da Silva</span> ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== <span id=\"pessoa\">João da Silva</span> ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_with_link",
+      "rule": "leadHeading",
+      "source": "== [[João da Silva]] ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== [[João da Silva]] ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_inside_comment",
+      "rule": "leadHeading",
+      "source": "<!--\n== João da Silva ==\n-->\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "<!--\n== João da Silva ==\n-->\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_inside_nowiki",
+      "rule": "leadHeading",
+      "source": "<nowiki>\n== João da Silva ==\n</nowiki>\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "<nowiki>\n== João da Silva ==\n</nowiki>\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_inside_table",
+      "rule": "leadHeading",
+      "source": "{|\n|\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n|}\n",
+      "expected": "{|\n|\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n|}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_inside_reference",
+      "rule": "leadHeading",
+      "source": "<ref>\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n</ref>\n",
+      "expected": "<ref>\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_inside_template",
+      "rule": "leadHeading",
+      "source": "{{Exemplo|\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n}}\n",
+      "expected": "{{Exemplo|\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n}}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_in_user_namespace",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 2,
+      "section": null
+    },
+    {
+      "name": "heading_in_talk_namespace",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 1,
+      "section": null
+    },
+    {
+      "name": "heading_in_template_namespace",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 10,
+      "section": null
+    },
+    {
+      "name": "heading_in_section_edit",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": "0"
+    },
+    {
+      "name": "heading_new_section_edit",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": "new"
+    },
+    {
+      "name": "heading_dynamic_title",
+      "rule": "leadHeading",
+      "source": "== {{PAGENAME}} ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== {{PAGENAME}} ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_page_redirect",
+      "rule": "leadHeading",
+      "source": "#REDIRECIONAMENTO [[Outra página]]\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "#REDIRECIONAMENTO [[Outra página]]\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_followed_by_another_heading",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n== Biografia ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "== João da Silva ==\n== Biografia ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_prose_ambiguous_unclosed_template",
+      "rule": "leadHeading",
+      "source": "{{Info/Biografia|nome=João da Silva\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "expected": "{{Info/Biografia|nome=João da Silva\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_disambiguation_page",
+      "rule": "leadHeading",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n{{Desambiguação}}\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.<ref>Fonte publicada.</ref>\n\n{{Desambiguação}}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "heading_title_with_parenthetical_qualifier",
+      "rule": "leadHeading",
+      "source": "== João da Silva (escritor) ==\n'''João da Silva''' é um escritor brasileiro.\n",
+      "expected": "'''João da Silva''' é um escritor brasileiro.\n",
+      "title": "João da Silva (escritor)",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "adjacent_named_calls",
+      "rule": "consecutiveRefCalls",
+      "source": "Texto.<ref name=\"a\"/><ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>",
+      "expected": "Texto.<ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "adjacent_named_calls_with_space",
+      "rule": "consecutiveRefCalls",
+      "source": "Texto.<ref name=\"a\"/> <ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>",
+      "expected": "Texto.<ref name=\"a\"/> \n<ref name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "adjacent_named_calls_different_groups",
+      "rule": "consecutiveRefCalls",
+      "source": "Texto.<ref name=\"a\" group=\"nota\"/><ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>\n<ref name=\"a\" group=\"nota\">Nota.</ref>",
+      "expected": "Texto.<ref name=\"a\" group=\"nota\"/><ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>\n<ref name=\"a\" group=\"nota\">Nota.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "adjacent_undefined_calls",
+      "rule": "consecutiveRefCalls",
+      "source": "Texto.<ref name=\"a\"/><ref name=\"a\"/>",
+      "expected": "Texto.<ref name=\"a\"/><ref name=\"a\"/>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "adjacent_conflicting_definitions",
+      "rule": "consecutiveRefCalls",
+      "source": "Texto.<ref name=\"a\"/><ref name=\"a\"/>\n<ref name=\"a\">Fonte um.</ref><ref name=\"a\">Fonte dois.</ref>",
+      "expected": "Texto.<ref name=\"a\"/><ref name=\"a\"/>\n<ref name=\"a\">Fonte um.</ref><ref name=\"a\">Fonte dois.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "named_calls_separated_by_prose",
+      "rule": "consecutiveRefCalls",
+      "source": "Primeiro.<ref name=\"a\"/> Outro.<ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>",
+      "expected": "Primeiro.<ref name=\"a\"/> Outro.<ref name=\"a\"/>\n<ref name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "named_calls_in_nowiki",
+      "rule": "consecutiveRefCalls",
+      "source": "<nowiki><ref name=\"a\"/><ref name=\"a\"/></nowiki>\n<ref name=\"a\">Fonte.</ref>",
+      "expected": "<nowiki><ref name=\"a\"/><ref name=\"a\"/></nowiki>\n<ref name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "reordered_citation_parameters",
+      "rule": "reorderedCitation",
+      "source": "<ref>{{citar web|url=https://example.org|titulo=Página|acessodata=2026-10-15}}</ref>\n<ref>{{citar web|acessodata=2026-10-15|titulo=Página|url=https://example.org}}</ref>",
+      "expected": "<ref>{{citar web|url=https://example.org|titulo=Página|acessodata=2026-10-15}}</ref>\n<ref>{{citar web|acessodata=2026-10-15|titulo=Página|url=https://example.org}}</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "semanticExpectation": "one_definition_and_one_reuse"
+    },
+    {
+      "name": "different_citation_pages",
+      "rule": "reorderedCitation",
+      "source": "<ref>{{citar livro|titulo=Livro|paginas=1}}</ref>\n<ref>{{citar livro|paginas=2|titulo=Livro}}</ref>",
+      "expected": "<ref>{{citar livro|titulo=Livro|paginas=1}}</ref>\n<ref>{{citar livro|paginas=2|titulo=Livro}}</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "different_citation_authors",
+      "rule": "reorderedCitation",
+      "source": "<ref>{{citar livro|titulo=Livro|autor=Ana}}</ref>\n<ref>{{citar livro|autor=Maria|titulo=Livro}}</ref>",
+      "expected": "<ref>{{citar livro|titulo=Livro|autor=Ana}}</ref>\n<ref>{{citar livro|autor=Maria|titulo=Livro}}</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "citation_extra_comment",
+      "rule": "reorderedCitation",
+      "source": "<ref>{{citar web|url=https://example.org|titulo=Página}}</ref>\n<ref>{{citar web|titulo=Página|url=https://example.org}}<!-- comentário próprio --></ref>",
+      "expected": "<ref>{{citar web|url=https://example.org|titulo=Página}}</ref>\n<ref>{{citar web|titulo=Página|url=https://example.org}}<!-- comentário próprio --></ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "identical_ref_attributes",
+      "rule": "duplicateRefAttribute",
+      "source": "Texto.<ref name=\"a\" name=\"a\">Fonte.</ref>",
+      "expected": "Texto.<ref name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "conflicting_ref_attributes",
+      "rule": "duplicateRefAttribute",
+      "source": "Texto.<ref name=\"a\" name=\"b\">Fonte.</ref>",
+      "expected": "Texto.<ref name=\"a\" name=\"b\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "case_sensitive_ref_attribute_values",
+      "rule": "duplicateRefAttribute",
+      "source": "Texto.<ref name=\"A\" name=\"a\">Fonte.</ref>",
+      "expected": "Texto.<ref name=\"A\" name=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "unknown_ref_attributes",
+      "rule": "duplicateRefAttribute",
+      "source": "Texto.<ref custom=\"a\" custom=\"a\">Fonte.</ref>",
+      "expected": "Texto.<ref custom=\"a\" custom=\"a\">Fonte.</ref>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "duplicate_collector_adjacent",
+      "rule": "consecutiveCollectors",
+      "source": "<references group=\"nota\"/>\n<references group=\"nota\"/>",
+      "expected": "<references group=\"nota\"/>\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "different_collector_groups",
+      "rule": "consecutiveCollectors",
+      "source": "<references group=\"nota\"/>\n<references/>",
+      "expected": "<references group=\"nota\"/>\n<references/>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "collector_with_embedded_definition",
+      "rule": "consecutiveCollectors",
+      "source": "<references group=\"nota\"><ref name=\"a\">Nota.</ref></references>\n<references group=\"nota\"/>",
+      "expected": "<references group=\"nota\"><ref name=\"a\">Nota.</ref></references>\n<references group=\"nota\"/>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "collector_with_intervening_prose",
+      "rule": "consecutiveCollectors",
+      "source": "<references group=\"nota\"/>\nTexto.\n<references group=\"nota\"/>",
+      "expected": "<references group=\"nota\"/>\nTexto.\n<references group=\"nota\"/>",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "known_template_closer_bracebracket",
+      "rule": "mixedTemplateClosers",
+      "source": "{{Referências}]\n",
+      "expected": "{{Referências}}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "unknown_template_closer_bracebracket",
+      "rule": "mixedTemplateClosers",
+      "source": "{{Modelo desconhecido}]\n",
+      "expected": "{{Modelo desconhecido}]\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "known_template_closer_bracketbrace",
+      "rule": "mixedTemplateClosers",
+      "source": "{{Referências]}\n",
+      "expected": "{{Referências}}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "name": "unknown_template_closer_bracketbrace",
+      "rule": "mixedTemplateClosers",
+      "source": "{{Modelo desconhecido]}\n",
+      "expected": "{{Modelo desconhecido]}\n",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_for_longer_bold_name",
+      "source": "== João da Silva ==\n'''João da Silva Filho''' é um escritor brasileiro.\n",
+      "expected": "== João da Silva ==\n'''João da Silva Filho''' é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_after_unverified_info_template",
+      "source": "{{Info/Modelo que não existe|nome=João da Silva}}\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n",
+      "expected": "{{Info/Modelo que não existe|nome=João da Silva}}\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_title_fragment_escaped",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Jo%C3%A3o_da_Silva|Início]]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Jo%C3%A3o_da_Silva|Início]]\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_title_fragment_old_encoding",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Jo.C3.A3o_da_Silva|Início]]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Jo.C3.A3o_da_Silva|Início]]\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_with_external_local_fragment",
+      "source": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[https://pt.wikipedia.org/wiki/Jo%C3%A3o_da_Silva#Jo%C3%A3o_da_Silva Início]\n",
+      "expected": "== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n[https://pt.wikipedia.org/wiki/Jo%C3%A3o_da_Silva#Jo%C3%A3o_da_Silva Início]\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_comment_between_subject_name",
+      "source": "== João da Silva ==\n'''João da Silva<!-- comentário -->''' é um escritor brasileiro.\n",
+      "expected": "== João da Silva ==\n'''João da Silva<!-- comentário -->''' é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_plain_prefix_different_person",
+      "source": "== João da Silva ==\nJoão da Silva Filho é um escritor brasileiro.\n",
+      "expected": "== João da Silva ==\nJoão da Silva Filho é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_after_hatnote_unverified",
+      "source": "{{Exemplo|conteúdo antes da abertura}}\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n",
+      "expected": "{{Exemplo|conteúdo antes da abertura}}\n== João da Silva ==\n'''João da Silva''' é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_with_reference_before_lead",
+      "source": "== João da Silva ==\n<ref>Fonte.</ref>'''João da Silva''' é um escritor brasileiro.\n",
+      "expected": "== João da Silva ==\n<ref>Fonte.</ref>'''João da Silva''' é um escritor brasileiro.\n"
+    },
+    {
+      "rule": "leadHeading",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "name": "heading_with_intro_anchor_use",
+      "source": "== Introdução ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Introdução|Início]]\n",
+      "expected": "== Introdução ==\n'''João da Silva''' é um escritor brasileiro.\n[[#Introdução|Início]]\n"
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "imported_last_ultimo_same_fields",
+      "source": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|date=2024}}</ref>",
+      "expected": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|date=2024}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 1,
+        "reuses": 1,
+        "expectNewRule": false,
+        "requiredLiterals": [
+          "Fonte publicada",
+          "https://example.org/fonte",
+          "Silva",
+          "2024"
+        ]
+      }
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "imported_native_same_fields",
+      "source": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{citar web|último=Silva|data=2024|url=https://example.org/fonte|título=Fonte publicada}}</ref>",
+      "expected": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{citar web|último=Silva|data=2024|url=https://example.org/fonte|título=Fonte publicada}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 1,
+        "reuses": 1,
+        "expectNewRule": true,
+        "requiredLiterals": [
+          "Fonte publicada",
+          "https://example.org/fonte",
+          "Silva",
+          "2024"
+        ]
+      }
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "imported_different_authors_stay_separate",
+      "source": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Souza|date=2024}}</ref>",
+      "expected": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Souza|date=2024}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 2,
+        "reuses": 0,
+        "expectNewRule": false,
+        "requiredLiterals": [
+          "Fonte publicada",
+          "https://example.org/fonte",
+          "Silva",
+          "2024"
+        ]
+      }
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "imported_different_pages_stay_separate",
+      "source": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|pages=10|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|pages=11|date=2024}}</ref>",
+      "expected": "Primeiro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|last=Silva|pages=10|date=2024}}</ref> Outro.<ref>{{Cite web|title=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|pages=11|date=2024}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 2,
+        "reuses": 0,
+        "expectNewRule": false,
+        "requiredLiterals": [
+          "Fonte publicada",
+          "https://example.org/fonte",
+          "Silva",
+          "2024"
+        ]
+      }
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "native_accepted_aliases_preserved",
+      "source": "Primeiro.<ref>{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|last=Silva|data=2024}}</ref> Outro.<ref>{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|data=2024}}</ref>",
+      "expected": "Primeiro.<ref>{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|last=Silva|data=2024}}</ref> Outro.<ref>{{citar web|titulo=Fonte publicada|url=https://example.org/fonte|ultimo=Silva|data=2024}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 2,
+        "reuses": 0,
+        "expectNewRule": false,
+        "requiredLiterals": [
+          "Fonte publicada",
+          "https://example.org/fonte",
+          "Silva",
+          "2024"
+        ]
+      }
+    },
+    {
+      "rule": "importedCitationConvergence",
+      "title": "João da Silva",
+      "namespace": 0,
+      "section": null,
+      "pipelineOnly": true,
+      "name": "imported_exact_root_regression",
+      "source": "<ref>{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref>{{Cite web|url=https://example.org|title=Página|ultimo=Página}}</ref>",
+      "expected": "<ref>{{Cite web|title=Página|url=https://example.org|last=Página}}</ref>\n<ref>{{Cite web|url=https://example.org|title=Página|ultimo=Página}}</ref>",
+      "pipelineExpectation": {
+        "definitions": 1,
+        "reuses": 1,
+        "expectNewRule": true,
+        "requiredLiterals": [
+          "Página",
+          "https://example.org"
+        ]
+      }
+    }
+  ]
+}

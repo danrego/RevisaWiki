@@ -1,0 +1,111 @@
+RevisaWiki 2.6.0
+Relatório da distribuição anonimizada, 15 de outubro de 2026
+
+ARTIGOS E PRESERVAÇÃO
+
+A rodada original processou 2.000 revisões fixadas, incluindo 590 biografias,
+1.191 artigos acima de 100 KiB e dois acima de 1 MiB. O maior tem 1.910.746
+bytes. Núcleo com dados separados e arquivo completo produziram o mesmo
+resultado. As 4.000 segundas execuções foram idempotentes. A matriz somou
+48.000 verificações, sem falhas do motor.
+
+A conferência independente fez 14.000 verificações de conteúdo. Seu único
+alerta bruto foi a ligação Rangoon convertida em Rangum. Consultas públicas
+confirmaram o mesmo destino. O alerta original continua no relatório, com
+uma qualificação limitada aos hashes exatos desse caso. Não restou alerta
+de conteúdo sem explicação.
+
+A conferência de tabelas fez outras 14.000 verificações. Cinco diferenças
+de apresentação já presentes na 2.4 foram comparadas uma a uma e mantidas
+nos relatórios originais. Não houve diferença nova no conteúdo das células.
+
+Essas medições conservam os hashes dos arquivos que foram executados.
+Depois, os créditos nominais foram trocados por referências permanentes e
+nove atalhos opcionais para páginas pessoais deixaram de ser expandidos.
+A comparação da árvore de sintaxe verificou os cinco arquivos, admitindo
+somente essas mudanças declaradas. Nenhum dos nove comandos ocorre nos
+2.000 textos de entrada ou nos 2.000 resultados arquivados. Não se atribuem
+ao arquivo novo os hashes nem as medições da rodada anterior.
+
+Evidências: tests/evidence/2.6.0/corpus e src/v2_6/anonymity.
+
+CONTRATOS E CASOS PONTUAIS
+
+O motor original passou em 1.828 execuções com 6.508 asserções. A rodada
+separada de física e matemática passou em 128 execuções com 1.672 asserções.
+As doze suítes herdadas também passaram. Dois reparos no ambiente dos testes
+antigos forneceram a localização correta dos arquivos e os objetos location
+e URL que um navegador fornece. Suas asserções foram preservadas.
+
+Os contratos dos atalhos, as regras novas e a interface foram novamente
+executados sobre os arquivos anonimizados. As contagens, os hashes e os
+resultados desta etapa ficam em tests/evidence/2.6.0/anonymous.
+
+Os quatro comandos portáteis anunciados também passaram sobre a distribuição
+anonimizada: teste geral, motor, artigos extensos e regressões herdadas.
+O motor repetiu as 1.828 execuções e 6.508 asserções. Física e matemática
+repetiram as 128 execuções e 1.672 asserções. A regressão herdada inclui
+uma suíte com 102.683 verificações. Nenhuma asserção foi afrouxada.
+Essas rodadas ficam separadas em anonymous/portable_suite_smoke.
+
+Lista de bárions tem controles de preservação para Prime. A sintaxe original
+era válida. A troca de duas chamadas por B seguido de prima evita uma
+dependência ausente da predefinição. Não foi criada uma substituição geral
+de Prime, cujas opções podem controlar o caractere e o espaçamento.
+
+As contagens de grupos que se sobrepõem não são somadas em um total único.
+
+NAVEGADORES E ÍNDICE
+
+Chrome, Firefox e Safari reais no Mac passaram nos testes locais da edição
+rápida e dos dois carregadores. A evidência separa a rodada original dos
+testes executados sobre a distribuição anonimizada. As sessões interrompidas
+do WebDriver não foram contadas como aprovação.
+
+O índice atualizado passou em 69 verificações, 23 por navegador. Os quinze
+botões foram conferidos contra o conteúdo integral, o resumo e o destino.
+A cópia normal e as alternativas de cópia usaram uma área de transferência
+simulada. Esses testes não leram nem modificaram a área de transferência
+do Mac e não abriram os links de edição da Wikipédia.
+
+Evidências: tests/evidence/2.6.0/browsers, anonymous e index.
+
+PRIVACIDADE E LIMITES
+
+Os testes usaram páginas locais, consultas públicas de leitura e respostas
+simuladas de API. Não houve edição na Wikipédia. Eles não reproduzem todas
+as configurações possíveis do servidor nem substituem a revisão editorial.
+
+A limpeza inclui arquivos antigos, cópias compactadas e o histórico Git.
+Nomes de editores e dados pessoais foram retirados. As fontes dos artigos,
+os dados científicos e as referências de licença foram preservados. Apenas
+os endereços técnicos necessários à instalação e ao repositório permanecem.
+Nenhuma captura de tela faz parte da distribuição.
+
+Reescrever o histórico acessível do repositório não apaga cópias já obtidas
+por terceiros nem garante a remoção imediata de objetos antigos em cache
+no GitHub. A conferência da publicação registra o que foi possível verificar.
+
+ARQUIVOS DA DISTRIBUIÇÃO
+
+Carregador_common_js_RevisaWiki_v2_6.js
+9441 bytes
+SHA-256: f20086eea56687c53cf47a17dadf6f643178fe8e36896cce7b03fd8d247655dd
+
+Carregador_comunitario_RevisaWiki_v2_6.js
+9443 bytes
+SHA-256: 4e5b3ea61a593e26f920a3f785f521ee4b31b491461e34a4259903b6b7dc0d10
+
+RevisaWiki_v2_6.js
+889295 bytes
+SHA-256: 0f7d9ef8c5398f61a1dc3e7353ed739286c00437b8eae666d0afeab890338863
+
+RevisaWiki_v2_6_completo.js
+2402019 bytes
+SHA-256: 627ed044999ed50180795e25fe9f4f38565d89af072c3b43939de3fc4c98ca5c
+
+RevisaWiki_v2_6_dados.js
+1523933 bytes
+SHA-256: d39be94a9bf8a3def3de24e9cb82bcc65e994725e4f567be7985d2ede5495895
+
+Código, instruções e evidências: https://github.com/danrego/RevisaWiki

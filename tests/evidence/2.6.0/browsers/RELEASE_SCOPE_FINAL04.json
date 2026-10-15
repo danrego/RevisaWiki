@@ -1,0 +1,32 @@
+{
+  "version": "2.6.0",
+  "freeze": "FINAL04",
+  "scope": "Independent local browser and helper tests of the delivered RevisaWiki bytes",
+  "execution": {
+    "inlineSuite": "81 cases and 554 checks per browser",
+    "actualLoaders": "Both own and community loader, 6 cases and 60 checks each per browser",
+    "nativeRegressions": "268 cases per browser, including classic, CodeMirror, 2017 source editor, Worker and staged fallback",
+    "helpers": "107 cases and 136 checks",
+    "isolatedPackage": "Helpers, full inline suite and both loaders rerun from a fresh approved-file-only tree in Chrome",
+    "largeControls": "Recorded native fixtures include a 1,910,746-byte article. Inline tests also include a generated section over 150,000 bytes."
+  },
+  "boundaries": {
+    "wikipediaEdits": 0,
+    "realNetworkMutations": 0,
+    "authentication": false,
+    "screenshots": 0,
+    "systemClipboardAccess": false,
+    "userDownloads": false,
+    "api": "Read results and publication responses are local in-memory mocks. The loopback server refuses non-GET network requests and the fixture restricts external connections.",
+    "publication": "Production event.isTrusted, frozen source, identity, revision, preflight and single-submit checks remain enabled. Chrome and Firefox use trusted pointer events. Safari uses WebDriver Enter on the focused explicit button, which generates a trusted browser click.",
+    "sourceAdaptation": "Only exact known origin guards are changed in the served local copy to admit loopback. Original distribution SHA-256 hashes are recorded in every suite.",
+    "privacy": "Only approved source files and completed sanitized reports are selected. Diagnostic logs, incomplete runs, process inventory, profiles, screenshots and isolated work directories are excluded."
+  },
+  "limits": [
+    "A simulated publication proves the local request, guard and response flow. It does not claim an edit was sent to Wikimedia.",
+    "These are correctness tests. They are not a browser performance benchmark.",
+    "Repeated UI case executions and helper cases are not a count of distinct Wikipedia articles.",
+    "The separate article corpus and source-render checks are reported by their own manifests.",
+    "Earlier candidates, filtered diagnostics and withdrawn Safari lifecycle runs are excluded from final pass counts."
+  ]
+}

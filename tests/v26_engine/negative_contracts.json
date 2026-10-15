@@ -1,0 +1,222 @@
+[
+  {
+    "name": "missing named definition",
+    "source": "Texto.<ref name=\"a\"/><ref name=\"a\"/>"
+  },
+  {
+    "name": "conflicting named definitions",
+    "source": "<ref name=\"a\">Um</ref><ref name=\"a\">Dois</ref> Texto.<ref name=\"a\"/><ref name=\"a\"/>"
+  },
+  {
+    "name": "different named groups",
+    "source": "<ref name=\"a\">Fonte</ref><ref name=\"a\" group=\"nota\">Nota</ref><ref name=\"a\"/><ref name=\"a\" group=\"nota\"/>"
+  },
+  {
+    "name": "separate paragraphs",
+    "source": "<ref name=\"a\">Fonte</ref>\n<ref name=\"a\"/>\n<ref name=\"a\"/>"
+  },
+  {
+    "name": "punctuation separates calls",
+    "source": "<ref name=\"a\">Fonte</ref> A.<ref name=\"a\"/>,<ref name=\"a\"/>"
+  },
+  {
+    "name": "protected duplicate calls",
+    "source": "<nowiki><ref name=\"a\"/><ref name=\"a\"/></nowiki>"
+  },
+  {
+    "name": "citation pages differ",
+    "source": "<ref>{{Citar livro|titulo=Livro|autor=Autora|páginas=1}}</ref><ref>{{Citar livro|páginas=2|autor=Autora|titulo=Livro}}</ref>"
+  },
+  {
+    "name": "citation author differs",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|autor=Ana}}</ref><ref>{{Citar web|autor=Bia|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation has additional field",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|data=2024}}</ref>"
+  },
+  {
+    "name": "citation title absent",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation prose suffix",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}} texto.</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}} texto.</ref>"
+  },
+  {
+    "name": "citation extra comment",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}<!-- nota --></ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}}<!-- nota --></ref>"
+  },
+  {
+    "name": "citation dynamic value",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo={{PAGENAME}}}}</ref><ref>{{Citar web|titulo={{PAGENAME}}|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation positional argument",
+    "source": "<ref>{{Citar web|Fonte|url=https://example.invalid/a|titulo=Fonte}}</ref><ref>{{Citar web|titulo=Fonte|Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation types differ",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref><ref>{{Citar jornal|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation across list boundary",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>\n<references/>\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation named family left alone",
+    "source": "<ref name=\"a\">{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref><ref name=\"b\">{{Citar web|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "conflicting duplicate ref attribute",
+    "source": "<ref name=\"a\" name=\"b\">Fonte</ref>"
+  },
+  {
+    "name": "unknown duplicate ref attribute",
+    "source": "<ref foo=\"x\" foo=\"x\">Fonte</ref>"
+  },
+  {
+    "name": "dynamic duplicate ref attribute",
+    "source": "<ref name=\"{{PAGENAME}}\" name=\"{{PAGENAME}}\">Fonte</ref>"
+  },
+  {
+    "name": "conflicting duplicate table attribute",
+    "source": "<table class=\"a\" class=\"b\"><tr><td>Um</td></tr></table>"
+  },
+  {
+    "name": "protected table attribute",
+    "source": "<pre><table class=\"a\" class=\"a\"></table></pre>"
+  },
+  {
+    "name": "unknown template mixed closer",
+    "source": "{{Exemplo não verificado|Texto}]"
+  },
+  {
+    "name": "dynamic template mixed closer",
+    "source": "{{Citar web|url={{URL}}|titulo=Fonte}]"
+  },
+  {
+    "name": "inline portal mixed closer",
+    "source": "Texto {{Portal|Biologia}]"
+  },
+  {
+    "name": "link mixed closer",
+    "source": "[[Página|Texto}]"
+  },
+  {
+    "name": "quoted mixed closer",
+    "source": "\"{{Portal|Biologia}]\""
+  },
+  {
+    "name": "different empty collector groups",
+    "source": "<references group=\"nota\"/><references group=\"outro\"/>"
+  },
+  {
+    "name": "nonempty collector",
+    "source": "<references group=\"nota\"><ref name=\"a\">Nota</ref></references><references group=\"nota\"/>"
+  },
+  {
+    "name": "collector containing comment",
+    "source": "<references group=\"nota\"><!-- manter --></references><references group=\"nota\"/>"
+  },
+  {
+    "name": "collector attributes differ",
+    "source": "<references group=\"nota\" responsive=\"0\"/><references group=\"nota\" responsive=\"1\"/>"
+  },
+  {
+    "name": "collector prose boundary",
+    "source": "<references group=\"nota\"/>Texto<references group=\"nota\"/>"
+  },
+  {
+    "name": "collector protected example",
+    "source": "<syntaxhighlight lang=\"html\"><references group=\"nota\"/><references group=\"nota\"/></syntaxhighlight>"
+  },
+  {
+    "name": "duplicate attribute inside unclosed tail",
+    "source": "<ref name=\"a\" name=\"a\">Fonte"
+  },
+  {
+    "name": "duplicate table attribute with unclosed html table",
+    "source": "<table class=\"a\" class=\"a\"><tr><td>Um</td></tr>"
+  },
+  {
+    "name": "duplicate table opening with unclosed wikitext table",
+    "source": "{| class=\"a\" class=\"a\"\n| Um"
+  },
+  {
+    "name": "ordinary quote enclosing calls",
+    "source": "\"<ref name=\"a\"/><ref name=\"a\"/>\""
+  },
+  {
+    "name": "citation date differs",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|data=2024}}</ref><ref>{{Citar web|data=2025|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "citation publisher versus editora deliberately distinct",
+    "source": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|editora=X}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|publicado=X}}</ref>"
+  },
+  {
+    "name": "citation literal whitespace within value differs",
+    "source": "<ref>{{Citar web|titulo=Fonte A|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte  A}}</ref>"
+  },
+  {
+    "name": "citation positional argument dynamically inherited",
+    "source": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>\n{{{nome|x}}}"
+  },
+  {
+    "name": "dynamic tag ref helper blocks generated family names",
+    "source": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>\n{{#tag:ref|Outra|name=nome}}"
+  },
+  {
+    "name": "paired collectors containing nowiki",
+    "source": "<references group=\"nota\"><nowiki> </nowiki></references><references group=\"nota\"/>"
+  },
+  {
+    "name": "default collectors remain with legacy rule",
+    "source": "<references/>\n<references/>"
+  },
+  {
+    "name": "mixed citation inside unresolved reference tail",
+    "source": "Texto.\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]\n\nOutra linha de texto"
+  },
+  {
+    "name": "mixed citation inside unresolved reference with opaque ending",
+    "source": "Texto.\n<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]\n<!-- comentário sem fim"
+  },
+  {
+    "name": "citation conflicting duplicate key",
+    "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Outro}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|titulo=Outro}}</ref>"
+  },
+  {
+    "name": "unknown multilingual citation name stays literal",
+    "source": "<ref>{{模板不存在|title=Fonte|url=https://example.invalid/a}}</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "unsupported citation field values differ",
+    "source": "<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|campo não verificado=Um}}</ref> Outro.<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|campo não verificado=Dois}}</ref>"
+  },
+  {
+    "name": "accepted native alias remains distinct after exact existing converter",
+    "source": "<ref>{{Cite web|url=https://example.invalid/a|titulo=Fonte}}</ref> Outro.<ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "free reference prose never guessed as a complete citation",
+    "source": "<ref>Texto livre sobre https://example.invalid/a Fonte</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "bare reference nested template remains literal",
+    "source": "<ref>[https://example.invalid/a {{Foo}}]</ref> Outro.<ref>{{Citar web|título=Foo|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "bare reference pipe ambiguous remains literal",
+    "source": "<ref>[https://example.invalid/a Fonte | Outro]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a}}</ref>"
+  },
+  {
+    "name": "bare reference missing author cannot merge complete citation",
+    "source": "<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|autor=Ana Silva}}</ref>"
+  },
+  {
+    "name": "bare reference missing pages cannot merge complete citation",
+    "source": "<ref>[https://example.invalid/a Fonte]</ref> Outro.<ref>{{Citar web|título=Fonte|url=https://example.invalid/a|páginas=2}}</ref>"
+  }
+]

@@ -1,0 +1,786 @@
+{{Descrição curta|Ramo da matemática que estuda superfícies suaves}}
+[[Ficheiro:Bendixen - Carl Friedrich Gauß, 1828.jpg|miniatura|direita|[[Carl Friedrich Gauss]] em 1828]]
+
+Na [[matemática]], a '''geometria diferencial de superfícies''' trata da [[geometria diferencial]] de [[Superfície|superfícies]] [[Variedade diferenciável|suaves]]{{efn|Uma '''superfície suave''' é uma superfície na qual cada ponto possui uma vizinhança [[difeomorfismo|difeomorfa]] a algum conjunto aberto em '''E'''<sup>2</sup>.}} com várias estruturas adicionais, mais frequentemente uma [[Variedade de Riemann|métrica riemanniana]].{{efn|Uma '''superfície riemanniana''' é uma superfície suave equipada com uma métrica riemanniana.}}
+
+As superfícies têm sido amplamente estudadas sob várias perspectivas: ''extrinsecamente'', no que se refere ao seu [[mergulho]] no [[espaço euclidiano]], e ''intrinsecamente'', refletindo propriedades determinadas unicamente pela distância na superfície medida ao longo de curvas nela contidas. Um dos conceitos fundamentais investigados é a [[curvatura gaussiana]], primeiramente estudada a fundo por [[Carl Friedrich Gauss]],{{sfn|Gauss|1902}} que demonstrou que a curvatura era uma propriedade intrínseca de uma superfície, independente de seu mergulho [[isometria|isométrico]] no espaço euclidiano.
+
+As superfícies surgem naturalmente como [[gráfico de uma função|gráficos]] de [[função (matemática)|funções]] de duas [[variável (matemática)|variáveis]] e, por vezes, aparecem na forma paramétrica ou como [[lugar geométrico|lugares geométricos]] associados a [[curva|curvas espaciais]]. Um papel essencial em seu estudo tem sido desempenhado pelos [[grupo de Lie|grupos de Lie]] (no espírito do [[programa de Erlangen]]), nomeadamente os [[grupo de simetria|grupos de simetria]] do [[plano euclidiano]], da [[esfera]] e do [[Geometria hiperbólica|plano hiperbólico]]. Esses grupos de Lie podem ser empregados para descrever superfícies de curvatura gaussiana constante; eles também fornecem um componente indispensável na abordagem moderna da geometria diferencial intrínseca por meio de [[conexão (matemática)|conexões]]. Por outro lado, as propriedades extrínsecas que dependem de um mergulho de uma superfície no espaço euclidiano também foram intensamente investigadas. Isso é bem ilustrado pelas [[equações de Euler-Lagrange]] não lineares no [[cálculo das variações]]: embora Euler tenha desenvolvido as equações de uma variável para compreender as [[geodésica]]s, definidas independentemente de um mergulho, uma das principais aplicações dadas por Lagrange às equações de duas variáveis foi para as [[superfície mínima|superfícies mínimas]], um conceito que só pode ser formulado em termos de um mergulho.
+
+== História ==
+[[Ficheiro:Portrait of Bernhard Riemann (1826-1866), Mathematician (2551069295).jpg|miniatura|[[Bernhard Riemann]] (1826–1866)]]
+Os volumes de certas [[quádrica|superfícies quádricas]] de [[superfície de revolução|revolução]] foram calculados por [[Arquimedes]].<ref>{{harvnb|Struik|1987|pages=50–53}}</ref> O desenvolvimento do [[cálculo diferencial e integral|cálculo]] no século XVII forneceu uma maneira mais sistemática de calculá-los.<ref>{{harvnb|Wells|2017|pages=17–30}}</ref> A curvatura de superfícies gerais foi estudada pela primeira vez por [[Leonhard Euler|Euler]]. Em 1760,<ref>{{harvnb|Euler|1760}}</ref> ele demonstrou uma fórmula para a curvatura de uma seção plana de uma superfície e, em 1771,<ref>{{harvnb|Euler|1771}}</ref> considerou superfícies representadas em forma paramétrica. [[Gaspard Monge|Monge]] estabeleceu os fundamentos de sua teoria em sua memória clássica ''L'application de l'analyse à la géométrie'',<ref>{{cite web |last=Monge |first=Gaspard |date=1807 |title=Application de l'analyse à la géométrie |url=https://eudml.org/doc/204657 |language=fr}}</ref> publicada em 1795. A contribuição definidora para a teoria das superfícies foi feita por [[Carl Friedrich Gauss|Gauss]] em dois artigos notáveis redigidos em 1825 e 1827.{{sfn|Gauss|1902}} Isso marcou um novo afastamento da tradição, pois, pela primeira vez, Gauss considerou a geometria ''intrínseca'' de uma superfície, ou seja, as propriedades que são determinadas unicamente pelas distâncias geodésicas entre pontos sobre a superfície, independentemente da maneira específica como a superfície está situada no espaço euclidiano ambiente. O resultado culminante, o [[Theorema Egregium]] de Gauss, estabeleceu que a [[curvatura gaussiana]] é um invariante intrínseco, isto é, invariante sob [[isometria|isometrias]] locais. Esse ponto de vista foi estendido a espaços de dimensão superior por [[Bernhard Riemann|Riemann]] e levou ao que hoje se conhece como [[geometria riemanniana]]. O século XIX foi a era de ouro para a teoria das superfícies, tanto sob o ponto de vista topológico quanto sob o diferencial-geométrico, com a maioria dos principais geômetras dedicando-se ao seu estudo. [[Gaston Darboux|Darboux]] reuniu muitos resultados em seu tratado em quatro volumes ''Théorie des surfaces'' (1887–1896).
+
+== Visão geral ==
+O objeto matemático essencial é o de '''superfície regular'''. Embora as convenções variem em sua definição precisa, elas formam uma classe geral de subconjuntos do [[espaço euclidiano]] tridimensional (<math>\mathbb{R}^3</math>) que capturam parte da noção familiar de "superfície". Ao analisar a classe de curvas situadas sobre tal superfície e o grau em que as superfícies as forçam a se curvar no <math>\mathbb{R}^3</math>, associa-se a cada ponto da superfície dois números, denominados ''curvaturas principais''. A média aritmética de ambas é chamada de ''[[curvatura média]]'' da superfície, e o produto delas é denominado ''[[curvatura gaussiana]]''.
+
+Há muitos exemplos clássicos de superfícies regulares, incluindo:
+* exemplos familiares, como planos, cilindros e esferas;
+* [[superfície mínima|superfícies mínimas]], que são definidas pela propriedade de que sua curvatura média é nula em todos os pontos. Os exemplos mais conhecidos são o [[catenoide]] e o [[helicoide]], embora muitas outras tenham sido descobertas. As superfícies mínimas também podem ser caracterizadas por propriedades associadas à área superficial, com a consequência de que fornecem um modelo matemático para a forma assumida por filmes de sabão quando esticados em uma armação de arame;
+* [[superfície regrada|superfícies regradas]], que são superfícies que possuem pelo menos uma linha reta passando por cada um de seus pontos; os exemplos incluem o cilindro e o [[hiperboloide]] de uma folha.
+
+Um resultado surpreendente de [[Carl Friedrich Gauss]], conhecido como o ''[[Theorema Egregium]]'', demonstrou que a curvatura gaussiana de uma superfície, que por sua definição tem a ver com o modo como as curvas sobre a superfície mudam de direção no espaço tridimensional, pode na verdade ser aferida pelos comprimentos das curvas contidas na superfície juntamente com os ângulos formados quando duas curvas se cruzam sobre ela. Terminologicamente, isso expressa que a curvatura gaussiana pode ser calculada a partir da ''[[primeira forma fundamental]]'' (também denominada [[tensor métrico]]) da superfície. A ''[[segunda forma fundamental]]'', em contrapartida, é um objeto que codifica como os comprimentos e ângulos das curvas na superfície sofrem distorção quando as curvas são empurradas para fora da superfície.
+
+Apesar de medirem diferentes aspectos de comprimento e ângulo, a primeira e a segunda formas fundamentais não são independentes uma da outra, satisfazendo certos vínculos conhecidos como as ''[[Equações de Gauss–Codazzi|equações de Gauss-Codazzi]]''. Um teorema de grande envergadura, frequentemente chamado de teorema fundamental da geometria diferencial de superfícies, assegura que, sempre que dois objetos satisfazem aos vínculos de Gauss–Codazzi, eles surgirão como a primeira e a segunda formas fundamentais de uma superfície regular.
+
+Utilizando a primeira forma fundamental, é possível definir novos objetos em uma superfície regular. As ''[[geodésica]]s'' são curvas na superfície que satisfazem a uma determinada [[equação diferencial ordinária]] de segunda ordem especificada pela primeira forma fundamental. Elas estão conectadas de maneira direta ao estudo dos comprimentos de curvas; uma geodésica de comprimento suficientemente curto será sempre a curva de menor comprimento na superfície que conecta seus dois pontos extremos. Assim, as geodésicas são fundamentais para o problema de otimização de determinar o caminho mais curto entre dois pontos dados em uma superfície regular.
+
+Também se pode definir o ''[[transporte paralelo]]'' ao longo de qualquer curva dada, o qual fornece uma prescrição para deformar um vetor tangente à superfície em um ponto da curva em vetores tangentes em todos os outros pontos da curva. Essa prescrição é determinada por uma equação diferencial ordinária de primeira ordem especificada pela primeira forma fundamental.
+
+Os conceitos acima dizem respeito essencialmente ao [[Cálculo com múltiplas variáveis|cálculo multivariável]]. O ''[[teorema de Gauss-Bonnet]]'' é um resultado mais global, que relaciona a curvatura gaussiana de uma superfície ao seu tipo topológico. Ele afirma que o valor médio da curvatura gaussiana é completamente determinado pela [[característica de Euler]] da superfície juntamente com a sua área superficial.
+
+Qualquer superfície regular é um exemplo tanto de uma ''[[variedade riemanniana]]'' quanto de uma ''[[superfície de Riemann]]''. Essencialmente toda a teoria das superfícies regulares aqui tratada possui uma generalização na teoria das variedades riemannianas e suas subvariedades.
+
+== Superfícies regulares no espaço euclidiano ==
+
+=== Definição ===
+É intuitivamente evidente que uma esfera é suave, enquanto um cone ou uma pirâmide, em razão de seu vértice ou de suas arestas, não o são. A noção de uma "superfície regular" formaliza rigorosamente o conceito de superfície suave. A definição utiliza a representação local de uma superfície por meio de aplicações entre [[espaço euclidiano|espaços euclidianos]]. Há uma noção padrão de suavidade para tais aplicações: uma aplicação entre dois subconjuntos abertos do espaço euclidiano é suave se as suas derivadas parciais de todas as ordens existirem em todos os pontos do domínio.<ref>{{harvnb|Kreyszig|1991}}</ref><ref name="Struik 1988">{{harvnb|Struik|1988}}</ref><ref>{{harvnb|Warner|1983}}</ref>
+
+Uma superfície regular no espaço euclidiano <math>\mathbb{R}^3</math> é um subconjunto <math>S</math> de <math>\mathbb{R}^3</math> tal que todo ponto de <math>S</math> admite qualquer uma das seguintes três caracterizações equivalentes: ''parametrizações locais'', ''cartas de Monge'' ou ''funções implícitas''.
+A tabela seguinte fornece as definições de tais objetos; as cartas de Monge são talvez as mais intuitivas visualmente, pois essencialmente afirmam que uma superfície regular é um subconjunto de <math>\mathbb{R}^3</math> que é localmente o gráfico de uma função suave (seja sobre uma região no plano <math>yz</math>, no plano <math>xz</math> ou no plano <math>xy</math>).
+
+[[Ficheiro:Sphere with chart.svg|miniatura|direita|upright|Uma parametrização local em forma de carta de Monge para o hemisfério superior da 2-esfera, obtida pela projeção no plano <math>xy</math>.]]
+{| class="wikitable"
+|-
+! Objetos !! Definição
+|- 
+| Parametrizações locais
+| Uma vizinhança aberta <math>U \subset S</math> para a qual existe um subconjunto aberto <math>V</math> de <math>\mathbb{R}^2</math> e um [[homeomorfismo]] <math>f : V \to U</math> tal que:
+* <math>f</math>, como função <math>V \to \mathbb{R}^3</math>, é [[classe de diferenciabilidade|infinitamente diferenciável]] (ou seja, suave);
+* para cada ponto de <math>V</math>, as duas derivadas parciais <math>\partial_u f</math> e <math>\partial_v f</math> são [[independência linear|linearmente independentes]] como elementos de <math>\mathbb{R}^3</math>.<ref>{{harvnb|Hitchin|2013|page=45}}</ref><ref>{{harvnb|do Carmo|2016|pages=54–56}}</ref><ref>{{harvnb|Wilson|2008|page=115}}</ref><ref>{{harvnb|Pressley|2001|pages=68–77|year=2001}}</ref>
+|-
+| Cartas de Monge
+| Uma vizinhança aberta <math>U \subset \mathbb{R}^3</math> para a qual existe um subconjunto aberto <math>V</math> de <math>\mathbb{R}^2</math> e uma função suave <math>h : V \to \mathbb{R}</math> tal que uma das seguintes condições se verifica:
+* <math>S \cap U = \{(h(u, v), u, v) : (u, v) \in V\}</math>
+* <math>S \cap U = \{(u, h(u, v), v) : (u, v) \in V\}</math>
+* <math>S \cap U = \{(u, v, h(u, v)) : (u, v) \in V\}</math>.
+|-
+| Funções implícitas
+| Uma vizinhança aberta <math>U \subset \mathbb{R}^3</math> para a qual existe uma função suave <math>F : U \to \mathbb{R}</math> com:
+* <math>S \cap U = \{(x, y, z) \in U : F(x, y, z) = 0\}</math>
+* em cada ponto de <math>S \cap U</math>, pelo menos uma derivada parcial de <math>F</math> é não nula.
+|}
+Os homeomorfismos que aparecem na primeira definição são denominados '''parametrizações locais''', '''sistemas de coordenadas locais''' ou '''cartas locais''' sobre <math>S</math>.<ref>{{harvnb|do Carmo|2016|pages=55}}</ref> A equivalência das duas primeiras definições assevera que, em torno de qualquer ponto de uma superfície regular, sempre existem parametrizações locais da forma <math>(u, v) \mapsto (h(u, v), u, v)</math>, <math>(u, v) \mapsto (u, h(u, v), v)</math> ou <math>(u, v) \mapsto (u, v, h(u, v))</math>, conhecidas como '''cartas de Monge'''. Funções <math>F</math> como na terceira definição são chamadas de '''funções definidoras locais'''. A equivalência de todas as três definições decorre do [[teorema da função implícita]].<ref>{{harvnb|do Carmo|2016|pages=60–65}}</ref><ref>{{harvnb|O'Neill|2006|page=113}}</ref>
+
+[[Ficheiro:Transition functions in an atlas.svg|miniatura|direita|As mudanças de coordenadas entre diferentes cartas locais devem ser suaves.]]
+Dadas quaisquer duas parametrizações locais <math>f : V \to U</math> e <math>f' : V' \to U'</math> de uma superfície regular, a composição <math>f^{-1} \circ f'</math> é necessariamente suave como uma aplicação entre subconjuntos abertos de <math>\mathbb{R}^2</math>.<ref>{{harvnb|do Carmo|2016|pages=72}}</ref> Isso mostra que qualquer superfície regular possui naturalmente a estrutura de uma [[Variedade diferenciável|variedade suave]], com um atlas suave sendo fornecido pelas inversas das parametrizações locais.
+
+Na teoria clássica da [[geometria diferencial]], as superfícies são comumente estudadas apenas no caso regular.<ref name="Struik 1988"/><ref>{{harvnb|Kreyszig|1991}}</ref> É corrente, entretanto, estudar também superfícies não regulares, nas quais as duas derivadas parciais <math>\partial_u f</math> e <math>\partial_v f</math> de uma parametrização local podem deixar de ser [[independência linear|linearmente independentes]]. Nesse caso, <math>S</math> pode apresentar singularidades, tais como arestas de recuo (cúspides). Tais superfícies são tipicamente analisadas na [[teoria das singularidades]]. Outras formas enfraquecidas de superfícies regulares ocorrem no [[desenho assistido por computador]], onde uma superfície é dividida em partes disjuntas, com as derivadas das parametrizações locais deixando até mesmo de ser contínuas ao longo das fronteiras.
+
+[[Ficheiro:HyperboloidOfTwoSheets.png|miniatura|upright|Um hiperboloide de duas folhas.]]
+[[Ficheiro:Simple Torus.svg|miniatura|upright|Um toro.]]
+[[Ficheiro:Helicoid JD.png|miniatura|upright|Um helicoide.]]
+'''Exemplos simples.''' Um exemplo simples de superfície regular é dado pela 2-esfera <math>\{(x, y, z) \mid x^2 + y^2 + z^2 = 1\}</math>; essa superfície pode ser coberta por seis cartas de Monge (duas de cada um dos três tipos dados acima), tomando-se <math>h(u, v) = \pm (1 - u^2 - v^2)^{1/2}</math>. Ela também pode ser coberta por duas parametrizações locais utilizando-se a [[projeção estereográfica]]. O conjunto <math>\{(x, y, z) : ((x^2 + y^2)^{1/2} - R)^2 + z^2 = r^2\}</math> é um [[toro (topologia)|toro de revolução]] com raios <math>r</math> e <math>R</math>. Trata-se de uma superfície regular; parametrizações locais podem ser dadas na forma
+:<math>f(s,t)=\big((R \cos s + r)\cos t, (R \cos s + r) \sin t, r\sin s\big).</math>
+O [[hiperboloide]] de duas folhas <math>\{(x, y, z) : z^2 = 1 + x^2 + y^2\}</math> é uma superfície regular; pode ser coberto por duas cartas de Monge, com <math>h(u, v) = \pm(1 + u^2 + v^2)^{1/2}</math>. O [[helicoide]] aparece na teoria das [[superfície mínima|superfícies mínimas]]. Ele é coberto por uma única parametrização local, <math>f(u, v) = (u \sin v, u \cos v, v)</math>.
+
+=== Vetores tangentes e vetores normais ===
+{{Ver também|Superfície paramétrica#Plano tangente e vetor normal}}
+
+Seja <math>S</math> uma superfície regular em <math>\mathbb{R}^3</math>, e seja <math>p</math> um elemento de <math>S</math>. Utilizando qualquer uma das definições acima, é possível identificar certos vetores em <math>\mathbb{R}^3</math> como sendo tangentes a <math>S</math> em <math>p</math>, e certos vetores em <math>\mathbb{R}^3</math> como sendo ortogonais (ou normais) a <math>S</math> em <math>p</math>.
+
+{| class="wikitable"
+|-
+! Objetos usados na definição !! Um vetor <math>X</math> em <math>\mathbb{R}^3</math> é tangente a <math>S</math> em <math>p</math> se... !! Um vetor <math>n</math> em <math>\mathbb{R}^3</math> é normal a <math>S</math> em <math>p</math> se...
+|- 
+| Parametrizações locais
+| ... dada qualquer parametrização local <math>f : V \to S</math> com <math>p \in f(V)</math>, <math>X</math> for uma combinação linear de <math>\left.\frac{\partial f}{\partial u}\right|_{f^{-1}(p)}</math> e <math>\left.\frac{\partial f}{\partial v}\right|_{f^{-1}(p)}</math>
+| ... for ortogonal a todo vetor tangente a <math>S</math> em <math>p</math>
+|-
+| Cartas de Monge
+| ... para qualquer carta de Monge <math>(u, v) \mapsto (u, v, h(u, v))</math> cuja imagem contenha <math>p</math>, tiver-se
+:<math>X^1 \frac{\partial h}{\partial u}+X^2\frac{\partial h}{\partial v}-X^3=0,</math>
+com as derivadas parciais avaliadas no ponto <math>(p_1, p_2)</math>. A definição análoga aplica-se no caso das cartas de Monge das outras duas formas.
+| ... para qualquer carta de Monge <math>(u, v) \mapsto (u, v, h(u, v))</math> cuja imagem contenha <math>p</math>, <math>n</math> for um múltiplo de <math>\left(\frac{\partial h}{\partial u}, \frac{\partial h}{\partial v}, -1\right)</math> avaliado no ponto <math>(p_1, p_2)</math>. A definição análoga aplica-se no caso das cartas de Monge das outras duas formas.
+|-
+| Funções implícitas
+| ... para qualquer função definidora local <math>F</math> cujo domínio contenha <math>p</math>, <math>X</math> for ortogonal a <math>\nabla F(p)</math>
+| ... para qualquer função definidora local <math>F</math> cujo domínio contenha <math>p</math>, <math>n</math> for um múltiplo de <math>\nabla F(p)</math>
+|}
+
+Vê-se que o ''[[espaço tangente]]'' ou ''[[Tangente (geometria)|plano tangente]]'' a <math>S</math> em <math>p</math>, definido como o conjunto constituído por todos os vetores tangentes a <math>S</math> em <math>p</math>, é um subespaço vetorial bidimensional de <math>\mathbb{R}^3</math>; é frequentemente denotado por <math>T_p S</math>.
+
+O ''[[espaço normal]]'' a <math>S</math> em <math>p</math>, definido como o conjunto de todos os vetores normais a <math>S</math> em <math>p</math>, é um subespaço vetorial unidimensional de <math>\mathbb{R}^3</math> ortogonal ao espaço tangente <math>T_p S</math>. Como tal, em cada ponto <math>p</math> de <math>S</math>, existem dois vetores normais de comprimento unitário (vetores normais unitários). Os vetores normais unitários em <math>p</math> podem ser obtidos em termos de parametrizações locais, cartas de Monge ou funções definidoras locais, por meio das fórmulas
+:<math>\pm\left.\frac{\frac{\partial f}{\partial u}\times\frac{\partial f}{\partial v}}{\left\|\frac{\partial f}{\partial u}\times\frac{\partial f}{\partial v}\right\|}\right|_{f^{-1}(p)},\qquad
+\pm\left.\frac{\left(\frac{\partial h}{\partial u},\frac{\partial h}{\partial v},-1\right)}{\sqrt{1+\left(\frac{\partial h}{\partial u}\right)^2+\left(\frac{\partial h}{\partial v}\right)^2}}\right|_{(p_1,p_2)},\qquad
+\text{ou}\qquad
+\pm\frac{\nabla F(p)}{\big\|\nabla F(p)\big\|},</math>
+seguindo as mesmas notações das definições anteriores.
+
+Também é útil notar uma definição "intrínseca" de vetores tangentes, típica da generalização da teoria de superfícies regulares para o contexto das [[Variedade diferenciável|variedades suaves]]. Ela define o espaço tangente como um [[espaço vetorial]] real bidimensional abstrato, em vez de um subespaço linear de <math>\mathbb{R}^3</math>. Nessa definição, diz-se que um vetor tangente a <math>S</math> em <math>p</math> é uma atribuição, a cada parametrização local <math>f : V \to S</math> com <math>p \in f(V)</math>, de dois números <math>X^1</math> e <math>X^2</math>, tal que para qualquer outra parametrização local <math>f' : V' \to S</math> com <math>p \in f'(V')</math> (e com os correspondentes números <math>(X')^1</math> e <math>(X')^2</math>), tem-se
+:<math>\begin{pmatrix}X^1\\ X^2\end{pmatrix}=A_{f'(p)}\begin{pmatrix}(X')^1\\ (X')^2\end{pmatrix},</math>
+onde <math>A_{f'(p)}</math> é a [[matriz jacobiana]] da aplicação <math>f^{-1} \circ f'</math>, avaliada no ponto <math>f'(p)</math>. O conjunto dos vetores tangentes a <math>S</math> em <math>p</math> possui naturalmente a estrutura de um espaço vetorial bidimensional. Um vetor tangente nesse sentido corresponde a um vetor tangente no sentido anterior ao se considerar o vetor
+:<math>X^1\frac{\partial f}{\partial u}+X^2\frac{\partial f}{\partial v}</math>
+em <math>\mathbb{R}^3</math>. A condição jacobiana sobre <math>X^1</math> e <math>X^2</math> garante, pela [[regra da cadeia]], que esse vetor não depende da escolha de <math>f</math>.
+
+Para funções suaves sobre uma superfície, os campos vetoriais (isto é, campos de vetores tangentes) possuem uma interpretação importante como operadores diferenciais de primeira ordem ou derivações. Seja <math>S</math> uma superfície regular, <math>U</math> um subconjunto aberto do plano e <math>f:U\rightarrow S</math> uma carta de coordenadas. Se <math>V=f(U)</math>, o espaço <math>C^\infty(U)</math> pode ser identificado com <math>C^\infty(V)</math>. De modo similar, <math>f</math> identifica campos vetoriais em <math>U</math> com campos vetoriais em <math>V</math>. Tomando variáveis padrão <math>u</math> e <math>v</math>, um campo vetorial tem a forma <math>X = a\partial_u + b\partial_v</math>, com <math>a</math> e <math>b</math> sendo funções suaves. Se <math>X</math> é um campo vetorial e <math>g</math> é uma função suave, então <math>Xg</math> também é uma função suave. O operador diferencial de primeira ordem <math>X</math> é uma ''derivação'', ou seja, satisfaz a regra de Leibniz <math>X(gh) = (Xg)h + g(Xh)</math>.<ref>{{harvnb|Singer|Thorpe|1967|page=100–114}}</ref>
+
+Para campos vetoriais <math>X</math> e <math>Y</math>, é simples verificar que o operador <math>[X,Y]=XY-YX</math> é uma derivação correspondente a um campo vetorial. Ele é chamado de [[colchete de Lie de campos vetoriais|colchete de Lie]] <math>[X,Y]</math>. É antissimétrico, <math>[X,Y]=-[Y,X]</math>, e satisfaz a [[identidade de Jacobi]]:
+:<math>[[X,Y],Z] + [[Y,Z],X] + [[Z,X],Y]=0.</math>
+Em resumo, os campos vetoriais em <math>U</math> ou <math>V</math> formam uma [[álgebra de Lie]] sob o colchete de Lie.<ref>{{harvnb|Singer|Thorpe|1967|page=133–134}}</ref>
+
+=== Primeira e segunda formas fundamentais, o operador de forma e a curvatura ===
+Seja <math>S</math> uma superfície regular em <math>\mathbb{R}^3</math>. Dada uma parametrização local <math>f : V \to S</math> e um campo vetorial normal unitário <math>n</math> a <math>f(V)</math>, definem-se os seguintes objetos como funções a valores reais ou matriciais sobre <math>V</math>. A primeira forma fundamental depende apenas de <math>f</math>, e não de <math>n</math>. A quarta coluna registra o modo como essas funções dependem de <math>f</math>, relacionando as funções <math>E', F', G', L'</math>, etc., decorrentes de uma escolha diferente de parametrização local, <math>f' : V' \to S</math>, àquelas provenientes de <math>f</math>. Aqui, <math>A</math> denota a [[matriz jacobiana]] de <math>f^{-1} \circ f'</math>. A relação fundamental para estabelecer as fórmulas da quarta coluna é então
+:<math>\begin{pmatrix}\frac{\partial f'}{\partial u}\\ \frac{\partial f'}{\partial v}\end{pmatrix}=A\begin{pmatrix}\frac{\partial f}{\partial u}\\ \frac{\partial f}{\partial v}\end{pmatrix},</math>
+como decorre da [[regra da cadeia]].
+{| class="wikitable"
+|-
+! Terminologia !! Notação !! Definição !! Dependência da parametrização local
+|-
+| rowspan="3" | Primeira forma fundamental
+| <math>E</math> 
+| <math>E=\frac{\partial f}{\partial u}\cdot\frac{\partial f}{\partial u}</math>
+| rowspan="3" | <math>\begin{pmatrix}E'&F'\\ F'&G'\end{pmatrix}=A\begin{pmatrix}E&F\\ F&G\end{pmatrix}A^T</math>
+|-
+| <math>F</math>
+| <math>F=\frac{\partial f}{\partial u}\cdot\frac{\partial f}{\partial v}</math>
+|-
+| <math>G</math>
+| <math>G=\frac{\partial f}{\partial v}\cdot\frac{\partial f}{\partial v}</math>
+|-
+| rowspan="3" | Segunda forma fundamental
+| <math>L</math> 
+| <math>L=\frac{\partial^2 f}{\partial u^2}\cdot n</math>
+| rowspan="3" | <math>\begin{pmatrix}L'&M'\\ M'&N'\end{pmatrix}=A\begin{pmatrix}L&M\\ M&N\end{pmatrix}A^T</math>
+|-
+| <math>M</math>
+| <math>M=\frac{\partial^2f}{\partial u\partial v}\cdot n</math>
+|-
+| <math>N</math>
+| <math>N=\frac{\partial^2f}{\partial v^2}\cdot n</math>
+|-
+| Operador de forma<ref>{{harvnb|do Carmo|2016|pages= 155–157}}</ref>
+| <math>P</math>
+| <math>P=\begin{pmatrix}E&F\\ F&G\end{pmatrix}^{-1}\begin{pmatrix}L&M\\ M&N\end{pmatrix}</math>
+| <math>P'=APA^{-1}</math>
+|-
+| [[Curvatura gaussiana]]
+| <math>K</math>
+| <math>K=\frac{LN-M^2}{EG-F^2}</math>
+| <math>K'=K</math>
+|-
+| [[Curvatura média]]
+| <math>H</math>
+| <math>H=\frac{GL-2FM+EN}{2(EG-F^2)}</math>
+| <math>H'=H</math>
+|- 
+| Curvaturas principais
+| <math>\kappa_\pm</math>
+| <math>H\pm\sqrt{H^2-K}</math>
+| <math>\kappa_{\pm}'=\kappa_\pm</math>
+|}
+
+Por um cálculo direto com a matriz que define o operador de forma, pode-se verificar que a curvatura gaussiana é o [[determinante]] do operador de forma, a curvatura média é a metade do [[traço (álgebra linear)|traço]] do operador de forma, e as curvaturas principais são os [[autovalores e autovetores|autovalores]] do operador de forma; além disso, a curvatura gaussiana é o produto das curvaturas principais e a curvatura média é a sua soma. Essas observações também podem ser formuladas como definições desses objetos. Elas tornam evidente que as últimas três linhas da quarta coluna decorrem imediatamente da linha anterior, visto que [[matrizes semelhantes]] possuem determinante, traço e autovalores idênticos. É fundamental observar que <math>E</math>, <math>G</math> e <math>EG - F^2</math> são todos necessariamente positivos. Isso garante que a matriz inversa na definição do operador de forma está bem definida e que as curvaturas principais são números reais.
+
+Note-se também que a inversão de sinal na escolha do campo de vetores normais unitários mudará o sinal da segunda forma fundamental, do operador de forma, da curvatura média e das curvaturas principais, mas deixará a curvatura gaussiana inalterada. Em suma, isso mostra que, dada uma superfície regular <math>S</math>, a curvatura gaussiana de <math>S</math> pode ser considerada como uma função a valores reais sobre <math>S</math>; em relação a uma escolha de campo vetorial normal unitário em toda a superfície <math>S</math>, as duas curvaturas principais e a curvatura média também são funções a valores reais sobre <math>S</math>.
+
+[[Ficheiro:Second fundamental form.svg|miniatura|direita|Definição da segunda forma fundamental]]
+[[Ficheiro:Minimal surface curvature planes-en.svg|miniatura|direita|As curvaturas principais em um ponto de uma superfície]]
+Geometricamente, a primeira e a segunda formas fundamentais podem ser vistas como fornecedoras de informações sobre como <math>f(u, v)</math> se desloca em <math>\mathbb{R}^3</math> à medida que <math>(u, v)</math> varia em <math>V</math>. Em particular, a primeira forma fundamental codifica a rapidez com que <math>f</math> se move, enquanto a segunda forma fundamental codifica a extensão em que seu movimento se dá na direção do vetor normal <math>n</math>. Em outras palavras, a segunda forma fundamental em um ponto <math>p</math> codifica o comprimento da projeção ortogonal de <math>S</math> sobre o plano tangente a <math>S</math> em <math>p</math>; em particular, fornece a função quadrática que melhor aproxima esse comprimento. Essa interpretação pode ser tornada precisa por meio das fórmulas
+:<math>\begin{aligned}
+\lim_{(h,k)\to(0,0)}\frac{\big|f(u+h,v+k) - f(u,v)\big|^2-\big(Eh^2+2Fhk+Gk^2\big)}{h^2+k^2} &= 0\\
+\lim_{(h,k)\to(0,0)}\frac{\big(f(u+h,v+k) - f(u,v)\big)\cdot n-\frac{1}{2}\big(Lh^2 +2M hk + Nk^2\big)}{h^2+k^2} &= 0,
+\end{aligned}</math>
+como decorre diretamente das definições das formas fundamentais e do [[teorema de Taylor]] em duas dimensões. As curvaturas principais podem ser visualizadas da seguinte maneira: em um dado ponto <math>p</math> de <math>S</math>, considere a coleção de todos os planos que contêm a reta normal a <math>S</math>. Cada um desses planos possui uma curva de interseção com <math>S</math>, que pode ser considerada como uma [[curva plana]] contida no próprio plano. As duas curvaturas principais em <math>p</math> são os valores máximo e mínimo possíveis da curvatura dessa curva plana em <math>p</math>, à medida que o plano sob consideração gira em torno da reta normal.
+
+O quadro a seguir resume o cálculo das grandezas acima em relação a uma carta de Monge <math>f(u, v) = (u, v, h(u, v))</math>. Aqui, <math>h_u</math> e <math>h_v</math> denotam as duas derivadas parciais de <math>h</math>, com notação análoga para as segundas derivadas parciais. A segunda forma fundamental e todas as grandezas subsequentes são calculadas relativamente à escolha dada de campo vetorial normal unitário.
+{| class="wikitable"
+|-
+! Grandeza !! Fórmula
+|- 
+| Um campo normal unitário
+| <math>n=\frac{(-h_u,-h_v,1)}{\sqrt{1+h_u^2+h_v^2}}</math>
+|-
+| Primeira forma fundamental
+| <math>\begin{pmatrix}E&F\\ F&G\end{pmatrix}=\begin{pmatrix} 1 +h_u^2 & h_u h_v \\ h_u h_v & 1 + h_v^2\end{pmatrix}</math>
+|-
+| Segunda forma fundamental
+| <math>\begin{pmatrix}L&M\\ M&N\end{pmatrix}=\frac{1}{\sqrt{1 +h_u^2 + h_v^2}} \begin{pmatrix} h_{uu} & h_{uv} \\ h_{uv} & h_{vv} \end{pmatrix}</math>
+|-
+| Operador de forma
+| <math>P=\frac{1}{(1+h_u^2+h_v^2)^{3/2}}\begin{pmatrix}h_{uu}(1+h_v^2)-h_{uv}h_uh_v&h_{uv}(1+h_v^2)-h_{v v}h_uh_v\\ h_{uv}(1+h_u^2)-h_{uu}h_uh_v&h_{vv}(1+h_u^2)-h_{uv}h_uh_v\end{pmatrix}</math>
+|-
+| Curvatura gaussiana
+| <math>K=\frac{h_{uu}h_{vv}-h_{uv}^2}{(1+h_u^2+h_v^2)^2}</math>
+|-
+| Curvatura média
+| <math>H=\frac{(1+h_v^2)h_{uu}-2h_uh_vh_{uv}+(1+h_u^2)h_{vv}}{2(1+h_u^2+h_v^2)^{3/2}}</math>
+|}
+
+=== Símbolos de Christoffel, equações de Gauss–Codazzi e o Theorema Egregium ===
+Seja <math>S</math> uma superfície regular em <math>\mathbb{R}^3</math>. Os [[símbolos de Christoffel]] atribuem, a cada parametrização local <math>f : V \to S</math>, oito funções sobre <math>V</math>, definidas por<ref>Do Carmo, página 235</ref>
+:<math>\begin{pmatrix}\Gamma_{11}^1&\Gamma_{12}^1&\Gamma_{21}^1&\Gamma_{22}^1\\ \Gamma_{11}^2&\Gamma_{12}^2&\Gamma_{21}^2&\Gamma_{22}^2\end{pmatrix}=\begin{pmatrix}E&F\\ F&G\end{pmatrix}^{-1}\begin{pmatrix}\frac{1}{2}\frac{\partial E}{\partial u}&\frac{1}{2}\frac{\partial E}{\partial v}&\frac{1}{2}\frac{\partial E}{\partial v} &\frac{\partial F}{\partial v}-\frac{1}{2}\frac{\partial G}{\partial u}\\ \frac{\partial F}{\partial u}-\frac{1}{2}\frac{\partial E}{\partial v}&\frac{1}{2}\frac{\partial G}{\partial u}&\frac{1}{2}\frac{\partial G}{\partial u}&\frac{1}{2}\frac{\partial G}{\partial v}\end{pmatrix}.</math>
+Eles também podem ser definidos pelas seguintes fórmulas, nas quais <math>n</math> é um campo vetorial normal unitário ao longo de <math>f(V)</math> e <math>L, M, N</math> são as componentes correspondentes da segunda forma fundamental:
+:<math>\begin{aligned}
+\frac{\partial^2f}{\partial u^2}&=\Gamma_{11}^1\frac{\partial f}{\partial u}+\Gamma_{11}^2\frac{\partial f}{\partial v}+Ln\\
+\frac{\partial^2f}{\partial u\partial v}&=\Gamma_{12}^1\frac{\partial f}{\partial u}+\Gamma_{12}^2\frac{\partial f}{\partial v}+Mn\\
+\frac{\partial^2f}{\partial v^2}&=\Gamma_{22}^1\frac{\partial f}{\partial u}+\Gamma_{22}^2\frac{\partial f}{\partial v}+Nn.
+\end{aligned}</math>
+A chave para essa definição é que <math>\partial f / \partial u</math>, <math>\partial f / \partial v</math> e <math>n</math> formam uma base de <math>\mathbb{R}^3</math> em cada ponto, relativamente à qual cada uma das três equações especifica de maneira única os símbolos de Christoffel como coordenadas das segundas derivadas parciais de <math>f</math>. A escolha do vetor normal unitário não tem efeito sobre os símbolos de Christoffel, visto que, se <math>n</math> for substituído pelo seu oposto, as componentes da segunda forma fundamental também têm seus sinais invertidos, de modo que os sinais de <math>Ln, Mn, Nn</math> permanecem inalterados.
+
+A segunda definição mostra, no contexto das parametrizações locais, que os símbolos de Christoffel são geometricamente naturais. Embora as fórmulas da primeira definição pareçam menos intuitivas, elas têm a importância de evidenciar que os símbolos de Christoffel podem ser calculados a partir da primeira forma fundamental, o que não é imediatamente evidente a partir da segunda definição. A equivalência das definições pode ser verificada substituindo-se diretamente a primeira definição na segunda e utilizando as definições de <math>E, F, G</math>.
+
+As [[Equações de Gauss–Codazzi|equações de Codazzi]] afirmam que<ref>Do Carmo, página 238</ref>
+:<math>\begin{aligned}
+\frac{\partial L}{\partial v}-\frac{\partial M}{\partial u}&=L\Gamma_{12}^1 + M(\Gamma_{12}^2-\Gamma_{11}^1) - N\Gamma_{11}^2\\
+\frac{\partial M}{\partial v}-\frac{\partial N}{\partial u}&=L\Gamma_{22}^1 + M(\Gamma_{22}^2-\Gamma_{12}^1) - N\Gamma_{12}^2.
+\end{aligned}</math>
+Essas equações podem ser derivadas diretamente da segunda definição dos símbolos de Christoffel dada acima; por exemplo, a primeira equação de Codazzi é obtida derivando-se a primeira equação em relação a <math>v</math>, a segunda equação em relação a <math>u</math>, subtraindo-se as duas e tomando-se o [[produto escalar]] com <math>n</math>. A [[Equações de Gauss–Codazzi|equação de Gauss]] afirma que<ref>Do Carmo, páginas 237-238</ref>
+:<math>\begin{aligned}
+KE&=\frac{\partial\Gamma_{11}^2}{\partial v}-\frac{\partial \Gamma_{21}^2}{\partial u}+\Gamma_{21}^2\Gamma_{11}^1+\Gamma_{22}^2\Gamma_{11}^2-\Gamma_{11}^2\Gamma_{21}^1-\Gamma_{12}^2\Gamma_{21}^2\\
+KF&=\frac{\partial\Gamma_{12}^2}{\partial v}-\frac{\partial\Gamma_{22}^2}{\partial u}+\Gamma_{21}^2\Gamma_{12}^1-\Gamma_{11}^2\Gamma_{22}^1\\
+KG&=\frac{\partial\Gamma_{22}^1}{\partial u}-\frac{\partial\Gamma_{12}^1}{\partial v}+\Gamma_{11}^1\Gamma_{22}^1+\Gamma_{12}^1\Gamma_{22}^2-\Gamma_{21}^1\Gamma_{12}^1-\Gamma_{22}^1\Gamma_{12}^2
+\end{aligned}</math>
+Essas relações podem ser derivadas de modo análogo às equações de Codazzi, utilizando-se as [[equações de Weingarten]] em vez de tomar o produto escalar com <math>n</math>. Embora estejam escritas como três equações distintas, elas são idênticas quando se substituem as definições dos símbolos de Christoffel em termos da primeira forma fundamental. Há muitas maneiras de escrever a expressão resultante, uma delas deduzida em 1852 por [[Francesco Brioschi|Brioschi]] mediante o uso hábil de determinantes:<ref>{{harvnb|Struik|1988|page=112}}</ref><ref>Darboux, Vol. III, página 246</ref>
+:<math>K = \frac{1}{(EG-F^2)^2}\det\begin{pmatrix}-{1 \over 2}\frac{\partial^2E}{\partial v^2} + \frac{\partial^2F}{\partial u\partial v} - {1 \over 2}\frac{\partial^2G}{\partial u^2} & {1 \over 2}\frac{\partial E}{\partial u} & \frac{\partial F}{\partial u} - {1 \over 2} \frac{\partial E}{\partial v}\\
+\frac{\partial F}{\partial v} - {1 \over 2}\frac{\partial G}{\partial u} & E & F \\ {1\over 2}\frac{\partial G}{\partial v}& F & G\end{pmatrix}-\frac{1}{(EG-F^2)^2}\det\begin{pmatrix} 0 & {1 \over 2}\frac{\partial E}{\partial v} & {1 \over 2}\frac{\partial G}{\partial u}\\
+{1 \over 2}\frac{\partial E}{\partial v} & E & F \\ {1 \over 2}\frac{\partial G}{\partial u}& F & G\end{pmatrix}.</math>
+Quando os símbolos de Christoffel são considerados como definidos pela primeira forma fundamental, as equações de Gauss e de Codazzi representam certos vínculos entre a primeira e a segunda formas fundamentais. A equação de Gauss é particularmente notável, pois mostra que a curvatura gaussiana pode ser calculada diretamente a partir da primeira forma fundamental, sem a necessidade de qualquer outra informação; de modo equivalente, isso afirma que <math>LN - M^2</math> pode, na verdade, ser escrito como uma função de <math>E, F, G</math>, muito embora as componentes individuais <math>L, M, N</math> não o possam. Esse resultado é conhecido como o [[Theorema Egregium]] e foi uma descoberta capital de [[Carl Friedrich Gauss]]. É especialmente impressionante quando se relembra a definição geométrica da curvatura gaussiana de <math>S</math> a partir dos raios máximo e mínimo dos círculos osculadores; eles parecem estar fundamentalmente definidos pela geometria de como <math>S</math> se curva dentro de <math>\mathbb{R}^3</math>. Não obstante, o teorema demonstra que o seu produto pode ser determinado a partir da geometria "intrínseca" de <math>S</math>, dizendo respeito apenas aos comprimentos de curvas ao longo de <math>S</math> e aos ângulos formados em suas interseções. Conforme afirmou [[Marcel Berger]]:<ref>Berger. A panoramic view of Riemannian geometry.</ref>
+<blockquote>Este teorema é desconcertante. [...] É o tipo de teorema que poderia ter esperado mais algumas dezenas de anos antes de ser descoberto por outro matemático, pois, ao contrário de grande parte da história intelectual, não estava absolutamente "no ar". [...] Até onde sabemos, não existe nenhuma demonstração geométrica simples do theorema egregium hoje.</blockquote>
+
+As equações de Gauss-Codazzi também podem ser expressas e deduzidas sucintamente na linguagem das formas de conexão introduzidas por [[Élie Cartan]].<ref>{{harvnb|O'Neill|2006|p=257}}</ref> Na linguagem do cálculo tensorial, fazendo uso de métricas e conexões naturais sobre fibrados tensoriais, a equação de Gauss pode ser escrita como <math>H^2 - |h|^2 = R</math> e as duas equações de Codazzi podem ser expressas como <math>\nabla_1 h_{12} = \nabla_2 h_{11}</math> e <math>\nabla_1 h_{22} = \nabla_2 h_{12}</math>; as expressões complexas relativas aos símbolos de Christoffel e à primeira forma fundamental são completamente absorvidas nas definições da derivada covariante tensorial <math>\nabla h</math> e da [[curvatura escalar]] <math>R</math>. [[Pierre Ossian Bonnet|Pierre Bonnet]] provou que duas formas quadráticas que satisfaçam às equações de Gauss-Codazzi sempre determinam univocamente uma superfície mergulhada localmente.<ref>{{harvnb|do Carmo|2016|pp=309–314}}</ref> Por essa razão, as equações de Gauss-Codazzi são frequentemente denominadas equações fundamentais para superfícies mergulhadas, identificando com precisão a origem das curvaturas intrínseca e extrínseca. Elas admitem generalizações para superfícies mergulhadas em [[variedade riemanniana|variedades riemannianas]] mais gerais.
+
+=== Isometrias ===
+Um difeomorfismo <math>\varphi</math> entre conjuntos abertos <math>U</math> e <math>V</math> em uma superfície regular <math>S</math> é dito uma [[isometria]] se preservar a métrica, isto é, a primeira forma fundamental.<ref>{{harvnb|Hitchin|2013|page=57}}</ref><ref>{{harvnb|do Carmo|2016|page=221–222}}</ref><ref>{{harvnb|O'Neill|2006|pages=281–289}}</ref> Assim, para cada ponto <math>p</math> em <math>U</math> e vetores tangentes <math>w_1, w_2</math> em <math>p</math>, verificam-se as igualdades
+
+:<math> E(p) w_1\cdot w_1 + 2F(p) w_1\cdot w_2 + G(p) w_2\cdot w_2= E(\varphi(p)) \varphi^\prime(w_1)\cdot \varphi^\prime(w_1) +2F(\varphi(p)) \varphi^\prime(w_1)\cdot \varphi^\prime(w_2) + G (\varphi(p)) \varphi^\prime(w_1)\cdot \varphi^\prime(w_2).</math>
+
+Em termos do produto interno proveniente da primeira forma fundamental, isso pode ser reescrito como
+
+:<math>(w_1,w_2)_p=(\varphi^\prime(w_1),\varphi^\prime(w_2))_{\varphi(p)}</math>.
+
+[[Ficheiro:Catenoid.svg|miniatura|upright|O catenoide é uma superfície regular de revolução.]]
+Por outro lado, o comprimento de uma curva parametrizada <math>\gamma(t)=(x(t),y(t))</math> pode ser calculado como
+
+:<math>L(\gamma)=\int_a^b \sqrt{E\dot{x}\cdot \dot{x} +2F \dot{x}\cdot \dot{y} +G\dot{y}\cdot \dot{y} } \, dt</math>
+
+e, se a curva estiver contida em <math>U</math>, as regras de mudança de variáveis mostram que
+
+:<math>L(\varphi\circ \gamma) = L(\gamma).</math>
+
+Reciprocamente, se <math>\varphi</math> preserva os comprimentos de todas as curvas parametrizadas, então <math>\varphi</math> é uma isometria. Com efeito, para escolhas apropriadas de <math>\gamma</math>, os vetores tangentes <math>\dot{x}</math> e <math>\dot{y}</math> produzem vetores tangentes arbitrários <math>w_1</math> e <math>w_2</math>. As igualdades devem valer para todas as escolhas de vetores tangentes <math>w_1</math> e <math>w_2</math>, bem como para <math>\varphi^\prime(w_1)</math> e <math>\varphi^\prime(w_2)</math>, de modo que <math>(\varphi^\prime(w_1),\varphi^\prime(w_2))_{\varphi(p)} = (w_1,w_1)_p</math>.<ref>{{harvnb|Hitchin|2013|pages=57–58}}</ref>
+
+Um exemplo simples de isometria é fornecido por duas parametrizações <math>f_1</math> e <math>f_2</math> de um conjunto aberto <math>U</math> em superfícies regulares <math>S_1</math> e <math>S_2</math>. Se <math>E_1=E_2</math>, <math>F_1=F_2</math> e <math>G_1=G_2</math>, então <math>\varphi=f_2\circ f_1^{-1}</math> é uma isometria de <math>f_1(U)</math> sobre <math>f_2(U)</math>.<ref>{{harvnb|do Carmo|2016|page=223}}</ref>
+
+O cilindro e o plano fornecem exemplos de superfícies que são localmente isométricas, mas que não podem ser estendidas a uma isometria global por razões topológicas.<ref>{{harvnb|do Carmo|2016|pages=222–223}}</ref> Como outro exemplo, o [[catenoide]] e o [[helicoide]] são localmente isométricos.<ref>{{harvnb|do Carmo|2016|pages=224–225}}</ref>
+
+=== Derivadas covariantes ===
+{{Artigo principal|Derivada covariante|Conexão riemanniana em uma superfície}}
+Um '''campo de vetores tangentes''' <math>X</math> sobre <math>S</math> atribui, a cada <math>p</math> em <math>S</math>, um vetor tangente <math>X_p</math> a <math>S</math> em <math>p</math>. De acordo com a definição "intrínseca" de vetores tangentes apresentada acima, um campo vetorial tangente <math>X</math> associa então, a cada parametrização local <math>f : V \to S</math>, duas funções a valores reais <math>X^1</math> e <math>X^2</math> sobre <math>V</math>, de tal modo que
+:<math>X_p=X^1\big(f^{-1}(p)\big)\frac{\partial f}{\partial u}\Big|_{f^{-1}(p)}+X^2\big(f^{-1}(p)\big)\frac{\partial f}{\partial v}\Big|_{f^{-1}(p)}</math>
+para cada <math>p</math> em <math>S</math>. Diz-se que <math>X</math> é suave se as funções <math>X^1</math> e <math>X^2</math> forem suaves, para qualquer escolha de <math>f</math>.<ref>Do Carmo, página 183</ref> De acordo com as outras definições de vetores tangentes dadas acima, pode-se também considerar um campo vetorial tangente <math>X</math> sobre <math>S</math> como uma aplicação <math>X : S \to \mathbb{R}^3</math> tal que <math>X(p)</math> esteja contido no espaço tangente <math>T_p S \subset \mathbb{R}^3</math> para cada <math>p</math> em <math>S</math>. Como é comum na situação mais geral das variedades suaves, campos vetoriais tangentes também podem ser definidos como certos operadores diferenciais sobre o espaço das funções suaves em <math>S</math>.
+
+As '''derivadas covariantes''' (também chamadas de "derivadas tangenciais") de [[Tullio Levi-Civita]] e [[Gregorio Ricci-Curbastro]] fornecem um meio de diferenciar campos vetoriais tangentes suaves. Dado um campo vetorial tangente <math>X</math> e um vetor tangente <math>Y</math> a <math>S</math> em <math>p</math>, a derivada covariante <math>\nabla_Y X</math> é um determinado vetor tangente a <math>S</math> em <math>p</math>. Consequentemente, se <math>X</math> e <math>Y</math> forem ambos campos vetoriais tangentes, então <math>\nabla_Y X</math> também poderá ser considerado como um campo vetorial tangente; iterativamente, se <math>X, Y</math> e <math>Z</math> forem campos vetoriais tangentes, pode-se calcular <math>\nabla_Z \nabla_Y X</math>, que será outro campo vetorial tangente. Há algumas maneiras de definir a derivada covariante: a primeira abaixo utiliza os [[símbolos de Christoffel]] e a definição "intrínseca" de vetores tangentes, e a segunda é mais manifestamente geométrica.
+
+Dado um campo vetorial tangente <math>X</math> e um vetor tangente <math>Y</math> a <math>S</math> em <math>p</math>, define-se <math>\nabla_Y X</math> como sendo o vetor tangente a <math>p</math> que atribui a uma parametrização local <math>f : V \to S</math> os dois números
+:<math>(\nabla_YX)^k=D_{(Y^1,Y^2)}X^k\Big|_{f^{-1}(p)}+\sum_{i=1}^2\sum_{j=1}^2\big(\Gamma_{ij}^kX^j\big)\Big|_{f^{-1}(p)}Y^i,\qquad(k=1,2)</math>
+onde <math>D_{(Y^1, Y^2)}</math> é a [[derivada direcional]].<ref name="Do Carmo, page 242">Do Carmo, página 242</ref> Isso é frequentemente abreviado na forma menos sobrecarregada <math>(\nabla_Y X)^k = \partial_Y(X^k) + Y^i \Gamma_{ij}^k X^j</math>, fazendo uso da [[notação de Einstein]] e com os pontos de avaliação das funções subentendidos implicitamente. Isso segue a prescrição padrão na geometria riemanniana para obter uma conexão a partir de uma métrica riemanniana. É um fato fundamental que o vetor
+:<math>(\nabla_YX)^1\frac{\partial f}{\partial u}+(\nabla_YX)^2\frac{\partial f}{\partial v}</math>
+em <math>\mathbb{R}^3</math> é independente da escolha da parametrização local <math>f</math>, embora essa verificação seja laboriosa.
+
+Pode-se também definir a derivada covariante pela seguinte abordagem geométrica, que não faz uso de símbolos de Christoffel nem de parametrizações locais.<ref>{{harvnb|Hitchin|2013}}</ref><ref>{{harvnb|Struik|1988}}</ref><ref>{{harvnb|O'Neill|2006}}</ref> Seja <math>X</math> um campo vetorial sobre <math>S</math>, visto como uma função <math>S \to \mathbb{R}^3</math>. Dada qualquer curva <math>c : (a, b) \to S</math>, pode-se considerar a composição <math>X \circ c : (a, b) \to \mathbb{R}^3</math>. Como aplicação entre espaços euclidianos, ela pode ser diferenciada em qualquer valor de entrada para se obter um elemento <math>(X \circ c)'(t)</math> de <math>\mathbb{R}^3</math>. A [[projeção ortogonal]] desse vetor sobre <math>T_{c(t)} S</math> define a derivada covariante <math>\nabla_{c'(t)} X</math>. Embora essa seja uma definição geometricamente muito elegante, é necessário demonstrar que o resultado depende apenas de <math>c'(t)</math> e de <math>X</math>, e não da curva <math>c</math> em si; parametrizações locais podem ser utilizadas para esse argumento técnico.
+
+Não é imediatamente evidente a partir da segunda definição que a diferenciação covariante depende apenas da primeira forma fundamental de <math>S</math>; no entanto, isso decorre imediatamente da primeira definição, visto que os símbolos de Christoffel podem ser definidos diretamente a partir da primeira forma fundamental. É direto verificar que as duas definições são equivalentes. A chave reside no fato de que, quando se considera <math>X^1 \partial f / \partial u + X^2 \partial f / \partial v</math> como uma função a valores em <math>\mathbb{R}^3</math>, sua diferenciação ao longo de uma curva resulta em segundas derivadas parciais <math>\partial^2 f</math>; os símbolos de Christoffel entram em cena com a projeção ortogonal sobre o espaço tangente, devido à sua formulação como componentes tangenciais das segundas derivadas de <math>f</math> relativamente à base <math>\partial f / \partial u, \partial f / \partial v, n</math>.<ref name="Do Carmo, page 242"/>
+
+O lado direito das três equações de Gauss pode ser expresso utilizando-se a diferenciação covariante. Por exemplo, o lado direito
+:<math>\frac{\partial\Gamma_{11}^2}{\partial v}-\frac{\partial \Gamma_{21}^2}{\partial u}+\Gamma_{21}^2\Gamma_{11}^1+\Gamma_{22}^2\Gamma_{11}^2-\Gamma_{11}^2\Gamma_{21}^1-\Gamma_{12}^2\Gamma_{21}^2</math>
+pode ser reconhecido como a segunda coordenada de
+:<math>\nabla_{\frac{\partial f}{\partial v}}\nabla_{\frac{\partial f}{\partial u}}\frac{\partial f}{\partial u}-\nabla_{\frac{\partial f}{\partial u}}\nabla_{\frac{\partial f}{\partial v}}\frac{\partial f}{\partial u}</math>
+relativamente à base <math>\partial f / \partial u, \partial f / \partial v</math>, como pode ser verificado diretamente pela definição da diferenciação covariante por meio de símbolos de Christoffel. Na linguagem da [[geometria riemanniana]], essa observação também pode ser formulada afirmando-se que os lados direitos das equações de Gauss são várias componentes da [[curvatura de Ricci]] da [[conexão de Levi-Civita]] da primeira forma fundamental, quando interpretada como uma métrica riemanniana.
+
+== Exemplos ==
+[[Ficheiro:Surface of revolution illustration.png|miniatura|direita|A superfície de revolução obtida pela rotação da curva <math>x = 2 + \cos z</math> em torno do eixo <math>z</math>.]]
+
+=== Superfícies de revolução ===
+{{Mais informações|Superfície de revolução}}
+Uma superfície de revolução é obtida pela rotação de uma curva no plano <math>xz</math> em torno do eixo <math>z</math>. Tais superfícies compreendem esferas, cilindros, cones, toros e o [[catenoide]]. Os elipsoides gerais, hiperboloides e paraboloides não o são. Suponha que a curva seja parametrizada por
+:<math> x= c_1(s),\,\, z=c_2(s)</math>
+com <math>s</math> pertencente a um intervalo <math>(a, b)</math>. Se <math>c_1</math> nunca for zero, se <math>c_1'</math> e <math>c_2'</math> nunca forem simultaneamente iguais a zero, e se <math>c_1</math> e <math>c_2</math> forem ambas suaves, então a correspondente superfície de revolução
+:<math>S=\Big\{\big(c_1(s)\cos t, c_1(s)\sin t,c_2(s)\big)\colon s\in (a,b)\text{ e }t\in\mathbb{R}\Big\}</math>
+será uma superfície regular em <math>\mathbb{R}^3</math>. Uma parametrização local <math>f : (a, b) \times (0, 2\pi) \to S</math> é dada por
+:<math>f(s,t)=\big(c_1(s)\cos t, c_1(s)\sin t,c_2(s)\big).</math>
+Relativamente a essa parametrização, os dados geométricos são:<ref>Spivak, "A comprehensive introduction to differential geometry, vol. III." Página 157.</ref>
+
+{| class="wikitable"
+|-
+! Grandeza !! Fórmula
+|- 
+| Um campo normal unitário
+| <math>n=\frac{\big(-c_2'(s)\cos t, -c_2'(s)\sin t,c_1'(s)\big)}{\sqrt{c_1'(s)^2+c_2'(s)^2}}</math>
+|-
+| Primeira forma fundamental
+| <math>\begin{pmatrix}E&F\\ F&G\end{pmatrix}=\begin{pmatrix}c_1'(s)^2+c_2'(s)^2&0\\ 0&c_1(s)^2\end{pmatrix}</math>
+|-
+| Segunda forma fundamental
+| <math>\begin{pmatrix}L&M\\ M&N\end{pmatrix}=\begin{pmatrix}\frac{c_1'(s)c_2''(s)-c_2'(s)c_1''(s)}{\sqrt{c_1'(s)^2+c_2'(s)^2}}&0\\ 0&\frac{c_1(s)c_2'(s)}{\sqrt{c_1'(s)^2+c_2'(s)^2}}\end{pmatrix}</math>
+|-
+| Curvaturas principais
+| <math>\frac{c_1'(s)c_2''(s)-c_2'(s)c_1''(s)}{\big(c_1'(s)^2+c_2'(s)^2\big)^{3/2}}\quad\text{e}\quad \frac{c_2'(s)}{c_1(s)\sqrt{c_1'(s)^2+c_2'(s)^2}}</math>
+|-
+| Curvatura gaussiana
+| <math>K=\frac{c_2'(s)\big(c_1'(s)c_2''(s)-c_2'(s)c_1''(s)\big)}{c_1(s)\big(c_1'(s)^2+c_2'(s)^2\big)^2}</math>
+|-
+| Curvatura média
+| <math>H=\frac{1}{2}\frac{c_1'(s)c_2''(s)-c_2'(s)c_1''(s)}{\big(c_1'(s)^2+c_2'(s)^2\big)^{3/2}}+\frac{1}{2} \frac{c_2'(s)}{c_1(s)\sqrt{c_1'(s)^2+c_2'(s)^2}}.</math>
+|}
+
+No caso especial em que a curva original é parametrizada pelo comprimento de arco, ou seja, <math>(c_1'(s))^2 + (c_2'(s))^2 = 1</math>, pode-se diferenciar para obter <math>c_1'(s)c_1''(s) + c_2'(s)c_2''(s) = 0</math>. Substituindo na curvatura gaussiana, obtêm-se as formas simplificadas
+:<math>K=-\frac{c_1''(s)}{c_1(s)}\qquad\text{e}\qquad H=c_1'(s)c_2''(s)-c_2'(s)c_1''(s)+\frac{c_2'(s)}{c_1(s)}.</math>
+A simplicidade dessa fórmula torna particularmente fácil o estudo da classe das superfícies com simetria rotacional e curvatura gaussiana constante.<ref>Spivak, páginas 161-166</ref> Por redução ao caso alternativo em que <math>c_2(s) = s</math>, é possível estudar as superfícies mínimas com simetria rotacional, resultando em que qualquer superfície dessa natureza é parte de um plano ou de um catenoide escalonado.<ref>Spivak, página 168</ref>
+
+Cada curva de <math>t</math> constante sobre <math>S</math> pode ser parametrizada como uma geodésica; uma curva de <math>s</math> constante sobre <math>S</math> pode ser parametrizada como uma geodésica se e somente se <math>c_1'(s)</math> for igual a zero. De modo geral, as geodésicas sobre <math>S</math> são regidas pela [[relação de Clairaut]].
+
+[[Ficheiro:Ellipsoid Quadric.png|miniatura|direita|Um [[elipsoide]] quádrico]]
+
+=== Superfícies quádricas ===
+{{Mais informações|Quádrica}}
+Considere a superfície quádrica definida por<ref>{{harvnb|Eisenhart|2004|pp=228–229}}</ref>
+:<math> {x^2\over a} + {y^2\over b} +{z^2\over c}=1.</math>
+Essa superfície admite uma parametrização
+:<math>x=\sqrt{a(a-u)(a-v)\over (a-b)(a-c)},\,\, y=\sqrt{b(b-u)(b-v)\over (b-a) (b-c)}, \,\, z=\sqrt{c(c-u)(c-v)\over (c-b)(c-a)}.</math>
+A curvatura gaussiana e a curvatura média são dadas por
+:<math>K={abc\over u^2 v^2} ,\,\,K_m=-(u+v)\sqrt{abc\over u^3v^3}.</math>
+
+[[Ficheiro:Ruled hyperboloid.jpg|miniatura|direita|Um [[hiperboloide]] quádrico de uma folha, que é uma superfície regrada de duas maneiras diferentes.]]
+
+=== Superfícies regradas ===
+{{Mais informações|Superfície regrada}}
+Uma superfície regrada é aquela que pode ser gerada pelo movimento de uma linha reta em <math>\mathbf{E}^3</math>.<ref>{{harvnb|Eisenhart|2004|pp=241–250}}; {{harvnb|do Carmo|2016|pp=188–197}}.</ref> Escolhendo uma ''diretriz'' sobre a superfície, isto é, uma curva suave com velocidade unitária <math>c(t)</math> ortogonal às linhas retas, e em seguida escolhendo <math>u(t)</math> como vetores unitários ao longo da curva na direção das retas, o vetor velocidade <math>v = c_t</math> e <math>u</math> satisfazem
+:<math>u\cdot v=0, \,\,\|u\|=1,\,\,\|v\|=1.</math>
+A superfície consiste nos pontos
+:<math>c(t) + s\cdot u(t)</math>
+à medida que <math>s</math> e <math>t</math> variam.
+
+Então, se
+:<math>a=\|u_t\|, \,\, b=u_t\cdot v, \,\, \alpha=-\frac{b}{a^2}, \,\, \beta=\frac{\sqrt{a^2-b^2}}{a^2},</math>
+a curvatura gaussiana e a curvatura média são dadas por
+:<math>K=-{\beta^2\over ((s-\alpha)^2 +\beta^2)^2} ,\,\, K_m=-{r[(s-\alpha)^2 +\beta^2)] +\beta_t(s-\alpha) + \beta\alpha_t\over
+ [(s-\alpha)^2 +\beta^2]^{\frac32}}.</math>
+
+A curvatura gaussiana da superfície regrada anula-se se e somente se <math>u_t</math> e <math>v</math> forem proporcionais.<ref>{{harvnb|do Carmo|2016|p=194}}.</ref> Essa condição equivale a ser a superfície a [[envoltória]] dos planos ao longo da curva que contêm o vetor tangente <math>v</math> e o vetor ortogonal <math>u</math>, ou seja, a ser a superfície [[superfície desenvolvível|desenvolvível]] ao longo da curva.<ref>{{harvnb|Eisenhart|2004|pp=61–65}}.</ref> Mais geralmente, uma superfície em <math>\mathbf{E}^3</math> tem curvatura gaussiana nula nas proximidades de um ponto se e somente se for desenvolvível perto desse ponto.<ref name="ref_"/>
+
+=== Superfícies mínimas ===
+{{Mais informações|Superfície mínima}}
+Em 1760, [[Joseph-Louis Lagrange|Lagrange]] estendeu os resultados de Euler sobre o [[cálculo das variações]] envolvendo integrais de uma variável para duas variáveis.<ref>{{harvnb|Eisenhart|2004|pp=250–269}}; {{harvnb|do Carmo|2016|pp=197–213}}.</ref> Ele tinha em mente o seguinte problema:
+
+<blockquote>Dada uma curva fechada em <math>\mathbf{E}^3</math>, encontrar uma superfície que tenha essa curva como fronteira com área mínima.</blockquote>
+
+Tal superfície é chamada de '''superfície mínima'''.
+
+Em 1776, [[Jean Baptiste Meusnier]] demonstrou que a equação diferencial deduzida por Lagrange equivalia ao anulamento da curvatura média da superfície:
+
+<blockquote>Uma superfície é mínima se e somente se sua curvatura média for nula.</blockquote>
+
+As superfícies mínimas possuem uma interpretação simples na vida real: elas representam a forma que um filme de sabão assumirá se uma armação de arame com a forma da curva for mergulhada em uma solução de sabão e depois retirada com cuidado. A questão sobre se existe uma superfície mínima com uma fronteira prescrita é denominada [[problema de Plateau]], em homenagem ao físico belga [[Joseph Plateau]], que realizou experimentos com filmes de sabão em meados do século XIX. Em 1930, [[Jesse Douglas]] e [[Tibor Radó]] forneceram uma resposta afirmativa ao problema de Plateau (Douglas recebeu uma [[Medalha Fields]] por esse trabalho em 1936).<ref>A solução de Douglas é descrita em {{harvtxt|Courant|1950}}.</ref>
+
+Muitos exemplos explícitos de superfícies mínimas são conhecidos analiticamente, tais como o [[catenoide]], o [[helicoide]], a [[superfície de Scherk]] e a [[superfície de Enneper]]. Tem havido intensa pesquisa nessa área, resumida em {{harvtxt|Osserman|2002}}. Em particular, um resultado de Osserman demonstra que, se uma superfície mínima for não planar, então a sua imagem sob a aplicação de Gauss é densa em <math>S^2</math>.
+
+=== Superfícies de curvatura gaussiana constante ===
+[[Ficheiro:Beltrami.jpg|miniatura|direita|upright|[[Eugenio Beltrami]] (1835–1899)]]
+Se uma superfície tem curvatura gaussiana constante, ela é denominada uma '''superfície de curvatura constante'''.<ref>{{harvnb|Eisenhart|2004|pp=270–291}}; {{harvnb|O'Neill|2006|pp=249–251}}; {{harvnb|Hilbert|Cohn-Vossen|1952}}.</ref>
+
+* A [[esfera]] unitária em <math>\mathbf{E}^3</math> tem curvatura gaussiana constante +1.
+* O [[plano (geometria)|plano]] euclidiano e o [[cilindro]] têm ambos curvatura gaussiana constante 0.
+* Uma [[pseudoesfera]] unitária tem curvatura gaussiana constante −1 (exceto em seu equador, que é [[singularidade matemática|singular]]). A pseudoesfera pode ser obtida girando-se uma [[tractriz]] em torno de sua assíntota. Em 1868, [[Eugenio Beltrami]] demonstrou que a geometria da pseudoesfera estava diretamente relacionada à do mais abstrato [[geometria hiperbólica|plano hiperbólico]], descoberto independentemente por [[Nikolai Lobachevsky|Lobachevsky]] (1830) e [[János Bolyai|Bolyai]] (1832). Já em 1840, F. Minding, um aluno de Gauss, havia obtido fórmulas trigonométricas para a pseudoesfera idênticas àquelas para o plano hiperbólico.<ref>{{harvnb|Stillwell|1996|pp=1–5}}.</ref> A geometria intrínseca dessa superfície é hoje mais bem compreendida em termos da [[métrica de Poincaré]] no [[semiplano superior]] ou no [[disco unitário]], tendo sido descrita por outros modelos, tais como o [[modelo de Klein]] ou o [[modelo do hiperboloide]], obtido considerando-se o hiperboloide de duas folhas <math>q(x, y, z) = -1</math> no [[espaço de Minkowski]] tridimensional, onde <math>q(x, y, z) = x^2 + y^2 - z^2</math>.<ref>{{harvnb|Wilson|2008}}.</ref>
+
+A esfera, o plano e o plano hiperbólico possuem grupos de Lie de simetrias transitivos. Esse fato da teoria dos grupos tem consequências de longo alcance, tanto mais notáveis pelo papel central que essas superfícies especiais desempenham na geometria de superfícies, em virtude do [[teorema da uniformização]] de [[Henri Poincaré|Poincaré]].
+
+Outros exemplos de superfícies com curvatura gaussiana 0 incluem os [[cone (geometria)|cones]], as desenvolvíveis tangentes e, de modo mais geral, qualquer superfície desenvolvível.
+
+== Estrutura métrica local ==
+Para qualquer superfície mergulhada no espaço euclidiano de dimensão 3 ou superior, é possível medir o comprimento de uma curva na superfície, o ângulo entre duas curvas e a área de uma região sobre a superfície. Essa estrutura é codificada infinitesimalmente em uma '''[[métrica riemanniana]]''' na superfície por meio de ''elementos de linha'' e ''elementos de área''. Classicamente, no século XIX e início do século XX, apenas superfícies mergulhadas em <math>\mathbf{R}^3</math> eram consideradas, e a métrica era dada como uma [[matriz positiva definida]] de ordem 2×2 variando suavemente de ponto a ponto em uma parametrização local da superfície. A ideia de parametrização local e mudança de coordenadas foi posteriormente formalizada por meio da noção abstrata moderna de [[variedade (matemática)|variedade]], um espaço topológico onde a estrutura suave é fornecida por cartas locais na variedade, exatamente como o planeta Terra é mapeado por [[atlas (cartografia)|atlas]] nos dias de hoje. Exige-se que as mudanças de coordenadas entre diferentes cartas da mesma região sejam suaves. Assim como as curvas de nível em mapas reais codificam variações de elevação, levando em consideração as distorções locais da superfície terrestre para calcular distâncias reais, a métrica riemanniana descreve distâncias e áreas localmente em cada carta. Em cada carta local, uma métrica riemanniana é dada pela atribuição suave de uma matriz positiva definida 2×2 a cada ponto; quando se adota uma carta diferente, a matriz se transforma de acordo com a [[matriz jacobiana]] da mudança de coordenadas. A variedade tem então a estrutura de uma [[variedade riemanniana]] bidimensional.
+
+=== Operador de forma ===
+[[Ficheiro:Wilhelm Blaschke.jpg|miniatura|direita|upright|Wilhelm Blaschke (1885–1962)]]
+A [[diferencial de uma função|diferencial]] <math>dn</math> da [[aplicação de Gauss]] <math>n</math> pode ser usada para definir um tipo de curvatura extrínseca, conhecida como o '''operador de forma'''<ref>{{harvnb|O'Neill|2006|pp=195–216}}; {{harvnb|do Carmo|2016|pp=134–153}}; {{harvnb|Singer|Thorpe|1967|pp=216–224}}.</ref> ou aplicação de [[Julius Weingarten|Weingarten]]. Esse operador apareceu inicialmente de forma implícita no trabalho de [[Wilhelm Blaschke]] e, mais tarde, explicitamente em um tratado de Burali-Forti e Burgati.<ref>{{harvnb|Gray|Abbena|Salamon|2006|p=386}}.</ref> Como em cada ponto <math>x</math> da superfície o espaço tangente é um [[espaço com produto interno]], o operador de forma <math>S_x</math> pode ser definido como um operador linear sobre esse espaço pela fórmula
+:<math> (S_x v, w) =(dn(v), w)</math>
+para vetores tangentes <math>v, w</math> (o produto interno faz sentido porque tanto <math>dn(v)</math> quanto <math>w</math> pertencem a <math>\mathbf{E}^3</math>).{{efn|1=Note que, em alguns textos mais recentes, a forma bilinear simétrica no lado direito é denominada segunda forma fundamental; no entanto, ela não corresponde, em geral, à segunda forma fundamental definida classicamente.}} O lado direito é simétrico em <math>v</math> e <math>w</math>, de modo que o operador de forma é [[matriz simétrica|autoadjunto]] no espaço tangente. Os autovalores de <math>S_x</math> são precisamente as curvaturas principais <math>k_1</math> e <math>k_2</math> em <math>x</math>. Em particular, o determinante do operador de forma em um ponto é a curvatura gaussiana, mas ele também contém outras informações, pois a curvatura média é a metade do [[traço (álgebra linear)|traço]] do operador de forma. A curvatura média é um invariante extrínseco. Na geometria intrínseca, um cilindro é desenvolvível, o que significa que cada pedaço dele é intrinsecamente indistinguível de um pedaço de um plano, já que sua curvatura de Gauss se anula identicamente. Sua curvatura média, contudo, não é zero; portanto, extrinsecamente, ele difere de um plano.
+
+De modo equivalente, o operador de forma pode ser definido como um operador linear sobre os espaços tangentes, <math>S_p:T_pM\rightarrow T_pM</math>. Se <math>n</math> for um campo normal unitário a <math>M</math> e <math>v</math> for um vetor tangente, então
+:<math>S(v)=\pm \nabla_{v}n</math>
+(não há consenso padrão se se deve usar + ou − na definição).
+
+Em geral, os [[autovalores e autovetores]] do operador de forma em cada ponto determinam as direções nas quais a superfície se curva em cada ponto. Os autovalores correspondem às [[curvatura principal|curvaturas principais]] da superfície e os autovetores são as direções principais correspondentes. As direções principais especificam as direções que uma curva mergulhada na superfície deve percorrer para ter curvatura máxima e mínima, sendo estas dadas pelas curvaturas principais.
+
+== Curvas geodésicas sobre uma superfície ==
+Curvas sobre uma superfície que minimizam o comprimento entre os pontos extremos são denominadas [[geodésica]]s; elas representam a forma que um elástico esticado entre os dois pontos assumiria. Matematicamente, são descritas usando-se [[equação diferencial ordinária|equações diferenciais ordinárias]] e o [[cálculo das variações]]. A geometria diferencial de superfícies gira em torno do estudo das geodésicas. Ainda é uma questão em aberto se toda métrica riemanniana em uma carta local bidimensional decorre de um mergulho no espaço euclidiano tridimensional: a teoria das geodésicas tem sido empregada para mostrar que isso é verdadeiro no caso crucial em que as componentes da métrica são [[função analítica|analíticas]].
+
+=== Geodésicas ===
+[[Ficheiro:Spherical triangle.svg|miniatura|direita|upright|Um triângulo geodésico na esfera. As geodésicas são arcos de [[círculo máximo]].]]
+Dado um caminho suave por partes <math>c(t)=(x(t),y(t))</math> na carta para <math>t</math> em <math>[a,b]</math>, o seu ''comprimento'' é definido por
+:<math> L(c) = \int_a^b (E\dot{x}^2 + 2F \dot{x}\dot{y} + G \dot{y}^2)^{\frac12}\, dt </math>
+e sua ''energia'' por
+:<math> E(c) = \int_a^b (E\dot{x}^2 + 2F \dot{x}\dot{y} + G \dot{y}^2)\, dt. </math>
+
+O comprimento é independente da parametrização do caminho. Pelas [[equações de Euler-Lagrange]], se <math>c(t)</math> for um caminho minimizador de comprimento, ''parametrizado pelo comprimento de arco'', ele deve satisfazer às [[equação de Euler|equações de Euler]]
+:<math>\ddot{x} + \Gamma_{11}^1 \dot{x}^2 + 2\Gamma_{12}^1 \dot{x}\dot{y}+ \Gamma_{22}^1\dot{y}^2 =0</math>
+:<math>\ddot{y}+ \Gamma_{11}^2 \dot{x}^2 + 2\Gamma_{12}^2 \dot{x}\dot{y}+ \Gamma_{22}^2 \dot{y}^2 =0</math>
+onde os [[símbolos de Christoffel]] <math>\Gamma_{ij}^k</math> são dados por
+:<math>\Gamma_{ij}^k = \tfrac12  g^{km}(\partial_j g_{im} + \partial_i g_{jm} - \partial_m g_{ij})</math>
+onde <math>g_{11} = E</math>, <math>g_{12} = F</math>, <math>g_{22} = G</math> e <math>g^{ij}</math> é a matriz inversa de <math>g_{ij}</math>. Um caminho que satisfaz às equações de Euler é chamado de '''[[geodésica]]'''. Pela [[desigualdade de Cauchy-Schwarz]], um caminho minimizador de energia é precisamente uma geodésica parametrizada pelo comprimento de arco; e, para qualquer geodésica, o parâmetro <math>t</math> é proporcional ao comprimento de arco.<ref>{{harvnb|Berger|2004}}; {{harvnb|Wilson|2008}}; {{harvnb|Milnor|1963}}.</ref>
+
+=== Curvatura geodésica ===
+{{Ver também|Curvatura geodésica|Triedro de Darboux}}
+A '''curvatura geodésica''' <math>k_g</math> em um ponto de uma curva <math>c(t)</math>, parametrizada pelo comprimento de arco, sobre uma superfície orientada é definida como sendo<ref>{{harvnb|Eisenhart|2004|p=131}}; {{harvnb|Berger|2004|p=39}}; {{harvnb|do Carmo|2016|p=248}}; {{harvnb|O'Neill|2006|p=237}}</ref>
+:<math>k_g= \ddot{c}(t)\cdot \mathbf{n}(t).</math>
+onde <math>\mathbf{n}(t)</math> é o vetor normal unitário "principal" à curva na superfície, construído pela rotação do vetor tangente unitário <math>\mathbf{\dot{c}}(t)</math> por um ângulo de +90°.
+
+* A curvatura geodésica em um ponto é um invariante intrínseco que depende apenas da métrica nas proximidades do ponto.
+* Uma curva com velocidade unitária sobre uma superfície é uma geodésica se e somente se a sua curvatura geodésica for nula em todos os pontos da curva.
+* Uma curva com velocidade unitária <math>c(t)</math> em uma superfície mergulhada é uma geodésica se e somente se o seu vetor de aceleração <math>\mathbf{\ddot{c}}(t)</math> for normal à superfície.
+
+A curvatura geodésica mede de maneira precisa o quanto uma curva sobre a superfície se afasta de ser uma geodésica.
+
+=== Coordenadas ortogonais ===
+Quando <math>F = 0</math> em toda uma carta de coordenadas, tal como nas coordenadas polares geodésicas discutidas abaixo, as imagens de retas paralelas aos eixos <math>x</math> e <math>y</math> são ortogonais e fornecem '''[[coordenadas ortogonais]]'''. Se <math>H = (EG)^{1/2}</math>, então a curvatura gaussiana é dada por<ref>{{harvnb|Eisenhart|2004}}; {{harvnb|Taylor|1996a|pages=472–473}}, Apêndice C.</ref>
+:<math> K=-{1\over 2H} \left[\partial_x\left(\frac{G_x}{H}\right) +\partial_y\left(\frac{E_y}{H}\right)\right].</math>
+
+Se, além disso, <math>E = 1</math>, de modo que <math>H = G^{1/2}</math>, o ângulo <math>\varphi</math> na interseção entre a geodésica <math>(x(t), y(t))</math> e a reta <math>y = \text{constante}</math> é dado pela equação
+:<math>\tan \varphi = H\cdot \frac{\dot{y}}{\dot{x}}.</math>
+A derivada de <math>\varphi</math> é dada por uma fórmula clássica de derivada devida a Gauss:<ref>{{harvnb|Eisenhart|2004}}, seção 88; {{harvnb|Berger|2004}}.</ref>
+:<math> \dot{\varphi} = -H_x \cdot \dot{y}.</math>
+
+== Coordenadas polares geodésicas ==
+[[Ficheiro:Carl Jacobi.jpg|miniatura|direita|[[Carl Gustav Jakob Jacobi|Carl Jacobi]] (1804–1851)]]
+[[Ficheiro:GaussJacobi.jpg|miniatura|direita|Curvas de nível rastreando o movimento de pontos sobre uma curva fixa deslocando-se ao longo de geodésicas em direção a um ponto base]]
+
+Uma vez dada uma métrica sobre uma superfície e fixado um ponto base, existe uma única geodésica que conecta o ponto base a cada ponto suficientemente próximo. A direção da geodésica no ponto base e a distância determinam de forma única o outro ponto extremo. Esses dois elementos de informação, uma direção e uma magnitude, determinam, portanto, um vetor tangente no ponto base. A aplicação que associa vetores tangentes a pontos extremos varre suavemente uma vizinhança do ponto base e define o que se denomina a ''[[aplicação exponencial (geometria riemanniana)|aplicação exponencial]]'', definindo uma carta de coordenadas locais naquele ponto base. A vizinhança varrida possui propriedades análogas às das bolas no espaço euclidiano, a saber: quaisquer dois pontos nela são unidos por uma única geodésica. Essa propriedade é chamada de "convexidade geodésica" e as coordenadas são denominadas ''[[coordenadas normais]]''. O cálculo explícito das coordenadas normais pode ser efetuado considerando-se a equação diferencial satisfeita pelas geodésicas. As propriedades de convexidade são consequências do [[lema de Gauss (geometria riemanniana)|lema de Gauss]] e de suas generalizações. Falando de forma geral, esse lema afirma que as geodésicas que partem do ponto base devem interceptar as esferas de raio fixo centradas no ponto base em ângulos retos. As '''coordenadas polares geodésicas''' são obtidas combinando-se a aplicação exponencial com as [[coordenadas polares]] nos vetores tangentes no ponto base. A curvatura gaussiana da superfície é dada então pelo desvio de segunda ordem da métrica no ponto em relação à métrica euclidiana. Em particular, a curvatura gaussiana é um invariante da métrica, o célebre ''[[Theorema Egregium]]'' de Gauss. Uma maneira conveniente de compreender a curvatura provém de uma equação diferencial ordinária, primeiramente considerada por Gauss e posteriormente generalizada por Jacobi, decorrente da mudança de coordenadas normais em torno de dois pontos distintos. A equação de Gauss–Jacobi fornece outra forma de calcular a curvatura gaussiana. Geometricamente, ela explica o que acontece com as geodésicas a partir de um ponto base fixo à medida que o ponto extremo varia ao longo de um pequeno segmento de curva, através de dados registrados no [[campo de Jacobi]], um [[campo vetorial]] ao longo da geodésica.<ref>{{harvnb|do Carmo|2016|p=357}}</ref> Um século e um quarto após Gauss e Jacobi, [[Marston Morse]] deu uma interpretação mais conceitual do campo de Jacobi em termos das segundas derivadas da função de energia sobre a variedade de Hilbert de caminhos, de dimensão infinita.<ref>{{harvnb|Milnor|1963}}</ref>
+
+=== Aplicação exponencial ===
+A teoria das equações diferenciais ordinárias demonstra que, se <math>f(t, v)</math> for suave, a equação diferencial <math>dv / dt = f(t, v)</math> com condição inicial <math>v(0) = v_0</math> possui uma solução única para <math>|t|</math> suficientemente pequeno, e a solução depende suavemente de <math>t</math> e de <math>v_0</math>. Isso implica que, para vetores tangentes <math>v</math> suficientemente pequenos em um ponto dado <math>p = (x_0, y_0)</math>, existe uma geodésica <math>c_v(t)</math> definida em <math>(-2, 2)</math> com <math>c_v(0) = (x_0, y_0)</math> e <math>\dot{c}_v(0) = v</math>. Além disso, se <math>|s| \le 1</math>, então <math>c_{sv}(t) = c_v(st)</math>. A ''aplicação exponencial'' é definida por
+:<math>\exp_p(v) = c_v(1)</math>
+e fornece um difeomorfismo entre um disco <math>\|v\| < \delta</math> e uma vizinhança de <math>p</math>; de modo mais geral, a aplicação que envia <math>(p, v)</math> a <math>\exp_p(v)</math> fornece um difeomorfismo local sobre uma vizinhança de <math>(p, p)</math>. A aplicação exponencial gera ''coordenadas normais geodésicas'' nas proximidades de <math>p</math>.<ref>{{harvnb|Wilson|2008}}</ref>
+
+=== Cálculo das coordenadas normais ===
+Há uma técnica padrão (ver, por exemplo, {{harvtxt|Berger|2004}}) para calcular a mudança de variáveis para coordenadas normais <math>u, v</math> em um ponto como uma expansão formal em [[série de Taylor]]. Se as coordenadas <math>x, y</math> em (0,0) forem localmente ortogonais, escreve-se
+:<math>x(u,v) = \alpha u + L(u,v) + \lambda(u,v) + \dots</math>
+:<math>y(u,v) = \beta v + M(u,v) + \mu(u,v) + \dots</math>
+onde <math>L, M</math> são polinômios homogêneos quadráticos e <math>\lambda, \mu</math> são polinômios homogêneos cúbicos em <math>u</math> e <math>v</math>. Se <math>u</math> e <math>v</math> forem fixados, <math>x(t) = x(tu, tv)</math> e <math>y(t) = y(tu, tv)</math> podem ser considerados como soluções formais em [[série de potências]] das equações de Euler: isso determina unicamente <math>\alpha, \beta, L, M, \lambda</math> e <math>\mu</math>.
+
+=== Lema de Gauss ===
+{{Artigo principal|Lema de Gauss (geometria riemanniana)}}
+[[Ficheiro:Polar coordinates grid.svg|miniatura|direita|Em coordenadas polares geodésicas, as geodésicas que partem da origem interceptam os círculos de raio constante ortogonalmente. As distâncias ao longo dos raios são distâncias verdadeiras, mas nos círculos concêntricos os pequenos arcos têm comprimento <math>H(r,\theta) = G(r,\theta)^{1/2}</math> vezes o ângulo por eles subentendido.]]
+
+Nessas coordenadas, a matriz <math>g(x)</math> satisfaz <math>g(0) = I</math> e as retas <math>t \mapsto tv</math> são geodésicas que passam por 0. As equações de Euler implicam a equação matricial
+:<math>g(v)v = v,</math>
+um resultado fundamental comumente chamado de [[lema de Gauss (geometria riemanniana)|lema de Gauss]]. Geometricamente, ele estabelece que:
+{| border="1" cellspacing="0" cellpadding="5"
+|'''''as geodésicas que passam por 0 interceptam os círculos centrados em 0 [[ortogonalidade|ortogonalmente]].'''''
+|}
+
+Tomando-se [[coordenadas polares]] <math>(r, \theta)</math>, segue-se que a métrica tem a forma
+:<math>ds^2 = dr^2 + G(r,\theta)\, d\theta^2.</math>
+Em coordenadas geodésicas, é fácil verificar que as geodésicas que passam pela origem minimizam o comprimento. A topologia na variedade riemanniana é dada então por uma [[função distância]] <math>d(p, q)</math>, a saber, o [[ínfimo]] dos comprimentos dos caminhos suaves por partes entre <math>p</math> e <math>q</math>. Essa distância é realizada localmente por geodésicas, de modo que, em coordenadas normais, <math>d(0, v) = \|v\|</math>. Se o raio <math>\delta</math> for tomado suficientemente pequeno, um refinamento do lema de Gauss mostra que a imagem <math>U</math> do disco <math>\|v\| < \delta</math> sob a aplicação exponencial é [[convexidade geodésica|geodesicamente convexa]], isto é, quaisquer dois pontos em <math>U</math> são unidos por uma única geodésica que repousa inteiramente dentro de <math>U</math>.<ref name="harvnb|Berger|2004">{{harvnb|Berger|2004}}</ref><ref>{{harvnb|do Carmo|2016|pages=303–305}}</ref>
+
+=== Theorema Egregium ===
+{{Artigo principal|Theorema Egregium}}
+[[Ficheiro:Gauss's original statement of the Theorema Egregium.png|miniatura|Enunciado original de Gauss do Theorema Egregium, traduzido do latim para o inglês.]]
+
+O [[Theorema Egregium]] de Gauss, o "Teorema Notável", demonstra que a curvatura gaussiana de uma superfície pode ser calculada unicamente em termos da métrica e constitui, assim, um invariante intrínseco da superfície, independente de qualquer [[mergulho riemanniano|mergulho isométrico]] em <math>\mathbf{E}^3</math> e inalterada sob transformações de coordenadas. Em particular, isometrias e isometrias locais de superfícies preservam a curvatura gaussiana.<ref>{{harvnb|Berger|2004|pages=41, 61, 123–124}}</ref>
+
+Esse teorema pode ser expresso em termos da expansão em série de potências da métrica, <math>ds</math>, fornecida em coordenadas normais <math>(u, v)</math> por
+:<math>ds^2 = du^2 + dv^2 - \frac{K(u\,dv - v\,du)^2}{12} + \dots</math>
+
+=== Equação de Gauss–Jacobi ===
+{{Mais informações|Campo de Jacobi}}
+Tomando uma mudança de coordenadas de coordenadas normais em <math>p</math> para coordenadas normais em um ponto próximo <math>q</math>, obtém-se a [[equação de Sturm-Liouville]] satisfeita por <math>H(r,\theta) = G(r,\theta)^{1/2}</math>, descoberta por Gauss e posteriormente generalizada por [[Carl Gustav Jakob Jacobi|Jacobi]]:
+:<math>H_{rr} = -KH.</math>
+
+O [[matriz jacobiana|jacobiano]] dessa mudança de coordenadas em <math>q</math> é igual a <math>H_r</math>. Isso fornece outra maneira de estabelecer a natureza intrínseca da curvatura gaussiana. Como <math>H(r,\theta)</math> pode ser interpretado como o comprimento do elemento de linha na direção <math>\theta</math>, a equação de Gauss–Jacobi mostra que a curvatura gaussiana mede a dispersão das geodésicas em uma superfície geométrica à medida que elas se afastam de um ponto.<ref>{{harvnb|O'Neill|2006|p=395}}</ref>
+
+=== Operador de Laplace–Beltrami ===
+Em uma superfície com métrica local
+:<math> ds^2 = E \, dx^2 + 2F \, dx \, dy + G \, dy^2 </math>
+e [[operador de Laplace-Beltrami]]
+:<math>\Delta f = {1\over H} \left(\partial_x {G\over H} \partial_x f - \partial_x {F\over H}\partial_y f -\partial_y {F\over H}\partial_x f + \partial_y {E\over H}\partial_yf\right),</math>
+onde <math>H^2 = EG - F^2</math>, a curvatura gaussiana em um ponto é dada pela fórmula<ref>{{harvnb|Helgason|1978|p=92}}</ref>
+:<math> K=- 3 \lim_{r\rightarrow 0} \Delta (\log r),</math>
+onde <math>r</math> denota a distância geodésica a partir do ponto.
+
+Em [[coordenadas isotérmicas]], primeiramente consideradas por Gauss, exige-se que a métrica tenha a forma especial
+:<math>ds^2 = e^\varphi (dx^2+dy^2).</math>
+Nesse caso, o operador de Laplace–Beltrami é dado por
+:<math>\Delta = e^{-\varphi} \left(\frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}\right)</math>
+e <math>\varphi</math> satisfaz a [[equação de Liouville]]<ref>{{harvnb|O'Neill|2006|p=286}}</ref>
+:<math>\Delta \varphi=-2K.</math>
+
+Sabe-se que coordenadas isotérmicas existem em uma vizinhança de qualquer ponto sobre a superfície, embora todas as demonstrações existentes até o momento dependam de resultados não triviais sobre [[equação diferencial parcial|equações diferenciais parciais]].<ref>{{harvnb|do Carmo|2016|p=227}}</ref> Há uma demonstração elementar para o caso das superfícies mínimas.<ref>{{harvnb|Osserman|2002|pp=31–32}}</ref>
+
+== Teorema de Gauss–Bonnet ==
+{{Artigo principal|Teorema de Gauss-Bonnet}}
+[[Ficheiro:Toroidal polyhedron.gif|miniatura|direita|Uma triangulação do [[toro (topologia)|toro]]]]
+Em uma [[esfera]] ou em um [[hiperboloide]], a área de um [[triângulo geodésico]], isto é, um triângulo cujos lados são todos geodésicas, é proporcional à diferença entre a soma dos ângulos internos e <math>\pi</math>. A constante de proporcionalidade é simplesmente a curvatura gaussiana, que é constante para essas superfícies. Para o toro, a diferença é zero, refletindo o fato de que sua curvatura gaussiana é zero. Esses são resultados clássicos da trigonometria esférica, hiperbólica e euclidiana. Gauss generalizou esses resultados para uma superfície arbitrária ao demonstrar que a integral da curvatura gaussiana sobre o interior de um triângulo geodésico também é igual a essa diferença ou excesso angular. Sua fórmula mostrou que a curvatura gaussiana podia ser calculada perto de um ponto como o limite da razão entre a área e o excesso angular para triângulos geodésicos que se contraem até o ponto. Como qualquer superfície fechada pode ser decomposta em triângulos geodésicos, a fórmula também pôde ser utilizada para calcular a integral da curvatura sobre toda a superfície. Como um caso especial do que hoje se conhece como o [[teorema de Gauss-Bonnet]], Gauss provou que essa integral era sempre notavelmente igual a <math>2\pi</math> vezes um número inteiro, um invariante topológico da superfície denominado [[característica de Euler]]. Esse invariante é fácil de calcular combinatoriamente em termos do número de vértices, arestas e faces dos triângulos na decomposição, também chamada de [[triangulação (topologia)|triangulação]]. Essa interação entre análise e topologia foi a precursora de muitos resultados posteriores em geometria, culminando no [[teorema do índice de Atiyah-Singer]]. Em particular, as propriedades da curvatura impõem restrições à topologia da superfície.
+
+=== Triângulos geodésicos ===
+Gauss demonstrou que, se <math>\Delta</math> for um triângulo geodésico sobre uma superfície com ângulos <math>\alpha, \beta</math> e <math>\gamma</math> nos vértices <math>A, B</math> e <math>C</math>, então
+:<math>\int_\Delta K\,dA =  \alpha + \beta + \gamma - \pi.</math>
+
+De fato, tomando coordenadas polares geodésicas com origem em <math>A</math> e com <math>AB, AC</math> sendo os raios nos ângulos polares 0 e <math>\alpha</math>:
+:<math>\begin{aligned}
+\int_\Delta K\,dA &= \int_\Delta KH\,dr\,d\theta  =  - \int_0^\alpha \int_0^{r_\theta} \! H_{rr}\,dr\,d\theta \\
+&= \int_0^\alpha 1 -H_r(r_\theta,\theta)\,d\theta = \int_0^\alpha d\theta + \int_{\pi-\beta}^\gamma \!\! d\varphi \\
+&= \alpha + \beta + \gamma - \pi,
+\end{aligned}</math>
+onde a segunda igualdade decorre da equação de Gauss–Jacobi e a quarta decorre da fórmula da derivada de Gauss nas coordenadas ortogonais <math>(r, \theta)</math>.
+
+A fórmula de Gauss mostra que a curvatura em um ponto pode ser calculada como o limite do ''excesso angular'' <math>\alpha + \beta + \gamma - \pi</math> dividido pela ''área'' para triângulos geodésicos sucessivamente menores em torno do ponto. Qualitativamente, uma superfície possui curvatura positiva ou negativa de acordo com o sinal do excesso angular para triângulos geodésicos arbitrariamente pequenos.<ref name="ref_">{{harvnb|Eisenhart|2004}}</ref>
+
+=== Teorema de Gauss–Bonnet ===
+[[Ficheiro:Icosahedron.svg|miniatura|direita|A característica de Euler de uma esfera, triangulada como um [[icosaedro]], é <math>V - E + F = 12 - 30 + 20 = 2</math>.]]
+Como toda 2-variedade compacta e orientada <math>M</math> pode ser [[triangulação (topologia)|triangulada]] por pequenos triângulos geodésicos, segue-se que
+:<math> \int_M K dA = 2\pi\,\chi(M)</math>
+onde <math>\chi(M)</math> denota a [[característica de Euler]] da superfície.
+
+Com efeito, se houver <math>F</math> faces, <math>E</math> arestas e <math>V</math> vértices, então <math>3F = 2E</math> e o lado esquerdo é igual a <math>2\pi V - \pi F = 2\pi(V - E + F) = 2\pi\chi(M)</math>.
+
+Este é o célebre '''[[teorema de Gauss-Bonnet]]''': ele demonstra que a integral da curvatura gaussiana é um invariante topológico da variedade, a saber, a característica de Euler. Esse teorema pode ser interpretado de muitas maneiras; talvez uma das mais abrangentes tenha sido como o teorema do índice para um [[operador diferencial elíptico]] sobre <math>M</math>, um dos casos mais simples do [[teorema do índice de Atiyah-Singer]]. Outro resultado associado, que pode ser demonstrado por meio do teorema de Gauss–Bonnet, é o [[teorema do índice de Poincaré-Hopf]] para campos vetoriais sobre <math>M</math> que se anulam em apenas um número finito de pontos: a soma dos índices nesses pontos é igual à característica de Euler, onde o ''índice'' de um ponto é definido como segue: sobre um pequeno círculo ao redor de cada zero isolado, o campo vetorial define uma aplicação no círculo unitário; o índice é simplesmente o [[grau topológico|número de rotação]] dessa aplicação.<ref name="ref_" /><ref>{{harvnb|do Carmo|2016|pages=283–286}}</ref><ref>{{harvnb|Thorpe|1994|pages=201–207}}</ref>
+
+=== Curvatura e mergulhos ===
+Se a curvatura gaussiana de uma superfície <math>M</math> for estritamente positiva em todos os pontos, então a característica de Euler é positiva, de modo que <math>M</math> é homeomorfa (e, portanto, difeomorfa) a <math>\mathbf{S}^2</math>. Se, além disso, a superfície estiver isometricamente mergulhada em <math>\mathbf{E}^3</math>, a aplicação de Gauss fornece um difeomorfismo explícito. Conforme observou [[Jacques Hadamard|Hadamard]], nesse caso a superfície é [[conjunto convexo|convexa]]; esse critério para convexidade pode ser visto como uma generalização bidimensional do conhecido critério da segunda derivada para a convexidade de curvas planas. [[David Hilbert|Hilbert]] provou que toda superfície fechada isometricamente mergulhada deve possuir ao menos um ponto de curvatura positiva. Assim, uma 2-variedade riemanniana fechada de curvatura não positiva nunca pode ser mergulhada isometricamente em <math>\mathbf{E}^3</math>; no entanto, como [[Adriano Garsia]] demonstrou usando a [[equação de Beltrami]] para [[aplicação quase-conforme|aplicações quase-conformes]], isso é sempre possível para alguma métrica [[equivalência conforme|conformemente equivalente]].<ref name="Garsia1961">{{harvnb|Singer|Thorpe|1967}}; {{citation|last=Garsia|first=Adriano M.|title=An imbedding of closed Riemann surfaces in Euclidean space|journal=[[Comment. Math. Helv.]]|volume= 35|year= 1961|pages= 93–110|doi=10.1007/BF02567009|s2cid=120653575}}</ref>
+
+== Superfícies de curvatura constante ==
+As superfícies [[Espaço simplesmente conectado|simplesmente conexas]] de curvatura constante 0, +1 e −1 são o plano euclidiano, a esfera unitária em <math>\mathbf{E}^3</math> e o [[geometria hiperbólica|plano hiperbólico]]. Cada uma delas possui um [[grupo de Lie]] tridimensional transitivo de [[isometria|isometrias]] que preservam a orientação <math>G</math>, o qual pode ser usado para estudar sua geometria. Cada uma das duas superfícies não compactas pode ser identificada com o quociente <math>G / K</math>, onde <math>K</math> é um [[subgrupo compacto maximal]] de <math>G</math>. Aqui, <math>K</math> é isomorfo ao [[grupo circular|SO(2)]]. Qualquer outra 2-variedade riemanniana fechada <math>M</math> de curvatura gaussiana constante, após o redimensionamento da métrica por um fator constante, se necessário, terá uma dessas três superfícies como seu [[espaço de recobrimento|espaço de recobrimento universal]]. No caso orientável, o [[grupo fundamental]] <math>\Gamma</math> de <math>M</math> pode ser identificado com um [[reticulado (subgrupo discreto)|subgrupo uniforme]] [[torção (álgebra)|livre de torção]] de <math>G</math>, e <math>M</math> pode então ser identificada com o [[espaço de classes duplas]] <math>\Gamma \backslash G / K</math>. No caso da esfera e do plano euclidiano, os únicos exemplos possíveis são a própria esfera e os toros obtidos como quocientes de <math>\mathbf{R}^2</math> por subgrupos discretos de posto 2. Para superfícies fechadas de [[Género (matemática)|gênero]] <math>g \ge 2</math>, o [[espaço de módulos]] das superfícies de Riemann obtido à medida que <math>\Gamma</math> varia sobre todos esses subgrupos possui dimensão real igual a <math>6g - 6</math>.<ref>{{harvnb|Imayoshi|Taniguchi|1992|pp=47–49}}</ref> Pelo [[teorema da uniformização]] de Poincaré, qualquer 2-variedade fechada orientável é [[equivalência conforme|conformemente equivalente]] a uma superfície de curvatura constante 0, +1 ou −1. Em outras palavras, multiplicando-se a métrica por um fator de escala positivo, a curvatura gaussiana pode ser levada a assumir exatamente um desses valores (o sinal da [[característica de Euler]] de <math>M</math>).<ref>{{harvnb|Berger|1977}}; {{harvnb|Taylor|1996b}}.</ref>
+
+=== Geometria euclidiana ===
+[[Ficheiro:Triangle with notations 2.svg|miniatura|direita|Um triângulo no plano]]
+No caso do plano euclidiano, o grupo de simetria é o [[grupo euclidiano|grupo de movimentos euclidianos]], o [[produto semidireto]] do grupo bidimensional de translações pelo grupo de rotações.<ref>{{harvnb|Wilson|2008|pp=1–23}}, Capítulo I, ''Euclidean geometry''.</ref> As geodésicas são linhas retas e a geometria é codificada nas fórmulas elementares da [[trigonometria]], como a [[lei dos cossenos]] para um triângulo de lados <math>a, b, c</math> e ângulos <math>\alpha, \beta, \gamma</math>:
+:<math> c^2 = a^2 +b^2 -2ab \,\cos \gamma.</math>
+
+Toros planos podem ser obtidos tomando-se o quociente de <math>\mathbf{R}^2</math> por um [[reticulado (subgrupo discreto)|reticulado]], ou seja, um subgrupo abeliano livre de posto 2. Essas superfícies fechadas não admitem mergulhos isométricos em <math>\mathbf{E}^3</math>. Elas admitem, todavia, mergulhos isométricos em <math>\mathbf{E}^4</math>; no caso mais direto, isso decorre do fato de o toro ser o produto de dois círculos e cada círculo poder ser isometricamente mergulhado em <math>\mathbf{E}^2</math>.<ref>{{harvnb|do Carmo|2016}}.</ref>
+
+=== Geometria esférica ===
+{{Artigo principal|Geometria esférica|Trigonometria esférica}}
+[[Ficheiro:RechtwKugeldreieck.svg|miniatura|direita|Um triângulo esférico]]
+[[Ficheiro:Spherical triangle 3d.png|miniatura|direita|A área de um [[triângulo esférico]] na esfera unitária é <math>\alpha + \beta + \gamma - \pi</math>.]]
+O grupo de isometrias da esfera unitária <math>S^2</math> em <math>\mathbf{E}^3</math> é o grupo ortogonal <math>\mathrm{O}(3)</math>, tendo o [[grupo de rotação SO(3)|grupo de rotações <math>\mathrm{SO}(3)</math>]] como o subgrupo de isometrias que preservam a orientação. Ele é o produto direto de <math>\mathrm{SO}(3)</math> com a [[aplicação antipodal]], que envia <math>x</math> para <math>-x</math>.<ref>{{harvnb|Wilson|2008|pp=25–49}}, Capítulo II, ''Spherical geometry''.</ref> O grupo <math>\mathrm{SO}(3)</math> atua transitivamente sobre <math>S^2</math>. O [[estabilizador (teoria dos grupos)|subgrupo estabilizador]] do vetor unitário (0,0,1) pode ser identificado com <math>\mathrm{SO}(2)</math>, de modo que <math>S^2 = \mathrm{SO}(3)/\mathrm{SO}(2)</math>.
+
+As geodésicas entre dois pontos sobre a esfera são os arcos de [[círculo máximo]] que têm esses pontos dados como extremidades. Se os pontos não forem antipodais, existe uma única geodésica mais curta entre eles. As geodésicas também podem ser descritas sob o ponto de vista da teoria dos grupos: cada geodésica que passa pelo polo Norte (0,0,1) é a órbita do subgrupo de rotações em torno de um eixo que passa por pontos antipodais sobre o equador.
+
+Um '''[[triângulo esférico]]''' é um triângulo geodésico sobre a esfera. Ele é definido pelos pontos <math>A, B, C</math> sobre a esfera com lados <math>BC, CA, AB</math> formados por arcos de círculo máximo de comprimento inferior a <math>\pi</math>. Se os comprimentos dos lados forem <math>a, b, c</math> e os ângulos entre os lados forem <math>\alpha, \beta, \gamma</math>, então a [[lei dos cossenos esférica]] afirma que
+:<math>\cos c  = \cos a \, \cos b + \sin a\, \sin b \,\cos \gamma.</math>
+A área do triângulo é dada por
+:<math>\text{Área} = \alpha + \beta + \gamma - \pi.</math>
+
+Utilizando a [[projeção estereográfica]] a partir do polo Norte, a esfera pode ser identificada com o [[plano complexo estendido]] <math>\mathbf{C} \cup \{\infty\}</math>. A aplicação explícita é dada por
+:<math>\pi(x,y,z)={x+iy\over 1-z}\equiv u + iv.</math>
+
+Sob essa correspondência, toda rotação de <math>S^2</math> corresponde a uma [[transformação de Möbius]] em <math>\mathrm{SU}(2)</math>, única a menos de sinal.<ref>{{harvnb|Wilson| 2008}}, Capítulo 2.</ref> Em relação às coordenadas <math>(u, v)</math> no plano complexo, a métrica esférica torna-se<ref>{{harvnb|Eisenhart|2004|p=110}}.</ref>
+:<math> ds^2 = {4(du^2 + dv^2)\over (1+u^2+v^2)^2}.</math>
+
+A esfera unitária é a única superfície fechada orientável com curvatura constante +1. O quociente <math>\mathrm{SO}(3)/\mathrm{O}(2)</math> pode ser identificado com o [[plano projetivo real]]. Ele é não orientável e pode ser descrito como o quociente de <math>S^2</math> pela aplicação antipodal (multiplicação por −1). A esfera é simplesmente conexa, enquanto o plano projetivo real possui grupo fundamental <math>\mathbf{Z}_2</math>. Os [[grupo pontual em três dimensões|subgrupos finitos de <math>\mathrm{SO}(3)</math>]], correspondentes aos subgrupos finitos de <math>\mathrm{O}(2)</math> e aos grupos de simetria dos [[sólidos platônicos]], não atuam livremente sobre <math>S^2</math>, de modo que os quocientes correspondentes não são 2-variedades, mas apenas [[orbifold]]s.
+
+=== Geometria hiperbólica ===
+{{Ver também|Triângulo hiperbólico|Geometria hiperbólica}}
+[[Ficheiro:Poincare.jpg|miniatura|direita|upright|[[Henri Poincaré]] (1854–1912)]]
+A [[geometria não euclidiana]]<ref>{{harvnb|Stillwell|1996}}; {{harvnb|Bonola|Carslaw|Enriques|1955}}.</ref> foi primeiramente discutida em cartas de Gauss, que realizou extensos cálculos na virada do século XIX os quais, embora tenham circulado privadamente, ele decidiu não publicar. Em 1830, [[Nikolai Lobachevsky|Lobachevsky]] e, independentemente, em 1832, [[János Bolyai|Bolyai]], filho de um dos correspondentes de Gauss, publicaram versões sintéticas dessa nova geometria, pelas quais foram severamente criticados. No entanto, foi apenas em 1868 que Beltrami, seguido por [[Felix Klein|Klein]] em 1871 e Poincaré em 1882, forneceu modelos analíticos concretos para o que Klein denominou '''[[geometria hiperbólica]]'''. Os quatro modelos da geometria hiperbólica bidimensional que emergiram foram:
+* o [[modelo de Beltrami-Klein]];
+* o [[disco de Poincaré]];
+* o [[semiplano superior|semiplano superior de Poincaré]];
+* o [[modelo do hiperboloide]] de [[Wilhelm Killing]] no [[espaço de Minkowski]] tridimensional.
+
+O primeiro modelo, baseado em um disco, tem a vantagem de que as geodésicas são segmentos de reta euclidianos (isto é, interseções de retas euclidianas com o disco unitário aberto). O último modelo tem a vantagem de fornecer uma construção completamente paralela à da esfera unitária no espaço euclidiano tridimensional. Devido à sua aplicação na análise complexa e na geometria, no entanto, os modelos de Poincaré são os mais amplamente utilizados: eles são intercambiáveis graças às transformações de Möbius entre o disco e o semiplano superior.
+
+Seja
+:<math>D=\{z\,\colon |z|<1\}</math>
+o [[disco de Poincaré]] no plano complexo com a [[métrica de Poincaré]]
+:<math>ds^2= {4(dx^2 +dy^2)\over (1-x^2-y^2)^2}.</math>
+Em coordenadas polares <math>(r, \theta)</math>, a métrica é dada por
+:<math> ds^2= {4(dr^2 + r^2\, d\theta^2)\over (1-r^2)^2}.</math>
+
+O comprimento de uma curva <math>\gamma:[a,b] \to D</math> é dado pela fórmula
+:<math>\ell(\gamma)=\int_a^b {2|\gamma^\prime(t)|\, dt\over 1 -|\gamma(t)|^2}.</math>
+
+O grupo <math>G = \mathrm{SU}(1,1)</math> dado por
+:<math>G=\left\{ \begin{pmatrix}
+\alpha & \beta \\
+\overline{\beta} & \overline{\alpha}
+\end{pmatrix} : \alpha,\beta\in\mathbf{C},\,|\alpha|^2 -|\beta|^2=1 \right\}</math>
+atua transitivamente por [[transformação de Möbius|transformações de Möbius]] sobre <math>D</math>, e o [[estabilizador (teoria dos grupos)|subgrupo estabilizador]] de 0 é o grupo de rotações
+:<math> K=\left\{ \begin{pmatrix}
+\zeta & 0 \\
+0 & \overline{\zeta}
+\end{pmatrix} : \zeta\in\mathbf{C},\,|\zeta| =1 \right\}.</math>
+
+O grupo quociente <math>\mathrm{SU}(1,1)/\pm I</math> é o grupo de isometrias de <math>D</math> que preservam a orientação. Quaisquer dois pontos <math>z, w</math> em <math>D</math> são unidos por uma única geodésica, dada pela porção do círculo ou da reta que passa por <math>z</math> e <math>w</math> e é ortogonal ao círculo de fronteira. A distância entre <math>z</math> e <math>w</math> é dada por
+:<math>d(z,w)=2 \tanh^{-1} \frac{|z-w|}{|1-\overline{w}z|}.</math>
+
+Em particular, <math>d(0, r) = 2 \tanh^{-1} r</math> e <math>c(t) = \frac{1}{2}\tanh t</math> é a geodésica que passa por 0 ao longo do eixo real, parametrizada pelo comprimento de arco.
+
+A topologia definida por essa métrica é equivalente à topologia euclidiana usual, embora, como espaço métrico, <math>(D, d)</math> seja completo.
+
+[[Ficheiro:Triangolo iperbolico.svg|miniatura|direita|Um triângulo hiperbólico no modelo do disco de Poincaré]]
+Um [[triângulo hiperbólico]] é um triângulo geodésico para essa métrica: quaisquer três pontos em <math>D</math> são vértices de um triângulo hiperbólico. Se os lados tiverem comprimentos <math>a, b, c</math> com ângulos correspondentes <math>\alpha, \beta, \gamma</math>, então a lei dos cossenos hiperbólica afirma que
+:<math>\cosh c = \cosh a\, \cosh b - \sinh a \,\sinh b \,\cos \gamma.</math>
+
+A área do triângulo hiperbólico é dada por<ref>{{harvnb|Wilson|2008}}, Capítulo 5.</ref>
+:<math>\text{Área} = \pi - \alpha - \beta - \gamma.</math>
+
+O disco unitário e o semiplano superior
+:<math>H=\{w=x+iy \,\colon\, y >0\}</math>
+são conformemente equivalentes pelas transformações de Möbius
+:<math> w=i {1+z\over 1-z},\,\, z={w-i\over w+i}.</math>
+
+Sob essa correspondência, a ação de <math>\mathrm{SL}(2, \mathbb{R})</math> por transformações de Möbius sobre <math>H</math> corresponde àquela de <math>\mathrm{SU}(1,1)</math> sobre <math>D</math>. A métrica sobre <math>H</math> torna-se
+:<math> ds^2 = {dx^2 + dy^2\over y^2}.</math>
+
+Como retas ou círculos são preservados sob transformações de Möbius, as geodésicas são novamente descritas por retas ou círculos ortogonais ao eixo real.
+
+O disco unitário com a métrica de Poincaré é a única variedade riemanniana bidimensional orientada e simplesmente conexa com curvatura constante −1. Qualquer superfície fechada orientada <math>M</math> com essa propriedade tem <math>D</math> como seu espaço de recobrimento universal. Seu [[grupo fundamental]] pode ser identificado com um subgrupo cocompacto livre de torção <math>\Gamma</math> de <math>\mathrm{SU}(1,1)</math>, de tal maneira que
+:<math> M= \Gamma\backslash G /K.</math>
+Nesse caso, <math>\Gamma</math> é um [[grupo finitamente apresentado]]. Os geradores e relações são codificados em um [[polígono fundamental]] geodésico e geodesicamente convexo em <math>D</math> (ou <math>H</math>), correspondendo geometricamente a geodésicas fechadas sobre <math>M</math>.
+
+'''Exemplos'''.
+* a [[superfície de Bolza]] de gênero 2;
+* a [[quártica de Klein]] de gênero 3;
+* a [[superfície de Macbeath]] de gênero 7;
+* o [[primeiro tripleto de Hurwitz]] de gênero 14.
+
+=== Uniformização ===
+{{Ver também|Teorema da uniformização}}
+Dada uma superfície fechada orientada <math>M</math> com curvatura gaussiana <math>K</math>, a métrica sobre <math>M</math> pode ser alterada conformemente escalonando-a por um fator <math>e^{2u}</math>. A nova curvatura gaussiana <math>K'</math> é dada então por
+:<math>K^\prime(x)= e^{-2u} (K(x) - \Delta u),</math>
+onde <math>\Delta</math> é o operador laplaciano para a métrica original. Assim, para demonstrar que uma dada superfície é conformemente equivalente a uma métrica com curvatura constante <math>K'</math>, basta resolver a seguinte variante da [[equação de Liouville]]:
+:<math>\Delta u = K^\prime e^{2u} + K(x).</math>
+
+Quando <math>M</math> tem característica de Euler 0, sendo portanto difeomorfa a um [[toro (topologia)|toro]], <math>K' = 0</math>, de modo que isso se reduz a resolver
+:<math> \Delta u = K(x).</math>
+
+Pela teoria elíptica padrão, isso é possível porque a integral de <math>K</math> sobre <math>M</math> é zero, pelo teorema de Gauss–Bonnet.<ref>{{harvnb|Taylor|1996b|p=107}}; {{harvnb|Berger|1977|pp=341–343}}.</ref>
+
+Quando <math>M</math> tem característica de Euler negativa, <math>K' = -1</math>, e a equação a ser resolvida é:
+:<math>\Delta u = -e^{2u} + K(x).</math>
+Utilizando a continuidade da aplicação exponencial no [[espaço de Sobolev]] devida a [[Neil Trudinger]], essa equação não linear sempre pode ser resolvida.<ref>{{harvnb|Berger|1977|pp=222–225}}; {{harvnb|Taylor|1996b|pp=101–108}}.</ref>
+
+Por fim, no caso da 2-esfera, <math>K' = 1</math> e a equação torna-se:
+:<math>\Delta u = e^{2u} + K(x).</math>
+Historicamente, essa equação não linear foi analisada por vias indiretas, embora resultados clássicos como o [[teorema de Riemann-Roch]] impliquem que ela sempre possui solução.<ref>{{harvnb|Taylor|1996b}}</ref> O método do [[fluxo de Ricci]], desenvolvido por [[Richard S. Hamilton]], forneceu outra demonstração de existência baseada em [[equação diferencial parcial|equações diferenciais parciais]] não lineares.<ref>{{harvnb|Chow|1991}}</ref> De fato, o fluxo de Ricci sobre métricas conformes em <math>S^2</math> é definido sobre funções <math>u(x, t)</math> por
+:<math> u_t = 4\pi -  K'(x,t) = 4\pi -e^{-2u} (K(x) - \Delta u). </math>
+Após um tempo finito, Chow demonstrou que <math>K'</math> torna-se estritamente positiva; resultados anteriores de Hamilton puderam então ser usados para provar que <math>K'</math> converge para +1.<ref>{{harvtxt|Chen|Lu| Tian|2006}} apontaram e corrigiram uma etapa faltante na abordagem de Hamilton e Chow; veja também {{harvtxt|Andrews|Bryan|2010}}.</ref> Antes desses resultados sobre o fluxo de Ricci, {{harvtxt|Osgood|Phillips|Sarnak|1988}} haviam fornecido uma abordagem alternativa e tecnicamente mais simples para a uniformização baseada no fluxo sobre métricas riemannianas <math>g</math> definido por <math>\log \det \Delta_g</math>.
+
+Uma demonstração utilizando operadores elípticos, descoberta em 1988, pode ser encontrada em {{harvtxt|Ding|2001}}. Seja <math>G</math> a [[função de Green]] sobre <math>S^2</math> satisfazendo <math>\Delta G = 1 + 4\pi\delta_P</math>, onde <math>\delta_P</math> é a medida de Dirac em um ponto fixo <math>P</math> de <math>S^2</math>. A equação <math>\Delta v = 2K - 2</math> possui uma solução suave <math>v</math>, porque o lado direito tem integral 0 pelo teorema de Gauss–Bonnet. Assim, <math>\varphi = 2G + v</math> satisfaz <math>\Delta \varphi = 2K</math> fora de <math>P</math>. Segue-se que <math>g_1 = e^\varphi g</math> é uma métrica completa de curvatura constante 0 no complementar de <math>P</math>, que é, portanto, isométrico ao plano. Compondo com a [[projeção estereográfica]], segue-se que existe uma função suave <math>u</math> tal que <math>e^{2u} g</math> possui curvatura gaussiana +1 no complementar de <math>P</math>. A função <math>u</math> estende-se automaticamente a uma função suave sobre toda a esfera <math>S^2</math>.{{efn|1=Isso decorre de um argumento que envolve um teorema de {{harvtxt|Sacks|Uhlenbeck|1981}} sobre singularidades removíveis de [[aplicação harmônica|aplicações harmônicas]] de energia finita.}}
+
+== Conexão riemanniana e transporte paralelo ==
+{{Artigo principal|Conexão riemanniana em uma superfície}}
+[[Ficheiro:Levi-Civita 1930.jpeg|miniatura|direita|upright|[[Tullio Levi-Civita]] (1873–1941)]]
+A abordagem clássica de Gauss para a geometria diferencial de superfícies constituía o tratamento elementar padrão<ref>{{harvnb|Eisenhart|2004}}; {{harvnb|Kreyszig|1991}}; {{harvnb|Berger|2004}}; {{harvnb|Wilson|2008}}.</ref> que antecedeu o surgimento dos conceitos de [[variedade riemanniana]], iniciados por [[Bernhard Riemann]] em meados do século XIX, e de [[conexão (matemática)|conexão]], desenvolvidos por [[Tullio Levi-Civita]], [[Élie Cartan]] e [[Hermann Weyl]] no início do século XX. A noção de conexão, [[derivada covariante]] e [[transporte paralelo]] proporcionou uma maneira mais conceitual e uniforme de compreender a curvatura, o que não apenas permitiu generalizações para variedades de dimensões superiores, mas também forneceu uma ferramenta indispensável para definir novos invariantes geométricos, denominados [[classe característica|classes características]].<ref>{{harvnb|Kobayashi|Nomizu|1969}}, Capítulo XII.</ref> A abordagem que utiliza derivadas covariantes e conexões é hoje em dia a adotada em manuais mais avançados.<ref>{{harvnb|do Carmo|2016}}; {{harvnb|O'Neill|2006}}; {{harvnb|Singer|Thorpe|1967}}.</ref>
+
+=== Derivada covariante ===
+Conexões sobre uma superfície podem ser definidas a partir de vários pontos de vista equivalentes, mas igualmente importantes. A '''conexão riemanniana''' ou '''[[conexão de Levi-Civita]]'''<ref>{{harvnb|Levi-Civita|1917}}</ref> é talvez mais facilmente compreendida em termos do levantamento de [[campo de vetores|campos vetoriais]], considerados como [[operador diferencial|operadores diferenciais]] de primeira ordem atuando sobre funções na variedade, para operadores diferenciais sobre o [[fibrado tangente]] ou sobre o [[fibrado de referenciais]]. No caso de uma superfície mergulhada, o levantamento para um operador sobre campos vetoriais, denominado '''derivada covariante''', é descrito de maneira muito simples em termos de projeção ortogonal. Com efeito, um campo vetorial sobre uma superfície mergulhada em <math>\mathbf{R}^3</math> pode ser considerado como uma função da superfície em <math>\mathbf{R}^3</math>. Outro campo vetorial atua como um operador diferencial componente a componente. O campo vetorial resultante não será, em geral, tangente à superfície, mas isso pode ser corrigido tomando-se a sua projeção ortogonal sobre o espaço tangente em cada ponto da superfície. Como [[Gregorio Ricci-Curbastro|Ricci]] e [[Tullio Levi-Civita|Levi-Civita]] perceberam na virada do século XX, esse processo depende unicamente da métrica e pode ser expresso localmente em termos dos símbolos de Christoffel.
+
+[[Ficheiro:Parallel Transport.svg|miniatura|direita|Transporte paralelo de um vetor ao redor de um triângulo geodésico na esfera. O comprimento do vetor transportado e o ângulo que ele forma com cada lado permanecem constantes.]]
+
+=== Transporte paralelo ===
+O '''[[transporte paralelo]]''' de vetores tangentes ao longo de uma curva na superfície foi o avanço capital seguinte no tema, devido a [[Tullio Levi-Civita|Levi-Civita]].<ref name="ref_"/> Ele está relacionado à noção anterior de derivada covariante, por ser a [[monodromia]] da [[equação diferencial ordinária]] sobre a curva definida pela derivada covariante com respeito ao vetor velocidade da curva. O transporte paralelo ao longo de geodésicas, as "linhas retas" da superfície, também pode ser descrito diretamente com facilidade. Um vetor no plano tangente é transportado ao longo de uma geodésica como o único campo vetorial de comprimento constante que forma um ângulo constante com o vetor velocidade da geodésica. Para uma curva geral, esse processo precisa ser modificado utilizando-se a curvatura geodésica, que mede o quanto a curva se afasta de ser uma geodésica.<ref name="harvnb|Berger|2004"/>
+
+Diz-se que um campo vetorial <math>v(t)</math> ao longo de uma curva com velocidade unitária <math>c(t)</math>, com curvatura geodésica <math>k_g(t)</math>, é paralelo ao longo da curva se:
+* tiver comprimento constante;
+* o ângulo <math>\theta(t)</math> que ele forma com o vetor velocidade <math>\dot{c}(t)</math> satisfizer a:
+:<math>\dot{\theta}(t) = - k_g(t)</math>
+
+Isso recupera a regra para o transporte paralelo ao longo de uma curva geodésica ou geodésica por partes, pois nesse caso <math>k_g = 0</math>, de modo que o ângulo <math>\theta(t)</math> deve permanecer constante em qualquer segmento geodésico. A existência do transporte paralelo decorre do fato de que <math>\theta(t)</math> pode ser calculado como a [[integral]] da curvatura geodésica. Como ele depende, portanto, continuamente da norma <math>L^2</math> de <math>k_g</math>, segue-se que o transporte paralelo para uma curva arbitrária pode ser obtido como o limite do transporte paralelo sobre curvas geodésicas por partes aproximantes.<ref>{{harvnb|Arnold|1989|pp=301–306}}, Apêndice I.; {{harvnb|Berger|2004|pp=263–264}}.</ref>
+
+A conexão pode ser descrita assim em termos do levantamento de caminhos na variedade para caminhos no fibrado tangente ou no fibrado de referenciais ortonormais, formalizando desse modo a teoria clássica do "[[referencial móvel]]", favorecida pelos autores franceses.{{sfn|Darboux}} Levantamentos de laços fechados em torno de um ponto dão origem ao [[grupo de holonomia]] naquele ponto. A curvatura gaussiana em um ponto pode ser recuperada a partir do transporte paralelo ao redor de laços cada vez menores em torno do ponto. De modo equivalente, a curvatura pode ser calculada diretamente em nível infinitesimal em termos de [[colchete de Lie de campos vetoriais|colchetes de Lie]] de campos vetoriais levantados.
+
+[[Ficheiro:Elie-Cartan-1904.png|miniatura|upright|[[Élie Cartan]] em 1904]]
+
+=== 1-forma de conexão ===
+A abordagem de Cartan e Weyl, utilizando 1-formas de conexão sobre o [[fibrado de referenciais]] de <math>M</math>, fornece uma terceira maneira de compreender a conexão riemanniana. Eles observaram que o transporte paralelo dita que um caminho na superfície seja levantado para um caminho no fibrado de referenciais de modo que seus vetores tangentes repousem em um subespaço especial de codimensão um no espaço tangente tridimensional do fibrado de referenciais. A projeção sobre esse subespaço é definida por uma 1-forma diferencial sobre o fibrado de referenciais ortonormais, a '''[[forma de conexão]]'''. Isso permitiu que as propriedades de curvatura da superfície fossem codificadas em [[forma diferencial|formas diferenciais]] sobre o fibrado de referenciais e em fórmulas envolvendo suas [[derivada exterior|derivadas exteriores]].
+
+Essa abordagem é particularmente simples para uma superfície mergulhada. Graças a um resultado de {{harvtxt|Kobayashi|1956}}, a 1-forma de conexão sobre uma superfície mergulhada no espaço euclidiano <math>\mathbf{E}^3</math> é simplesmente o ''pullback'', sob a aplicação de Gauss, da 1-forma de conexão sobre <math>S^2</math>.<ref>{{harvnb|Kobayashi|Nomizu|1969}}</ref> Utilizando a identificação de <math>S^2</math> com o [[espaço homogêneo]] <math>\mathrm{SO}(3)/\mathrm{SO}(2)</math>, a 1-forma de conexão é apenas uma componente da [[forma de Maurer-Cartan|1-forma de Maurer–Cartan]] sobre <math>\mathrm{SO}(3)</math>.<ref>{{harvnb|Ivey|Landsberg|2003}}.</ref>
+
+== Geometria diferencial global de superfícies ==
+Embora a caracterização da curvatura envolva apenas a geometria local de uma superfície, há aspectos globais fundamentais, tais como o [[teorema de Gauss-Bonnet]], o [[teorema da uniformização]], o teorema de von Mangoldt–Hadamard e os teoremas de mergulhabilidade. Há outros aspectos relevantes da geometria global de superfícies.<ref>{{harvnb|Berger|2004|pp=145–161}}; {{harvnb|do Carmo|2016}}; {{harvnb|Chern|1967}}; {{harvnb|Hopf|1989}}.</ref> Estes incluem:
+
+* '''[[Raio de injetividade]]''', definido como o maior <math>r</math> tal que quaisquer dois pontos a uma distância menor que <math>r</math> são unidos por uma única geodésica. Wilhelm Klingenberg provou em 1959 que o raio de injetividade de uma superfície fechada é limitado inferiormente pelo mínimo entre <math>\delta = \pi / \sqrt{\sup K}</math> e o comprimento de sua menor geodésica fechada. Isso aprimorou um teorema de Bonnet, que demonstrara em 1855 que o diâmetro de uma superfície fechada de curvatura gaussiana positiva é sempre limitado superiormente por <math>\delta</math>; em outras palavras, uma geodésica que realiza a distância métrica entre dois pontos não pode ter comprimento maior que <math>\delta</math>.
+* '''Rigidez'''. Em 1927, [[Stefan Cohn-Vossen|Cohn-Vossen]] provou que dois [[ovaloide]]s — superfícies fechadas com curvatura gaussiana positiva — que são isométricos são necessariamente congruentes por uma isometria de <math>\mathbf{E}^3</math>. Além disso, uma superfície fechada mergulhada com curvatura gaussiana positiva e curvatura média constante é necessariamente uma esfera; da mesma forma, uma superfície fechada mergulhada de curvatura gaussiana constante deve ser uma esfera (Liebmann, 1899). [[Heinz Hopf]] mostrou em 1950 que uma superfície fechada mergulhada com curvatura média constante e gênero 0, isto é, homeomorfa a uma esfera, é necessariamente uma esfera; cinco anos depois, Alexandrov removeu a hipótese topológica. Na década de 1980, Wente construiu toros [[imersão|imersos]] de curvatura média constante no espaço euclidiano tridimensional.
+* '''[[Conjectura de Carathéodory]]''': Esta conjectura afirma que uma superfície convexa fechada três vezes diferenciável admite pelo menos dois [[ponto umbílico|pontos umbílicos]]. O primeiro trabalho sobre essa conjectura foi feito em 1924 por [[Hans Hamburger]], que observou que ela decorre da seguinte afirmação mais forte: o índice seminteiro da folheação de curvatura principal de um ponto umbílico isolado é no máximo um. Ela foi demonstrada para superfícies suaves por Brendan Guilfoyle e Wilhelm Klingenberg em três partes,<ref name="GuilKling19">{{cite journal |first1=B. |last1=Guilfoyle |first2=W. |last2=Klingenberg |year=2019 |title= Higher codimensional mean curvature flow of compact spacelike submanifolds |journal= Trans. Amer. Math. Soc.|volume=372 |issue=9 |pages=6263–6281 |doi=10.1090/tran/7766|s2cid=119253397 |doi-access=free |arxiv=1812.00710 }}</ref><ref name="GuilKling20">{{cite journal |first1=B. |last1=Guilfoyle |first2=W. |last2=Klingenberg |year=2020 |title= Fredholm-regularity of holomorphic discs in plane bundles over compact surfaces |journal= Ann. Fac. Sci. Toulouse Math. |series=Série 6 |volume=29 |issue=3 |pages=565–576 | arxiv=1812.00707 | doi=10.5802/afst.1639|s2cid=119659239 |doi-access=free }}</ref><ref name="GuilKling24">{{cite journal |first1=B. |last1=Guilfoyle|first2=W. |last2=Klingenberg |title=Proof of the Toponogov Conjecture on complete surfaces |journal=J. Gökova Geom. Topol. GGT |volume=17 | year=2024 | pages=1–50| arxiv=2002.12787| url=https://gokovagt.org/journal/2024/guilfoyleklingenberg.html}}</ref> concluindo em 2024, ano do centenário da formulação da conjectura.
+* '''Curvatura gaussiana nula''': uma superfície completa em <math>\mathbf{E}^3</math> com curvatura gaussiana nula deve ser um cilindro ou um plano.
+* '''Teorema de Hilbert''' (1901): nenhuma superfície completa com curvatura negativa constante pode ser [[imersão|imersa]] isometricamente em <math>\mathbf{E}^3</math>.
+
+[[Ficheiro:TorusSystoleLoop.png|direita|miniatura|Laço mais curto sobre um toro]]
+* '''A [[conjectura de Willmore]]'''. Esta conjectura afirma que a integral do quadrado da curvatura média de um toro imerso em <math>\mathbf{E}^3</math> deve ser limitada inferiormente por <math>2\pi^2</math>. É conhecido que essa integral é invariante sob transformações de Möbius. Ela foi resolvida em 2012 por [[Fernando Codá Marques]] e [[André Neves]].<ref>{{cite journal |last1=Codá Marques |first1=Fernando |last2=Neves |first2=André |title=Min-Max theory and the Willmore conjecture |journal=Annals of Mathematics |volume=179 |issue=2 |date=2014 |pages=683–782 |doi=10.4007/annals.2014.179.2.6 |jstor=24522767|arxiv=1202.6036 |s2cid=50742102 }}</ref>
+* '''[[Desigualdade isoperimétrica|Desigualdades isoperimétricas]]'''. Em 1939, Schmidt provou que a desigualdade isoperimétrica clássica para curvas no plano euclidiano também é válida na esfera ou no plano hiperbólico: a saber, ele mostrou que, entre todas as curvas fechadas que delimitam um domínio de área fixa, o perímetro é minimizado quando a curva é um círculo para a respectiva métrica. Em uma dimensão superior, sabe-se que, entre todas as superfícies fechadas em <math>\mathbf{E}^3</math> que surgem como a fronteira de um domínio limitado de volume unitário, a área superficial é minimizada para uma bola euclidiana.
+* '''[[Sístole de superfícies|Desigualdades sistólicas para curvas sobre superfícies]]'''. Dada uma superfície fechada, sua [[geometria sistólica|sístole]] é definida como o menor comprimento de qualquer curva fechada não contrátil sobre a superfície. Em 1949, [[Charles Loewner|Loewner]] provou uma [[desigualdade do toro de Loewner|desigualdade do toro]] para métricas sobre o toro, a saber, que a razão entre a área do toro e o quadrado de sua sístole é limitada inferiormente por <math>\sqrt{3}/2</math>, ocorrendo a igualdade no caso plano (curvatura constante). Um resultado similar é fornecido pela [[desigualdade de Pu|desigualdade de Pu para o plano projetivo real]] de 1952, com um limite inferior de <math>2/\pi</math> também atingido no caso de curvatura constante. Para a [[garrafa de Klein]], Blatter e Bavard obtiveram mais tarde o limite inferior de <math>\sqrt{8}/\pi</math>. Para uma superfície fechada de gênero <math>g</math>, Hebda e Burago demonstraram que a razão é limitada inferiormente por <math>1/2</math>. Três anos depois, [[Mikhail Gromov (matemático)|Mikhail Gromov]] encontrou um limite inferior dado por uma constante multiplicada por <math>g^{1/2}</math>, embora este não seja ótimo. Limites superiores e inferiores assintoticamente precisos dados por uma constante vezes <math>g / (\log g)^2</math> são devidos a Gromov e a Buser-Sarnak, podendo ser encontrados em {{harvtxt|Katz|2007}}. Há também uma versão para métricas sobre a esfera, tomando-se para a sístole o comprimento da menor geodésica fechada. Gromov conjecturou um limite inferior de <math>1 / (2\sqrt{3})</math> em 1980: o melhor resultado até o momento é o limite inferior de <math>1/8</math> obtido por Regina Rotman em 2006.<ref>Rotman, R. (2006) "The length of a shortest closed geodesic and the area of a 2-dimensional sphere", Proc. Amer. Math. Soc. '''134''': 3041-3047. Limites inferiores anteriores haviam sido obtidos por Croke, Rotman-Nabutovsky e Sabourau.</ref>
+
+== Guia de leitura ==
+Um dos levantamentos introdutórios mais abrangentes sobre o assunto, traçando o desenvolvimento histórico desde antes de Gauss até os tempos modernos, é o de {{harvtxt|Berger|2004}}. Exposições detalhadas da teoria clássica são fornecidas em {{harvtxt|Eisenhart|2004}}, {{harvtxt|Kreyszig|1991}} e {{harvtxt|Struik|1988}}; os livros de graduação mais modernos e amplamente ilustrados de {{harvtxt|Gray|Abbena|Salamon|2006}}, {{harvtxt|Pressley|2001}} e {{harvtxt|Wilson|2008}} podem se mostrar mais acessíveis. Uma apresentação da teoria clássica pode ser encontrada em {{harvtxt|Hilbert|Cohn-Vossen|1952}}. Tratamentos de nível de pós-graduação mais sofisticados que utilizam a [[conexão riemanniana em uma superfície]] encontram-se em {{harvtxt|Singer|Thorpe|1967}}, {{harvtxt|do Carmo|2016}} e {{harvtxt|O'Neill|2006}}.
+
+== Ver também ==
+* [[Vetor tangente]]
+* [[Superfície de Zoll]]
+
+== Notas ==
+{{notelist}}
+
+== Referências ==
+{{Reflist}}
+
+== Bibliografia ==
+* {{citation|last1=Andrews|first1=Ben|last2=Bryan|first2=Paul|title=Curvature bounds by isoperimetric comparison for normalized Ricci flow on the two-sphere|journal=Calc. Var. Partial Differential Equations|volume=39|issue=3–4|year=2010|pages=419–428|doi=10.1007/s00526-010-0315-5|arxiv=0908.3606|s2cid=1095459}}
+* {{citation|last=Arnold|first=V.I.|author-link=Vladimir Arnold|title=Mathematical methods of classical mechanics|edition=2nd|series=Graduate Texts in Mathematics|volume=60|publisher=Springer-Verlag|place=Nova Iorque|year=1989|isbn=978-0-387-90314-9}}; traduzido do russo por K. Vogtmann e A. Weinstein.
+* {{citation|last=Berger|first=Marcel|author-link=Marcel Berger|title=A Panoramic View of Riemannian Geometry|publisher=Springer-Verlag|year=2004|isbn=978-3-540-65317-2}}
+* {{citation|last=Berger|first=Melvyn S.|title=Nonlinearity and Functional Analysis|year=1977|publisher=Academic Press|isbn=978-0-12-090350-4}}
+* {{citation|title=Non-Euclidean Geometry: A Critical and Historical Study of Its Development|first1=Roberto|last1=Bonola|first2=H. S.|last2=Carslaw|first3=F.|last3=Enriques|publisher=Dover|year=1955|isbn=978-0-486-60027-7}}
+* {{citation|last=Boothby|first=William M.|author-link=William M. Boothby|title=An introduction to differentiable manifolds and Riemannian geometry|edition=2nd|series=Pure and Applied Mathematics|volume=120|publisher=Academic Press|year=1986|isbn=0121160521}}
+* {{citation|last=Cartan|first=Élie|author-link=Élie Cartan|title=Geometry of Riemannian Spaces|publisher=Math Sci Press|year=1983|isbn=978-0-915692-34-7}}; traduzido da 2.ª edição de ''Leçons sur la géométrie des espaces de Riemann'' (1951) por James Glazebrook.
+* {{citation|last=Cartan|first=Élie|author-link=Élie Cartan|url=https://www.worldscientific.com/worldscibooks/10.1142/4808|title=Riemannian Geometry in an Orthogonal Frame (from lectures delivered by É Cartan at the Sorbonne in 1926-27)|publisher=World Scientific|year=2001|doi=10.1142/4808|isbn=978-981-02-4746-1|url-access=subscrição}}; traduzido do russo por V. V. Goldberg com prefácio de [[S. S. Chern]].
+* {{citation|title=Calcul Différentiel|language=fr|first=Henri|last=Cartan|author-link=Henri Cartan|publisher=[[Éditions Hermann|Hermann]]|year=1971|isbn=9780395120330}}
+* {{citation|first1=Xiuxiong|last1=Chen|first2=Peng|last2=Lu|first3=Gang|last3=Tian|author-link3=Gang Tian|title=A note on uniformization of Riemann surfaces by Ricci flow|journal=Proc. AMS|volume=134|year=2006|pages=3391–3393|doi=10.1090/S0002-9939-06-08360-2|issue=11|doi-access=free}}
+* {{citation|last=Chern|first=S. S.|author-link=S. S. Chern|title=Curves and Surfaces in Euclidean Spaces|series=MAA Studies in Mathematics|publisher=Mathematical Association of America|year=1967}}
+* {{citation|last=Chow|first=B.|title=The Ricci flow on a 2-sphere|journal=J. Diff. Geom.|year=1991|volume=33|issue=2|pages=325–334|doi=10.4310/jdg/1214446319|doi-access=free}}
+* {{citation|first=Richard|last=Courant|author-link=Richard Courant|year=1950|title=Dirichlet's Principle, Conformal Mapping and Minimal Surfaces|isbn=978-0-486-44552-6|publisher=John Wiley & Sons}}
+* {{citation|first=Gaston|last=Darboux|author-link=Gaston Darboux|title=Leçons sur la théorie générale des surfaces|publisher=Gauthier-Villars}} [http://www.hti.umich.edu/cgi/t/text/text-idx?c=umhistmath;idno=ABV4153.0001.001 Volume I (1887)], [http://www.hti.umich.edu/cgi/t/text/text-idx?c=umhistmath;idno=ABV4153.0002.001 Volume II (1915)], [http://www.hti.umich.edu/cgi/t/text/text-idx?c=umhistmath;idno=ABV4153.0003.001 Volume III (1894)], [http://www.hti.umich.edu/cgi/t/text/text-idx?c=umhistmath;idno=ABV4153.0004.001 Volume IV (1896)].
+* {{citation|last=Ding|first=W.|title=A proof of the uniformization theorem on S<sup>2</sup>|journal=J. Partial Differential Equations|volume=14|year=2001|pages=247–250}}
+* {{citation|last=do Carmo|first=Manfredo P.|author-link=Manfredo do Carmo|title=Differential Geometry of Curves and Surfaces|edition=revised & updated 2nd|publisher=Dover Publications, Inc.|year=2016|location=Mineola, NY|isbn=978-0-486-80699-0}}
+* {{citation|last=do Carmo|first=Manfredo|author-link=Manfredo do Carmo|title=Riemannian geometry|series=Mathematics: Theory & Applications|publisher=Birkhäuser|year=1992|isbn=0-8176-3490-8}}
+* {{citation|last=Eisenhart|first=Luther Pfahler|author-link=Luther Eisenhart|title=A Treatise on the Differential Geometry of Curves and Surfaces|edition=reprint of the 1909|publisher=Dover Publications, Inc.|year=2004|isbn=0-486-43820-1|url=https://projecteuclid.org/euclid.chmm/1428681953#toc}}
+* {{citation|title=Recherches sur la courbure des surfaces|first=Leonhard|last=Euler|author-link=Leonhard Euler|year=1760|journal=Mémoires de l'Académie des Sciences de Berlin|volume=16|pages=119–143|publication-date=1767|url=http://math.dartmouth.edu/~euler/pages/E333.html}}
+* {{citation|first=Leonhard|last=Euler|author-link=Leonhard Euler|year=1771|publication-date=1772|title=De solidis quorum superficiem in planum explicare licet|journal=Novi Commentarii Academiae Scientiarum Petropolitanae|volume=16|url=http://math.dartmouth.edu/~euler/pages/E419.html|pages=3–34}}
+* {{citation|last=Gauss|first=Carl Friedrich|author-link=Carl Friedrich Gauss|title=General Investigations of Curved Surfaces of 1825 and 1827|url=http://quod.lib.umich.edu/cgi/t/text/text-idx?c=umhistmath;idno=ABR1255|year=1902|publisher=Princeton University Library}} traduzido por A.M. Hiltebeitel e J.C. Morehead; [http://www-gdz.sub.uni-goettingen.de/cgi-bin/digbib.cgi?PPN35283028X_0006_2NS "Disquisitiones generales circa superficies curvas"], ''Commentationes Societatis Regiae Scientiarum Gottingesis Recentiores'' Vol. '''VI''' (1827), pp. 99–146.
+** {{citation|last=Gauss|first=Carl Friedrich|title=General Investigations of Curved Surfaces|date=1965|publisher=Raven Press|location=Hewlett, NY|oclc=228665499|translator1=A.M. Hiltebeitel|translator2=J.C. Morehead}}
+** {{citation|last=Gauss|first=Carl Friedrich|title=General Investigations of Curved Surfaces|date=2005|publisher=Dover Publications|location=Mineola, NY|isbn=978-0-486-44645-5|others=editado com nova introdução e notas por Peter Pesic}}
+* {{citation|last1=Gray|first1=Alfred|last2=Abbena|first2=Elsa|last3=Salamon|first3=Simon|title=Modern Differential Geometry of Curves And Surfaces With Mathematica®|year=2006|edition=3rd|series=Studies in Advanced Mathematics|isbn=978-1-58488-448-4|publisher=Chapman & Hall/CRC|location=Boca Raton, FL}}
+* {{citation|last1=Han|first1=Qing|last2=Hong|first2=Jia-Xing|title=Isometric Embedding of Riemannian Manifolds in Euclidean Spaces|publisher=American Mathematical Society|year=2006|isbn=978-0-8218-4071-9}}
+* {{citation|last=Helgason|first=Sigurdur|author-link=Sigurdur Helgason (matemático)|title=Differential Geometry, Lie Groups, and Symmetric Spaces|publisher=Academic Press, New York|year=1978|isbn=978-0-12-338460-7}}
+* {{Citation|last1=Hilbert|first1=David|author1-link=David Hilbert|last2=Cohn-Vossen|first2=Stephan|author2-link=Stephan Cohn-Vossen|title=Geometry and the Imagination|publisher=Chelsea|location=Nova Iorque|edition=2nd|isbn=978-0-8284-1087-8|year=1952}}
+* {{citation|first=Nigel|last=Hitchin|author-link=Nigel Hitchin|url=http://people.maths.ox.ac.uk/~joyce/Nairobi2019/Hitchin-GeometryOfSurfaces.pdf|title=Geometry of Surfaces|year=2013}}
+* {{citation|first=Heinz|last=Hopf|author-link=Heinz Hopf|title=Lectures on Differential Geometry in the Large|series=Lecture Notes in Mathematics|publisher=Springer-Verlag|volume=1000|year=1989|isbn=978-3-540-51497-8}}
+* {{citation|first1=Y.|last1=Imayoshi|first2=M.|last2=Taniguchi|title=An Introduction to Techmüller spaces|publisher=Springer-Verlag|year=1992|isbn=978-0-387-70088-5}}
+* {{citation|first1=Thomas A.|last1=Ivey|first2=J.M.|last2=Landsberg|title=Cartan for Beginners: Differential Geometry via Moving Frames and Exterior Systems|series=Graduate Studies in Mathematics|volume=61|year=2003|isbn=978-0-8218-3375-9|publisher=American Mathematical Society}}
+* {{Citation|last1=Katz|first1=Mikhail G.|title=Systolic geometry and topology|publisher=American Mathematical Society|series=Mathematical Surveys and Monographs|isbn=978-0-8218-4177-8|year=2007|volume=137}}
+* {{cite book|author-link1=John Milnor|last1=Milnor|first1=J.|title=Morse theory|series=Annals of Mathematics Studies|volume=51|publisher=Princeton University Press|location=Princeton, N.J.|year=1963|mr=0163331|zbl=0108.10401}}
+* {{citation|first1=Shoshichi|last1=Kobayashi|title=Induced connections and imbedded Riemannian space|journal=Nagoya Math. J.|year=1956|volume=10|pages=15–25|doi=10.1017/S0027763000000052|doi-access=free}}
+* {{citation|first=Shoshichi|last=Kobayashi|author-link=Shoshichi Kobayashi|title=Theory of connections|journal=Annali di Matematica Pura ed Applicata|series=Series 4|volume=43|pages=119–194|year=1957|doi=10.1007/BF02411907|s2cid=120972987|doi-access=free}}
+* {{citation|first1=Shoshichi|last1=Kobayashi|first2=Katsumi|last2=Nomizu|author2-link=Katsumi Nomizu|title=Foundations of Differential Geometry, Vol. I|publisher=Wiley Interscience|year=1963|isbn=978-0-470-49648-0|title-link=Foundations of Differential Geometry}}
+* {{citation|first1=Shoshichi|last1=Kobayashi|first2=Katsumi|last2=Nomizu|title=Foundations of Differential Geometry, Vol. II|publisher=Wiley Interscience|year=1969|isbn=978-0-470-49648-0}}
+* {{citation|first=Erwin|last=Kreyszig|author-link=Erwin Kreyszig|year=1991|title=Differential Geometry|isbn=978-0-486-66721-8|publisher=Dover}}
+* {{citation|title=Differential Geometry: Curves - Surfaces - Manifolds|first=Wolfgang|last=Kühnel|publisher=American Mathematical Society|year=2006|isbn=978-0-8218-3988-1}}
+* {{citation|first=Tullio|last=Levi-Civita|author-link=Tullio Levi-Civita|title=Nozione di parallelismo in una varietà qualunque|journal=Rend. Circ. Mat. Palermo|volume=42|year=1917|pages=173–205|doi=10.1007/BF03014898|s2cid=122088291|url=https://zenodo.org/record/1428456}}
+* {{citation|last=O'Neill|first=Barrett|title=Elementary Differential Geometry|edition=revised 2nd|publisher=Elsevier/Academic Press|location=Amsterdã|year=2006|isbn=0-12-088735-5}}
+* {{citation|last1=Osgood|first1=B.|last2=Phillips|first2=R.|last3=Sarnak|first3=P.|title=Extremals of determinants of Laplacians|journal=J. Funct. Anal.|volume=80|year=1988|pages=148–211|doi=10.1016/0022-1236(88)90070-5|doi-access=free}}
+* {{citation|title=A Survey of Minimal Surfaces|first=Robert|last=Osserman|publisher=Dover|year=2002|isbn=978-0-486-49514-9}}
+* [[Ian R. Porteous]] (2001) ''Geometric Differentiation: for the intelligence of curves and surfaces'', [[Cambridge University Press]] {{isbn|0-521-00264-8}}.
+* {{citation|first=Andrew|last=Pressley|title=Elementary Differential Geometry|series=Springer Undergraduate Mathematics Series|year=2001|isbn=978-1-85233-152-8|publisher=Springer-Verlag}}
+* {{citation|last1=Sacks|first1=J.|last2=Uhlenbeck|first2=Karen|author-link2=Karen Uhlenbeck|title=The existence of minimal immersions of 2-spheres|journal=Ann. of Math.|year=1981|volume=112|pages=1–24|doi=10.2307/1971131|issue=1|jstor=1971131}}
+* {{citation|last1=Singer|first1=Isadore M.|author-link1=Isadore Singer|last2=Thorpe|first2=John A.|title=Lecture Notes on Elementary Topology and Geometry|publisher=Springer-Verlag|year=1967|isbn=978-0-387-90202-9}}
+* {{citation|last=Spivak|first=Michael|author-link=Michael Spivak|title=Calculus on manifolds. A modern approach to classical theorems of advanced calculus|publisher=W. A. Benjamin|year=1965}}
+* {{citation|title=Sources of Hyperbolic Geometry|first=John|last=Stillwell|publisher=American Mathematical Society|year=1996|isbn=978-0-8218-0558-9}}
+* {{citation|first=Dirk|last=Struik|author-link=Dirk Struik|title=A Concise History of Mathematics|publisher=Dover Publications|edition=4th|year=1987|isbn=0486602559}}
+* {{citation|title=Lectures on Classical Differential Geometry|edition=reprint of 2nd|first=Dirk J.|last=Struik|author-link=Dirk Struik|year=1988|orig-year=1961|publisher=Dover Publications, Inc.|location=Nova Iorque|isbn=0-486-65609-8}}
+* {{citation|first=Michael E.|last=Taylor|author-link=Michael E. Taylor|title=Partial Differential Equations II: Qualitative Studies of Linear Equations|publisher=Springer-Verlag|year=1996a|isbn=978-1-4419-7051-0}}
+* {{citation|first=Michael E.|last=Taylor|author-link=Michael E. Taylor|title=Partial Differential Equations III: Nonlinear equations|publisher=Springer-Verlag|year=1996b|isbn=978-1-4419-7048-0}}
+* {{citation|last=Thorpe|first=John A.|title=Elementary topics in differential geometry|series=Undergraduate Texts in Mathematics|publisher=Springer-Verlag|year=1994|isbn=0387903577}}
+* {{citation|title=Differential Geometry of Curves and Surfaces: A Concise Guide|first=Victor A.|last=Toponogov|author-link=Victor Andreevich Toponogov|year=2005|isbn=978-0-8176-4384-3|publisher=Springer-Verlag}}
+* {{citation|last=Valiron|first=Georges|title=The Classical Differential Geometry of Curves and Surfaces|year=1986|publisher=Math Sci Press|isbn=978-0-915692-39-2}}
+* {{citation|last=Warner|first=Frank W.|title=Foundations of differentiable manifolds and Lie groups|series=Graduate Texts in Mathematics|volume=94|publisher=Springer|year=1983|isbn=0-387-90894-3}}
+* {{citation|last=Wells|first=R. O.|author-link=Raymond O. Wells Jr.|title=Differential and complex geometry: origins, abstractions and embeddings|publisher=Springer|year=2017|isbn=9783319581842}}
+* {{citation|last=Wilson|first=Pelham|title=Curved Space: From Classical Geometries to Elementary Differential Geometry|publisher=Cambridge University Press|year=2008|isbn=978-0-521-71390-0}}
+
+== Ligações externas ==
+* {{Commons category-inline|Differential geometry of surfaces}}
+
+{{Curvatura}}
+{{Tensores}}
+
+{{DEFAULTSORT:Geometria diferencial de superficies}}
+[[Categoria:Geometria diferencial de superfícies| ]]

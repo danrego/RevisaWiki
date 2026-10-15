@@ -1,0 +1,313 @@
+<includeonly>{{Infocaixa
+|child     = {{Yesno|{{{child|{{{embed|no}}}}}}}}
+|título    ={{{nome|{{PAGENAME}}}}}
+|subtítulo = {{#if: {{{nome_nativo|}}}|<span style="font-weight:normal;color:inherit;" lang="{{{nome_nativo_lang|}}}">{{{nome_nativo|}}}</span>}}
+|subtítulo2 ={{{subtítulo|}}}
+|imagem    ={{#invoke:InfoboxImage|InfoboxImage|image={{{imagem|{{{foto|}}}}}}|size={{#ifeq:{{lc:{{{landscape|}}}}}|sim|{{min|300|{{#if:{{#ifexpr:{{{imagem tamanho|{{{imagem_tamanho|{{{imagemtamanho|}}}}}}}}}}}|300|{{{imagem tamanho|{{{imagem_tamanho|{{{imagemtamanho|}}}}}}}}}}}}}x260px|{{{imagem tamanho|{{{imagem_tamanho|{{{imagemtamanho|}}}}}}}}}}}|sizedefault=frameless|upright={{{imagem_upright|1}}}|alt={{{alt|}}}|suppressplaceholder=yes}}
+|legenda          = {{{legenda|{{{imagem_legenda|{{{desc|}}}}}}}}}
+
+<!--- Estilos CSS --->
+| subtítulo-estilo = font-size: 125%
+| título-classe = {{{título-classe|}}}
+| título-estilo = background-color:{{{bgcolour|transparent}}}; color: inherit; {{#if:{{{título-classe|}}}|padding:1em}}; {{{título-estilo|}}}
+| tópico-estilo = {{{tópico-estilo|}}}
+<!------------Básico: Pessoal------------>
+| rótulo1       = Nome completo
+| dados1        = {{{nome_completo|{{{nome_de_batismo|}}}}}}
+| rótulo2       = [[Pseudónimo|Pseud{{Info/lang| {{{lang|}}} |ô|ó| ptx={{{pseudónimo|}}}| brx={{{pseudônimo|}}}{{{nome_artistico|}}}{{{nomes artísticos|}}} }}nimo(s)]]
+| dados2        = {{Info/lang| {{{lang|}}} | {{{pseudônimo|}}}{{{nome_artistico|}}}{{{nomes artísticos|}}} | {{{pseudónimo|}}} }}
+| rótulo3       = Outros nomes
+| dados3        = {{{outros_nomes|{{{nome_outros|{{{nomes_outros|{{{apelido|{{{apelidos|}}}}}}}}}}}}}}}
+| rótulo4       = Conhecido(a) por
+| dados4        = {{{conhecido_por|{{{conhecido por|{{{títulos|}}}}}}}}}
+| rótulo5       = {{{nomes1r|}}}
+| dados5        = {{{nomes1d|}}}
+| rótulo6       = Nascimento
+| dados6        = {{br separated entries
+   |1={{#if:{{{nome_nascimento|}}}{{{nome de nascimento|}}}|<div style="display:inline" class="nickname">{{{nome_nascimento|{{{nome de nascimento|}}}}}}</div>}}
+   |2={{#if:{{{nascimento_data|}}}{{{data_nascimento|}}}{{{nasceu|}}}{{{nascimento|}}}|<div style="display:inline" class="nickname">{{{nascimento_data|{{{data_nascimento|{{{nasceu|{{{nascimento|}}}}}}}}}}}}</div>}}
+   |3={{#if:{{{local_nascimento|}}}{{{nascimento_local|}}}{{{nascimento_cidade|}}}{{{cidade natal|}}}|<div style="display:inline" class="birthplace">{{{local_nascimento|{{{nascimento_local|}}}}}}</div>}}
+}}
+
+| rótulo7   = Desaparecimento
+| dados7    = {{br separated entries
+ | 1={{{data_desaparecimento|}}}
+ | 2={{{local_desaparecimento|}}}
+}}
+
+| rótulo8   = Situação
+| dados8    = {{{situação|{{{status_desaparecimento|}}}}}}
+
+| rótulo9       = Morte
+| dados9        = {{br separated entries
+   |1={{#if:{{{morte_data|}}}{{{data_morte|}}}{{{data_falecimento|}}}{{{faleceu|}}}{{{falecimento|}}}|<div style="display:inline" class="deathdate">{{{morte_data|{{{data_morte|{{{data_falecimento|{{{faleceu|{{{falecimento|}}}}}}}}}}}}}}}</div>}}
+   |2={{#if:{{{local_morte|}}}{{{morte_local|}}}{{{local_falecimento|}}}{{{localfaleceu|}}}|<div style="display:inline" class="deathplace">{{{local_morte|{{{morte_local|{{{local_falecimento|{{{localfaleceu|}}}}}}}}}}}}</div>}}
+}}
+
+| rótulo10  = Causa da morte
+| dados10   = {{{causa_morte|{{{morte_causa|}}}}}}
+
+| rótulo11  = Local de sepultamento
+| dados11   = {{{enterro_local|{{{enterro|{{{sepultamento|}}}}}}}}}
+
+| rótulo12    = Residência
+| dados12     = {{{residência|{{{pais_de_residencia|{{{país_de_residência|}}}}}}}}}
+| rótulo13   = Nacionalidade
+| dados13    = {{{nacionalidade|}}}
+| rótulo14   = Cidadania
+| dados14    = {{{cidadania|}}}
+| rótulo15   = [[Etnia]]
+| dados15    = {{{etnia|}}}
+
+| rótulo16   = [[Riqueza|Fortuna]]
+| dados16    = {{{fortuna|}}}
+
+| rótulo17   = [[Estatura]]
+| dados17    = {{{altura|}}}
+
+| rótulo18   = {{{pessoal1r|}}}
+| dados18    = {{{pessoal1d|}}}
+| rótulo19   = {{{pessoal2r|}}}
+| dados19    = {{{pessoal2d|}}}
+| rótulo20   = {{{pessoal3r|}}}
+| dados20    = {{{pessoal3d|}}}
+| rótulo21   = {{{pessoal4r|}}}
+| dados21    = {{{pessoal4d|}}}
+| rótulo22   = {{{pessoal5r|}}}
+| dados22    = {{{pessoal5d|}}}
+
+<!------------Básico: Família------------>
+| rótulo23   = Progenitores
+| dados23    = {{#if: {{{nome_mãe|}}} | <small>Mãe:</small> {{{nome_mãe|}}} }}{{#if: {{{nome_mãe|}}}| {{#if: {{{nome_pai|}}} | <br> }} }}{{#if: {{{nome_pai|}}} | <small>Pai:</small> {{{nome_pai|}}} }}
+| rótulo24   = Casamento dos progenitores
+| dados24    = {{{casamento_progenit|{{{casamento_pais|}}}}}}
+| rótulo25   = Parentesco
+| dados25    = {{{parentesco|{{{parentes|}}}}}}
+| rótulo26   = Cônjuge
+| dados26    = {{{cônjuge|{{{conjuge|}}}}}}
+| rótulo27 = {{#if:{{{parceira|{{{parceiras|{{{parceiro|{{{parceiros|}}}}}}}}}}}}|{{#if:{{{parceiras|{{{parceira|}}}}}}|Parceira{{#if:{{{parceiras|}}}|s|}}|Parceiro{{#if:{{{parceiros|}}}|s|}}}}}}
+| dados27    = {{{parceiro|{{{parceira|{{{parceiros|{{{parceiras|}}}}}}}}}}}}
+| rótulo28   = Filho(a)(s)
+| dados28    = {{{filhos|{{{nome_filhos|{{{filho|{{{filhas|{{{nome_filhas|{{{filha|}}}}}}}}}}}}}}}}}}
+
+<!------------Básico: Ocupação------------>
+| rótulo29   = Educação
+| dados29    = {{{educação|}}}
+| rótulo30   = ''[[Alma mater]]''
+| dados30    = {{{alma_mater|}}}
+| rótulo31   = Ocupação
+| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}
+| rótulo32   = Outras ocupações
+| dados32    = {{{outras_ocupações|}}}
+| rótulo33   = Profissão
+| dados33    = {{{profissão|}}}
+| rótulo34   = Período de atividade
+| dados34    = {{{período_atividade|{{{atividade|{{{actividade|}}}}}}}}}{{{atividade_período|}}}
+| rótulo35   = {{#if:{{{organização|}}}{{{organizações|}}}|Organizações|Organização}}
+| dados35    = {{{organização|{{{organizações|}}}}}}
+| classe35   = org
+| rótulo36   = {{{atividade_início_r|Início da atividade}}}
+| dados36    = {{{atividade_início|{{{ano de estreia|}}}}}}
+| rótulo37   = {{{atividade_fim_r|Fim da atividade}}}
+| dados37    = {{{atividade_fim|}}}
+| rótulo38   = Treinamento
+| dados38    = {{{treinamento|}}}
+| rótulo39   = Principais trabalhos
+| dados39    = {{{principais_trabalhos|{{{trabalhos|}}}}}}
+| rótulo40   = Pr{{Info/lang| {{{lang|}}} |ê|é| ptx={{{prémios|{{{prémio|}}}}}}| brx={{{prêmios|{{{prêmio|{{{principais_prêmios|}}}}}}}}} }}mios
+| dados40    = {{Info/lang| {{{lang|}}} | {{{prêmios|{{{prêmio|{{{principais_prêmios|}}}}}}}}} {{{prémios|{{{prémio|}}}}}} }}{{{premio|}}}
+| rótulo41   = Empregador(a)
+| dados41    = {{{empregador|{{{empregadora|}}}}}}
+| rótulo42   = Agência
+| dados42    = {{{agência|{{{agencia|}}}}}}
+| rótulo43   = Filiação
+| dados43    = {{{filiação|}}}
+| rótulo44   = Cargo
+| dados44    = {{{cargo|}}}
+
+| rótulo45   = {{{ocupação1r|}}}
+| dados45    = {{{ocupação1d|}}}
+| rótulo46   = {{{ocupação2r|}}}
+| dados46    = {{{ocupação2d|}}}
+| rótulo47   = {{{ocupação3r|}}}
+| dados47    = {{{ocupação3d|}}}
+| rótulo48   = {{{ocupação4r|}}}
+| dados48    = {{{ocupação4d|}}}
+| rótulo49   = {{{ocupação5r|}}}
+| dados49    = {{{ocupação5d|}}}
+| rótulo50   = {{{ocupação6r|}}}
+| dados50    = {{{ocupação6d|}}}
+| rótulo51   = {{{ocupação7r|}}}
+| dados51    = {{{ocupação7d|}}}
+| rótulo52   = {{{ocupação8r|}}}
+| dados52    = {{{ocupação8d|}}}
+| rótulo53   = {{{ocupação9r|}}}
+| dados53    = {{{ocupação9d|}}}
+| rótulo54   = {{{ocupação10r|}}}
+| dados54    = {{{ocupação10d|}}}
+
+<!------------Ocupação: Escritores------------>
+| rótulo55   = [[Gênero literário|G{{Info/lang| {{{lang|}}} |ê|é| brx={{{gênero|}}}| ptx={{{género|}}} }}nero literário]]
+| dados55    = {{Info/lang| {{{lang|}}} | {{{gênero|}}} | {{{género|}}} }}
+| rótulo56   = [[Movimento artístico|Movimento]] literário
+| dados56    = {{{movimento|}}}
+| rótulo57   = ''[[Magnum opus]]''
+| dados57    = {{{magnum_opus|}}}
+
+<!------------Ocupação: Filósofos------------>
+| rótulo58   = Escola/tradição
+| dados58    = {{{escola|}}}
+| rótulo59   = Principais interesses
+| dados59    = {{{interesses|}}}
+| rótulo60   = Ideias notáveis
+| dados60    = {{{ideias_notáveis|{{{idéias_notáveis|}}}}}}
+| rótulo61   = Principais críticos(as)
+| dados61    = {{{principais_críticos|{{{principais_críticas|}}}}}}
+
+<!------------Ocupação: Militares------------>
+| tópico62   = {{#if:{{{lealdade|}}}{{{serviço|}}}{{{força|}}}{{{país|}}}{{{tempo de serviço|}}}{{{anos em serviço|}}}{{{patente|}}}{{{hierarquia|}}}{{{unidades|}}}{{{unidade|}}}{{{comando|}}}{{{comandos|}}}{{{batalhas/guerras|}}}{{{batalhas|}}}{{{condecorações|}}}{{{medalhas|}}}{{{relações|}}}|Serviço militar}}
+| rótulo63   = País
+| dados63    = {{{lealdade|{{{país|}}}}}}
+| rótulo64   = Serviço
+| dados64    = {{{serviço|{{{força|}}}}}}
+| rótulo65   = {{nowrap|Anos de serviço}}
+| dados65    = {{{tempo de serviço|{{{anos em serviço|{{{anos_de_serviço|}}}}}}}}}
+| rótulo66   = Patente
+| dados66    = {{{patente|{{{hierarquia|}}}}}}
+| rótulo67   = Unidades
+| dados67    = {{{unidades|{{{unidade|}}}}}}
+| rótulo68   = Comando
+| dados68    = {{{comando|{{{comandos|}}}}}}
+| rótulo69   = Conflitos
+| dados69    = {{{batalhas/guerras|{{{batalhas|{{{conflitos|}}}}}}}}}
+| rótulo70   = Condecorações
+| dados70    = {{{condecorações|{{{medalhas|{{{honrarias|}}}}}}}}}
+| rótulo71   = Relações
+| dados71    = {{{relações|}}}
+
+<!------------Ocupação: Pintores------------>
+| rótulo72   = [[Movimento artístico|Movimento]] estético
+| dados72    = {{{movimento_estético|}}}
+
+<!------------Ocupação: Músicos e compositores eruditos------------>
+| tópico73   = {{#if:{{{período_musical|}}}{{{período|}}}{{{gêneromusical|}}}{{{gênero_musical|}}}{{{géneromusical|}}}{{{género_musical|}}}{{{tipo_vocal|}}}{{{extensão_vocal|}}}{{{instrumento|}}}{{{instrumentos|}}}{{{instrumentos_notáveis|}}}{{{modelos de instrumentos|}}}{{{modelos|}}}{{{gravadora|}}}{{{editora|}}}{{{afiliações|}}}{{{afiliação|}}}|Carreira musical}}
+| rótulo74   = Período musical
+| dados74    = {{{período_musical|{{{período|}}}}}}
+| rótulo75   = {{#if:{{{géneromusical|}}}{{{género_musical|}}}|[[Gênero musical|Género(s)]]|[[Gênero musical|Gênero(s)]]}}
+| dados75    = {{{gênero_musical|}}}{{{géneromusical|}}}{{{género_musical|}}}{{{gêneromusical|}}}
+| rótulo76   = [[Extensão vocal]]
+| dados76    = {{{tipo_vocal|{{{extensão_vocal|}}}}}}
+| rótulo77   = [[Instrumento musical|Instrumento(s)]]
+| dados77    = {{{instrumento|{{{instrumentos|}}}}}}
+| rótulo78   = Instrumento(s) notável(eis)
+| dados78    = {{{instrumentos_notáveis|}}}
+| rótulo79   = Modelos de instrumentos
+| dados79    = {{{modelos de instrumentos|{{{modelos|}}}}}}
+| rótulo80   = {{#if:{{{editora|}}}{{{editoras|}}}|[[Gravadora|Editora(s)]]|[[Gravadora|Gravadora(s)]]}}
+| dados80    = {{{gravadora|}}}{{{gravadoras|}}}{{{editora|}}}{{{editoras|}}}
+| rótulo81   = Afiliações
+| dados81    = {{#if: {{{afiliações|}}}{{{afiliação|}}}
+  |<hr />{{Collapsible list|expand={{{expand|}}}|title=Lista|frame_style=border:none; padding: 0;|title_style=background:transparent; text-align:left;|list_style=text-align:left;|
+	1={{{afiliações|{{{afiliação|}}}}}} }} }}
+
+<!------------Ocupação: Títulos de nobreza------------>
+| rótulo82   = Título
+| dados82    = {{{nome_título1|}}} {{#if: {{{data_título1|}}}|, recebido em {{{data_título1|}}}}}{{#if:{{{nome_título2|}}}|<br> {{{nome_título2|}}}}}{{#if: {{{data_título2|}}}|, recebido em {{{data_título2|}}}}}{{#if:{{{nome_título3|}}}|<br> {{{nome_título3|}}}}} {{#if: {{{data_título3|}}}|, recebido em {{{data_título3|}}}}}
+
+<!------------Ocupação: Atores pornográficos------------>
+| rótulo83   = N.º de filmes
+| dados83    = {{{filmes|}}}
+
+<!------------Outros------------>
+| tópico84  = {{{tópico1|}}}
+| rótulo85  = {{{rótulo1|}}}
+| dados85   = {{{dados1|}}}
+| tópico86  = {{{tópico2|}}}
+| rótulo87  = {{{rótulo2|}}}
+| dados87   = {{{dados2|}}}
+| tópico88  = {{{tópico3|}}}
+| rótulo89  = {{{rótulo3|}}}
+| dados89   = {{{dados3|}}}
+| tópico90  = {{{tópico4|}}}
+| rótulo91  = {{{rótulo4|}}}
+| dados91   = {{{dados4|}}}
+| tópico92  = {{{tópico5|}}}
+| rótulo93  = {{{rótulo5|}}}
+| dados93   = {{{dados5|}}}
+| tópico94  = {{{tópico6|}}}
+| rótulo95 = {{{rótulo6|}}}
+| dados95  = {{{dados6|}}}
+| tópico96 = {{{tópico7|}}}
+| rótulo97 = {{{rótulo7|}}}
+| dados97  = {{{dados7|}}}
+| tópico98 = {{{tópico8|}}}
+| rótulo99 = {{{rótulo8|}}}
+| dados99  = {{{dados8|}}}
+| tópico100 = {{{tópico9|}}}
+| rótulo101 = {{{rótulo9|}}}
+| dados101  = {{{dados9|}}}
+| tópico102 = {{{tópico10|}}}
+| rótulo103 = {{{rótulo10|}}}
+| dados103  = {{{dados10|}}}
+| tópico104 = {{{tópico11|}}}
+| rótulo105 = {{{rótulo11|}}}
+| dados105  = {{{dados11|}}}
+| tópico106 = {{{tópico12|}}}
+| rótulo107 = {{{rótulo12|}}}
+| dados107  = {{{dados12|}}}
+| tópico108 = {{{tópico13|}}}
+| rótulo109 = {{{rótulo13|}}}
+| dados109  = {{{dados13|}}}
+
+<!----- Final ----->
+| tópico110 = {{#if:{{{imagem_brasão|}}}|[[Ficheiro:{{{imagem_brasão}}}|{{#if:{{{imagem_brasão_tamanho|}}}|{{{imagem_brasão_tamanho}}}|150px}}|center|]]{{#if:{{{legenda_brasão}}}|<br><small>{{{legenda_brasão}}}</small>}}}}
+| rótulo111 = Religião
+| dados111  = {{{religião|}}}
+| rótulo112 = Outros
+| dados112  = {{{outros|}}}
+
+<!---- Campos em falta na movimentação da predefinição:info/cientista para cá ---->
+|tópico113 = {{#if:{{{orientador|}}}{{{orientadores|}}}{{{orientadora|}}}{{{orientadoras|}}}{{{orientado|}}}{{{orientados|}}}{{{orientada|}}}{{{orientadas|}}}{{{instituicao_trabalho|}}}{{{instituicoes_trabalho|}}}{{{local_trabalho|}}}{{{campo|}}}{{{tese|}}}|Carreira científica}}
+|rótulo114 =Orientador(es)(as)
+|dados114  ={{{orientador|{{{orientadores|{{{orientadora|{{{orientadoras|}}}}}}}}}}}}
+|rótulo115 =Orientado(a)(s)
+|dados115  ={{{orientado|{{{orientados|{{{orientada|{{{orientadas|}}}}}}}}}}}}
+|rótulo116 =Instituições
+|dados116  ={{{instituicao_trabalho|}}}{{{instituicoes_trabalho|}}}{{{local_trabalho|}}}
+
+|rótulo117 =Campo(s)
+|dados117  ={{{campo|}}}
+|rótulo118 =[[Tese]]
+|dados118  ={{{tese|}}}
+
+|rótulo119 =[[Autor de nome científico|Abrev. autoral<br />(botânica)]]
+|dados119  ={{{abrev_autor_bot|}}}
+|rótulo120 =[[Autor de nome científico|Abrev. autoral<br />(zoologia)]]
+|dados120  ={{{abrev_autor_zoo|}}}
+
+|dados121 ={{{módulo|}}}
+|dados122 ={{{módulo2|}}}
+|dados123 ={{{módulo3|}}}
+|dados124 ={{{módulo4|}}}
+|dados125 ={{{módulo5|}}}
+
+|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}
+|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}
+
+| tópico127 = {{#if:{{{assinatura|}}}|{{if empty|{{{assinatura_tipo|}}}|Assinatura}}}}
+| dados128     = {{#invoke:InfoboxImage|InfoboxImage|image={{{assinatura|}}}|size={{{assinatura_tamanho|}}}|class=infobox-signature skin-invert|sizedefault=150px|alt={{{assinatura_alt|}}}}}
+
+|rótulo129 =Notas
+|dados129 ={{{notas|}}}
+
+<!----- Final da inserção de campos em falta ----->
+
+|rodapé-estilo =padding:4px 0 4px 4px;
+|rodapé        ={{{rodapé|}}}
+}}{{#invoke:Check for unknown parameters|check|unknown={{main other|[[Categoria:Páginas usando {{if empty|{{{template_name|}}}|Info/Biografia}} com parâmetros desconhecidos|_VALUE_{{PAGENAME}}]]}}|preview = Página usando [[Predefinição:{{#if:{{{template_name|}}}|{{ucfirst:{{{template_name|}}}}}|Info/Biografia}}]] com parâmetros desconhecidos "_VALUE_"|ignoreblank=n<!--esta verificação sinaliza deliberadamente parâmetros desconhecidos vazios-->
+| actividade | afiliação | afiliações | agencia | agência | alma_mater | alt | altura | ano de estreia | anos em serviço | anos_de_serviço | apelido | apelidos | assinatura | assinatura_alt | assinatura_tamanho | assinatura_tipo | atividade | atividade_fim | atividade_fim_r | atividade_início | atividade_início_r | atividade_período | batalhas | batalhas/guerras | bgcolour | campo | cargo | casamento_pais | casamento_progenit | causa_morte | child | cidadania | cidade natal | comando | comandos | companheira | companheiro | condecorações | conflitos | conhecido por | conhecido_por | conjuge | cônjuge | dados1 | dados2 | dados3 | dados4 | dados5 | dados6 | dados7 | dados8 | dados9 | dados10 | dados11 | dados12 | dados13 | data_desaparecimento | data_falecimento | data_morte | data_nascimento | data_título1 | data_título2 | data_título3 | desc | editora | editoras | educação | embed | empregador | empregadora | enterro_local | escola | etnia | expand | extensão_vocal | faleceu | falecimento | filha | filhas | filho | filhos | filiação | filmes | força | fortuna | foto | género | gênero | género_musical | gênero_musical | géneromusical | gêneromusical | gravadora | gravadoras | hierarquia | homepage | honrarias | ideias_notáveis | idéias_notáveis | image_upright | imagem | imagem tamanho | imagem_brasão | imagem_brasão_tamanho | imagem_legenda | imagem_tamanho | imagem_upright | imagemtamanho | instituicao_trabalho | instituicoes_trabalho | instrumento | instrumentos | instrumentos_notáveis | interesses | landscape | lang | lealdade | legenda | legenda_brasão | local_desaparecimento |local_falecimento | local_morte | local_nascimento | local_trabalho | localfaleceu | localnasc | magnum_opus | medalhas | modelos | modelos de instrumentos | módulo | módulo2 | módulo3 | módulo4 | módulo5 | morte_causa | morte_data | morte_local | movimento | movimento_estético | nacionalidade | nasceu | nascimento | nascimento_cidade | nascimento_data | nascimento_local | nascimento_país | nocat_wdimage | nome | nome de nascimento | nome_artistico | nome_completo | nome_de_batismo | nome_filhas | nome_filhos | nome_mãe | nome_nascimento | nome_nativo | nome_nativo_lang | nome_outros | nome_pai | nome_título1 | nome_título2 | nome_título3 | nomes artísticos | nomes_outros | nomes1d | nomes1r | notas | ocupacao | ocupação | Ocupação | ocupação1d | ocupação1r | ocupação2d | ocupação2r | ocupação3d | ocupação3r | ocupação4d | ocupação4r | ocupação5d | ocupação5r | ocupação6d | ocupação6r | ocupação7d | ocupação7r | ocupação8d | ocupação8r | ocupação9d | ocupação9r | ocupação10d | ocupação10r | ocupações | organização | organizações | orientada | orientadas | orientado | orientador | orientadora | orientadoras | orientadores | orientados | outras_ocupações | outros | outros_nomes | país | pais_de_residencia | país_de_residência | parceiro | parceiros | parceira | parceiras | parentes | parentesco | patente | período | período_atividade | período_musical | pessoal1d | pessoal1r | pessoal2d | pessoal2r | pessoal3d | pessoal3r | pessoal4d | pessoal4r | pessoal5d | pessoal5r | premio | prémio | prêmio | prémios | prêmios | principais_críticas | principais_críticos | principais_prêmios | principais_trabalhos | profissão | pseudónimo | pseudônimo | relações | religião | residência | rodapé | rótulo1 | rótulo2 | rótulo3 | rótulo4 | rótulo5 | rótulo6 | rótulo7 | rótulo8 | rótulo9 | rótulo10 | rótulo11 | rótulo12 | rótulo13 | serviço | site | site_oficial | sítio | subtítulo | situação | status_desaparecimento | sufixo_catimg1 | template_name | tempo de serviço | tese | abrev_autor_bot | abrev_autor_zoo | tipo_vocal | título-classe | título-estilo | títulos | tópico-estilo | tópico1 | tópico2 | tópico3 | tópico4 | tópico5 | tópico6 | tópico7 | tópico8 | tópico9 | tópico10 | tópico11 | tópico12 | tópico13 | trabalho civil | trabalhos | treinamento | unidade | unidades | url | website }}<!--
+-->{{Wikidata image|1={{{imagem|}}}{{{foto|}}} | 2={{{nocat_wdimage|}}}| sufixo_catimg1={{{sufixo_catimg1|biografias}}} }}{{
+#if: {{{landscape|}}} | [[Categoria:!Páginas que usam o parâmetro landscape em Info/Biografia]] }}{{
+#if: {{{image_upright|}}} | [[Categoria:!Páginas que usam o parâmetro image_upright em Info/Biografia]] }}</includeonly><noinclude>
+{{documentação}}
+</noinclude>

@@ -1,0 +1,335 @@
+[
+  {
+    "id": "redundant-biography-heading",
+    "title": "João da Silva",
+    "source": "== João da Silva ==\n'''João da Silva''' foi um professor brasileiro.\n",
+    "required": [
+      "'''João da Silva''' foi um professor brasileiro."
+    ],
+    "forbidden": [
+      "== João da Silva =="
+    ],
+    "changed": true
+  },
+  {
+    "id": "initial-introduction-heading",
+    "title": "Exemplo",
+    "source": "== Introdução ==\n'''Exemplo''' é um conceito usado no texto.\n",
+    "required": [
+      "'''Exemplo''' é um conceito usado no texto."
+    ],
+    "forbidden": [
+      "== Introdução =="
+    ],
+    "changed": true
+  },
+  {
+    "id": "infobox-before-redundant-heading",
+    "title": "João da Silva",
+    "source": "{{Info/Biografia|nome=João da Silva}}\n== João da Silva ==\n'''João da Silva''' foi um professor brasileiro.\n",
+    "required": [
+      "{{Info/Biografia|nome=João da Silva}}",
+      "'''João da Silva'''"
+    ],
+    "forbidden": [
+      "== João da Silva =="
+    ],
+    "changed": true
+  },
+  {
+    "id": "adjacent-named-calls",
+    "title": "Exemplo",
+    "source": "Texto.<ref name=\"fonte\">Fonte.</ref> Outro texto.<ref name=\"fonte\" /><ref name=\"fonte\" />\n{{Referências}}\n",
+    "required": [
+      "Fonte."
+    ],
+    "maximum": [
+      [
+        "<ref name=\"fonte\" />",
+        1
+      ]
+    ],
+    "changed": true
+  },
+  {
+    "id": "adjacent-grouped-calls",
+    "title": "Exemplo",
+    "source": "Texto.<ref name=\"n\" group=\"nota\">Nota.</ref> Outro texto.<ref name=\"n\" group=\"nota\" /><ref name=\"n\" group=\"nota\" />\n<references group=\"nota\" />\n",
+    "required": [
+      "Nota."
+    ],
+    "maximum": [
+      [
+        "<ref name=\"n\" group=\"nota\" />",
+        1
+      ]
+    ],
+    "changed": true
+  },
+  {
+    "id": "equivalent-citation-fields",
+    "title": "Exemplo",
+    "source": "Primeira.<ref>{{Citar web|titulo=Página de teste|url=https://example.org/fonte|data=2020-01-01}}</ref> Segunda.<ref>{{Citar web|data=2020-01-01|url=https://example.org/fonte|titulo=Página de teste}}</ref>\n{{Referências}}\n",
+    "required": [
+      "<ref name=\"ref-auto-1\">",
+      "<ref name=\"ref-auto-1\" />",
+      "Página de teste"
+    ],
+    "changed": true
+  },
+  {
+    "id": "identical-reference-attributes",
+    "title": "Exemplo",
+    "source": "Texto.<ref name=\"fonte\" name=\"fonte\">Fonte.</ref>\n{{Referências}}\n",
+    "required": [
+      "<ref name=\"fonte\">Fonte.</ref>"
+    ],
+    "forbidden": [
+      "name=\"fonte\" name=\"fonte\""
+    ],
+    "changed": true
+  },
+  {
+    "id": "identical-html-table-attributes",
+    "title": "Exemplo",
+    "source": "<table class=\"wikitable\" class=\"wikitable\"><tr><td>A</td><td>B</td></tr></table>\n",
+    "required": [
+      "<td>A</td><td>B</td>"
+    ],
+    "forbidden": [
+      "class=\"wikitable\" class=\"wikitable\""
+    ],
+    "changed": true
+  },
+  {
+    "id": "mixed-template-left-closer",
+    "title": "Exemplo",
+    "source": "{{Portal|Biografias}]\n",
+    "required": [
+      "{{Portal3|Biografias}}"
+    ],
+    "forbidden": [
+      "}]"
+    ],
+    "changed": true
+  },
+  {
+    "id": "mixed-citation-right-closer",
+    "title": "Exemplo",
+    "source": "Texto.<ref>{{Citar web|titulo=Página de teste|url=https://example.org/fonte]}</ref>\n{{Referências}}\n",
+    "required": [
+      "https://example.org/fonte}}",
+      "</ref>"
+    ],
+    "forbidden": [
+      "]}"
+    ],
+    "changed": true
+  },
+  {
+    "id": "repeated-empty-note-collectors",
+    "title": "Exemplo",
+    "source": "Texto.<ref group=\"nota\">Nota.</ref>\n<references group=\"nota\" />\n<references group=\"nota\" />\n",
+    "required": [
+      "Nota."
+    ],
+    "maximum": [
+      [
+        "<references group=\"nota\"",
+        1
+      ]
+    ],
+    "changed": true
+  },
+  {
+    "id": "section-anchor-preserved",
+    "title": "João da Silva",
+    "source": "== João da Silva ==\n'''João da Silva''' foi um professor brasileiro. Veja [[#João_da_Silva|a seção]].\n",
+    "required": [
+      "== João da Silva ==",
+      "[[#João_da_Silva|a seção]]"
+    ],
+    "changed": false
+  },
+  {
+    "id": "conflicting-reference-attributes",
+    "title": "Exemplo",
+    "source": "Texto.<ref name=\"a\" name=\"b\">Fonte.</ref>\n{{Referências}}\n",
+    "required": [
+      "name=\"a\" name=\"b\""
+    ],
+    "changed": false
+  },
+  {
+    "id": "unknown-template-closer",
+    "title": "Exemplo",
+    "source": "{{Predefinição desconhecida|nome=Teste}]\n",
+    "required": [
+      "{{Predefinição desconhecida|nome=Teste}]"
+    ],
+    "changed": false
+  },
+  {
+    "id": "opaque-tail-not-repaired",
+    "title": "Exemplo",
+    "source": "<ref>{{Portal3|Biografias}]\nTexto pendente.\n",
+    "required": [
+      "<ref>{{Portal3|Biografias}]\nTexto pendente."
+    ],
+    "changed": false
+  },
+  {
+    "id": "collector-definition-preserved",
+    "title": "Exemplo",
+    "source": "Texto.<ref name=\"n\" group=\"nota\" />\n<references group=\"nota\"><ref name=\"n\">Nota.</ref></references>\n<references group=\"nota\" />\n",
+    "required": [
+      "<ref name=\"n\">Nota.</ref>"
+    ],
+    "maximum": [
+      [
+        "<references group=\"nota\"",
+        2
+      ]
+    ],
+    "changed": false
+  },
+  {
+    "id": "different-citation-pages-retained",
+    "title": "Exemplo",
+    "source": "Primeira.<ref>{{Citar livro|titulo=Livro de teste|autor=Silva|ano=2020|paginas=1}}</ref> Segunda.<ref>{{Citar livro|paginas=2|ano=2020|autor=Silva|titulo=Livro de teste}}</ref>\n{{Referências}}\n",
+    "required": [
+      "|paginas=1",
+      "|paginas=2"
+    ],
+    "forbidden": [
+      "<ref name=\"ref-auto-1\" />"
+    ],
+    "changed": false
+  },
+  {
+    "id": "english-portuguese-citation-aliases-first-click",
+    "title": "Exemplo",
+    "source": "Primeira.<ref>{{cite web|title=Página de teste|url=https://example.org/fonte}}</ref> Segunda.<ref>{{Citar web|url=https://example.org/fonte|título=Página de teste}}</ref>\n{{Referências}}\n",
+    "required": [
+      "<ref name=\"ref-auto-1\">",
+      "<ref name=\"ref-auto-1\" />",
+      "Página de teste"
+    ],
+    "changed": true
+  },
+  {
+    "id": "ken-citation-apostrophe-boundary",
+    "title": "Ken Jennings",
+    "sourceFile": "boundary_sources/Ken_Jennings_original_excerpt_73139500.wiki",
+    "expectedFile": "boundary_sources/Ken_Jennings_expected_excerpt.wiki",
+    "required": [
+      "''Ken''nections''",
+      "http://parade.condenast.com/member/kenjennings/",
+      "https://www.seattletimes.com/entertainment/books/ken-jennings-qa/"
+    ],
+    "changed": true,
+    "syntaxUnresolvedAfter": 0
+  },
+  {
+    "id": "ciencia-indigena-generated-reference-bindings",
+    "title": "Ciência indígena",
+    "sourceFile": "boundary_sources/Ciencia_indigena_source_73045540.wiki",
+    "expectedFile": "boundary_sources/Ciencia_indigena_expected.wiki",
+    "links": true,
+    "required": [
+      "A cerâmica paulista",
+      "A retomada da cerâmica Xakriabá"
+    ],
+    "changed": true,
+    "syntaxUnresolvedAfter": 0
+  },
+  {
+    "id": "literal-infobox-field-alignment",
+    "title": "Exemplo",
+    "source": "{{Info/Biografia\n|nome=A\n|imagem=Exemplo.jpg\n|legenda=Legenda.\n}}\n",
+    "config": {
+      "portals": false,
+      "biographyPortal": false
+    },
+    "alignedFields": [
+      [
+        "nome",
+        "A"
+      ],
+      [
+        "imagem",
+        "Exemplo.jpg"
+      ],
+      [
+        "legenda",
+        "Legenda."
+      ]
+    ],
+    "required": [
+      "Exemplo.jpg",
+      "Legenda."
+    ],
+    "changed": true
+  },
+  {
+    "id": "protected-infobox-layout-unchanged",
+    "title": "Exemplo",
+    "source": "<nowiki>{{Info/Biografia\n|nome=A\n|imagem=Exemplo.jpg\n|legenda=Legenda.\n}}</nowiki>\n",
+    "config": {
+      "portals": false,
+      "biographyPortal": false
+    },
+    "required": [
+      "|nome=A\n|imagem=Exemplo.jpg\n|legenda=Legenda."
+    ],
+    "changed": false
+  },
+  {
+    "id": "compact-infobox-layout-unchanged",
+    "title": "Exemplo",
+    "source": "{{Info/Biografia|nome=A|imagem=Exemplo.jpg|legenda=Legenda.}}\n",
+    "config": {
+      "portals": false,
+      "biographyPortal": false
+    },
+    "required": [
+      "{{Info/Biografia|nome=A|imagem=Exemplo.jpg|legenda=Legenda.}}"
+    ],
+    "changed": false
+  },
+  {
+    "id": "multiline-infobox-value-layout-unchanged",
+    "title": "Exemplo",
+    "source": "{{Info/Biografia\n|nome=A\n|legenda=Primeira linha\nsegunda linha\n}}\n",
+    "config": {
+      "portals": false,
+      "biographyPortal": false
+    },
+    "required": [
+      "|nome=A\n|legenda=Primeira linha\nsegunda linha"
+    ],
+    "changed": false
+  },
+  {
+    "id": "disabled-citations-option-retained-in-ui-proof",
+    "title": "Exemplo",
+    "source": "{{Descrição curta|Exemplo}}\n<ref>{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}</ref> Outro.<ref>{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}</ref>",
+    "config": {
+      "citations": false
+    },
+    "required": [
+      "{{Cite web|title=Fonte|url=https://example.invalid/a|last=Silva}}",
+      "{{Cite web|url=https://example.invalid/a|title=Fonte|ultimo=Silva}}"
+    ],
+    "forbidden": [
+      "Descrição curta"
+    ],
+    "maximum": [
+      [
+        "{{Cite web|",
+        2
+      ]
+    ],
+    "changed": true
+  }
+]
