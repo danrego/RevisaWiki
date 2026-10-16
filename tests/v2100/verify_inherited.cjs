@@ -1,0 +1,8 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),candidate=require('./candidate.cjs');
+const proof=JSON.parse(fs.readFileSync(path.join(__dirname,'ADAPTATION_PROVENANCE.json')));let checks=0;
+const equal=(a,b,label)=>{checks++;assert.deepEqual(a,b,label);};
+equal(candidate.sha(fs.readFileSync(path.join(candidate.root,proof.baselineManifest))),proof.baselineManifestSha256,'Frozen baseline manifest');
+for(const row of proof.files){const a=fs.readFileSync(path.join(candidate.root,row.source)),b=fs.readFileSync(path.join(candidate.root,row.target));equal(candidate.sha(a),row.sourceSha256,'Original suite stays immutable');equal(candidate.sha(b),row.targetSha256,'Adapted file pin');let out=a;{let text=a.toString();for(const [oldName,newName]of proof.substitutions)text=text.replaceAll(oldName,newName);for(const [before,after]of row.additionalSubstitutions||[]){equal(text.split(before).length-1,1,'One explicit additive adaptation anchor');text=text.replace(before,after);}out=Buffer.from(text);}equal(b,out,'Only declared substitutions allowed');}
+for(const row of proof.additiveModules||[])equal(candidate.sha(fs.readFileSync(path.join(candidate.root,row.target))),row.sha256,'Independent additive workflow pin');
+fs.writeFileSync(path.join(candidate.artifactDirectory(),'inheritance_adaptation.json'),JSON.stringify({version:'2.10.0',status:'passed',files:proof.files.length,checks,networkRequests:0,wikipediaWrites:0},null,2)+'\n');console.log(JSON.stringify({kind:'inheritance-adaptation',status:'passed',files:proof.files.length,checks}));

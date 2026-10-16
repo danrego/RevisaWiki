@@ -1,0 +1,338 @@
+{
+  "kind": "synthetic-local-spouse-cases",
+  "version": "2.7.3",
+  "status": "confirmed finite grammar; synthetic local fixture",
+  "positive": [
+    {
+      "id": "biography-linked-spouse-trailing-reference",
+      "infobox": "Info/Biografia",
+      "field": "conjuge",
+      "value": "[[Pessoa companheira|Cônjuge de teste]] (casado em 2001)<ref name=\"casamento\">Referência sintética preservada.</ref>",
+      "expected": "{{casamento|tipo=h|()=pequeno|[[Pessoa companheira|Cônjuge de teste]]|2001}}<ref name=\"casamento\">Referência sintética preservada.</ref>",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|conjuge=[[Pessoa companheira|Cônjuge de teste]] (casado em 2001)<ref name=\"casamento\">Referência sintética preservada.</ref>\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "scientist-explicit-divorce",
+      "infobox": "Info/Cientista",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 12 de maio de 2002; divorciada em 13 de junho de 2012)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Cônjuge de teste|12 de maio de 2002|13 de junho de 2012|fim=divorciada}}",
+      "extra": "",
+      "source": "{{Info/Cientista\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 12 de maio de 2002; divorciada em 13 de junho de 2012)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "politician-year-range",
+      "infobox": "Info/Político",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casados de 2003 a 2013)",
+      "expected": "{{casamento|tipo=c|()=pequeno|Cônjuge de teste|2003|2013}}",
+      "extra": "",
+      "source": "{{Info/Político\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casados de 2003 a 2013)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "actor-explicit-separation",
+      "infobox": "Info/Ator",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2004-05-12; separada em 2014-06-13)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Cônjuge de teste|2004-05-12|2014-06-13|fim=separada}}",
+      "extra": "",
+      "source": "{{Info/Ator\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2004-05-12; separada em 2014-06-13)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "solo-musician",
+      "infobox": "Info/Música/artista",
+      "extra": "|fundo=cantor solo\n",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casados em 2005)",
+      "expected": "{{casamento|tipo=c|()=pequeno|Cônjuge de teste|2005}}",
+      "source": "{{Info/Música/artista\n|nome=Pessoa de teste\n|fundo=cantor solo\n|cônjuge=Cônjuge de teste (casados em 2005)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "cyclist-explicit-widower",
+      "infobox": "Info/Ciclista",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casado em 2006, viúvo em 2016)",
+      "expected": "{{casamento|tipo=h|()=pequeno|Cônjuge de teste|2006|2016|fim=viúvo}}",
+      "extra": "",
+      "source": "{{Info/Ciclista\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casado em 2006, viúvo em 2016)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "martial-artist-between-years",
+      "infobox": "Info/Artista marcial",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casados entre 2007 e 2017)",
+      "expected": "{{casamento|tipo=c|()=pequeno|Cônjuge de teste|2007|2017}}",
+      "extra": "",
+      "source": "{{Info/Artista marcial\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casados entre 2007 e 2017)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "automobile-driver",
+      "infobox": "Info/Piloto de automóvel",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casado em 2008)",
+      "expected": "{{casamento|tipo=h|()=pequeno|Cônjuge de teste|2008}}",
+      "extra": "",
+      "source": "{{Info/Piloto de automóvel\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casado em 2008)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "racing-driver",
+      "infobox": "Info/Piloto de corrida",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2009)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Cônjuge de teste|2009}}",
+      "extra": "",
+      "source": "{{Info/Piloto de corrida\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2009)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "native-foreign-spouse-key",
+      "infobox": "Info/Biografia",
+      "field": "spouse",
+      "expectedField": "cônjuge",
+      "expectedInfobox": "Info/Biografia",
+      "value": "Pessoa A (casada em 2000)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "approvedForeignAlias": true
+    },
+    {
+      "id": "approved-person-template-migration",
+      "infobox": "Infobox person",
+      "field": "spouse",
+      "expectedField": "cônjuge",
+      "expectedInfobox": "Info/Biografia",
+      "value": "Pessoa A (casada em 2000)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+      "source": "{{Infobox person\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "approvedForeignAlias": true
+    },
+    {
+      "id": "approved-scientist-template-migration",
+      "infobox": "Infobox scientist",
+      "field": "spouse",
+      "expectedField": "cônjuge",
+      "expectedInfobox": "Info/Cientista",
+      "value": "Pessoa A (casada em 2000)",
+      "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+      "source": "{{Infobox scientist\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "approvedForeignAlias": true
+    }
+  ],
+  "negative": [
+    {
+      "id": "bare-year-range",
+      "value": "Cônjuge de teste (2001–2011)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (2001–2011)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "abbreviated-status",
+      "value": "Cônjuge de teste (c. 2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (c. 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "unknown-end",
+      "value": "Cônjuge de teste (casada em 2001; divorciada)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001; divorciada)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "approximate-date",
+      "value": "Cônjuge de teste (casado em cerca de 2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casado em cerca de 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "numeric-slash-date",
+      "value": "Cônjuge de teste (casada em 12/05/2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 12/05/2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "invalid-calendar-date",
+      "value": "Cônjuge de teste (casada em 29 de fevereiro de 2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 29 de fevereiro de 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "inconsistent-status-agreement",
+      "value": "Cônjuge de teste (casada em 2001; divorciado em 2011)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001; divorciado em 2011)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "two-spouses",
+      "value": "Pessoa A (casado em 2001)<br />Pessoa B (casado em 2011)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Pessoa A (casado em 2001)<br />Pessoa B (casado em 2011)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "reference-between-name-status",
+      "value": "Cônjuge de teste<ref name=\"casamento\">Referência sintética preservada.</ref> (casada em 2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste<ref name=\"casamento\">Referência sintética preservada.</ref> (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "already-marriage-template",
+      "value": "{{casamento|tipo=m|()=pequeno|Cônjuge de teste|2001}}",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge={{casamento|tipo=m|()=pequeno|Cônjuge de teste|2001}}\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "untyped-musician",
+      "infobox": "Info/Música/artista",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Música/artista\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "band-not-person",
+      "infobox": "Info/Música/artista",
+      "extra": "|fundo=grupo_ou_banda\n",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "field": "cônjuge",
+      "source": "{{Info/Música/artista\n|nome=Pessoa de teste\n|fundo=grupo_ou_banda\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "sports-partner-not-spouse",
+      "infobox": "Info/Ciclista",
+      "field": "parceiro",
+      "value": "Cônjuge de teste (casado em 2001)",
+      "extra": "",
+      "source": "{{Info/Ciclista\n|nome=Pessoa de teste\n|parceiro=Cônjuge de teste (casado em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "unsupported-generic-box",
+      "infobox": "Info",
+      "field": "dados1",
+      "extra": "|rótulo1=Cônjuge\n",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "source": "{{Info\n|nome=Pessoa de teste\n|rótulo1=Cônjuge\n|dados1=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "duplicate-spouse-field",
+      "duplicate": true,
+      "value": "Cônjuge de teste (casada em 2001)",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "extra": "",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n|cônjuge=Pessoa diferente (casada em 2002)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n"
+    },
+    {
+      "id": "five-protected-infobox-contexts",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "protectedBlocks": [
+        "<nowiki>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</nowiki>",
+        "<pre>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</pre>",
+        "<syntaxhighlight lang=\"wikitext\">{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</syntaxhighlight>",
+        "<blockquote>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</blockquote>",
+        "<!--{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}-->"
+      ],
+      "source": "{{Main|Brasil}}\n\n<nowiki>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</nowiki>\n\n<pre>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</pre>\n\n<syntaxhighlight lang=\"wikitext\">{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</syntaxhighlight>\n\n<blockquote>{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}</blockquote>\n\n<!--{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}-->\n"
+    },
+    {
+      "id": "opaque-tail-namespace-portuguese",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{Predefinição:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfobox": "Predefinição:Info/Biografia",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{Predefinição:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-namespace-template-person",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{Template:Infobox_person\n|nome=Outra pessoa\n",
+      "potentialInfobox": "Template:Infobox_person",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{Template:Infobox_person\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-namespace-template-info",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{Template:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfobox": "Template:Info/Biografia",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{Template:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-subst-info",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{subst:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfobox": "subst:Info/Biografia",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{subst:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-safesubst-info",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{safesubst:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfobox": "safesubst:Info/Biografia",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{safesubst:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-subst-portuguese-namespace",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{subst:Predefinição:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfobox": "subst:Predefinição:Info/Biografia",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{subst:Predefinição:Info/Biografia\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "opaque-tail-safesubst-template-namespace",
+      "infobox": "Info/Biografia",
+      "field": "cônjuge",
+      "value": "Cônjuge de teste (casada em 2001)",
+      "opaqueTail": "\"Trecho opaco do teste.\n{{safesubst:Template:Infobox_person\n|nome=Outra pessoa\n",
+      "potentialInfobox": "safesubst:Template:Infobox_person",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Cônjuge de teste (casada em 2001)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n\n== Bibliografia ==\n\"Trecho opaco do teste.\n{{safesubst:Template:Infobox_person\n|nome=Outra pessoa\n",
+      "potentialInfoboxIncomplete": true
+    },
+    {
+      "id": "foreign-spouse-internal-bold-name-preserved",
+      "infobox": "Infobox person",
+      "field": "spouse",
+      "expectedField": "cônjuge",
+      "expectedInfobox": "Info/Biografia",
+      "value": "Pessoa '''A''' (casada em 2000)",
+      "source": "{{Infobox person\n|name=Pessoa de teste\n|spouse=Pessoa '''A''' (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "protectedNameMarkup": true
+    }
+  ]
+}

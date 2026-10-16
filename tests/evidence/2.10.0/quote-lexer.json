@@ -1,0 +1,300 @@
+{
+  "version": "2.10.0",
+  "kind": "quote-lexer",
+  "actualDistributions": true,
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_10_0.js": {
+      "bytes": 9651,
+      "sha256": "593d17272a2daf0ed59c1bf8c9a86ecc9eb36173e6a352aa1eddf2f137e00eda"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_10_0.js": {
+      "bytes": 9653,
+      "sha256": "3542955062ce98159016d97774d6b9eef969e4902883e5019b53f3afc46adeaf"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_10_0.js": {
+      "bytes": 1263981,
+      "sha256": "39342df8bb450411569a068ce13b78a7ca3027a2d53b7329a75d924fde539428"
+    },
+    "RevisaWiki_v2_10_0_completo.js": {
+      "bytes": 2777126,
+      "sha256": "e8df85fcf35bf2f0afbbb91581e6c232d276d9357894deb5c5685d6dc30cac9a"
+    },
+    "RevisaWiki_v2_10_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "2676e1aa28bd9664ca88cc983dfc30c13990d0c98ffe38ec3d87d9dfa19a61fd"
+    }
+  },
+  "startedAt": "2026-10-16T14:15:26.678Z",
+  "checks": 86,
+  "cases": [
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Obra<ref>''Título''</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto '''Obra<ref>''Título''</ref>'''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto '''''Obra<ref>''Título''</ref>'''''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]</r",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=''Interno''|url=https://example.invalid/",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>Fonte''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref name=\"a\"/>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref><ref>Fonte</ref></ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref group=\"nota\">''Interno''</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>Fonte<\\ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref>Fonte\n</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Texto ''Exemplo <ref name=\"{{PAGENAME}}\">Fonte</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "''Livro''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Livro ''A''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "'Jeopardy!' host",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Apresentador de ''Jeopardy!'', Ken cria ''Kennections''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "'''Autor''' e ''Livro''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "''IPF's''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "Ken Jennings oldid73139500",
+      "kind": "real-frozen-lexer-regression",
+      "sourceSha256": "8bcec1af092b3268053c0c15daf5585183d965d6c442627f780a9f650c434b25",
+      "outputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6.js",
+      "name": "destructive mutation guards remain",
+      "kind": "negative-inventory",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Obra<ref>''Título''</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto '''Obra<ref>''Título''</ref>'''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto '''''Obra<ref>''Título''</ref>'''''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]</r",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=''Interno''|url=https://example.invalid/",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>Fonte''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a}]''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref name=\"a\"/>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref><ref>Fonte</ref></ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref group=\"nota\">''Interno''</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>Fonte<\\ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref>Fonte\n</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Texto ''Exemplo <ref name=\"{{PAGENAME}}\">Fonte</ref>''.",
+      "kind": "opaque-quoted-example",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "''Livro''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Livro ''A''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "'Jeopardy!' host",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Apresentador de ''Jeopardy!'', Ken cria ''Kennections''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "'''Autor''' e ''Livro''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "''IPF's''",
+      "kind": "reference-title-markup",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "Ken Jennings oldid73139500",
+      "kind": "real-frozen-lexer-regression",
+      "sourceSha256": "8bcec1af092b3268053c0c15daf5585183d965d6c442627f780a9f650c434b25",
+      "outputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
+      "status": "passed"
+    },
+    {
+      "bundle": "RevisaWiki_v2_6_completo.js",
+      "name": "destructive mutation guards remain",
+      "kind": "negative-inventory",
+      "status": "passed"
+    }
+  ],
+  "failures": [],
+  "RevisaWiki_v2_6.js": "39342df8bb450411569a068ce13b78a7ca3027a2d53b7329a75d924fde539428",
+  "RevisaWiki_v2_6_completo.js": "e8df85fcf35bf2f0afbbb91581e6c232d276d9357894deb5c5685d6dc30cac9a",
+  "status": "passed",
+  "completedAt": "2026-10-16T14:15:42.036Z"
+}

@@ -1,0 +1,31 @@
+{
+  "version": "2.10.0",
+  "scope": "Whole mainspace wikitext articles, complete independently bounded literal wikitables, outside protected examples and calculated structures.",
+  "syntaxStage": "v210-table-syntax",
+  "accessibilityStage": "v210-table-deep-leaf-scopes",
+  "rules": {
+    "emptyRowMarkers": "Only attribute-free repeated markers separated by whitespace and attribute-free final markers. Rows containing actual cells, comments or attributes are never called empty.",
+    "missingAttributeBars": "Only an entire fully quoted recognized cell-attribute prefix containing scope, rowspan or colspan, followed by a nonempty static label. A unique separator is inserted. Unknown attributes, calculated labels and ambiguous quoted content are refused.",
+    "typographicSpanQuotes": "Only paired typographic quotation marks enclosing a positive decimal literal span of one through three digits in an explicit cell-attribute zone. Other quotes, numbers and cell contents remain exact.",
+    "mixedClosers": "An isolated HTML closing table tag can close one unmatched literal wikitable only when no HTML table tags, nesting or calculated structures occur inside and a complete regular grid is verified.",
+    "deepLeafScopes": "Only three or four consecutive header tiers with noncrossing nested colspan partitions and at least one actual subdivision. Individual final headers receive scope=col. Upper grouping cells remain exact. Rowspan, custom identifiers, explicit header associations and conflicting scope are refused."
+  },
+  "independentObjects": "Validation is performed on each complete table. A separately malformed tail is retained byte for byte and is not treated as evidence that the complete table is malformed.",
+  "jointRepairs": "All new finite syntax corrections in one table form one atomic source-bound transaction, with local edit and before/after hash evidence. Existing numeric quote and identical-attribute rules may finish that same validated table.",
+  "conservation": "No row, column, cell, value, label, citation, image, link, caption, sort key, table width or data record is invented or removed. Redundant markers contain no data. Every byte outside a syntax transaction remains unchanged.",
+  "notImplemented": [
+    "Filling missing cells or guessing spans from uneven row lengths",
+    "Changing ordinary cells into headers",
+    "Inventing scope=colgroup or headers/id associations",
+    "Moving captions based only on their source position",
+    "Generic HTML-to-wikitext conversion",
+    "Blanket widths, scroll wrappers or mobile layout changes"
+  ],
+  "primarySources": [
+    "https://www.mediawiki.org/wiki/Help:Tables#Wiki_table_markup_summary",
+    "https://www.mediawiki.org/wiki/Help:Tables#Attributes_on_cells",
+    "https://www.mediawiki.org/wiki/Help:Tables#Accessibility_of_table_header_cells"
+  ],
+  "anonymousParserObservation": "Read-only native parsing confirmed that repeated attribute-free row markers and an attribute-free final marker produce no extra tr or cell element. Unseparated scope attributes are displayed as cell text. These observations guide finite fixtures rather than authorize broad reconstruction.",
+  "wikipediaWrites": 0
+}

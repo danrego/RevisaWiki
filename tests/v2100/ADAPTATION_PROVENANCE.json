@@ -1,0 +1,374 @@
+{
+  "version": "2.10.0",
+  "baselineManifest": "tests/expected_release_v290.json",
+  "baselineManifestSha256": "63185dc7441b7b85143b909cecce40d0e14141660f0a014c9aad837b049ecbb1",
+  "substitutions": [
+    [
+      "2.9.0",
+      "2.10.0"
+    ],
+    [
+      "_v2_9_0",
+      "_v2_10_0"
+    ],
+    [
+      "v290",
+      "v2100"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v290/run_all.cjs",
+      "target": "tests/v2100/run_all.cjs",
+      "sourceSha256": "d97f06e9da24b89a4ce79625ca57a54ad527d92961895e5c660460ca58e5b7e1",
+      "targetSha256": "a91d82e529c4f97c9354a581ea5fa26dbd83699b691ca5fbc5f457227104ff5d",
+      "additionalSubstitutions": [
+        [
+          "for(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','run_engine.cjs','summarize.cjs']){\n",
+          "for(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','summarize.cjs']){\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/candidate.cjs",
+      "target": "tests/v2100/candidate.cjs",
+      "sourceSha256": "e1b7431507c541fd4718aff3f2edfa485af2659b092a253c588354c016bf6b0d",
+      "targetSha256": "3c07afa6b5110dd3e6236e69859b891d0856e421825d86177f0bc034c350b216",
+      "additionalSubstitutions": [
+        [
+          "function load(name){const {dist}=verify(),mapping={'RevisaWiki_v2_6.js':'RevisaWiki_v2_10_0.js','RevisaWiki_v2_6_completo.js':'RevisaWiki_v2_10_0_completo.js','RevisaWiki_v2_7.js':'RevisaWiki_v2_10_0.js','RevisaWiki_v2_7_completo.js':'RevisaWiki_v2_10_0_completo.js'},actual=mapping[name]||name;assert(Object.hasOwn(manifest.files,actual));const api=require(path.join(dist,actual));assert.equal(api.version,manifest.runtimeVersion);return {api,sha256:manifest.files[actual].sha256};}\n",
+          "function load(name){const {dist}=verify(),mapping={'RevisaWiki_v2_6.js':'RevisaWiki_v2_10_0.js','RevisaWiki_v2_6_completo.js':'RevisaWiki_v2_10_0_completo.js','RevisaWiki_v2_7.js':'RevisaWiki_v2_10_0.js','RevisaWiki_v2_7_completo.js':'RevisaWiki_v2_10_0_completo.js'},actual=mapping[name]||name.replace('_v2_9_0','_v2_10_0');assert(Object.hasOwn(manifest.files,actual));const api=require(path.join(dist,actual));assert.equal(api.version,manifest.runtimeVersion);return {api,sha256:manifest.files[actual].sha256};}\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/run_startup.cjs",
+      "target": "tests/v2100/run_startup.cjs",
+      "sourceSha256": "5a23b82f933aee82c85c50c78f4b33d4988b1f5cfe8aa3c8e8d0b0af32c38012",
+      "targetSha256": "6ccedfdb35a20c2e67c5690ba0cb6e61265a7efde4d44dbb563349ec991db0de",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_quote_boundaries.cjs",
+      "target": "tests/v2100/run_quote_boundaries.cjs",
+      "sourceSha256": "f2ff4cabb7ca3f4c76656be8265038af258337c1d0202b3a6719fda48971f2b4",
+      "targetSha256": "ac8077f7c2e4f6278e107a94261da3d9300f75ca1cb4ad8205b4c65e684796ac",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_multiple_marriages.cjs",
+      "target": "tests/v2100/test_multiple_marriages.cjs",
+      "sourceSha256": "9bd08f5c91995bbee7a12f47229e93bbf6638f8dad51758621d2e6f5c891003f",
+      "targetSha256": "44ad5508d1d3607cc752c24d3671c9d02d438557c7de345ad110039cc62ed94a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_quotes.cjs",
+      "target": "tests/v2100/test_quotes.cjs",
+      "sourceSha256": "22f57048f704a5bdec06ffc6853bdff9634f1a73c6ae16263ec89f7b8c9484f6",
+      "targetSha256": "2a0bfba0d85c4664f593f58658bf0af193eb39f0f3b1cfa951797ae32f775f61",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/check_server_grammar.php",
+      "target": "tests/v2100/check_server_grammar.php",
+      "sourceSha256": "41c333f2eb9454f39d7b397444b147de41f610cc7cfaf022a64aae6f1ab6872b",
+      "targetSha256": "313e63266d363dc60e9f54fff28b1dd90f6973cf43fd31b516f24e2288633927",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_index.cjs",
+      "target": "tests/v2100/test_index.cjs",
+      "sourceSha256": "5150f3e2a5c300992a5ddc04aae4223084bed0d4f7ab9d1d0adab1f2c0dc19b4",
+      "targetSha256": "b0f857a52030872bf9fcc37a31954855fb48338127c2dc34f3ee35b2a59a48df",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_edited_corpus.cjs",
+      "target": "tests/v2100/run_edited_corpus.cjs",
+      "sourceSha256": "0f743872c7ce93235cc3faa1f206609e8bf4d9b8d6152d3fc3f3767f763d8531",
+      "targetSha256": "3445966e135896db9baa086fba1f683f7e7ab5b4d91ca6efcd308d22e6c546c4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_safe_automation.cjs",
+      "target": "tests/v2100/test_safe_automation.cjs",
+      "sourceSha256": "f25193a8c537d9d80f197cf999e68657df5fcaaab9e8d035429519f55c1b7de9",
+      "targetSha256": "73c69698a588785aad4942533d80acb9870fd779a2b445c65cf44ff28bf46a91",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_table_repairs.cjs",
+      "target": "tests/v2100/test_table_repairs.cjs",
+      "sourceSha256": "32ef637983751c27211af1dd8e561a19b9cf565447223c0b26ce679f0323e491",
+      "targetSha256": "65730ebd68c015185f8fecc80963c0c01c45ce0f6d821094b6052e6b19a5bfed",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_table_guards.cjs",
+      "target": "tests/v2100/test_table_guards.cjs",
+      "sourceSha256": "116dda626140424783d9b7e3ae4a3f32b7ca7dc4cd4feac1c5ea953626e73eed",
+      "targetSha256": "85a6c02fd58225e55c3b1b42fdf9cd6e71bc91366163f520facade52a56ce6ee",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_citation_families.cjs",
+      "target": "tests/v2100/test_citation_families.cjs",
+      "sourceSha256": "ad331fdc601fd9af3d0f54faf20e1201e5d4acf4452bc25ec5965e3a4711efb3",
+      "targetSha256": "5d033f8adbd677faeabeb806aa35a66f213a051bd6749c0a2f53080dbd714b6d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/summarize.cjs",
+      "target": "tests/v2100/summarize.cjs",
+      "sourceSha256": "822451616d78ba91cb07620e25d307695a20cd6b829314abee7a3709ade71d74",
+      "targetSha256": "1cb043407190b25e1a24d69b7a4855d5b87ad45ca0d92c28c958e5ba04765993",
+      "additionalSubstitutions": [
+        [
+          "const names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json'];\n",
+          "const names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json'];\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/test_chat_permutations.cjs",
+      "target": "tests/v2100/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_focus.cjs",
+      "target": "tests/v2100/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_reference_repairs.cjs",
+      "target": "tests/v2100/test_reference_repairs.cjs",
+      "sourceSha256": "bdd8f89de467a4d1d51b388c0893f7350d21fef2c5d5c14f2a2dced4da88c727",
+      "targetSha256": "3df1b1ee0a0e771355fefa30df507341ed90443014225df393dddccf10cd1175",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_table_syntax.cjs",
+      "target": "tests/v2100/test_table_syntax.cjs",
+      "sourceSha256": "de9aac167e94193801c93cd88d8770b0a52bc2f7937036c8310454afb6eceeeb",
+      "targetSha256": "3c4e9d34146ce8de49d32dc499c435787ca0e9af634b266e521404c680661b46",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_tag_adversarial.cjs",
+      "target": "tests/v2100/run_tag_adversarial.cjs",
+      "sourceSha256": "d475c440c74d532a71ee2c08c3ad840e08d792ccd719d65d6729eb30e87b36bd",
+      "targetSha256": "2a21acfac86fe81d81ddbfde19b4a3144bbc5a38027977f9361d28342abcbd62",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_biography_dates.cjs",
+      "target": "tests/v2100/test_biography_dates.cjs",
+      "sourceSha256": "1a465978449d1f72c2d60e1fc86c432acd9ee2213c4fe0cf906d95862e603310",
+      "targetSha256": "ba273d2368f0d7c459f61d153983c4aa826668dde51949421139149899b558ae",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_diff_reporting.cjs",
+      "target": "tests/v2100/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_biography_fields.cjs",
+      "target": "tests/v2100/test_biography_fields.cjs",
+      "sourceSha256": "2561b4dd1d12b9570258050de908e1ac8216446fddfdb9cc15955b9732375856",
+      "targetSha256": "210ceaabd66c29599ed7a38864cbe8de3f7126bd8541cf81bcd250ed1cc16d62",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_chemical_syntax.cjs",
+      "target": "tests/v2100/test_chemical_syntax.cjs",
+      "sourceSha256": "69a05fa471c477655fdd0935435e5f03606d1fd9a0381e7c1ca23a2350b9dd93",
+      "targetSha256": "7b337b7b3e0a6cca413f1b0b23c040689571e2507c3cab7c5fc9fa8647e10f1b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_engine.cjs",
+      "target": "tests/v2100/run_engine.cjs",
+      "sourceSha256": "42693172d0a5a115a357a78ceb66ca896eec28a55cc00272924344692aa00f9f",
+      "targetSha256": "42693172d0a5a115a357a78ceb66ca896eec28a55cc00272924344692aa00f9f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_chemical_guards.cjs",
+      "target": "tests/v2100/test_chemical_guards.cjs",
+      "sourceSha256": "4603aa1d157b659cf65bc5917fecc6b84432f00e616761f685ebcfe429d4f63f",
+      "targetSha256": "4efd2ef3648909029b205405cbd86ab68ef1c3122d6a8bfa0ac6dfde809398a7",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_birth_categories.cjs",
+      "target": "tests/v2100/test_birth_categories.cjs",
+      "sourceSha256": "43088a8c5eb7876cde12b943ba8d6d08aec0a918fb7b62e98eb40bb1560a9722",
+      "targetSha256": "22fd5d067f3328b141da4895a9360fd029c9154fff6e524580754b0ff9b5c15c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_historical_citations.cjs",
+      "target": "tests/v2100/test_historical_citations.cjs",
+      "sourceSha256": "58c258af9d5e3b568fde36e8f1b323a04a2c2d75adb273f377a41b8712cfc2ab",
+      "targetSha256": "52f52a0f4a39a5b76b87b098550e5923610d510601430469dc9badb266238eee",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_identifier_urls.cjs",
+      "target": "tests/v2100/test_identifier_urls.cjs",
+      "sourceSha256": "88ae9bf38cc47abdb4d96800bbb05a91081cfafc7ad119854309066899607bca",
+      "targetSha256": "4094403a273f3cdd8eb1336e13b1fd41470ad3199f5b90a977b8b0baa95d5c04",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_marriage_guards.cjs",
+      "target": "tests/v2100/test_marriage_guards.cjs",
+      "sourceSha256": "86e20fd1aff95ab360938474d61ede3b2d25e47902d27facb2b5d24ce5821507",
+      "targetSha256": "20711bb26a408227c9a0a707766c7d218a1ba3a7816629cb00d25c5b53758c43",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_marriage_syntax.cjs",
+      "target": "tests/v2100/test_marriage_syntax.cjs",
+      "sourceSha256": "36aa4139bfe076c361826d2958232e194f17a82deacc28f8dbe4d66471c88ff1",
+      "targetSha256": "cfa0036c8759730f2872f76f4f66c6ac61912d82f74ae248b3765e7c8fef9a6d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_chat_residues.cjs",
+      "target": "tests/v2100/test_chat_residues.cjs",
+      "sourceSha256": "e6d69918d0b217b51a6528755fffad2d783a3a37d5af8cefefed66f4aa6b6cc0",
+      "targetSha256": "73f17bcc867114a9e3b6455e908c21ebbe36da5ff4d395961685c2d381909a20",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/engine_helper.cjs",
+      "target": "tests/v2100/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_no_section_buttons.cjs",
+      "target": "tests/v2100/test_no_section_buttons.cjs",
+      "sourceSha256": "16b72461d9189661c507ddac49e1e380c653785421a2ac1ae0c4623b3809918f",
+      "targetSha256": "48ea44c332e4a6bef1dd5f4ff37361caf570677d777fbcab2f7f7bb531f1353d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/test_biography_composition.cjs",
+      "target": "tests/v2100/test_biography_composition.cjs",
+      "sourceSha256": "b6e3464e47c71599382a52efafad95350bff288c151227cd4708ce080869969a",
+      "targetSha256": "dd0e59a7e314697f6a1d5a8fbad7a61613eb72a5d295939a3d6cc1aa763a7baa",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/run_server_grammar.mjs",
+      "target": "tests/v2100/run_server_grammar.mjs",
+      "sourceSha256": "ea04c6bd17a8f71a138a16b36db43645bee67ebbc6a217c39c74cc83ccd8db5c",
+      "targetSha256": "5f9ba91c4b561107eb1358ccc8fee80936d7c55cadc73ca715b1a11aed8f5d13",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/browser/v29_repair_flow.cjs",
+      "target": "tests/v2100/browser/v29_repair_flow.cjs",
+      "sourceSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "targetSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/browser/summarize_release.cjs",
+      "target": "tests/v2100/browser/summarize_release.cjs",
+      "sourceSha256": "0be88f88bdb9e5e434b334386c31b6c7b4e4688653f093c6e8933a0f6d3de15c",
+      "targetSha256": "983fddb66575284de5efffd5dcd8424337996625058d54ce7731b9c3ae565e23",
+      "additionalSubstitutions": [
+        [
+          "summary.scope='Ninety-three local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source and two spouse workflows covering twelve positive cases across registered infobox profiles and three already-approved foreign aliases and twenty-three negative cases. All inherited spouse sources restore byte-exactly through Undo. Twenty-six new biography fixtures cover image fields, external sites, professions, full dates, named birth-date arguments and individually complete multiple-marriage lists, plus explicit guarded inputs. Every fixture passes a real second click and exact Undo. The historical two-spouse source is now a positive case under the explicit 2.8 multi-marriage grammar, while the original single-spouse parser still declines it. The complete 260568-byte Keynes biography converts its verified initial spouse field while preserving the unrelated opaque bibliography tail exactly. Whole Zara source retains all eleven award tables and six valid composite result lines, closes only the missing numeric quote and adds both biography portals using one anonymous mocked verified public-entity read. Protected table examples remain exact. Six complete biography sources cover confirmed redundant birth categories, trusted keyboard rejection and reacceptance of the category removal, repeated clicks and exact Undo. Two further biography cases retain the category when the mocked anonymous read fails or does not return it. No live Wikipedia integration or full visual audit is claimed.';\n",
+          "summary.scope='One hundred thirty-two local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source and two spouse workflows covering twelve positive cases across registered infobox profiles and three already-approved foreign aliases and twenty-three negative cases. All inherited spouse sources restore byte-exactly through Undo. Twenty-six new biography fixtures cover image fields, external sites, professions, full dates, named birth-date arguments and individually complete multiple-marriage lists, plus explicit guarded inputs. Every fixture passes a real second click and exact Undo. The historical two-spouse source is now a positive case under the explicit 2.8 multi-marriage grammar, while the original single-spouse parser still declines it. The complete 260568-byte Keynes biography converts its verified initial spouse field while preserving the unrelated opaque bibliography tail exactly. Whole Zara source retains all eleven award tables and six valid composite result lines, closes only the missing numeric quote and adds both biography portals using one anonymous mocked verified public-entity read. Protected table examples remain exact. Six complete biography sources cover confirmed redundant birth categories, trusted keyboard rejection and reacceptance of the category removal, repeated clicks and exact Undo. Two further biography cases retain the category when the mocked anonymous read fails or does not return it. No live Wikipedia integration or full visual audit is claimed.';\n"
+        ],
+        [
+          "assert.equal(summary.cases,93);assert(summary.checks>360);\n",
+          "assert.equal(summary.cases,132);assert(summary.checks>360);\n"
+        ],
+        [
+          "  }\n }\n",
+          "  }\n }\n const v210=report.tests.filter(test=>test.name.startsWith('2.10 '));assert.equal(v210.length,13);\n const responsiveGeometry=v210.find(test=>test.name==='2.10 responsive table geometry across screen and text sizes');assert(responsiveGeometry&&responsiveGeometry.passed);assert.equal(responsiveGeometry.evidence.status,'passed');assert.equal(responsiveGeometry.evidence.cases.length,162);assert.equal(responsiveGeometry.evidence.failures.length,0);assert.equal(responsiveGeometry.evidence.wikipediaWrites,0);\n for(const field of ['v210RepairFlowSha256','responsiveFlowSha256','fixtureScriptSha256','nativeHarvardFixtureSha256'])assert.equal(typeof report[field],'string');\n assert.equal(report.v210RepairFlowSha256,sha(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))));assert.equal(report.responsiveFlowSha256,sha(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))));assert.equal(report.fixtureScriptSha256,sha(fs.readFileSync(path.join(__dirname,'fixture.js'))));assert.equal(report.nativeHarvardFixtureSha256,sha(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))));\n const repairs=v210.filter(test=>/finite table and reference repairs|guarded table and reference cases/.test(test.name));assert.equal(repairs.length,4);for(const test of repairs){assert.equal(test.evidence.cases.length,9);assert.equal(test.evidence.realWorker,true);}\n assert.equal(v210.filter(test=>test.evidence.actualBrowserDOMParser===true).length,2);\n assert.equal(v210.filter(test=>test.evidence.automaticAction===true&&test.evidence.nativeEvidenceAccepted===true).length,2);\n assert.equal(v210.filter(test=>test.evidence.automaticAction===true&&test.evidence.nativeEvidenceAccepted===false).length,2);\n assert.equal(v210.filter(test=>test.evidence.automaticNativeGroupRecovery===true).length,2);\n summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n"
+        ],
+        [
+          " assert.equal(report.tests.length,31);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n",
+          " assert.equal(report.tests.length,44);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n"
+        ],
+        [
+          " assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,31);\n",
+          " assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,44);\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/browser/citation_flow.cjs",
+      "target": "tests/v2100/browser/citation_flow.cjs",
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/browser/build_second_click_contract.cjs",
+      "target": "tests/v2100/browser/build_second_click_contract.cjs",
+      "sourceSha256": "9d6381e223c65bb8bc1d07ea756aeda53beb1fc7c81bbc1ff468c74bc82fbe10",
+      "targetSha256": "59bab06e5b9064e0550e937f57d6f599e6d1bd61552cc6076c884a34e1f52c79",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v290/browser/fixture.js",
+      "target": "tests/v2100/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "targetSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "additionalSubstitutions": [
+        [
+          "      qa.parseCalls.push({...p});\n",
+          "      qa.parseCalls.push({...p});\n      if(typeof qa.v210Parse==='function'){\n        const local=qa.v210Parse(p,previewSerial);\n        if(local!==undefined&&local!==null)return local;\n      }\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/browser/run_release.cjs",
+      "target": "tests/v2100/browser/run_release.cjs",
+      "sourceSha256": "b7d335c2060ccd3952fd539aa9a1e359cc386f15ffda901a1654353ab83b0f1e",
+      "targetSha256": "db49a51ce5ba384101d316b84cb8b4670047602b7f619824d7b5b4a4c9bc112b",
+      "additionalSubstitutions": [
+        [
+          "  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),report.birthCategoryCaseSha256,'Primary category response fixture remains frozen');\n",
+          "  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),report.birthCategoryCaseSha256,'Primary category response fixture remains frozen');\n  for(const [filename,field]of [['v210_repair_flow.cjs','v210RepairFlowSha256'],['responsive_flow.cjs','responsiveFlowSha256'],['fixture.js','fixtureScriptSha256']])assert.equal(hash(fs.readFileSync(path.join(__dirname,filename))),report[field],'Additive 2.10 workflow remains frozen: '+filename);\n"
+        ],
+        [
+          "  await require('./v29_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n",
+          "  await require('./v29_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n\n"
+        ],
+        [
+          " const requestURL=new URL(req.url,'http://localhost'),name=requestURL.pathname.slice(1)||'fixture.html';\n",
+          " const requestURL=new URL(req.url,'http://localhost'),name=requestURL.pathname.slice(1)||'fixture.html';\n if(name==='responsive.html'){\n  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':\"default-src 'none'; script-src 'unsafe-eval'; style-src 'unsafe-inline'; frame-src 'self'; form-action 'none'\"});res.end('<!doctype html><html lang=\"pt\"><meta charset=\"utf-8\"><title>Teste local de tabelas</title><main></main></html>');return;\n }\n\n"
+        ],
+        [
+          "const report={v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.10.0',build:'2.10.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n",
+          "const report={v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.10.0',build:'2.10.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v290/browser/birth_category_flow.cjs",
+      "target": "tests/v2100/browser/birth_category_flow.cjs",
+      "sourceSha256": "8883826ab632b71d02192493749973e8228a1a968d6418e92d4dcbd6b7db80f3",
+      "targetSha256": "1dea86bcde15ebee2fa5599bba23eb71c563b29e6307a26567921de07c724ba3",
+      "additionalSubstitutions": []
+    }
+  ],
+  "method": "Exact previous-release executable assertion files, with only declared release plumbing substitutions and additive runners. Historical assertion files remain untouched."
+}

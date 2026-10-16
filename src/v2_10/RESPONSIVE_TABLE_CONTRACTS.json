@@ -1,0 +1,50 @@
+{
+  "version": "2.10.0",
+  "scope": "Complete main-namespace wikitext articles with table and syntax repairs enabled. Protected examples, discussion content, section edits, redirects, disambiguation pages and syntax-ambiguous source decline.",
+  "tableShape": {
+    "classes": ["wikitable", "wikitable sortable", "sortable wikitable"],
+    "attributes": "Exactly one class and one style attribute. No nested table or literal HTML table structure inside.",
+    "style": "Exactly three distinct literal declarations: width:100%, table-layout:fixed, and a positive min-width in px, em or rem. No other style, computed value, comment or duplicate declaration.",
+    "maximumSourceCharacters": 500000
+  },
+  "rules": [
+    {
+      "id": "existing-scroll-wrapper",
+      "before": "A standalone div whose sole attribute is style and whose sole declaration is overflow-x:auto, immediately containing one complete table and no other text.",
+      "after": "The same div gains max-width:100% and min-width:0. Its horizontal scrolling remains automatic.",
+      "purpose": "Constrain the existing scroll container to its available containing block.",
+      "limits": "This may be a defensive constraint only. A correctly functioning original wrapper may already confine the table. The table can remain wider than the viewport inside the scroll region."
+    },
+    {
+      "id": "unwrapped-wide-table",
+      "before": "A complete table with the literal tableShape above, min-width at least 640px or 40em/rem, and no existing open HTML ancestor at its source position.",
+      "after": "The exact table source is enclosed by one div with max-width:100%;min-width:0;overflow-x:auto.",
+      "purpose": "Keep a deliberately wide table reachable through local horizontal scrolling without widening the article page.",
+      "limits": "The thresholds select candidate shapes only and are never written as replacement table widths. Unknown wrappers and ancestors remain unchanged."
+    }
+  ],
+  "retention": [
+    "Every byte between each table opening and closing marker remains identical.",
+    "Column count, cell order, row and column spans, header scopes, captions, links, reference calls, numeric sorting attributes, table styles and table minimum widths remain identical.",
+    "The source text and the full edit list bind the proof. Stale or substituted plans decline.",
+    "A second pure plan and a second complete production adjustment produce no additional responsive change."
+  ],
+  "notAutomated": [
+    "Removing an intentional table minimum width.",
+    "Combining or deleting columns or cells.",
+    "Forcing all tables into a universal width or reducing text size.",
+    "Replacing unknown layout wrappers, floats, clipping, custom classes or computed styles."
+  ],
+  "localLayoutMatrix": {
+    "viewportWidths": [320, 360, 390, 768, 1024, 1440],
+    "fontSizes": [16, 24, 32],
+    "containers": ["block", "flex", "grid"],
+    "representations": ["unwrapped baseline", "existing scroll wrapper", "bounded scroll wrapper"],
+    "method": "An independent local HTML projection of the regression table's attributes, labels and first visible row. This geometry test is not a complete native Wikipedia skin reproduction or an actual browser zoom test."
+  },
+  "primaryReferences": [
+    "https://www.mediawiki.org/wiki/Help:Tables",
+    "https://pt.wikipedia.org/wiki/Ajuda:Guia_de_edi%C3%A7%C3%A3o/Tabelas",
+    "https://pt.wikipedia.org/wiki/MediaWiki:Common.css"
+  ]
+}

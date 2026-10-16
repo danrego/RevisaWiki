@@ -1,0 +1,18 @@
+RevisaWiki 2.10.0
+16 de outubro de 2026
+
+- Corrige separadores ausentes, aspas trocadas, linhas vazias repetidas e fechamentos incompatíveis em tabelas estáticas reconhecidas.
+- Acrescenta scope aos cabeçalhos individuais de tabelas com três ou quatro níveis completos e sem associações conflitantes.
+- Reutiliza fontes idênticas definidas em references ou refs=, mantendo grupos, páginas e demais campos.
+- Separa nomes conflitantes quando cada ocorrência traz a fonte completa e não há chamadas vazias ou indiretas.
+- Corrige o espaço ausente em uma abertura refname quando a referência completa tem limites confirmados.
+- Restaura um destino Harvard ausente somente com autores e ano exatos e confirmação na pré-visualização nativa.
+- Limita a rolagem horizontal de tabelas largas nos formatos reconhecidos, sem apagar suas larguras mínimas ou alterar os dados.
+- Compartilha leituras do mesmo rascunho em um cache limitado, descartando posições quando o texto muda.
+- Permite conservar conjuntos independentes de ajustes que passaram na conferência, mantendo juntas as mudanças que dependem umas das outras.
+
+Os arquivos finais da 2.10.0 passaram por 19.650 casos e 135.647 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 132 fluxos locais, com 21.705 verificações. Os reparos tiveram ainda 20 comparações na renderização real da ptwiki. A matriz de telas e tamanhos de texto cobriu 486 cenários locais nos três navegadores. A categorização de nascimento conservou a mesma categoria e chave de ordenação após a retirada da linha redundante. Na comparação com a 2.9 em cinco artigos grandes, a primeira análise levou, somada, 13,1% a mais, e as repetições ficaram praticamente iguais. Esse ensaio não comprovou ganho geral de velocidade. As rodadas finais não tiveram falhas. Os relatórios e os hashes desta execução estão em tests/evidence/2.10.0. Nenhum teste editou a Wikipédia.
+
+Abra INICIO.html e siga a ordem: dados, programa, carregador central e documentação. Quem já usa a chamada fixa mantém o common.js como está.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

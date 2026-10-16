@@ -1,0 +1,124 @@
+{
+  "version": "2.10.0",
+  "kind": "controlled-anonymous-native-render-cases",
+  "cases": [
+    {
+      "id": "mixed-existing-name",
+      "feature": "existing-named-definition-reused",
+      "kind": "refs",
+      "source": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref> Primeiro. <ref>Fonte A.</ref> Segundo. <ref>Fonte A.</ref>\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref> Primeiro. <ref name=\"a\" /> Segundo. <ref name=\"a\" />\n<references />\n\nTexto de encerramento.\n",
+      "beforeBodies": [
+        "Fonte A.",
+        "Fonte A.",
+        "Fonte A."
+      ],
+      "afterBodies": [
+        "Fonte A.",
+        "Fonte A.",
+        "Fonte A."
+      ]
+    },
+    {
+      "id": "anchor-a-b-a",
+      "feature": "same-anchor-repeat-removed",
+      "kind": "refs",
+      "source": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref><ref name=\"b\">Fonte B.</ref><ref name=\"a\" />\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref><ref name=\"b\">Fonte B.</ref>\n<references />\n\nTexto de encerramento.\n",
+      "beforeBodies": [
+        "Fonte A.",
+        "Fonte B.",
+        "Fonte A."
+      ],
+      "afterBodies": [
+        "Fonte A.",
+        "Fonte B."
+      ]
+    },
+    {
+      "id": "empty-anonymous",
+      "feature": "attribute-free-empty-reference-removed",
+      "kind": "empty",
+      "source": "Texto de abertura.\n\nPrimeiro.<ref></ref> Segundo.<ref />\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\nPrimeiro. Segundo.\n<references />\n\nTexto de encerramento.\n"
+    },
+    {
+      "id": "single-extra-close",
+      "feature": "one-adjacent-duplicated-close-removed",
+      "kind": "refs",
+      "source": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref></ref> Primeiro. <ref name=\"a\" />\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref name=\"a\">Fonte A.</ref> Primeiro. <ref name=\"a\" />\n<references />\n\nTexto de encerramento.\n",
+      "beforeBodies": [
+        "Fonte A.",
+        "Fonte A."
+      ],
+      "afterBodies": [
+        "Fonte A.",
+        "Fonte A."
+      ]
+    },
+    {
+      "id": "separate-groups",
+      "feature": "group-bound-existing-name-reused",
+      "kind": "refs",
+      "source": "Texto de abertura.\n\n<ref name=\"a\" group=\"nota\">Fonte nota.</ref> Primeiro. <ref group=\"nota\">Fonte nota.</ref> Segundo. <ref name=\"a\" group=\"anexo\">Fonte anexo.</ref> Terceiro. <ref group=\"anexo\">Fonte anexo.</ref>\n<references group=\"nota\" />\n<references group=\"anexo\" />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref name=\"a\" group=\"nota\">Fonte nota.</ref> Primeiro. <ref name=\"a\" group=\"nota\" /> Segundo. <ref name=\"a\" group=\"anexo\">Fonte anexo.</ref> Terceiro. <ref name=\"a\" group=\"anexo\" />\n<references group=\"nota\" />\n<references group=\"anexo\" />\n\nTexto de encerramento.\n",
+      "beforeBodies": [
+        "Fonte nota.",
+        "Fonte nota.",
+        "Fonte anexo.",
+        "Fonte anexo."
+      ],
+      "afterBodies": [
+        "Fonte nota.",
+        "Fonte nota.",
+        "Fonte anexo.",
+        "Fonte anexo."
+      ]
+    },
+    {
+      "id": "identifier-pmc",
+      "feature": "literal-official-pmc-URL-normalized",
+      "kind": "identifier",
+      "source": "Texto de abertura.\n\n<ref>{{Citar periódico|titulo=Fonte de teste|pmc=https://pmc.ncbi.nlm.nih.gov/articles/PMC1234567/}}</ref>\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref>{{Citar periódico|titulo=Fonte de teste|pmc=1234567}}</ref>\n<references />\n\nTexto de encerramento.\n",
+      "field": "pmc",
+      "identifier": "1234567",
+      "originalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1234567/"
+    },
+    {
+      "id": "identifier-arxiv",
+      "feature": "literal-official-arxiv-URL-normalized",
+      "kind": "identifier",
+      "source": "Texto de abertura.\n\n<ref>{{Citar periódico|titulo=Fonte de teste|arxiv=https://arxiv.org/abs/2401.12345v2}}</ref>\n<references />\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n<ref>{{Citar periódico|titulo=Fonte de teste|arxiv=2401.12345v2}}</ref>\n<references />\n\nTexto de encerramento.\n",
+      "field": "arxiv",
+      "identifier": "2401.12345v2",
+      "originalUrl": "https://arxiv.org/abs/2401.12345v2"
+    },
+    {
+      "id": "duplicate-attributes",
+      "feature": "same-cell-row-caption-attribute-de-duplicated",
+      "kind": "table",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n|+ style=\"text-align:left\" style=\"text-align:left\" | Legenda\n! A !! B\n|- class=\"linha\" class=\"linha\"\n| colspan=\"2\" colspan=\"2\" | Total\n|-\n| 1 || 2\n|}\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n|+ style=\"text-align:left\" | Legenda\n! A !! B\n|- class=\"linha\"\n| colspan=\"2\" | Total\n|-\n| 1 || 2\n|}\n\nTexto de encerramento.\n"
+    },
+    {
+      "id": "extra-span-quote",
+      "feature": "one-extra-numeric-span-quote-removed",
+      "kind": "table",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! A !! B\n|-\n| colspan=\"2\"\" | Total\n|-\n| 1 || 2\n|}\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! A !! B\n|-\n| colspan=\"2\" | Total\n|-\n| 1 || 2\n|}\n\nTexto de encerramento.\n"
+    },
+    {
+      "id": "leaf-header-scope",
+      "feature": "two-tier-individual-leaf-headers-scoped",
+      "kind": "scope",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! colspan=\"2\" | Grupo A !! colspan=\"2\" | Grupo B\n|-\n! Um !! Dois !! Três !! Quatro\n|-\n| 1 || 2 || 3 || 4\n|-\n| 5 || 6 || 7 || 8\n|}\n\nTexto de encerramento.\n",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! colspan=\"2\" | Grupo A !! colspan=\"2\" | Grupo B\n|-\n! scope=\"col\" | Um !! scope=\"col\" | Dois !! scope=\"col\" | Três !! scope=\"col\" | Quatro\n|-\n| 1 || 2 || 3 || 4\n|-\n| 5 || 6 || 7 || 8\n|}\n\nTexto de encerramento.\n",
+      "expectedLeafScopes": 4
+    }
+  ],
+  "accountsUsed": 0,
+  "wikipediaWrites": 0
+}
