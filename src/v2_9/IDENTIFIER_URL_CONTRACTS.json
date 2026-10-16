@@ -1,0 +1,56 @@
+{
+  "version": "2.9.0",
+  "rule": "official-identifier-urls",
+  "primarySources": [
+    {
+      "title": "Predefinição:Citar periódico/doc",
+      "oldid": 53508794,
+      "timestamp": "2018-11-04T03:05:19Z",
+      "contentSha256": "4fe5bd8b1a3aab5d7c6a9b7d036b5bfa81391d72353f7f266b9a771ad274be9f",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=53508794"
+    },
+    {
+      "title": "Módulo:Citação/CS1/Identificadores",
+      "oldid": 73016812,
+      "timestamp": "2026-09-20T20:52:38Z",
+      "contentSha256": "e6c794fa804dfb38e63af202c11b32553ac456405c0e73b96969e78b213f68b1",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73016812"
+    },
+    {
+      "url": "https://info.arxiv.org/help/arxiv_identifier.html"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/tools/developers/"
+    }
+  ],
+  "nativePmcBounds": [
+    1,
+    13900000
+  ],
+  "nativeIdentifierAliases": {
+    "pmc": [
+      "PMC",
+      "pmc"
+    ],
+    "arxiv": [
+      "arxiv",
+      "ARXIV",
+      "eprint"
+    ]
+  },
+  "arxivVersion": "Preserve an explicit positive vN suffix exactly.",
+  "eligibility": "Literal exact official PMC article path or arxiv.org/abs path in an accepted identifier field. The article must be complete main-namespace wikitext. No protected examples, embedded fences, transclusion tags, nested dynamic templates or conflicting identifier aliases.",
+  "refusals": [
+    "credentials",
+    "ports",
+    "queries",
+    "fragments",
+    "percent-encoded identifiers",
+    "unknown paths",
+    "invalid native identifier formats",
+    "conflicting aliases",
+    "unrecognized native fields"
+  ],
+  "scope": "Format extraction only. No publication existence or metadata lookup.",
+  "wikipediaWrites": 0
+}

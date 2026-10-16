@@ -1,0 +1,629 @@
+{
+  "baseVersion": "2.8.3",
+  "targetVersion": "2.9.0",
+  "baselineManifest": "tests/expected_release_v283.json",
+  "baselineManifestSha256": "d0e193921c8769fd513a5e68c9ddb0d92d8da44ed74b482bfc8b4997c979372d",
+  "scope": "Previous suites remain immutable. New release selectors and explicit additive reference/table workflows are recorded here.",
+  "substitutions": [
+    [
+      "2.8.3",
+      "2.9.0"
+    ],
+    [
+      "_v2_8_3",
+      "_v2_9_0"
+    ],
+    [
+      "expected_release_v283.json",
+      "expected_release_v290.json"
+    ],
+    [
+      "artifacts/v283",
+      "artifacts/v290"
+    ],
+    [
+      "tests/v283/",
+      "tests/v290/"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v283/NATIVE_RENDER_PROOF.json",
+      "target": "tests/v290/NATIVE_RENDER_PROOF.json",
+      "sourceSha256": "88bceab602427944eb8db2156cd1085bfc6c854694a3ff968c4bb7e481a608bf",
+      "targetSha256": "88bceab602427944eb8db2156cd1085bfc6c854694a3ff968c4bb7e481a608bf",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/ADAPTATIONS.json",
+      "target": "tests/v290/browser/ADAPTATIONS.json",
+      "sourceSha256": "edf564bde19f64063e5ba999dea60066565624e0da538ec9f5bd2552b9501548",
+      "targetSha256": "93c61606a665e19e5da071aaaa2a0425aa6fd8f14623564b2f1ad0e8c6753132",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/HEAD_RENDER_PROOF.json",
+      "target": "tests/v290/browser/HEAD_RENDER_PROOF.json",
+      "sourceSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "targetSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "target": "tests/v290/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "sourceSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "targetSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "target": "tests/v290/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sourceSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "targetSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/biography_cases.json",
+      "target": "tests/v290/browser/biography_cases.json",
+      "sourceSha256": "9b3a1612fa21bbeeb48287ffb4a37b09123af6cd22daa32f886bae7402ea1fec",
+      "targetSha256": "f6c9019a45a5d857aa208d4b998cee76b60593f4f83769ab04d46eb3015c0a14",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/birth_cases.json",
+      "target": "tests/v290/browser/birth_cases.json",
+      "sourceSha256": "74492b5efeea59abde746c375a8e841ef2ad6ce07709b2d36c1fe15b11f4a28c",
+      "targetSha256": "d2eea84588b18bc13dc4a33dff11a35d1000d43c1d256b6dc7fd0ed1697bb9d8",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/birth_category_flow.cjs",
+      "target": "tests/v290/browser/birth_category_flow.cjs",
+      "sourceSha256": "a2642dcabf8ae004f9d1ea99f053287898ab46394c6ca42ae918b6e018295564",
+      "targetSha256": "8883826ab632b71d02192493749973e8228a1a968d6418e92d4dcbd6b7db80f3",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/build_second_click_contract.cjs",
+      "target": "tests/v290/browser/build_second_click_contract.cjs",
+      "sourceSha256": "e17abd81f62c971e706f2a57617c077db9878e8c9fdafc2a2634c674c0969c47",
+      "targetSha256": "9d6381e223c65bb8bc1d07ea756aeda53beb1fc7c81bbc1ff468c74bc82fbe10",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/citation_flow.cjs",
+      "target": "tests/v290/browser/citation_flow.cjs",
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/fixture.html",
+      "target": "tests/v290/browser/fixture.html",
+      "sourceSha256": "3b4dd77ddef7550857d5df29c75592501c989373f2dac5e424e190068ec373e9",
+      "targetSha256": "031611246c8ff89ebc3b1beffe2363d7ce87b75762ce07e46e9231ebbfabec85",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/fixture.js",
+      "target": "tests/v290/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "targetSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/run_release.cjs",
+      "target": "tests/v290/browser/run_release.cjs",
+      "sourceSha256": "a4339d298eb44e8d4a44c98469a18f4671e44a9dafc0ad1248748c743097f3dc",
+      "targetSha256": "b7d335c2060ccd3952fd539aa9a1e359cc386f15ffda901a1654353ab83b0f1e",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "const dist=path.resolve(process.argv[3]);\nconst hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');\nconst files={core:'RevisaWiki_v2_9_0.js',data:'RevisaWiki_v2_9_0_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_9_0.js',personal:'Carregador_common_js_RevisaWiki_v2_9_0.js',shared:'Chamada_fixa_RevisaWiki_common.js',own:'Chamada_fixa_RevisaWiki_copia_propria.js'};\nconst pinsPath=path.resolve(__dirname,'../../expected_release_v290.json');\nconst pins=require(pinsPath);\n",
+          "const dist=path.resolve(process.argv[3]);\nconst hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');\nconst files={complete:'RevisaWiki_v2_9_0_completo.js',core:'RevisaWiki_v2_9_0.js',data:'RevisaWiki_v2_9_0_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_9_0.js',personal:'Carregador_common_js_RevisaWiki_v2_9_0.js',shared:'Chamada_fixa_RevisaWiki_common.js',own:'Chamada_fixa_RevisaWiki_copia_propria.js'};\nconst pinsPath=path.resolve(__dirname,'../../expected_release_v290.json');\nconst pins=require(pinsPath);\n"
+        ],
+        [
+          "const guard=\"if (host ? host !== 'pt.wikipedia.org' : root.mw.config.get('wgDBname') !== 'ptwiki') return;\";\nconst moduleGuard=\"if (!root.mw?.loader || (root.location?.hostname || root.mw.config?.get('wgServerName')) !== 'pt.wikipedia.org') return;\";\nfor(const kind of ['core']){assert(scripts[kind].source.includes(guard));scripts[kind].adapted=scripts[kind].source.replace(guard,\"if (host ? !['pt.wikipedia.org','127.0.0.1','localhost'].includes(host) : root.mw.config.get('wgDBname') !== 'ptwiki') return;\");}\nassert(scripts.core.adapted.includes(moduleGuard));scripts.core.adapted=scripts.core.adapted.replace(moduleGuard,\"if (!root.mw?.loader || !['pt.wikipedia.org','127.0.0.1','localhost'].includes(root.location?.hostname || root.mw.config?.get('wgServerName'))) return;\");\nfor(const kind of ['core','central','personal','shared','own'])scripts[kind].readAdapted=(scripts[kind].adapted||scripts[kind].source).replace(\"root.location.hostname!=='pt.wikipedia.org'\",\"!['pt.wikipedia.org','127.0.0.1','localhost'].includes(root.location.hostname)\");\n\nconst driver=new({Chrome:NativeChrome,Firefox:NativeFirefox,Safari:NativeSafari}[browserName])();\n",
+          "const guard=\"if (host ? host !== 'pt.wikipedia.org' : root.mw.config.get('wgDBname') !== 'ptwiki') return;\";\nconst moduleGuard=\"if (!root.mw?.loader || (root.location?.hostname || root.mw.config?.get('wgServerName')) !== 'pt.wikipedia.org') return;\";\nfor(const kind of ['core','complete']){assert(scripts[kind].source.includes(guard));scripts[kind].adapted=scripts[kind].source.replace(guard,\"if (host ? !['pt.wikipedia.org','127.0.0.1','localhost'].includes(host) : root.mw.config.get('wgDBname') !== 'ptwiki') return;\");}\nassert(scripts.core.adapted.includes(moduleGuard));scripts.core.adapted=scripts.core.adapted.replace(moduleGuard,\"if (!root.mw?.loader || !['pt.wikipedia.org','127.0.0.1','localhost'].includes(root.location?.hostname || root.mw.config?.get('wgServerName'))) return;\");\nfor(const kind of ['core','complete','central','personal','shared','own'])scripts[kind].readAdapted=(scripts[kind].adapted||scripts[kind].source).replace(\"root.location.hostname!=='pt.wikipedia.org'\",\"!['pt.wikipedia.org','127.0.0.1','localhost'].includes(root.location.hostname)\");\n\nconst driver=new({Chrome:NativeChrome,Firefox:NativeFirefox,Safari:NativeSafari}[browserName])();\n"
+        ],
+        [
+          " };\n}\nconst report={birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.9.0',build:'2.9.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\nlet mode='shared';\nconst server=http.createServer((req,res)=>{\n",
+          " };\n}\nconst report={v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.9.0',build:'2.9.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\nlet mode='shared';\nconst server=http.createServer((req,res)=>{\n"
+        ],
+        [
+          "  await require('./citation_flow.cjs')({origin,driver,evaluate,report,hash,save});\n  await require('./birth_category_flow.cjs')({origin,driver,evaluate,report,hash,save,toggleCheckbox});\n  report.blockedOutsideRequests=driver.blocked?.length||0;\n  assert.equal(report.blockedOutsideRequests,0,'No request to an external site');\n",
+          "  await require('./citation_flow.cjs')({origin,driver,evaluate,report,hash,save});\n  await require('./birth_category_flow.cjs')({origin,driver,evaluate,report,hash,save,toggleCheckbox});\n  await require('./v29_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  report.blockedOutsideRequests=driver.blocked?.length||0;\n  assert.equal(report.blockedOutsideRequests,0,'No request to an external site');\n"
+        ],
+        [
+          "  for(const[name,pin]of Object.entries(releaseFiles))assert.equal(hash(fs.readFileSync(path.join(dist,name))),pin.sha256,'Saved release remains frozen: '+name);\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),report.citationFlowSha256,'Additive citation workflow remains frozen');\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),report.birthCategoryFlowSha256,'Additive birth-category workflow remains frozen');\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),report.birthCategoryCaseSha256,'Primary category response fixture remains frozen');\n",
+          "  for(const[name,pin]of Object.entries(releaseFiles))assert.equal(hash(fs.readFileSync(path.join(dist,name))),pin.sha256,'Saved release remains frozen: '+name);\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),report.citationFlowSha256,'Additive citation workflow remains frozen');\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),report.v29RepairFlowSha256,'Additive 2.9 reference and table workflows remain frozen');\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),report.birthCategoryFlowSha256,'Additive birth-category workflow remains frozen');\n  assert.equal(hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),report.birthCategoryCaseSha256,'Primary category response fixture remains frozen');\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/browser/spouse_cases.json",
+      "target": "tests/v290/browser/spouse_cases.json",
+      "sourceSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "targetSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/browser/summarize_release.cjs",
+      "target": "tests/v290/browser/summarize_release.cjs",
+      "sourceSha256": "a83bba6ebdb1c2c9367a5ebd001d1eaf24dc3e1dbd412d7b85fb9bb8c40c2eee",
+      "targetSha256": "0be88f88bdb9e5e434b334386c31b6c7b4e4688653f093c6e8933a0f6d3de15c",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "const secondClickProofBytes=fs.readFileSync(path.join(__dirname,'SECOND_CLICK_DIFF_CONTRACT.json'));\nlet zaraOutputSha256,protectedOutputSha256;\nconst summary={version:'2.9.0',kind:'native-macos-patch-browser-summary',frozenFiles:manifest.files,pinManifestSha256:sha(manifestBytes),runnerSha256,corpusManifestSha256,spouseCaseSha256:sha(spouseCaseBytes),biographyCaseSha256:sha(biographyCaseBytes),marriageRenderProofSha256:sha(marriageRenderProofBytes),headRenderProofSha256:sha(headRenderProofBytes),secondClickContractSha256:sha(secondClickProofBytes),marriageCompleteManifestSha256:sha(marriageManifestBytes),historicalCitySource:{...historicalCity,revid:historicalCity.oldid},recentCitySource:recentCity,cases:0,checks:0,failed:0,browsers:[],wikipediaWrites:0,networkMutations:0,outsideRequests:0,clipboardWrites:0,screenshots:0,scope:'Eighty-one local native browser workflows across three installed engines. Ordinary source-editor installation flows and read-page absence checks for all extra section controls. Full source article runs through a real Worker and exact Undo. API responses are fixture-only; this is not a live Wikipedia integration or a complete visual audit.'};\nconst birthCategoryOutputHashes=new Map();const articleOutputHashes=new Map();let outputSha256,safeOutputSha256;\nfor(const name of ['chrome','firefox','safari']){\n const bytes=fs.readFileSync(path.join(directory,name+'.json')),report=JSON.parse(bytes);\n assert.equal(report.citationFlowSha256,sha(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),'Exact citation workflow module');\n assert.equal(report.birthCategoryFlowSha256,sha(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),'Exact birth-category workflow module');\n assert.equal(report.birthCategoryCaseSha256,sha(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),'Exact primary category replies');\n",
+          "const secondClickProofBytes=fs.readFileSync(path.join(__dirname,'SECOND_CLICK_DIFF_CONTRACT.json'));\nlet zaraOutputSha256,protectedOutputSha256;\nconst summary={version:'2.9.0',kind:'native-macos-patch-browser-summary',frozenFiles:manifest.files,pinManifestSha256:sha(manifestBytes),runnerSha256,corpusManifestSha256,spouseCaseSha256:sha(spouseCaseBytes),biographyCaseSha256:sha(biographyCaseBytes),marriageRenderProofSha256:sha(marriageRenderProofBytes),headRenderProofSha256:sha(headRenderProofBytes),secondClickContractSha256:sha(secondClickProofBytes),marriageCompleteManifestSha256:sha(marriageManifestBytes),historicalCitySource:{...historicalCity,revid:historicalCity.oldid},recentCitySource:recentCity,cases:0,checks:0,failed:0,browsers:[],wikipediaWrites:0,networkMutations:0,outsideRequests:0,clipboardWrites:0,screenshots:0,scope:'Ninety-three local native browser workflows across three installed engines. Ordinary source-editor installation flows and read-page absence checks for all extra section controls. Full source article runs through a real Worker and exact Undo. API responses are fixture-only; this is not a live Wikipedia integration or a complete visual audit.'};\nconst v29RepairOutputHashes=new Map();const birthCategoryOutputHashes=new Map();const articleOutputHashes=new Map();let outputSha256,safeOutputSha256;\nfor(const name of ['chrome','firefox','safari']){\n const bytes=fs.readFileSync(path.join(directory,name+'.json')),report=JSON.parse(bytes);\n assert.equal(report.citationFlowSha256,sha(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),'Exact citation workflow module');\n assert.equal(report.v29RepairFlowSha256,sha(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),'Exact 2.9 native repair workflow module');\n for(const variant of ['shared','complete'])for(const positive of [true,false]){\n  const label='2.9 '+variant+' '+(positive?'eight safe automatic repairs':'eight guarded false positives'),test=report.tests.find(item=>item.name===label);assert(test&&test.passed);assert.equal(test.evidence.cases.length,8);assert.equal(test.evidence.bundle,variant==='shared'?'modular-core':'complete');assert.equal(test.evidence.realWorker,true);assert.equal(test.evidence.wikipediaWrites,0);\n  const ids=positive?['mixed-reference','anchor-reference','empty-reference','extra-reference-closer','official-identifier-url','duplicate-cell-attribute','extra-numeric-quote','two-tier-leaf-scope']:['mixed-distinct-body','separate-reference-anchors','named-empty-reference','ambiguous-closer-chain','nonliteral-identifier-url','conflicting-cell-attribute','ambiguous-numeric-quotes','conflicting-leaf-scope'];\n  assert.deepEqual(test.evidence.cases.map(item=>item.id),ids,'Every independently written positive or guarded feature is executed');\n  const rules=['v29MixedReferences','v29AnchorReferences','v29EmptyReferences','v29ReferenceClosers','v29IdentifierUrls','tableDuplicateAttributes','tableExtraAttributeQuotes','tableLeafHeaderScopes'];\n  for(const [index,item]of test.evidence.cases.entries()){assert.equal(item.positive,positive);assert.equal(item.rule,positive?rules[index]:null);for(const key of ['realWorker','idempotent','exactUndo'])assert.equal(item[key],true);assert(item.assertions>0);if(positive)assert.equal(item.outputSha256,item.expectedSha256,'Every actual editor output matches the independent exact source oracle');else assert.equal(item.inputSha256,item.expectedSha256,'Guarded expected source is the unchanged input');if(v29RepairOutputHashes.has(item.id))assert.equal(item.outputSha256,v29RepairOutputHashes.get(item.id),'Exact new repair output parity across both distributions and all native browsers');else v29RepairOutputHashes.set(item.id,item.outputSha256);}\n }\n\n assert.equal(report.birthCategoryFlowSha256,sha(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),'Exact birth-category workflow module');\n assert.equal(report.birthCategoryCaseSha256,sha(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),'Exact primary category replies');\n"
+        ],
+        [
+          " assert.equal(report.version,'2.9.0');assert.equal(report.pinManifestSha256,summary.pinManifestSha256);\n assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,27);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n assert.equal(report.chemicalManifestSha256,sha(chemicalManifestBytes));\n",
+          " assert.equal(report.version,'2.9.0');assert.equal(report.pinManifestSha256,summary.pinManifestSha256);\n assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,31);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n assert.equal(report.chemicalManifestSha256,sha(chemicalManifestBytes));\n"
+        ],
+        [
+          " assert.equal(report.cleanup.ownSessionClosed,true);assert.equal(report.cleanup.ownProcessExited,true);assert.equal(report.cleanup.ownProfileRemoved,true);assert.equal(report.cleanup.unknownBrowserSessionsTouched,false);\n assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,27);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n const city=report.tests.find(test=>test.name==='complete city-temperature article and exact undo');\n",
+          " assert.equal(report.cleanup.ownSessionClosed,true);assert.equal(report.cleanup.ownProcessExited,true);assert.equal(report.cleanup.ownProfileRemoved,true);assert.equal(report.cleanup.unknownBrowserSessionsTouched,false);\n assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,31);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n const city=report.tests.find(test=>test.name==='complete city-temperature article and exact undo');\n"
+        ],
+        [
+          " summary.browsers.push({name:report.browser,version:report.browserVersion,report:name+'.json',reportSha256:sha(bytes),cases:report.tests.length,checks:report.assertions,workerMilliseconds:city.evidence.processing.milliseconds,cityDiff:city.evidence.diff,byteMetrics:city.evidence.byteMetrics,byteBadge:city.evidence.byteBadge,summaryOwnership:city.evidence.summaryOwnership,outputSha256:city.evidence.outputSha256,restoredSha256:city.restoredSha256,cleanup:report.cleanup,explanatoryMetadataTransport:name==='firefox'?'strict BiDi RemoteValue decoding of reasons and trace labels only':'plain JSON strings and arrays'});\n}\nassert.equal(summary.cases,81);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\nsummary.scope='Eighty-one local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source and two spouse workflows covering twelve positive cases across registered infobox profiles and three already-approved foreign aliases and twenty-three negative cases. All inherited spouse sources restore byte-exactly through Undo. Twenty-six new biography fixtures cover image fields, external sites, professions, full dates, named birth-date arguments and individually complete multiple-marriage lists, plus explicit guarded inputs. Every fixture passes a real second click and exact Undo. The historical two-spouse source is now a positive case under the explicit 2.8 multi-marriage grammar, while the original single-spouse parser still declines it. The complete 260568-byte Keynes biography converts its verified initial spouse field while preserving the unrelated opaque bibliography tail exactly. Whole Zara source retains all eleven award tables and six valid composite result lines, closes only the missing numeric quote and adds both biography portals using one anonymous mocked verified public-entity read. Protected table examples remain exact. Six complete biography sources cover confirmed redundant birth categories, trusted keyboard rejection and reacceptance of the category removal, repeated clicks and exact Undo. Two further biography cases retain the category when the mocked anonymous read fails or does not return it. No live Wikipedia integration or full visual audit is claimed.';\nassert.equal(spouseOutputHashes.size,35);summary.spouseSourceOutputHashes=Object.fromEntries(spouseOutputHashes);summary.spousePositiveCases=12;summary.spouseNegativeCases=23;\nassert.equal(biographyOutputHashes.size,26);summary.biographySourceOutputHashes=Object.fromEntries(biographyOutputHashes);summary.biographyPositiveCases=biographyCases.positive.length;summary.biographyNegativeCases=biographyCases.negative.length;\nassert.equal(birthCategoryOutputHashes.size,8);summary.birthCategorySourceOutputHashes=Object.fromEntries(birthCategoryOutputHashes);\nsummary.marriageCompleteSourceOutputSha256=marriageCompleteOutputSha256;\nsummary.tableManifestSha256=sha(tableManifestBytes);summary.zaraOutputSha256=zaraOutputSha256;summary.protectedOutputSha256=protectedOutputSha256;\n",
+          " summary.browsers.push({name:report.browser,version:report.browserVersion,report:name+'.json',reportSha256:sha(bytes),cases:report.tests.length,checks:report.assertions,workerMilliseconds:city.evidence.processing.milliseconds,cityDiff:city.evidence.diff,byteMetrics:city.evidence.byteMetrics,byteBadge:city.evidence.byteBadge,summaryOwnership:city.evidence.summaryOwnership,outputSha256:city.evidence.outputSha256,restoredSha256:city.restoredSha256,cleanup:report.cleanup,explanatoryMetadataTransport:name==='firefox'?'strict BiDi RemoteValue decoding of reasons and trace labels only':'plain JSON strings and arrays'});\n}\nassert.equal(summary.cases,93);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\nsummary.scope='Ninety-three local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source and two spouse workflows covering twelve positive cases across registered infobox profiles and three already-approved foreign aliases and twenty-three negative cases. All inherited spouse sources restore byte-exactly through Undo. Twenty-six new biography fixtures cover image fields, external sites, professions, full dates, named birth-date arguments and individually complete multiple-marriage lists, plus explicit guarded inputs. Every fixture passes a real second click and exact Undo. The historical two-spouse source is now a positive case under the explicit 2.8 multi-marriage grammar, while the original single-spouse parser still declines it. The complete 260568-byte Keynes biography converts its verified initial spouse field while preserving the unrelated opaque bibliography tail exactly. Whole Zara source retains all eleven award tables and six valid composite result lines, closes only the missing numeric quote and adds both biography portals using one anonymous mocked verified public-entity read. Protected table examples remain exact. Six complete biography sources cover confirmed redundant birth categories, trusted keyboard rejection and reacceptance of the category removal, repeated clicks and exact Undo. Two further biography cases retain the category when the mocked anonymous read fails or does not return it. No live Wikipedia integration or full visual audit is claimed.';\nassert.equal(spouseOutputHashes.size,35);summary.spouseSourceOutputHashes=Object.fromEntries(spouseOutputHashes);summary.spousePositiveCases=12;summary.spouseNegativeCases=23;\nassert.equal(biographyOutputHashes.size,26);summary.biographySourceOutputHashes=Object.fromEntries(biographyOutputHashes);summary.biographyPositiveCases=biographyCases.positive.length;summary.biographyNegativeCases=biographyCases.negative.length;\nassert.equal(birthCategoryOutputHashes.size,8);summary.birthCategorySourceOutputHashes=Object.fromEntries(birthCategoryOutputHashes);\nassert.equal(v29RepairOutputHashes.size,16);summary.v29RepairSourceOutputHashes=Object.fromEntries(v29RepairOutputHashes);summary.v29PositiveCases=8;summary.v29NegativeCases=8;summary.v29DistributionFormats=['modular-core','complete'];summary.v29RepairFlowSha256=sha(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs')));\nsummary.scope+=' Four additive workflows in each browser execute all eight new automatic repair families and eight guarded source cases through both the modular core and the standalone complete distribution. Every positive editor output matches an independently written exact source, and every case executes a real second click and exact Undo when changed. The new module also opens the actual comparison without changing the editor source.';\nsummary.marriageCompleteSourceOutputSha256=marriageCompleteOutputSha256;\nsummary.tableManifestSha256=sha(tableManifestBytes);summary.zaraOutputSha256=zaraOutputSha256;summary.protectedOutputSha256=protectedOutputSha256;\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/candidate.cjs",
+      "target": "tests/v290/candidate.cjs",
+      "sourceSha256": "d20331548a24c5d9946222b1bedc8a840956b1eeb17a19cb3266863e656aefed",
+      "targetSha256": "e1b7431507c541fd4718aff3f2edfa485af2659b092a253c588354c016bf6b0d",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/check_server_grammar.php",
+      "target": "tests/v290/check_server_grammar.php",
+      "sourceSha256": "f6a3718ec86981554bdb97cbdf14a55885f31ba78d67ebf44ed56a8f71c0fb31",
+      "targetSha256": "41c333f2eb9454f39d7b397444b147de41f610cc7cfaf022a64aae6f1ab6872b",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/engine_helper.cjs",
+      "target": "tests/v290/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "target": "tests/v290/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "sourceSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "targetSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "target": "tests/v290/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "sourceSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "targetSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "target": "tests/v290/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "sourceSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "targetSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/chemical_articles/manifest.json",
+      "target": "tests/v290/fixtures/chemical_articles/manifest.json",
+      "sourceSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "targetSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/city_temperature/ATTRIBUTION.txt",
+      "target": "tests/v290/fixtures/city_temperature/ATTRIBUTION.txt",
+      "sourceSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "targetSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/city_temperature/article.wiki",
+      "target": "tests/v290/fixtures/city_temperature/article.wiki",
+      "sourceSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "targetSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/city_temperature/source_revision.json",
+      "target": "tests/v290/fixtures/city_temperature/source_revision.json",
+      "sourceSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "targetSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "target": "tests/v290/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "sourceSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "targetSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "target": "tests/v290/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "sourceSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "targetSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/marriage_articles/complete_manifest.json",
+      "target": "tests/v290/fixtures/marriage_articles/complete_manifest.json",
+      "sourceSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "targetSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/marriage_articles/manifest.json",
+      "target": "tests/v290/fixtures/marriage_articles/manifest.json",
+      "sourceSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "targetSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "target": "tests/v290/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "sourceSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "targetSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/table_articles/entity_Q4177928.json",
+      "target": "tests/v290/fixtures/table_articles/entity_Q4177928.json",
+      "sourceSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "targetSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/fixtures/table_articles/manifest.json",
+      "target": "tests/v290/fixtures/table_articles/manifest.json",
+      "sourceSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "targetSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_all.cjs",
+      "target": "tests/v290/run_all.cjs",
+      "sourceSha256": "12f7a7a74a0096415c273abbed1f7bff2e7b27d0f9db17e520c7b50cf7ed38bf",
+      "targetSha256": "d97f06e9da24b89a4ce79625ca57a54ad527d92961895e5c660460ca58e5b7e1",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "const path=require('node:path'),{spawnSync}=require('node:child_process'),candidate=require('./candidate.cjs');\ncandidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','run_engine.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n if(result.status!==0){process.exitCode=result.status||1;break;}\n",
+          "const path=require('node:path'),{spawnSync}=require('node:child_process'),candidate=require('./candidate.cjs');\ncandidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','run_engine.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n if(result.status!==0){process.exitCode=result.status||1;break;}\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/run_edited_corpus.cjs",
+      "target": "tests/v290/run_edited_corpus.cjs",
+      "sourceSha256": "529f05c681ddb481a5b534aa4fe44412571bf7878dc0ef745289ee5041b42712",
+      "targetSha256": "0f743872c7ce93235cc3faa1f206609e8bf4d9b8d6152d3fc3f3767f763d8531",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_engine.cjs",
+      "target": "tests/v290/run_engine.cjs",
+      "sourceSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "targetSha256": "42693172d0a5a115a357a78ceb66ca896eec28a55cc00272924344692aa00f9f",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "'use strict';\n// Original assertions and fixtures are copied unchanged to a disposable folder.\nconst fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');\nconst candidate=require('./candidate.cjs'),complex=process.argv.includes('--complex');\ncandidate.verify();\nconst source=path.join(candidate.root,'tests/v26_engine'),stage=fs.mkdtempSync(path.join(os.tmpdir(),'revisawiki-qa-'));\nconst selected=complex?['run_complex_all.cjs']:['run_contracts.cjs','run_integration.cjs','run_composition_options.cjs','run_quote_lexer.cjs','run_corpus_regressions.cjs'];\nconst originalAssertions=[],results=[];\ntry {\n fs.cpSync(source,stage,{recursive:true});\n",
+          "'use strict';\n// Original assertions stay byte-exact. Reviewed source-pinned expectations in\n// disposable fixture copies include the new, separately tested 2.9 behavior.\nconst fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');\nconst assert=require('node:assert/strict');\nconst candidate=require('./candidate.cjs'),complex=process.argv.includes('--complex');\ncandidate.verify();\nconst source=path.join(candidate.root,'tests/v26_engine'),stage=fs.mkdtempSync(path.join(os.tmpdir(),'revisawiki-qa-'));\nconst selected=complex?['run_complex_all.cjs']:['run_contracts.cjs','run_integration.cjs','run_composition_options.cjs','run_quote_lexer.cjs','run_corpus_regressions.cjs'];\nconst originalAssertions=[],originalFixtureFiles=[],expectationChanges=[],results=[];let setupFailure=null;\nfunction referenceFixtureCensus(text){\n const pattern=/<ref\\b([^>]*?)(?:\\/\\s*>|>([\\s\\S]*?)<\\/ref\\s*>)/gi,refs=[...text.matchAll(pattern)],definitions=new Map(),attribute=(raw,key)=>{const match=new RegExp('(?:^|\\\\s)'+key+'\\\\s*=\\\\s*(?:\"([^\"]*)\"|\\'([^\\']*)\\'|([^\\\\s/>]+))','i').exec(raw);return match?match[1]??match[2]??match[3]:null;};\n for(const ref of refs){const name=attribute(ref[1],'name'),group=attribute(ref[1],'group')||'';if(name&&ref[2]!==undefined){const key=JSON.stringify([group,name]);if(definitions.has(key))assert.equal(definitions.get(key),ref[2],'The reviewed output has no conflicting reference definition');definitions.set(key,ref[2]);}}\n const bindings=refs.map(ref=>{const group=attribute(ref[1],'group')||'',name=attribute(ref[1],'name'),key=JSON.stringify([group,name]);if(ref[2]===undefined)assert.ok(definitions.has(key),'Every reviewed reference call resolves to one complete source');return [group,ref[2]===undefined?definitions.get(key):ref[2]];});\n return {count:refs.length,bindings:JSON.stringify(bindings),outside:text.replace(pattern,'REFERENCE_PLACEHOLDER')};\n}\ntry {\n fs.cpSync(source,stage,{recursive:true});\n"
+        ],
+        [
+          "  if(!original.equals(copied))throw new Error('An inherited assertion file changed during staging: '+name);\n  originalAssertions.push({file:'tests/v26_engine/'+name,sha256:candidate.sha(original)});\n }\n // This generated local file is never included in the repository or a release.\n",
+          "  if(!original.equals(copied))throw new Error('An inherited assertion file changed during staging: '+name);\n  originalAssertions.push({file:'tests/v26_engine/'+name,sha256:candidate.sha(original)});\n }\n if(!complex){\n  const manifestPath=path.join(__dirname,'INHERITED_EXPECTATIONS.json'),manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);\n  assert.equal(manifest.schema,1,'The fixture adaptation schema is known');\n  assert.equal(manifest.version,candidate.manifest.version,'Expectation changes belong to this exact release');\n  assert.equal(manifest.unchangedAssertionCode,true,'The original assertions cannot be replaced');\n  assert.equal(manifest.oldFixtureCount,81,'All 81 inherited fixture cases are retained');\n  assert.equal(manifest.newFixtureCount,81,'No inherited fixture is silently omitted');\n  assert.deepEqual(manifest.changes.map(change=>change.name),['different named groups','existing equal duplicate cleanup creates citation equivalence','existing invalid parameter capitalization cleanup creates equality'],'Only the three reviewed contracts can change');\n  assert.deepEqual(manifest.originalFiles.map(record=>record.file),['tests/v26_engine/negative_contracts.json','tests/v26_engine/positive_contracts.json'],'Only fixture data, never assertion code, can be adapted');\n  const fixtures=new Map();\n  for(const record of manifest.originalFiles){\n   const relative=path.relative('tests/v26_engine',record.file);assert.equal(path.basename(relative),relative,'Fixture paths cannot escape their directory');\n   const original=fs.readFileSync(path.join(source,relative)),copied=fs.readFileSync(path.join(stage,relative));\n   assert.equal(original.length,record.bytes,'The original fixture file size is pinned');assert.equal(candidate.sha(original),record.sha256,'The complete original fixture file is pinned');assert.equal(copied.equals(original),true,'The disposable fixture copy starts byte-identical');\n   const rows=JSON.parse(original);assert.equal(rows.length,record.cases,'Every original fixture is accounted for');fixtures.set(record.file,rows);originalFixtureFiles.push(record);\n  }\n  const negativeFile='tests/v26_engine/negative_contracts.json',positiveFile='tests/v26_engine/positive_contracts.json',negatives=fixtures.get(negativeFile),positives=fixtures.get(positiveFile);\n  assert.equal(negatives.length+positives.length,manifest.oldFixtureCount,'The original fixture count is exact');\n  for(const change of manifest.changes){\n   const rows=fixtures.get(change.fixtureFile);assert.ok(rows,'A reviewed original fixture file is required');\n   const original=rows[change.fixtureIndex];assert.deepEqual(original,change.originalFixture,'Name, source, old expected text and old rule are pinned together');assert.equal(original.name,change.name,'The reviewed fixture name matches');\n   assert.equal(candidate.sha(original.source),change.sourceSha256,'The exact old source is unchanged');\n   const oldExpected=original.expected??original.source;assert.equal(oldExpected,change.originalExpected,'The original expected result is preserved in provenance');assert.equal(candidate.sha(oldExpected),change.originalExpectedSha256,'The old expectation bytes are pinned');assert.equal(candidate.sha(change.newExpected),change.newExpectedSha256,'The exact handwritten new expectation is pinned');\n   assert.equal(change.newKind,'positive','Reviewed changed behavior receives the full positive proof assertions');assert.ok(change.reason&&change.reason.trim(),'Each adaptation explains the semantic reason');\n  }\n  for(const change of manifest.changes){\n   const rows=fixtures.get(change.fixtureFile),original=rows.find(fixture=>fixture.name===change.name),next={...original,expected:change.newExpected,rule:change.rule};\n   assert.equal(original.source,change.originalFixture.source,'The executable fixture source remains exact');\n   if(change.originalKind==='negative'){\n    assert.equal(change.fixtureFile,negativeFile,'Only the reviewed negative fixture can be promoted');assert.equal(change.rule,'v29AnchorReferences','The promoted case proves the new anchor rule');negatives.splice(negatives.indexOf(original),1);positives.push(next);\n   }else{assert.equal(change.fixtureFile,positiveFile,'Existing positive fixtures remain positive');assert.equal(change.rule,original.rule,'Existing positive contracts retain their original rule');rows[rows.indexOf(original)]=next;}\n   expectationChanges.push({...change,expectationManifestSha256:candidate.sha(manifestBytes)});\n  }\n  assert.equal(negatives.length,54,'One reviewed preservation fixture is promoted');assert.equal(positives.length,27,'The promoted fixture gets all positive invariants');assert.equal(negatives.length+positives.length,manifest.newFixtureCount,'All inherited cases remain in the test run');\n  for(const [file,rows]of fixtures)fs.writeFileSync(path.join(stage,path.basename(file)),JSON.stringify(rows,null,2)+'\\n');\n  assert.deepEqual((manifest.outputFixtureChanges||[]).map(change=>change.originalOutputFile),['tests/v26_engine/regressions/ken_legacy_cleanup.wiki'],'Only the individually reviewed real output fixture can change');\n  for(const change of manifest.outputFixtureChanges||[]){\n   assert.equal(change.sourceFile,'tests/v26_engine/regressions/73139500.wiki','The original real-biography source is fixed');assert.equal(change.metadataFile,'tests/v26_engine/derived_fixture.json','Only the matching derived-output metadata is adapted');\n   const sourceBytes=fs.readFileSync(path.join(candidate.root,change.sourceFile)),outputBytes=fs.readFileSync(path.join(candidate.root,change.originalOutputFile)),metadataBytes=fs.readFileSync(path.join(candidate.root,change.metadataFile));\n   assert.equal(sourceBytes.length,change.sourceBytes,'The entire real source size is pinned');assert.equal(candidate.sha(sourceBytes),change.sourceSha256,'The entire real source SHA is pinned');assert.equal(outputBytes.length,change.originalOutputBytes,'The complete old output size is pinned');assert.equal(candidate.sha(outputBytes),change.originalOutputSha256,'The complete original expected output is pinned');assert.equal(metadataBytes.length,change.originalMetadataBytes,'The old output metadata size is pinned');assert.equal(candidate.sha(metadataBytes),change.originalMetadataSha256,'The original metadata file is pinned');\n   const metadata=JSON.parse(metadataBytes);assert.deepEqual(metadata,change.originalMetadata,'All original output metadata fields are preserved in provenance');assert.equal(metadata.sha256,change.originalOutputSha256,'The old hash assertion described the exact old fixture');assert.equal(metadata.bytes,change.originalOutputBytes,'The old byte assertion described the exact old fixture');\n   const relativeOutput=path.relative('tests/v26_engine',change.originalOutputFile),relativeMetadata=path.relative('tests/v26_engine',change.metadataFile);assert.equal(fs.readFileSync(path.join(stage,relativeOutput)).equals(outputBytes),true,'The disposable output copy starts byte-identical');assert.equal(fs.readFileSync(path.join(stage,relativeMetadata)).equals(metadataBytes),true,'The disposable metadata copy starts byte-identical');\n   const old=outputBytes.toString('utf8'),edits=[];assert.equal(change.replacements.length,2,'Exactly the two reviewed reference occurrences change');\n   for(const replacement of change.replacements){assert.equal(replacement.occurrences,1,'Every reviewed reference occurrence is unique');assert.equal(old.split(replacement.before).length-1,1,'The exact old reference bytes have one match');const start=old.indexOf(replacement.before);edits.push({start,end:start+replacement.before.length,text:replacement.after});}\n   let next=old;for(const edit of edits.sort((a,b)=>b.start-a.start))next=next.slice(0,edit.start)+edit.text+next.slice(edit.end);\n   assert.equal(Buffer.byteLength(next),change.newOutputBytes,'The handwritten expected output has the pinned byte size');assert.equal(candidate.sha(next),change.newOutputSha256,'The complete handwritten new expectation has the pinned SHA');\n   const beforeCensus=referenceFixtureCensus(old),afterCensus=referenceFixtureCensus(next);assert.equal(beforeCensus.count,change.referenceCount,'The old source-reference count is pinned');assert.equal(afterCensus.count,change.referenceCount,'No reference occurrence is removed from the real biography');assert.equal(beforeCensus.bindings,afterCensus.bindings,'Every ordered reference group and exact resolved body stays unchanged');assert.equal(candidate.sha(beforeCensus.bindings),change.orderedResolvedReferenceSha256,'The independent reference meaning is pinned');assert.equal(beforeCensus.outside,afterCensus.outside,'Every byte outside reference tags is preserved');assert.equal(candidate.sha(beforeCensus.outside),change.outsideReferenceTextSha256,'The unchanged nonreference text is independently pinned');\n   fs.writeFileSync(path.join(stage,relativeOutput),next);fs.writeFileSync(path.join(stage,relativeMetadata),JSON.stringify({...metadata,sha256:change.newOutputSha256,bytes:change.newOutputBytes,transformation:change.reason},null,2)+'\\n');\n   originalFixtureFiles.push({file:change.originalOutputFile,sha256:change.originalOutputSha256,bytes:change.originalOutputBytes},{file:change.metadataFile,sha256:change.originalMetadataSha256,bytes:change.originalMetadataBytes});expectationChanges.push({...change,kind:'source-equivalent-real-output-fixture',expectationManifestSha256:candidate.sha(manifestBytes)});\n  }\n }\n // This generated local file is never included in the repository or a release.\n"
+        ],
+        [
+          "  if(run.status!==0){process.exitCode=1;break;}\n }\n} finally {\n fs.rmSync(stage,{recursive:true,force:true});\n const report={version:candidate.manifest.version,kind:'unchanged-inherited-assertions-candidate-adapter',complex,frozenFiles:candidate.manifest.files,originalAssertionFiles:originalAssertions,results,networkRequests:0,wikipediaWrites:0};\n fs.writeFileSync(path.join(candidate.artifactDirectory(),complex?'engine_complex_adapter.json':'engine_adapter.json'),JSON.stringify(report,null,2)+'\\n');\n}\n",
+          "  if(run.status!==0){process.exitCode=1;break;}\n }\n} catch(error) {\n setupFailure=candidate.sanitized(error.message,[stage]);process.exitCode=1;throw error;\n} finally {\n fs.rmSync(stage,{recursive:true,force:true});\n const report={version:candidate.manifest.version,kind:'unchanged-inherited-assertions-source-pinned-expectation-adapter',status:!setupFailure&&results.length===selected.length&&results.every(result=>result.exitCode===0)?'passed':'failed',complex,frozenFiles:candidate.manifest.files,originalAssertionFiles:originalAssertions,originalFixtureFiles,expectationChanges,results,setupFailure,networkRequests:0,wikipediaWrites:0};\n fs.writeFileSync(path.join(candidate.artifactDirectory(),complex?'engine_complex_adapter.json':'engine_adapter.json'),JSON.stringify(report,null,2)+'\\n');\n}\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/run_focus.cjs",
+      "target": "tests/v290/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_quote_boundaries.cjs",
+      "target": "tests/v290/run_quote_boundaries.cjs",
+      "sourceSha256": "cbe5bf89952ebfd33a7f7df22151a8e7eeb3447bb35888b3d2be3ec87677ee52",
+      "targetSha256": "f2ff4cabb7ca3f4c76656be8265038af258337c1d0202b3a6719fda48971f2b4",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_server_grammar.mjs",
+      "target": "tests/v290/run_server_grammar.mjs",
+      "sourceSha256": "3b1d21a5a6e3e46a70278a0f4e3376f04c9ebf7bbffcd8e6ba6836ea994fb5ca",
+      "targetSha256": "ea04c6bd17a8f71a138a16b36db43645bee67ebbc6a217c39c74cc83ccd8db5c",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_startup.cjs",
+      "target": "tests/v290/run_startup.cjs",
+      "sourceSha256": "ea040d4fa80ee47c494abf9ec99fc46816a21019361817a1d13ead76842148ce",
+      "targetSha256": "5a23b82f933aee82c85c50c78f4b33d4988b1f5cfe8aa3c8e8d0b0af32c38012",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/run_tag_adversarial.cjs",
+      "target": "tests/v290/run_tag_adversarial.cjs",
+      "sourceSha256": "ab6711477b095af129ead3d265252f692a52a73259856c29ff721329ba896f61",
+      "targetSha256": "d475c440c74d532a71ee2c08c3ad840e08d792ccd719d65d6729eb30e87b36bd",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/summarize.cjs",
+      "target": "tests/v290/summarize.cjs",
+      "sourceSha256": "44fdde80ad58bdc1d6b38285ed4d7a4ef08e4329659a77917a3ce9112b45f1ea",
+      "targetSha256": "822451616d78ba91cb07620e25d307695a20cd6b829314abee7a3709ade71d74",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "candidate.verify();\nconst directory=candidate.artifactDirectory();\nconst names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json'];\nconst report={version:'2.9.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\nfor(const name of names){\n",
+          "candidate.verify();\nconst directory=candidate.artifactDirectory();\nconst names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json'];\nconst report={version:'2.9.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\nfor(const name of names){\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/test_biography_composition.cjs",
+      "target": "tests/v290/test_biography_composition.cjs",
+      "sourceSha256": "8d170cb8eb805afba915d0f131561a1bcae9adff97e1225e789d7929d8354de5",
+      "targetSha256": "b6e3464e47c71599382a52efafad95350bff288c151227cd4708ce080869969a",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_biography_dates.cjs",
+      "target": "tests/v290/test_biography_dates.cjs",
+      "sourceSha256": "dbfb1a095b762ccdbb81ce9fe5fc8cfa18ad42500432b584d58eddf28cf2e9af",
+      "targetSha256": "1a465978449d1f72c2d60e1fc86c432acd9ee2213c4fe0cf906d95862e603310",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_biography_fields.cjs",
+      "target": "tests/v290/test_biography_fields.cjs",
+      "sourceSha256": "cd57cea2ee80a2425d0f9ae75de170bc95577bc69d24bf12dc76798187dd5628",
+      "targetSha256": "2561b4dd1d12b9570258050de908e1ac8216446fddfdb9cc15955b9732375856",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "const source=raw=>raw+\"\\n\\n'''Pessoa de teste''' é uma pessoa de teste.\\n\",box=(name,fields)=>'{{'+name+'|nome=Pessoa de teste|'+fields+'}}';\nfor(const script of scripts){\n const api=require(script),bundle=path.basename(script),cfg={...api.defaults,namespaceNumber:0,pageTitle:'Pessoa de teste',authorityControl:false,autoPreview:false,portals:false},full=/^2\\.8\\./.test(api.version);\n report.bundles.push({file:bundle,version:api.version,sha256:sha(fs.readFileSync(script))});\n function positive(name,raw,expected,rule){test(bundle,name,()=>{const plan=api.v28BiographyFieldPlan(raw,cfg);eq(plan.text,expected,'Only the exact confirmed field transformation');eq(plan.edits.length>0,true,'A field edit is present');eq(plan.rules.includes(rule),true,'The actual change has its own report label');eq(plan.edits.every(edit=>typeof edit.ruleId==='string'&&edit.ruleId.length>0),true,'Each local edit supplies an accurate change group');eq(api.v28BiographyFieldProof(raw,expected,plan,cfg),true,'Source and every local edit are bound');eq(api.v28BiographyFieldProof(raw,expected+' ',plan,cfg),false,'No extra byte is accepted');eq(api.v28BiographyFieldProof(raw,expected,{...plan,sourceHash:'modified'},cfg),false,'A stale plan cannot authorize another source');eq(api.v28BiographyFieldPlan(expected,cfg).text,expected,'A second local pass is stable');const whole=source(raw),edits=api.v28BiographyFieldEdits(whole,cfg);eq(edits.length,1,'A unique principal person box is transformed');eq(edits[0].text,expected,'The whole-source wrapper uses the same exact local plan');eq(edits[0].proof.changeRules,plan.edits.map(edit=>edit.ruleId),'The UI counts local edits rather than a whole-box replacement');if(full){const result=api.calculate({kind:'adjust',source:whole,options:cfg});eq(result.preservation,[],'All original article objects are preserved');const after=api.v28PrincipalPersonBox(result.text,cfg);eq(Boolean(after),true,'The transformed principal person box remains parseable');eq(api.v28BiographyFieldPlan(after.raw,cfg).edits,[],'The combined engine completed the requested field repairs');eq(api.safeComposition(whole,result.text,cfg),'','The full diff is composable');eq(api.calculate({kind:'adjust',source:result.text,options:cfg}).text,result.text,'A second whole-engine pass is stable');eq(result.changes.some(change=>change.id===rule),true,'The edit summary reports the field operation actually performed');}});}\n",
+          "const source=raw=>raw+\"\\n\\n'''Pessoa de teste''' é uma pessoa de teste.\\n\",box=(name,fields)=>'{{'+name+'|nome=Pessoa de teste|'+fields+'}}';\nfor(const script of scripts){\n const api=require(script),bundle=path.basename(script),cfg={...api.defaults,namespaceNumber:0,pageTitle:'Pessoa de teste',authorityControl:false,autoPreview:false,portals:false},full=true;\n report.bundles.push({file:bundle,version:api.version,sha256:sha(fs.readFileSync(script))});\n function positive(name,raw,expected,rule){test(bundle,name,()=>{const plan=api.v28BiographyFieldPlan(raw,cfg);eq(plan.text,expected,'Only the exact confirmed field transformation');eq(plan.edits.length>0,true,'A field edit is present');eq(plan.rules.includes(rule),true,'The actual change has its own report label');eq(plan.edits.every(edit=>typeof edit.ruleId==='string'&&edit.ruleId.length>0),true,'Each local edit supplies an accurate change group');eq(api.v28BiographyFieldProof(raw,expected,plan,cfg),true,'Source and every local edit are bound');eq(api.v28BiographyFieldProof(raw,expected+' ',plan,cfg),false,'No extra byte is accepted');eq(api.v28BiographyFieldProof(raw,expected,{...plan,sourceHash:'modified'},cfg),false,'A stale plan cannot authorize another source');eq(api.v28BiographyFieldPlan(expected,cfg).text,expected,'A second local pass is stable');const whole=source(raw),edits=api.v28BiographyFieldEdits(whole,cfg);eq(edits.length,1,'A unique principal person box is transformed');eq(edits[0].text,expected,'The whole-source wrapper uses the same exact local plan');eq(edits[0].proof.changeRules,plan.edits.map(edit=>edit.ruleId),'The UI counts local edits rather than a whole-box replacement');if(full){const result=api.calculate({kind:'adjust',source:whole,options:cfg});eq(result.preservation,[],'All original article objects are preserved');const after=api.v28PrincipalPersonBox(result.text,cfg);eq(Boolean(after),true,'The transformed principal person box remains parseable');eq(api.v28BiographyFieldPlan(after.raw,cfg).edits,[],'The combined engine completed the requested field repairs');eq(api.safeComposition(whole,result.text,cfg),'','The full diff is composable');eq(api.calculate({kind:'adjust',source:result.text,options:cfg}).text,result.text,'A second whole-engine pass is stable');eq(result.changes.some(change=>change.id===rule),true,'The edit summary reports the field operation actually performed');}});}\n"
+        ]
+      ],
+      "additivePurpose": "Keep inherited assertions and append the 2.9 independent repair workflows, report validation, or suite selection."
+    },
+    {
+      "source": "tests/v283/test_birth_categories.cjs",
+      "target": "tests/v290/test_birth_categories.cjs",
+      "sourceSha256": "b8328bb159ad4d6ce2f664abb6a4bb8be9a64769206459930cc45d17f9197079",
+      "targetSha256": "43088a8c5eb7876cde12b943ba8d6d08aec0a918fb7b62e98eb40bb1560a9722",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_chat_permutations.cjs",
+      "target": "tests/v290/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_chat_residues.cjs",
+      "target": "tests/v290/test_chat_residues.cjs",
+      "sourceSha256": "e8e7ed63d4d56375ba3bac3d7c23be73939e40ea3797fd56af3db72d7babcbf5",
+      "targetSha256": "e6d69918d0b217b51a6528755fffad2d783a3a37d5af8cefefed66f4aa6b6cc0",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_chemical_guards.cjs",
+      "target": "tests/v290/test_chemical_guards.cjs",
+      "sourceSha256": "86656ae37c94d2725f464043eed394a4c2aee941a1dde45c3371b8dd465fefcf",
+      "targetSha256": "4603aa1d157b659cf65bc5917fecc6b84432f00e616761f685ebcfe429d4f63f",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_chemical_syntax.cjs",
+      "target": "tests/v290/test_chemical_syntax.cjs",
+      "sourceSha256": "42b775877d835ea1386c59395d887b57086e20f18885696cb70df74e6710ebda",
+      "targetSha256": "69a05fa471c477655fdd0935435e5f03606d1fd9a0381e7c1ca23a2350b9dd93",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_citation_families.cjs",
+      "target": "tests/v290/test_citation_families.cjs",
+      "sourceSha256": "b33e2e3ad6e8ad7f46926aaf48e56a793a62d9eaadcf3d68183e843d1273dd0c",
+      "targetSha256": "ad331fdc601fd9af3d0f54faf20e1201e5d4acf4452bc25ec5965e3a4711efb3",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_diff_reporting.cjs",
+      "target": "tests/v290/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_historical_citations.cjs",
+      "target": "tests/v290/test_historical_citations.cjs",
+      "sourceSha256": "b88d15ec4410bd7a741d3ef81fc6e07db470f43ec3efef116820acb022830cf7",
+      "targetSha256": "58c258af9d5e3b568fde36e8f1b323a04a2c2d75adb273f377a41b8712cfc2ab",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_index.cjs",
+      "target": "tests/v290/test_index.cjs",
+      "sourceSha256": "956d9300d7fa39c252d7cf68081b71695cb7487590a6f5425a37bffcc707cf76",
+      "targetSha256": "5150f3e2a5c300992a5ddc04aae4223084bed0d4f7ab9d1d0adab1f2c0dc19b4",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_marriage_guards.cjs",
+      "target": "tests/v290/test_marriage_guards.cjs",
+      "sourceSha256": "fee045b97ca1eeeeed8ecac405dc1df10f5305ee843c1a0e05b4f26ba0cb2739",
+      "targetSha256": "86e20fd1aff95ab360938474d61ede3b2d25e47902d27facb2b5d24ce5821507",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_marriage_syntax.cjs",
+      "target": "tests/v290/test_marriage_syntax.cjs",
+      "sourceSha256": "6e5402a4c2904033c7cfcd53d9b1fc4427ecdea3039fe49b48100309f56f501a",
+      "targetSha256": "36aa4139bfe076c361826d2958232e194f17a82deacc28f8dbe4d66471c88ff1",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_multiple_marriages.cjs",
+      "target": "tests/v290/test_multiple_marriages.cjs",
+      "sourceSha256": "9fb8ce21b9f51afdf761bd7bdc7cbfc1eea7c1c906906d1c6ec7d09b87d977ff",
+      "targetSha256": "9bd08f5c91995bbee7a12f47229e93bbf6638f8dad51758621d2e6f5c891003f",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_no_section_buttons.cjs",
+      "target": "tests/v290/test_no_section_buttons.cjs",
+      "sourceSha256": "95565ea85b64b8a26ae70a4d88258eb3985341177066f4759b9facddde4484f5",
+      "targetSha256": "16b72461d9189661c507ddac49e1e380c653785421a2ac1ae0c4623b3809918f",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_quotes.cjs",
+      "target": "tests/v290/test_quotes.cjs",
+      "sourceSha256": "e4171afd79283ac6c518aa63578bc116eb65342545e57d7ee033586a3cb9c2af",
+      "targetSha256": "22f57048f704a5bdec06ffc6853bdff9634f1a73c6ae16263ec89f7b8c9484f6",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_safe_automation.cjs",
+      "target": "tests/v290/test_safe_automation.cjs",
+      "sourceSha256": "6378805d984f3e7e03d3d5708c8a4fa444370ada364e2b7d38cc967bda4f6722",
+      "targetSha256": "f25193a8c537d9d80f197cf999e68657df5fcaaab9e8d035429519f55c1b7de9",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_table_guards.cjs",
+      "target": "tests/v290/test_table_guards.cjs",
+      "sourceSha256": "53c4e84bce95a48ca2e92c455e88b4b415003bd5541c881eb514b37a8bc9aa05",
+      "targetSha256": "116dda626140424783d9b7e3ae4a3f32b7ca7dc4cd4feac1c5ea953626e73eed",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/test_table_syntax.cjs",
+      "target": "tests/v290/test_table_syntax.cjs",
+      "sourceSha256": "831ceb5e392abce0ade37f5abae53b971d7b2e1887ed05f400432fc2901bd708",
+      "targetSha256": "de9aac167e94193801c93cd88d8770b0a52bc2f7937036c8310454afb6eceeeb",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v283/verify_inherited.cjs",
+      "target": "tests/v290/verify_inherited.cjs",
+      "sourceSha256": "0dc70948a0b1e4b23addf782364b769457544ce688be52e58df3fb9cdcab5a58",
+      "targetSha256": "d4cbd3acb78b4200dd983f34c1a5dfa19910098f86ee0d4f4ed14a5d6712c9ad",
+      "changed": true,
+      "additionalSubstitutions": []
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v290/INHERITED_EXPECTATIONS.json",
+      "sha256": "68e549fe680dfa1b4c1c76c7523f72576450adb4a72849b0540672adb7bbda31"
+    },
+    {
+      "target": "tests/v290/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "sha256": "cd060150cd55bb2e3fdd60c48f4af90d620318735ba6d53f3c50e259548fa1b7"
+    },
+    {
+      "target": "tests/v290/browser/v29_repair_flow.cjs",
+      "sha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0"
+    },
+    {
+      "target": "tests/v290/fixtures/repair_render_cases.json",
+      "sha256": "3c75eebdba8321dc4697c7dca316dda546af202057c668926b112fa61331f9c5"
+    },
+    {
+      "target": "tests/v290/test_identifier_urls.cjs",
+      "sha256": "88ae9bf38cc47abdb4d96800bbb05a91081cfafc7ad119854309066899607bca"
+    },
+    {
+      "target": "tests/v290/test_reference_repairs.cjs",
+      "sha256": "bdd8f89de467a4d1d51b388c0893f7350d21fef2c5d5c14f2a2dced4da88c727"
+    },
+    {
+      "target": "tests/v290/test_table_repairs.cjs",
+      "sha256": "32ef637983751c27211af1dd8e561a19b9cf565447223c0b26ce679f0323e491"
+    }
+  ]
+}

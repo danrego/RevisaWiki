@@ -1,0 +1,35 @@
+{
+  "version": "2.9.0",
+  "scope": "Complete articles in main namespace, wikitext model, enabled syntax/table repairs, no redirect or disambiguation or discussion context. Each candidate is a complete top-level literal wikitable with a regular bounded grid. Dynamic templates, unknown attributes, nested or HTML tables, identifiers, header associations, presentation roles and protected examples are declined.",
+  "stages": [
+    "The existing whole-article Markdown wrapper stage precedes table syntax stages.",
+    "The existing v272-numeric-cell-quotes stage must precede v29-table-extra-quotes so a previously missing quote cannot hide a later extra-quote table.",
+    "v29-table-extra-quotes precedes legacy syntax scanning.",
+    "v29-table-duplicate-attributes precedes v29-table-leaf-scopes, both before final table parsing."
+  ],
+  "rules": {
+    "tableDuplicateAttributes": {
+      "description": "Remove the later occurrence and its preceding whitespace only when every repeated key in the literal row/cell/caption attribute prefix has an exactly equal parsed value. Keep the first token byte exact.",
+      "cellAttributes": ["rowspan", "colspan", "scope", "class", "style", "align", "valign", "width", "height", "bgcolor"],
+      "rowAttributes": ["class", "style", "align", "valign", "bgcolor"],
+      "captionAttributes": ["class", "style", "align"],
+      "decline": "Conflicting values, computed attributes, unknown keys, boolean attributes, malformed prefixes, nonrectangular or overflowing grids. Does not collapse duplicate records or cells."
+    },
+    "tableExtraAttributeQuotes": {
+      "description": "Remove exactly one duplicate terminal closing quote from a sole rowspan or colspan attribute followed by an explicit separator and static single-line cell text.",
+      "values": "Literal positive integers from 1 through 999, no leading zero. Double-quoted and single-quoted forms retain their original quote type, key case, numeric bytes and whitespace.",
+      "decline": "Additional attributes, zero or negative or decimal or computed values, mismatched quote types, multiple extra quotes, protected or linked or reference-bearing cell payload, missing separator, unclosed or irregular tables. Existing independently approved missing-quote fixes may compose in the same article."
+    },
+    "tableLeafHeaderScopes": {
+      "description": "Add scope=col only to explicit leaf column headers in a narrowly recognized two-tier header. The first row consists entirely of nonempty explicit header groups with literal colspan of at least two. The following row consists entirely of nonempty explicit span-one headers covering those columns. At least one complete regular body row follows.",
+      "columns": "2 through 32",
+      "body": "Span-one data cells, with an optional explicit first-cell row header. Existing compatible scopes stay unchanged. Group headers are not given a guessed scope.",
+      "decline": "Any rowspan, blank or comment-only header, third header tier, identifier/header association, conflicting scope, incomplete group coverage, computed or nested content."
+    }
+  },
+  "proofs": "Every pure plan is bound to the exact source and finite ordered edits. Duplicate-attribute repair compares the complete regular-grid model before and after, including row/caption attributes, ordered cell kinds, spans and exact contents. Release integration applies the table object inventory guard to every affected table and keeps reference/category/source guards enabled.",
+  "limits": {"tableCharacters": 500000, "rows": 5000, "cellsPerRow": 200, "occupiedGridSlots": 100000},
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "accountsUsed": 0
+}

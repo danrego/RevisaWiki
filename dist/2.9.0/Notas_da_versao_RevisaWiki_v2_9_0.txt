@@ -1,0 +1,17 @@
+RevisaWiki 2.9.0
+16 de outubro de 2026
+
+- Reutiliza uma fonte sem nome quando todos os campos coincidem com uma referência já nomeada.
+- Retira chamadas repetidas da mesma referência no mesmo ponto do texto.
+- Retira etiquetas de referência sem atributos e sem conteúdo.
+- Corrige um único fechamento de referência repetido quando o limite está completo.
+- Retira atributos idênticos repetidos em células, linhas e legendas de tabelas completas.
+- Corrige uma aspa de fechamento repetida em rowspan ou colspan nos casos literais reconhecidos.
+- Acrescenta scope de coluna aos cabeçalhos inferiores de tabelas simples com dois níveis.
+- Extrai o identificador de um endereço oficial preenchido em pmc ou arxiv, preservando sua versão.
+
+Os arquivos finais da 2.9.0 passaram por 17.944 casos e 123.715 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 93 fluxos locais, com 14.031 verificações. As oito regras novas tiveram ainda 10 comparações na renderização real da ptwiki. A categorização de nascimento conservou a mesma categoria e chave de ordenação após a retirada da linha redundante. As rodadas finais não tiveram falhas. Os relatórios e os hashes desta execução estão em tests/evidence/2.9.0. Nenhum teste editou a Wikipédia.
+
+Abra INICIO.html e siga a ordem: dados, programa, carregador central e documentação. Quem já usa a chamada fixa mantém o common.js como está.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki
