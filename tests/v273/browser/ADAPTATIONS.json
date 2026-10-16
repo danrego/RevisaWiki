@@ -1,0 +1,196 @@
+{
+  "version": "2.7.3",
+  "inherited": [
+    {
+      "source": "tests/v272/browser/run_release.cjs",
+      "sourceSha256": "e437591a784b66e51dcd9aeb90aa98f563bf2c88139b7eda21855044d8c968b2",
+      "copy": "tests/v273/browser/run_release.cjs",
+      "copySha256": "e5deb4b42abcc4723ff4f63699758c8d7e6f2f862a40f70c30ab5c532ce8283f"
+    },
+    {
+      "source": "tests/v272/browser/fixture.html",
+      "sourceSha256": "980b93cb7bcfdb132c8156597aa9452bae967b842d02ebd15c65031fe72f0599",
+      "copy": "tests/v273/browser/fixture.html",
+      "copySha256": "90b063eb091723db740286893bb104cd4dfa70041b61d9c0687a96bc220bc510"
+    },
+    {
+      "source": "tests/v272/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "copy": "tests/v273/browser/fixture.js",
+      "copySha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea"
+    },
+    {
+      "source": "tests/v272/browser/summarize_release.cjs",
+      "sourceSha256": "2a478a1ae175c8f782739e1763fe836769750bd63f0e23fcf47c1fbbb3c3be02",
+      "copy": "tests/v273/browser/summarize_release.cjs",
+      "copySha256": "2785a0a34125b763c6842d10f40e8228cc239a1ff4b497c6570916e5f9239b30"
+    },
+    {
+      "source": "tests/v272/browser/README.md",
+      "sourceSha256": "054a8ccaadb7ff606646d986094014577aebe8edbdec3d1521c83f326f14cb5d",
+      "copy": "tests/v273/browser/README.md",
+      "copySha256": "f5f54acda0ddb74933af2b16ff8dd73fd4fbbc70261f33f8700fd7d812a58270"
+    },
+    {
+      "source": "tests/v272/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sourceSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "copy": "tests/v273/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "copySha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f"
+    }
+  ],
+  "status": "native runner and fixtures frozen before execution; final acceptance is recorded separately",
+  "sharedGeometryAndArticleFixturesRemainUnchanged": true,
+  "addedWorkflows": 3,
+  "positiveSpouseCases": 12,
+  "negativeSpouseCases": 24,
+  "syntheticFixture": {
+    "file": "tests/v273/browser/spouse_cases.json",
+    "sha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c"
+  },
+  "inheritedAssertionsPreserved": true,
+  "newFlowContract": [
+    "Exact source-bound plan and regenerated proof",
+    "Real local Worker with no preservation exception",
+    "Accepted spouse value and literal date/status/reference preservation",
+    "Ambiguous, unsupported, existing and protected values remain unchanged",
+    "Automatic summary identifies changed infobox",
+    "Exact source and summary restoration through Undo",
+    "Seven incomplete namespace/substitution-prefixed potential second infoboxes in opaque tails veto the conversion and remain exact",
+    "Three already-approved foreign field/template migrations compose fully with marriage conversion on the first click",
+    "Every positive case stays unchanged on a real second button click and still restores the complete original source through Undo",
+    "Every synthetic source is idempotent through a full second cleanup",
+    "Internal bold in a foreign spouse name remains protected",
+    "Second-click cumulative edit payloads remain exactly equal after excluding only explanatory reasons; trace labels and both reason arrays are recorded and checked separately, with zero new automatic adjustments"
+  ],
+  "sharedFixtureBindings": [
+    {
+      "file": "tests/v27/fixtures/large_articles/manifest.json",
+      "sha256": "0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256"
+    },
+    {
+      "file": "tests/v27/fixtures/city_temperature/source_revision.json",
+      "sha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31"
+    },
+    {
+      "file": "tests/v271/fixtures/chemical_articles/manifest.json",
+      "sha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f"
+    },
+    {
+      "file": "tests/v271/browser/geometry/manifest.json",
+      "sha256": "0d43abc25118d5ae0e3c7ef8733de4aca71a1c963bc1df4f9dbc4a3668cf7d3c"
+    },
+    {
+      "file": "tests/v272/fixtures/table_articles/manifest.json",
+      "sha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0"
+    },
+    {
+      "file": "tests/v273/fixtures/marriage_articles/complete_manifest.json",
+      "sha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d"
+    }
+  ],
+  "contractRegistry": {
+    "file": "src/v2_7_3/CONTRACTS.json",
+    "sha256": "8566ae57a91cb56069029cf7f20ee8804be9dce0cd79bda279179242647772a6"
+  },
+  "marriageRenderProof": {
+    "file": "tests/v273/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+    "sha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+    "readOnlyExamples": 23
+  },
+  "ownHarnessFiles": [
+    {
+      "file": "tests/v273/browser/HEAD_RENDER_PROOF.json",
+      "sha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029"
+    },
+    {
+      "file": "tests/v273/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "sha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e"
+    },
+    {
+      "file": "tests/v273/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f"
+    },
+    {
+      "file": "tests/v273/browser/README.md",
+      "sha256": "f5f54acda0ddb74933af2b16ff8dd73fd4fbbc70261f33f8700fd7d812a58270"
+    },
+    {
+      "file": "tests/v273/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "sha256": "c970e20b194e14b951df86c2fa2aa63df8d15d0e311a042ba2083d69fda5552a"
+    },
+    {
+      "file": "tests/v273/browser/fixture.html",
+      "sha256": "90b063eb091723db740286893bb104cd4dfa70041b61d9c0687a96bc220bc510"
+    },
+    {
+      "file": "tests/v273/browser/fixture.js",
+      "sha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea"
+    },
+    {
+      "file": "tests/v273/browser/run_release.cjs",
+      "sha256": "e5deb4b42abcc4723ff4f63699758c8d7e6f2f862a40f70c30ab5c532ce8283f"
+    },
+    {
+      "file": "tests/v273/browser/spouse_cases.json",
+      "sha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c"
+    },
+    {
+      "file": "tests/v273/browser/summarize_release.cjs",
+      "sha256": "2785a0a34125b763c6842d10f40e8228cc239a1ff4b497c6570916e5f9239b30"
+    }
+  ],
+  "withdrawnReleaseManifestSha256": "ac3730527b7c68a4d72b1e2e8eaace8a35f19ea71afd44e200a49c7a7ed43791",
+  "releaseManifestSha256": "42c28afa2a38455844cd8c9747d88a362de54b5b596afd981935966d22bde72c",
+  "nativeWorkflowsPerBrowser": 18,
+  "completeSourceRegression": {
+    "file": "tests/v273/fixtures/marriage_articles/complete_manifest.json",
+    "sha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+    "articleSha256": "cb7ca0fc6f05949f56f73beeb28628419ae1a2349bc2e94793d96a0688bd547e",
+    "safePrefixEndCodeUnits": 245824,
+    "opaqueTailSha256": "ab6487be23097ee9a68f630b1b672bf71130c76c6844104a5f670b270d5d39fb"
+  },
+  "withdrawnNativeTargets": [
+    "ac3730527b7c68a4d72b1e2e8eaace8a35f19ea71afd44e200a49c7a7ed43791",
+    "241a9001d5d71f682e24eabfcc71d4e3cc3769d11982ae619c40c18b868f6c1f",
+    "37cc11d63e7581a9e235c3ef34404746bb0c817069360e3469d40703cb4955b1"
+  ],
+  "headRenderProof": {
+    "file": "tests/v273/browser/HEAD_RENDER_PROOF.json",
+    "sha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+    "readOnlyCases": 22
+  },
+  "actualSecondClickIdempotenceCasesPerBrowser": 12,
+  "fullCleanupIdempotenceCasesPerBrowser": 36,
+  "secondClickContract": {
+    "file": "tests/v273/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+    "sha256": "c970e20b194e14b951df86c2fa2aa63df8d15d0e311a042ba2083d69fda5552a",
+    "independentCases": 12,
+    "captureTrace": true,
+    "excludedFields": [
+      "reasons"
+    ]
+  },
+  "supersededHarnessOracles": [
+    {
+      "priorRunnerSha256": "3c134043fddd0225d459c62778addd8519a618df4d851d726835fa07c893bb96",
+      "reason": "A zero-hunk assertion incorrectly discarded the retained cumulative comparison. The cumulative source-edit payload must remain exact and new automatic adjustments must be zero.",
+      "runtimeUnchanged": true
+    },
+    {
+      "priorRunnerSha256": "9f15db946054c25c55c83aa8a3ec83608b73e86cfd5a1f6c7ff70fe2a0a6a69c",
+      "reason": "Full hunk JSON equality also compared reasons, which comparisonStages regenerates from current trace labels. The corrected oracle excludes only reasons and asserts the documented first nonempty versus second empty trace contract separately.",
+      "runtimeUnchanged": true
+    }
+  ],
+  "postExecutionAggregationAdapter": {
+    "scope": [
+      "firstReasons",
+      "secondReasons",
+      "firstTraceLabels",
+      "secondTraceLabels"
+    ],
+    "reason": "Strictly decode Firefox BiDi nested RemoteValue explanation transport only; keep all three original native reports and cumulative edit hashes unchanged",
+    "runtimeAndRunnerUnchanged": true,
+    "nativeAssertionsUnchanged": true
+  }
+}
