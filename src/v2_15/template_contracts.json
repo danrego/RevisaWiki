@@ -1,0 +1,398 @@
+{
+  "version": "2.15.0",
+  "scope": "Finite repairs to template definitions and literal TemplateData blocks. No article facts, public argument defaults or existing accepted aliases are changed.",
+  "sources": [
+    {
+      "title": "Manual:Newlines and spaces",
+      "oldid": 8167935,
+      "url": "https://www.mediawiki.org/w/index.php?oldid=8167935"
+    },
+    {
+      "title": "Help:Templates",
+      "oldid": 8453333,
+      "url": "https://www.mediawiki.org/w/index.php?oldid=8453333"
+    },
+    {
+      "title": "Extension:TemplateData",
+      "oldid": 8354812,
+      "url": "https://www.mediawiki.org/w/index.php?oldid=8354812"
+    },
+    {
+      "title": "Predefinição:Documentação/doc",
+      "oldid": 61756456,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=61756456"
+    },
+    {
+      "title": "Módulo:Navbox",
+      "oldid": 72436785,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72436785"
+    },
+    {
+      "title": "Módulo:Sidebar",
+      "oldid": 72437005,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72437005"
+    },
+    {
+      "title": "Predefinição:Info",
+      "oldid": 73035397,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73035397"
+    },
+    {
+      "title": "Predefinição:Info/Assentamento/Marrocos",
+      "oldid": 72837767,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72837767"
+    },
+    {
+      "title": "Predefinição:Info/Assentamento/Marrocos",
+      "oldid": 73167661,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73167661"
+    }
+  ],
+  "runtime": {
+    "functions": [
+      "se",
+      "if",
+      "seigual",
+      "ifeq",
+      "seexpr",
+      "ifexpr",
+      "seerro",
+      "iferror",
+      "seexiste",
+      "ifexist",
+      "partesdotítulo",
+      "partesdotitulo",
+      "titleparts",
+      "invocar",
+      "invoke",
+      "expr",
+      "switch",
+      "time",
+      "timel",
+      "rel2abs",
+      "tag"
+    ],
+    "calls": {
+      "navbox": {
+        "oldid": 69824633,
+        "rules": [
+          {
+            "from": "titulo",
+            "to": "título",
+            "family": [
+              "titulo",
+              "título",
+              "title"
+            ]
+          },
+          {
+            "from": "estilo-titulo",
+            "to": "estilo-título",
+            "family": [
+              "estilo-titulo",
+              "estilo-título",
+              "titlestyle"
+            ]
+          },
+          {
+            "from": "largura_grupo",
+            "to": "largura-grupo",
+            "family": [
+              "largura_grupo",
+              "largura-grupo",
+              "groupwidth"
+            ]
+          },
+          {
+            "from": "classe_lista",
+            "to": "classe-lista",
+            "family": [
+              "classe_lista",
+              "classe-lista",
+              "listclass"
+            ]
+          },
+          {
+            "from": "estilo_lista",
+            "to": "estilo-lista",
+            "family": [
+              "estilo_lista",
+              "estilo-lista",
+              "liststyle"
+            ]
+          },
+          {
+            "from": "estilo_grupo",
+            "to": "estilo-grupo",
+            "family": [
+              "estilo_grupo",
+              "estilo-grupo",
+              "groupstyle"
+            ]
+          },
+          {
+            "from": "estilo_acima",
+            "to": "estilo-acima",
+            "family": [
+              "estilo_acima",
+              "estilo-acima",
+              "abovestyle"
+            ]
+          },
+          {
+            "from": "estilo_abaixo",
+            "to": "estilo-abaixo",
+            "family": [
+              "estilo_abaixo",
+              "estilo-abaixo",
+              "belowstyle"
+            ]
+          }
+        ]
+      },
+      "sidebar": {
+        "oldid": 69737840,
+        "rules": [
+          {
+            "from": "titulo",
+            "to": "título",
+            "family": [
+              "titulo",
+              "título",
+              "title"
+            ]
+          },
+          {
+            "from": "pre-titulo",
+            "to": "pré-título",
+            "family": [
+              "pre-titulo",
+              "pré-título",
+              "pretitle"
+            ]
+          },
+          {
+            "from": "rodape",
+            "to": "rodapé",
+            "family": [
+              "rodape",
+              "rodapé",
+              "below"
+            ]
+          },
+          {
+            "from": "classe_corpo",
+            "to": "classe-corpo",
+            "family": [
+              "classe_corpo",
+              "classe-corpo",
+              "bodyclass",
+              "class",
+              "classe"
+            ]
+          },
+          {
+            "from": "estilo_corpo",
+            "to": "estilo-corpo",
+            "family": [
+              "estilo_corpo",
+              "estilo-corpo",
+              "bodystyle",
+              "style",
+              "estilo"
+            ]
+          }
+        ]
+      },
+      "menu lateral ocultável": {
+        "oldid": 69326711,
+        "rules": [
+          {
+            "from": "titulo",
+            "to": "título",
+            "family": [
+              "titulo",
+              "título",
+              "title"
+            ]
+          },
+          {
+            "from": "pre-titulo",
+            "to": "pré-título",
+            "family": [
+              "pre-titulo",
+              "pré-título",
+              "pretitle"
+            ]
+          },
+          {
+            "from": "rodape",
+            "to": "rodapé",
+            "family": [
+              "rodape",
+              "rodapé",
+              "below"
+            ]
+          },
+          {
+            "from": "classe_corpo",
+            "to": "classe-corpo",
+            "family": [
+              "classe_corpo",
+              "classe-corpo",
+              "bodyclass",
+              "class",
+              "classe"
+            ]
+          },
+          {
+            "from": "estilo_corpo",
+            "to": "estilo-corpo",
+            "family": [
+              "estilo_corpo",
+              "estilo-corpo",
+              "bodystyle",
+              "style",
+              "estilo"
+            ]
+          }
+        ]
+      },
+      "info": {
+        "oldid": 73035397,
+        "rules": [
+          {
+            "from": "rotulo-estilo",
+            "to": "rótulo-estilo",
+            "family": [
+              "rotulo-estilo",
+              "rótulo-estilo"
+            ]
+          },
+          {
+            "from": "cabecalho",
+            "to": "cabeçalho",
+            "family": [
+              "cabecalho",
+              "cabeçalho"
+            ]
+          }
+        ]
+      }
+    },
+    "marrocos": {
+      "title": "Predefinição:Info/Assentamento/Marrocos",
+      "parentOldid": 72898161,
+      "beforeOldid": 72837767,
+      "afterOldid": 73167661,
+      "before": "|coord_sufixo  ={{{coord_sufixo|}}}\n|coord_escala  ={{#if: {{{coord_escala|}}}\n  |{{{coord_escala|}}}|{{\n\t#switch: {{trunc |{{Se vazio|{{{1|}}}|pro}} |3}}\n  |reg|pro|pre=2500000\n  |#default=1000000}}}}\n",
+      "after": "|coord_sufixo  ={{#if: {{{coord_sufixo|}}}\n  |{{{coord_sufixo}}}\n  |scale:{{#if: {{{coord_escala|}}}\n  |{{{coord_escala|}}}|{{\n\t#switch: {{trunc |{{Se vazio|{{{1|}}}|pro}} |3}}\n  |reg|pro|pre=2500000\n  |#default=1000000}}}}\n}}\n"
+    }
+  },
+  "parserFunctionEvidence": {
+    "source": "https://pt.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=magicwords&format=json",
+    "captureSha256": "03ae71bde3b0f2d72220c24344565feb68a9fdc5b9382964a61a68ecb3aec22b",
+    "rows": [
+      {
+        "name": "if",
+        "aliases": [
+          "se",
+          "if"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "ifeq",
+        "aliases": [
+          "seigual",
+          "ifeq"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "ifexpr",
+        "aliases": [
+          "seexpr",
+          "ifexpr"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "iferror",
+        "aliases": [
+          "seerro",
+          "iferror"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "ifexist",
+        "aliases": [
+          "seexiste",
+          "ifexist"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "titleparts",
+        "aliases": [
+          "partesdotítulo",
+          "partesdotitulo",
+          "titleparts"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "invoke",
+        "aliases": [
+          "invocar",
+          "invoke"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "expr",
+        "aliases": [
+          "expr"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "switch",
+        "aliases": [
+          "switch"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "time",
+        "aliases": [
+          "time"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "timel",
+        "aliases": [
+          "timel"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "rel2abs",
+        "aliases": [
+          "rel2abs"
+        ],
+        "case-sensitive": false
+      },
+      {
+        "name": "tag",
+        "aliases": [
+          "tag"
+        ],
+        "case-sensitive": false
+      }
+    ],
+    "rule": "Preserve each supported English or Portuguese function name. Remove only whitespace before its colon."
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "version": "2.15.0",
+  "kind": "independent-generated-registry-title-projection-preflight",
+  "status": "passed",
+  "releaseManifestSha256": "7525f04df70a28ce473d0bb9b747e3098931f24ef1e01a7820eb1795b8f84c24",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_15_0.js": {
+      "bytes": 9651,
+      "sha256": "3f9633d3e29c8d9410dd87ef0fd7c44e45f8987a92728723b599e0b40fa63d98"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_15_0.js": {
+      "bytes": 9653,
+      "sha256": "cb65469477a9d492a51916e1cf885e80766f0b8adc62bf5f10e07a62ca3c568e"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_15_0.js": {
+      "bytes": 1497838,
+      "sha256": "b175823c8f336acd6f16f8ddbd5772ba21c57478795d4b6257a9fce82c194195"
+    },
+    "RevisaWiki_v2_15_0_completo.js": {
+      "bytes": 3010983,
+      "sha256": "24bf9388bbbfc1042eac3aab21dde385332bc19f3dbaf0ffc5d0b74aabfdc837"
+    },
+    "RevisaWiki_v2_15_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "172ea86da797b2736fbac4114c0fd2eae24a52eafb82d651030d9cdd64898b56"
+    }
+  },
+  "activePlanPins": {
+    "tests/v2150/inherited/ADAPTATION_PROVENANCE.json": "5aa27964ebb0391ae98198a1345c33d0198b3aacafee337064c1c33d36d30953",
+    "tests/v2150/native_browser/COVERAGE_AND_ADAPTATION.json": "5293439ea181ad122d27e4ba37ab4f3e248d70c64e9271c6ac6cd20961ce8cc4"
+  },
+  "amendment": {
+    "file": "tests/v2150/inherited/IDENTITY_REGISTRY_AMENDMENT.json",
+    "sha256": "68a1e813f8156e5f87ae6904e501a37c83c992a21f8d847240ea946d38779c02",
+    "scope": {
+      "finiteTitles": 33,
+      "changedGeneratedCasesPerBundle": 324,
+      "changedGeneratedCasesTwoBundles": 648,
+      "marriageSyntaxPerBundle": 52,
+      "multipleMarriagesPerBundle": 52,
+      "biographyDatesPerBundle": 220
+    },
+    "sourceReplacements": [
+      {
+        "file": "tests/v2130/test_marriage_syntax.cjs",
+        "sourceSha256": "c6287cb1f6aaa92f9ff76145b325fc3520e73726754bcda78c9351b73a09b4ca",
+        "sourceBytes": 12688,
+        "technicalBaseSha256": "99d2ccacc517b401acb9df9a08e81aa4601ca9a32649d94ae729d5118716caba",
+        "projectedCompiledSha256": "3a5e774332db9bdf8e1693ffd20493f68f5be2a9f1011cfac68ed1f9e7492f11",
+        "sourceLine": 15,
+        "sourceOffset": 2584,
+        "before": "s=source(profile.name,key,before,musical?'|fundo=cantor_solo':'')",
+        "after": "s=source(require('../v2150/inherited/identity_registry_amendment.cjs').reviewedRegistryTitle(profile.name),key,before,musical?'|fundo=cantor_solo':'')",
+        "occurrences": 1,
+        "generatedCasesPerBundle": 52,
+        "generatedCasesTwoBundles": 104,
+        "changedGeneratedSlots": [
+          "literal template title"
+        ],
+        "allOtherGeneratedBytesPreserved": true,
+        "assertionBodiesChanged": false,
+        "negativeAssertionsChanged": false
+      },
+      {
+        "file": "tests/v2130/test_multiple_marriages.cjs",
+        "sourceSha256": "073c494798e8b2ed87f2afa5a6a2a946d927bf1f2103bbe41aac7b8cbde31c6d",
+        "sourceBytes": 11746,
+        "technicalBaseSha256": "bcad30a13e9c62d8f7a5f91814ef085ac7d845ee421eac3dc2052f159fc1a780",
+        "projectedCompiledSha256": "c5eb026998d3a140200828b0bd59e3d4420da04b1d1f20d30826cb8f941a6567",
+        "sourceLine": 24,
+        "sourceOffset": 6752,
+        "before": "source=article(first+'<br />'+second,music?'|fundo=cantor_solo':'',profile.name,key)",
+        "after": "source=article(first+'<br />'+second,music?'|fundo=cantor_solo':'',require('../v2150/inherited/identity_registry_amendment.cjs').reviewedRegistryTitle(profile.name),key)",
+        "occurrences": 1,
+        "generatedCasesPerBundle": 52,
+        "generatedCasesTwoBundles": 104,
+        "changedGeneratedSlots": [
+          "literal template title"
+        ],
+        "allOtherGeneratedBytesPreserved": true,
+        "assertionBodiesChanged": false,
+        "negativeAssertionsChanged": false
+      },
+      {
+        "file": "tests/v2130/test_biography_dates.cjs",
+        "sourceSha256": "c07fa93f54111b7ce171b47e1ed2c4769447bf51e7eea72e2991ba2baae0e8f3",
+        "sourceBytes": 15747,
+        "technicalBaseSha256": "200b09f87227c2ad56ade9d8d3c761e8a2778fb29de5b08b710cfca4778ff4ea",
+        "projectedCompiledSha256": "3f23325521848ccaf6980fa82aa775e763b92a36957a2e1b9321a254f8925d02",
+        "sourceLine": 41,
+        "sourceOffset": 14784,
+        "before": "source='{{'+profile.name+'|nome=Pessoa de teste|'+birth",
+        "after": "source='{{'+require('../v2150/inherited/identity_registry_amendment.cjs').reviewedRegistryTitle(profile.name)+'|nome=Pessoa de teste|'+birth",
+        "occurrences": 1,
+        "generatedCasesPerBundle": 220,
+        "generatedCasesTwoBundles": 440,
+        "changedGeneratedSlots": [
+          "literal template title"
+        ],
+        "allOtherGeneratedBytesPreserved": true,
+        "assertionBodiesChanged": false,
+        "negativeAssertionsChanged": false
+      }
+    ],
+    "runtimeModified": false,
+    "historicalFileBytesModified": false,
+    "assertionBodiesChanged": false,
+    "negativeAssertionsChanged": false
+  },
+  "cases": 1164,
+  "checks": 4152,
+  "children": [
+    {
+      "mode": "modular",
+      "file": "modular/test_marriage_syntax/marriage_syntax.json",
+      "sha256": "f0380b9f3b88de077f8aad76bd48ee7c294bc5d43d8b0b972f5933945c2e0848",
+      "status": "passed",
+      "cases": 111,
+      "checks": 591,
+      "sourceSha256": "c6287cb1f6aaa92f9ff76145b325fc3520e73726754bcda78c9351b73a09b4ca",
+      "compiledSha256": "3a5e774332db9bdf8e1693ffd20493f68f5be2a9f1011cfac68ed1f9e7492f11",
+      "generatedTitleCorrections": 52
+    },
+    {
+      "mode": "modular",
+      "file": "modular/test_multiple_marriages/multiple_marriages.json",
+      "sha256": "3d065e0f7800b86e14833d89465afef93b532883a66dbce26e7126d5b6ccd94d",
+      "status": "passed",
+      "cases": 118,
+      "checks": 314,
+      "sourceSha256": "073c494798e8b2ed87f2afa5a6a2a946d927bf1f2103bbe41aac7b8cbde31c6d",
+      "compiledSha256": "c5eb026998d3a140200828b0bd59e3d4420da04b1d1f20d30826cb8f941a6567",
+      "generatedTitleCorrections": 52
+    },
+    {
+      "mode": "modular",
+      "file": "modular/test_biography_dates/biography_dates.json",
+      "sha256": "06b289186118a5713ddc366938e1c7f47d64c093dc258fd44c987fbb2dae471f",
+      "status": "passed",
+      "cases": 353,
+      "checks": 1171,
+      "sourceSha256": "c07fa93f54111b7ce171b47e1ed2c4769447bf51e7eea72e2991ba2baae0e8f3",
+      "compiledSha256": "3f23325521848ccaf6980fa82aa775e763b92a36957a2e1b9321a254f8925d02",
+      "generatedTitleCorrections": 220
+    },
+    {
+      "mode": "complete",
+      "file": "complete/test_marriage_syntax/marriage_syntax.json",
+      "sha256": "875290c51991bbc68cde0f64db6a8fcedfae8756512f6b0410ce60ca0be13474",
+      "status": "passed",
+      "cases": 111,
+      "checks": 591,
+      "sourceSha256": "c6287cb1f6aaa92f9ff76145b325fc3520e73726754bcda78c9351b73a09b4ca",
+      "compiledSha256": "3a5e774332db9bdf8e1693ffd20493f68f5be2a9f1011cfac68ed1f9e7492f11",
+      "generatedTitleCorrections": 52
+    },
+    {
+      "mode": "complete",
+      "file": "complete/test_multiple_marriages/multiple_marriages.json",
+      "sha256": "ad993c7a042588851b2f4669bcea21557fe912ff5eed55db3febcf82e91923df",
+      "status": "passed",
+      "cases": 118,
+      "checks": 314,
+      "sourceSha256": "073c494798e8b2ed87f2afa5a6a2a946d927bf1f2103bbe41aac7b8cbde31c6d",
+      "compiledSha256": "c5eb026998d3a140200828b0bd59e3d4420da04b1d1f20d30826cb8f941a6567",
+      "generatedTitleCorrections": 52
+    },
+    {
+      "mode": "complete",
+      "file": "complete/test_biography_dates/biography_dates.json",
+      "sha256": "74852c841d34c840e6796fc9678e90400523d9690396575ebae1c431be7cf07d",
+      "status": "passed",
+      "cases": 353,
+      "checks": 1171,
+      "sourceSha256": "c07fa93f54111b7ce171b47e1ed2c4769447bf51e7eea72e2991ba2baae0e8f3",
+      "compiledSha256": "3f23325521848ccaf6980fa82aa775e763b92a36957a2e1b9321a254f8925d02",
+      "generatedTitleCorrections": 220
+    }
+  ],
+  "negativeCases": 648,
+  "negativeChecks": 1509,
+  "failures": [],
+  "runtimeModified": false,
+  "activePlansModified": false,
+  "originalAssertionsRemoved": false,
+  "historicalFileBytesModified": false,
+  "wikipediaWrites": 0,
+  "networkRequests": 0
+}

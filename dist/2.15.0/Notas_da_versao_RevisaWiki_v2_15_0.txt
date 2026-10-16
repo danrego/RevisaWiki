@@ -1,0 +1,17 @@
+RevisaWiki 2.15.0
+16 de outubro de 2026
+
+- Reconhece construções válidas de chaves e nomes dinâmicos antes de procurar erros de sintaxe.
+- Confirma o nome da predefinição antes de aplicar regras de parâmetros. Nomes e aliases nativos aceitos permanecem iguais.
+- Separa definições, documentação e testes dos ajustes destinados a artigos.
+- Corrige erros mecânicos conferidos em funções, campos e chamadas de documentação, sem escolher entre valores conflitantes.
+- Confere o encaminhamento de parâmetros entre predefinições nos casos registrados, mantendo as entradas públicas e sua precedência.
+- Valida TemplateData separadamente e repara os erros de JSON e de ordenação reconhecidos.
+- Confere TemplateStyles pelo conteúdo que o sanitizador conserva, incluindo valores, seletores e regras de tela.
+- Acrescenta testes de predefinições, transclusão, falsos positivos e apresentação em telas de tamanhos diferentes.
+
+Os arquivos finais da versão 2.15.0 passaram por 80.422 casos e 389.452 verificações, sem falhas. Os totais incluem testes sintéticos e repetições nas duas distribuições. Não são uma contagem de artigos distintos. A rodada de conteúdo conferiu 37 revisões de predefinições e 31 artigos grandes. Outra matriz usou 16 artigos de pelo menos 100 KB. A interface, as imagens e os estilos foram conferidos em Chrome, Firefox e Safari. A prova nativa do leitor contém uma resposta anônima guardada. Os 48 casos oficiais do MediaWiki são expectativas de teste reproduzidas localmente. Os estilos usam dez respostas nativas guardadas. Essas provas não equivalem à renderização nativa de artigos inteiros. A mudança de elegibilidade de 33 nomes, com 156 casos positivos por distribuição, fica registrada separadamente e mantém as expectativas negativas. Uma correção separada em três geradores ajustou 324 entradas por distribuição ao nome documentado, sem mudar o que cada teste exige. Os relatórios de execução conservam os hashes dos planos efetivamente usados. Nenhum teste editou a Wikipédia ou usou uma conta.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

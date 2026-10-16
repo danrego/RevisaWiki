@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "version": "2.15.0",
+  "sourceVersion": "2.13.0",
+  "stage": "complex",
+  "status": "passed",
+  "adapterPlanSha256": "5aa27964ebb0391ae98198a1345c33d0198b3aacafee337064c1c33d36d30953",
+  "releaseManifestSha256": "7525f04df70a28ce473d0bb9b747e3098931f24ef1e01a7820eb1795b8f84c24",
+  "sourceReleaseManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_15_0.js": {
+      "bytes": 9651,
+      "sha256": "3f9633d3e29c8d9410dd87ef0fd7c44e45f8987a92728723b599e0b40fa63d98"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_15_0.js": {
+      "bytes": 9653,
+      "sha256": "cb65469477a9d492a51916e1cf885e80766f0b8adc62bf5f10e07a62ca3c568e"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_15_0.js": {
+      "bytes": 1497838,
+      "sha256": "b175823c8f336acd6f16f8ddbd5772ba21c57478795d4b6257a9fce82c194195"
+    },
+    "RevisaWiki_v2_15_0_completo.js": {
+      "bytes": 3010983,
+      "sha256": "24bf9388bbbfc1042eac3aab21dde385332bc19f3dbaf0ffc5d0b74aabfdc837"
+    },
+    "RevisaWiki_v2_15_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "172ea86da797b2736fbac4114c0fd2eae24a52eafb82d651030d9cdd64898b56"
+    }
+  },
+  "sourceFilesVerified": 466,
+  "negativeFixtureFiles": [
+    {
+      "file": "tests/v26_engine/negative_contracts.json",
+      "bytes": 9582,
+      "sha256": "0c403f245a2baa85c84c41cf8b4eed787ee8f52268ba82285fbf2e5231f36e74",
+      "cases": 55
+    }
+  ],
+  "expectedTextOrFixtureRewrites": [
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "registrySha256": "abb7388f7f79b1a4f3a796873affde50660fdd52950e8402d5f7b40aae532d03",
+      "historicalExpected": {
+        "file": "tests/v2130/independent_fixtures/expected.wiki",
+        "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+        "bytes": 44768
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/aeroclubes_expected_v215.wiki",
+        "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+        "bytes": 44767
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1,
+        "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+      },
+      "oldRetainedCorrectionCount": 4,
+      "newRetainedCorrectionCount": 5,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    },
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/GRAPH_SPACING_ORACLE.json",
+      "registrySha256": "04891061bdb669cba653961ac87cb38d97189dc83557ac64c8dd25168929dfa6",
+      "historicalExpected": {
+        "derivation": "Only the two literal reference-name replacements already handwritten in graph_test.cjs:35.",
+        "sha256": "b4151b1d367aac53452a03e0682acf35efd81e2c07730b3e8179e183e436e68e",
+        "bytes": 44769
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/graph_expected_v215.wiki",
+        "sha256": "612ec873719797fe054a2c917b303ff27cc4f84ebd67a8b175ca8119e2b3177f",
+        "bytes": 44768
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1
+      },
+      "oldRetainedCorrectionCount": 2,
+      "newRetainedCorrectionCount": 3,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    }
+  ],
+  "reviewedSourceShapeDeclarations": [
+    {
+      "file": "tests/v2130/test_ui_freshness.cjs",
+      "sourceSha256": "f00908e41e4c61189432b9bc3ab789698ea4e3f8dd764ecdb6090039da5125ca",
+      "oldLiteral": "v211MarkCheckedDraft(adapter,result,compareOnly,checkedOptions);",
+      "newLiteral": "v211MarkCheckedDraft(adapter,result,false,checkedOptions);",
+      "occurrences": 1,
+      "reason": "The user removed the compare-only custom diff action. Successful Apply still records the exact checked snapshot, now passing literal false. All behavioral freshness guards and negative expectations remain unchanged.",
+      "assertionRemoved": false,
+      "negativeExpectationChanged": false
+    }
+  ],
+  "behavioralAssertionWaivers": [],
+  "commands": [
+    {
+      "file": "tests/v2130/run_engine.cjs",
+      "arguments": [
+        "--complex"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "accountUse": false,
+  "browserAutomationStarted": false,
+  "complexCounts": {
+    "shards": 4,
+    "cases": 128,
+    "checks": 1672
+  },
+  "runtimeAndHistoricalSourcesStillExact": true,
+  "processReports": [
+    {
+      "file": "adapter_processes/complex/6797_0.json",
+      "sha256": "4e71d1fea4d16f9abddfc6a561265fa73770ec13d75b7f81fba8bba5289f0217"
+    },
+    {
+      "file": "adapter_processes/complex/6799_0.json",
+      "sha256": "6cc5f6ae60eff0c368c970cc3c243c296e35ff82762ef102ae3bca7918f7826b"
+    },
+    {
+      "file": "adapter_processes/complex/6800_0.json",
+      "sha256": "078e892de2a61e13da705d5a5ad2b1f4e29d4c736a85fa1198e610c438d85915"
+    },
+    {
+      "file": "adapter_processes/complex/6801_0.json",
+      "sha256": "078e892de2a61e13da705d5a5ad2b1f4e29d4c736a85fa1198e610c438d85915"
+    },
+    {
+      "file": "adapter_processes/complex/6802_0.json",
+      "sha256": "078e892de2a61e13da705d5a5ad2b1f4e29d4c736a85fa1198e610c438d85915"
+    },
+    {
+      "file": "adapter_processes/complex/6803_0.json",
+      "sha256": "078e892de2a61e13da705d5a5ad2b1f4e29d4c736a85fa1198e610c438d85915"
+    }
+  ]
+}

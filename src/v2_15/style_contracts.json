@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "version": "2.15.0",
+  "scope": "The actual sanitized-css content model in the template namespace, selected by MediaWiki configuration rather than a filename suffix.",
+  "retention": [
+    "Declaration property and literal normalized value",
+    "Ordered selector list and native parser scope prefix",
+    "Enclosing media, supports and layer conditions in their original nesting order",
+    "Important flag, duplicate declaration multiplicity and source cascade order",
+    "Rule existence, including rejected selector lists",
+    "Quoted strings and comments are lexically distinct"
+  ],
+  "automaticRepairs": [
+    {
+      "id": "single-color-border-variable",
+      "property": "border-color",
+      "token": "--border-color-base",
+      "primaryTokenSource": "https://doc.wikimedia.org/codex/latest/design-tokens/border.html",
+      "sourceChecked": "2026-10-16",
+      "documentedTokenValue": "#a2a9b1",
+      "fallback": "One literal three-, four-, six- or eight-digit hexadecimal color",
+      "conversion": "Four physical side color properties at the exact original declaration position",
+      "guards": [
+        "No local redefinition of the audited single-color token",
+        "No unknown, differently cased or multi-component variable",
+        "Important flag and cascade order remain unchanged",
+        "At most eight finite declarations in one sheet"
+      ]
+    },
+    {
+      "id": "sole-spaced-pixel-unit",
+      "properties": ["width", "height", "min-width", "max-width", "min-height", "max-height"],
+      "value": "Exactly 24 followed by whitespace and px, with optional important",
+      "guards": [
+        "The sole repair candidate in the complete sheet",
+        "The original native sanitizer rejects precisely this declaration",
+        "The corrected value is accepted without any other lost declaration, value, rule or condition"
+      ]
+    }
+  ],
+  "nativeAcceptance": "Two read-only GET TemplateSandbox parses, exact current source and candidate binding, complete contextual retention, no candidate diagnostic, no unrelated original rejection. A stale draft, unavailable API, oversized GET, or unproved grammar cannot authorize a write to the local editor.",
+  "nativeFixtures": "tests/v2150/style_native/manifest.json",
+  "responsiveCoverage": "Widths 320, 375, 768, 1280 and 1920, two color themes, expanded and collapsed synthetic template layouts. Literal source shorthand is compared with independently native-accepted longhands. No full-skin reproduction or arbitrary navbox resizing is claimed.",
+  "excluded": [
+    "No blanket group width, font size, line break or nowrap rewrite",
+    "No generic unsupported-property deletion or guessed selector substitution",
+    "No article transformation in a CSS editor",
+    "No Wikipedia write, token request, publication or account access in tests"
+  ]
+}

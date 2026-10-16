@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "version": "2.15.0",
+  "sourceVersion": "2.13.0",
+  "stage": "main",
+  "status": "passed",
+  "adapterPlanSha256": "0e05fa99603dff0403da541c4715932ab3c3d52d2ab65dde84eb1e3edd92e1d6",
+  "releaseManifestSha256": "7525f04df70a28ce473d0bb9b747e3098931f24ef1e01a7820eb1795b8f84c24",
+  "sourceReleaseManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_15_0.js": {
+      "bytes": 9651,
+      "sha256": "3f9633d3e29c8d9410dd87ef0fd7c44e45f8987a92728723b599e0b40fa63d98"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_15_0.js": {
+      "bytes": 9653,
+      "sha256": "cb65469477a9d492a51916e1cf885e80766f0b8adc62bf5f10e07a62ca3c568e"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_15_0.js": {
+      "bytes": 1497838,
+      "sha256": "b175823c8f336acd6f16f8ddbd5772ba21c57478795d4b6257a9fce82c194195"
+    },
+    "RevisaWiki_v2_15_0_completo.js": {
+      "bytes": 3010983,
+      "sha256": "24bf9388bbbfc1042eac3aab21dde385332bc19f3dbaf0ffc5d0b74aabfdc837"
+    },
+    "RevisaWiki_v2_15_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "172ea86da797b2736fbac4114c0fd2eae24a52eafb82d651030d9cdd64898b56"
+    }
+  },
+  "sourceFilesVerified": 466,
+  "negativeFixtureFiles": [
+    {
+      "file": "tests/v26_engine/negative_contracts.json",
+      "bytes": 9582,
+      "sha256": "0c403f245a2baa85c84c41cf8b4eed787ee8f52268ba82285fbf2e5231f36e74",
+      "cases": 55
+    }
+  ],
+  "expectedTextOrFixtureRewrites": [
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "registrySha256": "abb7388f7f79b1a4f3a796873affde50660fdd52950e8402d5f7b40aae532d03",
+      "historicalExpected": {
+        "file": "tests/v2130/independent_fixtures/expected.wiki",
+        "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+        "bytes": 44768
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/aeroclubes_expected_v215.wiki",
+        "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+        "bytes": 44767
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1,
+        "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+      },
+      "oldRetainedCorrectionCount": 4,
+      "newRetainedCorrectionCount": 5,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    },
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/GRAPH_SPACING_ORACLE.json",
+      "registrySha256": "04891061bdb669cba653961ac87cb38d97189dc83557ac64c8dd25168929dfa6",
+      "historicalExpected": {
+        "derivation": "Only the two literal reference-name replacements already handwritten in graph_test.cjs:35.",
+        "sha256": "b4151b1d367aac53452a03e0682acf35efd81e2c07730b3e8179e183e436e68e",
+        "bytes": 44769
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/graph_expected_v215.wiki",
+        "sha256": "612ec873719797fe054a2c917b303ff27cc4f84ebd67a8b175ca8119e2b3177f",
+        "bytes": 44768
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1
+      },
+      "oldRetainedCorrectionCount": 2,
+      "newRetainedCorrectionCount": 3,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    }
+  ],
+  "reviewedSourceShapeDeclarations": [
+    {
+      "file": "tests/v2130/test_ui_freshness.cjs",
+      "sourceSha256": "f00908e41e4c61189432b9bc3ab789698ea4e3f8dd764ecdb6090039da5125ca",
+      "oldLiteral": "v211MarkCheckedDraft(adapter,result,compareOnly,checkedOptions);",
+      "newLiteral": "v211MarkCheckedDraft(adapter,result,false,checkedOptions);",
+      "occurrences": 1,
+      "reason": "The user removed the compare-only custom diff action. Successful Apply still records the exact checked snapshot, now passing literal false. All behavioral freshness guards and negative expectations remain unchanged.",
+      "assertionRemoved": false,
+      "negativeExpectationChanged": false
+    }
+  ],
+  "behavioralAssertionWaivers": [],
+  "commands": [
+    {
+      "file": "tests/v2130/run_all.cjs",
+      "arguments": [],
+      "exitCode": 0
+    }
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "accountUse": false,
+  "browserAutomationStarted": false,
+  "matrixCounts": {
+    "cases": 30339,
+    "checks": 225295,
+    "reports": 57,
+    "originalBaselineChecks": 225291
+  },
+  "runtimeAndHistoricalSourcesStillExact": true,
+  "processReports": [
+    {
+      "file": "adapter_processes/main/10087_0.json",
+      "sha256": "63bb00513c339cc9c4afbc3322afec6178f77c938d4329aaab93af0e85a36fcb"
+    },
+    {
+      "file": "adapter_processes/main/10088_0.json",
+      "sha256": "73facd2b1a4641a55c9104219ffe54fc5968b3b1f62873683660d9950dd160e4"
+    },
+    {
+      "file": "adapter_processes/main/10127_0.json",
+      "sha256": "fc4eed08a3e1bc82af5ad296f9b59b7aa656160d41725ce6972bb6e736792dc1"
+    },
+    {
+      "file": "adapter_processes/main/10132_0.json",
+      "sha256": "698b417e2f4697053f55053199901ef398692072941d568d50f47b82bfd24b52"
+    },
+    {
+      "file": "adapter_processes/main/8704_0.json",
+      "sha256": "f23e9f7d562eb7653ca8184ee25b12037593e5ea6c7fb5f4c2ab053163f1775e"
+    },
+    {
+      "file": "adapter_processes/main/8705_0.json",
+      "sha256": "15d1b78c414a828ca18c2544e0cd68f71d79f840de3e0c78d5d9d367d3f527b0"
+    },
+    {
+      "file": "adapter_processes/main/8706_0.json",
+      "sha256": "3224fb01faf366f768bded98c0923f51a8b7abd335639c187fb3eae2962bfe26"
+    },
+    {
+      "file": "adapter_processes/main/8709_0.json",
+      "sha256": "9348ed07937b69223d19ec22718fb93ef4f1903aecbf205c79052047c7596d49"
+    },
+    {
+      "file": "adapter_processes/main/8710_0.json",
+      "sha256": "8fbe42fbaf8ee937bd24d144015b537a375175dc216de549ba3dceb8efef79a2"
+    },
+    {
+      "file": "adapter_processes/main/8744_0.json",
+      "sha256": "eba6f5d63c421da7fad30207b8ea0db1e355be4263f05b9bc463a311ee38a588"
+    },
+    {
+      "file": "adapter_processes/main/8865_0.json",
+      "sha256": "b6f6de8eb8dfd3039639ad0e092ec4e980e60832745c68eaafde6b18c640f321"
+    },
+    {
+      "file": "adapter_processes/main/8875_0.json",
+      "sha256": "386d732c9cb402748e8eeaff9e6db0b17c04920568221e118c2f1582814ee932"
+    },
+    {
+      "file": "adapter_processes/main/8876_0.json",
+      "sha256": "153e59e55698fa041317f81eb3f59a0b985c0312afa23c7c34c000fb6fa6e2b6"
+    },
+    {
+      "file": "adapter_processes/main/8877_0.json",
+      "sha256": "725798bee5545924a45213b3f7f695c57de21f7b027f0fb15cc5b1f7b620f76c"
+    },
+    {
+      "file": "adapter_processes/main/8884_0.json",
+      "sha256": "cea5ee5f8c45afd04c9eb6ca3ae343ea3ead0bba270febe56ae9863b429c4bd1"
+    },
+    {
+      "file": "adapter_processes/main/8954_0.json",
+      "sha256": "4a31d3352c288c0b9f7b298a7483089850046a65765328490ab29f5915eca954"
+    },
+    {
+      "file": "adapter_processes/main/8962_0.json",
+      "sha256": "973d130af37752beeab2027660838aae9fb67c1d0e3f75a03177c958e126ec3a"
+    },
+    {
+      "file": "adapter_processes/main/8972_0.json",
+      "sha256": "2cf10511af66b9b899c7fb1fcdcf95f557dabd7e92c4804133e26c74e87d34d2"
+    },
+    {
+      "file": "adapter_processes/main/8973_0.json",
+      "sha256": "3b0fe84e33f1aec6051a4fbe63fa9162e834f80d581cc96b25e61fdcb0062251"
+    },
+    {
+      "file": "adapter_processes/main/8978_0.json",
+      "sha256": "9230d8d160e54b97c94dffd1433d3f3c5a2782f6e0332667d4bd572154389650"
+    },
+    {
+      "file": "adapter_processes/main/8992_0.json",
+      "sha256": "fc65fb155bc8052184eb8be58d8ed0615358c2b6307c0f45d71a36a4d99e2a15"
+    },
+    {
+      "file": "adapter_processes/main/9027_0.json",
+      "sha256": "273ec280d576cf537d955d00951077e7729638125da20fe6d61bfc1b4e8a53a9"
+    },
+    {
+      "file": "adapter_processes/main/9099_0.json",
+      "sha256": "b7035e43241e878aa9c56950619aea348817dbd97fd37fe1003bd2649df57f19"
+    },
+    {
+      "file": "adapter_processes/main/9198_0.json",
+      "sha256": "8a0bcd18fb93f998b7c475bc6e9e5ad98d1bc8599a9083be3b49ac5b842ce7e3"
+    },
+    {
+      "file": "adapter_processes/main/9204_0.json",
+      "sha256": "cb3c5dcc7e858a3295b57592bf48616f5dfc24f90aa1585a58244f4eeb0a1d9a"
+    },
+    {
+      "file": "adapter_processes/main/9206_0.json",
+      "sha256": "857d5b7bf6b92cdfd2f543ee903920fc5b7a3f3b71a3b8742e1c18d55d1783e6"
+    },
+    {
+      "file": "adapter_processes/main/9207_0.json",
+      "sha256": "c137e8efa0657d1a9e18025f5ecb9c98d785ddd632384e6e4f1aaf03a0bc04aa"
+    },
+    {
+      "file": "adapter_processes/main/9215_0.json",
+      "sha256": "bebb4e446ba32fc784bd0875847e2370a7d9015c2bf2d9883b3cd498d23c0c04"
+    },
+    {
+      "file": "adapter_processes/main/9308_0.json",
+      "sha256": "dfe68202542189a66f919cf03474678c4f668fc3b455d62ff0db3fc66635b9e6"
+    },
+    {
+      "file": "adapter_processes/main/9325_0.json",
+      "sha256": "fe6a1ef38277157632ad11b9529a5a5e9aed988314268bbfb72690665124f684"
+    },
+    {
+      "file": "adapter_processes/main/9350_0.json",
+      "sha256": "070ea05669796fbd0c0caaa2bb3525acd7a90dffeda282c0dcdf132ff59de543"
+    },
+    {
+      "file": "adapter_processes/main/9380_0.json",
+      "sha256": "f16ef20700d9ef78f7aa09b37e6677a6be4423030075cecd77300afd154e8ae7"
+    },
+    {
+      "file": "adapter_processes/main/9411_0.json",
+      "sha256": "954fc49579c9d32abdfdac228759d056d05766aa1c27333a7c9319ab5a7185e6"
+    },
+    {
+      "file": "adapter_processes/main/9418_0.json",
+      "sha256": "b000a50d5288824140e0427abf8ef7c8a7fe6b7e5f08ff186ad3a83f86322574"
+    },
+    {
+      "file": "adapter_processes/main/9424_0.json",
+      "sha256": "51673e0ee6fb5b16f7c538833711be69b1cf5f43865adbfd1fdf71d659039974"
+    },
+    {
+      "file": "adapter_processes/main/9427_0.json",
+      "sha256": "4c72b740b5907b806809f95b8395315c2c9b39e47887f3ac42d71fcec35c43aa"
+    },
+    {
+      "file": "adapter_processes/main/9428_0.json",
+      "sha256": "c84289755cacdedece5a80e755169605427a417850f0eb291170a8474ef33f26"
+    },
+    {
+      "file": "adapter_processes/main/9430_0.json",
+      "sha256": "6033d9399c9c6d440fc90fdbc7256c8aee2e9c45af38ea8ad6dc8262be1b491e"
+    },
+    {
+      "file": "adapter_processes/main/9431_0.json",
+      "sha256": "0a9b65a0c5e0a56903dc939bc96456862f12ac60eb9361a76a341b7e640e3328"
+    },
+    {
+      "file": "adapter_processes/main/9432_0.json",
+      "sha256": "07ed4546809403e36406363f3b24a19b791138c4a828332fad37621e8bdc6da4"
+    },
+    {
+      "file": "adapter_processes/main/9527_0.json",
+      "sha256": "07ed4546809403e36406363f3b24a19b791138c4a828332fad37621e8bdc6da4"
+    },
+    {
+      "file": "adapter_processes/main/9532_0.json",
+      "sha256": "07ed4546809403e36406363f3b24a19b791138c4a828332fad37621e8bdc6da4"
+    },
+    {
+      "file": "adapter_processes/main/9534_0.json",
+      "sha256": "07ed4546809403e36406363f3b24a19b791138c4a828332fad37621e8bdc6da4"
+    },
+    {
+      "file": "adapter_processes/main/9560_0.json",
+      "sha256": "07ed4546809403e36406363f3b24a19b791138c4a828332fad37621e8bdc6da4"
+    },
+    {
+      "file": "adapter_processes/main/9808_0.json",
+      "sha256": "7310d770777d01b94d1e92c005cde751ca46ff200ce647ba03b1a0faef92eaa0"
+    },
+    {
+      "file": "adapter_processes/main/9809_0.json",
+      "sha256": "67b7e2fc448a690b8b5ad92eb734a384ff7f965c6a59d958a1a30321aa72be04"
+    },
+    {
+      "file": "adapter_processes/main/9810_0.json",
+      "sha256": "5502c3e77f9513442a8def0882d1cf24e5b0acf502f84d1aa1c2f486af49f33f"
+    },
+    {
+      "file": "adapter_processes/main/9813_0.json",
+      "sha256": "0910d86e466fe11fd180ee7d38d8ad1adb603d968b43de3432a25ab817e69fc2"
+    },
+    {
+      "file": "adapter_processes/main/9814_0.json",
+      "sha256": "3ba97c4268e0f704cde78c50b37ec70efde95471e931d035099cff9a54843e2f"
+    },
+    {
+      "file": "adapter_processes/main/9816_0.json",
+      "sha256": "bf0134ffc1e17a0c3435361e66281516322b222333cc6f6dd355571727f7d6e2"
+    },
+    {
+      "file": "adapter_processes/main/9817_0.json",
+      "sha256": "31c01a5cb5192b15811752c6f8c57a1b6c7e32281ea8e71d319de3a7ad1df6f8"
+    },
+    {
+      "file": "adapter_processes/main/9818_0.json",
+      "sha256": "4374ef6dec1fdc2ff7b22665c8131684255ee1ebe1da9ff312a112918bf601cb"
+    },
+    {
+      "file": "adapter_processes/main/9829_0.json",
+      "sha256": "00b2387a362f9c4c3c5138223fb937765a8f3e2b134bec98773b4e38ee6d771f"
+    },
+    {
+      "file": "adapter_processes/main/9831_0.json",
+      "sha256": "4631501fbc9d6a777ca2563b0ae128e772bf4c66a96b4f8540d10fae579c45d3"
+    },
+    {
+      "file": "adapter_processes/main/9832_0.json",
+      "sha256": "cf747000f081f912435949b31b429e25026de02530bc3946f8d50673481bbbc3"
+    },
+    {
+      "file": "adapter_processes/main/9848_0.json",
+      "sha256": "ebd47fc4e97f661216b9094ab1fd5b8338268c3f947eae150af3d542698b5c56"
+    },
+    {
+      "file": "adapter_processes/main/9855_0.json",
+      "sha256": "b9274e4e5b26861ca211503d63a6619a4cc223c05c79c609eeb89b9f168fde6e"
+    },
+    {
+      "file": "adapter_processes/main/9856_0.json",
+      "sha256": "ad8b4fd6952a3076725f2a853674beccd766e2f317cf634703c973bd62642fb9"
+    },
+    {
+      "file": "adapter_processes/main/9890_0.json",
+      "sha256": "5c7610415a271797dc42d1f6bfeb5c6898d4bd391f3d59efa0030535d3f3efc6"
+    },
+    {
+      "file": "adapter_processes/main/9891_0.json",
+      "sha256": "370b60f90d9b26f42503d0206c7b53943fa44223143f016227d8053e252e2a9f"
+    },
+    {
+      "file": "adapter_processes/main/9892_0.json",
+      "sha256": "e8b5b966781a58d9f563527e1e23c430f432b7bfcccebc37cb3610c022819aae"
+    },
+    {
+      "file": "adapter_processes/main/9911_0.json",
+      "sha256": "3df37728dda172f7ea302ef570e7dcd7c7713cf723f1b65b85f712f8450f840d"
+    }
+  ]
+}

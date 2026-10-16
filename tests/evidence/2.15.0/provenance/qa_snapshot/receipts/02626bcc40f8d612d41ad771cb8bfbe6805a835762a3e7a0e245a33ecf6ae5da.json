@@ -1,0 +1,124 @@
+{
+  "version": "2.15.0",
+  "status": "passed",
+  "kind": "real-native-browser-user-interface-contract-regression",
+  "releaseManifestSha256": "7525f04df70a28ce473d0bb9b747e3098931f24ef1e01a7820eb1795b8f84c24",
+  "coveragePlanSha256": "5293439ea181ad122d27e4ba37ab4f3e248d70c64e9271c6ac6cd20961ce8cc4",
+  "historicalManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+  "browsers": [
+    {
+      "browser": "Chrome",
+      "version": "155.0.8059.80",
+      "main": {
+        "file": "chrome.json",
+        "sha256": "e52e5d0dae74dd258e0149a4652778f062d5334dcd971b70ee62bb9ffdeeea77",
+        "cases": 162,
+        "checks": 13738
+      },
+      "cleanup": {
+        "ownSessionClosed": true,
+        "ownProcessExited": true,
+        "exitCode": null,
+        "signalCode": null,
+        "ownProfileRemoved": true,
+        "unknownBrowserSessionsTouched": false
+      },
+      "images": {
+        "file": "../native_image/chrome.json",
+        "sha256": "b0882c2eb86c15260fb3ffeb7b342c8bbe64390f31fcd8609237908d89f58c44",
+        "cases": 18,
+        "checks": 770
+      }
+    },
+    {
+      "browser": "Firefox",
+      "version": "158.0",
+      "main": {
+        "file": "firefox.json",
+        "sha256": "e4a274d128d5fa797a1f343b49cb883e87be2718c5c3925e0165d6dbb9f811f6",
+        "cases": 162,
+        "checks": 13741
+      },
+      "cleanup": {
+        "ownSessionClosed": true,
+        "ownProcessExited": true,
+        "exitCode": null,
+        "signalCode": "SIGTERM",
+        "ownProfileRemoved": true,
+        "unknownBrowserSessionsTouched": false
+      },
+      "images": {
+        "file": "../native_image/firefox.json",
+        "sha256": "f3cef5898febf30c5e736168b0aac8857be27962f03b5207e54db8cac19d8dfa",
+        "cases": 18,
+        "checks": 770
+      }
+    },
+    {
+      "browser": "Safari",
+      "version": "27.0.1",
+      "main": {
+        "file": "safari.json",
+        "sha256": "17f2314017aa298ae3fb6b55f39421e68582ba084050500b4de0dec01508cb96",
+        "cases": 162,
+        "checks": 13738
+      },
+      "cleanup": {
+        "ownSessionClosed": true,
+        "ownProcessExited": true,
+        "exitCode": 0,
+        "signalCode": null,
+        "ownProfileRemoved": true,
+        "unknownBrowserSessionsTouched": false
+      },
+      "images": {
+        "file": "../native_image/safari.json",
+        "sha256": "8b659b0aa0355a831771cd6d2446e2fe7ea637c702fd1c13a88cac09e41c9c92",
+        "cases": 18,
+        "checks": 770
+      }
+    }
+  ],
+  "cases": 540,
+  "checks": 43527,
+  "actualWikipediaWrites": 0,
+  "remoteNetworkRequests": 0,
+  "nativeDiffClickStub": true,
+  "nativeRemoteDiffRenderingTested": false,
+  "retiredCoverage": [
+    "Custom Before/After rendering and occurrence-ledger DOM.",
+    "Custom per-hunk rejection/reacceptance and selection-driven partial endpoints."
+  ],
+  "retirementAuthority": "The user explicitly requested removal of custom Before/After, selective comparison controls, technical/history/not-applied panels, and use of the editor native Mostrar alterações control.",
+  "unmodifiedSourceTextOracles": false,
+  "reviewedStaticOracleExtensions": [
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "registrySha256": "abb7388f7f79b1a4f3a796873affde50660fdd52950e8402d5f7b40aae532d03",
+      "historicalExpected": {
+        "file": "tests/v2130/independent_fixtures/expected.wiki",
+        "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+        "bytes": 44768
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/aeroclubes_expected_v215.wiki",
+        "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+        "bytes": 44767
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1,
+        "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+      },
+      "oldRetainedCorrectionCount": 4,
+      "newRetainedCorrectionCount": 5,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    }
+  ],
+  "imagesIncluded": true
+}

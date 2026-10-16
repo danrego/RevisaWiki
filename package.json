@@ -1,24 +1,24 @@
 {
   "name": "revisawiki",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "private": true,
-  "description": "Revisão de wikitexto da Wikipédia em português",
+  "description": "Revis\u00e3o de wikitexto da Wikip\u00e9dia em portugu\u00eas",
   "license": "CC-BY-SA-4.0",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v2140/run_all.cjs",
-    "test:focused": "node tests/v2140/run_all.cjs --focused",
-    "test:complex": "node tests/v2140/run_all.cjs --complex",
-    "test:regression": "node tests/v2140/run_all.cjs --inherited",
-    "test:engine": "node tests/v2140/run_all.cjs --inherited",
-    "test:large-articles": "node tests/v2140/run_all.cjs --large",
+    "test": "node tests/v2150/run_all.cjs",
+    "test:focused": "node tests/v2150/run_all.cjs --focused",
+    "test:complex": "node tests/v2150/run_all.cjs --complex",
+    "test:regression": "node tests/v2150/run_all.cjs --inherited",
+    "test:engine": "node tests/v2150/run_all.cjs --inherited",
+    "test:large-articles": "node tests/v2150/run_all.cjs --large",
     "test:privacy": "python3 scripts/check_privacy.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:documentation": "python3 scripts/audit_documentation_v2140.py",
-    "build": "python3 scripts/build_v2140.py",
-    "build:index": "python3 scripts/build_index_v2140.py",
+    "test:documentation": "python3 scripts/audit_documentation_v2150.py",
+    "build": "python3 scripts/build_v2150.py",
+    "build:index": "python3 scripts/build_index_v2150.py",
     "test:previous2130": "node tests/v2130/run_all.cjs",
     "test:previous": "node tests/run_all.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
@@ -36,6 +36,7 @@
     "test:previous2100": "node tests/v2100/run_all.cjs",
     "test:previous2110": "node tests/v2110/run_all.cjs",
     "test:previous2111": "node tests/v2111/run_all.cjs",
-    "test:previous2120": "node tests/v2120/run_all.cjs"
+    "test:previous2120": "node tests/v2120/run_all.cjs",
+    "test:previous2140": "node tests/v2140/run_all.cjs"
   }
 }

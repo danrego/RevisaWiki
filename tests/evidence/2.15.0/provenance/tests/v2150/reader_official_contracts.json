@@ -1,0 +1,658 @@
+{
+  "schema": 1,
+  "kind": "official-mediawiki-preprocessor-test-oracles",
+  "sourceCommit": "0fd5e04a84b9a6c664e6feda690d5cd646627511",
+  "sourceUrl": "https://github.com/wikimedia/mediawiki/blob/0fd5e04a84b9a6c664e6feda690d5cd646627511/tests/phpunit/includes/Parser/PreprocessorTest.php",
+  "sourceSha256": "8def7af7d37dfdcf97112eea077aee9d9441a501ebfa24d6f353ca284a0d0598",
+  "upstreamLicense": "GPL-2.0-or-later",
+  "dataScope": "Exact synthetic input and expected template/parameter role facts from official tests, not a copied parser implementation.",
+  "implementationSourceUrl": "https://github.com/wikimedia/mediawiki/blob/0fd5e04a84b9a6c664e6feda690d5cd646627511/includes/Parser/Preprocessor_Hash.php",
+  "implementationSha256": "48f35b15f0b0cd0f14a3dd3dcdd02c24740090ee6d9e4b3cafdb229af79154e4",
+  "cases": [
+    {
+      "id": "official-1",
+      "sourceLine": 71,
+      "source": "<noinclude>\n{{Foo}}\n</noinclude>",
+      "sourceSha256": "b20b3ed8ffe40cdb101ee1cbfa2257ec9d3b9565a3b02a89b47a0abeda2fe0d8",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "d42ca1c30e3cc6226b98ac5598fcad89c773321faed511f6884be260a24d9d7c"
+    },
+    {
+      "id": "official-2",
+      "sourceLine": 72,
+      "source": "<noinclude>\n{{Foo}}\n</noinclude>\n",
+      "sourceSha256": "6e081a82808d9293f3031bcf45ca3e05010a23e72db34fce62a949994f232c89",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "fd6e54021a8787ace1dc83c011cc291524e8c209c443fbea44a630aba537e7ce"
+    },
+    {
+      "id": "official-3",
+      "sourceLine": 74,
+      "source": "<{{foo}}>",
+      "sourceSha256": "a24a46890c23bcfe29d1dce805e2b05237fae187ef484d422a11e4423f8b46a8",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "23813af47bd7fbe378f822c3a83c5850825ca22c0b994db9abc2e18e0c8e93fb"
+    },
+    {
+      "id": "official-4",
+      "sourceLine": 75,
+      "source": "<{{{foo}}}>",
+      "sourceSha256": "219398f83a639b430d6b231293dc5e121476856164427e8e6756fa8f66f5eb90",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "daebcfe9b6c18fe977febab07a2931d0ea47b3e2ee602663d78f1a3c88fb75d5"
+    },
+    {
+      "id": "official-5",
+      "sourceLine": 85,
+      "source": "{{Foo}}",
+      "sourceSha256": "0332265d16f180e10334d85b371b2594d37aa9d76f934e4411635448f8ab1ed2",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "6ef81a1a44a923c71558a440d9a3f7781ee4c067cd97a5ddb5fe46deb3012493"
+    },
+    {
+      "id": "official-6",
+      "sourceLine": 86,
+      "source": "\n{{Foo}}",
+      "sourceSha256": "616922d230dc4bd93b355b45f83c69a268585c269ab78f4b3601893766b5811f",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "2163c79dad3f0a91f2abe97a6fb6d45e518c0f6627427f3d2211ad3d5e87d952"
+    },
+    {
+      "id": "official-7",
+      "sourceLine": 87,
+      "source": "{{Foo|bar}}",
+      "sourceSha256": "e35415118009bc454bd0b83375d60f11872e43aa0ab062ec5f6acf219d3a4c7c",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "f5faa6ab30ea473dd82047d706627a8b4f97d07cdf7e123ed3c622298c75465c"
+    },
+    {
+      "id": "official-8",
+      "sourceLine": 88,
+      "source": "{{Foo|bar}}a",
+      "sourceSha256": "a0b5ac628f5bd26b2ae3744bcb689aa609998ded6a6a951dc0b847e74f71f78a",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "458a7f81d1a112a01fbc4c39c8ae5bc7c6e18974c0101752411d541af518408a"
+    },
+    {
+      "id": "official-9",
+      "sourceLine": 89,
+      "source": "{{Foo|bar|baz}}",
+      "sourceSha256": "d38021a2b3008768948ad7f98fd2a7082a69d30ce378ae3618402ce1cd64f053",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "735a36ee965449974c1541fb6d9fccdeb28804a92568a2399849574fa52574c4"
+    },
+    {
+      "id": "official-10",
+      "sourceLine": 90,
+      "source": "{{Foo|1=bar}}",
+      "sourceSha256": "877311a6010c7822e109e9db4981a664f95cb6b22c349f815d11b3320ddf4c2b",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "94c69fc5a7522783177d04f13a7186cfe27aa6f6cc5756b962eb23cdb29e1880"
+    },
+    {
+      "id": "official-11",
+      "sourceLine": 91,
+      "source": "{{Foo|=bar}}",
+      "sourceSha256": "388ef8fc9d756742b26c14162672e5e0dbdd3b3dc811cf880cb3ae98ba763a6c",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "9a9e3fc5f6443e091b521f78f90a7123676636bef068a0eafc21bc2a520edd58"
+    },
+    {
+      "id": "official-12",
+      "sourceLine": 92,
+      "source": "{{Foo|bar=baz}}",
+      "sourceSha256": "36072989494249701efdd93f2d01c3c04a77819d473d399365a40db985fdb238",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "04e480afc3c6f467b37eb704c5e1670c8f91dc8f1164dc067214c11d90fd1cfb"
+    },
+    {
+      "id": "official-13",
+      "sourceLine": 93,
+      "source": "{{Foo|{{bar}}=baz}}",
+      "sourceSha256": "2e703dbcaae68f9dd8eea2df521aa39b9d9525de9c1577e762353d185865ee9b",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 2,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "cacaeddd096835465236a2d1a3829b73c22a4648cfe273c361af531e9443da44"
+    },
+    {
+      "id": "official-14",
+      "sourceLine": 94,
+      "source": "{{Foo|1=bar|baz}}",
+      "sourceSha256": "4bd7c49f4617fb87565cd744a436d4ae80f9f53ac3156efb7630f1e6de6e5973",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "c38a72853e5f6c162331aa5335b039711ea60a6c7fa1ca27708c37ebd31acd18"
+    },
+    {
+      "id": "official-15",
+      "sourceLine": 95,
+      "source": "{{Foo|1=bar|2=baz}}",
+      "sourceSha256": "6fc7829b40eff493b4530624c4d2f62ae32b8c9b38054f0645eef5dce69cc0e4",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "44a2883edc78f6dd7311a9a367ee02ae60b2011b95125bbbe071420b057b041e"
+    },
+    {
+      "id": "official-16",
+      "sourceLine": 96,
+      "source": "{{Foo|bar|foo=baz}}",
+      "sourceSha256": "23a68a3233b7697eb40a55a51864557c3724c08ca7e6ccf190924a4ffc507cda",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "26258f01f083f2f7443cdae60d877cd8cc55eaa91aad8ec6844384d8710115b4"
+    },
+    {
+      "id": "official-17",
+      "sourceLine": 97,
+      "source": "{{{1}}}",
+      "sourceSha256": "25e73c938f282bbed9aa7f048a27a634515c428f24db861ac03cc19f2b562ad6",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "b2263876b2fa8169a450478ef097cbd0cdbbf3c094fee13cf58ef9660d55eed7"
+    },
+    {
+      "id": "official-18",
+      "sourceLine": 98,
+      "source": "{{{1|}}}",
+      "sourceSha256": "4f1281360eab69059815f6ab0012c07e9a67ed0e3c23cb1cf9a6e1430406bc7b",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "579332c6fc1b26eb0ae9ac1e3990bfc12f39c76c6cf362b55f58137cb692362c"
+    },
+    {
+      "id": "official-19",
+      "sourceLine": 99,
+      "source": "{{{Foo}}}",
+      "sourceSha256": "b00d9b612ea559f07a2bf412bcf7dfadfafd2a373fe4555b62c5c02b65a6251e",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "2eec56ab9e3fe39fdcba9afae0f579ea5f66ed4f84978317e6ea61f596a962cd"
+    },
+    {
+      "id": "official-20",
+      "sourceLine": 100,
+      "source": "{{{Foo|}}}",
+      "sourceSha256": "cc36541d06c37f12fb6a84424c97888da1cd021daebcf8316bbd50245d44006f",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "5ec464ad2a3bbb6369d0d34a9a33e43b3ba945514aa11b5f85e9ad1d0bee7173"
+    },
+    {
+      "id": "official-21",
+      "sourceLine": 101,
+      "source": "{{{Foo|bar|baz}}}",
+      "sourceSha256": "c5718dd10173e69c0198dbcd7740c9c059e901d84806ee6e432223f495ea2e95",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "dcad2f51a4f28e77fd467ba024901313e5e469b3c8f2c1f0d5e1c8dc60bd4b7b"
+    },
+    {
+      "id": "official-22",
+      "sourceLine": 103,
+      "source": "{{{{Foobar}}}}",
+      "sourceSha256": "ca22e9f0a0827f0229097f23adcabffe556d2580706791b1f5bee6758ad1a352",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "d256941afdbe4c510d01acb6f8dd67017d2d46502310795c4697441b1556b2c8"
+    },
+    {
+      "id": "official-23",
+      "sourceLine": 104,
+      "source": "{{{ {{Foo}} }}}",
+      "sourceSha256": "2b8ef1b5d1243028342c02af912ca480aadc12a476e7428ab4823509d129e2fa",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        },
+        {
+          "size": 2,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "98603a9dee6c158885038ba4513d13fb9f005a34da5d4ecb4d8f59a4b1253b51"
+    },
+    {
+      "id": "official-24",
+      "sourceLine": 105,
+      "source": "{{ {{{Foo}}} }}",
+      "sourceSha256": "bf5cdbc0d6d1ed0404165d81ba056db010653f8931106c13b65071182b54d99e",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "82f702dc9b1713e4b44f509076e7e3b6de76f79937a549628976dd59b12e8d86"
+    },
+    {
+      "id": "official-25",
+      "sourceLine": 106,
+      "source": "{{{{{Foo}}}}}",
+      "sourceSha256": "35ed3cd2c0f260f5d22d353ee22a649b4126f12019fa13d6c8b19709a0af03ac",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "89902fdccc02c07195552c05572c3fbd4bd3a5076da5dc5aa2ea851503cd5e03"
+    },
+    {
+      "id": "official-26",
+      "sourceLine": 107,
+      "source": "{{{{{Foo}} }}}",
+      "sourceSha256": "8bcd139bf85e1c415d92e12d7224cf708dcdad483aa6db07441a6dc47b616ddb",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        },
+        {
+          "size": 2,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "409fdeddfbf00122e217c7870a45676afe21e48863a48ac3d3f2313e1e06e694"
+    },
+    {
+      "id": "official-27",
+      "sourceLine": 108,
+      "source": "{{{{{{Foo}}}}}}",
+      "sourceSha256": "60251d02e8d42174fe9862e2ba5b5715fd2747e8e8a15b8c6832aba1bd1c4419",
+      "expectedRoles": [
+        {
+          "size": 3,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "c868cbb4cfdc506ed91cbc775fce625c75f3be5f80d152304bd4e20d427d4ad6"
+    },
+    {
+      "id": "official-28",
+      "sourceLine": 109,
+      "source": "{{{{{{Foo}}}}}",
+      "sourceSha256": "a6e62f79ab73cd30af298662cf44d86184e69da089064c82e4d992f52c6e97c6",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "947a37c4585a67b277612938dda0398b14b1d62ca67f03d4a1fa0dc4a64939c7"
+    },
+    {
+      "id": "official-29",
+      "sourceLine": 111,
+      "source": "{{Foo|[[[[bar]]|baz]]}}",
+      "sourceSha256": "77f95769060635962100f137d48791be83e7015652ccfe350566176d6fa7abab",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "ea7511c8391046dbbc070d91dc6419f8199024de4af0a16817d76edc66f446a5"
+    },
+    {
+      "id": "official-30",
+      "sourceLine": 112,
+      "source": "{{Foo|[[[[bar]|baz]]}}",
+      "sourceSha256": "f77fd64ef6c796e8996cf26a43b1767cd89e15a041ec0f5fde11e8f603cdfaca",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "2cf3da16c915beacfdb25f0be5fd389b7a3f5c9601af86d411a8d1f1d5b64945"
+    },
+    {
+      "id": "official-31",
+      "sourceLine": 113,
+      "source": "{{Foo|Foo [[[[bar]|baz]]}}",
+      "sourceSha256": "ce63ddd9007a2fa00b5c3ac75eed631035816a7b613bfe2f5e634eb35865c1c1",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "d92bae1c9323692c9f32b3db38ae6487d60ee6bc1b6a05638b73c86553d74558"
+    },
+    {
+      "id": "official-32",
+      "sourceLine": 119,
+      "source": "{{#ifexpr: ({{{1|1}}} = 2) | Foo | Bar }}",
+      "sourceSha256": "cc97cb534e4bd0f376f75f5042b7288f91b4446a51fa4f74cbd8a9c2ee5aa9d9",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "113ced59d30a631907a30232e8937f495c5dab040a7f812d95b6ae9db9aec807"
+    },
+    {
+      "id": "official-33",
+      "sourceLine": 120,
+      "source": "{{#if: {{{1|}}} | Foo | {{Bar}} }}",
+      "sourceSha256": "002d8ffe1d5d895e3f3a0a082e3024d5fb0d3e7cc10e0fd140b7308ffebe7c67",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        },
+        {
+          "size": 2,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "8c3439b887b7170bc579c9c5d821e08d5f51ad49b00b4cb3b9bcc061b9d048c8"
+    },
+    {
+      "id": "official-34",
+      "sourceLine": 121,
+      "source": "{{#if: {{{1|}}} | Foo | [[Bar]] }}",
+      "sourceSha256": "5ee66c4ae99929c56dc3cf8ee5ddb38a46263c77aa6ba8b35d4eea743d421c5e",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "019f5c067ed437727af08acf23ea8f1c721157f022634429df0052f2df92832a"
+    },
+    {
+      "id": "official-35",
+      "sourceLine": 122,
+      "source": "{{#if: {{{1|}}} | [[Foo]] | Bar }}",
+      "sourceSha256": "768b431da2f6139195d82eb3995477f194762c3df19018b7b60e79fafba283ff",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ],
+      "upstreamTreeSha256": "609122f03b269a552a7989638981c768ab9f0e91e0be47d31c586569f6fa57ae"
+    },
+    {
+      "id": "official-36",
+      "sourceLine": 123,
+      "source": "{{#if: {{{1|}}} | 1 | {{#if: {{{1|}}} | 2 | 3 }} }}",
+      "sourceSha256": "786d7dca075f3add1132fb9301397713bfc40d12248e436741b2acfb6a8be2d6",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        },
+        {
+          "size": 2,
+          "depth": 1
+        },
+        {
+          "size": 3,
+          "depth": 2
+        }
+      ],
+      "upstreamTreeSha256": "8bc9d37c91bfa2d57f8d5db4ce1b4c41431827c69909e040fbe508a76e49160d"
+    },
+    {
+      "id": "official-37",
+      "sourceLine": 124,
+      "source": "{{ {{Foo}}",
+      "sourceSha256": "9ba35b5b082089657d0d1d79f55ccc481e44e9c6f0b4b4361eab975feef3f729",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "3de9043ae669e86192cdbc2e87a4226311c67bc111bf88c5fe71dd50f63a697b"
+    },
+    {
+      "id": "official-38",
+      "sourceLine": 125,
+      "source": "{{Foobar {{Foo}} {{Bar}} {{Baz}} ",
+      "sourceSha256": "25fd2abbc40c9928aa96624356dcb6ce33e907df8e5f0119df261c936122f731",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "9354bf6d682a0c5e7b37be1948c31449c4091b934ce0681d0a2ad832f5d15c6d"
+    },
+    {
+      "id": "official-39",
+      "sourceLine": 127,
+      "source": "{{Foo|Bar|",
+      "sourceSha256": "0d6209612e69e4dbe658a1c4d8d569f1e579bd0f84de120d1ce07d870e94b7f5",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "7996ef67411b525651e6b4b4a25a1f8eb8c91ef3ddfa42c10bafc08e7bca40f2"
+    },
+    {
+      "id": "official-40",
+      "sourceLine": 130,
+      "source": "{{Foo| [[Bar] }}",
+      "sourceSha256": "2220dc898c3bfba732cac6640a2f74831ce16167cbf6a01c341c49f1c3904f94",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "af0937211129fc744e26931e3502edb81cbc2253646407fca8fe3a3a14da589b"
+    },
+    {
+      "id": "official-41",
+      "sourceLine": 131,
+      "source": "{{Foo| [[Bar|Baz] }}",
+      "sourceSha256": "360c83ea3dd84594872a1a93a3cedef014565758e4086535a8979cf78b0d0305",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "8f9cbb7036cfa1db27066160b9d3e6613da0baa1dd030b1bc677ffdc4090a2c9"
+    },
+    {
+      "id": "official-42",
+      "sourceLine": 132,
+      "source": "{{Foo|bar=[[baz]}}",
+      "sourceSha256": "a424656dcf03541097dcfd76efc321b48febeecac32d198efa4cc21e5575c443",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "a0310086d0c0c48b766325110ff4e588cb4af7a414b36e8d2cc1e9e4d86c6f8a"
+    },
+    {
+      "id": "official-43",
+      "sourceLine": 133,
+      "source": "{{foo|",
+      "sourceSha256": "53d321fccc1265f20e0c12e6a42ad0ae1d150841f73d51ef62f0fdc429f22d87",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "e606a798b260109cd67ea13d638a40a17a693ab7b42303bf637c40ee40205bd6"
+    },
+    {
+      "id": "official-44",
+      "sourceLine": 134,
+      "source": "{{foo|}",
+      "sourceSha256": "de3ace7d946c107f03dd88b0f5e92c652bd58bb30de3e2f06577742c40e66a54",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "79242cd4ccf451340cced12c77b9c784d147beda8013bdbb29d40e30bc4e568e"
+    },
+    {
+      "id": "official-45",
+      "sourceLine": 135,
+      "source": "{{foo|} }}",
+      "sourceSha256": "7c2c7387d0cd85798c38f4ef1c3beecc715767b9ef04c382880ab4415bc414b4",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "38df47454c90b580f8781208f6ceeca70bd9d5d84a294e51dc2a22548ce074e4"
+    },
+    {
+      "id": "official-46",
+      "sourceLine": 136,
+      "source": "{{foo|bar=|}",
+      "sourceSha256": "8f0f4da80169d3407f7228ef5d43dabdc201d2f374bc742c454266583446397d",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "ec3fb2d9069012b7a6a978264def7c5b3d515ab9dc3dd478659c9157e31a714f"
+    },
+    {
+      "id": "official-47",
+      "sourceLine": 137,
+      "source": "{{Foo|} Bar=",
+      "sourceSha256": "4bda4e2aa34ce27ab472fd31d50984662baf7110ac2ea8d2d0d1916e7e261c0d",
+      "expectedRoles": [],
+      "upstreamTreeSha256": "cff2d74d167f532b86ca169676814e20f5310bbcb64fd90cb2c96b420dfcbdc9"
+    },
+    {
+      "id": "official-48",
+      "sourceLine": 138,
+      "source": "{{Foo|} Bar=}}",
+      "sourceSha256": "965f62cc4d99620987283f67f63b45748f72d62656263cfac3f4f9aa9adba13a",
+      "expectedRoles": [
+        {
+          "size": 2,
+          "depth": 0
+        }
+      ],
+      "upstreamTreeSha256": "b9bae927d16e255dae41efb99930da4b5c36b95bd6a1e8168b6f500f751e1187"
+    }
+  ],
+  "upstreamCopyright": "MediaWiki contributors",
+  "upstreamLicenseUrl": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+  "notice": "The upstream test source is GPL-2.0-or-later. This contract retains its immutable provenance and license notice. The expected role facts do not contain an imported parser implementation."
+}

@@ -1,0 +1,621 @@
+{
+  "schema": 1,
+  "version": "2.15.0",
+  "sourceVersion": "2.13.0",
+  "kind": "explicit-user-interface-contract-migration-with-immutable-source-oracles",
+  "historicalManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+  "inheritedSourcePlanSha256": "77640659b62c1fa3ee01c10d8c58c2589625257ae792963fcd946cfc83006003",
+  "historicalFilesVerified": 466,
+  "modules": [
+    {
+      "file": "tests/v2130/browser/run_release.cjs",
+      "sourceBytes": 93940,
+      "sourceSha256": "4526a9181561cb8e7878de4a1710566cea9b9fa086f2c186589dc591a7980631",
+      "compiledBytes": 91766,
+      "compiledSha256": "3b5b9793a510946bd7a290b57fb06cbe0d5aa9d49ceff8021970f5ee0e8ab8a6",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "expected_release_v2130.json",
+          "replacement": "expected_release_v2150.json",
+          "occurrences": 1
+        },
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "v2_13_0",
+          "replacement": "v2_15_0",
+          "occurrences": 5
+        },
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 2
+        },
+        {
+          "kind": "technical",
+          "reason": "Verify target release metadata.",
+          "sourceStartLine": 10,
+          "original": "assert.equal(pins.version,'2.13.0');",
+          "replacement": "assert.equal(pins.version,'2.15.0');"
+        },
+        {
+          "kind": "technical",
+          "reason": "The unchanged historical second-click proof stays bound to its original source release; current second-click assertions execute separately.",
+          "sourceStartLine": 36,
+          "original": "assert.equal(secondClickProof.releaseManifestSha256,hash(fs.readFileSync(pinsPath)));",
+          "replacement": "assert.equal(secondClickProof.releaseManifestSha256,'95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3');"
+        },
+        {
+          "kind": "technical",
+          "reason": "Report the actual release under execution.",
+          "sourceStartLine": 94,
+          "original": "version:'2.13.0',build:'2.13.0'",
+          "replacement": "version:'2.15.0',build:'2.15.0'"
+        },
+        {
+          "kind": "technical",
+          "reason": "Keep the default output directory separate from historical browser evidence.",
+          "sourceStartLine": 127,
+          "original": "'artifacts/v2130/browser'",
+          "replacement": "'artifacts/v2150/native_browser'"
+        },
+        {
+          "kind": "technical",
+          "reason": "Verify current loader/catalog request version.",
+          "sourceStartLine": 146,
+          "original": "JSON.stringify('2.13.0-'+pins.packedCatalogSha256)",
+          "replacement": "JSON.stringify('2.15.0-'+pins.packedCatalogSha256)"
+        },
+        {
+          "kind": "technical",
+          "reason": "Request current release from the local mock.",
+          "sourceStartLine": 154,
+          "original": "&action=raw&ctype=text/javascript&v=2.13.0'",
+          "replacement": "&action=raw&ctype=text/javascript&v=2.15.0'"
+        },
+        {
+          "kind": "reporting",
+          "reason": "Report the current user-selected interface contract.",
+          "sourceStartLine": 94,
+          "original": "'The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.'",
+          "replacement": "'The historical city source exercises the ordinary native-diff shortcut; its already corrected recent revision is retained unchanged in the 31-article corpus.'"
+        },
+        {
+          "kind": "reporting",
+          "reason": "Distinguish retained native minor-checkbox tests from retired custom hunk selection.",
+          "sourceStartLine": 94,
+          "original": "'Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.'",
+          "replacement": "'Minor-edit checkbox cases use native focus and Space. Custom selective-diff controls were retired by user request and are not counted as passing.'"
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed custom Before/After and hunk selection. Retain full article, numeric data, byte metrics, count, summary and Undo checks; activate native wpDiff without submitting.",
+          "sourceStartLine": 169,
+          "original": "  await driver.click('.ajg-show-changes');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);window.__cityGroups=[...document.querySelectorAll('.ajg-change')].map(group=>({before:group.querySelector('.ajg-before').textContent.length,after:group.querySelector('.ajg-after').textContent.length}));assert(__cityGroups.length>=3,'Full city diff has multiple local groups');assert(Math.max(...__cityGroups.flatMap(group=>[group.before,group.after]))<__citySource.length/2,'No full-article-sized unchanged body is folded into a local edit');assert(document.getElementById('wpTextbox1').value===__cityActual,'Opening comparison does not change the source');window.__cityComparison=__rw26QA.workerResults.at(-1).result;clean();`);\n  await driver.click('.ajg-select-changes');\n  await evaluate(`assert(document.querySelector('.ajg-comparison').classList.contains('ajg-selecting'),'Per-adjustment choices open');const first=document.querySelector('.ajg-change-choice');window.__cityRejectedId=first.dataset.change;const hunks=__cityComparison.hunks;assert(Array.isArray(hunks)&&hunks.length>1,'Worker returned independent selectable changes');const selected=hunks.find(hunk=>hunk.id===__cityRejectedId);assert(selected,'Visible checkbox identifies a real change');const rejected=hunks.filter(hunk=>hunk.id===selected.id||selected.transaction&&hunk.transaction===selected.transaction);window.__cityRejectedIds=rejected.map(hunk=>hunk.id);window.__cityExpectedPartial=__citySource;for(const hunk of hunks.filter(hunk=>!__cityRejectedIds.includes(hunk.id)).sort((a,b)=>b.start-a.start||b.newStart-a.newStart||b.end-a.end)){assert(__citySource.slice(hunk.start,hunk.end)===hunk.before,'Selection retains exact original source boundaries');__cityExpectedPartial=__cityExpectedPartial.slice(0,hunk.start)+hunk.after+__cityExpectedPartial.slice(hunk.end);}assert(__cityExpectedPartial!==__cityActual,'Rejecting a real change alters the expected result');clean();`);\n  await toggleCheckbox('.ajg-change-choice[data-change='+JSON.stringify(await driver.evaluate('__cityRejectedId'))+']');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.getElementById('wpTextbox1').value===__cityExpectedPartial);assert(__rw26QA.clicks.some(event=>event.className==='ajg-change-choice'&&event.trusted),'Selection is triggered by trusted native keyboard interaction');assert(document.getElementById('wpTextbox1').value!==__cityActual,'Only selected changes remain after rejection');assert(JSON.stringify(__dataRows(__cityExpectedPartial))===JSON.stringify(__dataRows(__citySource)),'Rejecting a change preserves numeric table data');assert(__cityRejectedIds.every(id=>![...document.querySelectorAll('.ajg-change-choice')].find(box=>box.dataset.change===id)?.checked),'Related transaction choices remain synchronized');window.__cityPartialTypes=RevisaWiki.v27RetainedTypes(__citySource,__cityExpectedPartial);assert(document.querySelector('.ajg-result-count').textContent===RevisaWiki.v211RetainedAdjustments(__citySource,__cityExpectedPartial).text,'Type count follows rejected changes');assert(document.getElementById('wpSummary').value===RevisaWiki.summaryForTopics(__cityPartialTypes.topics),'Generated summary follows rejected changes');clean();`);\n  actualEvidence.diff=JSON.parse(await driver.evaluate('JSON.stringify({groups:__cityGroups.length,maximumContextCharacters:Math.max(...__cityGroups.flatMap(group=>[group.before,group.after])),actualTypes:__cityTypes,selectionGesture:\"native-focus-and-space\",trustedSelectionEvent:true,rejectedChanges:__cityRejectedIds.length,partialSourceChanged:__cityExpectedPartial!==__cityActual,partialTypes:__cityPartialTypes.topics})'));",
+          "replacement": "  await driver.click('.ajg-show-changes');\n  await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__cityActual,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();assert(JSON.stringify(__dataRows(__cityActual))===JSON.stringify(__dataRows(__citySource)),'Native diff activation preserves every numeric city row');assert(document.querySelector('.ajg-result-count').textContent===RevisaWiki.v211RetainedAdjustments(__citySource,__cityActual).text,'Native diff activation retains the exact applied count');`);\n  actualEvidence.nativeDiff={nativeClickStub:true,remoteDiffRenderingTested:false,endpointUnchanged:true,customComparisonAbsent:true,partialSelectionRetiredByUser:true};"
+        },
+        {
+          "kind": "reporting",
+          "reason": "Do not claim that the retired selective rejection was tested.",
+          "sourceStartLine": 182,
+          "original": "automaticUpdatedAfterRejection:true",
+          "replacement": "nativeDiffShortcutPreservesEndpoint:true"
+        },
+        {
+          "kind": "fixture",
+          "reason": "Inject a local editform/wpDiff click stub between unchanged fixture bootstrap and production loading.",
+          "sourceStartLine": 125,
+          "original": "fs.readFileSync(path.join(__dirname,...(['jquery.js','textSelection.js'].includes(name)?['../../v261/browser',name]:[name])))",
+          "replacement": "global.__RW214NativeHarness.fixtureAsset(name,__dirname)"
+        },
+        {
+          "kind": "fixture",
+          "reason": "Serve only the additional fixed local bootstrap asset.",
+          "sourceStartLine": 113,
+          "original": "'chemical.wiki']);if(!allowed.has(name))",
+          "replacement": "'chemical.wiki','native-bootstrap.js']);if(!allowed.has(name))"
+        },
+        {
+          "kind": "additive",
+          "reason": "Add native submit-control positives and selector negatives in both distribution modes.",
+          "sourceStartLine": 398,
+          "original": "  for(const variant of ['shared','own'])await test(origin,variant);",
+          "replacement": "  for(const variant of ['shared','own'])await test(origin,variant);\n  await global.__RW214NativeHarness.controls({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});"
+        },
+        {
+          "kind": "provenance",
+          "reason": "Bind each actual report to the recorded source/compiled modules and runtime pins.",
+          "sourceStartLine": 457,
+          "original": "  report.finishedAt=new Date().toISOString();report.runnerSha256=hash(fs.readFileSync(__filename));save();",
+          "replacement": "  report.finishedAt=new Date().toISOString();report.runnerSha256=hash(fs.readFileSync(__filename));global.__RW214NativeHarness.finalize(report);save();"
+        },
+        {
+          "kind": "additive",
+          "reason": "Keep every existing safety assertion and additionally reject native publish clicks in all source-editor flows.",
+          "sourceStartLine": 128,
+          "original": "assert(__rw26QA.policyViolations.length===0,'No content-security-policy violation');};",
+          "replacement": "assert(__rw26QA.policyViolations.length===0,'No content-security-policy violation');assert(!window.__rwNativeUI||__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish click or form submission occurs');};"
+        },
+        {
+          "kind": "orchestration",
+          "reason": "Persist the concrete failing case, then stop this owned browser run and close its session instead of continuing expensive unrelated cases.",
+          "sourceStartLine": 127,
+          "original": "save=()=>fs.writeFileSync(output,JSON.stringify({...report,passed:report.tests.filter(t=>t.passed).length,failed:report.tests.filter(t=>!t.passed).length},null,2)+'\\n');",
+          "replacement": "save=()=>{fs.writeFileSync(output,JSON.stringify({...report,passed:report.tests.filter(t=>t.passed).length,failed:report.tests.filter(t=>!t.passed).length},null,2)+'\\n');if(!report.finishedAt&&!report.completedAt&&report.tests.at(-1)?.passed===false)throw new Error('Stopped after the first native browser regression failure.');};"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/citation_flow.cjs",
+      "sourceBytes": 5222,
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "compiledBytes": 5222,
+      "compiledSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "adaptations": []
+    },
+    {
+      "file": "tests/v2130/browser/birth_category_flow.cjs",
+      "sourceBytes": 7812,
+      "sourceSha256": "45f2801ee9618ead5573495fc82cab8545b88029e54bf082ad8d254ce4b2d9a8",
+      "compiledBytes": 7117,
+      "compiledSha256": "644bf6ebf44897fa6ec88c49444018b8fb4c90b081ba6080a93dae0934ebb14d",
+      "adaptations": [
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "Retire rejection/reacceptance of one custom category hunk. Preserve all six proven-category outcomes, absent-proof/network negatives, idempotence, categories and exact Undo.",
+          "sourceStartLine": 19,
+          "original": "    await driver.click('.ajg-show-changes');await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);const hunk=__rw26QA.workerResults.at(-1).result.hunks.find(h=>h.before.includes(${JSON.stringify(item.categoryLine)})&&!h.after.includes(${JSON.stringify(item.categoryLine)}));assert(hunk,'The actual category omission has an independent comparison group');window.__birthChoice=hunk.id;clean();`);\n    await driver.click('.ajg-select-changes');const selector='.ajg-change-choice[data-change='+JSON.stringify(await driver.evaluate('__birthChoice'))+']';await toggleCheckbox(selector);await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value.includes(${JSON.stringify(item.categoryLine)}),'Rejecting the category removal keeps that category with other changes');assert((__rw26QA.workerResults.at(-1).result.preservation||[]).length===0,'Partial selection preserves category membership');clean();`);\n    await toggleCheckbox(selector);await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__birthActualFirst,'Reaccepting the category removal restores the exact complete result');assert(__birthRequests.length===1,'Comparison reuses only the source-bound proof');clean();`);",
+          "replacement": "    await driver.click('.ajg-show-changes');await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__birthActualFirst,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();assert(__birthRequests.length===1,'Native shortcut requires no additional category proof lookup');`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v29_repair_flow.cjs",
+      "sourceBytes": 7883,
+      "sourceSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "compiledBytes": 8060,
+      "compiledSha256": "b34d0ff233b44c25479f804135ab79edb4c573b33cb49493edaeff514c13ea8e",
+      "adaptations": [
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__v29First,'Opening the real comparison keeps editor source unchanged');assert(__rw26QA.workerResults.at(-1).result.hunks.length>0,'Comparison contains actual source hunks');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__v29First,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v210_repair_flow.cjs",
+      "sourceBytes": 20782,
+      "sourceSha256": "ad8c907c61c9d922c250a23534493af08015a8f0ec7bd887ae110bde6440668d",
+      "compiledBytes": 20959,
+      "compiledSha256": "f72a0859714164815cea16d923fa278cc633610b7f161e071963689ad3fd9c02",
+      "adaptations": [
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__v210First,'Opening the real comparison keeps editor source unchanged');assert(__rw26QA.workerResults.at(-1).result.hunks.length>0,'Comparison contains actual source hunks');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__v210First,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v211_count_flow.cjs",
+      "sourceBytes": 6508,
+      "sourceSha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430",
+      "compiledBytes": 5582,
+      "compiledSha256": "6c48e2a903dce9c3d763c084cd27691b8469c9e3b599453e461af9ba385b0ec1",
+      "adaptations": [
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "Retire custom five-header rejection controls and ledger. Retain exact independent eight-edit endpoint/count, topics, second action, native shortcut, Undo and stale-count invalidation.",
+          "sourceStartLine": 15,
+          "original": "   await driver.click('.ajg-show-changes');\n   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===8,'Comparison exposes exactly eight source-confirmed occurrence entries');window.__countHunks=__rw26QA.workerResults.at(-1).result.hunks;window.__countTableIds=__countHunks.filter(h=>h.start>=__countSource.indexOf('{|')).map(h=>h.id);assert(__countTableIds.length===5,'The five independent header repairs have five source choices');clean();`);\n   await driver.click('.ajg-select-changes');\n   const ids=JSON.parse(await driver.evaluate('JSON.stringify(__countTableIds)'));\n   for(let i=0;i<ids.length;i++){\n    await toggleCheckbox('.ajg-change-choice[data-change='+JSON.stringify(ids[i])+']');\n    await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.querySelector('.ajg-result-count').textContent===${JSON.stringify((7-i)+' ajustes aplicados')},'Each rejected header decreases the retained correction count by exactly one');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===${7-i},'Exposed ledger follows the selected final endpoint');clean();`);\n   }\n   await evaluate(`assert(document.getElementById('wpTextbox1').value===__countLinks,'Rejecting table repairs leaves exactly the three corrected links');assert(document.querySelector('.ajg-result-count').textContent==='3 ajustes aplicados','Three retained links are not presented as one topic');assert(!document.querySelector('.ajg-result-topics').textContent.includes('tabelas'),'Rejected topic is absent');clean();`);",
+          "replacement": "   await driver.click('.ajg-show-changes');\n   await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__countExpected,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();assert(document.querySelector('.ajg-result-count').textContent==='8 ajustes aplicados','Native diff retains all eight independently counted corrections');`);"
+        },
+        {
+          "kind": "reporting",
+          "reason": "Both success and failure display names identify the user-selected native diff endpoint, not the retired selective UI.",
+          "original": "retained occurrence count and selective endpoint",
+          "replacement": "retained occurrence count and native diff endpoint",
+          "occurrences": 2
+        },
+        {
+          "kind": "reporting",
+          "reason": "Report retained full endpoint; no selective rejection occurred.",
+          "sourceStartLine": 28,
+          "original": "retainedAfterRejection:3",
+          "replacement": "retainedAfterNativeDiff:8"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v211_minor_flow.cjs",
+      "sourceBytes": 3940,
+      "sourceSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "compiledBytes": 3940,
+      "compiledSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "adaptations": []
+    },
+    {
+      "file": "tests/v2130/browser/v211_freshness_flow.cjs",
+      "sourceBytes": 7197,
+      "sourceSha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d",
+      "compiledBytes": 7202,
+      "compiledSha256": "245fdb462db44c5ef77ab421b853b70cd43cbe772dcc6dcf830409b9163e1071",
+      "adaptations": [
+        {
+          "kind": "fixture",
+          "reason": "Reuse the fixture native form rather than constructing duplicate editform/wpSave elements.",
+          "sourceStartLine": 4,
+          "original": "const form=document.createElement('form');form.id='editform';document.body.append(form);form.append(document.getElementById('wpTextbox1'),document.getElementById('wpSummary'));const save=document.createElement('button');save.id='wpSave';save.type='submit';save.textContent='Publicar página';form.append(save);",
+          "replacement": "const form=document.getElementById('editform');assert(form&&document.getElementById('wpSave'),'The shared local fixture provides the native edit form and publish control');"
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "Keep source/options-bound checked-state assertions while verifying the native shortcut.",
+          "sourceStartLine": 23,
+          "original": "assert(document.getElementById('wpTextbox1').value===__freshAfter,'Opening the comparison leaves the checked source intact');",
+          "replacement": "assert(document.getElementById('wpTextbox1').value===__freshAfter,'Native diff activation leaves the checked source intact');assert(__rwNativeUI.diffClicks===1&&__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'Only the native diff click stub was activated');"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v2111_reference_flow.cjs",
+      "sourceBytes": 6919,
+      "sourceSha256": "9278cb5bcbe99082e29a94b1f31a4cf65dcc36897495a4cf64a24d88ff8aa8b2",
+      "compiledBytes": 7163,
+      "compiledSha256": "4c80232ba0796a0307b486a014deddf49bbb28cae9d98b074a6405f6a9b16765",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 1
+        },
+        {
+          "kind": "reviewed-static-oracle",
+          "reason": "Use the separately reviewed static full endpoint with exactly one excess newline removed before Acre. Original source and all historical fixtures remain immutable.",
+          "sourceStartLine": 6,
+          "original": "const article=read('article.wiki'),expected=read('expected.wiki');",
+          "replacement": "const article=read('article.wiki'),expected=global.__RW214NativeHarness.oracles.aeroclubesExpected(read('expected.wiki'));"
+        },
+        {
+          "kind": "reviewed-static-oracle",
+          "reason": "The four historical lexical corrections plus the one independently reviewed spacing occurrence total five.",
+          "sourceStartLine": 9,
+          "original": "positive:true,expectedCount:4}",
+          "replacement": "positive:true,expectedCount:5}"
+        },
+        {
+          "kind": "reviewed-static-oracle",
+          "reason": "Assert the exact owner-reviewed five-occurrence total without changing any negative or reference-preservation check.",
+          "sourceStartLine": 15,
+          "original": "textContent==='4 ajustes aplicados','Two identity repairs, one alias and one proved URL count as four'",
+          "replacement": "textContent==='5 ajustes aplicados','Two identity repairs, one alias, one proved URL and one reviewed spacing occurrence count as five'"
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__independentExpected,'Opening the comparison does not mutate the draft');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===4,'The comparison exposes four independent retained repairs');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__independentExpected,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v212_safe_fixes_flow.cjs",
+      "sourceBytes": 6120,
+      "sourceSha256": "c14287543ba7cad674ce0f974a9a28d1eee212aa7df3a8bb6daa34d59ebf5aa5",
+      "compiledBytes": 6245,
+      "compiledSha256": "1becb7db17288f94e3c8e77d3598cd28481e59e5a8cedf473882ea5d6fd2e1a2",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 1
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__v212Expected,'Opening the comparison preserves the reviewed endpoint');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===${item.count},'Comparison exposes every independently confirmed retained correction');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__v212Expected,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v213_safe_fixes_flow.cjs",
+      "sourceBytes": 6096,
+      "sourceSha256": "c12731e46b6fc92b615d3b53b904cfe30d1263e6b946aba913d9f74962dc3a58",
+      "compiledBytes": 6221,
+      "compiledSha256": "928d5960c829db05590cab06e8f6be921aae57053ea52fd93c735f49a4d82517",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 1
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__v213Expected,'Opening the comparison preserves the reviewed endpoint');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===${item.count},'Comparison exposes every independently confirmed retained correction');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__v213Expected,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/v213_migration_flow.cjs",
+      "sourceBytes": 5894,
+      "sourceSha256": "49f697d453533b4fd1763cffc48be9908765de30d6045ec8d0406febb05204d9",
+      "compiledBytes": 6019,
+      "compiledSha256": "9f9679ed2183e99efd6ab6b4ff8bb8d300c5a9237b91727082a319c16c469c1c",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 1
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.getElementById('wpTextbox1').value===__v213Expected,'Opening the comparison preserves the reviewed endpoint');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===${item.count},'Comparison exposes every independently confirmed retained correction');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__v213Expected,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        }
+      ]
+    },
+    {
+      "file": "tests/v2130/browser/responsive_flow.cjs",
+      "sourceBytes": 7251,
+      "sourceSha256": "21fd2986a4327326973740e7512da4508796cdc7b22f1310099b0c7d2af23135",
+      "compiledBytes": 7251,
+      "compiledSha256": "21fd2986a4327326973740e7512da4508796cdc7b22f1310099b0c7d2af23135",
+      "adaptations": []
+    },
+    {
+      "file": "tests/v2130/browser/v211_image_runtime.cjs",
+      "sourceBytes": 17778,
+      "sourceSha256": "828539f9ff45852672705eba005a2c1bd0f61772d706866e641215c8ef370980",
+      "compiledBytes": 18395,
+      "compiledSha256": "bd97e6a763befdcde1e86c6f4aa8f2640feb6f76dcff359949e8c237b1e0c360",
+      "adaptations": [
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "expected_release_v2130.json",
+          "replacement": "expected_release_v2150.json",
+          "occurrences": 1
+        },
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "v2_13_0",
+          "replacement": "v2_15_0",
+          "occurrences": 4
+        },
+        {
+          "kind": "technical",
+          "reason": "Load and verify the requested release while historical source remains immutable.",
+          "original": "RevisaWiki.version==='2.13.0'",
+          "replacement": "RevisaWiki.version==='2.15.0'",
+          "occurrences": 1
+        },
+        {
+          "kind": "technical",
+          "reason": "The independently verified current manifest replaces the historical runtime pin.",
+          "sourceStartLine": 8,
+          "original": "assert.equal(sha(manifestBytes),'95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3','The exact final runtime manifest is frozen');",
+          "replacement": "assert.equal(sha(manifestBytes),global.__RW214NativeHarness.releaseManifestSha256,'The exact requested final runtime manifest is frozen');"
+        },
+        {
+          "kind": "technical",
+          "reason": "Report the actual current runtime.",
+          "sourceStartLine": 15,
+          "original": "version:'2.13.0',kind:'native-lead-image-proof-ui'",
+          "replacement": "version:'2.15.0',kind:'native-lead-image-proof-ui'"
+        },
+        {
+          "kind": "technical",
+          "reason": "Keep current evidence separate from immutable historical reports.",
+          "sourceStartLine": 16,
+          "original": "'artifacts/v2130/final_image'",
+          "replacement": "'artifacts/v2150/final_image'"
+        },
+        {
+          "kind": "fixture",
+          "reason": "Add the same native editform/diff click stub to image-only flows.",
+          "sourceStartLine": 18,
+          "original": "'fixture.html':()=>fs.readFileSync(path.join(__dirname,'fixture.html'))",
+          "replacement": "'fixture.html':()=>global.__RW214NativeHarness.fixtureAsset('fixture.html',__dirname),'native-bootstrap.js':()=>global.__RW214NativeHarness.fixtureAsset('native-bootstrap.js',__dirname)"
+        },
+        {
+          "kind": "provenance",
+          "reason": "Bind image evidence to the same explicit coverage plan and source/runtime pins.",
+          "sourceStartLine": 47,
+          "original": "report.completedAt=new Date().toISOString();report.status=",
+          "replacement": "report.completedAt=new Date().toISOString();global.__RW214NativeHarness.finalize(report);report.status="
+        },
+        {
+          "kind": "additive",
+          "reason": "Keep all image safety assertions and additionally reject native publish clicks.",
+          "sourceStartLine": 21,
+          "original": "assert(__rw26QA.clipboardWrites===0,'No clipboard access');};",
+          "replacement": "assert(__rw26QA.clipboardWrites===0,'No clipboard access');assert(!window.__rwNativeUI||__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish click or form submission occurs');};"
+        },
+        {
+          "kind": "user-retired-custom-interface",
+          "reason": "The user removed the custom comparison/occurrence ledger. Exact independent output, counts, Worker, negatives, second-click and Undo assertions outside this block remain unchanged. Activate native wpDiff without submitting.",
+          "original": "await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===1,'Comparison exposes precisely one image option adjustment');assert(document.getElementById('wpTextbox1').value===__imageFirst,'Opening comparison preserves the editor');clean();`);",
+          "replacement": "await evaluate(`assert(__rwNativeUI.diffClicks===1,'The shortcut activates the confirmed native diff control once');assert(document.getElementById('wpTextbox1').value===__imageFirst,'Native comparison activation leaves the reviewed source intact');assert(!document.querySelector('.ajg-comparison,.ajg-diff,.ajg-change-choice,.ajg-select-changes'),'Retired custom comparison and selection controls stay absent');assert(__rwNativeUI.saveClicks===0&&__rwNativeUI.formSubmits===0,'No native publish activation or form submission occurs');clean();`);"
+        },
+        {
+          "kind": "orchestration",
+          "reason": "Persist the concrete failing case, then stop this owned browser run and close its session instead of continuing expensive unrelated cases.",
+          "sourceStartLine": 17,
+          "original": "save=()=>fs.writeFileSync(output,JSON.stringify({...report,passed:report.tests.filter(t=>t.passed).length,failed:report.tests.filter(t=>!t.passed).length},null,2)+'\\n');",
+          "replacement": "save=()=>{fs.writeFileSync(output,JSON.stringify({...report,passed:report.tests.filter(t=>t.passed).length,failed:report.tests.filter(t=>!t.passed).length},null,2)+'\\n');if(!report.finishedAt&&!report.completedAt&&report.tests.at(-1)?.passed===false)throw new Error('Stopped after the first native browser regression failure.');};"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "tests/v2130/browser/fixture.html",
+      "bytes": 2287,
+      "sha256": "b8ca12ee97b0d4ec83c0b30a128e89c2d3223b4fa5a891d5708dae3a4557c498"
+    },
+    {
+      "file": "tests/v2130/browser/fixture.js",
+      "bytes": 14621,
+      "sha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53"
+    },
+    {
+      "file": "tests/v261/browser/jquery.js",
+      "bytes": 285314,
+      "sha256": "78a85aca2f0b110c29e0d2b137e09f0a1fb7a8e554b499f740d6744dc8962cfe"
+    },
+    {
+      "file": "tests/v261/browser/textSelection.js",
+      "bytes": 16706,
+      "sha256": "c28d1b9e6e83901da233beffb0524866165746e46c050a53467a40ae2fd13a6a"
+    },
+    {
+      "file": "tests/v261/browser/native_driver.cjs",
+      "bytes": 9559,
+      "sha256": "caa1d6224b82b9dfd2657d2fc2e69cce05f5a78b0da35f1877a7fc8c57e60176"
+    }
+  ],
+  "ownFiles": [
+    {
+      "file": "tests/v2150/native_browser/adapter.cjs",
+      "bytes": 16338,
+      "sha256": "4bca385d65909a7e974f115f425546b300cf6236a155c7ebe270c4b03c0a57ef"
+    },
+    {
+      "file": "tests/v2150/native_browser/prepare.cjs",
+      "bytes": 4371,
+      "sha256": "49497b3b0d767b2220bd5e3c68940c609a67cff84748c744e96cd0bb1e73409b"
+    },
+    {
+      "file": "tests/v2150/native_browser/run_release.cjs",
+      "bytes": 5350,
+      "sha256": "a83420ccb236066824a8d0cdeeba5dadba0a9ee70c66251af52a5ddde582abf3"
+    },
+    {
+      "file": "tests/v2150/native_browser/controls.cjs",
+      "bytes": 4187,
+      "sha256": "f83c83189834c982b7666c5b73b41ced768f927011503ba6dec20468d1842059"
+    },
+    {
+      "file": "tests/v2150/native_browser/native_bootstrap.js",
+      "bytes": 2010,
+      "sha256": "8224dc6560364bc145e31b6faa423507f9756e5c0d301a8e087c7d72cba2c6d8"
+    },
+    {
+      "file": "tests/v2150/native_browser/test_adapter.cjs",
+      "bytes": 5440,
+      "sha256": "1ca5536f953c3806747bae3d26d4fd603cfc0331edd4fd69adcf9ad2c88b80d1"
+    },
+    {
+      "file": "tests/v2150/native_browser/summarize.cjs",
+      "bytes": 5213,
+      "sha256": "62e7c1ed048df0a82069d12ad133837c59c148850a6476fa91775a5590c843f8"
+    },
+    {
+      "file": "tests/v2150/native_browser/README.md",
+      "bytes": 3346,
+      "sha256": "caad189326a5cafc8e2d4d07db9d72228729699ec498404f70c62697e67e19cb"
+    },
+    {
+      "file": "tests/v2150/inherited/oracle_delta.cjs",
+      "bytes": 3448,
+      "sha256": "9c73d7161dfb2609bb24790a030c962b856a0cc217d03ac9494989d4c9ea78b6"
+    },
+    {
+      "file": "tests/v2150/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "bytes": 1841,
+      "sha256": "abb7388f7f79b1a4f3a796873affde50660fdd52950e8402d5f7b40aae532d03"
+    },
+    {
+      "file": "tests/v2150/native_browser/fixtures/GRAPH_SPACING_ORACLE.json",
+      "bytes": 1679,
+      "sha256": "04891061bdb669cba653961ac87cb38d97189dc83557ac64c8dd25168929dfa6"
+    },
+    {
+      "file": "tests/v2150/native_browser/fixtures/aeroclubes_expected_v215.wiki",
+      "bytes": 44767,
+      "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999"
+    },
+    {
+      "file": "tests/v2150/native_browser/fixtures/graph_expected_v215.wiki",
+      "bytes": 44768,
+      "sha256": "612ec873719797fe054a2c917b303ff27cc4f84ebd67a8b175ca8119e2b3177f"
+    }
+  ],
+  "unmodifiedTextOracles": false,
+  "sourceFixtureContentRewrites": [
+    {
+      "registryFile": "tests/v2150/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "registrySha256": "abb7388f7f79b1a4f3a796873affde50660fdd52950e8402d5f7b40aae532d03",
+      "historicalExpected": {
+        "file": "tests/v2130/independent_fixtures/expected.wiki",
+        "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+        "bytes": 44768
+      },
+      "newExpected": {
+        "file": "tests/v2150/native_browser/fixtures/aeroclubes_expected_v215.wiki",
+        "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+        "bytes": 44767
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1,
+        "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+      },
+      "oldRetainedCorrectionCount": 4,
+      "newRetainedCorrectionCount": 5,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    }
+  ],
+  "runtimeParserOrEngineRewrites": [],
+  "retirementAuthority": "The user explicitly requested removal of custom Before/After, selective comparison controls, technical/history/not-applied panels, and use of the editor native Mostrar alterações control.",
+  "retainedCoverage": [
+    "All historical source article inputs and independently written expected endpoints, with exactly one reviewed static Aeroclubes spacing extension recorded separately.",
+    "Apply and exact Undo through real browser Workers, modular and complete distributions.",
+    "Positive and negative biography, marriage, reference, table, images, copied syntax, citation metadata and category proofs.",
+    "Saved-revision minor-edit ownership, applied occurrence totals, exact UTF-8 metrics, idempotence, checked-state freshness, failures and cancellation.",
+    "Large complex articles, numeric table rows, scientific identifiers/formulas, complete source hashes and protected contexts.",
+    "Stable installation chains, lazy reading-page behavior and preserved native edit links.",
+    "Responsive and chemical table geometry."
+  ],
+  "retiredCoverage": [
+    "Custom Before/After rendering and occurrence-ledger DOM.",
+    "Custom per-hunk rejection/reacceptance and selection-driven partial endpoints."
+  ],
+  "newCoverage": [
+    "Confirmed native wpDiff submit controls, direct input/button and widget input/button.",
+    "Missing, wrong-name, non-submit, outside-form and mismatched-form controls keep the shortcut hidden. Confirmed disabled native controls keep it hidden or disabled.",
+    "Native shortcut click stub leaves exact source/count/summary/Undo intact, no remote diff renderer or form submission is claimed."
+  ],
+  "plannedRetainedFlowsPerBrowser": 142,
+  "plannedAdditionalFlowsPerBrowser": 20,
+  "plannedImageFlowsPerBrowser": 18,
+  "actualFlowCounts": "Recorded from the final browser execution; no historical passing count is relabeled.",
+  "wikipediaWrites": 0,
+  "remoteNetworkRequests": 0,
+  "accountUse": false
+}

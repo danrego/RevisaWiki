@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "kind": "native-mediawiki-template-role-tree",
+  "endpoint": "https://pt.wikipedia.org/w/api.php",
+  "action": "expandtemplates",
+  "method": "GET",
+  "credentials": "omit",
+  "captureComplete": false,
+  "capturedCases": 1,
+  "plannedMatrixCases": 143,
+  "captureLimitation": "A later matrix attempt received HTTP 429 and stopped without retries. Only this separately successful complete response is native evidence.",
+  "requests": 1,
+  "wikipediaWrites": 0,
+  "cases": [
+    {
+      "id": "dynamic-suffix",
+      "source": "{{{{{2}}}x|{{{1}}}}}",
+      "sourceSha256": "23072efb5785a542c4354066a02b28beba0ab9280b1c921a635f65ecf6f72a47",
+      "tree": "<root><template><title><tplarg><title>2</title></tplarg>x</title><part><name index=\"1\"/><value><tplarg><title>1</title></tplarg></value></part></template></root>",
+      "treeSha256": "1e7a2c11676b9f4c41c7fbe0216400414e849456a6e6036c33063711ce73f6c7",
+      "roles": [
+        {
+          "size": 2,
+          "depth": 0
+        },
+        {
+          "size": 3,
+          "depth": 1
+        },
+        {
+          "size": 3,
+          "depth": 1
+        }
+      ]
+    }
+  ]
+}
