@@ -1,0 +1,517 @@
+{
+  "baseVersion": "2.8.0",
+  "targetVersion": "2.8.1",
+  "baselineManifest": "tests/expected_release_v280.json",
+  "baselineManifestSha256": "86e3276c3d2a01abfd5da99c59e99b74750e3cc9d42213aeafd65c375a1e3d00",
+  "scope": "Release selector and report-path substitutions only. Citation cases are additive. Existing assertion bodies remain unchanged. Browser fixture version metadata is adapted; original source texts are retained.",
+  "substitutions": [
+    [
+      "2.8.0",
+      "2.8.1"
+    ],
+    [
+      "_v2_8",
+      "_v2_8_1"
+    ],
+    [
+      "expected_release_v280.json",
+      "expected_release_v281.json"
+    ],
+    [
+      "artifacts/v280",
+      "artifacts/v281"
+    ],
+    [
+      "tests/v28/",
+      "tests/v281/"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v28/browser/HEAD_RENDER_PROOF.json",
+      "target": "tests/v281/browser/HEAD_RENDER_PROOF.json",
+      "sourceSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "targetSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "target": "tests/v281/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "sourceSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "targetSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "target": "tests/v281/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sourceSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "targetSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/biography_cases.json",
+      "target": "tests/v281/browser/biography_cases.json",
+      "sourceSha256": "aeeb8e0a69539b3b1e707b3022784a92acb1d25991f2e93e91d1f20644a75009",
+      "targetSha256": "0b543061587c30bb4a859e79ae7647cbb960775af386683b03a9142ddcd56cb3",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/build_second_click_contract.cjs",
+      "target": "tests/v281/browser/build_second_click_contract.cjs",
+      "sourceSha256": "80cf398e4e69f1878abe016e0e54774b3423b95ed911bcb9c2e76dd387a021ae",
+      "targetSha256": "cd3dae3c4d95ec345d593a42519707a73f648d8d5153ad416ba5bb550d6d5077",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/fixture.html",
+      "target": "tests/v281/browser/fixture.html",
+      "sourceSha256": "32ff8133eaca76386ad618ed3ab4ff2ef780dbafde9a85308c11ec50e3c683de",
+      "targetSha256": "1c1b96a4a5afac42c6d93644ac818ba979b2710b6571917a0d6056fb55c2a468",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/fixture.js",
+      "target": "tests/v281/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "targetSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/run_release.cjs",
+      "target": "tests/v281/browser/run_release.cjs",
+      "sourceSha256": "6199b79479981cb601f2b05465c81f09b41f13c7e4a3f5384bb9c7f273f42ff6",
+      "targetSha256": "5e737eef89377a7dc51aeb89a52c51a436287cd6555125064e8dddfbfee4ca79",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "  report.blockedOutsideRequests=driver.blocked?.length||0;",
+          "  await require('./citation_flow.cjs')({origin,driver,evaluate,report,hash,save});\n  report.blockedOutsideRequests=driver.blocked?.length||0;"
+        ],
+        [
+          "const report={version:'2.8.1',",
+          "const report={citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.8.1',"
+        ],
+        [
+          "  report.finalSavedFileHashesVerified=true;",
+          "  assert.equal(hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),report.citationFlowSha256,'Additive citation workflow remains frozen');\n  report.finalSavedFileHashesVerified=true;"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v28/browser/spouse_cases.json",
+      "target": "tests/v281/browser/spouse_cases.json",
+      "sourceSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "targetSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/browser/summarize_release.cjs",
+      "target": "tests/v281/browser/summarize_release.cjs",
+      "sourceSha256": "8c821a91551f151765b3bd15834bbe349f34f9a737d0319f0fbe5c274eb8dfee",
+      "targetSha256": "7f9cf55d8a5c80d9c3f16c56a1ba48be05806fa62616d3fd5518bd858fa7196c",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "assert.equal(report.tests.length,20);",
+          "assert.equal(report.tests.length,25);"
+        ],
+        [
+          "assert.equal(report.passed,20);",
+          "assert.equal(report.passed,25);"
+        ],
+        [
+          "assert.equal(summary.cases,60);",
+          "assert.equal(summary.cases,75);"
+        ],
+        [
+          "Sixty local native browser workflows",
+          "Seventy-five local native browser workflows"
+        ],
+        [
+          " assert.deepEqual(report.latestCityFixture,recentCity);",
+          " for(const test of report.tests.filter(item=>item.name.startsWith('citation family '))){assert.equal(test.evidence.actualGenericCalls,test.evidence.expectedGenericCalls);assert.equal(test.evidence.realWorker,true);assert.equal(test.evidence.idempotent,true);assert.equal(test.evidence.exactUndo,true);}\n assert.deepEqual(report.latestCityFixture,recentCity);"
+        ],
+        [
+          " assert.equal(report.version,'2.8.1');",
+          " assert.equal(report.citationFlowSha256,sha(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),'Exact citation workflow module');\n assert.equal(report.version,'2.8.1');"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v28/candidate.cjs",
+      "target": "tests/v281/candidate.cjs",
+      "sourceSha256": "756a2f475e8c37efc5aa3fc68d0e60e5e90340d4b91d78c7835a42be914d5be0",
+      "targetSha256": "841da3e82cab22ae9d9500df19060cc8928ee36119fa4c35dcc3d986343c1c15",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/check_server_grammar.php",
+      "target": "tests/v281/check_server_grammar.php",
+      "sourceSha256": "b3487e1adbbce1fa4b8fc784865bd187e4227245f12594b2fb2a2cdc9fe5ad6b",
+      "targetSha256": "0da797c43ebff9979f0e58e018bbd9b9e1bb67aee6fe3dc926710f20895181b9",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/engine_helper.cjs",
+      "target": "tests/v281/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "target": "tests/v281/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "sourceSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "targetSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "target": "tests/v281/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "sourceSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "targetSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "target": "tests/v281/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "sourceSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "targetSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/chemical_articles/manifest.json",
+      "target": "tests/v281/fixtures/chemical_articles/manifest.json",
+      "sourceSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "targetSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/city_temperature/ATTRIBUTION.txt",
+      "target": "tests/v281/fixtures/city_temperature/ATTRIBUTION.txt",
+      "sourceSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "targetSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/city_temperature/article.wiki",
+      "target": "tests/v281/fixtures/city_temperature/article.wiki",
+      "sourceSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "targetSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/city_temperature/source_revision.json",
+      "target": "tests/v281/fixtures/city_temperature/source_revision.json",
+      "sourceSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "targetSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "target": "tests/v281/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "sourceSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "targetSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "target": "tests/v281/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "sourceSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "targetSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/marriage_articles/complete_manifest.json",
+      "target": "tests/v281/fixtures/marriage_articles/complete_manifest.json",
+      "sourceSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "targetSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/marriage_articles/manifest.json",
+      "target": "tests/v281/fixtures/marriage_articles/manifest.json",
+      "sourceSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "targetSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "target": "tests/v281/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "sourceSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "targetSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/table_articles/entity_Q4177928.json",
+      "target": "tests/v281/fixtures/table_articles/entity_Q4177928.json",
+      "sourceSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "targetSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/fixtures/table_articles/manifest.json",
+      "target": "tests/v281/fixtures/table_articles/manifest.json",
+      "sourceSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "targetSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_all.cjs",
+      "target": "tests/v281/run_all.cjs",
+      "sourceSha256": "8ef0c8f54fca8ce72ee4124d25973fe1d1a049c159e94e1eee977673dd2418f9",
+      "targetSha256": "8d5aee6afcb45b376b79bce2beafd5d607ef85d0c967c118de2850764848f7b2",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "'run_engine.cjs','summarize.cjs'",
+          "'test_citation_families.cjs','run_engine.cjs','summarize.cjs'"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v28/run_edited_corpus.cjs",
+      "target": "tests/v281/run_edited_corpus.cjs",
+      "sourceSha256": "da9ef3fcbce68630a0080ea5bdd1bf87a8ae7e988acb595a06a654d0d6caeaed",
+      "targetSha256": "ddea5c7dd04324cb1656ab371bc1fcf81f1effd51cd128b641ce4fdb34e6219a",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_engine.cjs",
+      "target": "tests/v281/run_engine.cjs",
+      "sourceSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "targetSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_focus.cjs",
+      "target": "tests/v281/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_quote_boundaries.cjs",
+      "target": "tests/v281/run_quote_boundaries.cjs",
+      "sourceSha256": "4b6b17fbfb721daa4aa4befc11a5a3e39a74d12a42ea6ecadf53a498c220c793",
+      "targetSha256": "94f73b91e0733a4786c6b857d746c5b0f6d956950655c42b045311fee35b4c28",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_server_grammar.mjs",
+      "target": "tests/v281/run_server_grammar.mjs",
+      "sourceSha256": "e11d96a317ed6920e3c9aaec94dd5764117411d74c6582a24a39b67465b45ac9",
+      "targetSha256": "766af8b0dc72ffe6798b0577f2c4adeb7f942b90acd1981d5e9a1c0c93497c1b",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_startup.cjs",
+      "target": "tests/v281/run_startup.cjs",
+      "sourceSha256": "81acf1868e5084c816aa566d34ecbbe2f9507633bd7f88ac7054260d495f783d",
+      "targetSha256": "891ab1a47eaf32e1341e868b5893c29eb62ca08b614403a2a3b03b633a1ea623",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/run_tag_adversarial.cjs",
+      "target": "tests/v281/run_tag_adversarial.cjs",
+      "sourceSha256": "8db2b5e4ccc3f16eb28735aecaf3a6f7011b6e98055b0c1abad90b0a7dd319a9",
+      "targetSha256": "b7dc84ea7a3759a70c329208e57b61ad58cdb35b18dd5c88668cdfa2c2326fdb",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/summarize.cjs",
+      "target": "tests/v281/summarize.cjs",
+      "sourceSha256": "a1e4e170dc85340b07c12f94bb069c1c0e87a28acfaebd0f6e3e447828bab5b9",
+      "targetSha256": "e638b52d1ef6aca230cfbedf58541eeb639707f1a86c51b84fe54b016e0ecce0",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "'contracts.json'",
+          "'citation_families.json','contracts.json'"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v28/test_biography_composition.cjs",
+      "target": "tests/v281/test_biography_composition.cjs",
+      "sourceSha256": "8f75fa88a0a00a2323f26340f29c1cd97ef4906a85af9f2e8cd17fbc2fa6ae90",
+      "targetSha256": "4ab1a98b8a2fc1d17fa856b21c0d22b83770a913244db8dfbd41819f29bc9a54",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_biography_dates.cjs",
+      "target": "tests/v281/test_biography_dates.cjs",
+      "sourceSha256": "5183a8f6843cf46dd71d750c0d962c1544165b303cc178b27618898e482f83be",
+      "targetSha256": "5625e0de754d5a87907d95ef4b01039f34426187b4ec0989b7a4294b7740cf96",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_biography_fields.cjs",
+      "target": "tests/v281/test_biography_fields.cjs",
+      "sourceSha256": "4e7b8ca6a6315f72d8a152480f07978cb0be2e2b210f35f17a4a43322f5bda11",
+      "targetSha256": "b7017caa360996d5564f54704fd07298bfc96bc32c9f1d027f654034ccb5aa01",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_chat_permutations.cjs",
+      "target": "tests/v281/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_chat_residues.cjs",
+      "target": "tests/v281/test_chat_residues.cjs",
+      "sourceSha256": "7c473c3256011b1c606244cbf07e6cf9ec587f0b5d50367429f9c6a8c829fe65",
+      "targetSha256": "9fa57fac5962bedb8b81ea95c66b1c09efb4a76c538c5ed665617390beb38f68",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_chemical_guards.cjs",
+      "target": "tests/v281/test_chemical_guards.cjs",
+      "sourceSha256": "726f79cfde7b6dd243d44724573e49cf0e7f6106ad8382eb547372b0f160905e",
+      "targetSha256": "8793ef5b2e51c3d7738c32c7ef15943433350e8d169c7911c1ceae07139d8381",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_chemical_syntax.cjs",
+      "target": "tests/v281/test_chemical_syntax.cjs",
+      "sourceSha256": "70584d00a28ff3b703cd33c921b9ca8aab0c3a492dd81d705e37c1e0da036fb4",
+      "targetSha256": "01254aff7cdc48c706d4b38f90cc77cd920c30f6867eab23bc70945d1edabdbc",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_diff_reporting.cjs",
+      "target": "tests/v281/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_index.cjs",
+      "target": "tests/v281/test_index.cjs",
+      "sourceSha256": "fa00cc926ba7ba3e994432d02f4ac634984dd32dd16c2dce3951cbea4abca406",
+      "targetSha256": "530c9b809fdd02fce5bfc38d81953946f891f6ebec98590f593481355d8c9280",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_marriage_guards.cjs",
+      "target": "tests/v281/test_marriage_guards.cjs",
+      "sourceSha256": "5073f4d7352005fc34de49c6e590e163da54e81a9d1ae358d5ed0e9e0b8fc3a6",
+      "targetSha256": "a009b7c81dc4b57f2e79a4a877ccb853afab105a97b873718f526d6d5dddd3bb",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_marriage_syntax.cjs",
+      "target": "tests/v281/test_marriage_syntax.cjs",
+      "sourceSha256": "02155f90f8094dc73e7b257b4bead091033846d005c28523a2d8dd6f9bb82c2a",
+      "targetSha256": "c14c25fd4d18ccd3e6b016ff0016bc4e51757ffe9801dcf9e4d1a2ffaec6ea87",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_multiple_marriages.cjs",
+      "target": "tests/v281/test_multiple_marriages.cjs",
+      "sourceSha256": "f6cb431d430e7cba07e8b2f0aab2210d79d4a24454eca994dc870e6b7ae1d402",
+      "targetSha256": "9da6644efd9c5c8abe7b605829599eb266d68e5441daa866eb5e0535365e9ece",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_no_section_buttons.cjs",
+      "target": "tests/v281/test_no_section_buttons.cjs",
+      "sourceSha256": "1aadd905e783f6397a61d271b307eba645b0b6d100dd16fb4290bf989a80a6ea",
+      "targetSha256": "efbd4ed75f33271ff90c26bf08f6d6bf949ac56fb775a2e49ea20e8b3ec7a1e2",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_quotes.cjs",
+      "target": "tests/v281/test_quotes.cjs",
+      "sourceSha256": "c2a190c36d4b301217fa01a91b41f95edbb7d59e0c8550069d4e418c555c5714",
+      "targetSha256": "3c3b62626ab6731fb322358b65f9ccedc6564176ca71d01c7fcea92ecc477a93",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_safe_automation.cjs",
+      "target": "tests/v281/test_safe_automation.cjs",
+      "sourceSha256": "3e20163784ffa84b60ce7f51289ed64105f31516186b16a9e79145b102fd451d",
+      "targetSha256": "048d37e1e1bc0133b2d39ac9143673c25b54e29b68e5bb4a6171796cc3c39a5b",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_table_guards.cjs",
+      "target": "tests/v281/test_table_guards.cjs",
+      "sourceSha256": "18987596d1d18fed7827a75c2df8c73e1698332063dc9aad364508360ce75083",
+      "targetSha256": "3c8c8bad20ea28b4ca4a1d8892f2c53220714acd47d32ad1c359b9ec940c2796",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v28/test_table_syntax.cjs",
+      "target": "tests/v281/test_table_syntax.cjs",
+      "sourceSha256": "6b6db56db9d2e259cefc55776134ef8c36e59cc2ab43d3c65ee17f003ab88ceb",
+      "targetSha256": "1e87986f32e458b9bcac8ed3433e647de155f6db7eef4a0c347fb08a82631c84",
+      "changed": true,
+      "additionalSubstitutions": []
+    }
+  ],
+  "generatedFiles": [
+    {
+      "target": "tests/v281/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "generator": "tests/v281/browser/build_second_click_contract.cjs",
+      "reason": "Regenerated from exact final release pins, not relabeled historical results."
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v281/browser/citation_flow.cjs",
+      "sha256": "f95f211adb9de9cff541fc436ae641c6ce62b0926d6ba0b56dd4a1dcd2a61c71",
+      "scope": "Two exact NBC revisions and three native browser citation controls. Hash checked by native runner and aggregator."
+    }
+  ]
+}
