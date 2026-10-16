@@ -1,0 +1,992 @@
+{
+  "version": "2.14.0",
+  "kind": "native-lead-image-proof-ui",
+  "browser": "Firefox",
+  "pinManifestSha256": "3c728df720b522dc7e1aa92167a9e8676abbb4e382716e6ca7e6b9ecc00c18ee",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_14_0.js": {
+      "bytes": 9651,
+      "sha256": "f4549093d829f5b94c3b27592c57ed47aaa375f5e10e60186f65cf5808ac7824"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_14_0.js": {
+      "bytes": 9653,
+      "sha256": "c5896615637f33f20957aa2d01f6116f732506ccdb3384610060a2c5a7a38205"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_14_0.js": {
+      "bytes": 1446234,
+      "sha256": "0842d2c067528b698cac23d229641c20f4a3f0c45ab4ec5d8b0ff033548d4a8c"
+    },
+    "RevisaWiki_v2_14_0_completo.js": {
+      "bytes": 2959379,
+      "sha256": "72c72b2e0c60af9391218051446d8504310fdac2c11abffc37b2001beb764559"
+    },
+    "RevisaWiki_v2_14_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "923035ed690d79714de12115c6d98459e478c8d2064ad49463dd32716def0824"
+    }
+  },
+  "fixtureScriptSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+  "imageEvidenceSha256": "49a22078c193d775121900be3683d0432f766f9f51356d4b51f0083fb6dcc43c",
+  "startedAt": "2026-10-16T21:39:32.925Z",
+  "tests": [
+    {
+      "id": "verified-photo",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 520
+    },
+    {
+      "id": "manual-minor-choice",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": true,
+      "minorSecond": true,
+      "manualMinor": true,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 374
+    },
+    {
+      "id": "preserved-alt-and-linked-caption",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "outputSha256": "e8dd9897bbef1626b7b96bd7a391511b3b3e281e76b75a916af534d87b8c472c",
+      "restoredSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 360
+    },
+    {
+      "id": "unavailable-photo-proof",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 40,
+      "metadataReads": 2,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 319
+    },
+    {
+      "id": "unconfirmed-photo-classification",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 36,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 315
+    },
+    {
+      "id": "panorama-dimensions",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 36,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 314
+    },
+    {
+      "id": "existing-explicit-size",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "outputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "restoredSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 311
+    },
+    {
+      "id": "inline-source",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "outputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "restoredSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 324
+    },
+    {
+      "id": "other-namespace",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 296
+    },
+    {
+      "id": "verified-photo",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 396
+    },
+    {
+      "id": "manual-minor-choice",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": true,
+      "minorSecond": true,
+      "manualMinor": true,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 348
+    },
+    {
+      "id": "preserved-alt-and-linked-caption",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 59,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "outputSha256": "e8dd9897bbef1626b7b96bd7a391511b3b3e281e76b75a916af534d87b8c472c",
+      "restoredSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 384
+    },
+    {
+      "id": "unavailable-photo-proof",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 40,
+      "metadataReads": 2,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 307
+    },
+    {
+      "id": "unconfirmed-photo-classification",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 36,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 310
+    },
+    {
+      "id": "panorama-dimensions",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 36,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 324
+    },
+    {
+      "id": "existing-explicit-size",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "outputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "restoredSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 299
+    },
+    {
+      "id": "inline-source",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "outputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "restoredSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 303
+    },
+    {
+      "id": "other-namespace",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 32,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 284
+    }
+  ],
+  "assertions": 770,
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/favicon.ico"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/native-bootstrap.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    }
+  ],
+  "wikipediaWrites": 0,
+  "actualWikipediaWrites": 0,
+  "networkMutations": 0,
+  "outsideRequests": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "adaptations": [
+    "Only the existing ptwiki host guards are extended to localhost.",
+    "The real photo metadata is a pinned allowlisted response projection. A fixture fetch adapter supplies it without external network.",
+    "The real browser Worker and editor controls execute the unchanged runtime. Worker messages are observed without altering their payload."
+  ],
+  "runnerSha256": "828539f9ff45852672705eba005a2c1bd0f61772d706866e641215c8ef370980",
+  "browserVersion": "158.0",
+  "finalRuntimePinsVerified": true,
+  "cleanup": {
+    "ownSessionClosed": true,
+    "ownProcessExited": true,
+    "ownProfileRemoved": true,
+    "unknownBrowserSessionsTouched": false
+  },
+  "completedAt": "2026-10-16T21:39:40.621Z",
+  "nativeUIContract": {
+    "version": "2.14.0",
+    "stage": "images",
+    "coveragePlanSha256": "ab452f08f68b9a748ce870602c6b481f20d5425e6fae5cddd45d7f32c1dc2f81",
+    "releaseManifestSha256": "3c728df720b522dc7e1aa92167a9e8676abbb4e382716e6ca7e6b9ecc00c18ee",
+    "sourceReleaseManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+    "sourceModulesExecuted": [
+      {
+        "file": "tests/v2130/browser/v211_image_runtime.cjs",
+        "sourceSha256": "828539f9ff45852672705eba005a2c1bd0f61772d706866e641215c8ef370980",
+        "compiledSha256": "f83962d0a78234ea78a8107291728ea2533c4e27ac075b550664e906b071deda"
+      }
+    ],
+    "historicalAssertionsRetired": [
+      "Custom Before/After rendering and occurrence-ledger DOM.",
+      "Custom per-hunk rejection/reacceptance and selection-driven partial endpoints."
+    ],
+    "retirementReason": "The user explicitly requested removal of custom Before/After, selective comparison controls, technical/history/not-applied panels, and use of the editor native Mostrar alterações control.",
+    "unmodifiedSourceTextOracles": false,
+    "reviewedStaticOracleExtensions": [
+      {
+        "registryFile": "tests/v2140/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+        "registrySha256": "849facc3b02caff672cecd2464ff701d02fca049f4d696b2923548b511afb33c",
+        "historicalExpected": {
+          "file": "tests/v2130/independent_fixtures/expected.wiki",
+          "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+          "bytes": 44768
+        },
+        "newExpected": {
+          "file": "tests/v2140/native_browser/fixtures/aeroclubes_expected_v214.wiki",
+          "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+          "bytes": 44767
+        },
+        "exactExpectedEdit": {
+          "before": "\n\n\n== Acre ==\n",
+          "after": "\n\n== Acre ==\n",
+          "occurrences": 1,
+          "sourceByteOffset": 1527,
+          "expectedByteOffset": 1527,
+          "removedBytes": 1,
+          "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+        },
+        "oldRetainedCorrectionCount": 4,
+        "newRetainedCorrectionCount": 5,
+        "completeReferences": 82,
+        "isolatedGraphPlanChanged": false
+      }
+    ],
+    "nativeDiffClickStub": true,
+    "nativeRemoteDiffRenderingTested": false,
+    "accountUse": false,
+    "wikipediaWrites": 0,
+    "actualFlowCount": 18,
+    "actualAdditionalControlFlows": 0,
+    "fullCoverageAchieved": true
+  },
+  "status": "passed",
+  "passed": 18,
+  "failed": 0
+}

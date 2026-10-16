@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "version": "2.14.0",
+  "kind": "exact-administrative-native-parent-plan-transition",
+  "status": "passed",
+  "releaseManifestSha256": "3c728df720b522dc7e1aa92167a9e8676abbb4e382716e6ca7e6b9ecc00c18ee",
+  "currentNodePlanSha256": "82751d531200a3c7cc7eead2bd7cb3140cfe291bb964920f8ae3c3c81f45c97e",
+  "contemporaneousNativeNodePlanSha256": "7e6b6cfa59445009256856f73796dea8821c7c375e8d69ab72fa2b21f410f2ac",
+  "nativeCoveragePlanSha256": "ab452f08f68b9a748ce870602c6b481f20d5425e6fae5cddd45d7f32c1dc2f81",
+  "wrapper": {
+    "file": "tests/v2140/native_plan_compatibility.cjs",
+    "sha256": "cdc2e0c86b1374472dc571a2f30021c221574837887fae3b66f38c1988f9f580"
+  },
+  "finiteNodeTransition": {
+    "positiveSourceShape": {
+      "file": "tests/v2130/test_ui_freshness.cjs",
+      "sourceSha256": "f00908e41e4c61189432b9bc3ab789698ea4e3f8dd764ecdb6090039da5125ca",
+      "before": "source.includes('v211MarkCheckedDraft(adapter,result,compareOnly,checkedOptions);')",
+      "after": "source.includes('v211MarkCheckedDraft(adapter,result,false,checkedOptions);')"
+    },
+    "changedAdapterMetadata": [
+      {
+        "file": "tests/v2140/inherited/adapter.cjs",
+        "currentSha256": "77ac1112324962d70d7a37a15cc36e034ad17a796a969c8d557482aade21d218",
+        "previousSha256": "2009cdedea8c0b95c0b6a2385b4e83cfae8dad41b90272c056c3945be54f8564"
+      },
+      {
+        "file": "tests/v2140/inherited/test_adapter.cjs",
+        "currentSha256": "7a6577b947fb961d65ea8f46806d3ae9467fe2fc6bcadf20aa2bec7b11695ad4",
+        "previousSha256": "ca2fcb5aba99adb85e6ace23be665b40df404fc6b50ef11cbf6e4629500d5b59"
+      },
+      {
+        "file": "scripts/run_inherited_v2140_prepare.cjs",
+        "currentSha256": "cad9ea030d962cb66186fe9e41ba2253c69d448def275814813dbdddd62161a4",
+        "previousSha256": "b7aadb91d7b257273286f9c9973c3c5780b6fd37269f07d80935fb4d7293d381"
+      },
+      {
+        "file": "scripts/run_inherited_v2140.cjs",
+        "currentSha256": "3c2ae437cce86b1105448025efbfc484477d8ee123b8ff829fc0122a9251a120",
+        "previousSha256": "398fdcbb97c7deffb6016b5615175f4956b739745f37c131d69e67d258d30119"
+      },
+      {
+        "file": "tests/v2140/inherited/README.md",
+        "currentSha256": "5f943d0478301e89674452a201be41847146979bf0b0a9848ddc873e6a737ef4",
+        "previousSha256": "4fe69465c4a3424e708fc3d3b8789662c955509df83b19db2023a6df6f49087a"
+      }
+    ],
+    "allOtherOldEnvelopeBytesAuthenticated": true,
+    "oldEnvelopeSha256": "7e6b6cfa59445009256856f73796dea8821c7c375e8d69ab72fa2b21f410f2ac",
+    "oldAndCurrentHistoricalBindingsIdentical": true
+  },
+  "historicalSourcesVerified": 466,
+  "nativeCompiledModulesVerified": 14,
+  "nativeAssetsAndOwnFilesVerified": 18,
+  "runtimeFilesVerified": 7,
+  "behavioralAssertionWaivers": [],
+  "frozenSourceOrReportFilesModified": false,
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "accountUse": false,
+  "browserAutomationStarted": false,
+  "mode": "verify-recorded",
+  "recordedNativeReports": {
+    "summary": {
+      "file": "artifacts/v2140/native_browser/NATIVE_BROWSER_SUMMARY.json",
+      "sha256": "238816aa091dc72812943d629878a87b2a51cad2c7b781b7c2cbba4b4dfd6f84"
+    },
+    "files": [
+      {
+        "file": "artifacts/v2140/native_browser/chrome.json",
+        "sha256": "443b3a647901d5c2420c4b8d69e2eb525f2abb813f31ab4aad8f2fc224eb3086",
+        "cases": 162,
+        "checks": 13738
+      },
+      {
+        "file": "artifacts/v2140/final_image/chrome.json",
+        "sha256": "9addf1c7a4b65e7406d0a203e4a896d46d6e3fbc1be514b7cfc05486c1458308",
+        "cases": 18,
+        "checks": 770
+      },
+      {
+        "file": "artifacts/v2140/native_browser/firefox.json",
+        "sha256": "fec53e1b2b01964e40f6472a1d0ae20c5b433001c134dd03175d805056be099b",
+        "cases": 162,
+        "checks": 13741
+      },
+      {
+        "file": "artifacts/v2140/final_image/firefox.json",
+        "sha256": "1fcec1268382f35357040b00c11963a20231433aef196a97aadeca0237b03cff",
+        "cases": 18,
+        "checks": 770
+      },
+      {
+        "file": "artifacts/v2140/native_browser/safari.json",
+        "sha256": "8772b73e3e5b63fde5c7e3c7d11f20e8af511cb0eefb615dce3495a03a9c4616",
+        "cases": 162,
+        "checks": 13738
+      },
+      {
+        "file": "artifacts/v2140/final_image/safari.json",
+        "sha256": "955abb8b2a7cc711d87e786579404157563a60d8815dc5618574855b496d04e0",
+        "cases": 18,
+        "checks": 770
+      }
+    ]
+  }
+}

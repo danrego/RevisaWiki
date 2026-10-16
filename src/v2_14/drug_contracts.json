@@ -1,0 +1,4838 @@
+{
+  "schema": 1,
+  "version": "2.14.0",
+  "scope": "Finite source-backed parameter-name recovery inside already-native chemistry and drug templates. No foreign wrapper migration or value rewrite.",
+  "runtime": {
+    "contexts": {
+      "drug": {
+        "title": "Info/Droga",
+        "oldid": 69873897,
+        "catalog": "info/droga"
+      },
+      "chem": {
+        "title": "Info/Química",
+        "oldid": 69946908,
+        "catalog": "info/química",
+        "nativeRedirect": {
+          "title": "Chembox",
+          "oldid": 46323499
+        }
+      },
+      "identifiers": {
+        "title": "Chembox Identifiers",
+        "oldid": 69934566
+      },
+      "pharmacology": {
+        "title": "Chembox Pharmacology",
+        "oldid": 70092713
+      },
+      "properties": {
+        "title": "Chembox Properties",
+        "oldid": 69934732
+      }
+    },
+    "rules": {
+      "drug": [
+        {
+          "target": "nome_IUPAC",
+          "type": "text",
+          "aliases": [
+            "IUPAC_name",
+            "Nombre_IUPAC",
+            "nomIUPAC"
+          ]
+        },
+        {
+          "target": "sinonimos",
+          "type": "text",
+          "aliases": [
+            "synonyms",
+            "Sinónimos",
+            "synonymes",
+            "autresNoms",
+            "Andere Namen"
+          ]
+        },
+        {
+          "target": "fórmula_química",
+          "type": "formula",
+          "aliases": [
+            "chemical_formula",
+            "Fórmula_química",
+            "formule brute",
+            "Summenformel",
+            "fórmula3"
+          ]
+        },
+        {
+          "target": "imagem",
+          "type": "file",
+          "aliases": [
+            "image",
+            "Imagen",
+            "imagen"
+          ]
+        },
+        {
+          "target": "imagem2",
+          "type": "file",
+          "aliases": [
+            "image2",
+            "Imagen2",
+            "imagen2"
+          ]
+        },
+        {
+          "target": "número_CAS",
+          "type": "cas",
+          "aliases": [
+            "CAS_number",
+            "Número_CAS",
+            "CAS"
+          ]
+        },
+        {
+          "target": "suplemento_CAS",
+          "type": "cas-list",
+          "aliases": [
+            "CAS_supplemental",
+            "Suplemento_CAS"
+          ],
+          "requires": "número_CAS"
+        },
+        {
+          "target": "prefixo_ATC",
+          "type": "atc-prefix",
+          "aliases": [
+            "ATC_prefix",
+            "Prefijo_ATC"
+          ]
+        },
+        {
+          "target": "sufixo_ATC",
+          "type": "atc-suffix",
+          "aliases": [
+            "ATC_suffix",
+            "Sufijo_ATC"
+          ]
+        },
+        {
+          "target": "suplemento_ATC",
+          "type": "atc",
+          "aliases": [
+            "ATC_supplemental",
+            "Suplemento_ATC"
+          ],
+          "requiresATC": true
+        },
+        {
+          "target": "smiles",
+          "type": "smiles",
+          "aliases": [
+            "SMILES"
+          ]
+        },
+        {
+          "target": "biodisponibilidade",
+          "type": "clinical",
+          "aliases": [
+            "bioavailability",
+            "Biodisponibilidad",
+            "biodisponibilite",
+            "Biodisp",
+            "Bioavail"
+          ]
+        },
+        {
+          "target": "ligação_a_proteínas",
+          "type": "clinical",
+          "aliases": [
+            "protein_bound",
+            "Unión_proteica",
+            "liaisonProteique",
+            "ProteinBound"
+          ]
+        },
+        {
+          "target": "metabolismo",
+          "type": "clinical",
+          "aliases": [
+            "metabolism",
+            "Metabolismo",
+            "metabolisme",
+            "Metabolism"
+          ]
+        },
+        {
+          "target": "meia_vida_de_eliminação",
+          "type": "clinical",
+          "aliases": [
+            "elimination_half-life",
+            "Vida_media_eliminación",
+            "demiVieElim",
+            "Semivida",
+            "HalfLife"
+          ]
+        },
+        {
+          "target": "excreção",
+          "type": "clinical",
+          "aliases": [
+            "excretion",
+            "Excreción",
+            "Excretion"
+          ]
+        },
+        {
+          "target": "vias_de_administração",
+          "type": "clinical",
+          "aliases": [
+            "routes_of_administration",
+            "Vías_administración",
+            "administration",
+            "voieAdministration",
+            "AdminRoutes"
+          ]
+        }
+      ],
+      "chem": [
+        {
+          "target": "Name",
+          "type": "text",
+          "aliases": [
+            "drug_name",
+            "nombre_medicamento",
+            "nombre",
+            "nom"
+          ],
+          "nativeAliases": [
+            "Nome"
+          ]
+        },
+        {
+          "target": "IUPACName",
+          "type": "text",
+          "aliases": [
+            "IUPAC_name",
+            "Nombre_IUPAC",
+            "nomIUPAC",
+            "IUPAC"
+          ]
+        },
+        {
+          "target": "SystematicName",
+          "type": "text",
+          "aliases": [
+            "nomSystematique"
+          ]
+        },
+        {
+          "target": "OtherNames",
+          "type": "text",
+          "aliases": [
+            "synonyms",
+            "Sinónimos",
+            "synonymes",
+            "autresNoms",
+            "Andere Namen",
+            "otros nombres"
+          ]
+        },
+        {
+          "target": "Formula",
+          "type": "formula",
+          "aliases": [
+            "chemical_formula",
+            "Fórmula_química",
+            "formule brute",
+            "Summenformel",
+            "fórmula3"
+          ]
+        },
+        {
+          "target": "CASNo",
+          "type": "cas",
+          "aliases": [
+            "CAS_number",
+            "Número_CAS",
+            "CAS"
+          ]
+        },
+        {
+          "target": "SMILES",
+          "type": "smiles",
+          "aliases": [
+            "smiles"
+          ]
+        },
+        {
+          "target": "ImageFile",
+          "type": "file",
+          "aliases": [
+            "image",
+            "Imagen",
+            "imagen"
+          ]
+        },
+        {
+          "target": "ImageCaption",
+          "type": "text",
+          "aliases": [
+            "caption",
+            "légende",
+            "pie de imagen"
+          ],
+          "requires": "ImageFile",
+          "singleImageAliases": [
+            "caption",
+            "légende"
+          ]
+        },
+        {
+          "target": "ImageAlt",
+          "type": "text",
+          "aliases": [
+            "alt",
+            "alternative"
+          ],
+          "requires": "ImageFile"
+        },
+        {
+          "target": "ImageClass",
+          "type": "class",
+          "aliases": [
+            "image_class",
+            "classe image"
+          ],
+          "requires": "ImageFile"
+        },
+        {
+          "target": "ImageFile2",
+          "type": "file",
+          "aliases": [
+            "image2",
+            "Imagen2",
+            "imagen2"
+          ]
+        },
+        {
+          "target": "ImageCaption2",
+          "type": "text",
+          "aliases": [
+            "caption2",
+            "légende2",
+            "pie de imagen2"
+          ],
+          "requires": "ImageFile2",
+          "singleImageAliases": []
+        },
+        {
+          "target": "ImageAlt2",
+          "type": "text",
+          "aliases": [
+            "alt2",
+            "alternative2"
+          ],
+          "requires": "ImageFile2"
+        },
+        {
+          "target": "ImageClass2",
+          "type": "class",
+          "aliases": [
+            "image_class2",
+            "classe image2"
+          ],
+          "requires": "ImageFile2"
+        },
+        {
+          "target": "ImageFile3",
+          "type": "file",
+          "aliases": [
+            "imagen3"
+          ]
+        },
+        {
+          "target": "ImageCaption3",
+          "type": "text",
+          "aliases": [
+            "pie de imagen3"
+          ],
+          "requires": "ImageFile3",
+          "singleImageAliases": []
+        }
+      ],
+      "identifiers": [
+        {
+          "target": "CASNo",
+          "type": "cas",
+          "aliases": [
+            "CAS_number",
+            "Número_CAS",
+            "CAS"
+          ]
+        },
+        {
+          "target": "ChemSpiderID",
+          "type": "integer",
+          "aliases": [
+            "ChemSpider"
+          ]
+        },
+        {
+          "target": "SMILES",
+          "type": "smiles",
+          "aliases": [
+            "smiles"
+          ]
+        },
+        {
+          "target": "InChI",
+          "type": "inchi",
+          "aliases": [
+            "StdInChI"
+          ]
+        },
+        {
+          "target": "InChIKey",
+          "type": "inchi-key",
+          "aliases": [
+            "StdInChIKey"
+          ]
+        },
+        {
+          "target": "InChI_Ref",
+          "type": "reference",
+          "aliases": [
+            "StdInChI_Ref"
+          ],
+          "requires": "InChI"
+        },
+        {
+          "target": "InChIKey_Ref",
+          "type": "reference",
+          "aliases": [
+            "StdInChIKey_Ref"
+          ],
+          "requires": "InChIKey"
+        },
+        {
+          "target": "ATCCode_prefix",
+          "type": "atc-prefix",
+          "aliases": [
+            "ATC_prefix",
+            "Prefijo_ATC"
+          ]
+        },
+        {
+          "target": "ATCCode_suffix",
+          "type": "atc-suffix",
+          "aliases": [
+            "ATC_suffix",
+            "Sufijo_ATC"
+          ]
+        },
+        {
+          "target": "ATC_Supplemental",
+          "type": "atc",
+          "aliases": [
+            "ATC_supplemental",
+            "Suplemento_ATC"
+          ],
+          "requiresATC": true
+        }
+      ],
+      "pharmacology": [
+        {
+          "target": "ATCCode_prefix",
+          "type": "atc-prefix",
+          "aliases": [
+            "ATC_prefix",
+            "Prefijo_ATC"
+          ]
+        },
+        {
+          "target": "ATCCode_suffix",
+          "type": "atc-suffix",
+          "aliases": [
+            "ATC_suffix",
+            "Sufijo_ATC"
+          ]
+        },
+        {
+          "target": "ATC_Supplemental",
+          "type": "atc",
+          "aliases": [
+            "ATC_supplemental",
+            "Suplemento_ATC"
+          ],
+          "requiresATC": true
+        },
+        {
+          "target": "Bioavail",
+          "type": "clinical",
+          "aliases": [
+            "bioavailability",
+            "Biodisponibilidad",
+            "biodisponibilite",
+            "Biodisp"
+          ]
+        },
+        {
+          "target": "ProteinBound",
+          "type": "clinical",
+          "aliases": [
+            "protein_bound",
+            "Unión_proteica",
+            "liaisonProteique"
+          ]
+        },
+        {
+          "target": "Metabolism",
+          "type": "clinical",
+          "aliases": [
+            "metabolism",
+            "Metabolismo",
+            "metabolisme"
+          ]
+        },
+        {
+          "target": "HalfLife",
+          "type": "clinical",
+          "aliases": [
+            "elimination_half-life",
+            "Vida_media_eliminación",
+            "demiVieElim",
+            "Semivida"
+          ]
+        },
+        {
+          "target": "Excretion",
+          "type": "clinical",
+          "aliases": [
+            "excretion",
+            "Excreción"
+          ]
+        },
+        {
+          "target": "AdminRoutes",
+          "type": "clinical",
+          "aliases": [
+            "routes_of_administration",
+            "Vías_administración",
+            "administration",
+            "voieAdministration"
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "target": "Formula",
+          "type": "formula",
+          "aliases": [
+            "chemical_formula",
+            "Fórmula_química",
+            "formule brute",
+            "Summenformel",
+            "fórmula3"
+          ]
+        }
+      ]
+    }
+  },
+  "auditedRules": {
+    "drug": [
+      {
+        "target": "nome_IUPAC",
+        "type": "text",
+        "aliases": [
+          "IUPAC_name",
+          "Nombre_IUPAC",
+          "nomIUPAC"
+        ],
+        "evidence": {
+          "IUPAC_name": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Nombre_IUPAC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "nomIUPAC": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "sinonimos",
+        "type": "text",
+        "aliases": [
+          "synonyms",
+          "Sinónimos",
+          "synonymes",
+          "autresNoms",
+          "Andere Namen"
+        ],
+        "evidence": {
+          "synonyms": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Sinónimos": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "synonymes": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "autresNoms": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Andere Namen": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "fórmula_química",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ],
+        "evidence": {
+          "chemical_formula": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Fórmula_química": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "formule brute": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "Summenformel": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ],
+          "fórmula3": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "imagem",
+        "type": "file",
+        "aliases": [
+          "image",
+          "Imagen",
+          "imagen"
+        ],
+        "evidence": {
+          "image": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "Imagen": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "imagen": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "imagem2",
+        "type": "file",
+        "aliases": [
+          "image2",
+          "Imagen2",
+          "imagen2"
+        ],
+        "evidence": {
+          "image2": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Imagen2": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "imagen2": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "número_CAS",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ],
+        "evidence": {
+          "CAS_number": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Número_CAS": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "CAS": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "suplemento_CAS",
+        "type": "cas-list",
+        "aliases": [
+          "CAS_supplemental",
+          "Suplemento_CAS"
+        ],
+        "requires": "número_CAS",
+        "evidence": {
+          "CAS_supplemental": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Suplemento_CAS": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "prefixo_ATC",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ],
+        "evidence": {
+          "ATC_prefix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Prefijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "sufixo_ATC",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ],
+        "evidence": {
+          "ATC_suffix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Sufijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "suplemento_ATC",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true,
+        "evidence": {
+          "ATC_supplemental": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Suplemento_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "smiles",
+        "type": "smiles",
+        "aliases": [
+          "SMILES"
+        ],
+        "evidence": {
+          "SMILES": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1031381687,
+              "title": "Template:Chembox Identifiers"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "biodisponibilidade",
+        "type": "clinical",
+        "aliases": [
+          "bioavailability",
+          "Biodisponibilidad",
+          "biodisponibilite",
+          "Biodisp",
+          "Bioavail"
+        ],
+        "evidence": {
+          "bioavailability": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Biodisponibilidad": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "biodisponibilite": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Biodisp": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ],
+          "Bioavail": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ligação_a_proteínas",
+        "type": "clinical",
+        "aliases": [
+          "protein_bound",
+          "Unión_proteica",
+          "liaisonProteique",
+          "ProteinBound"
+        ],
+        "evidence": {
+          "protein_bound": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Unión_proteica": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "liaisonProteique": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "ProteinBound": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "target": "metabolismo",
+        "type": "clinical",
+        "aliases": [
+          "metabolism",
+          "Metabolismo",
+          "metabolisme",
+          "Metabolism"
+        ],
+        "evidence": {
+          "metabolism": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Metabolismo": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ],
+          "metabolisme": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Metabolism": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "target": "meia_vida_de_eliminação",
+        "type": "clinical",
+        "aliases": [
+          "elimination_half-life",
+          "Vida_media_eliminación",
+          "demiVieElim",
+          "Semivida",
+          "HalfLife"
+        ],
+        "evidence": {
+          "elimination_half-life": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Vida_media_eliminación": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "demiVieElim": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Semivida": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ],
+          "HalfLife": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "target": "excreção",
+        "type": "clinical",
+        "aliases": [
+          "excretion",
+          "Excreción",
+          "Excretion"
+        ],
+        "evidence": {
+          "excretion": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Excreción": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "Excretion": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      },
+      {
+        "target": "vias_de_administração",
+        "type": "clinical",
+        "aliases": [
+          "routes_of_administration",
+          "Vías_administración",
+          "administration",
+          "voieAdministration",
+          "AdminRoutes"
+        ],
+        "evidence": {
+          "routes_of_administration": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Vías_administración": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "administration": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "voieAdministration": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "AdminRoutes": [
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ]
+        }
+      }
+    ],
+    "chem": [
+      {
+        "target": "Name",
+        "type": "text",
+        "aliases": [
+          "drug_name",
+          "nombre_medicamento",
+          "nombre",
+          "nom"
+        ],
+        "nativeAliases": [
+          "Nome"
+        ],
+        "evidence": {
+          "drug_name": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1189603066,
+              "title": "Template:Chembox Pharmacology"
+            }
+          ],
+          "nombre_medicamento": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "nombre": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ],
+          "nom": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "IUPACName",
+        "type": "text",
+        "aliases": [
+          "IUPAC_name",
+          "Nombre_IUPAC",
+          "nomIUPAC",
+          "IUPAC"
+        ],
+        "evidence": {
+          "IUPAC_name": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Nombre_IUPAC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "nomIUPAC": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "IUPAC": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "SystematicName",
+        "type": "text",
+        "aliases": [
+          "nomSystematique"
+        ],
+        "evidence": {
+          "nomSystematique": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "OtherNames",
+        "type": "text",
+        "aliases": [
+          "synonyms",
+          "Sinónimos",
+          "synonymes",
+          "autresNoms",
+          "Andere Namen",
+          "otros nombres"
+        ],
+        "evidence": {
+          "synonyms": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Sinónimos": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "synonymes": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "autresNoms": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Andere Namen": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ],
+          "otros nombres": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "Formula",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ],
+        "evidence": {
+          "chemical_formula": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Fórmula_química": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "formule brute": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "Summenformel": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ],
+          "fórmula3": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "CASNo",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ],
+        "evidence": {
+          "CAS_number": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Número_CAS": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "CAS": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "SMILES",
+        "type": "smiles",
+        "aliases": [
+          "smiles"
+        ],
+        "evidence": {
+          "smiles": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageFile",
+        "type": "file",
+        "aliases": [
+          "image",
+          "Imagen",
+          "imagen"
+        ],
+        "evidence": {
+          "image": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "Imagen": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "imagen": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageCaption",
+        "type": "text",
+        "aliases": [
+          "caption",
+          "légende",
+          "pie de imagen"
+        ],
+        "requires": "ImageFile",
+        "singleImageAliases": [
+          "caption",
+          "légende"
+        ],
+        "evidence": {
+          "caption": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "légende": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "pie de imagen": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageAlt",
+        "type": "text",
+        "aliases": [
+          "alt",
+          "alternative"
+        ],
+        "requires": "ImageFile",
+        "evidence": {
+          "alt": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "alternative": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageClass",
+        "type": "class",
+        "aliases": [
+          "image_class",
+          "classe image"
+        ],
+        "requires": "ImageFile",
+        "evidence": {
+          "image_class": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "classe image": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageFile2",
+        "type": "file",
+        "aliases": [
+          "image2",
+          "Imagen2",
+          "imagen2"
+        ],
+        "evidence": {
+          "image2": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Imagen2": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "imagen2": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageCaption2",
+        "type": "text",
+        "aliases": [
+          "caption2",
+          "légende2",
+          "pie de imagen2"
+        ],
+        "requires": "ImageFile2",
+        "singleImageAliases": [],
+        "evidence": {
+          "caption2": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "légende2": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "pie de imagen2": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageAlt2",
+        "type": "text",
+        "aliases": [
+          "alt2",
+          "alternative2"
+        ],
+        "requires": "ImageFile2",
+        "evidence": {
+          "alt2": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "alternative2": [
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageClass2",
+        "type": "class",
+        "aliases": [
+          "image_class2",
+          "classe image2"
+        ],
+        "requires": "ImageFile2",
+        "evidence": {
+          "image_class2": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "classe image2": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageFile3",
+        "type": "file",
+        "aliases": [
+          "imagen3"
+        ],
+        "evidence": {
+          "imagen3": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ImageCaption3",
+        "type": "text",
+        "aliases": [
+          "pie de imagen3"
+        ],
+        "requires": "ImageFile3",
+        "singleImageAliases": [],
+        "evidence": {
+          "pie de imagen3": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      }
+    ],
+    "identifiers": [
+      {
+        "target": "CASNo",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ],
+        "evidence": {
+          "CAS_number": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Número_CAS": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "CAS": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ChemSpiderID",
+        "type": "integer",
+        "aliases": [
+          "ChemSpider"
+        ],
+        "evidence": {
+          "ChemSpider": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "SMILES",
+        "type": "smiles",
+        "aliases": [
+          "smiles"
+        ],
+        "evidence": {
+          "smiles": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "InChI",
+        "type": "inchi",
+        "aliases": [
+          "StdInChI"
+        ],
+        "evidence": {
+          "StdInChI": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1031381687,
+              "title": "Template:Chembox Identifiers"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "InChIKey",
+        "type": "inchi-key",
+        "aliases": [
+          "StdInChIKey"
+        ],
+        "evidence": {
+          "StdInChIKey": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1031381687,
+              "title": "Template:Chembox Identifiers"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            },
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "InChI_Ref",
+        "type": "reference",
+        "aliases": [
+          "StdInChI_Ref"
+        ],
+        "requires": "InChI",
+        "evidence": {
+          "StdInChI_Ref": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1031381687,
+              "title": "Template:Chembox Identifiers"
+            }
+          ]
+        }
+      },
+      {
+        "target": "InChIKey_Ref",
+        "type": "reference",
+        "aliases": [
+          "StdInChIKey_Ref"
+        ],
+        "requires": "InChIKey",
+        "evidence": {
+          "StdInChIKey_Ref": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "en",
+              "oldid": 1031381687,
+              "title": "Template:Chembox Identifiers"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ATCCode_prefix",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ],
+        "evidence": {
+          "ATC_prefix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Prefijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ATCCode_suffix",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ],
+        "evidence": {
+          "ATC_suffix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Sufijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ATC_Supplemental",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true,
+        "evidence": {
+          "ATC_supplemental": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Suplemento_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      }
+    ],
+    "pharmacology": [
+      {
+        "target": "ATCCode_prefix",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ],
+        "evidence": {
+          "ATC_prefix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Prefijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ATCCode_suffix",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ],
+        "evidence": {
+          "ATC_suffix": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Sufijo_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ATC_Supplemental",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true,
+        "evidence": {
+          "ATC_supplemental": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Suplemento_ATC": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "Bioavail",
+        "type": "clinical",
+        "aliases": [
+          "bioavailability",
+          "Biodisponibilidad",
+          "biodisponibilite",
+          "Biodisp"
+        ],
+        "evidence": {
+          "bioavailability": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Biodisponibilidad": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "biodisponibilite": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Biodisp": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "ProteinBound",
+        "type": "clinical",
+        "aliases": [
+          "protein_bound",
+          "Unión_proteica",
+          "liaisonProteique"
+        ],
+        "evidence": {
+          "protein_bound": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Unión_proteica": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "liaisonProteique": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "Metabolism",
+        "type": "clinical",
+        "aliases": [
+          "metabolism",
+          "Metabolismo",
+          "metabolisme"
+        ],
+        "evidence": {
+          "metabolism": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Metabolismo": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            },
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ],
+          "metabolisme": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      },
+      {
+        "target": "HalfLife",
+        "type": "clinical",
+        "aliases": [
+          "elimination_half-life",
+          "Vida_media_eliminación",
+          "demiVieElim",
+          "Semivida"
+        ],
+        "evidence": {
+          "elimination_half-life": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Vida_media_eliminación": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "demiVieElim": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Semivida": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      },
+      {
+        "target": "Excretion",
+        "type": "clinical",
+        "aliases": [
+          "excretion",
+          "Excreción"
+        ],
+        "evidence": {
+          "excretion": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            },
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ],
+          "Excreción": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ]
+        }
+      },
+      {
+        "target": "AdminRoutes",
+        "type": "clinical",
+        "aliases": [
+          "routes_of_administration",
+          "Vías_administración",
+          "administration",
+          "voieAdministration"
+        ],
+        "evidence": {
+          "routes_of_administration": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Vías_administración": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "administration": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "voieAdministration": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            },
+            {
+              "language": "fr",
+              "oldid": 226174485,
+              "title": "Modèle:Infobox Chimie"
+            }
+          ]
+        }
+      }
+    ],
+    "properties": [
+      {
+        "target": "Formula",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ],
+        "evidence": {
+          "chemical_formula": [
+            {
+              "language": "en",
+              "oldid": 1377209036,
+              "title": "Template:Infobox drug"
+            }
+          ],
+          "Fórmula_química": [
+            {
+              "language": "es",
+              "oldid": 168097989,
+              "title": "Plantilla:Ficha de medicamento"
+            }
+          ],
+          "formule brute": [
+            {
+              "language": "fr",
+              "oldid": 239698416,
+              "title": "Modèle:Infobox Médicament"
+            }
+          ],
+          "Summenformel": [
+            {
+              "language": "de",
+              "oldid": 269389723,
+              "title": "Vorlage:Infobox Chemikalie"
+            }
+          ],
+          "fórmula3": [
+            {
+              "language": "es",
+              "oldid": 164952514,
+              "title": "Plantilla:Ficha de compuesto químico"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "language": "en",
+      "title": "Template:Infobox drug",
+      "oldid": 1377209036,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1377209036",
+      "sourceSha256": "5dccda31c69fd43c91f8a711f4d7a8d703c6192ff84db2c169e0cabac2e49b6b",
+      "fields": [
+        "AAN",
+        "ATC_prefix",
+        "ATC_prefix2",
+        "ATC_suffix",
+        "ATC_suffix2",
+        "ATC_supplemental",
+        "ATC_supplemental2",
+        "ATCvet",
+        "Ac",
+        "Ag",
+        "Al",
+        "Am",
+        "Ar",
+        "As",
+        "At",
+        "Au",
+        "B",
+        "BAN",
+        "Ba",
+        "Be",
+        "Bh",
+        "Bi",
+        "Bk",
+        "Br",
+        "C",
+        "CAS_number",
+        "CAS_number2",
+        "CAS_number2_Ref",
+        "CAS_number_Ref",
+        "CAS_supplemental",
+        "CAS_supplemental2",
+        "Ca",
+        "Cd",
+        "Ce",
+        "Cf",
+        "ChEBI",
+        "ChEBI2",
+        "ChEBI2_Ref",
+        "ChEBI_Ref",
+        "ChEMBL",
+        "ChEMBL2",
+        "ChEMBL2_Ref",
+        "ChEMBL_Ref",
+        "ChemSpiderID",
+        "ChemSpiderID2",
+        "ChemSpiderID2_Ref",
+        "ChemSpiderID_Ref",
+        "Cl",
+        "Cm",
+        "Cn",
+        "Co",
+        "Cr",
+        "Cs",
+        "Cu",
+        "D",
+        "DTXSID",
+        "DTXSID2",
+        "DailyMedID",
+        "Db",
+        "DrugBank",
+        "DrugBank2",
+        "DrugBank2_Ref",
+        "DrugBank_Ref",
+        "Drugs.com",
+        "Ds",
+        "Dy",
+        "Er",
+        "Es",
+        "Eu",
+        "F",
+        "Fe",
+        "Fl",
+        "Fm",
+        "Fr",
+        "Ga",
+        "Gd",
+        "Ge",
+        "H",
+        "He",
+        "Hf",
+        "Hg",
+        "Ho",
+        "Hs",
+        "I",
+        "INN",
+        "INN_EMA",
+        "IUPAC_name",
+        "IUPHAR_ligand",
+        "IUPHAR_ligand2",
+        "In",
+        "Ir",
+        "JAN",
+        "Jmol",
+        "Jmol2",
+        "K",
+        "KEGG",
+        "KEGG2",
+        "KEGG2_Ref",
+        "KEGG_Ref",
+        "Kr",
+        "La",
+        "Li",
+        "Lr",
+        "Lu",
+        "Lv",
+        "Mc",
+        "Md",
+        "MedlinePlus",
+        "Mg",
+        "Mn",
+        "Mo",
+        "Mt",
+        "N",
+        "NIAID_ChemDB",
+        "NIAID_ChemDB2",
+        "Na",
+        "Nb",
+        "Nd",
+        "Ne",
+        "Nh",
+        "Ni",
+        "No",
+        "Np",
+        "O",
+        "Og",
+        "Os",
+        "P",
+        "PDB_ligand",
+        "PDB_ligand2",
+        "Pa",
+        "Pb",
+        "Pd",
+        "Pm",
+        "Po",
+        "Pr",
+        "Pt",
+        "Pu",
+        "PubChem",
+        "PubChem2",
+        "PubChemSubstance",
+        "PubChemSubstance2",
+        "QID",
+        "QID2",
+        "Ra",
+        "Rb",
+        "Re",
+        "Rf",
+        "Rg",
+        "Rh",
+        "Rn",
+        "Ru",
+        "S",
+        "SMILES",
+        "SMILES ",
+        "SMILES2",
+        "Sb",
+        "Sc",
+        "Se",
+        "Sg",
+        "Si",
+        "Sm",
+        "Sn",
+        "Sr",
+        "StdInChI",
+        "StdInChI2",
+        "StdInChI2_Ref",
+        "StdInChIKey",
+        "StdInChIKey2",
+        "StdInChIKey2_Ref",
+        "StdInChIKey_Ref",
+        "StdInChI_Ref",
+        "StdInChI_comment",
+        "Ta",
+        "Tb",
+        "Tc",
+        "Te",
+        "Th",
+        "Ti",
+        "Tl",
+        "Tm",
+        "Ts",
+        "U",
+        "UNII",
+        "UNII2",
+        "UNII2_Ref",
+        "UNIIRef",
+        "USAN",
+        "V",
+        "Verifiedfields",
+        "W",
+        "Watchedfields",
+        "Xe",
+        "Y",
+        "Yb",
+        "Zn",
+        "Zr",
+        "addiction_liability",
+        "agonists",
+        "alt",
+        "alt2",
+        "altL",
+        "altR",
+        "antagonists",
+        "bioavailability",
+        "biosimilars",
+        "biosynthesis",
+        "boiling_high",
+        "boiling_notes",
+        "boiling_point",
+        "caption",
+        "caption2",
+        "captionLR",
+        "charge",
+        "chemical_formula",
+        "chemical_formula_comment",
+        "chemical_formula_ref",
+        "chirality",
+        "class",
+        "class1",
+        "class2",
+        "class3",
+        "class4",
+        "class5",
+        "class6",
+        "component1",
+        "component2",
+        "component3",
+        "component4",
+        "component5",
+        "component6",
+        "container_only",
+        "data page",
+        "density",
+        "density_notes",
+        "dependency_liability",
+        "drug_name",
+        "duration_of_action",
+        "elimination_half-life",
+        "engvar",
+        "excretion",
+        "gt_delivery_method",
+        "gt_editing_method",
+        "gt_nucleic_acid_type",
+        "gt_target_gene",
+        "gt_vector",
+        "image",
+        "image2",
+        "imageL",
+        "imageR",
+        "image_class",
+        "image_class2",
+        "image_classL",
+        "image_classR",
+        "index2_comment",
+        "index2_label",
+        "index_comment",
+        "index_label",
+        "legal_AU",
+        "legal_AU_comment",
+        "legal_BR",
+        "legal_BR_comment",
+        "legal_CA",
+        "legal_CA_comment",
+        "legal_DE",
+        "legal_DE_comment",
+        "legal_EU",
+        "legal_EU_comment",
+        "legal_NZ",
+        "legal_NZ_comment",
+        "legal_UK",
+        "legal_UK_comment",
+        "legal_UN",
+        "legal_UN_comment",
+        "legal_US",
+        "legal_US_comment",
+        "legal_status",
+        "licence_CA",
+        "licence_EU",
+        "licence_US",
+        "license_CA",
+        "license_EU",
+        "license_US",
+        "mab_type",
+        "melting_high",
+        "melting_notes",
+        "melting_point",
+        "metabolism",
+        "metabolites",
+        "molecular_weight",
+        "molecular_weight_comment",
+        "molecular_weight_ref",
+        "molecular_weight_round",
+        "molecular_weight_unit",
+        "onset",
+        "precursor",
+        "pregnancy_AU",
+        "pregnancy_AU_comment",
+        "pregnancy_category",
+        "pronounce",
+        "pronounce_comment",
+        "pronounce_ref",
+        "protein_bound",
+        "receptors",
+        "routes_of_administration",
+        "smiles",
+        "smiles2",
+        "sol_units",
+        "solubility",
+        "source",
+        "source_tissues",
+        "specific_rotation",
+        "synonyms",
+        "target",
+        "target_tissues",
+        "target_tissuess",
+        "tradename",
+        "type",
+        "vaccine_type",
+        "verifiedrevid",
+        "width",
+        "width2",
+        "widthL",
+        "widthR"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Chembox Properties",
+      "oldid": 1097088278,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1097088278",
+      "sourceSha256": "7ec68b24fcce3cdd67a533db2dd67bb76d5a2df4e0d991f3a9dee967f8faba0e",
+      "fields": [
+        "Absorbance",
+        "Ac",
+        "Ag",
+        "Al",
+        "Am",
+        "Appearance",
+        "Ar",
+        "As",
+        "At",
+        "AtmosphericOHRateConstant",
+        "Au",
+        "AveragePoreSize",
+        "B",
+        "Ba",
+        "BandGap",
+        "Be",
+        "Bh",
+        "Bi",
+        "Bk",
+        "BoilingPt",
+        "BoilingPtC",
+        "BoilingPtF",
+        "BoilingPtK",
+        "BoilingPt_notes",
+        "BoilingPt_ref",
+        "Br",
+        "C",
+        "CMC",
+        "Ca",
+        "Cd",
+        "Ce",
+        "Cf",
+        "Cl",
+        "Cm",
+        "Cn",
+        "Co",
+        "ConjugateAcid",
+        "ConjugateBase",
+        "Cr",
+        "CriticalRelativeHumidity",
+        "CriticalTP",
+        "Cs",
+        "Cu",
+        "Db",
+        "Density",
+        "Dipole",
+        "Ds",
+        "Dy",
+        "ElectricalResistivity",
+        "ElectronMobility",
+        "Er",
+        "Es",
+        "Eu",
+        "F",
+        "Fe",
+        "Fl",
+        "Fm",
+        "Formula",
+        "Formula_Charge",
+        "Formula_Comment",
+        "Formula_ref",
+        "Fr",
+        "Ga",
+        "Gd",
+        "Ge",
+        "H",
+        "HLB",
+        "He",
+        "HenryConstant",
+        "Hf",
+        "Hg",
+        "Ho",
+        "Hs",
+        "I",
+        "In",
+        "Ir",
+        "IsoelectricPt",
+        "K",
+        "Kr",
+        "La",
+        "LambdaMax",
+        "Li",
+        "LogP",
+        "Lr",
+        "Lu",
+        "Lv",
+        "MagSus",
+        "Mc",
+        "Md",
+        "MeltinPt_notes",
+        "MeltingPt",
+        "MeltingPtC",
+        "MeltingPtF",
+        "MeltingPtK",
+        "MeltingPt_notes",
+        "MeltingPt_ref",
+        "Mg",
+        "Mn",
+        "Mo",
+        "MolarMass",
+        "MolarMassRound",
+        "MolarMassUnit",
+        "MolarMass_Comment",
+        "MolarMass_notes",
+        "MolarMass_ref",
+        "Mt",
+        "N",
+        "Na",
+        "Nb",
+        "Nd",
+        "Ne",
+        "Nh",
+        "Ni",
+        "No",
+        "Np",
+        "O",
+        "Odor",
+        "Odour",
+        "Og",
+        "OrbitalHybridisation",
+        "Os",
+        "P",
+        "Pa",
+        "Pb",
+        "Pd",
+        "Pm",
+        "Po",
+        "PoreVolume",
+        "Pr",
+        "Properties_ref",
+        "Pt",
+        "Pu",
+        "Ra",
+        "Rb",
+        "Re",
+        "RefractIndex",
+        "Rf",
+        "Rg",
+        "Rh",
+        "Rn",
+        "Ru",
+        "S",
+        "Sb",
+        "Sc",
+        "Se",
+        "Sg",
+        "Si",
+        "Sm",
+        "Sn",
+        "Solubility",
+        "Solubility1",
+        "Solubility2",
+        "Solubility3",
+        "Solubility4",
+        "Solubility5",
+        "Solubility6",
+        "SolubilityProduct",
+        "SolubilityProductAs",
+        "SolubleOther",
+        "Solvent",
+        "Solvent1",
+        "Solvent2",
+        "Solvent3",
+        "Solvent4",
+        "Solvent5",
+        "Solvent6",
+        "SpecRotation",
+        "SpecificSurfaceArea",
+        "Sr",
+        "SublimationConditions",
+        "Ta",
+        "Tb",
+        "Tc",
+        "Te",
+        "Th",
+        "ThermalConductivity",
+        "Ti",
+        "Tl",
+        "Tm",
+        "Ts",
+        "U",
+        "V",
+        "VaporPressure",
+        "Viscosity",
+        "W",
+        "Xe",
+        "Y",
+        "Yb",
+        "Zn",
+        "Zr",
+        "pKa",
+        "pKb"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Chembox Pharmacology",
+      "oldid": 1189603066,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1189603066",
+      "sourceSha256": "e2ea1715d963a71e140d3aeb46c6618a52009135152e9afd010dd45f5d787802",
+      "fields": [
+        "ATCCode_prefix",
+        "ATCCode_suffix",
+        "ATC_Supplemental",
+        "ATCvet",
+        "AdminRoutes",
+        "Bioavail",
+        "DailyMedID",
+        "Dependence_liability",
+        "Dependency_liability",
+        "Drug_class",
+        "DurationOfAction",
+        "Excretion",
+        "HalfLife",
+        "INN",
+        "INN_EMA",
+        "Legal_AU",
+        "Legal_AU_comment",
+        "Legal_BR",
+        "Legal_BR_comment",
+        "Legal_CA",
+        "Legal_CA_comment",
+        "Legal_DE",
+        "Legal_DE_comment",
+        "Legal_EU",
+        "Legal_EU_comment",
+        "Legal_NZ",
+        "Legal_NZ_comment",
+        "Legal_UK",
+        "Legal_UK_comment",
+        "Legal_UN",
+        "Legal_UN_comment",
+        "Legal_US",
+        "Legal_US_comment",
+        "Legal_status",
+        "Licence_EU",
+        "Licence_US",
+        "License_EU",
+        "License_US",
+        "Metabolism",
+        "Metabolites",
+        "OnsetOfAction",
+        "Pharmacology_ref",
+        "PregCat",
+        "PregCat_AU",
+        "PregCat_US",
+        "Pregnancy_AU",
+        "Pregnancy_AU_comment",
+        "Pregnancy_category",
+        "ProteinBound",
+        "drug_name",
+        "legal_AU",
+        "legal_AU_comment",
+        "legal_BR",
+        "legal_BR_comment",
+        "legal_CA",
+        "legal_CA_comment",
+        "legal_EU",
+        "legal_EU_comment",
+        "legal_NZ",
+        "legal_NZ_comment",
+        "legal_UK",
+        "legal_UK_comment",
+        "legal_UN",
+        "legal_UN_comment",
+        "legal_US",
+        "legal_US_comment",
+        "legal_status"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Chembox Identifiers",
+      "oldid": 1031381687,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1031381687",
+      "sourceSha256": "c01c25e52bee293f9daa96d4fe38f0b2dfcfa5c36c9db1d4d9956b7c8f5afb29",
+      "fields": [
+        "3DMet",
+        "3DMet1",
+        "3DMet2",
+        "3DMet3",
+        "3DMet4",
+        "3DMet5",
+        "3DMetOther",
+        "3DMet_Comment",
+        "Abbreviations",
+        "Beilstein",
+        "CASNo",
+        "CASNo1",
+        "CASNo1_Comment",
+        "CASNo1_Ref",
+        "CASNo2",
+        "CASNo2_Comment",
+        "CASNo2_Ref",
+        "CASNo3",
+        "CASNo3_Comment",
+        "CASNo3_Ref",
+        "CASNo4",
+        "CASNo4_Comment",
+        "CASNo4_Ref",
+        "CASNo5",
+        "CASNo5_Comment",
+        "CASNo5_Ref",
+        "CASNoOther",
+        "CASNo_Comment",
+        "CASNo_Ref",
+        "ChEBI",
+        "ChEBI1",
+        "ChEBI1_Comment",
+        "ChEBI1_Ref",
+        "ChEBI2",
+        "ChEBI2_Comment",
+        "ChEBI2_Ref",
+        "ChEBI3",
+        "ChEBI3_Comment",
+        "ChEBI3_Ref",
+        "ChEBI4",
+        "ChEBI4_Comment",
+        "ChEBI4_Ref",
+        "ChEBI5",
+        "ChEBI5_Comment",
+        "ChEBI5_Ref",
+        "ChEBIOther",
+        "ChEBI_Comment",
+        "ChEBI_Ref",
+        "ChEMBL",
+        "ChEMBL1",
+        "ChEMBL1_Comment",
+        "ChEMBL1_Ref",
+        "ChEMBL2",
+        "ChEMBL2_Comment",
+        "ChEMBL2_Ref",
+        "ChEMBL3",
+        "ChEMBL3_Comment",
+        "ChEMBL3_Ref",
+        "ChEMBL4",
+        "ChEMBL4_Comment",
+        "ChEMBL4_Ref",
+        "ChEMBL5",
+        "ChEMBL5_Comment",
+        "ChEMBL5_Ref",
+        "ChEMBLOther",
+        "ChEMBL_Comment",
+        "ChEMBL_Ref",
+        "ChemSpiderID",
+        "ChemSpiderID1",
+        "ChemSpiderID1_Comment",
+        "ChemSpiderID1_Ref",
+        "ChemSpiderID2",
+        "ChemSpiderID2_Comment",
+        "ChemSpiderID2_Ref",
+        "ChemSpiderID3",
+        "ChemSpiderID3_Comment",
+        "ChemSpiderID3_Ref",
+        "ChemSpiderID4",
+        "ChemSpiderID4_Comment",
+        "ChemSpiderID4_Ref",
+        "ChemSpiderID5",
+        "ChemSpiderID5_Comment",
+        "ChemSpiderID5_Ref",
+        "ChemSpiderIDOther",
+        "ChemSpiderID_Comment",
+        "ChemSpiderID_Ref",
+        "DTXSID",
+        "DTXSID1",
+        "DTXSID2",
+        "DTXSID3",
+        "DTXSID4",
+        "DTXSID5",
+        "DTXSIDOther",
+        "DrugBank",
+        "DrugBank1",
+        "DrugBank1_Comment",
+        "DrugBank1_Ref",
+        "DrugBank2",
+        "DrugBank2_Comment",
+        "DrugBank2_Ref",
+        "DrugBank3",
+        "DrugBank3_Comment",
+        "DrugBank3_Ref",
+        "DrugBank4",
+        "DrugBank4_Comment",
+        "DrugBank4_Ref",
+        "DrugBank5",
+        "DrugBank5_Comment",
+        "DrugBank5_Ref",
+        "DrugBankOther",
+        "DrugBank_Comment",
+        "DrugBank_Ref",
+        "EC_number",
+        "EC_number1",
+        "EC_number2",
+        "EC_number3",
+        "EC_number4",
+        "EC_number5",
+        "EC_numberOther",
+        "EC_number_Comment",
+        "EINECS",
+        "Gmelin",
+        "IUPHAR_ligand",
+        "IUPHAR_ligand1",
+        "IUPHAR_ligand1_Comment",
+        "IUPHAR_ligand2",
+        "IUPHAR_ligand2_Comment",
+        "IUPHAR_ligand3",
+        "IUPHAR_ligand3_Comment",
+        "IUPHAR_ligand4",
+        "IUPHAR_ligand4_Comment",
+        "IUPHAR_ligand5",
+        "IUPHAR_ligand5_Comment",
+        "IUPHAR_ligand_Comment",
+        "IUPHAR_ligand_Other",
+        "Identifiers_ref",
+        "InChI",
+        "InChI1",
+        "InChI1Key",
+        "InChI1_Comment",
+        "InChI1_Ref",
+        "InChI2",
+        "InChI2Key",
+        "InChI2_Comment",
+        "InChI2_Ref",
+        "InChI3",
+        "InChI3Key",
+        "InChI3_Comment",
+        "InChI3_Ref",
+        "InChI4",
+        "InChI4Key",
+        "InChI4_Comment",
+        "InChI4_Ref",
+        "InChI5",
+        "InChI5Key",
+        "InChI5_Comment",
+        "InChI5_Ref",
+        "InChIKey",
+        "InChIKey1",
+        "InChIKey1_Ref",
+        "InChIKey2",
+        "InChIKey2_Ref",
+        "InChIKey3",
+        "InChIKey3_Ref",
+        "InChIKey4",
+        "InChIKey4_Ref",
+        "InChIKey5",
+        "InChIKey5_Ref",
+        "InChIKey_Ref",
+        "InChIOther",
+        "InChI_Comment",
+        "InChI_Ref",
+        "Jmol",
+        "Jmol1",
+        "Jmol2",
+        "Jmol3",
+        "Jmol4",
+        "Jmol5",
+        "KEGG",
+        "KEGG1",
+        "KEGG1_Comment",
+        "KEGG1_Ref",
+        "KEGG2",
+        "KEGG2_Comment",
+        "KEGG2_Ref",
+        "KEGG3",
+        "KEGG3_Comment",
+        "KEGG3_Ref",
+        "KEGG4",
+        "KEGG4_Comment",
+        "KEGG4_Ref",
+        "KEGG5",
+        "KEGG5_Comment",
+        "KEGG5_Ref",
+        "KEGGOther",
+        "KEGG_Comment",
+        "KEGG_Ref",
+        "MeSHName",
+        "PubChem",
+        "PubChem1",
+        "PubChem1_Comment",
+        "PubChem2",
+        "PubChem2_Comment",
+        "PubChem3",
+        "PubChem3_Comment",
+        "PubChem4",
+        "PubChem4_Comment",
+        "PubChem5",
+        "PubChem5_Comment",
+        "PubChemOther",
+        "PubChem_Comment",
+        "QID1",
+        "QID2",
+        "QID3",
+        "QID4",
+        "QID5",
+        "RTECS",
+        "RTECS1",
+        "RTECS2",
+        "RTECS3",
+        "RTECS4",
+        "RTECS5",
+        "RTECSOther",
+        "RTECS_Comment",
+        "SMILES",
+        "SMILES1",
+        "SMILES1_Comment",
+        "SMILES2",
+        "SMILES2_Comment",
+        "SMILES3",
+        "SMILES3_Comment",
+        "SMILES4",
+        "SMILES4_Comment",
+        "SMILES5",
+        "SMILES5_Comment",
+        "SMILESOther",
+        "SMILES_Comment",
+        "SMILES_Comment ",
+        "StdInChI",
+        "StdInChIKey",
+        "StdInChIKey_Ref",
+        "StdInChI_Comment",
+        "StdInChI_Ref",
+        "UNII",
+        "UNII1",
+        "UNII1_Comment",
+        "UNII1_Ref",
+        "UNII2",
+        "UNII2_Comment",
+        "UNII2_Ref",
+        "UNII3",
+        "UNII3_Comment",
+        "UNII3_Ref",
+        "UNII4",
+        "UNII4_Comment",
+        "UNII4_Ref",
+        "UNII5",
+        "UNII5_Comment",
+        "UNII5_Ref",
+        "UNIIOther",
+        "UNII_Comment",
+        "UNII_Ref",
+        "UNNumber",
+        "index1_comment",
+        "index1_label",
+        "index2_comment",
+        "index2_label",
+        "index3_comment",
+        "index3_label",
+        "index4_comment",
+        "index4_label",
+        "index5_comment",
+        "index5_label",
+        "index_comment",
+        "index_label",
+        "indexlist_caption",
+        "testQID"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Chembox",
+      "oldid": 1326580727,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1326580727",
+      "sourceSha256": "d03a278d56b0e7b19c1bf3868a43dd3786d966ba4de3ea3e47d7671ada0827c2",
+      "fields": [
+        "Chembox_ref",
+        "IUPACName",
+        "IUPACNames",
+        "ImageAlt",
+        "ImageAlt1",
+        "ImageAlt2",
+        "ImageAlt3",
+        "ImageAltL1",
+        "ImageAltL2",
+        "ImageAltL3",
+        "ImageAltR1",
+        "ImageAltR2",
+        "ImageAltR3",
+        "ImageCaption",
+        "ImageCaption1",
+        "ImageCaption2",
+        "ImageCaption3",
+        "ImageCaptionAll",
+        "ImageCaptionL1",
+        "ImageCaptionL2",
+        "ImageCaptionL3",
+        "ImageCaptionLR1",
+        "ImageCaptionLR2",
+        "ImageCaptionLR3",
+        "ImageCaptionR1",
+        "ImageCaptionR2",
+        "ImageCaptionR3",
+        "ImageClass",
+        "ImageClass1",
+        "ImageClass2",
+        "ImageClass3",
+        "ImageClassL1",
+        "ImageClassL2",
+        "ImageClassL3",
+        "ImageClassR1",
+        "ImageClassR2",
+        "ImageClassR3",
+        "ImageFile",
+        "ImageFile1",
+        "ImageFile1_Ref",
+        "ImageFile2",
+        "ImageFile2_Ref",
+        "ImageFile3",
+        "ImageFile3_Ref",
+        "ImageFileL1",
+        "ImageFileL1_Ref",
+        "ImageFileL2",
+        "ImageFileL2_Ref",
+        "ImageFileL3",
+        "ImageFileL3_Ref",
+        "ImageFileR1",
+        "ImageFileR1_Ref",
+        "ImageFileR2",
+        "ImageFileR2_Ref",
+        "ImageFileR3",
+        "ImageFileR3_Ref",
+        "ImageFile_Ref",
+        "ImageName",
+        "ImageName1",
+        "ImageName2",
+        "ImageName3",
+        "ImageNameL1",
+        "ImageNameL2",
+        "ImageNameL3",
+        "ImageNameR1",
+        "ImageNameR2",
+        "ImageNameR3",
+        "ImageSize",
+        "ImageSize1",
+        "ImageSize2",
+        "ImageSize3",
+        "ImageSizeL1",
+        "ImageSizeL2",
+        "ImageSizeL3",
+        "ImageSizeR1",
+        "ImageSizeR2",
+        "ImageSizeR3",
+        "Name",
+        "Names_ref",
+        "OtherNames",
+        "PIN",
+        "Reference",
+        "Section1",
+        "Section2",
+        "Section3",
+        "Section4",
+        "Section5",
+        "Section6",
+        "Section7",
+        "Section8",
+        "Section9",
+        "SystematicName",
+        "Verifiedfields",
+        "Watchedfields",
+        "container_only",
+        "data page pagename",
+        "general_note",
+        "pronounce",
+        "show_footer",
+        "show_infobox_ref",
+        "show_ss_note",
+        "show_ss_note ",
+        "style",
+        "verifiedrevid",
+        "width"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Chembox Hazards",
+      "oldid": 1335512363,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=1335512363",
+      "sourceSha256": "7f44a9c6ff907e3727efb0926379f439965afcaec183c08b5d30b0645d85cd1f",
+      "fields": [
+        "AutoignitionPt",
+        "AutoignitionPtC",
+        "AutoignitionPtF",
+        "AutoignitionPtK",
+        "AutoignitionPt_notes",
+        "AutoignitionPt_ref",
+        "ExploLimits",
+        "ExternalSDS",
+        "EyeHazard",
+        "FlashPt",
+        "FlashPtC",
+        "FlashPtF",
+        "FlashPtK",
+        "FlashPt_notes",
+        "FlashPt_ref",
+        "GHSPictograms",
+        "GHSSignalWord",
+        "GHS_ref",
+        "HPhrases",
+        "Hazards_ref",
+        "IDLH",
+        "IngestionHazard",
+        "InhalationHazard",
+        "LC50",
+        "LCLo",
+        "LD50",
+        "LDLo",
+        "MainHazards",
+        "NFPA-F",
+        "NFPA-H",
+        "NFPA-I",
+        "NFPA-O",
+        "NFPA-R",
+        "NFPA-S",
+        "NFPA_Ref",
+        "NFPA_ref",
+        "NIOSH_id",
+        "NIOSH_ref",
+        "OHS_ref",
+        "PEL",
+        "PPhrases",
+        "REL",
+        "SkinHazard",
+        "TLV",
+        "TLV-C",
+        "TLV-STEL",
+        "TLV-TWA",
+        "cat",
+        "showimage"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Template:Drugbox",
+      "oldid": 769881394,
+      "url": "https://en.wikipedia.org/w/index.php?oldid=769881394",
+      "sourceSha256": "e10947f7bb663dbc9013029fb4719b262e1ebbd4756b934e5aeef24a00f9c23f",
+      "fields": []
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Info/Droga",
+      "oldid": 69873897,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69873897",
+      "sourceSha256": "4fd2cc49a26a67610ad1b1aac8b039d1f1b15480b9a7dbddfcac045e2d746b44",
+      "fields": [
+        "Be",
+        "Br",
+        "C",
+        "Ca",
+        "ChemSpiderID",
+        "Cl",
+        "Co",
+        "DL50",
+        "DrugBank",
+        "F",
+        "H",
+        "I",
+        "K",
+        "Mg",
+        "N",
+        "Na",
+        "O",
+        "P",
+        "PubChem",
+        "S",
+        "Se",
+        "aparência",
+        "biodisponibilidade",
+        "charge",
+        "densidade",
+        "entalpia_de_combustão",
+        "excreção",
+        "fórmula_química",
+        "imagem",
+        "imagem2",
+        "largura",
+        "largura2",
+        "ligação_a_proteínas",
+        "meia_vida_de_eliminação",
+        "metabolismo",
+        "nocat_pdepreciada",
+        "nome_IUPAC",
+        "número_CAS",
+        "peso_molecular",
+        "ponto_de_ebulição",
+        "ponto_de_fusão",
+        "prefixo_ATC",
+        "rotação_específica",
+        "sinonimos",
+        "smiles",
+        "solubilidade",
+        "sufixo_ATC",
+        "suplemento_ATC",
+        "suplemento_CAS",
+        "vias_de_administração"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Info/Química",
+      "oldid": 69946908,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69946908",
+      "sourceSha256": "d0b653b4a4f3f5c3fa2c905e745522db03f55771ca0c46688fe8a8750c367f27",
+      "fields": [
+        "Abbreviations",
+        "AtmosphericOHRateConstant",
+        "BoilingPt",
+        "CASNo",
+        "CASNos",
+        "CASOther",
+        "DeltaHc",
+        "DeltaHf",
+        "Density",
+        "EINECS",
+        "EINECSCASNO",
+        "Formula",
+        "HenryConstant",
+        "IUPACName",
+        "ImageAlt",
+        "ImageAlt1",
+        "ImageAlt2",
+        "ImageAlt3",
+        "ImageAltL1",
+        "ImageAltL2",
+        "ImageAltL3",
+        "ImageAltR1",
+        "ImageAltR2",
+        "ImageAltR3",
+        "ImageCaption",
+        "ImageCaption1",
+        "ImageCaption2",
+        "ImageCaption3",
+        "ImageCaptionL1",
+        "ImageCaptionL2",
+        "ImageCaptionL3",
+        "ImageCaptionLR1",
+        "ImageCaptionLR2",
+        "ImageCaptionLR3",
+        "ImageCaptionR1",
+        "ImageCaptionR2",
+        "ImageCaptionR3",
+        "ImageClass",
+        "ImageClass1",
+        "ImageClass2",
+        "ImageClass3",
+        "ImageClassL1",
+        "ImageClassL2",
+        "ImageClassL3",
+        "ImageClassR1",
+        "ImageClassR2",
+        "ImageClassR3",
+        "ImageFile",
+        "ImageFile1",
+        "ImageFile1_Ref",
+        "ImageFile2",
+        "ImageFile2_Ref",
+        "ImageFile3",
+        "ImageFile3_Ref",
+        "ImageFileL1",
+        "ImageFileL1_Ref",
+        "ImageFileL2",
+        "ImageFileL2_Ref",
+        "ImageFileL3",
+        "ImageFileL3_Ref",
+        "ImageFileLR1_Ref",
+        "ImageFileLR2_Ref",
+        "ImageFileLR3_Ref",
+        "ImageFileR1",
+        "ImageFileR1_Ref",
+        "ImageFileR2",
+        "ImageFileR2_Ref",
+        "ImageFileR3",
+        "ImageFileR3_Ref",
+        "ImageFile_Ref",
+        "ImageName",
+        "ImageName1",
+        "ImageName2",
+        "ImageName3",
+        "ImageNameL1",
+        "ImageNameL2",
+        "ImageNameL3",
+        "ImageNameR1",
+        "ImageNameR2",
+        "ImageNameR3",
+        "ImageSize",
+        "ImageSize1",
+        "ImageSize2",
+        "ImageSize3",
+        "ImageSizeL1",
+        "ImageSizeL2",
+        "ImageSizeL3",
+        "ImageSizeR1",
+        "ImageSizeR2",
+        "ImageSizeR3",
+        "InChI",
+        "LogP",
+        "MeltingPt",
+        "MolarMass",
+        "Name",
+        "Nome",
+        "OtherNames",
+        "PubChem",
+        "Reference",
+        "SMILES",
+        "Section1",
+        "Section10",
+        "Section11",
+        "Section12",
+        "Section13",
+        "Section14",
+        "Section15",
+        "Section2",
+        "Section3",
+        "Section4",
+        "Section5",
+        "Section6",
+        "Section7",
+        "Section8",
+        "Section9",
+        "Solubility",
+        "Solvent",
+        "SystematicName",
+        "VaporPressure",
+        "classe",
+        "pKa",
+        "pKb"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Chembox Properties",
+      "oldid": 69934732,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69934732",
+      "sourceSha256": "519912e104cc131fde3f9552f8b07de4745f21684226c6ccf6b310bfd62ec07c",
+      "fields": [
+        "Absorbance",
+        "Ac",
+        "Ag",
+        "Al",
+        "Am",
+        "Appearance",
+        "Ar",
+        "As",
+        "At",
+        "AtmosphericOHRateConstant",
+        "Au",
+        "B",
+        "Ba",
+        "BandGap",
+        "Be",
+        "Bh",
+        "Bi",
+        "Bk",
+        "BoilingPt",
+        "BoilingPtC",
+        "BoilingPtCH",
+        "BoilingPtCL",
+        "BoilingPtF",
+        "BoilingPtFH",
+        "BoilingPtFL",
+        "BoilingPtK",
+        "BoilingPtKH",
+        "BoilingPtKL",
+        "Boiling_notes",
+        "Br",
+        "C",
+        "Ca",
+        "Cd",
+        "Ce",
+        "Cf",
+        "Cl",
+        "Cm",
+        "Co",
+        "Cr",
+        "CriticalRelativeHumidity",
+        "Cs",
+        "Cu",
+        "Db",
+        "Density",
+        "Dipole",
+        "Ds",
+        "Dy",
+        "ElectronMobility",
+        "Er",
+        "Es",
+        "Eu",
+        "F",
+        "Fe",
+        "Fm",
+        "Formula",
+        "Fr",
+        "Ga",
+        "Gd",
+        "Ge",
+        "H",
+        "He",
+        "HenryConstant",
+        "Hf",
+        "Hg",
+        "Ho",
+        "Hs",
+        "I",
+        "In",
+        "Ir",
+        "IsoelectricPt",
+        "K",
+        "Kr",
+        "La",
+        "LambdaMax",
+        "Li",
+        "LogP",
+        "Lr",
+        "Lu",
+        "MagSus",
+        "Md",
+        "MeltingPt",
+        "MeltingPtC",
+        "MeltingPtCH",
+        "MeltingPtCL",
+        "MeltingPtF",
+        "MeltingPtFH",
+        "MeltingPtFL",
+        "MeltingPtK",
+        "MeltingPtKH",
+        "MeltingPtKL",
+        "Melting_notes",
+        "Mg",
+        "Mn",
+        "Mo",
+        "MolarMass",
+        "MolarMass_notes",
+        "Mt",
+        "N",
+        "Na",
+        "Nb",
+        "Nd",
+        "Ne",
+        "Ni",
+        "No",
+        "Np",
+        "O",
+        "Odor",
+        "Odour",
+        "OrbitalHybridisation",
+        "Os",
+        "P",
+        "Pa",
+        "Pb",
+        "Pd",
+        "Pm",
+        "Po",
+        "Pr",
+        "Pt",
+        "Pu",
+        "Ra",
+        "Rb",
+        "Re",
+        "RefractIndex",
+        "Rf",
+        "Rg",
+        "Rh",
+        "Rn",
+        "Ru",
+        "S",
+        "Sb",
+        "Sc",
+        "Se",
+        "Sg",
+        "Si",
+        "Sm",
+        "Sn",
+        "Solubility",
+        "Solubility1",
+        "Solubility2",
+        "Solubility3",
+        "Solubility4",
+        "Solubility5",
+        "Solubility6",
+        "SolubilityProduct",
+        "SolubilityProductAs",
+        "SolubleOther",
+        "Solvent",
+        "Solvent1",
+        "Solvent2",
+        "Solvent3",
+        "Solvent4",
+        "Solvent5",
+        "Solvent6",
+        "SpecRotation",
+        "Sr",
+        "SublimationConditions",
+        "Ta",
+        "Tb",
+        "Tc",
+        "Te",
+        "Th",
+        "ThermalConductivity",
+        "Ti",
+        "Tl",
+        "Tm",
+        "U",
+        "Uub",
+        "Uuh",
+        "Uuo",
+        "Uup",
+        "Uuq",
+        "Uus",
+        "Uut",
+        "V",
+        "VaporPressure",
+        "Viscosity",
+        "W",
+        "Xe",
+        "Y",
+        "Yb",
+        "Zn",
+        "Zr",
+        "pKa",
+        "pKb"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Chembox Hazards",
+      "oldid": 69934888,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69934888",
+      "sourceSha256": "e059fe06eef93f7c19c4fa5b5af0974ed5300fccfc88f55771d45445b26a88fc",
+      "fields": [
+        "Autoignition",
+        "EUClass",
+        "EUIndex",
+        "ExploLimits",
+        "ExternalMSDS",
+        "FlashPt",
+        "GWP",
+        "LD50",
+        "MainHazards",
+        "NFPA-F",
+        "NFPA-H",
+        "NFPA-O",
+        "NFPA-R",
+        "PEL",
+        "RPhrases",
+        "RSPhrases",
+        "RTECS",
+        "SPhrases"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Chembox Pharmacology",
+      "oldid": 70092713,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70092713",
+      "sourceSha256": "bcc31519167b2f3459daf13e36f5d1cc760c3f911885b846f123a12549ce7893",
+      "fields": [
+        "ATCCode",
+        "ATCCode_prefix",
+        "ATCCode_suffix",
+        "ATC_Supplemental",
+        "AdminRoutes",
+        "Bioavail",
+        "CE50",
+        "Concentrações_máximas",
+        "DE50",
+        "Dependency_liability",
+        "Depuração",
+        "DrugBank",
+        "Excretion",
+        "HalfLife",
+        "IT",
+        "Legal_AU",
+        "Legal_BR",
+        "Legal_CA",
+        "Legal_UK",
+        "Legal_US",
+        "Legal_status",
+        "Licence_EU",
+        "Licence_US",
+        "Metabolism",
+        "PregCat",
+        "PregCat_AU",
+        "PregCat_CA",
+        "PregCat_UK",
+        "PregCat_US",
+        "ProteinBound",
+        "Teratogenicidade",
+        "Volume_de_distribuição"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Chembox Identifiers",
+      "oldid": 69934566,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69934566",
+      "sourceSha256": "3fa7eb745db060c56573577e2450e65ab1f76bbdff8596e409a2535db6204874",
+      "fields": [
+        "3DMet",
+        "ATCCode",
+        "ATCCode_prefix",
+        "ATCCode_suffix",
+        "ATC_Supplemental",
+        "Abbreviations",
+        "Beilstein",
+        "CASNo",
+        "CASNos",
+        "CASOther",
+        "ChEBI",
+        "ChemSpiderID",
+        "DCB",
+        "DrugBank",
+        "EINECS",
+        "EINECSCASNO",
+        "Gmelin",
+        "InChI",
+        "InChIKey",
+        "InChIKey_Ref",
+        "InChI_Ref",
+        "KEGG",
+        "MeSHName",
+        "Medicamento_de_referência",
+        "MolarMass",
+        "PubChem",
+        "RTECS",
+        "SMILES",
+        "ix_label"
+      ]
+    },
+    {
+      "language": "pt",
+      "title": "Predefinição:Chembox",
+      "oldid": 46323499,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=46323499",
+      "sourceSha256": "fa9a0448465c8bc87855ee50d5dc932c104d35cd978cfdd01a363c52a4482234",
+      "fields": []
+    },
+    {
+      "language": "fr",
+      "title": "Modèle:Infobox Médicament",
+      "oldid": 239698416,
+      "url": "https://fr.wikipedia.org/w/index.php?oldid=239698416",
+      "sourceSha256": "e616901118bd445f826e04809314857b42bd848629f25ea4c3d22683ec692d7b",
+      "fields": [
+        "ATC",
+        "Apparence",
+        "CAS",
+        "DCI",
+        "DrugBank",
+        "ECHA",
+        "EINECS",
+        "FEMA",
+        "InChI",
+        "InChIKey",
+        "NrE",
+        "PubChem",
+        "RTECS",
+        "SMILES",
+        "StdInChI",
+        "StdInChIKey",
+        "administration",
+        "allaitement",
+        "alternative",
+        "antidote",
+        "apparence",
+        "autresNoms",
+        "biodisponibilite",
+        "brevet",
+        "categoriePsycho",
+        "chEBI",
+        "chiralité",
+        "classe",
+        "classe image",
+        "classe image2",
+        "classeTherapeutique",
+        "conduiteAuto",
+        "demiVieDistrib",
+        "demiVieElim",
+        "dosage",
+        "excretion",
+        "forme",
+        "formule brute",
+        "grossesse",
+        "image",
+        "image2",
+        "laboratoire",
+        "laboratoire génériques",
+        "liaisonProteique",
+        "légende",
+        "légende2",
+        "masse",
+        "metabolisme",
+        "metabolites",
+        "modeConsommation",
+        "nom",
+        "nom générique",
+        "nomIUPAC",
+        "nomSystematique",
+        "noms commerciaux",
+        "precautions",
+        "remboursement",
+        "risqueDependance",
+        "sels",
+        "statut",
+        "stockage",
+        "synonymes",
+        "taille image",
+        "taille image2",
+        "voieAdministration"
+      ]
+    },
+    {
+      "language": "fr",
+      "title": "Modèle:Infobox Chimie",
+      "oldid": 226174485,
+      "url": "https://fr.wikipedia.org/w/index.php?oldid=226174485",
+      "sourceSha256": "704e47c18fa505f800326b120ccfa1b6d2f14b3758dc12aa3b8988361e4a2959",
+      "fields": [
+        "1reEnergieIonisation",
+        "67548EEC",
+        "67548EECref",
+        "AOEL",
+        "ARFD",
+        "ATC",
+        "Ac",
+        "Ag",
+        "Al",
+        "Am",
+        "Ar",
+        "As",
+        "At",
+        "Au",
+        "B",
+        "Ba",
+        "Be",
+        "Bh",
+        "Bi",
+        "Bk",
+        "Br",
+        "C",
+        "CAM",
+        "CAS",
+        "CIRC",
+        "CL50",
+        "Ca",
+        "Cd",
+        "Ce",
+        "Cf",
+        "Cl",
+        "Cm",
+        "Cn",
+        "Co",
+        "Cr",
+        "Cs",
+        "Cu",
+        "D",
+        "DCI",
+        "DJA",
+        "DL50",
+        "Db",
+        "DrugBank",
+        "Ds",
+        "Dy",
+        "ECHA",
+        "EINECS",
+        "Er",
+        "Es",
+        "Eu",
+        "F",
+        "FEMA",
+        "Fe",
+        "Fl",
+        "Fm",
+        "Fr",
+        "Ga",
+        "Gd",
+        "Ge",
+        "H",
+        "He",
+        "Hf",
+        "Hg",
+        "Ho",
+        "Hs",
+        "I",
+        "In",
+        "InChI",
+        "InChIKey",
+        "Ir",
+        "K",
+        "Kr",
+        "La",
+        "Li",
+        "LogP",
+        "Lr",
+        "Lu",
+        "Lv",
+        "Mc",
+        "Md",
+        "Mg",
+        "Mn",
+        "Mo",
+        "Mt",
+        "N",
+        "NFPA704",
+        "NFPA704ref",
+        "Na",
+        "Nb",
+        "Nd",
+        "Ne",
+        "Nh",
+        "Ni",
+        "No",
+        "Np",
+        "NrE",
+        "O",
+        "Og",
+        "Os",
+        "P",
+        "PCI",
+        "PCS",
+        "Pa",
+        "Pb",
+        "Pd",
+        "Pearson",
+        "Pm",
+        "Po",
+        "Pr",
+        "Pt",
+        "Pu",
+        "PubChem",
+        "RTECS",
+        "Ra",
+        "Rb",
+        "Re",
+        "Rf",
+        "Rg",
+        "Rh",
+        "Rn",
+        "Ru",
+        "S",
+        "SGH",
+        "SGHref",
+        "SIMDUT",
+        "SIMDUTref",
+        "SMILES",
+        "Sb",
+        "Sc",
+        "Schoenflies",
+        "Se",
+        "Sg",
+        "Si",
+        "Sm",
+        "Sn",
+        "Sr",
+        "StdInChI",
+        "StdInChIKey",
+        "Strukturbericht",
+        "TAutoInflammation",
+        "TTransitionVitreuse",
+        "Ta",
+        "Tb",
+        "Tc",
+        "Te",
+        "Th",
+        "Ti",
+        "Tl",
+        "Tm",
+        "Ts",
+        "U",
+        "V",
+        "W",
+        "Xe",
+        "Y",
+        "Yb",
+        "Zn",
+        "Zr",
+        "absorption",
+        "acideAmineEss",
+        "alternative",
+        "alternative2",
+        "antidote",
+        "apparence",
+        "autres",
+        "autresNoms",
+        "autresanions",
+        "autrescations",
+        "bandeInterdite",
+        "biodisponibilite",
+        "birefringence",
+        "cacher",
+        "capaciteTherm",
+        "categoriePsycho",
+        "categorisationAuto",
+        "chEBI",
+        "classe",
+        "classe image",
+        "classe image2",
+        "classeTherapeutique",
+        "classificationCE",
+        "codons",
+        "conductivitéThermique",
+        "conductivitéÉlectrique",
+        "conduiteAuto",
+        "constanteDielectrique",
+        "coordination",
+        "cteVerdet",
+        "demiVieDistrib",
+        "demiVieElim",
+        "diametreMoleculaire",
+        "dispersion",
+        "ebullition",
+        "emsGaz",
+        "emsLiquide",
+        "emsSolide",
+        "enthFus",
+        "enthVap",
+        "esfGaz",
+        "esfLiquide",
+        "esfSolide",
+        "excretion",
+        "exp",
+        "fluorescence",
+        "formule",
+        "fusion",
+        "grossesse",
+        "groupe",
+        "image",
+        "image2",
+        "images",
+        "indiceAcide",
+        "indiceIode",
+        "indiceSaponification",
+        "ingestion",
+        "inhalation",
+        "isomères",
+        "liaisonProteique",
+        "limitesExplosivite",
+        "légende",
+        "macle",
+        "masseMol",
+        "masseVolumique",
+        "metabolisme",
+        "miscibilite",
+        "mobiliteElectronique",
+        "mobiliteTrous",
+        "modeConsommation",
+        "momentDipolaire",
+        "nom",
+        "nomIUPAC",
+        "nomSystematique",
+        "numeroIndex",
+        "odorat",
+        "pHisoelectrique",
+        "pKa",
+        "parametreSolubilite",
+        "parametresMaille",
+        "peau",
+        "pointCritique",
+        "pointEclair",
+        "pointTriple",
+        "polychroisme",
+        "precautions",
+        "pressionVapeur",
+        "pvrRotatoire",
+        "r",
+        "r notes",
+        "radioactif",
+        "refraction",
+        "reseauBravais",
+        "risqueDependance",
+        "s",
+        "s notes",
+        "solubilite",
+        "stockage",
+        "structureType",
+        "supplement",
+        "susceptibiliteMagnetique",
+        "symboles",
+        "symboles notes",
+        "synonymes",
+        "systemeCristallin",
+        "taille image",
+        "taille image2",
+        "transparence",
+        "transport",
+        "transportRef",
+        "viscosite",
+        "vitesseSon",
+        "voieAdministration",
+        "volume",
+        "yeux",
+        "²H",
+        "³H",
+        "¹H"
+      ]
+    },
+    {
+      "language": "de",
+      "title": "Vorlage:Infobox Chemikalie",
+      "oldid": 269389723,
+      "timestamp": "2026-08-05T08:42:41Z",
+      "url": "https://de.wikipedia.org/w/index.php?oldid=269389723",
+      "sourceSha256": "d4274dcce7524cdb3a0cc722825d1b9e015e1ef921bcdcfee2765c88d54d534a",
+      "sourceBytes": 24588,
+      "fields": [
+        "ATC-Code",
+        "Aggregat",
+        "Andere Namen",
+        "Beschreibung",
+        "Brechungsindex",
+        "CAS",
+        "CLH",
+        "ChemSpider",
+        "Dampfdruck",
+        "Dichte",
+        "Dipolmoment",
+        "DrugBank",
+        "ECHA-ID",
+        "EG-Nummer",
+        "EUH",
+        "Freiname",
+        "GHS-Piktogramme",
+        "GHS-Signalwort",
+        "GWP",
+        "Gitterkonstanten",
+        "H",
+        "Koordinationszahlen",
+        "Kristallstruktur",
+        "Kristallsystem",
+        "Löslichkeit",
+        "MAK",
+        "Molare Masse",
+        "Name",
+        "P",
+        "PubChem",
+        "Quelle GHS-Kz",
+        "Quelle P",
+        "REACH",
+        "Radioaktiv",
+        "Raumgruppe",
+        "Schmelzpunkt",
+        "Siedepunkt",
+        "Standardbildungsenthalpie",
+        "Strukturformel",
+        "Strukturhinweis",
+        "Sublimationspunkt",
+        "Summenformel",
+        "ToxDaten",
+        "Wirkmechanismus",
+        "Wirkstoffgruppe",
+        "pKs"
+      ]
+    },
+    {
+      "language": "de",
+      "title": "Vorlage:Infobox Chemikalie/Doku",
+      "oldid": 263676218,
+      "timestamp": "2026-01-25T18:40:04Z",
+      "url": "https://de.wikipedia.org/w/index.php?oldid=263676218",
+      "sourceSha256": "1e632316959c6a3355a7707d749dddfaf58508305b180a89c3fcdc4611d4b86f",
+      "sourceBytes": 21854,
+      "fields": []
+    },
+    {
+      "language": "es",
+      "title": "Plantilla:Ficha de medicamento",
+      "oldid": 168097989,
+      "timestamp": "2025-06-23T00:11:00Z",
+      "url": "https://es.wikipedia.org/w/index.php?oldid=168097989",
+      "sourceSha256": "17784fa166c34b2c59e032aa4e9da0fd5d9c47b5b64df3962d0c002b7b82ddef",
+      "sourceBytes": 27447,
+      "fields": [
+        "Ag",
+        "Al",
+        "Ancho",
+        "Ancho2",
+        "As",
+        "Au",
+        "B",
+        "Bi",
+        "Biodisponibilidad",
+        "Br",
+        "C",
+        "Categoría_embarazo",
+        "ChEBI",
+        "ChEMBL",
+        "ChemSpiderID",
+        "Cl",
+        "Co",
+        "Densidad",
+        "DrugBank",
+        "Embarazo_AU",
+        "Embarazo_US",
+        "Estado_legal",
+        "Excreción",
+        "F",
+        "Fe",
+        "Fórmula_química",
+        "Gd",
+        "H",
+        "Hg",
+        "I",
+        "Imagen",
+        "Imagen2",
+        "K",
+        "KEGG",
+        "Lactancia",
+        "Legal_AU",
+        "Legal_CA",
+        "Legal_MX",
+        "Legal_UK",
+        "Legal_US",
+        "Licencia_EEUU",
+        "Licencia_UE",
+        "Metabolismo",
+        "Mg",
+        "Mn",
+        "N",
+        "Na",
+        "Nombre_IUPAC",
+        "Número_CAS",
+        "O",
+        "P",
+        "Peso_molecular",
+        "Prefijo_ATC",
+        "Prefijo_ATCvet",
+        "Pt",
+        "PubChem",
+        "PubChemSID",
+        "Punto_ebullición",
+        "Punto_fusión",
+        "Rotación_específica",
+        "S",
+        "Sb",
+        "Se",
+        "Sinónimos",
+        "Solubilidad",
+        "Sr",
+        "StdInChI",
+        "StdInChIKey",
+        "StdInChI_comment",
+        "Sufijo_ATC",
+        "Sufijo_ATCvet",
+        "Suplemento_ATC",
+        "Suplemento_ATCvet",
+        "Suplemento_CAS",
+        "Tc",
+        "UNII",
+        "Unión_proteica",
+        "Vida_media_eliminación",
+        "Vías_administración",
+        "Zn",
+        "alt",
+        "alt2",
+        "carga",
+        "clase1",
+        "clase2",
+        "clase3",
+        "clase4",
+        "claseimagen",
+        "claseimagen1",
+        "claseimagen2",
+        "componente1",
+        "componente2",
+        "componente3",
+        "componente4",
+        "fuente",
+        "image",
+        "imagen",
+        "nombre_comercial",
+        "nombre_medicamento",
+        "objetivo",
+        "sec_combustion",
+        "smiles",
+        "tipo",
+        "tipo_mab",
+        "tipo_vacuna"
+      ]
+    },
+    {
+      "language": "es",
+      "title": "Plantilla:Ficha de compuesto químico",
+      "oldid": 164952514,
+      "timestamp": "2025-01-24T03:28:46Z",
+      "url": "https://es.wikipedia.org/w/index.php?oldid=164952514",
+      "sourceSha256": "ad6636cdbd94bda90b471f202479ab6a85f8fc649952162200b543aad5dbf54e",
+      "sourceBytes": 21707,
+      "fields": [
+        "ATC_0",
+        "ATC_1",
+        "ATC_2",
+        "Ag",
+        "As",
+        "Au",
+        "B",
+        "Bi",
+        "Biodisp",
+        "Br",
+        "C",
+        "CAS",
+        "CAS0",
+        "ChEBI",
+        "ChEMBL",
+        "ChemSpiderID",
+        "Cl",
+        "Co",
+        "ConstanteHenry",
+        "DfH0G",
+        "DfH0L",
+        "DfH0S",
+        "DrugBank",
+        "E0",
+        "Embarazo",
+        "Exc",
+        "ExcI",
+        "ExcR",
+        "F",
+        "Fe",
+        "FrasesH",
+        "FrasesP",
+        "FrasesR",
+        "FrasesS",
+        "Gd",
+        "H",
+        "Hg",
+        "I",
+        "IUPAC",
+        "K",
+        "KEGG",
+        "KPS",
+        "LD50",
+        "LExplos",
+        "Metabolismo",
+        "Mn",
+        "N",
+        "NFPA704",
+        "Na",
+        "O",
+        "Olor",
+        "P",
+        "PC",
+        "PDC",
+        "PDK",
+        "PEC",
+        "PEK",
+        "PFC",
+        "PFK",
+        "PInflam",
+        "Pt",
+        "PubChem",
+        "RTECS",
+        "S",
+        "S0G",
+        "S0L",
+        "S0S",
+        "SGA",
+        "SMILES",
+        "Sb",
+        "Se",
+        "Semivida",
+        "Sr",
+        "StdInChI",
+        "StdInChIKey",
+        "StdInChI_comment",
+        "TAutoig",
+        "TCC",
+        "TCK",
+        "Tc",
+        "UNII",
+        "Zn",
+        "apariencia",
+        "banda prohibida",
+        "caloresp",
+        "carga",
+        "codón",
+        "conductividad eléctrica",
+        "conductividad térmica",
+        "cristal",
+        "dens1",
+        "dens2",
+        "dieléctrica",
+        "esencial",
+        "estado",
+        "familia",
+        "fórmula1",
+        "fórmula2",
+        "fórmula3",
+        "imagen",
+        "imagen2",
+        "imagen3",
+        "ingestión",
+        "inhalación",
+        "isoelect",
+        "logP",
+        "masa",
+        "mdipolar",
+        "más info",
+        "nombre",
+        "ojos",
+        "otros nombres",
+        "pHalto",
+        "pHalto_color",
+        "pHbajo",
+        "pHbajo_color",
+        "pHmedio_color",
+        "pKa",
+        "pKb",
+        "pie de imagen",
+        "pie de imagen2",
+        "pie de imagen3",
+        "piel",
+        "presión vapor",
+        "relac1d",
+        "relac1n",
+        "relac2d",
+        "relac2n",
+        "relac3d",
+        "relac3n",
+        "riesgo1",
+        "smiles",
+        "sol",
+        "sol otro",
+        "símbolo",
+        "tamaño de imagen",
+        "tamaño de imagen2",
+        "tamaño de imagen3",
+        "visco",
+        "índice refracción"
+      ]
+    }
+  ],
+  "exclusions": [
+    "No inferred Wikidata values or missing fields",
+    "No dose, pregnancy or legal-status enum conversion",
+    "No molecule-element aggregation or mass/temperature/other unit conversion",
+    "No root StdInChI mapping that loses its prefix",
+    "No structural-formula image-link conversion",
+    "No accepted native English field or Chembox redirect renaming",
+    "No image-size recovery across templates with different implicit pixel units",
+    "Unknown fields and all original values remain unchanged"
+  ],
+  "wikipediaWrites": 0
+}

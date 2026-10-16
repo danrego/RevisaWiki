@@ -1,0 +1,32 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm'),adapter=require('./adapter.cjs'),inherited=require('../inherited/adapter.cjs');
+const loaded=adapter.readPlan(),plan=loaded.plan,history=inherited.readPlan();let checks=0;
+const check=(label,fn)=>{fn();checks++;};
+check('The entire historical source tree is immutable',()=>assert.equal(inherited.verifySourceTree(history.plan),466));
+check('Historical proof provenance is not retargeted',()=>assert.equal(plan.historicalManifestSha256,adapter.historicalManifestSha256));
+check('Only the owner-reviewed static full endpoint is extended by one exact newline',()=>{assert.equal(plan.unmodifiedTextOracles,false);assert.deepEqual(plan.sourceFixtureContentRewrites,require('../inherited/oracle_delta.cjs').declarations().slice(0,1));});
+check('No runtime parser or engine rewrite is allowed',()=>assert.deepEqual(plan.runtimeParserOrEngineRewrites,[]));
+check('Retirement is explicitly user-authorized',()=>assert(plan.retirementAuthority.includes('user explicitly requested')));
+for(const row of plan.modules){
+ const raw=fs.readFileSync(path.join(adapter.root,row.file)),result=adapter.transform(path.basename(row.file),raw);
+ check('Original module hash '+row.file,()=>assert.equal(adapter.sha(raw),row.sourceSha256));
+ check('Original module size '+row.file,()=>assert.equal(raw.length,row.sourceBytes));
+ check('Compiled module hash '+row.file,()=>assert.equal(adapter.sha(result.text),row.compiledSha256));
+ check('Compiled module size '+row.file,()=>assert.equal(Buffer.byteLength(result.text),row.compiledBytes));
+ check('Explicit source blocks '+row.file,()=>assert.deepEqual(result.edits,row.adaptations));
+ check('Compiled JavaScript syntax '+row.file,()=>new vm.Script(result.text,{filename:row.file}));
+ check('No retired selector is actively clicked '+row.file,()=>assert(!/driver\.click\(['"]\.ajg-select-changes/.test(result.text)));
+ check('No retired custom comparison is awaited '+row.file,()=>assert(!/await wait\([^\n]*document\.querySelectorAll\(['"]\.ajg-change['"]\)\.length>0/.test(result.text)));
+ const altered=Buffer.from(raw.toString().replace('use strict','use unsafe'));
+ check('Changed old source fails its recorded identity '+row.file,()=>assert.notEqual(adapter.sha(altered),row.sourceSha256));
+}
+for(const row of [...plan.assets,...plan.ownFiles])check('Pinned asset '+row.file,()=>assert.equal(adapter.sha(fs.readFileSync(path.join(adapter.root,row.file))),row.sha256));
+check('All negative modules and cases remain loaded',()=>{const runner=adapter.transform('run_release.cjs',fs.readFileSync(path.join(adapter.oldDirectory,'run_release.cjs'))).text;for(const name of ['spouseMatrix(origin,false)','biographyMatrix(origin,false)',"require('./birth_category_flow.cjs')","require('./v29_repair_flow.cjs')","require('./v210_repair_flow.cjs')","'v2111_reference_flow.cjs'","'v213_migration_flow.cjs'"])assert(runner.includes(name),name);});
+check('The old proof remains clearly historical',()=>{const runner=adapter.transform('run_release.cjs',fs.readFileSync(path.join(adapter.oldDirectory,'run_release.cjs'))).text;assert(runner.includes("assert.equal(secondClickProof.releaseManifestSha256,'"+adapter.historicalManifestSha256+"')"));});
+check('Every removed block is visible in the plan',()=>assert(plan.modules.flatMap(row=>row.adaptations).filter(row=>row.kind==='user-retired-custom-interface').every(row=>row.original&&row.replacement&&row.reason)));
+check('Custom selective rejection is no longer claimed',()=>{const main=adapter.transform('run_release.cjs',fs.readFileSync(path.join(adapter.oldDirectory,'run_release.cjs'))).text,count=adapter.transform('v211_count_flow.cjs',fs.readFileSync(path.join(adapter.oldDirectory,'v211_count_flow.cjs'))).text;assert(!main.includes('automaticUpdatedAfterRejection:true'));assert(!count.includes('retainedAfterRejection:3'));assert(count.includes('retainedAfterNativeDiff:8'));});
+check('Twenty real new selector flows are planned',()=>assert.equal(plan.plannedAdditionalFlowsPerBrowser,20));
+check('The native fixture prevents publication and records only local activations',()=>{const bootstrap=fs.readFileSync(path.join(__dirname,'native_bootstrap.js'),'utf8');assert(bootstrap.includes("event.preventDefault();state.diffClicks++"));assert(bootstrap.includes("event.preventDefault();state.saveClicks++"));assert(!/\.submit\(|fetch\(|XMLHttpRequest|sendBeacon/.test(bootstrap));});
+check('All ten selector contracts include the mismatched and disabled native controls',()=>{const source=fs.readFileSync(path.join(__dirname,'controls.cjs'),'utf8');for(const mode of ['direct-button','direct-input','widget-button','widget-input','missing','wrong-name','wrong-type','outside-form','wrong-form','disabled'])assert(source.includes("['"+mode+"',"));});
+const report={version:'2.14.0',kind:'native-coverage-adapter-selfcheck',status:'passed',checks,coveragePlanSha256:loaded.sha256,sourceModules:plan.modules.length,retiredBlocks:plan.modules.flatMap(row=>row.adaptations).filter(row=>row.kind==='user-retired-custom-interface').length,productExecuted:false,browsersLaunched:0,wikipediaWrites:0};
+const output=path.join(adapter.root,'artifacts/v2140/native_browser_adapter');fs.mkdirSync(output,{recursive:true});fs.writeFileSync(path.join(output,'selfcheck.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

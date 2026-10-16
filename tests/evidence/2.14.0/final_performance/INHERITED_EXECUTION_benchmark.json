@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "version": "2.14.0",
+  "sourceVersion": "2.13.0",
+  "stage": "benchmark",
+  "status": "passed",
+  "adapterPlanSha256": "82751d531200a3c7cc7eead2bd7cb3140cfe291bb964920f8ae3c3c81f45c97e",
+  "releaseManifestSha256": "3c728df720b522dc7e1aa92167a9e8676abbb4e382716e6ca7e6b9ecc00c18ee",
+  "sourceReleaseManifestSha256": "95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_14_0.js": {
+      "bytes": 9651,
+      "sha256": "f4549093d829f5b94c3b27592c57ed47aaa375f5e10e60186f65cf5808ac7824"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_14_0.js": {
+      "bytes": 9653,
+      "sha256": "c5896615637f33f20957aa2d01f6116f732506ccdb3384610060a2c5a7a38205"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_14_0.js": {
+      "bytes": 1446234,
+      "sha256": "0842d2c067528b698cac23d229641c20f4a3f0c45ab4ec5d8b0ff033548d4a8c"
+    },
+    "RevisaWiki_v2_14_0_completo.js": {
+      "bytes": 2959379,
+      "sha256": "72c72b2e0c60af9391218051446d8504310fdac2c11abffc37b2001beb764559"
+    },
+    "RevisaWiki_v2_14_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "923035ed690d79714de12115c6d98459e478c8d2064ad49463dd32716def0824"
+    }
+  },
+  "sourceFilesVerified": 466,
+  "negativeFixtureFiles": [
+    {
+      "file": "tests/v26_engine/negative_contracts.json",
+      "bytes": 9582,
+      "sha256": "0c403f245a2baa85c84c41cf8b4eed787ee8f52268ba82285fbf2e5231f36e74",
+      "cases": 55
+    }
+  ],
+  "expectedTextOrFixtureRewrites": [
+    {
+      "registryFile": "tests/v2140/native_browser/fixtures/AEROCLUBES_SPACING_ORACLE.json",
+      "registrySha256": "849facc3b02caff672cecd2464ff701d02fca049f4d696b2923548b511afb33c",
+      "historicalExpected": {
+        "file": "tests/v2130/independent_fixtures/expected.wiki",
+        "sha256": "3d497f6adecd0c2f4141cc70cb38e4cebb88a4c1919ea77844951ab74d31559d",
+        "bytes": 44768
+      },
+      "newExpected": {
+        "file": "tests/v2140/native_browser/fixtures/aeroclubes_expected_v214.wiki",
+        "sha256": "5c2d487a5dddd62f36da98c969bf92534abcd8dc2b88582c8943cb0a87b3b999",
+        "bytes": 44767
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1,
+        "sourceQuote": " com outros operadores, e sua indicação não pressupõe que o clube esteja em atividade.\n\n\n== Acre ==\n{| class=\"wikitable sortable\" style=\"wid"
+      },
+      "oldRetainedCorrectionCount": 4,
+      "newRetainedCorrectionCount": 5,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    },
+    {
+      "registryFile": "tests/v2140/native_browser/fixtures/GRAPH_SPACING_ORACLE.json",
+      "registrySha256": "dbb4b08a4877c27d81e0e53ef1bc0102014b1204fcdd55192a12d4b142dcca62",
+      "historicalExpected": {
+        "derivation": "Only the two literal reference-name replacements already handwritten in graph_test.cjs:35.",
+        "sha256": "b4151b1d367aac53452a03e0682acf35efd81e2c07730b3e8179e183e436e68e",
+        "bytes": 44769
+      },
+      "newExpected": {
+        "file": "tests/v2140/native_browser/fixtures/graph_expected_v214.wiki",
+        "sha256": "612ec873719797fe054a2c917b303ff27cc4f84ebd67a8b175ca8119e2b3177f",
+        "bytes": 44768
+      },
+      "exactExpectedEdit": {
+        "before": "\n\n\n== Acre ==\n",
+        "after": "\n\n== Acre ==\n",
+        "occurrences": 1,
+        "sourceByteOffset": 1527,
+        "expectedByteOffset": 1527,
+        "removedBytes": 1
+      },
+      "oldRetainedCorrectionCount": 2,
+      "newRetainedCorrectionCount": 3,
+      "completeReferences": 82,
+      "isolatedGraphPlanChanged": false
+    }
+  ],
+  "reviewedSourceShapeDeclarations": [
+    {
+      "file": "tests/v2130/test_ui_freshness.cjs",
+      "sourceSha256": "f00908e41e4c61189432b9bc3ab789698ea4e3f8dd764ecdb6090039da5125ca",
+      "oldLiteral": "v211MarkCheckedDraft(adapter,result,compareOnly,checkedOptions);",
+      "newLiteral": "v211MarkCheckedDraft(adapter,result,false,checkedOptions);",
+      "occurrences": 1,
+      "reason": "The user removed the compare-only custom diff action. Successful Apply still records the exact checked snapshot, now passing literal false. All behavioral freshness guards and negative expectations remain unchanged.",
+      "assertionRemoved": false,
+      "negativeExpectationChanged": false
+    }
+  ],
+  "behavioralAssertionWaivers": [],
+  "commands": [
+    {
+      "file": "tests/v2130/benchmark_large.cjs",
+      "arguments": [
+        "--final-pin=3c728df720b522dc7e1aa92167a9e8676abbb4e382716e6ca7e6b9ecc00c18ee",
+        "--baseline-pin=95fb16d2faace1f76b5ff02478659ef8ef3bf8f9203a3d4eb6454b32576eb7e3",
+        "--corpus-pin=0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
+        "--output=<local-repository>/artifacts/v2140/final_performance"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "accountUse": false,
+  "browserAutomationStarted": false,
+  "runtimeAndHistoricalSourcesStillExact": true,
+  "processReports": [
+    {
+      "file": "adapter_processes/benchmark/88201_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88202_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88205_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88292_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88353_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88447_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88453_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88457_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88472_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88480_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    },
+    {
+      "file": "adapter_processes/benchmark/88490_0.json",
+      "sha256": "adfa3a40f06cba4ef202455ff42a5e3ce4040f0a5cd1db4631d483411b274743"
+    }
+  ]
+}

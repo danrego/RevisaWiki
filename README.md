@@ -1,29 +1,21 @@
 # RevisaWiki
 
-Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com comparação, escolha das mudanças e opção de desfazer.
+Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.13.0
+## Versão 2.14.0
 
-- Repõe uma aspa inicial ausente em rowspan ou colspan quando a tabela completa confirma o reparo.
-- Repara um sinal de igual ausente em rowspan ou colspan nos formatos reconhecidos.
-- Corrige erros de digitação conferidos nos nomes rowspan e colspan.
-- Retira um atributo de ordenação repetido quando os valores são idênticos.
-- Retira aspas externas de um campo que contém somente um endereço reconhecido.
-- Recupera um identificador de uma ligação externa sem rótulo para o endereço oficial correspondente.
-- Corrige nome e grupo para os atributos nativos name e group em referências com identidade local confirmada.
-- Fecha uma referência composta somente por uma citação completa, imediatamente antes da lista final correspondente.
-- Retira uma chamada ISBN colocada dentro do próprio campo isbn quando há um único identificador válido.
-- Retira um sinal de igual inicial excedente em campos conferidos de endereço, data ou identificador.
-- Corrige o fechamento malformado de uma referência quando a abertura correspondente está confirmada.
-- Corrige aspas retas e tipográficas misturadas em rowspan ou colspan.
-- Corrige erros de digitação conferidos nos nomes dos atributos nativos de ordenação.
-- Conclui cadeias reconhecidas de reparos de endereços em uma aplicação, incluindo o campo arquivo-url.
+- Recupera campos importados do inglês, espanhol, francês e alemão dentro de infocaixas nativas reconhecidas de medicamentos e substâncias químicas.
+- Adapta uma citação enciclopédica importada, conservando os dados da obra e as indicações de domínio público, sem gerar categorias de manutenção estrangeiras.
+- Corrige os nomes de campos de alinhamento de caixas de citação quando os valores são reconhecidos e não há conflitos.
+- Reduz linhas vazias excedentes na prosa comum, preservando referências, tabelas, citações, poemas e código.
+- Usa a comparação nativa do editor e retira o diff próprio do painel.
+- Reúne a revisão atual em uma seção aberta, agrupa ocorrências do mesmo parâmetro e guarda a descrição curta retirada em um detalhe para consulta.
 
-Os recursos anteriores continuam disponíveis. Casos incertos ficam como estão, sem novos avisos. Os ajustes ficam no rascunho até o editor decidir publicá-los.
+As regras conservam os valores originais. Não convertem unidades, não inferem dados clínicos e não migram qualquer infocaixa estrangeira para um modelo apenas parecido. Casos incertos permanecem como estão, sem novos avisos genéricos. A publicação continua sob controle de quem edita.
 
 ## Instalação
 
-[Pacote completo](dist/2.13.0/RevisaWiki_2.13.0.zip) · [Índice para copiar](dist/2.13.0/INICIO.html) · [Instruções](docs/2.13.0/Instalacao_RevisaWiki_v2_13_0.txt) · [Manual](docs/2.13.0/Documentacao_RevisaWiki_v2_13_0.wiki) · [Histórico resumido](docs/2.13.0/Notas_da_versao_RevisaWiki_v2_13_0.txt) · [Testes](docs/2.13.0/Relatorio_testes_RevisaWiki_v2_13_0.txt)
+[Pacote completo](dist/2.14.0/RevisaWiki_2.14.0.zip) · [Índice para copiar](dist/2.14.0/INICIO.html) · [Instruções](docs/2.14.0/Instalacao_RevisaWiki_v2_14_0.txt) · [Manual](docs/2.14.0/Documentacao_RevisaWiki_v2_14_0.wiki) · [Histórico resumido](docs/2.14.0/Notas_da_versao_RevisaWiki_v2_14_0.txt) · [Testes](docs/2.14.0/Relatorio_testes_RevisaWiki_v2_14_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -33,19 +25,19 @@ O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da pág
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.12.0, conferidos por SHA-256, e aplica os módulos de `src/v2_13`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.13.0, conferidos por SHA-256, e aplica os módulos de `src/v2_14`. As versões arquivadas ficam intactas.
 
 ```sh
-python3 scripts/build_v2130.py
+python3 scripts/build_v2140.py
 npm test
 npm run test:complex
 npm run test:documentation
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v2130/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a data das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
+O [guia dos testes](tests/v2140/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a data das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
 
-A contagem individual é separada dos tipos de ajuste, dos blocos do diff e dos grupos que precisam ser aceitos juntos. Quando os limites do código impedem comprovar um total, o painel oferece a comparação sem inventar um número exato.
+A contagem informa as operações confirmadas, separadas dos tipos de ajuste. Quando não consegue comprovar um total, o painel não inventa um número exato. Mostrar alterações permite conferir o resultado no editor.
 
 ## Referências de versões anteriores
 

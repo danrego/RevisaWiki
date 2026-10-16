@@ -1,0 +1,58 @@
+RevisaWiki 2.14.0: resultados dos testes
+16 de outubro de 2026
+
+Os arquivos finais da 2.14.0 passaram por 30.339 casos e 225.291 verificações na rodada principal. A matriz complexa acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 540 fluxos da interface e das imagens, com 43.527 verificações. Os testes específicos dos reparos, do relatório e das projeções nativas somaram 26.593 casos adicionais. A comparação própria retirada não foi tratada como um recurso ainda testado. O inventário registra as asserções substituídas, e o atalho nativo foi conferido com cliques locais interceptados, sem carregar um diff remoto da Wikipédia. As expectativas positivas que mudaram pela regra de espaçamento têm diferenças literais registradas, sem mudar os arquivos históricos nem dispensar as verificações de conteúdo. As projeções nativas conferem os trechos afetados, incluindo fórmulas, identificadores, dados clínicos e espaçamento. Elas não equivalem à análise nativa de artigos inteiros. Os contratos e as respostas guardadas mantêm sua origem e seus hashes. Casos sintéticos e permutações não contam como artigos distintos. As rodadas finais não tiveram falhas. O ensaio comparativo mediu duas versões em cinco artigos grandes e não comprova um ganho geral de velocidade. Os resultados e os hashes ficam em tests/evidence/2.14.0. Nenhum teste editou a Wikipédia.
+
+Execuções nos arquivos finais
+
+- Motor, instalação, regressões e falsos positivos: 30339 casos e 225291 verificações, sem falhas.
+- Matriz de artigos complexos: 128 casos e 1672 verificações, sem falhas.
+- Artigos grandes nas duas distribuições: 31 casos e 1147 verificações, sem falhas.
+- Interface nativa e imagens em três navegadores reais: 540 casos e 43527 verificações, sem falhas.
+- Alinhamento de caixas de citação: 452 casos e 3846 verificações, sem falhas.
+- Linhas vazias e composição: 250 casos e 1036 verificações, sem falhas.
+- Conferência independente do espaçamento: 32 casos e 148 verificações, sem falhas.
+- Alinhamento, projeções nativas guardadas: 4 casos e 40 verificações, sem falhas.
+- Parágrafos e espaços, projeções nativas guardadas: 4 casos e 44 verificações, sem falhas.
+- Citação enciclopédica, projeções nativas guardadas: 8 casos e 85 verificações, sem falhas.
+- Adaptação enciclopédica, modular: 88 casos e 580 verificações, sem falhas.
+- Código ATC adicional, modular: 100 casos e 682 verificações, sem falhas.
+- Campos químicos e farmacológicos em quatro idiomas, modular: 469 casos e 3819 verificações, sem falhas.
+- Composição química e variantes de maiúsculas, modular: 12177 casos e 24741 verificações, sem falhas.
+- Infocaixas, projeções nativas guardadas, modular: 8 casos e 109 verificações, sem falhas.
+- Identidade e organização dos avisos, modular: 42 casos e 112 verificações, sem falhas.
+- Adaptação enciclopédica, complete: 88 casos e 580 verificações, sem falhas.
+- Código ATC adicional, complete: 100 casos e 682 verificações, sem falhas.
+- Campos químicos e farmacológicos em quatro idiomas, complete: 469 casos e 3819 verificações, sem falhas.
+- Composição química e variantes de maiúsculas, complete: 12177 casos e 24741 verificações, sem falhas.
+- Infocaixas, projeções nativas guardadas, complete: 8 casos e 109 verificações, sem falhas.
+- Identidade e organização dos avisos, complete: 42 casos e 112 verificações, sem falhas.
+- Relatório e controles nativos, chrome: 17 casos e 78 verificações, sem falhas.
+- Reparos no editor com Worker, chrome: 8 casos e 92 verificações, sem falhas.
+- Relatório e controles nativos, firefox: 17 casos e 78 verificações, sem falhas.
+- Reparos no editor com Worker, firefox: 8 casos e 92 verificações, sem falhas.
+- Relatório e controles nativos, safari: 17 casos e 78 verificações, sem falhas.
+- Reparos no editor com Worker, safari: 8 casos e 92 verificações, sem falhas.
+- Medições nas duas versões em cinco artigos grandes: 10 casos e 260 verificações, sem falhas.
+
+Casos sintéticos e permutações não são artigos distintos. Os relatórios e os hashes ficam em tests/evidence/2.14.0.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_14_0.js: 9651 bytes
+SHA-256: f4549093d829f5b94c3b27592c57ed47aaa375f5e10e60186f65cf5808ac7824
+Carregador_comunitario_RevisaWiki_v2_14_0.js: 9653 bytes
+SHA-256: c5896615637f33f20957aa2d01f6116f732506ccdb3384610060a2c5a7a38205
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_14_0.js: 1446234 bytes
+SHA-256: 0842d2c067528b698cac23d229641c20f4a3f0c45ab4ec5d8b0ff033548d4a8c
+RevisaWiki_v2_14_0_completo.js: 2959379 bytes
+SHA-256: 72c72b2e0c60af9391218051446d8504310fdac2c11abffc37b2001beb764559
+RevisaWiki_v2_14_0_dados.js: 1523935 bytes
+SHA-256: 923035ed690d79714de12115c6d98459e478c8d2064ad49463dd32716def0824
+
+Nenhum teste editou a Wikipédia.
+Código e arquivos: https://github.com/danrego/RevisaWiki

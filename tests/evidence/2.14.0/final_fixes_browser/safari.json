@@ -1,0 +1,117 @@
+{
+  "version": "2.14.0",
+  "kind": "native-quote-and-historical-citation-editor-flow",
+  "browser": "Safari",
+  "status": "passed",
+  "runtimeSha256": "72c72b2e0c60af9391218051446d8504310fdac2c11abffc37b2001beb764559",
+  "runnerSha256": "9b60a1ce673acc24063e68d26fd351869cc6c5bfc4c680be65302772f7535963",
+  "oracleSha256": "68159e691de1d8253da89250ed97c61170f742bfb91174a34cdd6f9094d72b0a",
+  "cases": [
+    {
+      "id": "single-native-quote-field",
+      "positive": true,
+      "passed": true,
+      "checks": 14,
+      "inputSha256": "6f8001a96070ddd4dfc6d015d759ed9d291f625d2d532396776d7d301e6d2634",
+      "expectedSha256": "09e1ee841a6470da200cdc1004adc3f86ea4f3abf793a8772f7d94b12d31f426",
+      "exactUndo": true,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "both-native-quote-fields",
+      "positive": true,
+      "passed": true,
+      "checks": 14,
+      "inputSha256": "ca262a3c0cca7c18f8a077916bacc7dc51d1295028d678ebba49c022263ba464",
+      "expectedSha256": "b1bc11b34ea488cb5c2799cfc105338524912c4d319958f44226a813a9e21f84",
+      "exactUndo": true,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "conflicting-native-quote-field",
+      "positive": false,
+      "passed": true,
+      "checks": 9,
+      "inputSha256": "ad8359769a89f25df7c8670a49522c288f81ed2468ab81784d24e05de189eb86",
+      "expectedSha256": "ad8359769a89f25df7c8670a49522c288f81ed2468ab81784d24e05de189eb86",
+      "exactUndo": false,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "unknown-native-quote-alignment",
+      "positive": false,
+      "passed": true,
+      "checks": 9,
+      "inputSha256": "6d069216291e78f4dabfe30c27429f1881ff9b2174b04fb802064698f296c4a3",
+      "expectedSha256": "6d069216291e78f4dabfe30c27429f1881ff9b2174b04fb802064698f296c4a3",
+      "exactUndo": false,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "native-encyclopedia-reference",
+      "positive": true,
+      "passed": true,
+      "checks": 14,
+      "inputSha256": "357cfd1bfc05c28b35b52163c5539107db52c85a0aa9ad5e3345f62e271f28c0",
+      "expectedSha256": "c5f99c157cc16119aeb0df8def9d0d221d28d125f1a9600dc987b98622864482",
+      "exactUndo": true,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "preserved-public-domain-attribution",
+      "positive": true,
+      "passed": true,
+      "checks": 14,
+      "inputSha256": "7781d02573326fa1776fe5162bb195f91236fa2d295f2b5f4655ed1428fc988c",
+      "expectedSha256": "785fa592a003967b86bde3e515eef7916c4d59f98c69eb04f60554878b6fb241",
+      "exactUndo": true,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "unproved-historical-citation-field",
+      "positive": false,
+      "passed": true,
+      "checks": 9,
+      "inputSha256": "96e2a7abe93946a6d73d48b5758700da4a63dd154faccf931b48c1ee37a4b1ee",
+      "expectedSha256": "96e2a7abe93946a6d73d48b5758700da4a63dd154faccf931b48c1ee37a4b1ee",
+      "exactUndo": false,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    },
+    {
+      "id": "protected-native-examples",
+      "positive": false,
+      "passed": true,
+      "checks": 9,
+      "inputSha256": "f169b8e9997ee7670be83c9b58b78e2db2f34326f29f8218e84c51a174fe4744",
+      "expectedSha256": "f169b8e9997ee7670be83c9b58b78e2db2f34326f29f8218e84c51a174fe4744",
+      "exactUndo": false,
+      "secondActionIdempotent": true,
+      "realWorker": true
+    }
+  ],
+  "checks": 92,
+  "wikipediaWrites": 0,
+  "networkMutations": 0,
+  "clipboardWrites": 0,
+  "screenshots": 0,
+  "adaptations": [
+    "Only the existing host guard accepts loopback in this isolated test.",
+    "All API responses and article text are local fixtures.",
+    "Release Safari native held keys after each button activation."
+  ],
+  "browserVersion": "27.0.1",
+  "blockedRequests": 0,
+  "cleanup": {
+    "ownSessionClosed": true,
+    "ownProcessExited": true,
+    "ownProfileRemoved": true,
+    "unknownSessionsTouched": false
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "schema": "revisawiki-primary-excerpts-v1",
+  "version": "2.14.0",
+  "notice": "Exact line excerpts from public template revisions. Excerpt files are not full raw API responses. Full-source hashes identify the captured primary revisions.",
+  "sources": [
+    {
+      "title": "Vorlage:Infobox Chemikalie",
+      "wiki": "de",
+      "oldid": 269389723,
+      "url": "https://de.wikipedia.org/w/index.php?oldid=269389723",
+      "sourceSha256": "d4274dcce7524cdb3a0cc722825d1b9e015e1ef921bcdcfee2765c88d54d534a",
+      "excerpts": [
+        {
+          "startLine": 2,
+          "endLine": 7,
+          "text": "|-\n{{#ifeq: {{lc:{{{Strukturformel|}}}}} | ausblenden | [[Kategorie:Wikipedia:Beobachtung/Vorlage:Infobox Chemikalie/Strukturformel ausgeblendet]] |\n! colspan=\"2\" style=\"background:#FFDEAD; color:#202122;\" {{!}} {{#ifeq: {{uc:{{{Kristallstruktur|}}}}} | JA | Kristallstruktur {{#if: {{{Strukturformel|}}} | {{#if: {{{Strukturhinweis|}}} || [[Kategorie:Wikipedia:Kristallstruktur ohne Strukturhinweis]] }} }} | Strukturformel }}\n{{!}}-\n{{!}} colspan=\"2\" class=\"hintergrundfarbe-basis {{#ifeq: {{uc:{{{Kristallstruktur|}}}}} |JA | |skin-invert-image}}\" style=\"text-align:center;\" {{!}} {{#if: {{{Strukturformel|}}} | {{{Strukturformel}}} | <small>[[Wikipedia:Wie erstelle ich Strukturformeln?|Keine Zeichnung vorhanden]]</small>{{#ifeq: {{NAMESPACENUMBER}} | 0 | [[Kategorie:Wikipedia:{{#ifeq: {{uc:{{{Kristallstruktur|}}}}} | JA | Kristallstruktur | Strukturformel }} nicht vorhanden]] }} }}\n}}"
+        },
+        {
+          "startLine": 38,
+          "endLine": 46,
+          "text": "|-\n| style=\"width:33%;\"| {{#if: {{{Freiname|}}} | [[Internationaler Freiname|Freiname]] | Name }}\n| {{#ifeq: {{{Name|}}} | {{{Freiname|}}} | {{PAGENAME}} | {{#if: {{{Freiname|}}} | {{{Freiname}}} | {{{Name}}} }} }}\n|-\n{{#if: {{{Andere Namen|}}} |\n{{!}} Andere Namen\n{{!}}\n{{{Andere Namen}}}\n}}"
+        },
+        {
+          "startLine": 48,
+          "endLine": 50,
+          "text": "| {{#ifeq: {{uc:{{{Kristallstruktur|}}}}} | JA | [[Verhältnisformel]] | [[Summenformel]] }}\n| {{#if: {{{Summenformel|}}} | {{{Summenformel}}} | [[:Kategorie:Wikipedia:Unbekannter Wert (Chemie)|?]] {{#ifeq: {{NAMESPACENUMBER}} | 0 | [[Kategorie:Wikipedia:Unbekannter Wert (Chemie)|{{PAGENAME}}#Summenformel fehlt]] }} }}\n|-"
+        },
+        {
+          "startLine": 59,
+          "endLine": 65,
+          "text": "| colspan=\"2\" style=\"padding:0;\" |\n{| class=\"{{#if:{{{EG-Nummer|}}}{{{ECHA-ID|}}}{{{PubChem|}}}{{{ChemSpider|}}}{{{DrugBank|}}}{{#invoke:Wikidata|pageId}}|mw-collapsible mw-collapsed}} wikitable\" data-expandtext=\"+\" data-collapsetext=\"−\" style=\"border-top:none; margin:-1px; width:calc(100% + 2px);\"\n|-\n| style=\"width:33%;\" | [[CAS-Nummer]]\n| {{#if: {{{CAS|}}} | {{{CAS}}} {{#ifeq: {{NAMESPACENUMBER}} | 0 | {{#ifexpr:{{Str find|{{{CAS}}}|CASRN}}<0|{{#ifexpr:{{Str find|{{{CAS}}}|geb<!--(nicht) angegeben/vergeben-->}}<0|[[Kategorie:Wikipedia:Vorlagenfehler/Vorlage:Infobox Chemikalie]]{{#if:{{VERSIONSID}}|<!-- -->|&#32;• <span style=\"background:Moccasin; color:#202122;\">Vorlage:CASRN fehlt</span>}} }} }} }} | [[:Kategorie:Wikipedia:Unbekannter Wert (Chemie)|?]] {{#ifeq: {{NAMESPACENUMBER}} | 0 | [[Kategorie:Wikipedia:Unbekannter Wert (Chemie)]] }} }}\n{{#if: {{{EG-Nummer|}}}{{{ECHA-ID|}}}{{{PubChem|}}}{{{ChemSpider|}}}{{{DrugBank|}}}{{#invoke:Wikidata|pageId}} | {{!}} style=\"background:#FFDEAD; color:#202122; border-top:1px solid #FFDEAD; padding:0.2em 0; vertical-align:bottom; width:5%;\" {{!}} }}\n|-"
+        },
+        {
+          "startLine": 117,
+          "endLine": 121,
+          "text": "|-\n{{#if: {{{ChemSpider|}}}<!--{{#invoke:Wikidata|claim|P661}}--> |\n{{!}} [[ChemSpider]]\n{{!}} colspan=\"2\" {{!}} {{#if: {{{ChemSpider|}}} | [https://www.chemspider.com/Chemical-Structure.{{{ChemSpider}}}.html {{{ChemSpider}}}]<!--\nVergleich lokaler Wert mit WD"
+        },
+        {
+          "startLine": 123,
+          "endLine": 125,
+          "text": "          | {{#if: {{#invoke:Wikidata|pageId}}\n                | {{#ifeq: {{{ChemSpider|}}} | {{#invoke:Wikidata|claim|P661}} \n                      |<!-- Wert deWP und WD identisch"
+        },
+        {
+          "startLine": 131,
+          "endLine": 135,
+          "text": "|-\n{{#if: {{{DrugBank|}}}<!--{{#invoke:Wikidata|claim|P715}}--> |\n{{!}} [[DrugBank]]\n{{!}} colspan=\"2\" {{!}} {{#if: {{{DrugBank|}}} | [https://go.drugbank.com/drugs/{{{DrugBank}}} {{{DrugBank}}}]<!--\nVergleich lokaler Wert mit WD"
+        },
+        {
+          "startLine": 137,
+          "endLine": 139,
+          "text": "          | {{#if: {{#invoke:Wikidata|pageId}}\n                | {{#ifeq: {{{DrugBank|}}} | {{#invoke:Wikidata|claim|P715}} \n                      |<!-- Wert deWP und WD identisch"
+        },
+        {
+          "startLine": 156,
+          "endLine": 158,
+          "text": "|-\n{{#if: {{{ATC-Code|}}}{{{Wirkstoffgruppe|}}}{{{Wirkmechanismus|}}} |\n! colspan=\"2\" style=\"background:#FFDEAD; color:#202122;\" {{!}} Arzneistoffangaben"
+        },
+        {
+          "startLine": 166,
+          "endLine": 171,
+          "text": "|-\n{{#if: {{{Wirkstoffgruppe|}}} |\n{{!}} [[Wirkstoffklasse]]\n{{!}}\n{{{Wirkstoffgruppe}}}\n}}"
+        },
+        {
+          "startLine": 181,
+          "endLine": 183,
+          "text": "| [[Molare Masse]]\n| {{#if: {{{Molare Masse|}}} | {{{Molare Masse}}} | [[:Kategorie:Wikipedia:Unbekannter Wert (Chemie)|?]] {{#ifeq: {{NAMESPACENUMBER}} | 0 | [[Kategorie:Wikipedia:Unbekannter Wert (Chemie)|{{PAGENAME}}#Molare Masse fehlt]] }} }}\n|-"
+        },
+        {
+          "startLine": 189,
+          "endLine": 206,
+          "text": "|-\n{{#if: {{{Dichte|}}} |\n{{!}} [[Dichte]]\n{{!}}\n{{{Dichte}}}\n}}\n|-\n{{#if: {{{Schmelzpunkt|}}} |\n{{!}} [[Schmelzpunkt]]\n{{!}}\n{{{Schmelzpunkt}}}\n}}\n|-\n{{#if: {{{Siedepunkt|}}} |\n{{!}} [[Siedepunkt]]\n{{!}}\n{{{Siedepunkt}}}\n}}"
+        },
+        {
+          "startLine": 219,
+          "endLine": 224,
+          "text": "|-\n{{#if: {{{pKs|}}} |\n{{!}} [[pKs-Wert|p''K''<sub>S</sub>-Wert]]\n{{!}}\n{{{pKs}}}\n}}"
+        },
+        {
+          "startLine": 353,
+          "endLine": 355,
+          "text": "\n-->{{#ifeq: {{lc:{{{Strukturformel|}}}}} | ausblenden | {{#if: {{{Strukturhinweis|}}}{{{Kristallsystem|}}}{{{Raumgruppe|}}}{{{Gitterkonstanten|}}}{{{Koordinationszahlen|}}} | \n<span style=\"color:#FF5400;\" title=\"Falsche Eingabe!\">Fehlerhafte Eingabe in [[Vorlage:Infobox Chemikalie]]: Wenn <code>Strukturformel=ausblenden</code> gesetzt ist, darf keiner der Parameter <code>Strukturhinweis=</code>, <code>Kristallsystem=</code>, <code>Raumgruppe=</code>, <code>Gitterkonstanten=</code> oder <code>Koordinationszahlen=</code> eine Angabe enthalten.<br /></span>{{#ifeq: {{NAMESPACENUMBER}} | 0 | [[Kategorie:Wikipedia:Vorlagenfehler/Vorlage:Infobox Chemikalie]]}}"
+        },
+        {
+          "startLine": 362,
+          "endLine": 367,
+          "text": "                | {{#if: {{#invoke:Wikidata|claim|P231}} \n                      | {{#ifeq: {{#expr:{{Str find|{{{CAS|}}}|{{#invoke:Wikidata|claim|P231}}}}>0}} | 0 \n                            | [[Kategorie:Wikipedia:Wikidata-Wartung:CAS-Nummer fehlt lokal]] \n                            |<!-- ok, CAS-Nummer von WD ist auch lokal vorhanden -->}} \n                      | {{#ifeq: {{Str find|{{Str right|{{{CAS|}}}|{{Str find|{{{CAS|}}}|-}}}}|-}} | 3 \n                            | [[Kategorie:Wikipedia:Wikidata-Wartung:CAS-Nummer fehlt auf Wikidata]] "
+        },
+        {
+          "startLine": 425,
+          "endLine": 427,
+          "text": "}} }}<!--\n-->{{#if: {{{ChemSpider|}}} | {{#invoke:TemplatePar|valid|ChemSpider|2=/^[1-9]%d?%d?%d?%d?%d?%d?%d?%d?$/\n|cat= Wikipedia:Vorlagenfehler/Vorlage:Infobox Chemikalie"
+        },
+        {
+          "startLine": 430,
+          "endLine": 432,
+          "text": "}} }}<!--\n-->{{#if: {{{DrugBank|}}} | {{#invoke:TemplatePar|valid|DrugBank|2=/^DBS?A?L?T?%d%d%d%d%d%d?$/\n|cat= Wikipedia:Vorlagenfehler/Vorlage:Infobox Chemikalie"
+        }
+      ]
+    },
+    {
+      "title": "Plantilla:Ficha de medicamento",
+      "wiki": "es",
+      "oldid": 168097989,
+      "url": "https://es.wikipedia.org/w/index.php?oldid=168097989",
+      "sourceSha256": "17784fa166c34b2c59e032aa4e9da0fd5d9c47b5b64df3962d0c002b7b82ddef",
+      "excerpts": [
+        {
+          "startLine": 2,
+          "endLine": 11,
+          "text": "|tipocabecera          = medicina\n|titulo                = {{{nombre_medicamento|{{PAGENAME}}}}}\n|imagen                = {{{Imagen|{{{imagen|{{{image|}}}}}}}}}\n|claseimagen1          = {{{claseimagen|{{{claseimagen1|}}}}}}\n|tamañoimagen          = {{{Ancho|220px}}}\n|pie                   = {{{alt|}}}\n|imagen2               = {{{Imagen2|}}}\n|claseimagen2          = {{{claseimagen2|}}}\n|tamañoimagen2         = {{{Ancho2|220px}}}\n|pie2                  = {{{alt2|}}}"
+        },
+        {
+          "startLine": 18,
+          "endLine": 23,
+          "text": " |mab      = [[Anticuerpo monoclonal]]\n |#default = {{#if:{{{Nombre_IUPAC|}}}|Nombre ([[Unión Internacional de Química Pura y Aplicada|IUPAC]]) sistemático}}\n }}\n|estilodatos2 = style=\"text-align: center; font-size:11px;\"\n|datos2       = {{{Nombre_IUPAC|}}}\n<!-- Tipo vacuna -->"
+        },
+        {
+          "startLine": 87,
+          "endLine": 95,
+          "text": "|datos11    = {{#ifeq:{{{tipo|}}}|combo|{{{clase4|}}}}}\n|seccion12  = {{#if:{{Propiedad|p231| {{{Número_CAS|}}} }}{{Propiedad|p267| {{{Prefijo_ATC|}}} }}{{Propiedad|p268| {{{Prefijo_ATCvet|}}} }}{{Propiedad|p662| {{{PubChem|}}} }} {{Propiedad|p663| {{{PubChemSID|}}} }}{{Propiedad|p715| {{{DrugBank|}}} }}{{Propiedad|p661| {{{ChemSpiderID|}}} }}{{Propiedad|p652| {{{UNII|}}} }}{{Propiedad|p665| {{{KEGG|}}} }}{{Propiedad|p683| {{{ChEBI|}}} }}|Identificadores}}\n|etiqueta13 = {{#if:{{Propiedad|p231| {{{Número_CAS|}}} }}|[[Número de registro CAS|Número CAS]]}}\n|datos13    = {{#if:{{Propiedad|p231| {{{Número_CAS|}}} }}|<span class=\"reflink plainlinks nourlexpansion\">[http://webbook.nist.gov/cgi/cbook.cgi?ID={{Propiedad|p231| {{{Número_CAS|}}} }}&Units=SI {{Propiedad|p231| {{{Número_CAS|}}} }}]</span> {{{Suplemento_CAS|}}} |[[Categoría:Wikipedia:Artículos sobre químicos que necesitan un número de registro CAS]]}}\n|etiqueta14 = [[Código ATC]]{{#if:{{{Prefijo_ATC|}}}|{{#ifeq:{{{Prefijo_ATC}}}|0|<includeonly>[[Categoría:Fármacos que carecen de Código ATC]]</includeonly>}}|<includeonly>[[Categoría:Wikiproyecto:Fármacos/Mantenimiento/Artículos sin Código ATC]]</includeonly>}}\n|datos14    = {{#if:{{{Prefijo_ATC|}}}|{{#ifeq:{{{Prefijo_ATC}}}|0|''No adjudicado''|[[Anexo:Código ATC {{{Prefijo_ATC}}}|{{{Prefijo_ATC}}}]]}}{{#if:{{{Sufijo_ATC|}}}|<span class=\"reflink plainlinks nourlexpansion\">[http://www.whocc.no/atc_ddd_index/?code={{{Prefijo_ATC}}}{{{Sufijo_ATC}}} {{{Sufijo_ATC}}}]</span>  {{{Suplemento_ATC|}}} }} }}\n|etiqueta15 = [[Código ATCvet]]{{#if:{{{Prefijo_ATCvet|}}}||<includeonly>[[Categoría:Wikiproyecto:Fármacos/Mantenimiento/Artículos sin Código ATCvet]]</includeonly>}}\n|datos15    = {{#if:{{{Prefijo_ATCvet|}}}|{{#ifeq:{{{Prefijo_ATCvet}}}|0|''No adjudicado''|[[Anexo:Código ATCvet {{{Prefijo_ATCvet}}}|{{{Prefijo_ATCvet}}}]]{{#if:{{{Sufijo_ATCvet|}}}|<span class=\"reflink plainlinks nourlexpansion\">[https://www.whocc.no/atcvet/atcvet_index/?code={{{Prefijo_ATCvet}}}{{{Sufijo_ATCvet}}} {{{Sufijo_ATCvet}}}]</span>  {{{Suplemento_ATCvet|}}} }} }} }}\n|etiqueta16 = [[PubChem]]"
+        },
+        {
+          "startLine": 110,
+          "endLine": 114,
+          "text": "|datos23    = {{#if:{{{ChEMBL|}}}|<span class=\"reflink plainlinks nourlexpansion\">[https://www.ebi.ac.uk/chembldb/index.php/compound/inspect/{{{ChEMBL}}} {{{ChEMBL}}}]</span>}}\n|seccion31  = {{#if:{{{Fórmula_química|}}}{{{C|}}}{{{H|}}}{{{O|}}}{{{N|}}}{{{S|}}}{{{Peso_molecular|}}}{{{smiles|}}}{{{StdInChI|}}}{{{Sinónimos|}}}|Datos químicos}}\n|etiqueta32 = [[Fórmula molecular|Fórmula]]\n|datos32    = {{#if:{{{Fórmula_química|}}} | {{{Fórmula_química}}} | {{#if:{{{C|}}}{{{H|}}}{{{O|}}}{{{N|}}}{{{S|}}} |<!--\nDATA -->{{Orgánica_{{#if:{{{C|}}} |atómica }} "
+        },
+        {
+          "startLine": 295,
+          "endLine": 329,
+          "text": "|etiqueta33 = [[Masa molar|Peso mol.]]\n|datos33    = {{#if:{{{Peso_molecular|}}}|{{{Peso_molecular}}} }}\n|datos34    = {{#if:{{{smiles|}}}| {{Lista desplegable |título=[[SMILES]] |1={{{smiles}}}}} }}\n|datos35    = {{#if:{{{StdInChI|}}}| {{Lista desplegable |título=[[International Chemical Identifier|InChI]] |1=InChI={{{StdInChI}}}{{#if:{{{StdInChI_comment|}}}|&nbsp;{{{StdInChI_comment}}}}}{{#if:{{{StdInChIKey|}}}|<br/>Key: {{{StdInChIKey}}}}}}} }}\n|etiqueta36 = [[Sinonimia (semántica)|Sinónimos]]\n|datos36    = {{{Sinónimos|}}}\n\n|seccion47  = {{#if:{{{Densidad|}}}{{{Punto_fusión|}}}{{{Punto_ebullición|}}}{{{Solubilidad|}}}{{{Rotación_específica|}}}{{{sec_combustion|}}}|Datos físicos}}\n|etiqueta48 = [[Densidad]]\n|datos48    = {{#if:{{{Densidad|}}}|{{{Densidad}}}&nbsp;g/cm³}}\n|etiqueta49 = [[Punto de fusión|P. de fusión]]\n|datos49    = {{#if:{{{Punto_fusión|}}}|{{{Punto_fusión}}}&nbsp;°C {{#iferror:{{#expr: {{{Punto_fusión}}} * 9 }}| | ({{#expr: ( {{{Punto_fusión}}} * 9 / 5 ) + 32 round 0 }}&nbsp;°F)}}}}\n|etiqueta50 = [[Punto de ebullición|P. de ebullición]]\n|datos50    = {{#if:{{{Punto_ebullición|}}}|{{{Punto_ebullición}}}&nbsp;°C {{#iferror:{{#expr: {{{Punto_ebullición}}} * 9 }}| | ({{#expr: ( {{{Punto_ebullición}}} * 9 / 5 ) + 32 round 0 }}&nbsp;°F)}}}}\n|etiqueta51 = [[Solubilidad]] en [[agua]]\n|datos51    = {{#if:{{{Solubilidad|}}}|{{{Solubilidad}}}&nbsp;mg/mL (20&nbsp;°C)}}\n|etiqueta52 = [[Rotación específica|Rot. esp.]]\n|datos52    = {{{Rotación_específica|}}}\n|etiqueta53 = [[Variación de la entalpía estándar de combustión|Variación E.E.C.]]\n|datos53    = {{{sec_combustion|}}}\n\n|seccion64  = {{#if:{{{Biodisponibilidad|}}}{{{Unión_proteica|}}}{{{Metabolismo|}}}{{{Vida_media_eliminación|}}}{{{Excreción|}}}|Farmacocinética}}\n|etiqueta65 = [[Biodisponibilidad]]\n|datos65    = {{{Biodisponibilidad|}}}\n|etiqueta66 = [[Unión a proteína plasmática|Unión proteica]]\n|datos66    = {{{Unión_proteica|}}}\n|etiqueta67 = [[Metabolismo de fármacos|Metabolismo]]\n|datos67    = {{{Metabolismo|}}}\n|etiqueta68 = [[Semivida de eliminación|Vida media]]\n|datos68    = {{{Vida_media_eliminación|}}}\n|etiqueta69 = [[Excreción]]\n|datos69    = {{{Excreción|}}}\n\n|seccion70  = {{#if:{{{nombre_comercial|}}}{{{Licencia_UE|}}}{{{Licencia_EEUU|}}}{{{Lactancia|}}}{{{Embarazo_AU|}}}{{{Embarazo_US|}}}{{{Categoría_embarazo|}}}{{{Legal_AU|}}}{{{Legal_CA|}}}{{{Legal_UK|}}}{{{Legal_US|}}}{{{Legal_MX|}}}{{{Estado_legal|}}}{{{Vías_administración|}}}|Datos clínicos}}\n|etiqueta71 = Nombre comercial"
+        },
+        {
+          "startLine": 429,
+          "endLine": 431,
+          "text": "|etiqueta76 = [[Vías de administración de fármacos|Vías de adm.]]\n|datos76    = {{{Vías_administración|}}}\n"
+        }
+      ]
+    },
+    {
+      "title": "Plantilla:Ficha de compuesto químico",
+      "wiki": "es",
+      "oldid": 164952514,
+      "url": "https://es.wikipedia.org/w/index.php?oldid=164952514",
+      "sourceSha256": "ad6636cdbd94bda90b471f202479ab6a85f8fc649952162200b543aad5dbf54e",
+      "excerpts": [
+        {
+          "startLine": 2,
+          "endLine": 31,
+          "text": "|tipocabecera          = química\n|titulo                = <div style=\"float:right; padding:.1em;\" class=\"noprint\"></div><div style=\"float:left; padding-left:1em\" class=\"noprint\">&nbsp;</div>{{{nombre|{{Título sin coletilla}}}}}\n|colorfondotitulo      = {{#if:{{{ATC_0|}}}{{{Biodisp|}}}{{{Metabolismo|}}}{{{Exc|}}}{{{ExcR|}}}{{{ExcI|}}}{{{Semivida|}}}{{{Embarazo|}}}|#DBD7D2|#F3E5AB}}\n\n|imagen       = {{Propiedad|P18|{{{imagen|}}}}}\n|tamañoimagen = {{{tamaño de imagen|}}}\n|pie          = {{{pie de imagen|}}}\n|estilopie    = font-size:90%;\n\n|imagen2         = {{Propiedad|P8224|{{{imagen2|}}}}}\n|tamañoimagen2   = {{{tamaño de imagen2|}}}\n|pie2            = {{{pie de imagen2|}}}\n|estilopie2             = font-size:90%;\n\n|imagen3         = {{{imagen3|}}}\n|tamañoimagen3   = {{{tamaño de imagen3|}}}\n|pie3            = {{{pie de imagen3|}}}\n|estilopie3      = font-size:90%;\n\n|estiloseccion         = background-color:{{#if:{{{ATC_0|}}}{{{Biodisp|}}}{{{Metabolismo|}}}{{{Exc|}}}{{{ExcR|}}}{{{ExcI|}}}{{{Semivida|}}}{{{Embarazo|}}}|#DBD7D2|#F3E5AB}};\n|estiloetiqueta        = background-color:{{#if:{{{ATC_0|}}}{{{Biodisp|}}}{{{Metabolismo|}}}{{{Exc|}}}{{{ExcR|}}}{{{ExcI|}}}{{{Semivida|}}}{{{Embarazo|}}}|#EEEEEE|#FFFFF0}};\n|estilodatos           = \n\n|seccion1   = {{#if:{{{IUPAC|}}}|[[Unión Internacional de Química Pura y Aplicada|Nombre IUPAC]]}}\n|datos2     = {{{IUPAC|}}}\n\n|seccion3   = {{#if:{{{fórmula3|}}}{{{otros nombres|}}}{{{C|}}}{{{H|}}}{{{O|}}}{{{N|}}}{{{S|}}}{{{símbolo|}}}{{{fórmula1|}}}{{{fórmula2|{{#property:P117}}}}}|General}}\n|etiqueta4  = Otros nombres\n|datos4     = {{{otros nombres|}}}\n|etiqueta5  = [[Símbolo químico]]"
+        },
+        {
+          "startLine": 33,
+          "endLine": 39,
+          "text": "|etiqueta6  = [[Fórmula semidesarrollada]]\n|datos6     = {{{fórmula1|}}}\n|etiqueta7  = [[Fórmula estructural]]\n|datos7     = {{{fórmula2|{{#if:{{#property:P117}}|[[Imagen:{{#property:P117}}|110px|Imagen de la estructura]]}}|}}}\n|etiqueta8 = [[Fórmula molecular]]\n|datos8    = {{#if:{{{fórmula3|}}} | {{{fórmula3}}} | {{#if:{{{C|}}}{{{H|}}}{{{O|}}}{{{N|}}}{{{S|}}} |<!--\nDATA -->{{Orgánica_{{#if:{{{C|}}} |atómica }} "
+        },
+        {
+          "startLine": 208,
+          "endLine": 210,
+          "text": "\n|seccion10   = {{#if:{{{ATC_0|}}}{{{CAS|{{#property:P231}}}}}{{{ChEBI|{{#property:P683}}}}}{{{ChemSpiderID|{{#property:P661}}}}}{{{DrugBank|{{#property:P715}}}}}{{{PubChem|{{#property:P662}}}}}{{{UNII|}}}{{{KEGG|}}}{{{SMILES|}}}{{{StdInChI|}}}{{{RTECS|{{#property:P657}}}}}|Identificadores}}\n|etiqueta11 = [[Código ATC]]"
+        },
+        {
+          "startLine": 212,
+          "endLine": 214,
+          "text": "|etiqueta12 = [[Número CAS]]\n|datos12    = {{#if:{{{CAS|{{#property:P231}}}}}|{{{CAS|{{#property:P231}}}}}{{#tag:ref|[http://webbook.nist.gov/cgi/cbook.cgi?ID={{{CAS|{{#property:P231}}}}} {{{CAS0|Número CAS}}}]}}}}\n|etiqueta13 = [[RTECS|Número RTECS]]"
+        },
+        {
+          "startLine": 224,
+          "endLine": 227,
+          "text": "|etiqueta17 = [[DrugBank]]\n|datos17    = {{#if:{{{DrugBank|{{#property:P715}}}}}\n|<span class=\"reflink plainlinks nourlexpansion\">[http://www.drugbank.ca/drugs/DB{{{DrugBank|{{#property:P715}}}}} {{{DrugBank|{{#property:P715}}}}}]</span>}}\n|etiqueta18 = [[PubChem]]"
+        },
+        {
+          "startLine": 234,
+          "endLine": 239,
+          "text": "|datos20    = {{#if:{{{KEGG|{{#property:P665}}}}}|<span class=\"reflink plainlinks nourlexpansion\">[http://www.kegg.jp/entry/{{{KEGG|{{#property:P665}}}}} {{{KEGG|{{#property:P665}}}}}]</span>}}\n|datos21    = {{#if:{{{SMILES|}}}| {{Lista desplegable |título=[[SMILES]] |1={{{SMILES}}}}} | {{#if:{{{smiles|}}}| {{Lista desplegable |título=[[SMILES]] |1={{{smiles}}}}}  }} }} \n|datos22    = {{#if:{{{StdInChI|{{#property:P234}}}}}| {{Lista desplegable |título=[[International Chemical Identifier|InChI]] |1=InChI=<span class=\"reflink plainlinks nourlexpansion\" style=\"word-wrap:anywhere;\">[http://chemapps.stolaf.edu/jmol/jmol.php?&model=InChI={{{StdInChI|{{#property:P234}}}}} {{{StdInChI|{{#property:P234}}}}}]</span>{{#if:{{{StdInChI_comment|}}}|&nbsp;{{{StdInChI_comment}}}}}{{#if:{{{StdInChIKey|{{#property:P235}}}}}|<br/>Key: <span class=\"reflink plainlinks nourlexpansion\">[https://www.ncbi.nlm.nih.gov/sites/entrez?cmd=search&db=pccompound&term=%22{{{StdInChIKey|{{#property:P235}}}}}%22 {{{StdInChIKey|{{#property:P235}}}}}]</span>}}}} }}\n\n|seccion25  = {{#if:{{{apariencia|}}}{{{masa|{{#property:P2067}}}}}{{{dens1|}}}{{{dens2|}}}{{{PFK|}}}{{{PFC|}}}{{{PEK|}}}{{{ConstanteHenry|}}}{{{PEC|}}}{{{PDK|}}}{{{PDC|}}}{{{TCK|}}}{{{TCC|}}}{{{PC|}}}{{{presión vapor|}}}{{{cristal|{{#property:P556}}}}}{{{visco|}}}{{{índice refracción|{{#property:P1109}}}}}{{{dieléctrica|}}}{{{conductividad eléctrica|}}}{{{conductividad térmica|}}}{{{banda prohibida|}}}|Propiedades físicas}}\n|etiqueta26 = Apariencia"
+        },
+        {
+          "startLine": 243,
+          "endLine": 251,
+          "text": "|etiqueta28 = [[Densidad]]\n|datos28    = {{#if:{{{dens1|}}}{{{dens2|}}}|{{Densidad|{{{dens1|}}}|{{{dens2|}}}}}}}\n|etiqueta29 = [[Masa molar]]\n|datos29    = {{#if:{{{masa|{{#property:P2067}}}}}|{{Formatnum2|{{Propiedad|P2067|{{{masa|}}}|formato unidad=número|prioridad=si}}}} [[gramo|g]]/[[mol]]}}\n|etiqueta30 = [[Punto de fusión]]\n|datos30    = {{#if:{{{PFK|}}} | {{Convertir|{{{PFK}}}|K|C|0|abr=3|op=n}} | {{#if:{{{PFC|}}} | {{Convertir|{{{PFC}}}|C|K|0|abr=3|op=n}} }} }}\n|etiqueta31 = [[Punto de ebullición]]\n|datos31   = {{#if:{{{PEK|}}} | {{Convertir|{{{PEK}}}|K|C|0|abr=3|op=n}} | {{#if:{{{PEC|}}} | {{Convertir|{{{PEC}}}|C|K|0|abr=3|op=n}} }} }}\n|etiqueta32 = [[Punto de descomposición]]"
+        },
+        {
+          "startLine": 291,
+          "endLine": 301,
+          "text": "\n|seccion60  = {{#if:{{{Biodisp|}}}{{{Metabolismo|}}}{{{Exc|}}}{{{ExcR|}}}{{{ExcI|}}}{{{Semivida|}}}{{{Embarazo|}}}|Propiedades farmacológicas}}\n|etiqueta61 = [[Biodisponibilidad]]\n|datos61    = {{{Biodisp|}}}\n|etiqueta62 = Metabolismo\n|datos62    = {{#switch:{{lc:{{{Metabolismo|}}}}}|h=Hepático|{{{Metabolismo|}}}}}\n|etiqueta63 = Excreción\n|datos63    = {{#if:{{{Exc|}}} | {{#switch:{{lc:{{{Exc}}}}}|r=Renal|i=Intestinal|{{{Exc}}}}} | {{#if:{{{ExcR|}}}|Renal: {{{ExcR}}}&nbsp;%{{#if:{{{ExcI|}}}|<br />}}}}{{#if:{{{ExcI|}}}|Intestinal: {{{ExcI}}}&nbsp;%}} }}\n|etiqueta64 = [[Semivida (medicina)|Semivida]]\n|datos64    = {{{Semivida|}}}\n|etiqueta65 = Categoría embarazo"
+        },
+        {
+          "startLine": 379,
+          "endLine": 381,
+          "text": "\n|estilopiedetabla     = background-color:{{#if:{{{ATC_0|}}}{{{Biodisp|}}}{{{Metabolismo|}}}{{{Exc|}}}{{{ExcR|}}}{{{ExcI|}}}{{{Semivida|}}}{{{Embarazo|}}}|#DDDDDD|#F8EABA}};\n|piedetabla           = {{#if:{{{estado|}}}{{{apariencia|}}}{{{masa|}}}{{{dens1|}}}{{{dens2|}}}{{{PFK|}}}{{{PFC|}}}{{{PEK|}}}{{{PEC|}}}{{{PDK|}}}{{{PDC|}}}{{{TCK|}}}{{{TCC|}}}{{{PC|}}}{{{cristal|}}}{{{visco|}}}{{{índice refracción|}}}{{{dieléctrica|}}}|<span style=\"font-size:smaller\">Valores en el [[Sistema Internacional de Unidades|SI]] y en [[Condiciones estándar (química)|condiciones estándar]]<br />(25 [[Grado Celsius|℃]] y 1 [[atmósfera (unidad)|atm]]), salvo que se indique lo contrario.</span>}}}}<noinclude>{{documentación}}</noinclude>"
+        }
+      ]
+    },
+    {
+      "title": "Predefinição:Info/Droga",
+      "wiki": "pt",
+      "oldid": 69873897,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69873897",
+      "sourceSha256": "4fd2cc49a26a67610ad1b1aac8b039d1f1b15480b9a7dbddfcac045e2d746b44",
+      "excerpts": [
+        {
+          "startLine": 4,
+          "endLine": 10,
+          "text": "|-\n{{#if:{{{imagem|}}}|\n{{!}} align=\"center\" colspan=\"2\" {{!}} <center>[[Imagem:{{{imagem|{{PAGENAME}}.png}}}|{{{largura|220}}}px|Estrutura química de {{PAGENAME}}]]}}</center>\n{{#if:{{{imagem2|}}} |\n{{!}}-\n{{!}} align=\"center\" colspan=\"2\" {{!}} <center>[[Imagem:{{{imagem2}}}|  {{#if:{{{largura2|}}}|{{{largura2}}}|{{{largura|220}}}}}px]]</center>\n}}"
+        },
+        {
+          "startLine": 13,
+          "endLine": 15,
+          "text": "|-\n| style=\"text-align: center; vertical-align: top;\" colspan=\"2\" | {{#if:{{{nome_IUPAC|}}} | <span style=\"font-size:11px\">{{{nome_IUPAC}}}</span>}}\n|-"
+        },
+        {
+          "startLine": 17,
+          "endLine": 26,
+          "text": "|-\n{{#if:{{{número_CAS|}}} |\n{{!}} width=\"90\" {{!}} <div style=\"font-weight:bold\">[[Registro CAS|CAS]]</div>\n{{!}} <span class=\"plainlinks\">[http://www.nlm.nih.gov/cgi/mesh/2006/MB_cgi?term={{{número_CAS}}}&rn=1 {{{número_CAS}}}]</span> {{#if:{{{suplemento_CAS|}}} | <br>{{{suplemento_CAS|}}} }} \n}}\n|-\n{{#if:{{{prefixo_ATC|}}} |\n{{!}} <div style=\"font-weight:bold\">[[ATC]]</div>\n{{!}} [[código_ATC_{{{prefixo_ATC}}}|{{{prefixo_ATC}}}]]{{#if:{{{sufixo_ATC|}}} | <span class=\"plainlinks\">[http://www.whocc.no/atc_ddd_index/?code={{{prefixo_ATC}}}{{{sufixo_ATC}}} {{{sufixo_ATC}}}]</span>  {{{suplemento_ATC|}}} }}\n}}"
+        },
+        {
+          "startLine": 45,
+          "endLine": 49,
+          "text": "|-\n{{#if:{{{fórmula_química|{{{C|}}}}}} | \n{{!}} <div style=\"font-weight:bold\">[[Fórmula química|Fórmula molecular]]</div>\n{{!}} {{#if:{{{fórmula_química|}}} | {{{fórmula_química}}} | {{#if:{{{C|}}} | {{OrganicBox_{{#if:{{{C|}}} |atom }} | atom_name={{#if:{{{C|}}} |Carbono}}  | atom_color=rgb(000,000,000) | atom_abb=C  | atom_number={{{C}}}  |var1= }}<!--\n     DATA -->{{OrganicBox_{{#if:{{{H|}}} |atom }} | atom_name={{#if:{{{H|}}} |Hidrogénio }}  | atom_color=rgb(154,154,154) | atom_abb=H  | atom_number={{{H}}}  |var1= }}<!--"
+        },
+        {
+          "startLine": 68,
+          "endLine": 75,
+          "text": "|-\n{{#if:{{{peso_molecular|}}} | \n{{!}} <div style=\"font-weight:bold\">[[Massa molar]]</div>\n{{!}} {{{peso_molecular}}}\n}}\n|-\n{{#if:{{{smiles|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Simplified molecular input line entry specification|SMILES]]</div>"
+        },
+        {
+          "startLine": 78,
+          "endLine": 80,
+          "text": " | title =  \n | {{{smiles}}}\n}}"
+        },
+        {
+          "startLine": 82,
+          "endLine": 86,
+          "text": "|-\n{{#if:{{{sinonimos|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Sinónimo]]s</div>\n{{!}} {{{sinonimos}}}\n}}"
+        },
+        {
+          "startLine": 88,
+          "endLine": 95,
+          "text": "{{#if:{{{aparência|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' |\n{{#if:{{{densidade|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' |\n{{#if:{{{ponto_de_fusão|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' |\n{{#if:{{{ponto_de_ebulição|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' | \n{{#if:{{{solubilidade|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' |\n{{#if:{{{rotação_específica|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos''' | \n{{#if:{{{entalpia_de_combustão|}}} | {{!}} colspan=\"2\" bgcolor=\"#dddddd\" {{!}} '''Dados físicos'''\n}} }} }} }} }} }} }}"
+        },
+        {
+          "startLine": 101,
+          "endLine": 130,
+          "text": "|-\n{{#if:{{{densidade|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Densidade]]</div>\n{{!}} {{{densidade}}} [[grama|g]]/[[centímetro|cm]]<sup>3</sup>\n}}\n|-\n{{#if:{{{ponto_de_fusão|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Ponto de fusão]]</div>\n{{!}} {{{ponto_de_fusão}}} [[grau Celsius|°C]] \n}}\n|-\n{{#if:{{{ponto_de_ebulição|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Ponto de ebulição]]</div>\n{{!}} {{{ponto_de_ebulição}}} [[grau Celsius|°C]]\n}}\n|-\n{{#if:{{{solubilidade|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Solubilidade]] em [[água]]</div>\n{{!}} {{{solubilidade}}} [[miligrama|mg]]/[[mililitro|mL]] (20 [[grau Celsius|°C]])\n}}\n|-\n{{#if:{{{rotação_específica|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Rotação específica]]</div>\n{{!}} {{{rotação_específica}}}\n}}\n|-\n{{#if:{{{entalpia_de_combustão|}}} |\n{{!}} <div style=\"font-weight:bold\">[[Entalpia padrão de combustão|Entalpia Comb.]]</div>\n{{!}} {{{entalpia_de_combustão}}}\n}}"
+        },
+        {
+          "startLine": 133,
+          "endLine": 157,
+          "text": "|-\n{{#if:{{{biodisponibilidade|}}} |\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Biodisponibilidade]]</div>\n{{!}} {{{biodisponibilidade}}}\n}}\n{{#if:{{{ligação_a_proteínas|}}} |\n{{!}}-\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Ligação a proteínas plasmáticas|Ligação a proteínas]]</div>\n{{!}} {{{ligação_a_proteínas}}}\n}}\n|-\n{{#if:{{{metabolismo|}}} |\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Metabolismo]]</div>\n{{!}} {{{metabolismo}}}\n}}\n|-\n{{#if:{{{meia_vida_de_eliminação|}}} |\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Meia-vida de eliminação|Meia-vida]]</div>\n{{!}} {{{meia_vida_de_eliminação}}}\n}}\n|-\n{{#if:{{{excreção|}}} |\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Excreção]]</div>\n{{!}} {{{excreção}}}\n}}"
+        },
+        {
+          "startLine": 160,
+          "endLine": 164,
+          "text": "|-\n{{#if:{{{vias_de_administração|}}} |\n{{!}} style=\"vertical-align: top;\" {{!}} <div style=\"font-weight:bold\">[[Via de administração|Administração]]</div>\n{{!}} {{{vias_de_administração}}}\n}}"
+        }
+      ]
+    },
+    {
+      "title": "Predefinição:Info/Química",
+      "wiki": "pt",
+      "oldid": 69946908,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69946908",
+      "sourceSha256": "d0b653b4a4f3f5c3fa2c905e745522db03f55771ca0c46688fe8a8750c367f27",
+      "excerpts": [
+        {
+          "startLine": 3,
+          "endLine": 5,
+          "text": "<!-- Identificação -->\n| título           = {{#if:{{{Name|}}}{{{Nome|}}}|{{{Name|{{{Nome}}}}}}|{{PAGENAME}}}}{{#if:{{{Reference|}}}|{{{Reference}}} }}\n"
+        },
+        {
+          "startLine": 16,
+          "endLine": 77,
+          "text": "<!-- Imagem (1/7) -->\n|dados1       = {{#if:{{{ImageFile|}}}|{{#if:{{{ImageSize|}}}|[[Ficheiro:{{{ImageFile|}}}|{{{ImageSize|}}}|center|alt={{{ImageAlt|}}}|class={{{ImageClass|}}}|{{{ImageName|}}}]]{{#if:{{{ImageCaption|}}}|<div style=\"text-align:center;\">{{{ImageCaption|}}}{{{ImageFile_Ref|}}}</div>}}|[[Ficheiro:{{{ImageFile|}}}|200px|center|alt={{{ImageAlt|}}}|class={{{ImageClass|}}}|{{{ImageName|}}}]]{{#if:{{{ImageCaption|}}}|<div style=\"text-align:center;\">{{{ImageCaption|}}}{{{ImageFile_Ref|}}}</div>}}}}}}\n\n<!-- Imagem (2/7) -->\n|dados2       = {{#if:{{{ImageFile1|}}}|{{#if:{{{ImageSize1|}}}|[[Ficheiro:{{{ImageFile1|}}}|{{{ImageSize1|}}}|center|alt={{{ImageAlt1|}}}|class={{{ImageClass1|}}}|{{{ImageName1|}}}]]{{#if:{{{ImageCaption1|}}}|<div style=\"text-align:center;\">{{{ImageCaption1|}}}{{{ImageFile1_Ref|}}}</div>}}|[[Ficheiro:{{{ImageFile1|}}}|200px|center|alt={{{ImageAlt1|}}}|class={{{ImageClass1|}}}|{{{ImageName1|}}}]]{{#if:{{{ImageCaption1|}}}|<div style=\"text-align:center;\">{{{ImageCaption1|}}}{{{ImageFile1_Ref|}}}</div>}}}}}}\n\n<!-- Imagem (3/7) -->\n|dados3 = {{#if:{{{ImageFileL1|}}}{{{ImageFileR1|}}}\n |<table border=\"0\" style=\"width:100%; display:inline-table;\">\n  <tr style=\"display:flex; flex-wrap:nowrap;align-content:center; align-items:center; justify-content:space-evenly;\">\n    {{#if:{{{ImageFileL1|}}}\n     |<td style=\"border-right:1px solid #aaa; width:50%;\">\n       [[Ficheiro:{{{ImageFileL1}}}|{{#if:{{{ImageSizeL1|}}}|{{{ImageSizeL1}}}|100px}}|center|alt={{{ImageAltL1|}}}|class={{{ImageClassL1|}}}|{{{ImageNameL1|}}}]]\n       {{#if:{{{ImageCaptionL1|}}}|<div style=\"text-align:center;\">{{{ImageCaptionL1}}}{{{ImageFileL1_Ref|}}}</div>}}</td>}}\n    {{#if:{{{ImageFileR1|}}}\n     |<td style=\"width:50%;\">\n       [[Ficheiro:{{{ImageFileR1}}}|{{#if:{{{ImageSizeR1|}}}|{{{ImageSizeR1}}}|100px}}|center|alt={{{ImageAltR1|}}}|class={{{ImageClassR1|}}}|{{{ImageNameR1|}}}]]\n       {{#if:{{{ImageCaptionR1|}}}|<div style=\"text-align:center;\">{{{ImageCaptionR1}}}{{{ImageFileR1_Ref|}}}</div>}}</td>}}</tr>\n  {{#if:{{{ImageCaptionLR1|}}}\n   |<tr><td colspan=\"2\" style=\"padding-top:8px !important\"><div style=\"text-align:center;\">{{{ImageCaptionLR1}}}{{{ImageFileLR1_Ref|}}}</div></td></tr>}}</table>}}\n\n<!-- Imagem (4/7) -->\n|dados4       = {{#if:{{{ImageFile2|}}}|{{#if:{{{ImageSize2|}}}|[[Ficheiro:{{{ImageFile2|}}}|{{{ImageSize2|}}}|center|alt={{{ImageAlt2|}}}|class={{{ImageClass2|}}}|{{{ImageName2|}}}]]{{#if:{{{ImageCaption2|}}}|<div style=\"text-align:center;\">{{{ImageCaption2|}}}{{{ImageFile2_Ref|}}}</div>}}|[[Ficheiro:{{{ImageFile2|}}}|200px|center|alt={{{ImageAlt2|}}}|class={{{ImageClass2|}}}|{{{ImageName2|}}}]]{{#if:{{{ImageCaption2|}}}|<div style=\"text-align:center;\">{{{ImageCaption2|}}}{{{ImageFile2_Ref|}}}</div>}}}}}}\n\n<!-- Imagem (5/7) -->\n|dados5 = {{#if:{{{ImageFileL2|}}}{{{ImageFileR2|}}}\n |<table border=\"0\" style=\"width:100%; display:inline-table;\">\n  <tr style=\"display:flex; flex-wrap:nowrap; align-content:center; align-items:center; justify-content:space-evenly;\">\n    {{#if:{{{ImageFileL2|}}}\n     |<td style=\"border-right:1px solid #aaa; width:50%;\">\n       [[Ficheiro:{{{ImageFileL2}}}|{{#if:{{{ImageSizeL2|}}}|{{{ImageSizeL2}}}|100px}}|center|alt={{{ImageAltL2|}}}|class={{{ImageClassL2|}}}|{{{ImageNameL2|}}}]]\n       {{#if:{{{ImageCaptionL2|}}}|<div style=\"text-align:center;\">{{{ImageCaptionL2}}}{{{ImageFileL2_Ref|}}}</div>}}</td>}}\n    {{#if:{{{ImageFileR2|}}}\n     |<td style=\"width:50%;\">\n       [[Ficheiro:{{{ImageFileR2}}}|{{#if:{{{ImageSizeR2|}}}|{{{ImageSizeR2}}}|100px}}|center|alt={{{ImageAltR2|}}}|class={{{ImageClassR2|}}}|{{{ImageNameR2|}}}]]\n       {{#if:{{{ImageCaptionR2|}}}|<div style=\"text-align:center;\">{{{ImageCaptionR2}}}{{{ImageFileR2_Ref|}}}</div>}}</td>}}</tr>\n  {{#if:{{{ImageCaptionLR2|}}}\n   |<tr><td colspan=\"2\" style=\"padding-top:8px !important\"><div style=\"text-align:center;\">{{{ImageCaptionLR2}}}{{{ImageFileLR2_Ref|}}}</div></td></tr>}}</table>}}\n\n<!-- Imagem (6/7) -->\n|dados6       = {{#if:{{{ImageFile3|}}}|{{#if:{{{ImageSize3|}}}|[[Ficheiro:{{{ImageFile3|}}}|{{{ImageSize3|}}}|center|alt={{{ImageAlt3|}}}|class={{{ImageClass3|}}}|{{{ImageName3|}}}]]{{#if:{{{ImageCaption3|}}}|<div style=\"text-align:center;\">{{{ImageCaption3|}}}{{{ImageFile3_Ref|}}}</div>}}|[[Ficheiro:{{{ImageFile3|}}}|200px|center|alt={{{ImageAlt3|}}}|class={{{ImageClass3|}}}|{{{ImageName3|}}}]]{{#if:{{{ImageCaption3|}}}|<div style=\"text-align:center;\">{{{ImageCaption3|}}}{{{ImageFile3_Ref|}}}</div>}}}}}}\n\n<!-- Imagem (7/7) -->\n|dados7 = {{#if:{{{ImageFileL3|}}}{{{ImageFileR3|}}}\n |<table border=\"0\" style=\"width:100%; display:inline-table;\">\n  <tr style=\"display:flex; flex-wrap:nowrap; align-content:center; align-items:center; justify-content:space-evenly;\">\n    {{#if:{{{ImageFileL3|}}}\n     |<td style=\"border-right:1px solid #aaa; width:50%;\">\n       [[Ficheiro:{{{ImageFileL3}}}|{{#if:{{{ImageSizeL3|}}}|{{{ImageSizeL3}}}|100px}}|center|alt={{{ImageAltL3|}}}|class={{{ImageClassL3|}}}|{{{ImageNameL3|}}}]]\n       {{#if:{{{ImageCaptionL3|}}}|<div style=\"text-align:center;\">{{{ImageCaptionL3}}}{{{ImageFileL3_Ref|}}}</div>}}</td>}}\n    {{#if:{{{ImageFileR3|}}}\n     |<td style=\"width:50%;\">\n       [[Ficheiro:{{{ImageFileR3}}}|{{#if:{{{ImageSizeR3|}}}|{{{ImageSizeR3}}}|100px}}|center|alt={{{ImageAltR3|}}}|class={{{ImageClassR3|}}}|{{{ImageNameR3|}}}]]\n       {{#if:{{{ImageCaptionR3|}}}|<div style=\"text-align:center;\">{{{ImageCaptionR3}}}{{{ImageFileR3_Ref|}}}</div>}}</td>}}</tr>\n  {{#if:{{{ImageCaptionLR3|}}}\n   |<tr><td colspan=\"2\" style=\"padding-top:8px !important\"><div style=\"text-align:center;\">{{{ImageCaptionLR3}}}{{{ImageFileLR3_Ref|}}}</div></td></tr>}}</table>}}\n\n<!--- Dados --->\n|tópico8      = {{#if:{{{IUPACName|}}}{{{SystematicName|}}}{{{OtherNames|}}}|Nomes}}\n|rótulo8      = [[Nomenclatura IUPAC|Nome IUPAC]]\n|dados8       = {{{IUPACName|}}}\n|rótulo9      = [[Nomenclatura IUPAC|Nome sistemático]]"
+        },
+        {
+          "startLine": 79,
+          "endLine": 81,
+          "text": "|rótulo10     = Outros nomes\n|dados10      = {{{OtherNames|}}}\n|rótulo11     = Abreviação"
+        },
+        {
+          "startLine": 83,
+          "endLine": 93,
+          "text": "|rótulo13     = [[Fórmula química|Fórmula molecular]]\n|dados13      = {{{Formula|}}}\n|rótulo14     = [[Massa molar]]\n|dados14      = {{{MolarMass|}}}\n|rótulo15     = [[Massa molar]]\n|dados15      = {{{MolarMass|}}}\n|rótulo16     = [[Registro CAS|Número CAS]]\n|dados16      = {{#if:{{{CASNo|}}}|[https://commonchemistry.cas.org/detail?cas_rn={{{CASNo}}} {{{CASNo}}}]}}{{#if:{{{CASNos|}}}|{{#if:{{{CASNo|}}}|, }}{{{CASNos|}}} }}{{#if:{{{CASOther|}}}|{{#if:{{{CASNo|}}}{{{CASNos|}}}|, }}{{{CASOther|}}} }}\n|rótulo17     = [[Densidade]]\n|dados17      = {{{Density|}}}\n|rótulo18     = [[Solubilidade]] {{#if:{{{Solvent|}}}|em {{{Solvent}}}|}}"
+        },
+        {
+          "startLine": 95,
+          "endLine": 99,
+          "text": "|rótulo19     = [[Ponto de fusão]]\n|dados19      = {{{MeltingPt|}}}\n|rótulo20     = [[Ponto de ebulição]]\n|dados20      = {{{BoilingPt|}}}\n|rótulo21     = [[Coeficiente de partição|log P]]"
+        },
+        {
+          "startLine": 121,
+          "endLine": 125,
+          "text": "|rótulo32     = [[SMILES]]\n|dados32      = {{#if:{{{SMILES|}}}|<small><tt>{{Collapsible list|title = &nbsp; |1={{{SMILES|}}} }}</tt></small>}}\n|rótulo33     = [[Identificador Químico Internacional|InChI]]\n|dados33      = {{#if:{{{InChI|}}}|<div style=\"word-break: break-all;\">{{{InChI|}}}</div>}}\n"
+        }
+      ]
+    },
+    {
+      "title": "Predefinição:Chembox Identifiers",
+      "wiki": "pt",
+      "oldid": 69934566,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69934566",
+      "sourceSha256": "3fa7eb745db060c56573577e2450e65ab1f76bbdff8596e409a2535db6204874",
+      "excerpts": [
+        {
+          "startLine": 1,
+          "endLine": 3,
+          "text": "<!-- Química: Identificadores (Chembox Identifiers) -->\n{{#if:{{{Abbreviations|}}}{{{MolarMass|}}}{{{CASNo|}}}{{{CASNos|}}}{{{CASOther|}}}{{{SMILES|}}}{{{InChI|}}}{{{InChIKey|}}}{{{DrugBank|}}}{{{ChemSpiderID|}}}{{{EINECS|}}}{{{EINECSCASNO|}}}{{{PubChem|}}}{{{RTECS|}}}{{{KEGG|}}}{{{MeSHName|}}}{{{ATCCode|}}}{{{ATCCode_prefix|}}}{{{ATCCode_suffix|}}}{{{ChEBI|}}}{{{Beilstein|}}}{{{Gmelin|}}}{{{3DMet|}}}{{{ATC_Supplemental|}}}{{{DCB|}}}{{{Medicamento_de_referência|}}}|\n{{Info"
+        },
+        {
+          "startLine": 16,
+          "endLine": 18,
+          "text": "|rótulo3     = [[Registro CAS|Número CAS]]\n|dados3      = {{#if:{{{CASNo|}}}|[https://commonchemistry.cas.org/detail?cas_rn={{{CASNo}}} {{{CASNo}}}]}}{{#if:{{{CASNos|}}}|{{#if:{{{CASNo|}}}|, }}{{{CASNos|}}} }}{{#if:{{{CASOther|}}}|{{#if:{{{CASNo|}}}{{{CASNos|}}}|, }}{{{CASOther|}}} }}\n|rótulo4     = [[PubChem]]"
+        },
+        {
+          "startLine": 24,
+          "endLine": 30,
+          "text": "|rótulo7     = [[DrugBank]]\n|dados7      = {{#if:{{{DrugBank|}}}|[http://redpoll.pharmacy.ualberta.ca/drugbank/cgi-bin/getCard.cgi?CARD={{{DrugBank}}} {{{DrugBank}}}]}}\n|rótulo8     = [[ChemSpider]]\n|dados8      = {{#if:{{{ChemSpiderID|}}}|[http://www.chemspider.com/Chemical-Structure.{{{ChemSpiderID}}} {{{ChemSpiderID}}}]}}\n|rótulo9     = [[KEGG]]\n|dados9      = {{#if:{{{KEGG|}}}|[http://www.genome.ad.jp/dbget-bin/www_bget?cpd:{{{KEGG}}} {{{KEGG}}}]}}\n|rótulo10    = [[Medical Subject Headings|MeSH]]"
+        },
+        {
+          "startLine": 32,
+          "endLine": 34,
+          "text": "|rótulo11    = [[ChEBI]]\n|dados11     = {{#if:{{{ChEBI|}}}|[https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:{{{ChEBI}}} {{{ChEBI}}}]}}\n|rótulo12    = [[Número RTECS]]"
+        },
+        {
+          "startLine": 38,
+          "endLine": 45,
+          "text": "|rótulo14    = [[SMILES]]\n|dados14     = {{#if:{{{SMILES|}}}|<small><tt>{{Collapsible list|title = &nbsp; |1={{{SMILES|}}} }}</tt></small>}}\n|rótulo15    = [[Identificador Químico Internacional|InChI]]\n|dados15     = {{#if:{{{InChI|}}}{{{InChIKey|}}}|<small><tt>{{Collapsible list|title = &nbsp; |1=\n{{#if:{{{InChI|}}}|<div style=\"word-wrap:break-all;\">{{#if:{{{ix_label|}}} |{{{ix_label|}}}:&#x20;}}InChI={{{InChI|}}}{{{InChI_Ref|}}}</div>}}\n\n{{#if:{{{InChIKey|}}}|<div style=\"word-wrap:break-all;\">{{#if:{{{ix_label|}}} |{{{ix_label|}}}:&#x20;}}Key:{{{InChIKey|}}}{{{InChIKey_Ref|}}}</div>}}\n}}</tt></small>}}"
+        }
+      ]
+    },
+    {
+      "title": "Predefinição:Chembox Pharmacology",
+      "wiki": "pt",
+      "oldid": 70092713,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70092713",
+      "sourceSha256": "bcc31519167b2f3459daf13e36f5d1cc760c3f911885b846f123a12549ce7893",
+      "excerpts": [
+        {
+          "startLine": 1,
+          "endLine": 3,
+          "text": "<!-- Química: Farmacologia (Chembox Pharmacology) -->\n{{#if:{{{ATCCode|}}}{{{DrugBank|}}}{{{ProteinBound|}}}{{{Bioavail|}}}{{{Metabolism|}}}{{{HalfLife|}}}{{{Excretion|}}}{{{Volume_de_distribuição|}}}{{{Depuração|}}}{{{Concentrações_máximas|}}}{{{DE50|}}}{{{CE50|}}}{{{IT|}}}{{{Teratogenicidade|}}}{{{PregCat|}}}{{{PregCat_UK|}}}{{{PregCat_US|}}}{{{PregCat_AU|}}}{{{PregCat_CA|}}}{{{Legal_US|}}}{{{Legal_UK|}}}{{{Legal_AU|}}}{{{Legal_CA|}}}{{{Legal_BR|}}}{{{Legal_status|}}}{{{AdminRoutes|}}}{{{Licence_EU|}}}{{{Licence_US|}}}{{{Dependency_liability|}}}|\n{{Info"
+        },
+        {
+          "startLine": 16,
+          "endLine": 28,
+          "text": "|rótulo3     = [[Biodisponibilidade]]\n|dados3      = {{{Bioavail|}}}\n|rótulo4     = [[Via de administração|Via(s) de administração]]\n|dados4      = {{{AdminRoutes|}}}\n|rótulo5     = [[Metabolismo]]\n|dados5      = {{{Metabolism|}}}\n|rótulo6     = [[Meia-vida biológica]]\n|dados6      = {{{HalfLife|}}}\n|rótulo7     = [[Ligação a proteínas plasmáticas|Ligação plasmática]]\n|dados7      = {{{ProteinBound|}}}\n|rótulo8     = [[Excreção]]\n|dados8      = {{{Excretion|}}}\n|rótulo9     = [[Volume de distribuição]]"
+        }
+      ]
+    }
+  ],
+  "wikipediaWrites": 0
+}

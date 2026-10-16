@@ -1,0 +1,17 @@
+RevisaWiki 2.14.0
+16 de outubro de 2026
+
+- Adapta chamadas reconhecidas de uma enciclopédia importada para Citar enciclopédia, preservando os dados da obra e as indicações de domínio público. A conversão evita as categorias de manutenção estrangeiras geradas pelo modelo antigo.
+- Corrige alinhar e alinhar_fonte em Caixa de citação para os nomes nativos correspondentes, quando o valor e a ausência de conflitos confirmam a mudança.
+- Recupera campos importados do inglês, espanhol, francês e alemão dentro de infocaixas nativas reconhecidas de medicamentos e substâncias químicas, sem converter unidades nem alterar valores.
+- Reduz linhas vazias excedentes entre parágrafos comuns a uma linha vazia, preservando exemplos e estruturas em que o espaçamento pode ter outra função.
+- Retira a comparação própria do painel. Mostrar alterações abre o controle nativo do editor quando ele está disponível.
+- Agrupa sugestões repetidas pela mesma predefinição e pelo mesmo parâmetro, com a quantidade de ocorrências e os detalhes de cada uma.
+- Abre Precisa de revisão por padrão e respeita a escolha de recolher essa seção.
+- Guarda a descrição curta retirada em um detalhe dentro de Precisa de revisão, fora da lista principal de ajustes. Avisos genéricos de preservação e sugestões de trocar listas Vancouver válidas deixam de ocupar o relatório.
+
+Os arquivos finais da 2.14.0 passaram por 30.339 casos e 225.291 verificações na rodada principal. A matriz complexa acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 540 fluxos da interface e das imagens, com 43.527 verificações. Os testes específicos dos reparos, do relatório e das projeções nativas somaram 26.593 casos adicionais. A comparação própria retirada não foi tratada como um recurso ainda testado. O inventário registra as asserções substituídas, e o atalho nativo foi conferido com cliques locais interceptados, sem carregar um diff remoto da Wikipédia. As expectativas positivas que mudaram pela regra de espaçamento têm diferenças literais registradas, sem mudar os arquivos históricos nem dispensar as verificações de conteúdo. As projeções nativas conferem os trechos afetados, incluindo fórmulas, identificadores, dados clínicos e espaçamento. Elas não equivalem à análise nativa de artigos inteiros. Os contratos e as respostas guardadas mantêm sua origem e seus hashes. Casos sintéticos e permutações não contam como artigos distintos. As rodadas finais não tiveram falhas. O ensaio comparativo mediu duas versões em cinco artigos grandes e não comprova um ganho geral de velocidade. Os resultados e os hashes ficam em tests/evidence/2.14.0. Nenhum teste editou a Wikipédia.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki
