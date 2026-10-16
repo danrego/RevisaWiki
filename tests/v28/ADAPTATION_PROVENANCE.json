@@ -1,0 +1,331 @@
+{
+  "baseVersion": "2.7.3",
+  "targetVersion": "2.8.0",
+  "baselineManifest": "tests/expected_release_v273.json",
+  "baselineManifestSha256": "42c28afa2a38455844cd8c9747d88a362de54b5b596afd981935966d22bde72c",
+  "scope": "The frozen v273 suites are read-only inputs. Portable copies change explicit release selectors and report destinations only, preserving all versioned exported helper names. Existing assertion bodies, fixtures and expected results remain. New 2.8 biography cases are separate.",
+  "files": [
+    {
+      "source": "tests/v273/candidate.cjs",
+      "sourceSha256": "20d8545a1f39f3e522477ad000bfff423a4dbee388514eca1b4dd8bd14e2f7c6",
+      "target": "tests/v28/candidate.cjs",
+      "targetSha256": "756a2f475e8c37efc5aa3fc68d0e60e5e90340d4b91d78c7835a42be914d5be0",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/check_server_grammar.php",
+      "sourceSha256": "165a687dea3475cc1a28eb02e93f51a924aff135cabf3e2805c59f2c9c7fa868",
+      "target": "tests/v28/check_server_grammar.php",
+      "targetSha256": "b3487e1adbbce1fa4b8fc784865bd187e4227245f12594b2fb2a2cdc9fe5ad6b",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "target": "tests/v28/engine_helper.cjs",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_all.cjs",
+      "sourceSha256": "fddd556eb14daa1cd74d0aca7ecbdd150e239b2a283a4f75a3aa04f2bd41c283",
+      "target": "tests/v28/run_all.cjs",
+      "targetSha256": "8ef0c8f54fca8ce72ee4124d25973fe1d1a049c159e94e1eee977673dd2418f9",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged.",
+        "Adds the four separate 2.8 biography regression runners. All inherited runner entries remain."
+      ]
+    },
+    {
+      "source": "tests/v273/run_edited_corpus.cjs",
+      "sourceSha256": "c4a414dfd3f5f2e41468305ff0973c3ca41fcbdeb008c3b8624aac9f70595ce6",
+      "target": "tests/v28/run_edited_corpus.cjs",
+      "targetSha256": "da9ef3fcbce68630a0080ea5bdd1bf87a8ae7e988acb595a06a654d0d6caeaed",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_engine.cjs",
+      "sourceSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "target": "tests/v28/run_engine.cjs",
+      "targetSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "target": "tests/v28/run_focus.cjs",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_quote_boundaries.cjs",
+      "sourceSha256": "98400e03f64d3b915bb7bec742ec2041db302fc04076bee0bc976a95c0876437",
+      "target": "tests/v28/run_quote_boundaries.cjs",
+      "targetSha256": "4b6b17fbfb721daa4aa4befc11a5a3e39a74d12a42ea6ecadf53a498c220c793",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_server_grammar.mjs",
+      "sourceSha256": "5daba76191fd51b240942967a42889070aebff0ad7120107dafaa8c7d81af4de",
+      "target": "tests/v28/run_server_grammar.mjs",
+      "targetSha256": "e11d96a317ed6920e3c9aaec94dd5764117411d74c6582a24a39b67465b45ac9",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_startup.cjs",
+      "sourceSha256": "d5b6a0f05f4a46015768fe52c5e50ad4de5965c9e49b17882fe8888f63d66622",
+      "target": "tests/v28/run_startup.cjs",
+      "targetSha256": "81acf1868e5084c816aa566d34ecbbe2f9507633bd7f88ac7054260d495f783d",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/run_tag_adversarial.cjs",
+      "sourceSha256": "4e51e104f8c482dc62df743a7c29bd3ae033e0c62bb99c23ca24b4d6bd5fe1d1",
+      "target": "tests/v28/run_tag_adversarial.cjs",
+      "targetSha256": "8db2b5e4ccc3f16eb28735aecaf3a6f7011b6e98055b0c1abad90b0a7dd319a9",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/summarize.cjs",
+      "sourceSha256": "dcc751eafade5c0ba527c1fa3a335942ef434adda07c64980adf12c20fecfb5c",
+      "target": "tests/v28/summarize.cjs",
+      "targetSha256": "a1e4e170dc85340b07c12f94bb069c1c0e87a28acfaebd0f6e3e447828bab5b9",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged.",
+        "Adds the four separate 2.8 biography test reports without changing existing report accounting."
+      ]
+    },
+    {
+      "source": "tests/v273/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "target": "tests/v28/test_chat_permutations.cjs",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_chat_residues.cjs",
+      "sourceSha256": "da1c6436daf332ffd7c1c09b2ba9fde8a7cdc14f94bce448b0b12a2dfafc0c3e",
+      "target": "tests/v28/test_chat_residues.cjs",
+      "targetSha256": "7c473c3256011b1c606244cbf07e6cf9ec587f0b5d50367429f9c6a8c829fe65",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_chemical_guards.cjs",
+      "sourceSha256": "d5d8b51edfce1d9e26ec743154010de21393c7c404efadc9cfacfcc948214c76",
+      "target": "tests/v28/test_chemical_guards.cjs",
+      "targetSha256": "726f79cfde7b6dd243d44724573e49cf0e7f6106ad8382eb547372b0f160905e",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_chemical_syntax.cjs",
+      "sourceSha256": "a71d203f83f6c3d6d4f08ac4fc9302286204697972035853db46ac8bc9716ad4",
+      "target": "tests/v28/test_chemical_syntax.cjs",
+      "targetSha256": "70584d00a28ff3b703cd33c921b9ca8aab0c3a492dd81d705e37c1e0da036fb4",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "target": "tests/v28/test_diff_reporting.cjs",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_index.cjs",
+      "sourceSha256": "9b9dabc5377fe6be062464cbde8179c0fc1cadd675a566a71d143d9ad467b256",
+      "target": "tests/v28/test_index.cjs",
+      "targetSha256": "fa00cc926ba7ba3e994432d02f4ac634984dd32dd16c2dce3951cbea4abca406",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_marriage_guards.cjs",
+      "sourceSha256": "fb247a0860a8c7e4f71256374dbdb0ba6e2be432d6ae022bb9c879efd6e853a0",
+      "target": "tests/v28/test_marriage_guards.cjs",
+      "targetSha256": "5073f4d7352005fc34de49c6e590e163da54e81a9d1ae358d5ed0e9e0b8fc3a6",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_marriage_syntax.cjs",
+      "sourceSha256": "f300e10f96f9d66ab9f01fd43db5d84ea6db1e464c5a9a47e84527113c41fa91",
+      "target": "tests/v28/test_marriage_syntax.cjs",
+      "targetSha256": "02155f90f8094dc73e7b257b4bead091033846d005c28523a2d8dd6f9bb82c2a",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_no_section_buttons.cjs",
+      "sourceSha256": "6b1c0d4a5e2a80b8689493b6bd5ce47a9f9f728888cc3980ab33a9d99d34054c",
+      "target": "tests/v28/test_no_section_buttons.cjs",
+      "targetSha256": "1aadd905e783f6397a61d271b307eba645b0b6d100dd16fb4290bf989a80a6ea",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_quotes.cjs",
+      "sourceSha256": "0e59dc47ca1f496d971d928806039e98ebdcb9a24741bfea3957c6f6a9b97ede",
+      "target": "tests/v28/test_quotes.cjs",
+      "targetSha256": "c2a190c36d4b301217fa01a91b41f95edbb7d59e0c8550069d4e418c555c5714",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_safe_automation.cjs",
+      "sourceSha256": "304b14088bcb7b904a54f4e73b0e0358d42488e91dbe586e2376aaf7ed507cdf",
+      "target": "tests/v28/test_safe_automation.cjs",
+      "targetSha256": "3e20163784ffa84b60ce7f51289ed64105f31516186b16a9e79145b102fd451d",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_table_guards.cjs",
+      "sourceSha256": "6c7fa4ad3af979781f25f26ca123640937694f431e52aa04b3daf6bf23ca0a4d",
+      "target": "tests/v28/test_table_guards.cjs",
+      "targetSha256": "18987596d1d18fed7827a75c2df8c73e1698332063dc9aad364508360ce75083",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    },
+    {
+      "source": "tests/v273/test_table_syntax.cjs",
+      "sourceSha256": "c87c1622ecd6910252b4747545b21948b56ac930afc4a1ab35b50cf6327c6239",
+      "target": "tests/v28/test_table_syntax.cjs",
+      "targetSha256": "6b6db56db9d2e259cefc55776134ef8c36e59cc2ab43d3c65ee17f003ab88ceb",
+      "adaptations": [
+        "Release version, distribution filename and report-directory substitutions only. Existing versioned helper APIs remain unchanged."
+      ]
+    }
+  ],
+  "fixtureCopies": [
+    {
+      "source": "tests/v273/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "target": "tests/v28/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "sha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b"
+    },
+    {
+      "source": "tests/v273/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "target": "tests/v28/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "sha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381"
+    },
+    {
+      "source": "tests/v273/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "target": "tests/v28/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "sha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b"
+    },
+    {
+      "source": "tests/v273/fixtures/chemical_articles/manifest.json",
+      "target": "tests/v28/fixtures/chemical_articles/manifest.json",
+      "sha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f"
+    },
+    {
+      "source": "tests/v273/fixtures/city_temperature/ATTRIBUTION.txt",
+      "target": "tests/v28/fixtures/city_temperature/ATTRIBUTION.txt",
+      "sha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2"
+    },
+    {
+      "source": "tests/v273/fixtures/city_temperature/article.wiki",
+      "target": "tests/v28/fixtures/city_temperature/article.wiki",
+      "sha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902"
+    },
+    {
+      "source": "tests/v273/fixtures/city_temperature/source_revision.json",
+      "target": "tests/v28/fixtures/city_temperature/source_revision.json",
+      "sha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31"
+    },
+    {
+      "source": "tests/v273/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "target": "tests/v28/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "sha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a"
+    },
+    {
+      "source": "tests/v273/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "target": "tests/v28/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "sha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6"
+    },
+    {
+      "source": "tests/v273/fixtures/marriage_articles/complete_manifest.json",
+      "target": "tests/v28/fixtures/marriage_articles/complete_manifest.json",
+      "sha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d"
+    },
+    {
+      "source": "tests/v273/fixtures/marriage_articles/manifest.json",
+      "target": "tests/v28/fixtures/marriage_articles/manifest.json",
+      "sha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5"
+    },
+    {
+      "source": "tests/v273/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "target": "tests/v28/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "sha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845"
+    },
+    {
+      "source": "tests/v273/fixtures/table_articles/entity_Q4177928.json",
+      "target": "tests/v28/fixtures/table_articles/entity_Q4177928.json",
+      "sha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a"
+    },
+    {
+      "source": "tests/v273/fixtures/table_articles/manifest.json",
+      "target": "tests/v28/fixtures/table_articles/manifest.json",
+      "sha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0"
+    }
+  ],
+  "additionalRunners": [
+    "test_biography_fields.cjs",
+    "test_biography_dates.cjs",
+    "test_multiple_marriages.cjs",
+    "test_biography_composition.cjs"
+  ],
+  "additionalReports": [
+    "biography_fields.json",
+    "biography_dates.json",
+    "multiple_marriages.json",
+    "biography_composition.json"
+  ],
+  "documentationCopies": [
+    {
+      "source": "tests/v273/README.md",
+      "sourceSha256": "c1746df8c83017567a84637a68a45156947d38e0f2e6d3c83b24b85eb9d13f58",
+      "target": "tests/v28/README.md",
+      "targetSha256": "78082cdab36a6310bcfb3efbe20bbf400f4b51e6d21bfe1944cf3cc5c29483ce",
+      "adaptations": [
+        "Current test documentation rewritten for 2.8.0; executable assertion files are verified separately."
+      ]
+    }
+  ]
+}

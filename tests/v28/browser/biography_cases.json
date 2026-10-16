@@ -1,0 +1,259 @@
+{
+  "version": "2.8.0",
+  "kind": "synthetic-local-biography-field-date-and-marriage-cases",
+  "positive": [
+    {
+      "id": "embedded-image-caption-width",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|imagem=[[Imagem:Retrato.jpg|miniatura|220px|Retrato em 2000]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "Retrato.jpg",
+        "Retrato em 2000"
+      ],
+      "absentFragments": [
+        "[[Imagem:Retrato.jpg"
+      ]
+    },
+    {
+      "id": "external-website-internal-brackets",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|website=[[https://example.org|Site oficial]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "[https://example.org Site oficial]"
+      ],
+      "absentFragments": [
+        "[[https://"
+      ]
+    },
+    {
+      "id": "duplicated-site-protocol",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|website=https://https://example.org\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "https://example.org"
+      ],
+      "absentFragments": [
+        "https://https://"
+      ]
+    },
+    {
+      "id": "occupation-list",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|ocupação=ator, cantor\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "ator<br />cantor"
+      ],
+      "absentFragments": [
+        "ator, cantor"
+      ]
+    },
+    {
+      "id": "full-dates-live-birth-age",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data={{Dni|1|1|1900}}\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{Dni|1|1|1900|si}}",
+        "{{Morte|2|1|1980|1|1|1900}}"
+      ]
+    },
+    {
+      "id": "fully-named-birth-date",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data={{Dni|1=1|2=1|3=1900}}\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{Dni|1=1|2=1|3=1900|4=si}}",
+        "{{Morte|2|1|1980|1|1|1900}}"
+      ]
+    },
+    {
+      "id": "literal-full-dates",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data=1 de janeiro de 1900\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "1 de janeiro de 1900",
+        "{{Morte|2|1|1980|1|1|1900}}"
+      ]
+    },
+    {
+      "id": "independently-complete-br-marriages",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|cônjuge=Pessoa A (casado em 1950; divorciado em 1960)<ref name=\"a\">Fonte A.</ref><br />Pessoa B (casado em 1970)<ref name=\"b\">Fonte B.</ref>\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{casamento|tipo=h|()=pequeno|Pessoa A|1950|1960|fim=divorciado}}<ref name=\"a\">Fonte A.</ref><br />{{casamento|tipo=h|()=pequeno|Pessoa B|1970}}<ref name=\"b\">Fonte B.</ref>"
+      ]
+    },
+    {
+      "id": "independently-complete-list-marriages",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|cônjuge=\n* Pessoa A (casados de 1950 a 1960)\n* Pessoa B (casados em 1970)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "* {{casamento|tipo=c|()=pequeno|Pessoa A|1950|1960}}",
+        "* {{casamento|tipo=c|()=pequeno|Pessoa B|1970}}"
+      ]
+    },
+    {
+      "id": "explicit-parameter-typo",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nacionaldade=brasileira\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "brasileira"
+      ],
+      "absentFragments": [
+        "nacionaldade"
+      ]
+    },
+    {
+      "id": "whole-header-bold",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome='''Pessoa de teste'''\n|nascimento_local=Cidade de teste\n|ocupação=ator\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [],
+      "absentFragments": [
+        "='''Pessoa de teste'''",
+        "= '''Pessoa de teste'''"
+      ]
+    },
+    {
+      "id": "birth-nowrap-language-first-click",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data={{nowrap|{{dni|lang=br|1|1|1900}}}}\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{dni|1|1|1900|si}}",
+        "{{Morte|2|1|1980|1|1|1900}}"
+      ],
+      "absentFragments": [
+        "{{nowrap|",
+        "lang=br"
+      ]
+    },
+    {
+      "id": "native-spouse-alias-list-first-click",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|spouse=Pessoa A (casados em 1950)<br />Pessoa B (casados em 1970)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{casamento|tipo=c|()=pequeno|Pessoa A|1950}}<br />{{casamento|tipo=c|()=pequeno|Pessoa B|1970}}"
+      ],
+      "absentFragments": [
+        "|spouse="
+      ]
+    },
+    {
+      "id": "foreign-person-site-first-click",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Infobox person\n|name=Pessoa de teste\n|birth_place=Cidade de teste\n|website=[[https://example.org|Site oficial]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "{{Info/Biografia",
+        "[https://example.org Site oficial]"
+      ],
+      "absentFragments": [
+        "[[https://"
+      ]
+    },
+    {
+      "id": "historical-two-spouses-now-explicitly-supported",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|cônjuge=Pessoa A (casado em 2001)<br />Pessoa B (casado em 2011)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Main|Brasil}}\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "legacySingleSpousePlanMustDecline": true,
+      "expectedFragments": [
+        "{{casamento|tipo=h|()=pequeno|Pessoa A|2001}}<br />{{casamento|tipo=h|()=pequeno|Pessoa B|2011}}",
+        "{{Artigo principal|Brasil}}"
+      ],
+      "absentFragments": [
+        "Pessoa A (casado em 2001)"
+      ],
+      "historicalSourceSha256": "973cd87eaf9c16866991162ec70a32d79fadaf38890409a4e370b421bf4803e7"
+    }
+  ],
+  "negative": [
+    {
+      "id": "image-custom-link",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|imagem=[[Imagem:Retrato.jpg|link=Outro destino|Retrato em 2000]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "[[Imagem:Retrato.jpg|link=Outro destino|Retrato em 2000]]"
+      ]
+    },
+    {
+      "id": "image-conflicting-caption",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|imagem=[[Imagem:Retrato.jpg|miniatura|Retrato em 2000]]\n|imagem_legenda=Outro retrato\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "[[Imagem:Retrato.jpg|miniatura|Retrato em 2000]]",
+        "Outro retrato"
+      ]
+    },
+    {
+      "id": "site-embedded-link-in-label",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|website=[[https://example.org|Site [[institucional]]]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "[[https://example.org|Site [[institucional]]]]"
+      ]
+    },
+    {
+      "id": "occupation-institution-comma",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|ocupação=ator, diretor da Companhia de Teste\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "ator, diretor da Companhia de Teste"
+      ]
+    },
+    {
+      "id": "partial-header-bold",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nome artístico=Pessoa '''da''' Costa\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "Pessoa '''da''' Costa"
+      ]
+    },
+    {
+      "id": "approximate-birth-date",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data=cerca de 1900\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "cerca de 1900",
+        "2 de janeiro de 1980"
+      ]
+    },
+    {
+      "id": "future-death-date",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data={{Dni|1|1|1900}}\n|morte_data=2 de janeiro de 9999\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "2 de janeiro de 9999"
+      ]
+    },
+    {
+      "id": "living-category-conflict",
+      "plan": "v28BiographyDatePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|nascimento_data={{Dni|1|1|1900}}\n|morte_data=2 de janeiro de 1980\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n[[Categoria:Pessoas vivas]]\n",
+      "expectedFragments": [
+        "{{Dni|1|1|1900}}",
+        "2 de janeiro de 1980"
+      ]
+    },
+    {
+      "id": "ambiguous-second-marriage",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|cônjuge=Pessoa A (casados em 1950)<br />Pessoa B\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "Pessoa A (casados em 1950)<br />Pessoa B"
+      ]
+    },
+    {
+      "id": "already-formatted-second-marriage",
+      "plan": "v28MultipleMarriagePlan",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|cônjuge=Pessoa A (casados em 1950)<br />{{casamento|Pessoa B|1970}}\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "Pessoa A (casados em 1950)<br />{{casamento|Pessoa B|1970}}"
+      ]
+    },
+    {
+      "id": "site-label-unprotected-pipe",
+      "plan": "v28BiographyFieldEdits",
+      "source": "{{Info/Biografia\n|nome=Pessoa de teste\n|nascimento_local=Cidade de teste\n|website=[[https://example.org|A | B]]\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "expectedFragments": [
+        "[[https://example.org|A | B]]"
+      ]
+    }
+  ]
+}

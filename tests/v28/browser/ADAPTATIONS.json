@@ -1,0 +1,105 @@
+{
+  "version": "2.8.0",
+  "inherited": [
+    {
+      "source": "tests/v273/browser/HEAD_RENDER_PROOF.json",
+      "sourceSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "copy": "tests/v28/browser/HEAD_RENDER_PROOF.json",
+      "copySha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "adaptation": "Immutable historical evidence remains byte-exact."
+    },
+    {
+      "source": "tests/v273/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "sourceSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "copy": "tests/v28/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "copySha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "adaptation": "Immutable historical evidence remains byte-exact."
+    },
+    {
+      "source": "tests/v273/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sourceSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "copy": "tests/v28/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "copySha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "adaptation": "Immutable historical evidence remains byte-exact."
+    },
+    {
+      "source": "tests/v273/browser/README.md",
+      "sourceSha256": "f5f54acda0ddb74933af2b16ff8dd73fd4fbbc70261f33f8700fd7d812a58270",
+      "copy": "tests/v28/browser/README.md",
+      "copySha256": "4f1638e6291cc22cbb26751adf489a8f9a3da308dc8738a087865df1ae0915d4",
+      "adaptation": "Updates active release commands, documents the new workflows and distinguishes historical render proofs from the regenerated release-linked comparison proof."
+    },
+    {
+      "source": "tests/v273/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "sourceSha256": "c970e20b194e14b951df86c2fa2aa63df8d15d0e311a042ba2083d69fda5552a",
+      "copy": "tests/v28/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "copySha256": "b40700f03891fc4ff4e71e956c1d0407b8a314639e3e2c5a95693d621d849533",
+      "adaptation": "Regenerated independently from the final pinned candidate by build_second_click_contract.cjs. Historical source remains unchanged."
+    },
+    {
+      "source": "tests/v273/browser/fixture.html",
+      "sourceSha256": "90b063eb091723db740286893bb104cd4dfa70041b61d9c0687a96bc220bc510",
+      "copy": "tests/v28/browser/fixture.html",
+      "copySha256": "32ff8133eaca76386ad618ed3ab4ff2ef780dbafde9a85308c11ec50e3c683de",
+      "adaptation": "Active release version, distribution filenames and report destinations only."
+    },
+    {
+      "source": "tests/v273/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "copy": "tests/v28/browser/fixture.js",
+      "copySha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "adaptation": "Active release version, distribution filenames and report destinations only."
+    },
+    {
+      "source": "tests/v273/browser/run_release.cjs",
+      "sourceSha256": "e5deb4b42abcc4723ff4f63699758c8d7e6f2f862a40f70c30ab5c532ce8283f",
+      "copy": "tests/v28/browser/run_release.cjs",
+      "copySha256": "6199b79479981cb601f2b05465c81f09b41f13c7e4a3f5384bb9c7f273f42ff6",
+      "adaptation": "Active release pins and paths updated. Retains the 18 existing workflows. The exact two-spouses source moves from the old negative full-engine matrix into the new positive matrix, while its legacy single-spouse plan still declines. All other negative assertions remain. Adds two biography workflows with 15 positive and 11 negative sources, real Worker, second click and exact Undo."
+    },
+    {
+      "source": "tests/v273/browser/spouse_cases.json",
+      "sourceSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "copy": "tests/v28/browser/spouse_cases.json",
+      "copySha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "adaptation": "Immutable historical synthetic fixture remains byte-exact, including its original 2.7.3 metadata and all 36 sources."
+    },
+    {
+      "source": "tests/v273/browser/summarize_release.cjs",
+      "sourceSha256": "2785a0a34125b763c6842d10f40e8228cc239a1ff4b497c6570916e5f9239b30",
+      "copy": "tests/v28/browser/summarize_release.cjs",
+      "copySha256": "8c821a91551f151765b3bd15834bbe349f34f9a737d0319f0fbe5c274eb8dfee",
+      "adaptation": "Active release pins and paths updated. Retains inherited validation, accounts for the exact two-spouses coverage upgrade and adds 26 biography output-hash parity checks. Expected totals are 20 workflows per browser and 60 across the installed engines."
+    }
+  ],
+  "wikipediaWrites": 0,
+  "notes": [
+    "Historical public template render proofs remain byte-exact with their original dates and source revisions.",
+    "The release-linked second-click proof is generated from the final candidate and carries the generator, fixture and executable hashes.",
+    "All new biography fixtures are synthetic. No local machine files, screenshots or editor identities are embedded. All API calls in native workflows remain local mocks."
+  ],
+  "newFiles": [
+    {
+      "file": "tests/v28/browser/biography_cases.json",
+      "sha256": "aeeb8e0a69539b3b1e707b3022784a92acb1d25991f2e93e91d1f20644a75009"
+    },
+    {
+      "file": "tests/v28/browser/build_second_click_contract.cjs",
+      "sha256": "80cf398e4e69f1878abe016e0e54774b3423b95ed911bcb9c2e76dd387a021ae"
+    }
+  ],
+  "releaseManifestSha256": "86e3276c3d2a01abfd5da99c59e99b74750e3cc9d42213aeafd65c375a1e3d00",
+  "newPositiveCases": 15,
+  "newNegativeCases": 11,
+  "coverageTransitions": [
+    {
+      "id": "two-spouses",
+      "sourceSha256": "973cd87eaf9c16866991162ec70a32d79fadaf38890409a4e370b421bf4803e7",
+      "legacySingleSpouseExpectedEdits": 0,
+      "newMultipleMarriageExpectedEdits": 1,
+      "newFixtureId": "historical-two-spouses-now-explicitly-supported",
+      "otherHistoricalNegativeCases": 23,
+      "historicalFixtureBytesPreserved": true
+    }
+  ]
+}
