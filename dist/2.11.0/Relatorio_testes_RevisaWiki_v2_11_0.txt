@@ -1,0 +1,38 @@
+RevisaWiki 2.11.0: resultados dos testes
+16 de outubro de 2026
+
+Os arquivos finais da 2.11.0 passaram por 20.148 casos e 166.115 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 162 fluxos locais, com 24.897 verificações. As respostas nativas guardadas foram conferidas novamente com os arquivos desta versão. Os casos novos cobrem portais, edição menor e a contagem por ocorrência, incluindo escolhas da comparação e controles de falsos positivos. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.0. Nenhum teste editou a Wikipédia. Na medição em cinco artigos grandes, a primeira análise somada teve variação de +0,8% em relação à 2.10. Esse ensaio local não comprova um ganho geral de velocidade.
+
+Execuções nos arquivos finais
+
+- Motor, instalação, regressões e falsos positivos: 20148 casos e 166115 verificações, sem falhas.
+- Matriz de artigos complexos: 128 casos e 1672 verificações, sem falhas.
+- Artigos grandes nas duas distribuições: 31 casos e 1147 verificações, sem falhas.
+- Navegadores reais no macOS: 162 casos e 24897 verificações, sem falhas.
+- Compatibilidade dos carregadores e proteção de assinatura: 16 casos e 16 verificações, sem falhas.
+- Categorias de nascimento, respostas nativas guardadas: 12 casos e 195 verificações, sem falhas.
+- Reparos de referências e tabelas, respostas nativas guardadas: 10 casos e 149 verificações, sem falhas.
+- Estruturas sintéticas, respostas nativas guardadas: 10 casos e 100 verificações, sem falhas.
+- Medições nas duas versões em cinco artigos grandes: 10 casos e 260 verificações, sem falhas.
+
+Casos sintéticos e permutações não são artigos distintos. Os navegadores usam páginas locais com respostas controladas. Os relatórios e os hashes ficam em tests/evidence/2.11.0.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_11_0.js: 9651 bytes
+SHA-256: ba632e26d81b260db9148313ac9becbb74e0c0069b3f47095ccea7f1ce6b6739
+Carregador_comunitario_RevisaWiki_v2_11_0.js: 9653 bytes
+SHA-256: b941cdd4efb3f9e0b22a6556cec5098e54cf3770eb44279a575496ccfcaa78e7
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_11_0.js: 1314826 bytes
+SHA-256: 18be6c555f66c74f8d023828ada7de1fc77c455b022967a4221d58d628ca6838
+RevisaWiki_v2_11_0_completo.js: 2827971 bytes
+SHA-256: 84705cb51a2f1c667f73062b357d42c89962698c57c5cb31c9b3cdf3db5f6c88
+RevisaWiki_v2_11_0_dados.js: 1523935 bytes
+SHA-256: e8d3064e66fcbefaaffdf86c4bc386a237d873e685b801f530212c7a2e813e59
+
+Nenhum teste editou a Wikipédia.
+Código e arquivos: https://github.com/danrego/RevisaWiki

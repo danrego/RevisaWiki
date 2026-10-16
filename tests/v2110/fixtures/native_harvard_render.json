@@ -1,0 +1,15 @@
+{
+  "version": "2.11.0",
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "id": "harvard-anchor",
+      "source": "Texto de abertura. {{harvnb|Silva|2004}}\n\nTexto de encerramento.\n\n== Bibliografia ==\n* {{Citar livro|ultimo=Silva|primeiro=Ana|ano=2004|titulo=Obra de teste}}",
+      "expected": "Texto de abertura. {{harvnb|Silva|2004}}\n\nTexto de encerramento.\n\n== Bibliografia ==\n* {{Citar livro|ultimo=Silva|primeiro=Ana|ano=2004|titulo=Obra de teste|ref=harv}}",
+      "beforeHtml": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"pt\" dir=\"ltr\"><p>Texto de abertura. <a href=\"#CITEREFSilva2004\">Silva 2004</a>\n</p><p>Texto de encerramento.\n</p>\n<div class=\"mw-heading mw-heading2\"><h2 id=\"Bibliografia\">Bibliografia</h2></div>\n<ul><li><cite class=\"citation book\">Silva, Ana (2004). <i>Obra de teste</i>. [S.l.: s.n.]</cite><span title=\"ctx&#95;ver=Z39.88-2004&amp;rfr&#95;id=info%3Asid%2Fpt.wikipedia.org%3AArtigo+de+teste&amp;rft.aufirst=Ana&amp;rft.aulast=Silva&amp;rft.btitle=Obra+de+teste&amp;rft.date=2004&amp;rft.genre=book&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook\" class=\"Z3988\"><span style=\"display:none;\">&#160;</span></span></li></ul></div>",
+      "afterHtml": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"pt\" dir=\"ltr\"><p>Texto de abertura. <a href=\"#CITEREFSilva2004\">Silva 2004</a>\n</p><p>Texto de encerramento.\n</p>\n<div class=\"mw-heading mw-heading2\"><h2 id=\"Bibliografia\">Bibliografia</h2></div>\n<ul><li><cite id=\"CITEREFSilva2004\" class=\"citation book\">Silva, Ana (2004). <i>Obra de teste</i>. [S.l.: s.n.]</cite><span title=\"ctx&#95;ver=Z39.88-2004&amp;rfr&#95;id=info%3Asid%2Fpt.wikipedia.org%3AArtigo+de+teste&amp;rft.aufirst=Ana&amp;rft.aulast=Silva&amp;rft.btitle=Obra+de+teste&amp;rft.date=2004&amp;rft.genre=book&amp;rft&#95;val&#95;fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook\" class=\"Z3988\"><span style=\"display:none;\">&#160;</span></span></li></ul></div>",
+      "beforeResponseSha256": "d89fea68bca273c54ce64784c68210ab1d3a54fd39c1f157c05cbad16a0a7469",
+      "afterResponseSha256": "d2a6099c223923cff84058d21c93d8f3f1713395d88682d1efd30455e2ea251f"
+    }
+  ]
+}

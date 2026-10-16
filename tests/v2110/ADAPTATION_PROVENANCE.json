@@ -1,0 +1,502 @@
+{
+  "baselineManifest": "tests/expected_release_v2100.json",
+  "baselineManifestSha256": "3fe613e75a12e17d4817e85591476905fcb540555c5c6e3ff925520a87c10d06",
+  "substitutions": [
+    [
+      "2.10.0",
+      "2.11.0"
+    ],
+    [
+      "v2100",
+      "v2110"
+    ],
+    [
+      "_v2_10_0",
+      "_v2_11_0"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v2100/benchmark_large.cjs",
+      "target": "tests/v2110/benchmark_large.cjs",
+      "sourceSha256": "f581f2fcc552affa34908cd89d3c5d09c95faddd6780723e6b273f07a0cdc11f",
+      "targetSha256": "104fe0501281b1b2ecb30b71657adc9ddff7107aa5c91b36ee56aff23393453b",
+      "additionalSubstitutions": [
+        [
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.11.0','2.9.0']:['2.9.0','2.11.0']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.9.0',baseline],['2.11.0',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.11.0');manifest('2.9.0');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2110')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n",
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.11.0','2.10.0']:['2.10.0','2.11.0']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.10.0',baseline],['2.11.0',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.11.0');manifest('2.10.0');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2110')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n"
+        ],
+        [
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.11.0'),baseline=manifest('2.9.0'),inputs=sources(),out={version:'2.11.0',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n",
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.11.0'),baseline=manifest('2.10.0'),inputs=sources(),out={version:'2.11.0',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n"
+        ],
+        [
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.11.0',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_11_0.js':'RevisaWiki_v2_9_0.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n",
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.11.0',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_11_0.js':'RevisaWiki_v2_10_0.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n"
+        ],
+        [
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2110.json'),baselineFile=path.join(root,'tests/expected_release_v290.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n",
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2110.json'),baselineFile=path.join(root,'tests/expected_release_v2100.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2100/browser/birth_category_flow.cjs",
+      "target": "tests/v2110/browser/birth_category_flow.cjs",
+      "sourceSha256": "1dea86bcde15ebee2fa5599bba23eb71c563b29e6307a26567921de07c724ba3",
+      "targetSha256": "62bd3bd3ea6f8635271066caa89550c8e1ea0723cfd5c96591a95a91680024c4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/build_second_click_contract.cjs",
+      "target": "tests/v2110/browser/build_second_click_contract.cjs",
+      "sourceSha256": "59bab06e5b9064e0550e937f57d6f599e6d1bd61552cc6076c884a34e1f52c79",
+      "targetSha256": "2d8833527d7163d0bb9e912b15e39fb4badddbc6b5e34ec69b8aa1a749f5cf56",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/citation_flow.cjs",
+      "target": "tests/v2110/browser/citation_flow.cjs",
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/fixture.html",
+      "target": "tests/v2110/browser/fixture.html",
+      "sourceSha256": "1f28bda7c9890651ab2c06f9523412e0be1ec155fe5f256e1a4cdb6760da19ee",
+      "targetSha256": "c60f40ac1c01a9a590838b029e5468757d3fb5eb79aca4cb6847371f7b242aa0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/fixture.js",
+      "target": "tests/v2110/browser/fixture.js",
+      "sourceSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "targetSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/responsive_flow.cjs",
+      "target": "tests/v2110/browser/responsive_flow.cjs",
+      "sourceSha256": "5b2a0d40dab4ad5ddfc5b88692602fe0b2389052bcb4384e731a546443a7bf3f",
+      "targetSha256": "a072ad07875af97c61f1618d9633ac9a5db32aee5497981a511a89e85b474143",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/run_release.cjs",
+      "target": "tests/v2110/browser/run_release.cjs",
+      "sourceSha256": "db49a51ce5ba384101d316b84cb8b4670047602b7f619824d7b5b4a4c9bc112b",
+      "targetSha256": "f6b645ab886f3cff9472f5d8c239cc010e3161539706fcf568b96af97caa7217",
+      "additionalSubstitutions": [
+        [
+          "  for(const [filename,field]of [['v210_repair_flow.cjs','v210RepairFlowSha256'],['responsive_flow.cjs','responsiveFlowSha256'],['fixture.js','fixtureScriptSha256']])assert.equal(hash(fs.readFileSync(path.join(__dirname,filename))),report[field],'Additive 2.10 workflow remains frozen: '+filename);\n  report.finalSavedFileHashesVerified=true;\n",
+          "  for(const [filename,field]of [['v210_repair_flow.cjs','v210RepairFlowSha256'],['responsive_flow.cjs','responsiveFlowSha256'],['fixture.js','fixtureScriptSha256']])assert.equal(hash(fs.readFileSync(path.join(__dirname,filename))),report[field],'Additive 2.10 workflow remains frozen: '+filename);\n  for(const [name,pin] of Object.entries(v211Flows))assert.equal(hash(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow remains frozen');\n  report.finalSavedFileHashesVerified=true;\n"
+        ],
+        [
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n",
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  for(const name of ['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs'])await require('./'+name)({origin,driver,evaluate,report,hash,save,toggleCheckbox,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n"
+        ],
+        [
+          "  await driver.click('.ajg-run');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(RevisaWiki.processing.engine==='worker'&&!RevisaWiki.processing.workerFailure,'Real Worker handles diverse full article');const result=__rw26QA.workerResults.at(-1).result;assert((result.preservation||[]).length===0,'Full article has no unsupported source loss');window.__largeActual=document.getElementById('wpTextbox1').value;window.__largeTypeInfo=RevisaWiki.v27RetainedTypes(__largeSource,__largeActual);window.__largeTypes=__largeTypeInfo.topics;if(__largeActual!==__largeSource){const label=document.querySelector('.ajg-result-count').textContent;assert(label===__largeTypeInfo.text&&__largeTypeInfo.count===__largeTypes.length,'Diverse article result shows actual final types');}clean();`);\n  const actual=await driver.evaluate('__largeActual');\n",
+          "  await driver.click('.ajg-run');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(RevisaWiki.processing.engine==='worker'&&!RevisaWiki.processing.workerFailure,'Real Worker handles diverse full article');const result=__rw26QA.workerResults.at(-1).result;assert((result.preservation||[]).length===0,'Full article has no unsupported source loss');window.__largeActual=document.getElementById('wpTextbox1').value;window.__largeTypeInfo=RevisaWiki.v27RetainedTypes(__largeSource,__largeActual);window.__largeTypes=__largeTypeInfo.topics;if(__largeActual!==__largeSource){const label=document.querySelector('.ajg-result-count').textContent;assert(label===RevisaWiki.v211RetainedAdjustments(__largeSource,__largeActual).text&&__largeTypeInfo.count===__largeTypes.length,'Diverse article result shows actual final types');}clean();`);\n  const actual=await driver.evaluate('__largeActual');\n"
+        ],
+        [
+          "  await toggleCheckbox('.ajg-change-choice[data-change='+JSON.stringify(await driver.evaluate('__cityRejectedId'))+']');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.getElementById('wpTextbox1').value===__cityExpectedPartial);assert(__rw26QA.clicks.some(event=>event.className==='ajg-change-choice'&&event.trusted),'Selection is triggered by trusted native keyboard interaction');assert(document.getElementById('wpTextbox1').value!==__cityActual,'Only selected changes remain after rejection');assert(JSON.stringify(__dataRows(__cityExpectedPartial))===JSON.stringify(__dataRows(__citySource)),'Rejecting a change preserves numeric table data');assert(__cityRejectedIds.every(id=>![...document.querySelectorAll('.ajg-change-choice')].find(box=>box.dataset.change===id)?.checked),'Related transaction choices remain synchronized');window.__cityPartialTypes=RevisaWiki.v27RetainedTypes(__citySource,__cityExpectedPartial);assert(document.querySelector('.ajg-result-count').textContent===__cityPartialTypes.text,'Type count follows rejected changes');assert(document.getElementById('wpSummary').value===RevisaWiki.summaryForTopics(__cityPartialTypes.topics),'Generated summary follows rejected changes');clean();`);\n  actualEvidence.diff=JSON.parse(await driver.evaluate('JSON.stringify({groups:__cityGroups.length,maximumContextCharacters:Math.max(...__cityGroups.flatMap(group=>[group.before,group.after])),actualTypes:__cityTypes,selectionGesture:\"native-focus-and-space\",trustedSelectionEvent:true,rejectedChanges:__cityRejectedIds.length,partialSourceChanged:__cityExpectedPartial!==__cityActual,partialTypes:__cityPartialTypes.topics})'));\n",
+          "  await toggleCheckbox('.ajg-change-choice[data-change='+JSON.stringify(await driver.evaluate('__cityRejectedId'))+']');\n  await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.getElementById('wpTextbox1').value===__cityExpectedPartial);assert(__rw26QA.clicks.some(event=>event.className==='ajg-change-choice'&&event.trusted),'Selection is triggered by trusted native keyboard interaction');assert(document.getElementById('wpTextbox1').value!==__cityActual,'Only selected changes remain after rejection');assert(JSON.stringify(__dataRows(__cityExpectedPartial))===JSON.stringify(__dataRows(__citySource)),'Rejecting a change preserves numeric table data');assert(__cityRejectedIds.every(id=>![...document.querySelectorAll('.ajg-change-choice')].find(box=>box.dataset.change===id)?.checked),'Related transaction choices remain synchronized');window.__cityPartialTypes=RevisaWiki.v27RetainedTypes(__citySource,__cityExpectedPartial);assert(document.querySelector('.ajg-result-count').textContent===RevisaWiki.v211RetainedAdjustments(__citySource,__cityExpectedPartial).text,'Type count follows rejected changes');assert(document.getElementById('wpSummary').value===RevisaWiki.summaryForTopics(__cityPartialTypes.topics),'Generated summary follows rejected changes');clean();`);\n  actualEvidence.diff=JSON.parse(await driver.evaluate('JSON.stringify({groups:__cityGroups.length,maximumContextCharacters:Math.max(...__cityGroups.flatMap(group=>[group.before,group.after])),actualTypes:__cityTypes,selectionGesture:\"native-focus-and-space\",trustedSelectionEvent:true,rejectedChanges:__cityRejectedIds.length,partialSourceChanged:__cityExpectedPartial!==__cityActual,partialTypes:__cityPartialTypes.topics})'));\n"
+        ],
+        [
+          "  const actualEvidence={outputSha256:hash(Buffer.from(actual)),outputBytes:Buffer.byteLength(actual),numericRows:numericRows(actual).length,processing:JSON.parse(await driver.evaluate('JSON.stringify(RevisaWiki.processing)'))};\n  await evaluate(`window.__cityAdjustment=__rw26QA.workerResults.at(-1).result;const metrics=__cityAdjustment.byteMetrics;assert(metrics.delta===new TextEncoder().encode(__cityActual).length-new TextEncoder().encode(__citySource).length&&metrics.netExact===true,'Byte badge is backed by exact UTF-8 net metrics');window.__cityTypeInfo=RevisaWiki.v27RetainedTypes(__citySource,__cityActual);window.__cityTypes=__cityTypeInfo.topics;assert(__cityTypes.length>1,'City has multiple actual final adjustment types');const label=document.querySelector('.ajg-result-count').textContent;assert(label===__cityTypeInfo.text&&__cityTypeInfo.count===__cityTypes.length&&!/trecho/.test(label),'Result shows actual types rather than a false single changed stretch');assert(document.getElementById('wpSummary').value===RevisaWiki.summaryForTopics(__cityTypes),'Generated summary matches retained final types');clean();`);\n  actualEvidence.byteMetrics=JSON.parse(await driver.evaluate('JSON.stringify(__cityAdjustment.byteMetrics)'));\n",
+          "  const actualEvidence={outputSha256:hash(Buffer.from(actual)),outputBytes:Buffer.byteLength(actual),numericRows:numericRows(actual).length,processing:JSON.parse(await driver.evaluate('JSON.stringify(RevisaWiki.processing)'))};\n  await evaluate(`window.__cityAdjustment=__rw26QA.workerResults.at(-1).result;const metrics=__cityAdjustment.byteMetrics;assert(metrics.delta===new TextEncoder().encode(__cityActual).length-new TextEncoder().encode(__citySource).length&&metrics.netExact===true,'Byte badge is backed by exact UTF-8 net metrics');window.__cityTypeInfo=RevisaWiki.v27RetainedTypes(__citySource,__cityActual);window.__cityLedger=RevisaWiki.v211RetainedAdjustments(__citySource,__cityActual);window.__cityTypes=__cityTypeInfo.topics;assert(__cityTypes.length>1,'City has multiple actual final adjustment types');const label=document.querySelector('.ajg-result-count').textContent;assert(label===__cityLedger.text&&__cityTypeInfo.count===__cityTypes.length&&!/trecho/.test(label),'Result shows actual types rather than a false single changed stretch');assert(document.getElementById('wpSummary').value===RevisaWiki.summaryForTopics(__cityTypes),'Generated summary matches retained final types');clean();`);\n  actualEvidence.byteMetrics=JSON.parse(await driver.evaluate('JSON.stringify(__cityAdjustment.byteMetrics)'));\n"
+        ],
+        [
+          "}\nconst report={v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.11.0',build:'2.11.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\nlet mode='shared';\n",
+          "}\nconst v211Flows=Object.fromEntries(['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs'].map(name=>[name,hash(fs.readFileSync(path.join(__dirname,name)))]));\nconst report={v211Flows,v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.11.0',build:'2.11.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\nlet mode='shared';\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2100/browser/summarize_release.cjs",
+      "target": "tests/v2110/browser/summarize_release.cjs",
+      "sourceSha256": "983fddb66575284de5efffd5dcd8424337996625058d54ce7731b9c3ae565e23",
+      "targetSha256": "b26d96ef87f55d89d6cdb3c18ed01026c38cb68b0eae01d9981970f06c7ce904",
+      "additionalSubstitutions": [
+        [
+          "assert.equal(v29RepairOutputHashes.size,16);summary.v29RepairSourceOutputHashes=Object.fromEntries(v29RepairOutputHashes);summary.v29PositiveCases=8;summary.v29NegativeCases=8;summary.v29DistributionFormats=['modular-core','complete'];summary.v29RepairFlowSha256=sha(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs')));\nsummary.scope+=' Four additive workflows in each browser execute all eight new automatic repair families and eight guarded source cases through both the modular core and the standalone complete distribution. Every positive editor output matches an independently written exact source, and every case executes a real second click and exact Undo when changed. The new module also opens the actual comparison without changing the editor source.';\nsummary.marriageCompleteSourceOutputSha256=marriageCompleteOutputSha256;\n",
+          "assert.equal(v29RepairOutputHashes.size,16);summary.v29RepairSourceOutputHashes=Object.fromEntries(v29RepairOutputHashes);summary.v29PositiveCases=8;summary.v29NegativeCases=8;summary.v29DistributionFormats=['modular-core','complete'];summary.v29RepairFlowSha256=sha(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs')));\nsummary.scope+=' Current-release flows also verify retained occurrence counts, saved-revision minor checkbox ownership, matching control colors, source/options-bound checked status, retries, cancellation and failures. Four inherited repair workflows in each browser execute eight automatic repair families and eight guarded source cases through both the modular core and the standalone complete distribution. Every positive editor output matches an independently written exact source, and every case executes a real second click and exact Undo when changed. The repair workflow also opens the actual comparison without changing the editor source.';\nsummary.marriageCompleteSourceOutputSha256=marriageCompleteOutputSha256;\n"
+        ],
+        [
+          "assert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\nsummary.scope='One hundred thirty-two local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source and two spouse workflows covering twelve positive cases across registered infobox profiles and three already-approved foreign aliases and twenty-three negative cases. All inherited spouse sources restore byte-exactly through Undo. Twenty-six new biography fixtures cover image fields, external sites, professions, full dates, named birth-date arguments and individually complete multiple-marriage lists, plus explicit guarded inputs. Every fixture passes a real second click and exact Undo. The historical two-spouse source is now a positive case under the explicit 2.8 multi-marriage grammar, while the original single-spouse parser still declines it. The complete 260568-byte Keynes biography converts its verified initial spouse field while preserving the unrelated opaque bibliography tail exactly. Whole Zara source retains all eleven award tables and six valid composite result lines, closes only the missing numeric quote and adds both biography portals using one anonymous mocked verified public-entity read. Protected table examples remain exact. Six complete biography sources cover confirmed redundant birth categories, trusted keyboard rejection and reacceptance of the category removal, repeated clicks and exact Undo. Two further biography cases retain the category when the mocked anonymous read fails or does not return it. No live Wikipedia integration or full visual audit is claimed.';\nassert.equal(spouseOutputHashes.size,35);summary.spouseSourceOutputHashes=Object.fromEntries(spouseOutputHashes);summary.spousePositiveCases=12;summary.spouseNegativeCases=23;\n",
+          "assert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\nsummary.scope=summary.cases+' local native workflows across three installed browsers verify editor installation, absence of added section controls, real Worker execution, exact source outputs, reference repair, infobox and marriage cases, table guards, category proof, selection, repeated clicks and Undo. The public-read responses are saved or mocked fixtures. Failed or unconfirmed category reads preserve the original source. No live Wikipedia integration or full visual audit is claimed.';\nassert.equal(spouseOutputHashes.size,35);summary.spouseSourceOutputHashes=Object.fromEntries(spouseOutputHashes);summary.spousePositiveCases=12;summary.spouseNegativeCases=23;\n"
+        ],
+        [
+          "}\nassert.equal(summary.cases,132);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n",
+          "}\nassert.equal(summary.cases,162);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n"
+        ],
+        [
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n summary.cases+=report.tests.length;summary.checks+=report.assertions;\n",
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n for(const [name,pin] of Object.entries(report.v211Flows||{}))assert.equal(sha(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow source pin');assert.equal(Object.keys(report.v211Flows||{}).length,3);\n const additions=report.tests.filter(test=>test.name.startsWith('2.11 '));assert.equal(additions.length,10);assert(additions.every(test=>test.passed&&test.assertions>0),'All current UI flows passed');\n summary.cases+=report.tests.length;summary.checks+=report.assertions;\n"
+        ],
+        [
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,44);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n",
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,54);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n"
+        ],
+        [
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,44);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n",
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,54);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n"
+        ],
+        [
+          "let zaraOutputSha256,protectedOutputSha256;\nconst summary={version:'2.11.0',kind:'native-macos-patch-browser-summary',frozenFiles:manifest.files,pinManifestSha256:sha(manifestBytes),runnerSha256,corpusManifestSha256,spouseCaseSha256:sha(spouseCaseBytes),biographyCaseSha256:sha(biographyCaseBytes),marriageRenderProofSha256:sha(marriageRenderProofBytes),headRenderProofSha256:sha(headRenderProofBytes),secondClickContractSha256:sha(secondClickProofBytes),marriageCompleteManifestSha256:sha(marriageManifestBytes),historicalCitySource:{...historicalCity,revid:historicalCity.oldid},recentCitySource:recentCity,cases:0,checks:0,failed:0,browsers:[],wikipediaWrites:0,networkMutations:0,outsideRequests:0,clipboardWrites:0,screenshots:0,scope:'Ninety-three local native browser workflows across three installed engines. Ordinary source-editor installation flows and read-page absence checks for all extra section controls. Full source article runs through a real Worker and exact Undo. API responses are fixture-only; this is not a live Wikipedia integration or a complete visual audit.'};\nconst v29RepairOutputHashes=new Map();const birthCategoryOutputHashes=new Map();const articleOutputHashes=new Map();let outputSha256,safeOutputSha256;\n",
+          "let zaraOutputSha256,protectedOutputSha256;\nconst summary={version:'2.11.0',kind:'native-macos-patch-browser-summary',frozenFiles:manifest.files,pinManifestSha256:sha(manifestBytes),runnerSha256,corpusManifestSha256,spouseCaseSha256:sha(spouseCaseBytes),biographyCaseSha256:sha(biographyCaseBytes),marriageRenderProofSha256:sha(marriageRenderProofBytes),headRenderProofSha256:sha(headRenderProofBytes),secondClickContractSha256:sha(secondClickProofBytes),marriageCompleteManifestSha256:sha(marriageManifestBytes),historicalCitySource:{...historicalCity,revid:historicalCity.oldid},recentCitySource:recentCity,cases:0,checks:0,failed:0,browsers:[],wikipediaWrites:0,networkMutations:0,outsideRequests:0,clipboardWrites:0,screenshots:0,scope:'Local native browser workflows across the three installed engines. API responses are fixture-only; this is not a live Wikipedia integration or a complete visual audit.'};\nconst v29RepairOutputHashes=new Map();const birthCategoryOutputHashes=new Map();const articleOutputHashes=new Map();let outputSha256,safeOutputSha256;\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2100/browser/v210_repair_flow.cjs",
+      "target": "tests/v2110/browser/v210_repair_flow.cjs",
+      "sourceSha256": "fda50e2611d4244db95c041e5b3980b0fb52827e702a72a3ffcd4da7046202a5",
+      "targetSha256": "033c6dd3fe008e0a438451ac6c2d87bd3c771dba513aeae91795f9bdb0e227ff",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/browser/v29_repair_flow.cjs",
+      "target": "tests/v2110/browser/v29_repair_flow.cjs",
+      "sourceSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "targetSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/candidate.cjs",
+      "target": "tests/v2110/candidate.cjs",
+      "sourceSha256": "3c07afa6b5110dd3e6236e69859b891d0856e421825d86177f0bc034c350b216",
+      "targetSha256": "46a8ea0096faff6d73daa898e4824f36be34aa738b719bc0f1df4f89303cb0fc",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/check_server_grammar.php",
+      "target": "tests/v2110/check_server_grammar.php",
+      "sourceSha256": "313e63266d363dc60e9f54fff28b1dd90f6973cf43fd31b516f24e2288633927",
+      "targetSha256": "6c9b4d88786462d77f9be6e1b80714576f7b61e44fc08f90cdaf24e46eb8b44b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/engine_helper.cjs",
+      "target": "tests/v2110/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_all.cjs",
+      "target": "tests/v2110/run_all.cjs",
+      "sourceSha256": "a91d82e529c4f97c9354a581ea5fa26dbd83699b691ca5fbc5f457227104ff5d",
+      "targetSha256": "9774dffaaf1198de7dcf549db991b7b632e83013504fb3232362730d173722ef",
+      "additionalSubstitutions": [
+        [
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n",
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','test_topic_portals.cjs','test_minor_classification.cjs','test_occurrence_count.cjs','test_ui_freshness.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2100/run_edited_corpus.cjs",
+      "target": "tests/v2110/run_edited_corpus.cjs",
+      "sourceSha256": "3445966e135896db9baa086fba1f683f7e7ab5b4d91ca6efcd308d22e6c546c4",
+      "targetSha256": "d6cec90c68b6e5e9578a265c7e4301e1e636ba260b9fdbedf9ba4901acdbc37f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_engine.cjs",
+      "target": "tests/v2110/run_engine.cjs",
+      "sourceSha256": "42693172d0a5a115a357a78ceb66ca896eec28a55cc00272924344692aa00f9f",
+      "targetSha256": "42693172d0a5a115a357a78ceb66ca896eec28a55cc00272924344692aa00f9f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_focus.cjs",
+      "target": "tests/v2110/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_quote_boundaries.cjs",
+      "target": "tests/v2110/run_quote_boundaries.cjs",
+      "sourceSha256": "ac8077f7c2e4f6278e107a94261da3d9300f75ca1cb4ad8205b4c65e684796ac",
+      "targetSha256": "4998f106951b553df201dcdd8ee6e22afc9b486b33c4d336796a66cdf417b819",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_responsive_layout.cjs",
+      "target": "tests/v2110/run_responsive_layout.cjs",
+      "sourceSha256": "8c534cddbd48f3d12efd0745c708da868d09530bc2c4cdd0c78e889916c322dd",
+      "targetSha256": "709f6acbf2646d186338801140fc72c1071f93da2dba07ffb779e4cf8d073c90",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_server_grammar.mjs",
+      "target": "tests/v2110/run_server_grammar.mjs",
+      "sourceSha256": "5f9ba91c4b561107eb1358ccc8fee80936d7c55cadc73ca715b1a11aed8f5d13",
+      "targetSha256": "63da0423b171e525e0417fea7f1a26db7b2a146a4798bbd6fb81bd8afa2ccf67",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_startup.cjs",
+      "target": "tests/v2110/run_startup.cjs",
+      "sourceSha256": "6ccedfdb35a20c2e67c5690ba0cb6e61265a7efde4d44dbb563349ec991db0de",
+      "targetSha256": "a3a086cbfca94201a5295477a992fa9a30ce5d07e3121347f04af7174b388201",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/run_tag_adversarial.cjs",
+      "target": "tests/v2110/run_tag_adversarial.cjs",
+      "sourceSha256": "2a21acfac86fe81d81ddbfde19b4a3144bbc5a38027977f9361d28342abcbd62",
+      "targetSha256": "67374ca3e67e51da3cc361514d430781764f7688df3b4b07cf17b257f1d1958c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/summarize.cjs",
+      "target": "tests/v2110/summarize.cjs",
+      "sourceSha256": "1cb043407190b25e1a24d69b7a4855d5b87ad45ca0d92c28c958e5ba04765993",
+      "targetSha256": "386c7032a0ebf966bb487cc56035b1918ab9ea35fd0c08eae1181899ac11d718",
+      "additionalSubstitutions": [
+        [
+          "const directory=candidate.artifactDirectory();\nconst names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json'];\nconst report={version:'2.11.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n",
+          "const directory=candidate.artifactDirectory();\nconst names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json','topic_portals.json','minor_classification.json','occurrence_count.json','ui_freshness.json'];\nconst report={version:'2.11.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2100/test_biography_composition.cjs",
+      "target": "tests/v2110/test_biography_composition.cjs",
+      "sourceSha256": "dd0e59a7e314697f6a1d5a8fbad7a61613eb72a5d295939a3d6cc1aa763a7baa",
+      "targetSha256": "dc93dd238b461f105ba28820f7b8a9a533317fe5b52d7265ce089e07c2c31c39",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_biography_dates.cjs",
+      "target": "tests/v2110/test_biography_dates.cjs",
+      "sourceSha256": "ba273d2368f0d7c459f61d153983c4aa826668dde51949421139149899b558ae",
+      "targetSha256": "531eacff6408ecf47e86326c4c79fafc01e4fc2160f9f2ef9945d6802b5f25a4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_biography_fields.cjs",
+      "target": "tests/v2110/test_biography_fields.cjs",
+      "sourceSha256": "210ceaabd66c29599ed7a38864cbe8de3f7126bd8541cf81bcd250ed1cc16d62",
+      "targetSha256": "507381d7e09c1a1aae7286ddc842f6da242832c487fafe90b54f78deafc055c3",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_birth_categories.cjs",
+      "target": "tests/v2110/test_birth_categories.cjs",
+      "sourceSha256": "22fd5d067f3328b141da4895a9360fd029c9154fff6e524580754b0ff9b5c15c",
+      "targetSha256": "db3eca6824ca11d1361aa5af433edd0a9450c46b51c5c2e635355d8ccdac569f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_chat_permutations.cjs",
+      "target": "tests/v2110/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_chat_residues.cjs",
+      "target": "tests/v2110/test_chat_residues.cjs",
+      "sourceSha256": "73f17bcc867114a9e3b6455e908c21ebbe36da5ff4d395961685c2d381909a20",
+      "targetSha256": "cdb046f6cc8525ce428e1046caf7bf7afbdbc6d20b2349c4a3846c264afb032a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_chemical_guards.cjs",
+      "target": "tests/v2110/test_chemical_guards.cjs",
+      "sourceSha256": "4efd2ef3648909029b205405cbd86ab68ef1c3122d6a8bfa0ac6dfde809398a7",
+      "targetSha256": "27ea1c4a99d8c3281fe1685a168a1c197740f6e7237b2fd16c4fd01f3984a0c3",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_chemical_syntax.cjs",
+      "target": "tests/v2110/test_chemical_syntax.cjs",
+      "sourceSha256": "7b337b7b3e0a6cca413f1b0b23c040689571e2507c3cab7c5fc9fa8647e10f1b",
+      "targetSha256": "482b71e25b3126f2c313ff81d30ace5bad1c42e3de7d27d32a75e5e4cb785de6",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_citation_families.cjs",
+      "target": "tests/v2110/test_citation_families.cjs",
+      "sourceSha256": "5d033f8adbd677faeabeb806aa35a66f213a051bd6749c0a2f53080dbd714b6d",
+      "targetSha256": "7463eed2f460770ac773e9f5ed669173c5f89bed13689edae277c1d09ec1f061",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_diff_reporting.cjs",
+      "target": "tests/v2110/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_engine_adversarial.cjs",
+      "target": "tests/v2110/test_engine_adversarial.cjs",
+      "sourceSha256": "e09e66ec3c4d774aae321851766fbe9b9e4705f8eaaa35a7c6ba8d0007c41915",
+      "targetSha256": "287cf5a9c907a0c534537be6023b3f8c1a90b310286d676cb18fcb8732964acc",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_historical_citations.cjs",
+      "target": "tests/v2110/test_historical_citations.cjs",
+      "sourceSha256": "52f52a0f4a39a5b76b87b098550e5923610d510601430469dc9badb266238eee",
+      "targetSha256": "85638ddbdd1dfac19671c5312600b66bc8f60440cd795b9d2c622ed9deb0cd8b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_identifier_urls.cjs",
+      "target": "tests/v2110/test_identifier_urls.cjs",
+      "sourceSha256": "4094403a273f3cdd8eb1336e13b1fd41470ad3199f5b90a977b8b0baa95d5c04",
+      "targetSha256": "ee0cccb09f54a10c62e6f9c439d289dd06eb639d2cf2c8c4e31621978eddcb5c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_index.cjs",
+      "target": "tests/v2110/test_index.cjs",
+      "sourceSha256": "b0f857a52030872bf9fcc37a31954855fb48338127c2dc34f3ee35b2a59a48df",
+      "targetSha256": "773fe5c5705909bf563159e28698a7ea7762c8fdd185e4c632601b4f5aac60ff",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_marriage_guards.cjs",
+      "target": "tests/v2110/test_marriage_guards.cjs",
+      "sourceSha256": "20711bb26a408227c9a0a707766c7d218a1ba3a7816629cb00d25c5b53758c43",
+      "targetSha256": "279142a8c926098cf57cb669963f45c14296089342f803ac198105ecab6b6ccd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_marriage_syntax.cjs",
+      "target": "tests/v2110/test_marriage_syntax.cjs",
+      "sourceSha256": "cfa0036c8759730f2872f76f4f66c6ac61912d82f74ae248b3765e7c8fef9a6d",
+      "targetSha256": "7182c720cf920d2346404958f2bdde47aaf7f11c1a9baa5d33edd88e025d60c7",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_multiple_marriages.cjs",
+      "target": "tests/v2110/test_multiple_marriages.cjs",
+      "sourceSha256": "44ad5508d1d3607cc752c24d3671c9d02d438557c7de345ad110039cc62ed94a",
+      "targetSha256": "6278b4e0bfa3e011c37532cfced0763060fcda2069adb3c8c7fcfa1555b9d179",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_no_section_buttons.cjs",
+      "target": "tests/v2110/test_no_section_buttons.cjs",
+      "sourceSha256": "48ea44c332e4a6bef1dd5f4ff37361caf570677d777fbcab2f7f7bb531f1353d",
+      "targetSha256": "f60407cc21527e4ce0d07fa9a7eb81aa3ac19bc1560706fd021e55537f473c02",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_quotes.cjs",
+      "target": "tests/v2110/test_quotes.cjs",
+      "sourceSha256": "2a0bfba0d85c4664f593f58658bf0af193eb39f0f3b1cfa951797ae32f775f61",
+      "targetSha256": "555b4a71d7d99d612b932e370793988ee328d6323335080d5ffa6b89ccdbdbb0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_reference_graph.cjs",
+      "target": "tests/v2110/test_reference_graph.cjs",
+      "sourceSha256": "7da9758f7932fc34908da735f6b53c317d556adb93e6df3087d03e52e80e7f6e",
+      "targetSha256": "ee36275fbfdb6e3625dce5b728560f4d8f5b08285963eb027931f60a2b4521b0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_reference_repairs.cjs",
+      "target": "tests/v2110/test_reference_repairs.cjs",
+      "sourceSha256": "3df1b1ee0a0e771355fefa30df507341ed90443014225df393dddccf10cd1175",
+      "targetSha256": "2544d28e9e7a3303b1889f476a497945653fcd731638f5d3fcf7ee5fb692ca91",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_responsive_tables.cjs",
+      "target": "tests/v2110/test_responsive_tables.cjs",
+      "sourceSha256": "d8425568474c38cb2b9dc6d077745d747a8cf26c1bc30b3dbebb95400b3d7160",
+      "targetSha256": "4d2daf0e17fe9ab7b83db66071cfabcea21e85d3e284e229ef6e097ff442c0bd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_safe_automation.cjs",
+      "target": "tests/v2110/test_safe_automation.cjs",
+      "sourceSha256": "73c69698a588785aad4942533d80acb9870fd779a2b445c65cf44ff28bf46a91",
+      "targetSha256": "eb91528980bf5715cd47e82433232cbe1807141006f51198a440e04194844276",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_structural_engine.cjs",
+      "target": "tests/v2110/test_structural_engine.cjs",
+      "sourceSha256": "94773ee721c6cdca9431cef81146d314a3c8f5c54555cf556d62285c3abd9bef",
+      "targetSha256": "a81fe927c5866c5fb2b032d456367ac236ae26a182b3f422fbb8683cce0f81ff",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_table_guards.cjs",
+      "target": "tests/v2110/test_table_guards.cjs",
+      "sourceSha256": "85a6c02fd58225e55c3b1b42fdf9cd6e71bc91366163f520facade52a56ce6ee",
+      "targetSha256": "a18806b9392170c570a3b014e9e8adb490d81c0336f601860993ba7a63a3fcaa",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_table_repairs.cjs",
+      "target": "tests/v2110/test_table_repairs.cjs",
+      "sourceSha256": "65730ebd68c015185f8fecc80963c0c01c45ce0f6d821094b6052e6b19a5bfed",
+      "targetSha256": "551d0d3e54381c2e4b3ed28276785cb0bbeef6e9314cad7d0a2e8575ba962d65",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_table_structure.cjs",
+      "target": "tests/v2110/test_table_structure.cjs",
+      "sourceSha256": "9b1b921c339e6097f16f0908eaffac3acfb2c935e33ba63592d12f0ecad8378a",
+      "targetSha256": "1b4409bc38fccb60abadb92494841c6d7c3859a02e3aec0f509bb6e66bf6e027",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/test_table_syntax.cjs",
+      "target": "tests/v2110/test_table_syntax.cjs",
+      "sourceSha256": "3c4e9d34146ce8de49d32dc499c435787ca0e9af634b266e521404c680661b46",
+      "targetSha256": "c3e6facb6b9d974ff974c8b95a16b369af782588525ee4080d6f1a36dff9f826",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2100/verify_inherited.cjs",
+      "target": "tests/v2110/verify_inherited.cjs",
+      "sourceSha256": "a61eab927be82669885d047d3eddbca907e6c4f356b271f45416f45a9983c622",
+      "targetSha256": "87b6bf9e75c4103d339d09f7f02812eb2d62b03bc9ef2ab9d10adfe89b7392b9",
+      "additionalSubstitutions": []
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v2110/browser/v211_count_flow.cjs",
+      "sha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430"
+    },
+    {
+      "target": "tests/v2110/browser/v211_freshness_flow.cjs",
+      "sha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d"
+    },
+    {
+      "target": "tests/v2110/browser/v211_minor_flow.cjs",
+      "sha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5"
+    },
+    {
+      "target": "tests/v2110/test_minor_classification.cjs",
+      "sha256": "c6ca2ef06133d7df77c2b5207a9d140efd636167b17556396de8644c84afb241"
+    },
+    {
+      "target": "tests/v2110/test_occurrence_count.cjs",
+      "sha256": "a34038e18be0fc6b14d20e47d04464ec59f5aa5bcc488f025fee4133d0d3e675"
+    },
+    {
+      "target": "tests/v2110/test_topic_portals.cjs",
+      "sha256": "f70263012224ff37160adda19e92716f1f1c43ada4249477b969e73aeb467b9b"
+    },
+    {
+      "target": "tests/v2110/test_ui_freshness.cjs",
+      "sha256": "afec211a06c871ccc5bd37291d00aa4117751133f30284f8f4f13d6e139acccc"
+    }
+  ]
+}

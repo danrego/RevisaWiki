@@ -1,0 +1,60 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{performance}=require('node:perf_hooks'),candidate=require('./candidate.cjs');
+const pinned=candidate.verify(),report={version:pinned.version,kind:'retained-occurrence-accounting',frozenFiles:pinned.files,cases:[],checks:0,failures:[],networkRequests:0,wikipediaWrites:0};
+const equal=(actual,expected,label)=>{report.checks++;assert.deepEqual(actual,expected,label);};
+const check=(actual,label)=>{report.checks++;assert(actual,label);};
+function test(bundle,name,fn){const start=performance.now();try{fn();report.cases.push({bundle,name,passed:true,milliseconds:Math.round(performance.now()-start)});}catch(error){const failure={bundle,name,error:candidate.sanitized(error.message)};report.cases.push({...failure,passed:false});report.failures.push(failure);}}
+for(const file of candidate.bundleFiles()){
+ const bundle=path.basename(file),api=candidate.load(bundle).api;
+ const inspect=(before,after,expected)=>{
+  const result=api.v211RetainedAdjustments(before,after);equal(result.exact,true,'explicit component proof');equal(result.count,expected,'independent expected correction count');equal(result.events.length,expected,'one exposed ledger entry per counted effect');equal(result.coveredFragments,result.totalFragments,'all final difference fragments assigned');equal(result.unresolvedFragments,0,'no unmatched fragment');
+  equal(new Set(result.events.map(e=>e.id)).size,expected,'stable occurrence identifiers are distinct');
+  for(const event of result.events){equal(event.sourceHash,result.sourceHash,'source identity');equal(event.outputHash,result.outputHash,'output identity');check(event.sourceAnchors.every(a=>a.start>=0&&a.end>=a.start&&a.end<=before.length),'original source anchor bounds');check(event.outputAnchors.every(a=>a.start>=0&&a.end>=a.start&&a.end<=after.length),'final output anchor bounds');for(const fragment of event.fragments){equal(before.slice(fragment.start,fragment.end),fragment.before,'fragment original bytes');equal(after.slice(fragment.newStart,fragment.newEnd),fragment.after,'fragment final bytes');}}
+  return result;
+ };
+ const linksBefore='[[Teste|Teste]] [[Ecossistema|Ecossistemas]] [[Vida|Vida]]',linksAfter='[[Teste]] [[Ecossistema]]s [[Vida]]';
+ test(bundle,'three independent links including plural suffix',()=>inspect(linksBefore,linksAfter,3));
+ test(bundle,'twelve corrected links do not become one topic',()=>{const before=Array.from({length:12},(_,i)=>'[[Tema '+i+'|Tema '+i+']]').join(' '),after=Array.from({length:12},(_,i)=>'[[Tema '+i+']]').join(' ');inspect(before,after,12);equal(api.v27RetainedTypes(before,after).count,1,'historical API remains topic-only');});
+ test(bundle,'template name plus three parameter names',()=>inspect('{{Cite web|title=Fonte|url=https://ex.test|access-date=2020-01-01|publisher=Jornal}}','{{Citar web|titulo=Fonte|url=https://ex.test|acessodata=2020-01-01|publicado=Jornal}}',4));
+ test(bundle,'three paired HTML italic conversions',()=>inspect('<i>A</i> <i>B</i> <i>C</i>',"''A'' ''B'' ''C''",3));
+ test(bundle,'paired format conversion and spelling remain independent',()=>inspect('<i>presonagem</i>',"''personagem''",2));
+ test(bundle,'paired format conversion and inner link remain independent',()=>inspect('<i>[[Teste|Teste]]</i>',"''[[Teste]]''",2));
+ const tableBefore='{| class="wikitable"\n! A !! B !! C !! D !! E\n|-\n| 1 || 2 || 3 || 4 || 5\n|}',tableAfter=tableBefore.replace('! A !! B !! C !! D !! E','! scope="col" | A !! scope="col" | B !! scope="col" | C !! scope="col" | D !! scope="col" | E');
+ test(bundle,'five individual header scope attributes',()=>inspect(tableBefore,tableAfter,5));
+ test(bundle,'new scopes and changed existing spans remain different attributes',()=>inspect('{| class="wikitable"\n! colspan="02" A !! colspan="03" B\n|}','{| class="wikitable"\n! scope="col" colspan="2" | A !! scope="col" colspan="3" | B\n|}',4));
+ test(bundle,'four reference-name occurrences remain one dependency family',()=>{const before='A<ref name="1">Fonte.</ref>B<ref name="1"/>C<ref name="1"/>D<ref name="1"/>',after=before.replaceAll('name="1"','name="ref1"');inspect(before,after,4);const hunks=api.comparison(before,{text:after});equal(new Set(hunks.map(h=>h.transaction)).size,1,'dependency family is separate from count');});
+ test(bundle,'one complete identical source reused',()=>inspect('A<ref name="a">Fonte.</ref>B<ref name="b">Fonte.</ref>','A<ref name="a">Fonte.</ref>B<ref name="a"/>',1));
+ test(bundle,'paired responsive table wrapper is one operation',()=>inspect(tableBefore,'<div class="noresize" style="overflow:auto;">\n'+tableBefore+'\n</div>',1));
+ test(bundle,'same citation value normalized through multiple passes counts once',()=>inspect('{{Citar web|acessodata= 2020-01-01 }}','{{Citar web|acessodata=1 de janeiro de 2020}}',1));
+ test(bundle,'field spacing and a nested link do not collapse at equal bounds',()=>inspect('{{Citar web|titulo= [[Tema|Tema]] }}','{{Citar web|titulo=[[Tema]]}}',2));
+ test(bundle,'separate leading and trailing date changes retain field identity',()=>inspect('{{Citar web|titulo=  Fonte |data=2020-01-01}}','{{Citar web|titulo=Fonte|data=1 de janeiro de 2020}}',2));
+ test(bundle,'discarded body changes do not inflate reuse',()=>inspect('A<ref name="a"><i>Fonte</i></ref>B<ref name="b"><i>Fonte</i></ref>',"A<ref name=\"a\">''Fonte''</ref>B<ref name=\"a\"/>",2));
+ test(bundle,'moved definition preserves independently corrected logical body',()=>inspect('A<ref name="a"/> B<ref name="a">Fonte com [[Teste|Teste]].</ref>','A<ref name="a">Fonte com [[Teste]].</ref> B<ref name="a"/>',2));
+ test(bundle,'rejecting five table scopes retains exactly three links',()=>{const before=linksBefore+'\n'+tableBefore,after=linksAfter+'\n'+tableAfter,hunks=api.comparison(before,{text:after});hunks.forEach(h=>{if(h.start>=before.indexOf('{|'))h.accepted=false;});inspect(before,api.composeChanges(before,hunks),3);hunks.forEach(h=>h.accepted=false);const zero=api.v211RetainedAdjustments(before,api.composeChanges(before,hunks));equal(zero.count,0,'all rejected is zero');equal(zero.events,[],'no retained events');});
+ test(bundle,'undo and unchanged rerun reset endpoint count',()=>{equal(api.v211RetainedAdjustments(linksBefore,linksBefore).count,0,'undo original endpoint');equal(api.v211RetainedAdjustments(linksAfter,linksAfter).count,0,'new unchanged execution');inspect(linksBefore,linksAfter,3);});
+ test(bundle,'new renderer name and new field are separate corrections',()=>inspect('{{reflist}}','{{Referências|col=2}}',2));
+ test(bundle,'three contiguous removed empty fields are separate',()=>inspect('{{Citar web|title=Fonte|foo=|bar=|baz=}}','{{Citar web|title=Fonte}}',3));
+ test(bundle,'existing portal receives three independently added fields',()=>inspect('{{Portal3|Cinema}}','{{Portal3|Cinema|Biografias|Mulheres|França}}',3));
+ test(bundle,'new portal template counts its topic slots',()=>inspect('Texto.\n','Texto.\n\n{{Portal3|Cinema|Entretenimento|França}}\n',3));
+ test(bundle,'portal insertion replacing extra blank lines still counts each slot',()=>inspect('Texto.\n\n\n\n','Texto.\n\n{{Portal3|Cinema|Entretenimento|França}}\n',3));
+ test(bundle,'portal insertion replacing trailing blanks still counts each slot',()=>inspect('Texto.  \n','Texto.\n\n{{Portal3|Cinema|Entretenimento|França}}\n',3));
+ test(bundle,'reference punctuation relocation is one correction',()=>inspect('A<ref>Fonte.</ref>.','A.<ref>Fonte.</ref>',1));
+ test(bundle,'image namespace and caption correction are separate',()=>inspect('[[File:X.jpg|thumb|Legenda.]]','[[Imagem:X.jpg|thumb|Legenda]]',2));
+ test(bundle,'duplicate renderer removal includes its adjacent newline',()=>inspect('{{Referências}}\n{{Referências}}','{{Referências}}',1));
+ test(bundle,'whole renderer movement is one confirmed structural operation',()=>inspect('A\n{{Referências}}\nB\n','A\nB\n{{Referências}}\n',1));
+ test(bundle,'portal movement is independent of which equal line the diff anchors',()=>inspect('{{Portal3|Cinema|França}}\nTexto.','Texto.\n{{Portal3|Cinema|França}}',1));
+ test(bundle,'combined portal movement and expansion refuses an invented total',()=>{const r=api.v211RetainedAdjustments('A\n{{Portal3|Cinema}}\n{{Controle de autoridade}}\n','A\n{{Controle de autoridade}}\n{{Portal3|Cinema|Entretenimento|França}}\n');equal(r.exact,false,'compound relocation has no exact occurrence contract');equal(r.count,null,'existing portal slot is not counted as a fresh addition');});
+ test(bundle,'cross-field replacement never receives a false exact total',()=>{const r=api.v211RetainedAdjustments('{{Cite web|title=ABC}}','{{Citar web|titulo=XYZ|url=http://x}}');equal(r.exact,false,'a changed value joined to a new field is unresolved');equal(r.count,null,'a source component cannot hide multiple final components');});
+ test(bundle,'reverse cross-field replacement also refuses an exact total',()=>{const r=api.v211RetainedAdjustments('{{Citar web|titulo=XYZ|url=http://x}}','{{Cite web|title=ABC}}');equal(r.exact,false,'a changed value joined to a deleted field is unresolved');equal(r.count,null,'a final component cannot hide multiple source components');});
+ test(bundle,'no-op intermediate changes cannot accumulate',()=>{for(let i=0;i<10;i++)inspect(linksBefore,linksAfter,3);equal(api.v211RetainedAdjustments(linksBefore,linksBefore).events.length,0,'endpoint reverted to original');});
+ test(bundle,'coarse alignment never claims an exact correction count',()=>{const before='aaaa '.repeat(10000),after='bbbb '.repeat(10000),r=api.v211RetainedAdjustments(before,after);equal(r.exact,false,'unresolved comparison declared');equal(r.count,null,'no guessed exact total');check(!/^\d/.test(r.text),'no prominent invented number');});
+ test(bundle,'large immutable public source counts retained components not topics',()=>{const directory=path.join(__dirname,'fixtures/occurrence_count'),meta=JSON.parse(fs.readFileSync(path.join(directory,'source.json'))),texts=meta.revisions.map(r=>{const bytes=fs.readFileSync(path.join(directory,r.file));equal(candidate.sha(bytes),r.sha256,'immutable public source SHA');equal(bytes.length,r.bytes,'immutable public source bytes');return bytes.toString('utf8');}),[before,after]=texts;
+  const result=inspect(before,after,874);equal(api.v27RetainedTypes(before,after).count,5,'five is only the topic count');equal(result.totalFragments,990,'fragments remain a third distinct quantity');
+  const tally=Object.fromEntries([...new Set(result.events.map(e=>e.kind))].sort().map(kind=>[kind,result.events.filter(e=>e.kind===kind).length]));
+  equal(tally,{'image-field':8,'image-namespace':7,link:194,'parameter-field':1,'parameter-value':636,'reference-attribute':19,'reference-relocation':3,'table-attribute':5,'template-conversion':1},'reviewed occurrence inventory');
+  equal((after.match(/scope="col"/g)||[]).length-(before.match(/scope="col"/g)||[]).length,5,'independent literal header attribute inventory');equal((before.match(/\[\[Ficheiro:/g)||[]).length-(after.match(/\[\[Ficheiro:/g)||[]).length,7,'independent image namespace inventory');
+  const eventIds=result.events.map(e=>e.id);result.events[0].label='consumer mutation';equal(api.v211RetainedAdjustments(before,after).events.map(e=>e.id),eventIds,'memo IDs stable and consumer isolated');
+ });
+ test(bundle,'deterministic independent sparse link inventory',()=>{for(let n=1;n<=50;n++){const before=Array.from({length:n},(_,i)=>'[[Assunto '+i+'|Assunto '+i+']]').join('\n'),after=Array.from({length:n},(_,i)=>'[[Assunto '+i+']]').join('\n');inspect(before,after,n);}});
+}
+report.status=report.failures.length?'failed':'passed';report.passed=report.cases.filter(c=>c.passed).length;report.failed=report.failures.length;fs.writeFileSync(path.join(candidate.artifactDirectory(),'occurrence_count.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,cases:report.cases.length,checks:report.checks,failures:report.failures}));if(report.failed)process.exitCode=1;
