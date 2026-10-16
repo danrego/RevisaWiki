@@ -5,12 +5,12 @@
   "complex": false,
   "frozenFiles": {
     "Carregador_common_js_RevisaWiki_v2_11_0.js": {
-      "bytes": 9651,
-      "sha256": "ba632e26d81b260db9148313ac9becbb74e0c0069b3f47095ccea7f1ce6b6739"
+      "bytes": 9654,
+      "sha256": "b0db1cc088b5b269e952bba8ebf5d9c6055340ca2e84a1a7b1237023e1f5e7d8"
     },
     "Carregador_comunitario_RevisaWiki_v2_11_0.js": {
-      "bytes": 9653,
-      "sha256": "b941cdd4efb3f9e0b22a6556cec5098e54cf3770eb44279a575496ccfcaa78e7"
+      "bytes": 9656,
+      "sha256": "a9593c1c88ba0891dbdb28686af362cb090580f28d1b8d33780a81caec11c70b"
     },
     "Chamada_fixa_RevisaWiki_common.js": {
       "bytes": 695,
@@ -21,12 +21,12 @@
       "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
     },
     "RevisaWiki_v2_11_0.js": {
-      "bytes": 1314826,
-      "sha256": "18be6c555f66c74f8d023828ada7de1fc77c455b022967a4221d58d628ca6838"
+      "bytes": 1329070,
+      "sha256": "1ecd1df14b24d13a16d21f115bc1568afd79e4ee526cc9f7d1912c7c0b5851f7"
     },
     "RevisaWiki_v2_11_0_completo.js": {
-      "bytes": 2827971,
-      "sha256": "84705cb51a2f1c667f73062b357d42c89962698c57c5cb31c9b3cdf3db5f6c88"
+      "bytes": 2842215,
+      "sha256": "6636fcffe9e308f378ee27d6d4e6defc57ca5567363b97a793acab81886cf132"
     },
     "RevisaWiki_v2_11_0_dados.js": {
       "bytes": 1523935,
@@ -105,7 +105,7 @@
       "newExpectedSha256": "1b948c7aa5f0b52a89aae626b256c368490f18d4e87184a046763d6b079c7eac",
       "rule": "v29AnchorReferences",
       "reason": "Repeated calls at the same source anchor have the same name only within their own literal group. Both complete original definitions remain, so the two distinct source groups are preserved.",
-      "expectationManifestSha256": "6e83548d3f27cc62d452f6026b1ec7fdd6d196068457f35313737f8afc40a440"
+      "expectationManifestSha256": "f23deca421c123d16537bc0473e59abe0891d09c77a40813fd090de7bcf7be7b"
     },
     {
       "fixtureFile": "tests/v26_engine/positive_contracts.json",
@@ -126,7 +126,7 @@
       "newExpectedSha256": "53488f4ae8c7419361faf1457fdb1c1fdf8833ccab11268e7a228087ea13b9b8",
       "rule": "safeEquivalentCitations",
       "reason": "The original complete-field equivalence creates a named definition and an immediately repeated call. The new same-anchor rule removes only that redundant call, retaining the exact original definition and the original equivalence proof.",
-      "expectationManifestSha256": "6e83548d3f27cc62d452f6026b1ec7fdd6d196068457f35313737f8afc40a440"
+      "expectationManifestSha256": "f23deca421c123d16537bc0473e59abe0891d09c77a40813fd090de7bcf7be7b"
     },
     {
       "fixtureFile": "tests/v26_engine/positive_contracts.json",
@@ -147,7 +147,7 @@
       "newExpectedSha256": "f8fe728341c51ce7e6565da90724e1321b5429dc4008a36467f50e28e7e97e3f",
       "rule": "safeEquivalentCitations",
       "reason": "The existing parameter-name equivalence creates a named definition and an immediately repeated call. The new same-anchor rule removes only that redundant call. The exact original definition and original equivalence rule remain part of the contract.",
-      "expectationManifestSha256": "6e83548d3f27cc62d452f6026b1ec7fdd6d196068457f35313737f8afc40a440"
+      "expectationManifestSha256": "f23deca421c123d16537bc0473e59abe0891d09c77a40813fd090de7bcf7be7b"
     },
     {
       "name": "real biography legacy output with source-equivalent reference reuse",
@@ -182,14 +182,28 @@
           "occurrences": 1
         }
       ],
-      "newOutputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
-      "newOutputBytes": 118942,
+      "newOutputSha256": "381894bcda16fdebe6129efba70e3127ba96a16f952b85a8352db65537cb77fd",
+      "newOutputBytes": 118990,
       "referenceCount": 223,
       "orderedResolvedReferenceSha256": "9c91d172e5d796b1de4e0404a99a65bfc374b9e80bcbb1ebdb5142c71abd3bd9",
       "outsideReferenceTextSha256": "34a579024d8ac9ada5110aaf79617c7d6c8bfc2fdbfedaa650dbb0aed14373a8",
-      "reason": "The anonymous reference at index 20 and the named reference at index 29 have the exact same complete citation body. The first gains the already existing name a833 and retains the original body. The later duplicate becomes a reuse. Every ordered resolved reference body, reference group, and byte outside reference tags remains unchanged. The original article source and inherited assertion code are unchanged.",
+      "reason": "The anonymous reference at index 20 and the named reference at index 29 have the exact same complete citation body. The first gains the existing name a833 and keeps that body. The later duplicate becomes a reuse. Every ordered resolved reference body and group stays unchanged. Separately, the sole confirmed collector with 180 distinct entries replaces only its old fixed-count style with the reviewed responsive width, gap and maximum width, adding exactly 48 bytes. Every byte outside the two declared reference occurrences and this one collector style remains unchanged. The original article source and inherited assertion code are unchanged.",
+      "referenceOnlyOutputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
+      "referenceOnlyOutputBytes": 118942,
+      "styleReplacement": {
+        "before": "{{Referências|estilo=column-count:2;}}",
+        "after": "{{Referências|estilo=column-count:2;column-width:30em;column-gap:2em;max-width:62em;}}",
+        "occurrences": 1,
+        "beforeSha256": "ac3545468638b5994b372c27e068cd872c20074f125fb172194087814dc35610",
+        "afterSha256": "b7344e662be0d510b9f28bdcd519275a7f85bd3aaec2d1a710ab0bf49c0f0218",
+        "byteDelta": 48,
+        "minimumEntries": 10,
+        "confirmedEntries": 180
+      },
+      "newOutsideReferenceTextSha256": "7e01ca65f65348abbcd941806ffcab5825cdbe530270400acf7857d583920897",
+      "outsideApprovedChangesSha256": "e56b11cc82a559fd55037a99f7e9d2ec3747462e6519434e521e708615cc454d",
       "kind": "source-equivalent-real-output-fixture",
-      "expectationManifestSha256": "6e83548d3f27cc62d452f6026b1ec7fdd6d196068457f35313737f8afc40a440"
+      "expectationManifestSha256": "f23deca421c123d16537bc0473e59abe0891d09c77a40813fd090de7bcf7be7b"
     }
   ],
   "results": [

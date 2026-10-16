@@ -7,6 +7,8 @@ inputs=[(p,p.name) for p in sorted((D/'final_main').glob('*.json'))]
 inputs +=[(D/'RELEASE_QA_SUMMARY.json','RELEASE_QA_SUMMARY.json'),(D/'large-corpus/final_v2110/public_report.json','large_articles.json'),(D/'final_performance/large_performance.json','large_performance.json')]
 inputs +=[(R/'tests/v2110'/name,name) for name in ['NATIVE_BIRTH_CATEGORY_PROOF.json','NATIVE_REPAIR_RENDER_PROOF.json','NATIVE_STRUCTURE_RENDER_PROOF.json']]
 inputs +=[(D/'final_browser_retry'/name,'browser/'+name) for name in ['chrome.json','firefox.json','safari.json','NATIVE_BROWSER_SUMMARY.json']]
+inputs +=[(D/'final_geometry'/name,'reference_geometry/'+name) for name in ['chrome.json','firefox.json','safari.json']]
+inputs +=[(D/'final_image'/name,'image_browser/'+name) for name in ['chrome.json','firefox.json','safari.json']]
 inputs +=[(D/name,name) for name in ['documentation.json','copy_index.json','rebuild.json','privacy_units.json']]
 P=R/'tests/evidence/2.11.0';P.mkdir(parents=True,exist_ok=True);files={}
 for path,name in inputs:

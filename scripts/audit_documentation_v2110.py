@@ -134,7 +134,7 @@ check('dois níveis' in active_manual and 'scope="col"' in active_manual, 'Lower
 check('sem novos avisos' in active_manual, 'Uncertain new repairs do not add warnings')
 check('Essas regras novas exigem um artigo inteiro do domínio principal' in active_manual, 'New rule scope excludes other namespaces and sections')
 new_entry = history_body.split('=== 2.11.0 ===',1)[1].split('=== ',1)[0]
-check(len(re.findall(r'^\* ',new_entry,re.M)) == 9, 'The latest release has nine concise feature bullets')
+check(len(re.findall(r'^\* ',new_entry,re.M)) == 12, 'The latest release has twelve concise feature bullets')
 check(all(title in active_manual for title in ['=== Fontes definidas na lista de referências ===',
       '=== Nomes repetidos para fontes diferentes ===', '=== Espaço ausente na etiqueta ref ===',
       '=== Destinos das citações abreviadas ===']), 'All new reference rules have their own scope explanation')
@@ -214,6 +214,14 @@ if match:
     check(payload['central']['destination'] == 'Usuário:Daniel G Rego/RevisaWiki/Carregador.js', 'Central loader has its own destination')
     check(payload['carregador']['filename'] == 'Chamada_fixa_RevisaWiki_common.js', 'Only the permanent bootstrap goes in common.js')
 check('action=edit' in index, 'Direct destination-editor links are present')
+check(index.count('class="raw-source"') == 5 and 'action=raw' in index, 'Every copy card offers a raw-source view')
+check('=== Aviso ao exibir arquivos grandes ===' in active_manual and 'limite de exibição não impede o salvamento nem a execução' in active_manual, 'SyntaxHighlight display warning is separated from saving and runtime')
+check('recusa de publicação' in active_manual and 'investigado separadamente' in active_manual, 'Actual publishing or syntax errors are not dismissed')
+check('distribuição r2' in active_manual and "loaderRevision = '2.11.0-r2'" in active_manual, 'Revised distribution and cache key are documented')
+check('dez ou mais entradas reconhecidas na mesma lista' in active_manual and 'listas sucessivas são contados separadamente' in active_manual, 'Reference columns require ten entries in the same collector')
+check('Em telas estreitas, a lista volta a uma coluna' in active_manual and 'configuração válida de colunas já existente é mantida' in active_manual, 'Responsive presentation and manual formatting are preserved')
+check('=== Fotografias grandes na introdução ===' in active_manual and 'consulta pública confirma um arquivo do Wikimedia Commons' in active_manual, 'Thumbnail inference requires public file proof')
+check('mapas, diagramas' in active_manual.lower() and 'uma largura fixa' in active_manual, 'Thumbnail rule excludes specialized layouts and preserves reader sizing')
 check('até 500 bytes somando' not in active_manual and 'até cinco trechos' not in active_manual, 'Old minor numerical cutoffs are absent')
 check('revisão pública de origem confirmada' in active_manual and 'correspondência exata com os reparos mecânicos permitidos' in active_manual, 'Saved baseline and mechanical proof remain required')
 check('Adições de portais, controle de autoridade, categorias, fontes, dados ou conteúdo ficam fora' in active_manual, 'Semantic and portal edits never autoqualify as minor')

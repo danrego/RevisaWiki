@@ -24,7 +24,7 @@ for source in sorted(DIST.iterdir()):
     if source.is_file() and source.name not in [archive.name, 'ARQUIVOS.json']:
         raw = source.read_bytes()
         files[source.name] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
-(DIST / 'ARQUIVOS.json').write_text(json.dumps({'version': '2.11.0', 'files': files, 'wikipediaWrites': 0}, indent=2) + '\n')
+(DIST / 'ARQUIVOS.json').write_text(json.dumps({'version': '2.11.0', 'distributionRevision': manifest['distributionRevision'], 'files': files, 'wikipediaWrites': 0}, indent=2) + '\n')
 with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as package:
     for source in sorted(DIST.iterdir()):
         if source.is_file() and source != archive:

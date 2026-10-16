@@ -79,7 +79,7 @@
       "reason": "The existing parameter-name equivalence creates a named definition and an immediately repeated call. The new same-anchor rule removes only that redundant call. The exact original definition and original equivalence rule remain part of the contract."
     }
   ],
-  "scope": "Only disposable copies used by tests/v2100/run_engine.cjs are adapted. The original assertion code and tests/v26_engine fixture files remain byte-identical.",
+  "scope": "Only disposable copies used by tests/v2110/run_engine.cjs are adapted. The original assertion code, all 81 inherited fixture cases and every tests/v26_engine fixture file remain byte-identical.",
   "outputFixtureChanges": [
     {
       "name": "real biography legacy output with source-equivalent reference reuse",
@@ -114,12 +114,26 @@
           "occurrences": 1
         }
       ],
-      "newOutputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
-      "newOutputBytes": 118942,
+      "newOutputSha256": "381894bcda16fdebe6129efba70e3127ba96a16f952b85a8352db65537cb77fd",
+      "newOutputBytes": 118990,
       "referenceCount": 223,
       "orderedResolvedReferenceSha256": "9c91d172e5d796b1de4e0404a99a65bfc374b9e80bcbb1ebdb5142c71abd3bd9",
       "outsideReferenceTextSha256": "34a579024d8ac9ada5110aaf79617c7d6c8bfc2fdbfedaa650dbb0aed14373a8",
-      "reason": "The anonymous reference at index 20 and the named reference at index 29 have the exact same complete citation body. The first gains the already existing name a833 and retains the original body. The later duplicate becomes a reuse. Every ordered resolved reference body, reference group, and byte outside reference tags remains unchanged. The original article source and inherited assertion code are unchanged."
+      "reason": "The anonymous reference at index 20 and the named reference at index 29 have the exact same complete citation body. The first gains the existing name a833 and keeps that body. The later duplicate becomes a reuse. Every ordered resolved reference body and group stays unchanged. Separately, the sole confirmed collector with 180 distinct entries replaces only its old fixed-count style with the reviewed responsive width, gap and maximum width, adding exactly 48 bytes. Every byte outside the two declared reference occurrences and this one collector style remains unchanged. The original article source and inherited assertion code are unchanged.",
+      "referenceOnlyOutputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
+      "referenceOnlyOutputBytes": 118942,
+      "styleReplacement": {
+        "before": "{{Referências|estilo=column-count:2;}}",
+        "after": "{{Referências|estilo=column-count:2;column-width:30em;column-gap:2em;max-width:62em;}}",
+        "occurrences": 1,
+        "beforeSha256": "ac3545468638b5994b372c27e068cd872c20074f125fb172194087814dc35610",
+        "afterSha256": "b7344e662be0d510b9f28bdcd519275a7f85bd3aaec2d1a710ab0bf49c0f0218",
+        "byteDelta": 48,
+        "minimumEntries": 10,
+        "confirmedEntries": 180
+      },
+      "newOutsideReferenceTextSha256": "7e01ca65f65348abbcd941806ffcab5825cdbe530270400acf7857d583920897",
+      "outsideApprovedChangesSha256": "e56b11cc82a559fd55037a99f7e9d2ec3747462e6519434e521e708615cc454d"
     }
   ]
 }

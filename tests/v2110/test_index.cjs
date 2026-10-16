@@ -40,6 +40,18 @@ const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
    verify(url.searchParams.get('title')===item.destination,id+' correct editor title');
    verify(url.searchParams.get('action')==='edit',id+' opens editor only');
   }
+  verify(await page.locator('a.raw-source').count()===5,'Each copy card has a raw-source view');
+  verify((await page.locator('body').innerText()).includes('distribuição r2'),'The visible index identifies this revised distribution');
+  await page.locator('details.notice > summary').click();
+  verify(await page.locator('details.notice').evaluate(el=>el.open),'The optional display-warning explanation opens on demand');
+  verify((await page.locator('body').innerText()).includes('102400'),'The exact visual-warning threshold is visible after opening its explanation');
+  for(const [id,item]of Object.entries(payload)){
+   const href=await page.locator('#'+id+' a.raw-source').getAttribute('href'),url=new URL(href);
+   verify(url.origin==='https://pt.wikipedia.org',id+' raw view origin');
+   verify(url.searchParams.get('title')===item.destination,id+' raw view destination');
+   verify(url.searchParams.get('action')==='raw',id+' raw view action');
+   verify(url.searchParams.get('ctype')===(item.filename.endsWith('.js')?'text/javascript':'text/plain'),id+' raw MIME');
+  }
   await page.evaluate(()=>{navigator.clipboard.writeText=async()=>{throw new Error('Manual fallback');};});
   await page.locator('button[data-id="programa"][data-copy="text"]').click();
   verify(await page.locator('#viewer').evaluate(el=>el.open),'Manual fallback is available');

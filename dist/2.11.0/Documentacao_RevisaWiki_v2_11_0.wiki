@@ -31,7 +31,7 @@ Depois que as páginas da distribuição estiverem atualizadas, acrescente a cha
 
 Essa chamada abre [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]]. Ela dispensa copiar os dados e o núcleo para a sua conta. Não é preciso trocar o common.js a cada versão. O endereço de consulta recebe uma chave de cache que muda em intervalos de cinco minutos, calculada ao abrir outra página ou recarregar. Não há consulta periódica em uma página que continua aberta nem edições automáticas na Wikipédia.
 
-Depois de salvar, recarregue a página e abra '''Editar código-fonte'''. O painel deve mostrar '''2.11.0'''. No Firefox e no Chrome para Mac, uma recarga completa usa '''Command + Shift + R'''. No Safari, use '''Option + Command + R'''.
+Depois de salvar, recarregue a página e abra '''Editar código-fonte'''. O painel deve mostrar '''PTwiki 2.11.0 · r2'''. No Firefox e no Chrome para Mac, uma recarga completa usa '''Command + Shift + R'''. No Safari, use '''Option + Command + R'''.
 
 === Atualizar as páginas da distribuição ===
 
@@ -42,9 +42,15 @@ Quem mantém a distribuição deve atualizar os arquivos da pasta <code>dist/2.1
 # Crie ou atualize [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]] com o conteúdo completo de <code>Carregador_comunitario_RevisaWiki_v2_11_0.js</code>. Essa página recebe o carregador maior. A chamada curta acima pertence ao common.js.
 # Se já usa a chamada fixa acima no common.js, mantenha esse bloco. Em uma instalação antiga, substitua somente o bloco do RevisaWiki pela chamada fixa. Preserve os outros scripts e mantenha uma única chamada.
 # Copie <code>Documentacao_RevisaWiki_v2_11_0.wiki</code> para [[Usuário:Daniel G Rego/RevisaWiki]].
-# Recarregue e confira '''2.11.0''' em '''Configurações → Sobre e diagnóstico'''. Os dados, o núcleo e a versão esperada pelo carregador central precisam combinar. O carregador desta versão também informa <code>loaderRevision = '2.11.0'</code>.
+# Recarregue e confira '''2.11.0''' em '''Configurações → Sobre e diagnóstico'''. Os dados, o núcleo e a versão esperada pelo carregador central precisam combinar. O carregador desta versão também informa <code>loaderRevision = '2.11.0-r2'</code>.
 
 Nas próximas atualizações, dados, núcleo e carregador central continuam sendo publicados manualmente nessa ordem. A chamada curta no common.js permanece igual. O pacote e o índice não salvam nenhuma dessas páginas por conta própria.
+
+=== Aviso ao exibir arquivos grandes ===
+
+A mensagem "O tamanho do código ... excede o máximo permitido, 102400 bytes" pertence ao realce de sintaxe usado para mostrar o código na página. Nesse caso, o visualizador apresenta o texto sem colorir. Esse limite de exibição não impede o salvamento nem a execução do JavaScript. Uma recusa de publicação, um erro de sintaxe ou um modelo de conteúdo incorreto precisa ser investigado separadamente.<ref>[https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi/blob/ecb3ea99fb5bbec80ec11d78405f1bdc68fd6b2d/includes/SyntaxHighlight.php#L250-L271 Tratamento do limite na implementação do SyntaxHighlight] e [https://www.mediawiki.org/wiki/Extension:SyntaxHighlight documentação da extensão].</ref>
+
+O índice oferece '''Ver código bruto''' para abrir o arquivo sem esse realce. Também é possível conferir [https://pt.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Usu%C3%A1rio:Daniel_G_Rego/RevisaWiki/Dados.js o arquivo de dados] e [https://pt.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Usu%C3%A1rio:Daniel_G_Rego/RevisaWiki.js o programa]. Esses endereços mostram o que está salvo, que pode ser de uma versão anterior enquanto a atualização não terminou. Depois de salvar os arquivos, recarregue e confira '''2.11.0, distribuição r2''' em '''Sobre e diagnóstico'''.
 
 === Manter uma cópia própria ===
 
@@ -322,6 +328,14 @@ Harvtxt, Harvnb, Sfn e outras formas reconhecidas podem ser conferidas contra a 
 
 Uma chamada como <code><nowiki>{{sfn|Smith, Jones|2020}}</nowiki></code> só pode ter os sobrenomes separados quando uma única obra da bibliografia confirma os dois autores nessa ordem, o mesmo ano e <code>ref=harv</code>. Outras obras, destinos próprios ou dados incompletos mantêm o código.
 
+=== Fotografias grandes na introdução ===
+
+Em artigos inteiros do domínio principal, sem infocaixa reconhecida, uma fotografia isolada na introdução pode receber apenas a opção <code>miniatura</code> quando a consulta pública confirma um arquivo do Wikimedia Commons, suas dimensões e os metadados reconhecidos de fotografia. O programa exige uma imagem grande, sem tamanho ou formato escolhido no código. Arquivo, legenda e texto alternativo permanecem como estão.
+
+Imagens dentro de infocaixas, tabelas, galerias, predefinições ou exemplos protegidos ficam fora dessa regra. Uso em linha, alinhamento explícito, ligações próprias e outras opções de apresentação impedem o ajuste. Arquivos identificados pelo nome ou pelas categorias como mapas, diagramas, bandeiras, assinaturas e panoramas também ficam preservados. Uma extensão de arquivo ou um nome que pareça fotografia não bastam para autorizar a mudança.
+
+A prova considera somente os campos necessários de identidade, tipo, dimensões e classificação fotográfica. A consulta falha ou inconclusiva mantém a imagem como está, sem um novo aviso. A miniatura usa o tamanho da Wikipédia e das preferências do leitor, sem acrescentar uma largura fixa.
+
 == Notas, listas e colunas ==
 
 As listas reconhecidas podem usar <code><nowiki>{{Referências}}</nowiki></code>. As formas singulares <code>Referência</code> e <code>Referencia</code> já são redirecionamentos válidos na ptwiki. O programa reconhece a lista antes de decidir se precisa acrescentar outra e pode trocar seu nome por <code>Referências</code>. Grupos, parâmetros, definições dentro de <code>refs=</code> e o restante do conteúdo ficam preservados. Uma lista de notas não passa a substituir a lista comum.<ref>[https://pt.wikipedia.org/w/index.php?oldid=46305837 Redirecionamento de Referência]. [https://pt.wikipedia.org/w/index.php?oldid=68804251 Redirecionamento de Referencia].</ref> Notas e referências simples, próximas e compatíveis podem ser reunidas em <code><nowiki>{{Notas e referências}}</nowiki></code>. Texto entre as listas, definições internas, grupos próprios e configurações diferentes impedem essa reunião.
@@ -336,9 +350,11 @@ Listas contínuas de '''Ligações externas''', '''Bibliografia''', '''Leitura a
 
 O ajuste usa <code><nowiki>{{Div col|colunas=2}}</nowiki></code> e <code><nowiki>{{Div col fim}}</nowiki></code> apenas em torno da lista. Commons, portais, caixas de navegação, controle de autoridade e categorias ficam fora. InícioRef mantém a formatação bibliográfica sem ser tratado como uma definição de colunas.
 
-Referências têm uma opção separada. Com seis ou mais entradas reconhecidas, uma chamada simples de Referências pode receber <code>estilo=column-count:2;</code>. Uma fonte nomeada conta uma vez, mesmo se for chamada várias vezes. Grupos são contados separadamente. Uma configuração válida de colunas já existente é mantida. Parâmetros antigos que a implementação conferida ignora podem ser retirados.
+A opção de colunas para referências exige dez ou mais entradas reconhecidas na mesma lista. Uma referência nomeada conta uma vez por lista, mesmo quando tem várias chamadas. Os grupos e as listas sucessivas são contados separadamente. Listas com até nove entradas não recebem colunas fixas. Quando os dados não permitem confirmar a contagem de uma lista, sua apresentação permanece igual. Uma configuração válida de colunas já existente é mantida. Parâmetros antigos que a implementação conferida ignora podem ser retirados.
 
-Para Notas e referências, o programa primeiro confere pela API se <code>col_ref=2</code> produz duas colunas. Sem confirmação, mantém a chamada. Atualizar o JavaScript não muda o código da predefinição compartilhada. Definições em <code>refs=</code> ficam separadas dos parâmetros da lista e os grupos são conservados.
+O estilo novo permite até duas colunas, com uma largura mínima de leitura. Em telas estreitas, a lista volta a uma coluna. A quantidade de referências não altera a largura da tela, por isso a regra precisa conferir as duas condições. A orientação da ptwiki já prevê a divisão automática conforme a resolução. Esse mínimo de dez é um critério do script para acrescentar a formatação, sem impor uma regra editorial à Wikipédia.<ref>[[Wikipédia:Livro de estilo/Referências e notas de rodapé#Referências em colunas|Orientação sobre referências em colunas]].</ref>
+
+Notas e referências conserva a apresentação automática da predefinição. Essa chamada não recebe parâmetros novos de colunas. Os argumentos já escritos, as definições em <code>refs=</code> e os grupos são conservados. Atualizar o JavaScript não muda o código da predefinição compartilhada.
 
 === Lista que mostra apenas um número ===
 
@@ -582,7 +598,7 @@ O resumo automático considera apenas as mudanças que ficaram no texto desde o 
 
 Um resumo já escrito pelo editor e a indicação automática da seção permanecem. Você pode desligar '''Resumo automático''' ou usar <code>summaryText</code> para definir um texto fixo. Se também houver mudanças manuais de conteúdo, adapte o resumo antes de publicar.
 
-A marcação automática de edição menor exige artigo inteiro, revisão pública de origem confirmada e correspondência exata com os reparos mecânicos permitidos. A quantidade de bytes e de blocos do diff deixou de definir essa autorização. Correções comprovadas de ligações, grafia, espaços, sintaxe equivalente de citações, referências e tabelas podem receber a marcação. Adições de portais, controle de autoridade, categorias, fontes, dados ou conteúdo ficam fora. Se a edição mistura mudanças permitidas e mudanças fora dessa lista, a caixa não é marcada automaticamente.
+A marcação automática de edição menor exige artigo inteiro, revisão pública de origem confirmada e correspondência exata com os reparos mecânicos permitidos. A quantidade de bytes e de blocos do diff deixou de definir essa autorização. Correções comprovadas de ligações, grafia, espaços, sintaxe equivalente de citações, referências e tabelas podem receber a marcação. Adições de portais, controle de autoridade, categorias, fontes, dados ou conteúdo ficam fora. O ajuste de miniatura fica fora dessa marcação automática. Se a edição mistura mudanças permitidas e mudanças fora dessa lista, a caixa não é marcada automaticamente.
 
 A caixa só fica sob controle do script se ele próprio a marcou. Uma escolha manual do editor é respeitada. Uma mudança posterior retira a marcação automática e Desfazer recupera o estado anterior sem sobrescrever uma escolha manual posterior. O recurso exige a caixa <code>wpMinoredit</code> do editor e pode ser desligado com <code>autoMinor: false</code>.<ref>[[Ajuda:Guia de edição/Menus e ferramentas/Edição menor|Orientação sobre edição menor]].</ref>
 
@@ -661,6 +677,9 @@ As versões aparecem da mais recente para a mais antiga. O [https://github.com/d
 * Conta as correções mantidas por ocorrência, com uma lista para conferência, separada dos tipos de ajuste e dos blocos do diff.
 * Refaz o contador depois das escolhas da comparação e mantém os controles de desfazer.
 * Iguala o verde dos dois botões e mostra Código conferido enquanto o texto e as opções permanecerem iguais.
+* Acrescenta miniatura a fotografias grandes e isoladas na introdução, com confirmação pública do arquivo e preservação da legenda.
+* Aplica o mínimo de dez referências por lista, com colunas que se adaptam à tela e respeito às configurações existentes.
+* Explica o aviso de tamanho do realce de sintaxe e oferece acesso direto ao código bruto para conferir a instalação.
 * Revê a redação do manual e do histórico, sem exemplos identificados de artigos ou editores.
 
 === 2.10.0 ===
@@ -852,7 +871,7 @@ As versões aparecem da mais recente para a mais antiga. O [https://github.com/d
 
 == Testes e detalhes técnicos ==
 
-Os arquivos finais da 2.11.0 passaram por 20.148 casos e 166.115 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 162 fluxos locais, com 24.897 verificações. As respostas nativas guardadas foram conferidas novamente com os arquivos desta versão. Os casos novos cobrem portais, edição menor e a contagem por ocorrência, incluindo escolhas da comparação e controles de falsos positivos. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.0. Nenhum teste editou a Wikipédia. Na medição em cinco artigos grandes, a primeira análise somada teve variação de +0,8% em relação à 2.10. Esse ensaio local não comprova um ganho geral de velocidade.
+Os arquivos finais da 2.11.0 passaram por 20.626 casos e 167.318 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 162 fluxos locais, com 24.897 verificações. O ajuste de fotografias passou por outros 54 fluxos de interface, incluindo segunda análise, escolha manual de edição menor e desfazer. As colunas de referências passaram ainda por 240 medições nos três navegadores, em larguras de 320 a 1.920 pixels. As respostas nativas guardadas foram conferidas novamente com os arquivos desta versão. Os casos novos cobrem portais, edição menor, contagem por ocorrência, miniaturas comprovadas e listas de referências, incluindo escolhas da comparação e controles de falsos positivos. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.0. Nenhum teste editou a Wikipédia. Na medição em cinco artigos grandes, a primeira análise somada teve variação de -0,6% em relação à 2.10. Esse ensaio local não comprova um ganho geral de velocidade.
 
 Os testes usam revisões fixadas, casos de preservação e páginas locais nos navegadores. O relatório de testes desta versão separa os resultados, os limites e os arquivos executados. Nenhum teste publica na Wikipédia.
 

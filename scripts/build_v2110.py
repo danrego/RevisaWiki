@@ -28,7 +28,7 @@ def main():
         raise SystemExit('Set REVISAWIKI_NODE or pass --node with a Node.js executable.')
     baseline = json.loads((ROOT / 'tests/expected_release_v2100.json').read_text())
     assert baseline['version'] == baseline['runtimeVersion'] == '2.10.0'
-    patches = [patch_module(name) for name in ['portals', 'minor', 'count', 'ui']]
+    patches = [patch_module(name) for name in ['portals', 'minor', 'count', 'ui', 'columns', 'image', 'distribution']]
     filenames = {name: name.replace('_v2_10_0', '_v2_11_0') for name in baseline['files']}
     OUT.mkdir(parents=True, exist_ok=True)
     files = {}
@@ -36,6 +36,10 @@ def main():
         raw = (BASE / name).read_bytes()
         assert len(raw) == proof['bytes'] and hashlib.sha256(raw).hexdigest() == proof['sha256'], name
         source = raw.decode('utf-8')
+        if name.startswith('Carregador_'):
+            old = "const loaderRevision = '2.10.0';"
+            assert source.count(old) == 1
+            source = source.replace(old, "const loaderRevision = '2.11.0-r2';", 1)
         if name in ['RevisaWiki_v2_10_0.js', 'RevisaWiki_v2_10_0_completo.js']:
             for patch in patches:
                 source = patch.apply(source)
@@ -59,7 +63,9 @@ def main():
             catalog['releaseCoreSha256'] = files['RevisaWiki_v2_11_0.js']['sha256']
         destination = OUT / source.name.replace('_v2_10_0', '_v2_11_0')
         destination.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + '\n')
-    result = {'version': '2.11.0', 'runtimeVersion': '2.11.0', 'baseVersion': baseline['version'],
+    result = {'version': '2.11.0', 'runtimeVersion': '2.11.0', 'distributionRevision': '2.11.0-r2', 'baseVersion': baseline['version'],
+              'revises': {'commit': 'f3afc7811f9de221342ea74820896b92764665c7',
+                          'releaseManifestSha256': 'c7761126f9d4c5748c948e245736b5f28fd2fd241b17184a7c8c21880b773597'},
               'baseFiles': baseline['files'], 'packedCatalogSha256': baseline['packedCatalogSha256'], 'files': files}
     (ROOT / 'tests/expected_release_v2110.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps({'version': result['version'], 'files': files}, indent=2))

@@ -7,10 +7,10 @@ ATUALIZAR A DISTRIBUIÇÃO
 
 1. Copie RevisaWiki_v2_11_0_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js. Os catálogos continuam iguais aos da versão anterior, mas este arquivo passa a declarar 2.11.0. Atualize-o junto do núcleo, mesmo que a 2.10.0 já esteja instalada.
 2. Copie RevisaWiki_v2_11_0.js para Usuário:Daniel G Rego/RevisaWiki.js.
-3. Atualize Usuário:Daniel G Rego/RevisaWiki/Carregador.js com o conteúdo completo de Carregador_comunitario_RevisaWiki_v2_11_0.js. Esse carregador espera o programa 2.11.0 e informa loaderRevision 2.11.0.
+3. Atualize Usuário:Daniel G Rego/RevisaWiki/Carregador.js com o conteúdo completo de Carregador_comunitario_RevisaWiki_v2_11_0.js. Esse carregador espera o programa 2.11.0 e informa loaderRevision 2.11.0-r2.
 4. Se já usa Chamada_fixa_RevisaWiki_common.js no common.js, mantenha esse bloco. Se ainda tem um carregador antigo inteiro no common.js, substitua somente o bloco do RevisaWiki pela chamada fixa. Preserve os outros scripts e mantenha uma única chamada.
 5. Copie Documentacao_RevisaWiki_v2_11_0.wiki para Usuário:Daniel G Rego/RevisaWiki.
-6. Faça uma recarga completa e abra Editar código-fonte. O painel e Configurações → Sobre e diagnóstico devem mostrar 2.11.0.
+6. Faça uma recarga completa e abra Editar código-fonte. O painel deve mostrar PTwiki 2.11.0 · r2. Sobre e diagnóstico informa a distribuição r2.
 
 Atualize os dados, o núcleo e o carregador central nessa ordem. As duas partes do programa precisam declarar 2.11.0 e combinar com a versão esperada pelo carregador. A chamada fixa do common.js permanece idêntica. Quem já a usa mantém esse bloco nas próximas atualizações.
 
@@ -35,15 +35,21 @@ CONFERIR A INSTALAÇÃO
 
 Copie apenas o código, sem cercas de Markdown ou marcas de sintaxe. O índice não instala nem publica nada automaticamente.
 
-No editor clássico e no CodeMirror reconhecido, Ajustar código aparece em verde azulado antes de Publicar. No editor de código-fonte de 2017, use o botão azul do painel superior. A comparação e Desfazer ajustes ficam no painel. Os botões adicionais Editar aqui foram retirados. Os links de edição da própria Wikipédia permanecem.
+No editor clássico e no CodeMirror reconhecido, Ajustar código aparece em verde azulado antes de Publicar. No editor de código-fonte de 2017, use o botão do painel superior, com o mesmo verde. A comparação e Desfazer ajustes ficam no painel. Os botões adicionais Editar aqui foram retirados. Os links de edição da própria Wikipédia permanecem.
 
 Se o painel não aparecer, confira os destinos, a cópia completa dos arquivos, a existência da página central e a presença de uma única chamada do RevisaWiki. No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R.
 
 A chamada curta calcula uma chave de cache por intervalo de cinco minutos ao abrir outra página ou recarregar. Ela não fica consultando atualizações numa página aberta e não cria edições na Wikipédia.
 
+AVISO DE TAMANHO AO EXIBIR O CÓDIGO
+
+A mensagem que cita 102400 bytes é do realce de sintaxe da página. Ela faz o visualizador mostrar o código sem colorir e não impede o salvamento nem a execução do JavaScript. Use Ver código bruto no índice para conferir o arquivo salvo. Uma recusa de publicação ou um erro de sintaxe precisa ser investigado separadamente. Não confunda esse aviso visual com o limite total de uma página.
+
+A versão continua 2.11.0, agora identificada como distribuição r2 no painel. O carregador central usa uma chave nova para receber este programa. A chamada fixa do common.js permanece igual.
+
 TESTES
 
-Os arquivos finais da 2.11.0 passaram por 20.148 casos e 166.115 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 162 fluxos locais, com 24.897 verificações. As respostas nativas guardadas foram conferidas novamente com os arquivos desta versão. Os casos novos cobrem portais, edição menor e a contagem por ocorrência, incluindo escolhas da comparação e controles de falsos positivos. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.0. Nenhum teste editou a Wikipédia. Na medição em cinco artigos grandes, a primeira análise somada teve variação de +0,8% em relação à 2.10. Esse ensaio local não comprova um ganho geral de velocidade.
+Os arquivos finais da 2.11.0 passaram por 20.626 casos e 167.318 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 162 fluxos locais, com 24.897 verificações. O ajuste de fotografias passou por outros 54 fluxos de interface, incluindo segunda análise, escolha manual de edição menor e desfazer. As colunas de referências passaram ainda por 240 medições nos três navegadores, em larguras de 320 a 1.920 pixels. As respostas nativas guardadas foram conferidas novamente com os arquivos desta versão. Os casos novos cobrem portais, edição menor, contagem por ocorrência, miniaturas comprovadas e listas de referências, incluindo escolhas da comparação e controles de falsos positivos. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.0. Nenhum teste editou a Wikipédia. Na medição em cinco artigos grandes, a primeira análise somada teve variação de -0,6% em relação à 2.10. Esse ensaio local não comprova um ganho geral de velocidade.
 
 CONSULTAS E PUBLICAÇÃO
 

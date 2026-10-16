@@ -1,6 +1,6 @@
 'use strict';
 // Original assertions stay byte-exact. Reviewed source-pinned expectations in
-// disposable fixture copies include the new, separately tested 2.9 behavior.
+// disposable fixture copies include separately tested source-equivalent repairs.
 const fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
 const assert=require('node:assert/strict');
 const candidate=require('./candidate.cjs'),complex=process.argv.includes('--complex');
@@ -11,8 +11,18 @@ const originalAssertions=[],originalFixtureFiles=[],expectationChanges=[],result
 function referenceFixtureCensus(text){
  const pattern=/<ref\b([^>]*?)(?:\/\s*>|>([\s\S]*?)<\/ref\s*>)/gi,refs=[...text.matchAll(pattern)],definitions=new Map(),attribute=(raw,key)=>{const match=new RegExp('(?:^|\\s)'+key+'\\s*=\\s*(?:"([^"]*)"|\'([^\']*)\'|([^\\s/>]+))','i').exec(raw);return match?match[1]??match[2]??match[3]:null;};
  for(const ref of refs){const name=attribute(ref[1],'name'),group=attribute(ref[1],'group')||'';if(name&&ref[2]!==undefined){const key=JSON.stringify([group,name]);if(definitions.has(key))assert.equal(definitions.get(key),ref[2],'The reviewed output has no conflicting reference definition');definitions.set(key,ref[2]);}}
- const bindings=refs.map(ref=>{const group=attribute(ref[1],'group')||'',name=attribute(ref[1],'name'),key=JSON.stringify([group,name]);if(ref[2]===undefined)assert.ok(definitions.has(key),'Every reviewed reference call resolves to one complete source');return [group,ref[2]===undefined?definitions.get(key):ref[2]];});
- return {count:refs.length,bindings:JSON.stringify(bindings),outside:text.replace(pattern,'REFERENCE_PLACEHOLDER')};
+ const entries=new Map(),bindings=refs.map(ref=>{const group=attribute(ref[1],'group')||'',name=attribute(ref[1],'name'),key=JSON.stringify([group,name]);if(ref[2]===undefined)assert.ok(definitions.has(key),'Every reviewed reference call resolves to one complete source');if(!entries.has(group))entries.set(group,new Set());entries.get(group).add(name?'named:'+name:'anonymous:'+ref.index);return [group,ref[2]===undefined?definitions.get(key):ref[2]];});
+ return {count:refs.length,entryCounts:Object.fromEntries([...entries].map(([group,names])=>[group,names.size])),bindings:JSON.stringify(bindings),outside:text.replace(pattern,'REFERENCE_PLACEHOLDER')};
+}
+function reviewedFixtureOutside(before,after,edits){
+ const marker='APPROVED_FIXTURE_CHANGE';assert.equal(before.includes(marker)||after.includes(marker),false,'The independent comparison marker does not occur in either source');
+ let beforeAt=0,afterAt=0;const retained=[];
+ for(const edit of [...edits].sort((a,b)=>a.start-b.start)){
+  assert.ok(edit.start>=beforeAt&&edit.end>=edit.start,'The three reviewed fixture ranges are ordered and disjoint');
+  const outside=before.slice(beforeAt,edit.start);assert.equal(after.slice(afterAt,afterAt+outside.length),outside,'Every byte between approved fixture ranges is preserved');
+  retained.push(outside,marker);afterAt+=outside.length;assert.equal(after.slice(afterAt,afterAt+edit.text.length),edit.text,'An approved range contains exactly its declared replacement');afterAt+=edit.text.length;beforeAt=edit.end;
+ }
+ assert.equal(after.slice(afterAt),before.slice(beforeAt),'Every byte after the last approved fixture range is preserved');retained.push(before.slice(beforeAt));return retained.join('');
 }
 try {
  fs.cpSync(source,stage,{recursive:true});
@@ -65,9 +75,19 @@ try {
    const relativeOutput=path.relative('tests/v26_engine',change.originalOutputFile),relativeMetadata=path.relative('tests/v26_engine',change.metadataFile);assert.equal(fs.readFileSync(path.join(stage,relativeOutput)).equals(outputBytes),true,'The disposable output copy starts byte-identical');assert.equal(fs.readFileSync(path.join(stage,relativeMetadata)).equals(metadataBytes),true,'The disposable metadata copy starts byte-identical');
    const old=outputBytes.toString('utf8'),edits=[];assert.equal(change.replacements.length,2,'Exactly the two reviewed reference occurrences change');
    for(const replacement of change.replacements){assert.equal(replacement.occurrences,1,'Every reviewed reference occurrence is unique');assert.equal(old.split(replacement.before).length-1,1,'The exact old reference bytes have one match');const start=old.indexOf(replacement.before);edits.push({start,end:start+replacement.before.length,text:replacement.after});}
-   let next=old;for(const edit of edits.sort((a,b)=>b.start-a.start))next=next.slice(0,edit.start)+edit.text+next.slice(edit.end);
+   let referenceOnly=old;for(const edit of edits.sort((a,b)=>b.start-a.start))referenceOnly=referenceOnly.slice(0,edit.start)+edit.text+referenceOnly.slice(edit.end);
+   assert.equal(Buffer.byteLength(referenceOnly),change.referenceOnlyOutputBytes,'The previously reviewed reference-only intermediate byte count remains pinned');assert.equal(candidate.sha(referenceOnly),change.referenceOnlyOutputSha256,'The previous reference-only intermediate SHA remains pinned');
+   const style=change.styleReplacement;assert.ok(style,'The sole collector-style adaptation must be explicitly reviewed');
+   assert.equal(style.before,'{{Referências|estilo=column-count:2;}}','Only the known legacy collector style is replaced');assert.equal(style.after,'{{Referências|estilo=column-count:2;column-width:30em;column-gap:2em;max-width:62em;}}','The replacement is exactly the separately rendered responsive style');
+   assert.equal(style.occurrences,1,'One collector style changes');assert.equal(old.split(style.before).length-1,1,'The exact original collector occurs once');assert.equal(referenceOnly.split(style.before).length-1,1,'The reference-only intermediate retains that collector unchanged');
+   assert.equal(candidate.sha(style.before),style.beforeSha256,'The original collector-style bytes are pinned');assert.equal(candidate.sha(style.after),style.afterSha256,'The responsive collector-style bytes are pinned');
+   assert.equal(Buffer.byteLength(style.after)-Buffer.byteLength(style.before),style.byteDelta,'The sole style delta is explicit');assert.equal(style.byteDelta,48,'The responsive CSS adds exactly 48 bytes');
+   const next=referenceOnly.replace(style.before,style.after),styleStart=old.indexOf(style.before),allEdits=[...edits,{start:styleStart,end:styleStart+style.before.length,text:style.after}];
    assert.equal(Buffer.byteLength(next),change.newOutputBytes,'The handwritten expected output has the pinned byte size');assert.equal(candidate.sha(next),change.newOutputSha256,'The complete handwritten new expectation has the pinned SHA');
-   const beforeCensus=referenceFixtureCensus(old),afterCensus=referenceFixtureCensus(next);assert.equal(beforeCensus.count,change.referenceCount,'The old source-reference count is pinned');assert.equal(afterCensus.count,change.referenceCount,'No reference occurrence is removed from the real biography');assert.equal(beforeCensus.bindings,afterCensus.bindings,'Every ordered reference group and exact resolved body stays unchanged');assert.equal(candidate.sha(beforeCensus.bindings),change.orderedResolvedReferenceSha256,'The independent reference meaning is pinned');assert.equal(beforeCensus.outside,afterCensus.outside,'Every byte outside reference tags is preserved');assert.equal(candidate.sha(beforeCensus.outside),change.outsideReferenceTextSha256,'The unchanged nonreference text is independently pinned');
+   const beforeCensus=referenceFixtureCensus(old),referenceOnlyCensus=referenceFixtureCensus(referenceOnly),afterCensus=referenceFixtureCensus(next);assert.equal(beforeCensus.count,change.referenceCount,'The old source-reference count is pinned');assert.equal(afterCensus.count,change.referenceCount,'No reference occurrence is removed from the real biography');assert.equal(beforeCensus.bindings,afterCensus.bindings,'Every ordered reference group and exact resolved body stays unchanged');assert.equal(candidate.sha(beforeCensus.bindings),change.orderedResolvedReferenceSha256,'The independent reference meaning is pinned');assert.equal(beforeCensus.outside,referenceOnlyCensus.outside,'The two reference changes retain every original byte outside reference tags');assert.equal(candidate.sha(beforeCensus.outside),change.outsideReferenceTextSha256,'The original nonreference text is independently pinned');
+   assert.deepEqual(afterCensus.entryCounts,{'':style.confirmedEntries},'The known sole ungrouped collector has the independently counted distinct entries');assert.equal(style.confirmedEntries,180,'The source-pinned collector contains 180 distinct references');assert.equal(style.minimumEntries,10,'The new style requires at least ten entries');assert.ok(style.confirmedEntries>=style.minimumEntries,'The reviewed real collector meets the threshold');
+   assert.equal(beforeCensus.outside.replace(style.before,'REFERENCE_COLUMN_STYLE'),afterCensus.outside.replace(style.after,'REFERENCE_COLUMN_STYLE'),'Only the declared collector style changes outside reference tags');assert.equal(candidate.sha(afterCensus.outside),change.newOutsideReferenceTextSha256,'The exact nonreference text after the style-only change is pinned');
+   assert.equal(candidate.sha(reviewedFixtureOutside(old,next,allEdits)),change.outsideApprovedChangesSha256,'Every byte outside the two references and the one collector style is independently pinned');
    fs.writeFileSync(path.join(stage,relativeOutput),next);fs.writeFileSync(path.join(stage,relativeMetadata),JSON.stringify({...metadata,sha256:change.newOutputSha256,bytes:change.newOutputBytes,transformation:change.reason},null,2)+'\n');
    originalFixtureFiles.push({file:change.originalOutputFile,sha256:change.originalOutputSha256,bytes:change.originalOutputBytes},{file:change.metadataFile,sha256:change.originalMetadataSha256,bytes:change.originalMetadataBytes});expectationChanges.push({...change,kind:'source-equivalent-real-output-fixture',expectationManifestSha256:candidate.sha(manifestBytes)});
   }

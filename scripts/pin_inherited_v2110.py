@@ -7,7 +7,7 @@ for row in v['files']:
  for old,new in v['substitutions']:a=a.replace(old,new)
  additional=[]
  if a!=b:
-  allowed=['browser/run_release.cjs','browser/summarize_release.cjs','benchmark_large.cjs','summarize.cjs','run_all.cjs']
+  allowed=['browser/run_release.cjs','browser/summarize_release.cjs','benchmark_large.cjs','summarize.cjs','run_all.cjs','run_startup.cjs','test_index.cjs','run_engine.cjs']
   assert any(row['target'].endswith('/'+name) for name in allowed),'Undeclared assertion adaptation: '+row['target']
   aa,bb=a.splitlines(keepends=True),b.splitlines(keepends=True)
   for i,j,k,l in reversed([op[1:] for op in difflib.SequenceMatcher(None,aa,bb,autojunk=False).get_opcodes() if op[0]!='equal']):

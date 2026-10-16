@@ -4,10 +4,15 @@ Script para revisar o código-fonte da Wikipédia em português. Os ajustes fica
 
 ## Versão 2.11.0
 
+Esta entrega é a distribuição r2 da mesma versão. O painel e o diagnóstico identificam a revisão, e o carregador central usa uma chave nova para receber o programa atualizado.
+
 - Portais confirmados para biografias esportivas, filmes, televisão, taxonomia e saúde.
 - Marcação de edição menor para mais correções mecânicas comprovadas, respeitando a revisão salva e a escolha manual.
 - Contagem das correções mantidas por ocorrência, com lista de conferência e tipos de ajuste separados.
 - Dois botões com o mesmo verde e indicação "Código conferido" enquanto o texto e as opções permanecerem iguais.
+- Miniatura para fotografias grandes e isoladas na introdução, após confirmação pública do arquivo e dos metadados fotográficos reconhecidos.
+- Colunas adaptáveis a partir de dez referências na mesma lista, preservando configurações manuais e os grupos de referências.
+- Instruções e links para o código bruto, com a distinção entre o aviso visual do SyntaxHighlight e um erro de publicação.
 - Documentação revista, sem exemplos identificados de artigos ou editores.
 
 Os recursos anteriores continuam disponíveis. Casos incertos ficam como estão, sem novos avisos. Nenhum comando publica uma edição por conta própria.
@@ -19,6 +24,8 @@ Os recursos anteriores continuam disponíveis. Casos incertos ficam como estão,
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
 O índice permite copiar o arquivo inteiro, o destino e o resumo, com um link direto para o editor. Ele não salva páginas. O HTML pode ser aberto localmente, mas o GitHub mostra seu código, sem executar o índice.
+
+O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da página. Nesse caso, o visualizador mostra o código sem cores. Esse limite de exibição não impede salvar nem executar JavaScript. O índice oferece um link para conferir o arquivo bruto. Erros de sintaxe ou recusas de publicação exigem uma verificação separada.
 
 ## Código e verificações
 
@@ -45,3 +52,5 @@ A recuperação de modelos de referência da 2.8.2 continua limitada aos casos p
 Os arquivos publicados passam pela [conferência de privacidade](docs/PRIVACIDADE.md). Logs temporários, caminhos do computador, credenciais e capturas de tela ficam fora da publicação. A [nota sobre o histórico](PRIVACY.md) explica a limpeza dos relatórios antigos.
 
 Código sob [CC BY-SA 4.0](LICENSE). As fontes e revisões dos scripts consultados ficam no cabeçalho e no manual.
+
+Arquivos de terceiros mantêm as licenças indicadas nas pastas correspondentes.

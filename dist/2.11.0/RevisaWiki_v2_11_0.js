@@ -115,6 +115,7 @@
     };
     const GROUP_LABELS = {
         v29IdentifierUrls:'URLs de identificadores PMC e arXiv simplificadas',
+        leadImageThumbnail:'Fotografia inicial com tamanho de miniatura',
         infoboxAlignment:'Alinhamento dos campos da infocaixa',
         redundantLeadHeading:'Título repetido antes da introdução retirado',
         safeAdjacentReferenceCalls:'Chamadas consecutivas da mesma referência retiradas',
@@ -136,7 +137,7 @@
         occupationCase: 'Profissões comuns com inicial minúscula', automaticSpelling: 'Grafias inequívocas corrigidas', automaticBiographyPortals: 'Portais de biografias acrescentados', automaticTopicPortals: 'Portais temáticos confirmados acrescentados', livingBirthAge: 'Idade na data de nascimento habilitada', neutralReferenceNames: 'Nomes automáticos de referências simplificados',
         identicalReferences: 'Referências idênticas reutilizadas', parameterDuplicates: 'Parâmetros idênticos consolidados',
         automaticParameterNames: 'Nomes inválidos de parâmetros corrigidos', emptyInvalidParameters: 'Parâmetros inválidos vazios retirados',
-        referenceColumns: 'Referências em duas colunas',
+        referenceColumns: 'Referências com dez entradas ou mais em até duas colunas',
         numericRefNames: 'Nomes numéricos de referências corrigidos',
         translatedTemplates: 'Modelos de outras Wikipédias adaptados',
         translatedNamespaces: 'Espaços nominais de arquivos e categorias',
@@ -3000,29 +3001,10 @@
     }
     function automaticLegacyReferenceColumns(source,cfg,bump=()=>{}) {
         if(!cfg.references||cfg.referenceColumns===false||cfg.sectionOnly||!v20AutomationAllowed(source,cfg))return source;
-        const shield=maskProtected(source,()=>{},discussionProtectionRanges(source,cfg)),s=shield.text,edits=[];
-        const counts=referenceEntryCounts(source),ranges=structuralRanges(s);
-        for(const n of topNodes(s)) {
-            const raw=s.slice(n.start,n.end),p=parsedTemplate(raw);
-            if(!['referências','referencias'].includes(p.name)||raw.includes('\uE000')||
-                inRangeExcept(n.start,ranges,n.start,n.end))continue;
-            const entries=foreignEntries(p),old=entries.filter(e=>LEGACY_REFERENCE_COLUMNS.has(norm(e.key)));
-            if(!old.length)continue;
-            const groups=entries.filter(e=>['grupo','group'].includes(norm(e.key)));
-            if(groups.length>1||groups.some(e=>/[{}<>\uE000]/.test(e.value)))continue;
-            const styles=entries.filter(e=>norm(e.key)==='estilo'||e.key==='5');
-            if(styles.length>1||styles.some(e=>/[{}<>\uE000]|\r|\n/.test(e.value)))continue;
-            for(const e of old)e.remove=true;
-            const count=counts[groups[0]?.value.trim()||'']||0;
-            // Any existing explicit column count/width is a valid choice and remains intact.
-            if(count>=REFERENCE_COLUMN_MINIMUM&&!styles.some(e=>/(?:^|;)\s*(?:(?:-moz-|-webkit-)?column-(?:count|width)|columns)\s*:/i.test(e.value))) {
-                if(styles.length)styles[0].value=styles[0].value.replace(/;+\s*$/,'').trim()+(styles[0].value.trim()?';':'')+'column-count:2;';
-                else {entries.push({index:p.parts.length,key:'estilo',value:'column-count:2;',lead:'',eq:'='});p.parts.push('');}
-            }
-            edits.push({start:n.start,end:n.end,text:translatedEntries(p,entries)});bump('legacyReferenceColumns');
-        }
-        return shield.restore(applyEdits(s,edits));
+        const edits=v211ReferenceColumnPlans(source,cfg,true);for(const edit of edits)bump('legacyReferenceColumns');
+        return applyEdits(source,edits.map(edit=>({start:edit.start,end:edit.end,text:edit.after})));
     }
+
     function v20WikiTarget(value) {
         const s=value.trim().replace(/_/g,' ').replace(/\s+/g,' ').normalize('NFC');
         if(!s||/[#:{}<>\uE000]/.test(s))return '';
@@ -4848,6 +4830,144 @@
         }
         return [...found.values()];
     }
+
+    function v211LeadFileTitle(value) {
+        if(typeof value!=='string')return null;
+        const name=value.trim().replace(/^(?:Ficheiro|Arquivo|Imagem|File|Image)\s*:\s*/i,'').replace(/_/g,' ').normalize('NFC');
+        if(!name||/[{}<>\[\]|\r\n\uE000\uE001]/.test(name))return null;
+        return 'Ficheiro:'+name[0].toLocaleUpperCase('pt')+name.slice(1);
+    }
+    function v211LeadImageBlockedLabel(value) {
+        return /(?:^|[\s._:/-])(?:coats?[\s_-]+of[\s_-]+arms|maps?|mapas?|charts?|gr[aá]ficos?|diagrams?|diagramas?|flags?|bandeiras?|signatures?|assinaturas?|logos?|logotipos?|emblemas?|bras(?:ão|ões|ao|oes)|panoramas?|panoramic|panor[aâ]mica)(?:[\s._:/-]|$)/iu.test(value);
+    }
+    function v211LeadImageCandidate(source,cfg={}) {
+        if(typeof source!=='string'||!cfg.markup||cfg.namespaceNumber!==0||cfg.sectionOnly||cfg.section!==undefined&&cfg.section!==null||
+            cfg.pageRedirect||cfg.pageDisambiguation||/^(?:lista|listas|anexo)(?:\s|:)/.test(norm(cfg.pageTitle||'')))return null;
+        const view=protectedView(source),firstHeading=view.search(/^={1,6}[^=\n].*?={1,6}[ \t]*$/m),limit=firstHeading<0?view.length:firstHeading;
+        if(/^\s*#(?:REDIRECT|REDIRECIONAMENTO)\b/i.test(view)||/~{4}/.test(view))return null;
+        const leadTemplates=topNodes(view);
+        if(leadTemplates.some(n=>/^(?:info(?:\/|$)|infobox\b|infocaixa\b|desambig(?:uação)?$|disambig$)/.test(parsedTemplate(source.slice(n.start,n.end)).name)))return null;
+        const ranges=structuralRanges(view),stack=[],images=[];
+        for(let at=0;at<limit-1;at++){
+            const pair=view.slice(at,at+2);
+            if(pair==='[['){stack.push(at);at++;}
+            else if(pair===']]'&&stack.length){const start=stack.pop(),end=at+2;at++;
+                if(stack.length||inRange(start,ranges))continue;
+                const raw=source.slice(start,end);if(/^\[\[\s*(?:Ficheiro|Arquivo|Imagem|File|Image)\s*:/i.test(raw))images.push({start,end,raw});
+            }
+        }
+        if(images.length!==1)return null;
+        const image=images[0],lineStart=view.lastIndexOf('\n',image.start-1)+1,lineEndAt=view.indexOf('\n',image.end),lineEnd=lineEndAt<0?view.length:lineEndAt;
+        if(image.start!==lineStart||view.slice(image.end,lineEnd).trim()||/[\r\n{}\uE000\uE001]/.test(image.raw)||
+            inRange(image.start,v27SafeMarkdownRanges(view))||[...image.raw.matchAll(/\[\[\s*(?:Ficheiro|Arquivo|Imagem|File|Image)\s*:/gi)].length!==1)return null;
+        const html=[];for(let at=0;at<image.start;){const tag=tagAt(view,at);if(!tag){at++;continue;}
+            if(!tag.self&&!['br','hr','wbr','img','input','meta','link','area','base','col','embed','param','source','track'].includes(tag.name)){
+                if(!tag.close)html.push(tag.name);else{const index=html.lastIndexOf(tag.name);if(index>=0)html.splice(index);}
+            }at=tag.end;
+        }
+        if(html.length)return null;
+        const parts=splitParts(image.raw.slice(2,-2)),title=v211LeadFileTitle(parts[0]);
+        if(!title||! /\.(?:jpe?g|png|webp|tiff?)$/i.test(title)||v211LeadImageBlockedLabel(title))return null;
+        let caption=false,alternative=false;
+        for(const part of parts.slice(1)){
+            if(/^\s*(?:alt|alternativo|texto alternativo)\s*=/i.test(part)){if(alternative)return null;alternative=true;continue;}
+            if(!part.trim()||preservationImageOption(part)||/^\s*[^\[\]<>]*=/.test(part)||caption)return null;
+            caption=true;
+        }
+        const insert=image.start+2+parts[0].length;
+        return {...image,title,insert,caption:parts.slice(1).join('|')};
+    }
+    function v211LeadImageRational(value) {
+        if(typeof value==='number')return Number.isFinite(value)&&value>0?value:null;
+        if(typeof value!=='string'||!/^\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?$/.test(value.trim()))return null;
+        const numbers=value.trim().split('/').map(Number),result=numbers.length===2?numbers[0]/numbers[1]:numbers[0];
+        return Number.isFinite(result)&&result>0?result:null;
+    }
+    function v211LeadPhotoEvidence(response,candidate) {
+        if(!response||!candidate)return null;
+        const pages=response.query?.pages;if(!Array.isArray(pages))return null;
+        const matching=pages.filter(p=>p&&typeof p==='object'&&p.ns===6&&p.imagerepository==='shared'&&v211LeadFileTitle(p.title||'')===candidate.title);
+        if(matching.length!==1)return null;
+        const page=matching[0];if(!Array.isArray(page.imageinfo)||page.imageinfo.length!==1)return null;
+        const info=page.imageinfo[0];if(!info||typeof info!=='object')return null;
+        const width=info.width,height=info.height;
+        if(info.mediatype!=='BITMAP'||!['image/jpeg','image/png','image/webp','image/tiff'].includes(info.mime)||
+            !Number.isInteger(width)||!Number.isInteger(height)||Math.min(width,height)<480||Math.max(width,height)<1000||
+            width/height<0.5||width/height>2||typeof info.sha1!=='string'||! /^[a-z0-9]{31,40}$/i.test(info.sha1))return null;
+        if(typeof info.url!=='string'||typeof info.descriptionurl!=='string')return null;
+        try{
+            const file=new URL(info.url),description=new URL(info.descriptionurl);
+            if(file.protocol!=='https:'||file.hostname!=='upload.wikimedia.org'||file.username||file.password||
+                !file.pathname.startsWith('/wikipedia/commons/')||
+                v211LeadFileTitle(decodeURIComponent(file.pathname.split('/').at(-1)))!==candidate.title||description.protocol!=='https:'||description.hostname!=='commons.wikimedia.org'||
+                description.username||description.password||!description.pathname.startsWith('/wiki/File:')||
+                v211LeadFileTitle(decodeURIComponent(description.pathname.slice('/wiki/'.length)))!==candidate.title)return null;
+        }catch(_){return null;}
+        const categoryField=info.extmetadata?.Categories;
+        if(!categoryField||categoryField.source!=='commons-categories'||typeof categoryField.value!=='string'||/[<>]/.test(categoryField.value))return null;
+        const categories=categoryField.value.split('|').map(v=>v.trim()).filter(Boolean);
+        if(!categories.length||categories.some(v211LeadImageBlockedLabel))return null;
+        const metadata=new Map(),wanted=new Set(['Make','Model','ExposureTime','FNumber','FocalLength']);
+        for(const item of Array.isArray(info.metadata)?info.metadata:[]){if(!wanted.has(item?.name))continue;if(metadata.has(item.name))return null;metadata.set(item.name,item.value);}
+        const make=metadata.get('Make'),model=metadata.get('Model');
+        if(typeof make!=='string'||typeof model!=='string'||!make.trim()||!model.trim()||make.length>80||model.length>120||/[<>\r\n]/.test(make+model))return null;
+        const exposure=v211LeadImageRational(metadata.get('ExposureTime')),aperture=v211LeadImageRational(metadata.get('FNumber')),focal=v211LeadImageRational(metadata.get('FocalLength'));
+        if(!exposure||exposure>3600||!aperture||aperture>128||!focal||focal>3000)return null;
+        const camera=norm(model).startsWith(norm(make)+' ')?model.trim():make.trim()+' '+model.trim();
+        const category=categories.find(value=>norm(value)===norm('Taken with '+camera));if(!category)return null;
+        // Only evidence needed for the layout decision survives the public read.
+        // Camera serials, GPS, authors, contacts and capture dates are discarded.
+        return {title:candidate.title,repository:'shared',width,height,mediatype:info.mediatype,mime:info.mime,sha1:info.sha1,
+            url:info.url,descriptionurl:info.descriptionurl,category,make:make.trim(),model:model.trim(),exposure,aperture,focal,excludedClassification:false};
+    }
+    function v211LeadImageProof(source,cfg,response) {
+        const candidate=v211LeadImageCandidate(source,cfg);if(!candidate)return null;
+        const evidence=v211LeadPhotoEvidence(response,candidate);if(!evidence)return null;
+        return {schema:1,source,title:cfg.pageTitle,namespace:0,fullPage:true,
+            image:{start:candidate.start,end:candidate.end,raw:candidate.raw,title:candidate.title},evidence};
+    }
+    function v211LeadImageProofValid(source,cfg,proof) {
+        if(!proof||proof.schema!==1||proof.source!==source||proof.title!==cfg.pageTitle||proof.namespace!==0||proof.fullPage!==true)return null;
+        const candidate=v211LeadImageCandidate(source,cfg);if(!candidate||!proof.image||
+            candidate.start!==proof.image.start||candidate.end!==proof.image.end||candidate.raw!==proof.image.raw||candidate.title!==proof.image.title)return null;
+        const e=proof.evidence;if(!e||e.excludedClassification!==false)return null;
+        const response={query:{pages:[{ns:6,title:e.title,imagerepository:e.repository,imageinfo:[{width:e.width,height:e.height,mediatype:e.mediatype,mime:e.mime,sha1:e.sha1,url:e.url,descriptionurl:e.descriptionurl,
+            metadata:[{name:'Make',value:e.make},{name:'Model',value:e.model},{name:'ExposureTime',value:e.exposure},{name:'FNumber',value:e.aperture},{name:'FocalLength',value:e.focal}],
+            extmetadata:{Categories:{source:'commons-categories',value:e.category}}}]}]}};
+        const confirmed=v211LeadPhotoEvidence(response,candidate);return confirmed?candidate:null;
+    }
+    function v211AutomaticLeadImage(source,cfg,bump=()=>{}) {
+        const image=v211LeadImageProofValid(source,cfg,cfg.leadImageProof);if(!image)return source;
+        bump('leadImageThumbnail');return source.slice(0,image.insert)+'|miniatura'+source.slice(image.insert);
+    }
+    const v211LeadImageReadCache=new Map();
+    async function v211PrepareLeadImage(task,options) {
+        const cfg={...options};delete cfg.leadImageProof;
+        const candidate=v211LeadImageCandidate(task.source,cfg);
+        if(!candidate||typeof root.fetch!=='function')return cfg;
+        const controller=typeof root.AbortController==='function'?new root.AbortController():null;
+        if(!controller)return cfg;
+        task.preflightRequests ||= [];const pending={abort:()=>controller.abort()};task.preflightRequests.push(pending);
+        const timer=root.setTimeout(()=>controller.abort(),5000);
+        try{
+            let cached=v211LeadImageReadCache.get(candidate.title);
+            if(!cached||Date.now()-cached.time>120000){
+                const query=new URLSearchParams({action:'query',format:'json',formatversion:'2',prop:'imageinfo',titles:candidate.title,
+                    iiprop:'size|mediatype|mime|sha1|metadata|extmetadata|url',iiextmetadatafilter:'Categories'});
+                const response=await root.fetch('https://pt.wikipedia.org/w/api.php?'+query.toString(),
+                    {method:'GET',credentials:'omit',signal:controller.signal,headers:{Accept:'application/json'}});task.guard();
+                if(response.status!==200)return cfg;
+                const data=await response.json();task.guard();
+                // Cache only the allowlisted proof evidence, never the full EXIF response.
+                const evidence=v211LeadPhotoEvidence(data,candidate);cached={time:Date.now(),evidence};
+                if(v211LeadImageReadCache.size>=8)v211LeadImageReadCache.clear();v211LeadImageReadCache.set(candidate.title,cached);
+            }
+            if(cached.evidence){const e=cached.evidence;cfg.leadImageProof={schema:1,source:task.source,title:cfg.pageTitle,namespace:0,fullPage:true,
+                image:{start:candidate.start,end:candidate.end,raw:candidate.raw,title:candidate.title},evidence:{...e}};}
+        }catch(_){task.guard();if(v211LeadImageReadCache.size>=8)v211LeadImageReadCache.clear();v211LeadImageReadCache.set(candidate.title,{time:Date.now(),evidence:null});}finally{root.clearTimeout(timer);const index=task.preflightRequests.indexOf(pending);if(index>=0)task.preflightRequests.splice(index,1);}
+        return cfg;
+    }
+
     function imageTargets(source) {
         const s = maskProtected(source, () => {}).text, found = new Set();
         function add(value) {
@@ -6373,7 +6493,127 @@
         }
         return proposals;
     }
-    const REFERENCE_COLUMN_MINIMUM = 6;
+    const REFERENCE_COLUMN_MINIMUM = 10;
+
+    const V211_REFERENCE_COLUMN_STYLE='column-count:2;column-width:30em;column-gap:2em;max-width:62em;';
+    function v211ReferenceCollectorCounts(source) {
+        const view=protectedView(source),renderers=rendererRanges(view),records=[],byNode=new Map();let globallyUncertain=false;
+        const literal=value=>typeof value==='string'&&!/[{}<>\uE000]/.test(value);
+        const push=(node,name,group,confirmed,entries=[])=>{
+            const row={start:node.start,end:node.end,template:name,group,count:0,confirmed,reasons:[],fields:entries,uses:new Set()};
+            if(!confirmed)row.reasons.push('uncertain-renderer');records.push(row);if(!byNode.has(node.start))byNode.set(node.start,[]);byNode.get(node.start).push(row);return row;
+        };
+        for(const node of renderers){
+            if(renderers.some(other=>other!==node&&other.start<=node.start&&other.end>=node.end))continue;
+            const raw=view.slice(node.start,node.end);
+            if(raw.startsWith('<')){
+                const tag=tagAt(view,node.start),attrs=tag&&attrsOf(tag.attrs),group=attrs?.group||'';
+                if(!attrs||!literal(group)){globallyUncertain=true;continue;}push(node,'references-tag',decodedReferenceName(group),true);continue;
+            }
+            const parsed=parsedTemplate(raw),entries=foreignEntries(parsed),groups=entries.filter(e=>['grupo','group'].includes(norm(e.key)));
+            const group=groups[0]?.value.trim()||'',confirmed=groups.length<=1&&literal(group)&&!groups.some(e=>norm(e.key)==='group');
+            if(!confirmed){globallyUncertain=true;continue;}
+            if(['referências','referencias'].includes(parsed.name))push(node,parsed.name,decodedReferenceName(group),true,entries);
+            else if(parsed.name==='notas e referências'){
+                push(node,parsed.name,'',true,entries);
+                for(const name of [...new Set(['nota','lower-alpha',group||'Nota','nt'])])push(node,'combined-notes',name,true,entries);
+            }else if(parsed.name==='notas'){
+                push(node,parsed.name,decodedReferenceName(group||'nota'),true,entries);if(group!=='lower-alpha')push(node,'notes-lower-alpha','lower-alpha',true,entries);
+            }else globallyUncertain=true;
+        }
+        records.sort((a,b)=>a.start-b.start||a.group.localeCompare(b.group));
+        const next=(at,group)=>records.find(row=>row.start>at&&row.group===group),uncertain=(at,group,reason)=>{
+            const row=next(at,group);if(row){row.confirmed=false;if(!row.reasons.includes(reason))row.reasons.push(reason);}
+        };
+        const refs=refTokens(view),nodes=templates(view).nodes,definitions=new Map(),uses=[];
+        for(const ref of refs){
+            const parent=renderers.find(n=>n.start<=ref.start&&ref.end<=n.end),parentRows=parent&&byNode.get(parent.start),attrs=attrsOf(ref.attrs);
+            if(!attrs){globallyUncertain=true;continue;}
+            let group=attrs.group||'';
+            if(parentRows&&Object.hasOwn(attrs,'group')&&parentRows.every(row=>row.group!==decodedReferenceName(group))){parentRows.forEach(row=>{row.confirmed=false;row.reasons.push('reference-bank-group-mismatch');});continue;}
+            if(!group&&parentRows)group=parentRows.find(row=>['referências','referencias','notas e referências','references-tag'].includes(row.template))?.group||parentRows[0].group;
+            if(!literal(group)||attrs.name&&!literal(attrs.name)){globallyUncertain=true;continue;}
+            group=decodedReferenceName(group);const name=attrs.name?decodedReferenceName(attrs.name):'';
+            if(attrs.follow||attrs.details){if(parentRows)parentRows.forEach(row=>{row.confirmed=false;row.reasons.push('continuation-reference');});else uncertain(ref.start,group,'continuation-reference');continue;}
+            if(ref.body!==null&&ref.body.trim()&&name){
+                const key=group+'\0'+name;if(!definitions.has(key))definitions.set(key,new Set());definitions.get(key).add(ref.body.trim());
+            }
+            if(parent)continue;
+            if(nodes.some(node=>node.start<ref.start&&node.end>=ref.end))uncertain(ref.start,group,'reference-template-context');
+            uses.push({ref,group,name});
+        }
+        for(const {ref,group,name}of uses){
+            const row=next(ref.start,group);if(!row)continue;
+            if(name&&(/^\d+$/.test(name)||definitions.get(group+'\0'+name)?.size!==1)){row.confirmed=false;row.reasons.push('unconfirmed-definition');continue;}
+            if(!name&&(ref.body===null||!ref.body.trim())){row.confirmed=false;row.reasons.push('empty-reference');continue;}
+            row.uses.add(name?'named:'+name:'anonymous:'+ref.start);
+        }
+        for(const node of nodes){
+            const p=parsedTemplate(view.slice(node.start,node.end));
+            if(/^#tag\s*:\s*references$/.test(p.name)){globallyUncertain=true;continue;}
+            if(!['sfn','sfnp','sfnm','sfnmp','refn','nre','efn'].includes(p.name)||refs.some(ref=>ref.start<=node.start&&ref.end>=node.end))continue;
+            const fields=foreignEntries(p),groups=fields.filter(e=>['grupo','group'].includes(norm(e.key))),group=groups[0]?.value.trim()||(['nre','efn'].includes(p.name)?'lower-alpha':'');
+            if(groups.length>1||!literal(group)){globallyUncertain=true;continue;}uncertain(node.start,decodedReferenceName(group),'indirect-reference');
+        }
+        if(malformedRefs(view))globallyUncertain=true;
+        for(const row of records){
+            const banks=row.fields.filter(e=>norm(e.key)==='refs');
+            if(banks.length>1){row.confirmed=false;row.reasons.push('duplicate-reference-bank');}
+            for(const bank of banks){
+                const bankView=protectedView(bank.value),bankRefs=refTokens(bankView),residue=applyEdits(bankView,bankRefs.map(ref=>({start:ref.start,end:ref.end,text:''})));
+                if(residue.trim()){row.confirmed=false;row.reasons.push('indirect-reference-bank');}
+            }
+            if(globallyUncertain){row.confirmed=false;row.reasons.push('uncertain-reference-scope');}
+            row.count=row.uses.size;delete row.uses;
+        }
+        return records;
+    }
+    function v211ReferenceColumnStyle(value) {
+        if(!value.trim())return {manual:false,safe:true};
+        if(/(?:^|;)\s*(?:(?:-moz-|-webkit-)?column-(?:count|width|gap|fill|span)|columns)\s*:/i.test(value))return {manual:true,safe:true};
+        if(/[{}<>\uE000\r\n]|\/\*|\*\//.test(value))return {manual:false,safe:false};
+        const allowed=new Set(['color','background-color','font-size','font-family','font-weight','font-style','line-height','text-align']);
+        for(const declaration of value.split(';').map(v=>v.trim()).filter(Boolean)){
+            const m=declaration.match(/^([a-z-]+)\s*:\s*([^;]+)$/i);if(!m||!allowed.has(m[1].toLowerCase())||/url\s*\(|expression\s*\(|!important/i.test(m[2]))return {manual:false,safe:false};
+        }
+        return {manual:false,safe:true};
+    }
+    function v211ReferenceCollectorContext(source,row,ranges) {
+        if(inRangeExcept(row.start,ranges,row.start,row.end))return false;
+        const prefix=protectedView(source.slice(0,row.start)),stack=[];
+        for(let at=0;at<prefix.length;){
+            const tag=tagAt(prefix,at);if(!tag){at++;continue;}at=tag.end;
+            if(!['div','table','ol','ul'].includes(tag.name)||tag.self)continue;
+            if(tag.close){if(stack[stack.length-1]!==tag.name)return false;stack.pop();}else stack.push(tag.name);
+        }
+        if(stack.length)return false;
+        let columns=0;
+        for(const node of topNodes(prefix)){
+            const name=parsedTemplate(prefix.slice(node.start,node.end)).name;
+            if(['div col','inícioref','inicioref','refbegin','multicol','column'].includes(name))columns++;
+            if(['div col fim','-fim','refend','multicol-end','column-end'].includes(name)){if(!columns)return false;columns--;}
+        }
+        return !columns;
+    }
+    function v211ReferenceColumnPlans(source,options={},legacyOnly=false) {
+        const cfg={...DEFAULTS,...options};if(!cfg.references||!cfg.referenceColumns)return [];
+        if(cfg.sectionOnly||!v20AutomationAllowed(source,cfg))return [];
+        const records=v211ReferenceCollectorCounts(source),ranges=structuralRanges(protectedView(source)),plans=[];
+        for(const row of records){
+            if(!['referências','referencias'].includes(row.template)||!v211ReferenceCollectorContext(source,row,ranges))continue;
+            const raw=source.slice(row.start,row.end),p=parsedTemplate(raw),entries=foreignEntries(p),old=entries.filter(e=>LEGACY_REFERENCE_COLUMNS.has(norm(e.key))),styles=entries.filter(e=>norm(e.key)==='estilo'||e.key==='5');
+            if(legacyOnly&&!old.length||!legacyOnly&&old.length)continue;
+            if(styles.length>1)continue;const style=styles[0]?.value||'',layout=v211ReferenceColumnStyle(style);
+            let changed=false;if(legacyOnly){for(const entry of old)entry.remove=true;changed=true;}
+            if(row.confirmed&&row.count>=REFERENCE_COLUMN_MINIMUM&&layout.safe&&!layout.manual){
+                const target=style.replace(/;+\s*$/,'').trim()+(style.trim()?';':'')+V211_REFERENCE_COLUMN_STYLE;
+                if(styles.length)styles[0].value=target;else{entries.push({index:p.parts.length,key:'estilo',value:target,lead:'',eq:'='});p.parts.push('');}changed=true;
+            }
+            if(changed){const after=translatedEntries(p,entries);if(after!==raw)plans.push({start:row.start,end:row.end,before:raw,after,group:row.group,count:row.count,confirmed:row.confirmed,code:'',message:''});}
+        }
+        return plans;
+    }
+
     function referenceEntryCounts(source) {
         const s = protectedView(source), lists = rendererRanges(s), groups = new Map();
         const bucket = group => { if (!groups.has(group)) groups.set(group, new Set()); return groups.get(group); };
@@ -6399,62 +6639,7 @@
         }
         return Object.fromEntries([...groups].map(([name, entries]) => [name, entries.size]));
     }
-    function referenceColumnPlans(source, options = {}) {
-        const cfg = {...DEFAULTS, ...options}, shield = maskProtected(source, () => {}), s = shield.text;
-        const counts = referenceEntryCounts(source), ranges = structuralRanges(s), plans = [];
-        if (!cfg.references || !cfg.referenceColumns) return plans;
-        for (const n of topNodes(s)) {
-            const raw = s.slice(n.start, n.end), p = parsedTemplate(raw);
-            if (!['referências','referencias','notas e referências'].includes(p.name) ||
-                inRangeExcept(n.start,ranges,n.start,n.end)) continue;
-            const entries = foreignEntries(p), combined = p.name === 'notas e referências';
-            const groups = combined ? [] : entries.filter(e => ['grupo','group'].includes(norm(e.key)));
-            const group = groups[0]?.value.trim() || '', count = counts[group] || 0;
-            let reason = '', code = '', after;
-            if (cfg.sectionOnly) { code = 'columns-section'; reason = 'Colunas mantidas: a edição de uma seção não permite contar as referências da página inteira.'; }
-            else if (groups.length > 1 || /[{}\uE000]/.test(group)) { code = 'columns-group'; reason = 'Colunas mantidas: o grupo de referências precisa de revisão.'; }
-            else if (count < REFERENCE_COLUMN_MINIMUM) {
-                if (!count) continue;
-                code = 'columns-short'; reason = 'Referências mantidas sem colunas fixas: ' + count + (count === 1 ? ' entrada reconhecida' : ' entradas reconhecidas') + ', mínimo de seis.';
-            } else if (combined) {
-                const cols = entries.filter(e => ['col_ref','ref_col'].includes(e.key));
-                if (cols.length > 1 || cols.some(e => /[{}\uE000]/.test(e.value))) {
-                    code = 'columns-custom'; reason = 'Colunas mantidas: Notas e referências tem uma configuração própria que precisa de revisão.';
-                } else if (cfg.noteReferenceColumnsSupported !== true) {
-                    code = 'columns-template'; reason = cfg.referenceColumnLookupWarning || 'Duas colunas não aplicadas: a predefinição Notas e referências ainda não confirmou suporte a col_ref.';
-                } else if (cols[0]?.value.trim()) {
-                    if (cols[0].value.trim() === '2') continue;
-                    code = 'columns-custom'; reason = 'Colunas mantidas: Notas e referências já tem uma quantidade definida manualmente.';
-                } else {
-                    if (cols.length) cols[0].value = '2';
-                    else { entries.push({index:p.parts.length,key:'col_ref',value:'2',lead:'',eq:'='}); p.parts.push(''); }
-                    after = translatedEntries(p, entries);
-                }
-            } else {
-                const old = entries.filter(e => LEGACY_REFERENCE_COLUMNS.has(norm(e.key)) && e.value.trim());
-                const styles = entries.filter(e => norm(e.key) === 'estilo' || e.key === '5');
-                if (old.length) { code = 'columns-legacy'; reason = 'Colunas mantidas: há parâmetros antigos ignorados por Referências. Use a sugestão de revisão para escolher a apresentação.'; }
-                else if (styles.length > 1 || styles.some(e => /[{}<>\uE000]/.test(e.value))) {
-                    code = 'columns-custom'; reason = 'Colunas mantidas: o estilo da lista precisa de revisão.';
-                } else if (styles.some(e => /(?:^|;)\s*(?:(?:-moz-|-webkit-)?column-(?:count|width)|columns)\s*:/i.test(e.value))) {
-                    if (styles.every(e=>/(?:^|;)\s*column-count\s*:\s*2\s*(?:;|$)/i.test(e.value))) continue;
-                    code='columns-configured';reason='Referências preservadas: já existe uma configuração de colunas definida no estilo.';
-                }
-                else {
-                    if (styles.length) styles[0].value = styles[0].value.replace(/;+\s*$/,'').trim() + (styles[0].value.trim() ? ';' : '') + 'column-count:2;';
-                    else { entries.push({index:p.parts.length,key:'estilo',value:'column-count:2;',lead:'',eq:'='}); p.parts.push(''); }
-                    after = translatedEntries(p, entries);
-                }
-            }
-            if(after){
-                // Conferir se o parâmetro novo continua fora do texto das referências.
-                const check=foreignEntries(parsedTemplate(after)),fields=check.filter(e=>combined?['col_ref','ref_col'].includes(e.key):norm(e.key)==='estilo'||e.key==='5');
-                if(fields.length!==1||!(combined?fields[0].value.trim()==='2':/(?:^|;)\s*column-count\s*:\s*2\s*(?:;|$)/i.test(fields[0].value)))continue;
-            }
-            plans.push({start:n.start,end:n.end,before:raw,after,group,count,code,message:reason});
-        }
-        return plans;
-    }
+    function referenceColumnPlans(source,options={}) {return v211ReferenceColumnPlans(source,options);}
     function referenceColumns(source, cfg, bump) {
         const shield=maskProtected(source,()=>{});
         const edits = referenceColumnPlans(shield.text, cfg).filter(p => p.after).map(p => ({start:p.start,end:p.end,text:p.after}));
@@ -7411,7 +7596,8 @@
         cfg.biographyOriginalSource=source;
         const bump = id => counts.set(id, (counts.get(id) || 0) + 1);
         const warn = message => warnings.add(message);
-        const safeRepairs=automaticSafeRepairs(source,cfg,bump);
+        const imageAdjusted=v211AutomaticLeadImage(source,cfg,bump);
+        const safeRepairs=automaticSafeRepairs(imageAdjusted,cfg,bump);
         const leadHeading=automaticLeadHeadingCleanup(safeRepairs,cfg,bump);
         const syntactic=automaticSyntaxRepairs(leadHeading,cfg,bump,warn);
         const recovery=syntaxRepairPrefix(syntactic,cfg);
@@ -10946,7 +11132,7 @@
         syntaxRepairCacheStatus:()=>({entries:v24SyntaxPlanCache.size,estimatedBytes:v24SyntaxPlanCacheBytes,maximumEstimatedBytes:4194304}),
         structuralArticlePlan,automaticStructureCleanup,structuralAudit,preserveLegacyRendererLayout,renderedStructuralTableProof,structuralReferenceBank,
         v27ChatCopyEdits,v27ChatCopyPlan,v27ChatCopyProof,v27WholeArticleWrapperEdits,removeChatCopyResidues,
-        removeKnownTranslationResidues,knownTranslationResidueChanges,residueEquivalenceSource,removeWholeArticleMarkdownFence,removeObsoleteShortDescriptionCategory,repairDoubleEncodedAmpersands,linkedPortalEvidenceText,noteGroupInventory,womanEligibility,biographySubjectMatchesTitle,biographyIsWoman,verifiedWomenCategories:[...VERIFIED_WOMEN_CATEGORIES],sportLabels:{...SPORT_LABEL_PORTALS},occupationPortals:{...OCCUPATION_PORTALS},nationalityPortals:{...NATIONALITY_PORTALS},repairColumnListArguments,version: VERSION, catalogDate: CATALOG_DATE,
+        removeKnownTranslationResidues,knownTranslationResidueChanges,residueEquivalenceSource,removeWholeArticleMarkdownFence,removeObsoleteShortDescriptionCategory,repairDoubleEncodedAmpersands,linkedPortalEvidenceText,noteGroupInventory,womanEligibility,biographySubjectMatchesTitle,biographyIsWoman,verifiedWomenCategories:[...VERIFIED_WOMEN_CATEGORIES],sportLabels:{...SPORT_LABEL_PORTALS},occupationPortals:{...OCCUPATION_PORTALS},nationalityPortals:{...NATIONALITY_PORTALS},repairColumnListArguments,distributionRevision: "2.11.0-r2",version: VERSION, catalogDate: CATALOG_DATE,
         headingMainArticleCandidates, automaticHeadingMainArticles, canonicalPortugueseLinks, v26ConfirmedLinkedName, v26AdditionalLinkedNameProtection, historicalDateMarkup, captionTerminalPeriods, repairCenturySyntax, technicalFinding, groupedTechnicalFindings, renderedTableRegroupingProof,
         tableYearSectionCandidates, automaticTableYearSections, automaticTables, tableStructureSignature, automaticRulesPass, automaticMissingNoteCollector, automaticCitationRepairs, automaticLegacyReferenceColumns, automaticHeadingLinks, automaticShortCitationAuthors, biographyStyleAudit, v20PreflightCandidates, verifiedDOIExpectedSource, previewDecision, noteRendererProofs,
         comparisonDisplayGroups, changeExplanation, tableAnalysis, tableSuggestions, strictDate, dateAudit, linkOccurrences, replaceDisambiguationLink, summaryTopics, summaryForTopics, cssDeclarations, templateStylesAudit, cssRetention, diagnosticReport, diagnosticChanges,
@@ -10956,12 +11142,13 @@
         v211FreshnessKey,v211FreshnessSame,
         v27RetainedTypes, v27RawDiff, v27DiffCacheStatus, v27AtomLookup,
         defaults: Object.assign({}, DEFAULTS), cleanup, applySuggestion, linkTargets, diffHunks, comparison, composeChanges,
-        referenceAudit, safeComposition, duplicateReferenceSuggestions, templateTargets, fragmentTargets, imageTargets, normalizeFragment, renderedAudit, presetOptions,
+        referenceAudit, safeComposition, duplicateReferenceSuggestions, templateTargets, fragmentTargets, imageTargets, v211LeadFileTitle, v211LeadImageCandidate, v211LeadPhotoEvidence, v211LeadImageProof, v211LeadImageProofValid, v211AutomaticLeadImage, v211PrepareLeadImage, normalizeFragment, renderedAudit, presetOptions,
         syntaxAudit, preservationAudit, plainProse, lostWords, renderedProse, composeSection, sectionRange, protectedView, referenceTransactions,
         biographyInfoboxes: [...BIOGRAPHY_INFOBOXES, ...BIOGRAPHY_MUSIC_BOXES, 'info/santo'], biographyDetection, addBiographyPortal,
         authorityProperties: AUTHORITY_PROPERTIES.slice(), authorityEligibility, authorityPresent, authorityRenderConfirmation, authorityDisplayConfirmed, footerTokens, footerCandidates, classifyFooterTemplate, orderFooter, orderEndSections, addAuthorityControl,
         translationRules: TRANSLATION_RULES, translationAudit, migrateForeignTemplate, foreignSyntax, unifiedNotesReferences, externalColumnsSuggestions, endMatterColumns, legacyReferenceColumnSuggestions,
         parserCacheStatus, automaticParameters, automaticIdenticalReferences, byteMetrics, minorEligibility, mechanicalMinorResult, v211MinorMechanicalPlan, v211MinorSubset,
+        v211ReferenceCollectorCounts,v211ReferenceColumnPlans,v211ReferenceColumnStyle,referenceColumnMinimum:REFERENCE_COLUMN_MINIMUM,referenceColumnStyle:V211_REFERENCE_COLUMN_STYLE,
         referenceEntryCounts, referenceColumnPlans, referenceColumns, notAppliedReasons, noteReferenceColumnConfirmation, shortCitationAudit,
         referenceNameUses, numericReferenceAudit, citationRepairSuggestions,
         citationParameters: CS1_KEYS.slice(), citationAliases: Object.assign({}, PARAMS), shortcuts: Object.assign({}, SHORTCUTS)};
@@ -11945,34 +12132,10 @@
         host.title='Antes: '+metrics.before.toLocaleString('pt-BR')+' bytes. Depois: '+metrics.after.toLocaleString('pt-BR')+' bytes. '+(metrics.precise===false?'Variação líquida exata. O detalhamento das inserções e remoções ultrapassou o limite de cálculo.':'Inserções contabilizadas: '+metrics.added+'. Remoções contabilizadas: '+metrics.removed+'.');
     }
 
-    async function prepareReferenceColumns(task, options) {
-        const cfg={...options};
-        const withNotes=automaticMissingNoteCollector(task.source,cfg,()=>{});
-        const prospective=unifiedNotesReferences(orderEndSections(withNotes,cfg,()=>{},()=>{}),cfg,()=>{},()=>{});
-        const combined=referenceColumnPlans(prospective,{...cfg,noteReferenceColumnsSupported:false})
-            .some(p=>p.code==='columns-template' && /^\{\{\s*notas e referências\b/i.test(p.before));
-        if (!combined) return cfg;
-        task.preflightRequests=[];
-        try {
-            message('Conferindo as colunas de Notas e referências...');
-            let cached=referenceColumnReadCache.get('notes');
-            if (!cached || Date.now()-cached.time>120000) {
-                const client=new mw.Api({ajax:{timeout:6000}});
-                const request=client.post({action:'parse',formatversion:2,title:task.title,
-                    text:'Texto de teste.<ref>Fonte de teste.</ref>\n{{Notas e referências|col_ref=2}}',
-                    contentmodel:'wikitext',prop:'text|parsewarnings',preview:true});
-                task.preflightRequests.push(request);
-                const response=await request;task.guard();
-                cached={time:Date.now(),supported:noteReferenceColumnConfirmation(response)};
-                referenceColumnReadCache.set('notes',cached);
-            }
-            cfg.noteReferenceColumnsSupported=cached.supported;
-            if (!cached.supported) cfg.referenceColumnLookupWarning='Duas colunas não aplicadas: Notas e referências não repassou col_ref para um estilo ativo. A chamada foi preservada.';
-        } catch(error) {
-            task.guard();cfg.noteReferenceColumnsSupported=false;
-            cfg.referenceColumnLookupWarning='Duas colunas não aplicadas: a consulta de Notas e referências não terminou. A chamada foi preservada.';
-        } finally {task.preflightRequests=[];}
-        return cfg;
+    async function prepareReferenceColumns(task,options) {
+        // O modelo combinado conserva o controle nativo de colunas.
+        // Uma consulta ao antigo col_ref não comprova o novo contrato responsivo.
+        task.guard();return {...options};
     }
 
     async function prepareEndMatter(task, options) {
@@ -12117,7 +12280,7 @@
         const task = beginLocalAnalysis(adapter, before, 'Preparando os ajustes...');
         if (!task) return;
         try {
-            const proofs = await prepareAutomaticProofs(task,currentOptions(true));
+            const proofs = await v211PrepareLeadImage(task,await prepareAutomaticProofs(task,currentOptions(true)));
             const prepared = await prepareBirthCategory(task,await prepareBiographyGender(task,await prepareLivingCategory(task,await prepareEndMatter(task, await prepareReferenceColumns(task,await prepareMinorBaseline(task,proofs))))));
             let result = await computeLocal(task, {kind: 'adjust', source: before, originalSource: compareOnly ? before : appliedBaseline(adapter, before), options: prepared});
             result = await verifyAutomaticResult(task,result,prepared);
@@ -12236,11 +12399,11 @@
     }
     function serializableOptions(options) {
         const result = {};
-        for (const key of [...Object.keys(DEFAULTS), 'captureTrace', 'sectionOnly', 'namespaceNumber', 'pageTitle', 'pageRedirect', 'pageDisambiguation', 'spellingLimit', 'spellingIgnored', 'spellingAllowedWords', 'spellingIgnoredRules', 'spellingRepeated', 'spellingFilter', 'authorityData', 'footerProfiles', 'authorityLookupWarning', 'footerLookupWarning', 'noteReferenceColumnsSupported', 'referenceColumnLookupWarning', 'minorBaseConfirmed','livingCategoryConfirmed','discussionPage','doiRepairProofs','harvardAnchorProofs','noteRendererProofs','noteRendererProofSource','biographyGenderProof','headingMainArticleProofs','headingMainArticleProofSource','birthCategoryContext','birthCategoryProof']) {
+        for (const key of [...Object.keys(DEFAULTS), 'captureTrace', 'sectionOnly', 'namespaceNumber', 'pageTitle', 'pageRedirect', 'pageDisambiguation', 'spellingLimit', 'spellingIgnored', 'spellingAllowedWords', 'spellingIgnoredRules', 'spellingRepeated', 'spellingFilter', 'authorityData', 'footerProfiles', 'authorityLookupWarning', 'footerLookupWarning', 'noteReferenceColumnsSupported', 'referenceColumnLookupWarning', 'minorBaseConfirmed','livingCategoryConfirmed','discussionPage','doiRepairProofs','harvardAnchorProofs','noteRendererProofs','noteRendererProofSource','biographyGenderProof','headingMainArticleProofs','headingMainArticleProofSource','birthCategoryContext','birthCategoryProof','leadImageProof']) {
             const value = options[key];
             if (typeof value === 'boolean' || typeof value === 'number' || Array.isArray(value) ||
                 (['pageTitle','spellingFilter','authorityLookupWarning','footerLookupWarning','referenceColumnLookupWarning','noteRendererProofSource','headingMainArticleProofSource'].includes(key) && typeof value === 'string') ||
-                (['authorityData','footerProfiles','biographyGenderProof','birthCategoryContext','birthCategoryProof'].includes(key) && value && typeof value === 'object' && !Array.isArray(value))) result[key] = value;
+                (['authorityData','footerProfiles','biographyGenderProof','birthCategoryContext','birthCategoryProof','leadImageProof'].includes(key) && value && typeof value === 'object' && !Array.isArray(value))) result[key] = value;
         }
         return result;
     }
@@ -12670,7 +12833,7 @@
             choices.replaceChildren(); const cfg = currentOptions(false);
             for (const [key, text] of [['citations', 'Citações'], ['references', 'Referências'],
                 ['structuralRepairs', 'Corrigir sintaxe, repetições e listas de referências'], ['translationResidues', 'Retirar resíduos conhecidos de tradução'],
-                ['referenceColumns', 'Duas colunas em listas de referências com seis ou mais entradas'], ['shortCitationChecks', 'Conferir destinos de citações abreviadas'],
+                ['referenceColumns', 'Até duas colunas em cada lista com dez ou mais entradas'], ['shortCitationChecks', 'Conferir destinos de citações abreviadas'],
                 ['automaticIdenticalReferences', 'Reutilizar referências exatamente iguais'], ['automaticParameterDuplicates', 'Consolidar parâmetros repetidos idênticos'],
                 ['automaticParameterNames', 'Corrigir nomes inválidos com equivalência única'], ['automaticEmptyParameters', 'Retirar parâmetros inválidos vazios confirmados'], ['autoMinor', 'Marcar correções mecânicas confirmadas como edição menor'],
                 ['tableChecks', 'Conferir tabelas'], ['automaticTableRepairs', 'Aplicar reparos seguros de tabelas'], ['tableAccessibility', 'Informar alcance de cabeçalhos simples'], ['autoPreview', 'Conferir automaticamente a pré-visualização'], ['registryDoiCheck', 'Conferir pontuação de DOI na Crossref'], ['biographyStyleChecks', 'Conferir apresentação de biografias'], ['dateChecks', 'Conferir datas reconhecidas'], ['numericRefNames', 'Corrigir nomes numéricos de referências'], ['citationRepairs', 'Sugerir reparos de cadernos e títulos'], ['infoboxes', 'Infocaixas'],
@@ -12691,7 +12854,7 @@
     }
     function diagnosticsPanel() {
         const wrap = node('details', undefined, 'ajg-diagnostics'); wrap.append(node('summary', 'Sobre e diagnóstico'),
-            node('p', 'Versão carregada: ' + VERSION + '. Catálogo: ' + CATALOG_DATE + '.'));
+            node('p', 'Versão carregada: ' + VERSION + ', distribuição r2. Catálogo: ' + CATALOG_DATE + '.'));
         const loaded = root.RevisaWikiLoadInfo || root.AjusteGeralPTLoadInfo;
         if (loaded?.expectedVersion && loaded.expectedVersion !== VERSION)
             wrap.appendChild(node('p', 'O carregador pediu ' + loaded.expectedVersion + ', mas recebeu ' + VERSION + '. Confira o arquivo salvo e recarregue com Command + Shift + R.'));
@@ -12755,7 +12918,7 @@
         panel = node('div'); panel.id = 'revisawiki-ptwiki';
         panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'RevisaWiki, ferramentas de revisão');
         const heading = node('div', undefined, 'ajg-heading');
-        heading.append(node('strong', 'RevisaWiki'), node('span', 'PTwiki ' + VERSION, 'ajg-version'));
+        heading.append(node('strong', 'RevisaWiki'), node('span', 'PTwiki ' + VERSION + ' · r2', 'ajg-version'));
         const namespace=inlineController?.context()?.namespace ?? Number(mw.config.get('wgNamespaceNumber'));
         const introText=namespace>0&&namespace%2===1?'Confere o código da discussão. Conversas assinadas são preservadas.':
             namespace===10&&!/\/(?:doc|documentação)(?:\/|$)/i.test(currentTitle())?'Ajusta parâmetros e código da predefinição. Preserva referências e variáveis de uso.':

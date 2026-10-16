@@ -2,7 +2,7 @@
 (function () {
     'use strict';
     const expectedVersion = '2.11.0';
-    const loaderRevision = '2.11.0';
+    const loaderRevision = '2.11.0-r2';
     // A sintaxe do common.js também precisa passar pelo ResourceLoader.
     function optionalValue(object, key) {
         return object === null || object === undefined ? undefined : object[key];
