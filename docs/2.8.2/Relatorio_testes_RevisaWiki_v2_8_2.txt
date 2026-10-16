@@ -1,0 +1,38 @@
+RevisaWiki 2.8.2: resultados dos testes
+15 de outubro de 2026
+
+Os arquivos finais da 2.8.2 passaram por 14.466 casos e 99.737 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 75 fluxos locais, com 9.972 verificações. As 132 referências reparadas passaram também pela renderização real da ptwiki sem novos erros de citação. As rodadas finais não tiveram falhas. Os relatórios e os hashes desta execução estão em tests/evidence/2.8.2. Nenhum teste editou a Wikipédia.
+
+Execuções nos arquivos finais
+
+- Motor, instalação, regressões e falsos positivos: 14466 casos e 99737 verificações, sem falhas.
+- Matriz de artigos complexos: 128 casos e 1672 verificações, sem falhas.
+- Artigos grandes adicionais: 31 casos e 1147 verificações, sem falhas.
+- Navegadores reais no macOS: 75 casos e 9972 verificações, sem falhas.
+- Compatibilidade dos carregadores e proteção de assinatura: 16 casos e 16 verificações, sem falhas.
+- Renderização real das referências na ptwiki, consultas anônimas de leitura: 133 casos e 38 verificações, sem falhas.
+
+As revisões de artigos, os hashes das entradas e os arquivos executados ficam em tests/evidence/2.8.2. As verificações desta versão usam os arquivos finais identificados abaixo. Permutações sintéticas são casos de teste, não artigos distintos.
+
+Os navegadores usam páginas locais e respostas controladas. Os resultados não demonstram todas as combinações possíveis de extensões ou editores em produção.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_8_2.js: 9648 bytes
+SHA-256: 636ff7e34f21a717a98d08ebe10de4c17a15132b1ccd12476c7fde3e0b53b419
+Carregador_comunitario_RevisaWiki_v2_8_2.js: 9650 bytes
+SHA-256: 3e00214b7ce241b0777c2863f5439c43e611beb9fe2d9384c5fe3d6600c5465a
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_8_2.js: 1152612 bytes
+SHA-256: 84e73853090294fb9fde6541e71fc6f69e1bcb4df678350b3f1a9f0801af347a
+RevisaWiki_v2_8_2_completo.js: 2665760 bytes
+SHA-256: 4007d4ad342266d04187afdcd6080a47963ba2d2b2879bc3a46fff4552aee300
+RevisaWiki_v2_8_2_dados.js: 1523933 bytes
+SHA-256: a6c0d0576a36570fac6a53f95cef8cc60859df88c9b9fedf864f1611c4a5b1c3
+
+Nenhum teste editou a Wikipédia. O pacote, o índice e a documentação têm conferências próprias. Os resultados históricos não foram contados como novas execuções.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

@@ -1,0 +1,47 @@
+{
+  "version": "2.8.2",
+  "scope": {
+    "title": "NBC News",
+    "namespace": 0,
+    "completeArticleOnly": true,
+    "option": "historicalCitationRepairs",
+    "default": true,
+    "runtimeHistoryRequests": 0
+  },
+  "reproduction": {
+    "generator": "src/v2_8_2/generate_manifest.cjs",
+    "reviewedMapping": "src/v2_8_2/REVIEWED_SOURCE_MAP.json",
+    "englishSource": "tests/corpus_v282/NBC_News_en_1377046388.wiki.gz",
+    "portugueseSources": "tests/corpus_v281/manifest.json",
+    "output": "src/v2_8_2/HISTORICAL_CITATIONS.json",
+    "engineInterface": "v282HistoricalCitationIdentity"
+  },
+  "nativeTargets": [
+    {
+      "title": "Predefinição:Citar web",
+      "oldid": 48262420,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=48262420",
+      "requiresLiteralURLForThisRepair": true
+    },
+    {
+      "title": "Predefinição:Citar jornal",
+      "oldid": 55834874,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=55834874"
+    },
+    {
+      "title": "Predefinição:Citar revista",
+      "oldid": 68628855,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=68628855"
+    }
+  ],
+  "rules": [
+    "The offline manifest accounts for each Citation identity introduced between the exact Portuguese revisions 73221157 and 73221177. It records the unambiguous prior native family, the affected body hashes, and either reviewed source-family evidence or an explicit unresolved status.",
+    "A target is approved through a reviewed match to a literal Cite web, Cite news or Cite magazine call in a pinned English article revision, or one of three independently reviewed complete bare references with an explicit first-link URL. Bare-reference provenance remains labeled bare-ref, not Cite web. Publisher names, domains, subjects and missing URLs do not establish a source family.",
+    "Current matching binds title, URL, DOI, ISBN, PMID, PMC, publication fields, publication date and year. Nonempty conflicting duplicate metadata, changed identity, multiple distinct current calls, unsupported target fields and missing direct reference boundaries prevent restoration.",
+    "Current parameter text is retained. A name change does not replace the citation with a historical body. A missing URL or periodical field may be appended only when its exact approved value is present in the pinned source call and no equivalent current field exists.",
+    "Native web citations without a literal current or proven restored URL are refused because their renderer reports an error. Native newspaper and magazine targets use their verified source family and accepted parameter contract.",
+    "Existing proven reference consolidation runs before historical matching. Identical complete citations can consolidate and restore on one click. Distinct author or consultation-date payloads remain distinct and are not chosen by occurrence order.",
+    "The family-retention guard projects each side through the recomputed, source-bound approved historical stage. Its exception applies only to manifest matches in the confirmed page context. Existing generic citations elsewhere retain the 2.8.1 family guard.",
+    "The manifest and nested records are frozen in memory. The safe-plan cache includes the page, namespace and section context. No runtime history request, Wikipedia edit or publication is performed by this feature."
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "baseVersion": "2.8.1",
+  "targetVersion": "2.8.2",
+  "baselineManifest": "tests/expected_release_v281.json",
+  "baselineManifestSha256": "92df4dba2fe3483b205105605c1c9d9bc2b80ed533f72ab1aadda173b58522f7",
+  "scope": "Frozen previous suites use release/path selectors for the new build. Historical-restoration assertions and any explicit expectation amendments are recorded separately; original suites remain untouched.",
+  "substitutions": [
+    [
+      "2.8.1",
+      "2.8.2"
+    ],
+    [
+      "_v2_8_1",
+      "_v2_8_2"
+    ],
+    [
+      "expected_release_v281.json",
+      "expected_release_v282.json"
+    ],
+    [
+      "artifacts/v281",
+      "artifacts/v282"
+    ],
+    [
+      "tests/v281/",
+      "tests/v282/"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v281/browser/HEAD_RENDER_PROOF.json",
+      "target": "tests/v282/browser/HEAD_RENDER_PROOF.json",
+      "sourceSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "targetSha256": "46bc10739aec862f145ffad3ea8cd8a8b0453c7a1160141b5a540a1bc4ac7029",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "target": "tests/v282/browser/MARRIAGE_DATE_RENDER_PROOF.json",
+      "sourceSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "targetSha256": "4241f5cac103d9b9027e4328de61ef10a7f2a2212400e81d138d64e9a97c285e",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "target": "tests/v282/browser/MEDIAWIKI_TABLE_PARSE_PROOF.json",
+      "sourceSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "targetSha256": "73946f1cf6922a5aa00d24bc646c329fd3e1c01664872f1cd35b306b868d723f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/biography_cases.json",
+      "target": "tests/v282/browser/biography_cases.json",
+      "sourceSha256": "0b543061587c30bb4a859e79ae7647cbb960775af386683b03a9142ddcd56cb3",
+      "targetSha256": "e5e45ef26c010777c9b393d01251b005e3bfcbc4f88379a188b53c58612395f6",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/build_second_click_contract.cjs",
+      "target": "tests/v282/browser/build_second_click_contract.cjs",
+      "sourceSha256": "cd3dae3c4d95ec345d593a42519707a73f648d8d5153ad416ba5bb550d6d5077",
+      "targetSha256": "ae754805e23b94b3bc8067f3b992063c224f811e579be46033356fdeb45ce56c",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/citation_flow.cjs",
+      "target": "tests/v282/browser/citation_flow.cjs",
+      "sourceSha256": "f95f211adb9de9cff541fc436ae641c6ce62b0926d6ba0b56dd4a1dcd2a61c71",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "return {id:'NBC News '+row.oldid,source:raw.toString(),sha256:row.sha256,title:row.title,generic:(raw.toString().match(/\\{\\{\\s*Citation\\s*\\|/gi)||[]).length};",
+          "return {id:'NBC News '+row.oldid,source:raw.toString(),sha256:row.sha256,title:row.title,generic:row.oldid===73221177?22:(raw.toString().match(/\\{\\{\\s*Citation\\s*\\|/gi)||[]).length,historical:row.oldid===73221177};"
+        ],
+        [
+          "  if(item.web)assert(/\\{\\{\\s*Citar web\\s*\\|/i.test(actual),'Explicit native web family is retained');",
+          "  if(item.web)assert(/\\{\\{\\s*Citar web\\s*\\|/i.test(actual),'Explicit native web family is retained');\n  if(item.historical){for(const [name,count]of [['Citar web',139],['Citar jornal',29],['Citar revista',2]])assert.equal((actual.match(new RegExp('\\\\{\\\\{\\\\s*'+name+'\\\\s*\\\\|','gi'))||[]).length,count,'Exact reviewed native-family count: '+name);assert.equal((actual.match(/\\{\\{\\s*Citar livro\\s*\\|/gi)||[]).length,9,'All nine book references stay in their family');assert.equal((actual.match(/<ref\\b/gi)||[]).length,(item.source.match(/<ref\\b/gi)||[]).length,'Every original reference occurrence remains');}"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v281/browser/fixture.html",
+      "target": "tests/v282/browser/fixture.html",
+      "sourceSha256": "1c1b96a4a5afac42c6d93644ac818ba979b2710b6571917a0d6056fb55c2a468",
+      "targetSha256": "e9edd1390d032c884ca3d9cffe152009baf4567d40dcfa650cb2fc34034dceee",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/fixture.js",
+      "target": "tests/v282/browser/fixture.js",
+      "sourceSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "targetSha256": "37058eb5dc333f87b75888ef4fa946a95511b8d2495e5eeb6e4e4f07be1dd0ea",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/run_release.cjs",
+      "target": "tests/v282/browser/run_release.cjs",
+      "sourceSha256": "5e737eef89377a7dc51aeb89a52c51a436287cd6555125064e8dddfbfee4ca79",
+      "targetSha256": "b831767eaeecc5aee241b6aa5d70bb0002c63cb34a09713812977bdf6cb8fc31",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/spouse_cases.json",
+      "target": "tests/v282/browser/spouse_cases.json",
+      "sourceSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "targetSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/browser/summarize_release.cjs",
+      "target": "tests/v282/browser/summarize_release.cjs",
+      "sourceSha256": "7f9cf55d8a5c80d9c3f16c56a1ba48be05806fa62616d3fd5518bd858fa7196c",
+      "targetSha256": "db3326dcccc06efe1335beba246d8248bc0d1b088027ccbf6f6f6ee208e8a16a",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "Sixty local native workflows across three installed engines, including the unchanged fifteen prior workflows in each browser",
+          "Seventy-five local native workflows across three installed engines, including the inherited prior workflows in each browser and the two complete NBC News revisions, with 132 reviewed repairs and 22 intentionally retained generic calls in the affected source"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v281/candidate.cjs",
+      "target": "tests/v282/candidate.cjs",
+      "sourceSha256": "841da3e82cab22ae9d9500df19060cc8928ee36119fa4c35dcc3d986343c1c15",
+      "targetSha256": "a34a66507c3221332b0355501ef2ea11ce48bfe1ba41128a1d8edbae27899121",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/check_server_grammar.php",
+      "target": "tests/v282/check_server_grammar.php",
+      "sourceSha256": "0da797c43ebff9979f0e58e018bbd9b9e1bb67aee6fe3dc926710f20895181b9",
+      "targetSha256": "5681336255aebe3b91f692940a613212f022877b73f02b49ea94a6708e86df83",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/engine_helper.cjs",
+      "target": "tests/v282/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "target": "tests/v282/fixtures/chemical_articles/Dofetilida_73219673.wiki.gz",
+      "sourceSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "targetSha256": "7630955116330b59c2cc52fab917509b64093d8d4a1457c7c097944787e7ac3b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "target": "tests/v282/fixtures/chemical_articles/Perampanel_73219717.wiki.gz",
+      "sourceSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "targetSha256": "c7da3ad9f05bafffcf97c79b28eb85b12f61326d9e0aaed92941e524bb17e381",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "target": "tests/v282/fixtures/chemical_articles/Perampanel_73219735.wiki.gz",
+      "sourceSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "targetSha256": "74e932f8b1cb68fe84bd9810c45e2990439223618627aa79b8a6dc2c205c306b",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/chemical_articles/manifest.json",
+      "target": "tests/v282/fixtures/chemical_articles/manifest.json",
+      "sourceSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "targetSha256": "e655520428b872a1cfdb5e6ad2cb47bb8c2e1e086267ccb0bc45fb311426640f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/city_temperature/ATTRIBUTION.txt",
+      "target": "tests/v282/fixtures/city_temperature/ATTRIBUTION.txt",
+      "sourceSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "targetSha256": "de85a6a03a4d484c3764636292f1435816f2b5126ebd189b73a0e666f1c264d2",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/city_temperature/article.wiki",
+      "target": "tests/v282/fixtures/city_temperature/article.wiki",
+      "sourceSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "targetSha256": "4dae857f07d1d34aac999a7069694f5947cdad4d905c543e5e376e326b318902",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/city_temperature/source_revision.json",
+      "target": "tests/v282/fixtures/city_temperature/source_revision.json",
+      "sourceSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "targetSha256": "e5d725c2d160e46dd7c80dcb44c6adc1923b2eb2895b90bb906dba571e56ab31",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "target": "tests/v282/fixtures/marriage_articles/John_Maynard_Keynes_73089388.wiki.gz",
+      "sourceSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "targetSha256": "9f212f074c1655c3f77175691ae2275205d4713b63c8a745ceb13c0d411ce29a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "target": "tests/v282/fixtures/marriage_articles/John_Maynard_Keynes_73089388_infobox.wiki.gz",
+      "sourceSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "targetSha256": "fb8e6332e03a8b9b3ab03d8aad91b5ca3c449c7400367d13cce36c96a1f4b4f6",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/marriage_articles/complete_manifest.json",
+      "target": "tests/v282/fixtures/marriage_articles/complete_manifest.json",
+      "sourceSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "targetSha256": "e5510d75573980b57142c43342ae69ffd789ad33fdb11adcd4231da75d82d87d",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/marriage_articles/manifest.json",
+      "target": "tests/v282/fixtures/marriage_articles/manifest.json",
+      "sourceSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "targetSha256": "19fb07653aa25c9e057987872cc2fe303d60440e68a7ecfd9f7d08fde8025ff5",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "target": "tests/v282/fixtures/table_articles/Zara_Larsson_73219884.wiki.gz",
+      "sourceSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "targetSha256": "3ad63183aa008b81b22510815e2720598582c2bce70214c29d3c7327e970c845",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/table_articles/entity_Q4177928.json",
+      "target": "tests/v282/fixtures/table_articles/entity_Q4177928.json",
+      "sourceSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "targetSha256": "7c304f9275ea5c63e8c6a9cabe416d2f2880331f04d8354a65a6ca39f628f41a",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/fixtures/table_articles/manifest.json",
+      "target": "tests/v282/fixtures/table_articles/manifest.json",
+      "sourceSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "targetSha256": "5d579424002270e225fbc9ef45fca9f661f83a9b9234b4f21e0ca7afe5d49bc0",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_all.cjs",
+      "target": "tests/v282/run_all.cjs",
+      "sourceSha256": "8d5aee6afcb45b376b79bce2beafd5d607ef85d0c967c118de2850764848f7b2",
+      "targetSha256": "13f30e165242bf10aed06cc50e166f293359da6389c95dd39ef65a83ba860ae7",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "'test_citation_families.cjs','run_engine.cjs'",
+          "'test_citation_families.cjs','test_historical_citations.cjs','run_engine.cjs'"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v281/run_edited_corpus.cjs",
+      "target": "tests/v282/run_edited_corpus.cjs",
+      "sourceSha256": "ddea5c7dd04324cb1656ab371bc1fcf81f1effd51cd128b641ce4fdb34e6219a",
+      "targetSha256": "4203fc4930aa14a42223427257fcb4824354aabfe67d62ce9b98c126c1f17c9d",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_engine.cjs",
+      "target": "tests/v282/run_engine.cjs",
+      "sourceSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "targetSha256": "7b7b993d9d81b98f27ff78331bf602edef01fc0384e9a9436f1cc172b57b4ded",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_focus.cjs",
+      "target": "tests/v282/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_quote_boundaries.cjs",
+      "target": "tests/v282/run_quote_boundaries.cjs",
+      "sourceSha256": "94f73b91e0733a4786c6b857d746c5b0f6d956950655c42b045311fee35b4c28",
+      "targetSha256": "8b99b7a9800112240dc2ad41e2f2fd642fb50b61d7ee72f215bc0be83d4fbed0",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_server_grammar.mjs",
+      "target": "tests/v282/run_server_grammar.mjs",
+      "sourceSha256": "766af8b0dc72ffe6798b0577f2c4adeb7f942b90acd1981d5e9a1c0c93497c1b",
+      "targetSha256": "b057348e92500347a16fb95b23b42d459cbd8cba9ae072707aa2cdc278e57082",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_startup.cjs",
+      "target": "tests/v282/run_startup.cjs",
+      "sourceSha256": "891ab1a47eaf32e1341e868b5893c29eb62ca08b614403a2a3b03b633a1ea623",
+      "targetSha256": "5be9f7caf5d8ff5b77f1d2e30cc4ee705862acb08f01d69a8976edb854a98f02",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/run_tag_adversarial.cjs",
+      "target": "tests/v282/run_tag_adversarial.cjs",
+      "sourceSha256": "b7dc84ea7a3759a70c329208e57b61ad58cdb35b18dd5c88668cdfa2c2326fdb",
+      "targetSha256": "958a835e919fe08356394090c53450d47e5e716404ea8338fe691cddc25cd114",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/summarize.cjs",
+      "target": "tests/v282/summarize.cjs",
+      "sourceSha256": "e638b52d1ef6aca230cfbedf58541eeb639707f1a86c51b84fe54b016e0ecce0",
+      "targetSha256": "24ed68218eae688a721124299da89370353839af5bc048f295a1c93b9559b6c6",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "'citation_families.json'",
+          "'citation_families.json','historical_citations.json'"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v281/test_biography_composition.cjs",
+      "target": "tests/v282/test_biography_composition.cjs",
+      "sourceSha256": "4ab1a98b8a2fc1d17fa856b21c0d22b83770a913244db8dfbd41819f29bc9a54",
+      "targetSha256": "81c843650f887a067da25296b70702981dc4bf48b1d182217ced8cd75d8ab969",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_biography_dates.cjs",
+      "target": "tests/v282/test_biography_dates.cjs",
+      "sourceSha256": "5625e0de754d5a87907d95ef4b01039f34426187b4ec0989b7a4294b7740cf96",
+      "targetSha256": "916be4b6b5a59925e790adfb997c2cd2ac4188c155cd3cea12a8150f94c12bbc",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_biography_fields.cjs",
+      "target": "tests/v282/test_biography_fields.cjs",
+      "sourceSha256": "b7017caa360996d5564f54704fd07298bfc96bc32c9f1d027f654034ccb5aa01",
+      "targetSha256": "d740e940c1ec83bffe76445aace383cbecbe2e7a6601cce737b8bb8eb23a6fe0",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_chat_permutations.cjs",
+      "target": "tests/v282/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_chat_residues.cjs",
+      "target": "tests/v282/test_chat_residues.cjs",
+      "sourceSha256": "9fa57fac5962bedb8b81ea95c66b1c09efb4a76c538c5ed665617390beb38f68",
+      "targetSha256": "45560ed3160bcde92d8c487c80a49c717ddd5f01dd5bfc5127b99faa7e6fc9d1",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_chemical_guards.cjs",
+      "target": "tests/v282/test_chemical_guards.cjs",
+      "sourceSha256": "8793ef5b2e51c3d7738c32c7ef15943433350e8d169c7911c1ceae07139d8381",
+      "targetSha256": "e461226f109af4d56e24520544a429b86f18fc3274e35214bae235cd0f0ddb39",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_chemical_syntax.cjs",
+      "target": "tests/v282/test_chemical_syntax.cjs",
+      "sourceSha256": "01254aff7cdc48c706d4b38f90cc77cd920c30f6867eab23bc70945d1edabdbc",
+      "targetSha256": "dd0e5f454acea2e25733ea432f0dbc4d17379334bf6dabde4653ea836a7f286c",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_citation_families.cjs",
+      "target": "tests/v282/test_citation_families.cjs",
+      "sourceSha256": "be5b41d881d8ecd7f58792dae41714a9b24ac8673f04761ec5786a49855639b0",
+      "targetSha256": "c053a8b734ad517e9a45393381b81aa5bced70cb86fee7ae36d825b33c8b61fd",
+      "changed": true,
+      "additionalSubstitutions": [
+        [
+          "['citar periódico','journal']",
+          "['citar revista','journal'],['cite magazine','journal'],['citar periódico','journal']"
+        ],
+        [
+          "function article(raw)",
+          "// This release permits only the finite, proven historical source repairs below.\n// All original assertions still apply to generic sources and every other revision.\nconst historicalManifest=JSON.parse(fs.readFileSync(path.join(__dirname,'../../src/v2_8_2/HISTORICAL_CITATIONS.json'))),historicalByHash=new Map(historicalManifest.records.filter(record=>record.repairable).map(record=>[record.afterCallSha256,record]));\nreport.historicalExpectationAmendment={sourceManifestSha256:sha(fs.readFileSync(path.join(__dirname,'../../src/v2_8_2/HISTORICAL_CITATIONS.json'))),sourceRevision:73221177,approvedRepairs:132,unresolvedPreserved:22,existingValues:'all retained',otherCases:'original expectations unchanged'};\nfunction historicalExpectedSource(source,fixture){if(fixture.oldid!==73221177)return source;const edits=templateCalls(source).flatMap(call=>{const record=historicalByHash.get(sha(call.raw));if(!record)return [];const text=call.raw.replace(/^(\\{\\{\\s*)Citation(?=\\s*[|}])/i,'$1'+record.targetFamily).slice(0,-2)+(record.parametersToAdd||[]).map(field=>'|'+field.key+'='+field.value).join('')+'}}';return [{...call,text}];});let result=source;for(const edit of edits.sort((a,b)=>b.start-a.start))result=result.slice(0,edit.start)+edit.text+result.slice(edit.end);return result;}\nfunction article(raw)"
+        ],
+        [
+          "before=referenceBindings(source),after=referenceBindings(result.text);eq(after,before,'Independent resolved reference bindings preserve family and every bibliographic value');",
+          "before=referenceBindings(historicalExpectedSource(source,fixture)),after=referenceBindings(result.text);eq(after,before,'Independent resolved reference bindings preserve family and every bibliographic value, with only the explicitly proven historical source repairs');"
+        ]
+      ],
+      "expectationAmendment": {
+        "revision": 73221177,
+        "scope": "132 finite manifest-proven citation header changes and103 exact primary-source URL additions. Every existing field and ordered reference binding remains covered.22 unresolved generic calls stay unchanged. Other revisions and synthetic controls keep original expectations."
+      }
+    },
+    {
+      "source": "tests/v281/test_diff_reporting.cjs",
+      "target": "tests/v282/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "changed": false,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_index.cjs",
+      "target": "tests/v282/test_index.cjs",
+      "sourceSha256": "530c9b809fdd02fce5bfc38d81953946f891f6ebec98590f593481355d8c9280",
+      "targetSha256": "d3f860e5b06cea9e8f5d8317441ced276f413925a4afec8b233c65feb53b12f0",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_marriage_guards.cjs",
+      "target": "tests/v282/test_marriage_guards.cjs",
+      "sourceSha256": "a009b7c81dc4b57f2e79a4a877ccb853afab105a97b873718f526d6d5dddd3bb",
+      "targetSha256": "0d8820e7e5b17c5834f0fdc34dad82ab62598a71bd4328f62a93ac4207694ea0",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_marriage_syntax.cjs",
+      "target": "tests/v282/test_marriage_syntax.cjs",
+      "sourceSha256": "c14c25fd4d18ccd3e6b016ff0016bc4e51757ffe9801dcf9e4d1a2ffaec6ea87",
+      "targetSha256": "931060f00b4800bd06040967acd13b0cab83a8b2809cb5c40e25d5bb2ec26352",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_multiple_marriages.cjs",
+      "target": "tests/v282/test_multiple_marriages.cjs",
+      "sourceSha256": "9da6644efd9c5c8abe7b605829599eb266d68e5441daa866eb5e0535365e9ece",
+      "targetSha256": "5279097733b54cc1064b0643162176d4aaf652c3fdd0bf5eec6b04ab69292e14",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_no_section_buttons.cjs",
+      "target": "tests/v282/test_no_section_buttons.cjs",
+      "sourceSha256": "efbd4ed75f33271ff90c26bf08f6d6bf949ac56fb775a2e49ea20e8b3ec7a1e2",
+      "targetSha256": "7e475b7ce61c783e478bde672bdfffdd8745e48665aa2d4905b96945fd965f85",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_quotes.cjs",
+      "target": "tests/v282/test_quotes.cjs",
+      "sourceSha256": "3c3b62626ab6731fb322358b65f9ccedc6564176ca71d01c7fcea92ecc477a93",
+      "targetSha256": "71335ca0ad31ee803b9593992ac8227e4728f232e59f1183196ed471ec8d42d9",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_safe_automation.cjs",
+      "target": "tests/v282/test_safe_automation.cjs",
+      "sourceSha256": "048d37e1e1bc0133b2d39ac9143673c25b54e29b68e5bb4a6171796cc3c39a5b",
+      "targetSha256": "0c54fb14613545f943543172a7645c9cbc20da1317635d94531d9d8dabf77c77",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_table_guards.cjs",
+      "target": "tests/v282/test_table_guards.cjs",
+      "sourceSha256": "3c8c8bad20ea28b4ca4a1d8892f2c53220714acd47d32ad1c359b9ec940c2796",
+      "targetSha256": "541833e7eea667ba3c4e847d9cbb5ca991eb1463a04a6091f0f246a9a3874e61",
+      "changed": true,
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v281/test_table_syntax.cjs",
+      "target": "tests/v282/test_table_syntax.cjs",
+      "sourceSha256": "1e87986f32e458b9bcac8ed3433e647de155f6db7eef4a0c347fb08a82631c84",
+      "targetSha256": "4fa6a9ffe263f5120a6aff46d9c8b3fd17aff44295871d30a5809fb74dc8e57a",
+      "changed": true,
+      "additionalSubstitutions": []
+    }
+  ],
+  "generatedFiles": [
+    {
+      "target": "tests/v282/browser/SECOND_CLICK_DIFF_CONTRACT.json",
+      "generator": "tests/v282/browser/build_second_click_contract.cjs"
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v282/test_historical_citations.cjs",
+      "sha256": "bf9b08bbca2c35fc4bced70f13837136bb01c14cb8bcf7149da4ff1ed2cc980a",
+      "scope": "Independent exact source-pair and primary-source family/URL oracle, false positives, body preservation, reference bindings, plan tampering and production preservation guards."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -8,26 +8,28 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v281/run_all.cjs",
-    "test:complex": "node tests/v281/run_engine.cjs --complex",
-    "test:regression": "node tests/v281/run_engine.cjs",
+    "test": "node tests/v282/run_all.cjs",
+    "test:complex": "node tests/v282/run_engine.cjs --complex",
+    "test:regression": "node tests/v282/run_engine.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
-    "test:documentation": "python3 scripts/audit_documentation_v281.py",
-    "test:engine": "node tests/v281/run_engine.cjs",
-    "build:index": "python3 scripts/build_index_v281.py",
+    "test:documentation": "python3 scripts/audit_documentation_v282.py",
+    "test:engine": "node tests/v282/run_engine.cjs",
+    "build:index": "python3 scripts/build_index_v282.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:additions": "node tests/v281/test_safe_automation.cjs && node tests/v281/test_diff_reporting.cjs && node tests/v281/test_chat_residues.cjs && node tests/v281/test_chat_permutations.cjs && node tests/v281/test_no_section_buttons.cjs && node tests/v281/test_chemical_syntax.cjs && node tests/v281/test_table_syntax.cjs && node tests/v281/test_table_guards.cjs && node tests/v281/test_marriage_syntax.cjs && node tests/v281/test_marriage_guards.cjs && node tests/v281/test_biography_fields.cjs && node tests/v281/test_biography_dates.cjs && node tests/v281/test_multiple_marriages.cjs && node tests/v281/test_biography_composition.cjs && node tests/v281/test_citation_families.cjs",
+    "test:additions": "node tests/v282/test_safe_automation.cjs && node tests/v282/test_diff_reporting.cjs && node tests/v282/test_chat_residues.cjs && node tests/v282/test_chat_permutations.cjs && node tests/v282/test_no_section_buttons.cjs && node tests/v282/test_chemical_syntax.cjs && node tests/v282/test_table_syntax.cjs && node tests/v282/test_table_guards.cjs && node tests/v282/test_marriage_syntax.cjs && node tests/v282/test_marriage_guards.cjs && node tests/v282/test_biography_fields.cjs && node tests/v282/test_biography_dates.cjs && node tests/v282/test_multiple_marriages.cjs && node tests/v282/test_biography_composition.cjs && node tests/v282/test_citation_families.cjs && node tests/v282/test_historical_citations.cjs",
     "test:previous": "node tests/run_all.cjs",
-    "test:installation": "node tests/v281/run_startup.cjs",
+    "test:installation": "node tests/v282/run_startup.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
     "test:previous261:hotfix": "node tests/v261/hotfix/run_all.cjs",
-    "test:large-articles": "node tests/v281/run_edited_corpus.cjs --final-pin=92df4dba2fe3483b205105605c1c9d9bc2b80ed533f72ab1aadda173b58522f7 --corpus-pin=0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
+    "test:large-articles": "node tests/v282/run_edited_corpus.cjs --final-pin=34f580bd3b605780187c809e5309cc28864573b3d707596a5b414cc7d629a335 --corpus-pin=0f213292c4fcfd2c68df1c0d363946848e82a2d8457e2f47d14179ffede23256",
     "test:previous262": "node tests/v262/run_all.cjs",
     "test:previous270": "node tests/v27/run_all.cjs",
     "test:previous271": "node tests/v271/run_all.cjs",
     "test:previous272": "node tests/v272/run_all.cjs",
     "test:previous273": "node tests/v273/run_all.cjs",
-    "test:citations": "node tests/v281/test_citation_families.cjs",
-    "test:previous280": "node tests/v28/run_all.cjs"
+    "test:citations": "node tests/v282/test_citation_families.cjs",
+    "test:previous280": "node tests/v28/run_all.cjs",
+    "test:historical-citations": "node tests/v282/test_historical_citations.cjs",
+    "test:previous281": "node tests/v281/run_all.cjs"
   }
 }
