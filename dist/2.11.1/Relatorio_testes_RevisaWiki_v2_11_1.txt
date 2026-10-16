@@ -1,0 +1,46 @@
+RevisaWiki 2.11.1: resultados dos testes
+16 de outubro de 2026
+
+Os arquivos finais da 2.11.1 passaram por 21.937 casos e 172.860 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 180 fluxos locais, com 25.491 verificações, incluindo o artigo completo, controles de falsos positivos, comparação, segunda análise e desfazer. O ajuste de fotografias passou por outros 54 fluxos de interface, e as colunas passaram por 240 medições nos três navegadores. O artigo examinado conservou as 82 referências, com quatro correções previstas e todos os demais dados iguais. As novas análises nativas por GET anônimo cobrem pequenas projeções das referências afetadas. A conservação do artigo inteiro foi conferida localmente, sem apresentar essas projeções como uma análise nativa do artigo completo. O endereço corrigido teve confirmação separada das respostas HTTP e da mesma publicação. As respostas nativas guardadas também foram conferidas novamente com os arquivos desta versão. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.11.1. Nenhum teste editou a Wikipédia. O ensaio comparativo mediu duas versões em cinco artigos grandes. Os tempos desse teste local não comprovam um ganho geral de velocidade.
+
+Execuções nos arquivos finais
+
+- Motor, instalação, regressões e falsos positivos: 21937 casos e 172860 verificações, sem falhas.
+- Matriz de artigos complexos: 128 casos e 1672 verificações, sem falhas.
+- Artigos grandes nas duas distribuições: 31 casos e 1147 verificações, sem falhas.
+- Navegadores reais no macOS: 180 casos e 25491 verificações, sem falhas.
+- Fotografia e interface, chrome: 18 casos e 692 verificações, sem falhas.
+- Fotografia e interface, firefox: 18 casos e 692 verificações, sem falhas.
+- Fotografia e interface, safari: 18 casos e 692 verificações, sem falhas.
+- Referências adaptáveis, chrome: 80 casos e 763 verificações, sem falhas.
+- Referências adaptáveis, firefox: 80 casos e 763 verificações, sem falhas.
+- Referências adaptáveis, safari: 80 casos e 763 verificações, sem falhas.
+- Compatibilidade dos carregadores e proteção de assinatura: 16 casos e 16 verificações, sem falhas.
+- Categorias de nascimento, respostas nativas guardadas: 12 casos e 195 verificações, sem falhas.
+- Reparos de referências e tabelas, respostas nativas guardadas: 10 casos e 149 verificações, sem falhas.
+- Estruturas sintéticas, respostas nativas guardadas: 10 casos e 100 verificações, sem falhas.
+- Medições nas duas versões em cinco artigos grandes: 10 casos e 260 verificações, sem falhas.
+- Referências, novas consultas nativas anônimas: 5 casos e 20 verificações, sem falhas.
+- Endereço, confirmação anônima do destino: 2 casos e 8 verificações, sem falhas.
+
+Casos sintéticos e permutações não são artigos distintos. Os navegadores usam páginas locais com respostas controladas. Os relatórios e os hashes ficam em tests/evidence/2.11.1.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_11_1.js: 9651 bytes
+SHA-256: 768ae1eded68f49730628ae9beb45c7b55dcbefbe50914d39ee603ff973f1c66
+Carregador_comunitario_RevisaWiki_v2_11_1.js: 9653 bytes
+SHA-256: 425a63be931e80952af515a2e57858c70160b3394601109153563c4754b1c982
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_11_1.js: 1338833 bytes
+SHA-256: be819a786ae297db4edaacadcef1ae2200f96ae6a3082a2b9fd374a5a8281463
+RevisaWiki_v2_11_1_completo.js: 2851978 bytes
+SHA-256: ff67ffc97d21b09e99513339d04e80deb78c12dd54cfec3483ceaf6558d7ee66
+RevisaWiki_v2_11_1_dados.js: 1523935 bytes
+SHA-256: 0adc7d2e9c89118b0ea1a5b8fd4370f67d501845c73d44bd12d386e8a419b74e
+
+Nenhum teste editou a Wikipédia.
+Código e arquivos: https://github.com/danrego/RevisaWiki

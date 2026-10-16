@@ -1,0 +1,656 @@
+{
+  "baselineManifest": "tests/expected_release_v2110.json",
+  "baselineManifestSha256": "4817f492e57e660b0ba0b99b6f5d200c8172b464e3d825975c2ca445af776b36",
+  "substitutions": [
+    [
+      "2.11.0-r2",
+      "2.11.1"
+    ],
+    [
+      "2.11.0",
+      "2.11.1"
+    ],
+    [
+      "v2110",
+      "v2111"
+    ],
+    [
+      "_v2_11_0",
+      "_v2_11_1"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v2110/benchmark_large.cjs",
+      "target": "tests/v2111/benchmark_large.cjs",
+      "sourceSha256": "104fe0501281b1b2ecb30b71657adc9ddff7107aa5c91b36ee56aff23393453b",
+      "targetSha256": "897b4c33978a79b37b23263d081b646022edc50feb8683130073ae76303ab22c",
+      "additionalSubstitutions": [
+        [
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.11.1','2.10.0']:['2.10.0','2.11.1']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.10.0',baseline],['2.11.1',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.11.1');manifest('2.10.0');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2111')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n",
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.11.1','2.11.0']:['2.11.0','2.11.1']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.11.0',baseline],['2.11.1',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.11.1');manifest('2.11.0');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2111')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n"
+        ],
+        [
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.11.1'),baseline=manifest('2.10.0'),inputs=sources(),out={version:'2.11.1',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n",
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.11.1'),baseline=manifest('2.11.0'),inputs=sources(),out={version:'2.11.1',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n"
+        ],
+        [
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.11.1',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_11_1.js':'RevisaWiki_v2_10_0.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n",
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.11.1',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_11_1.js':'RevisaWiki_v2_11_0.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n"
+        ],
+        [
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2111.json'),baselineFile=path.join(root,'tests/expected_release_v2100.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n",
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2111.json'),baselineFile=path.join(root,'tests/expected_release_v2110.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/browser/birth_category_flow.cjs",
+      "target": "tests/v2111/browser/birth_category_flow.cjs",
+      "sourceSha256": "62bd3bd3ea6f8635271066caa89550c8e1ea0723cfd5c96591a95a91680024c4",
+      "targetSha256": "45f2801ee9618ead5573495fc82cab8545b88029e54bf082ad8d254ce4b2d9a8",
+      "additionalSubstitutions": [
+        [
+          "module.exports=async function birthCategoryFlow({origin,driver,evaluate,report,hash,save,toggleCheckbox}){\n const base=path.resolve(__dirname,'../../corpus_v283'),manifest=JSON.parse(fs.readFileSync(path.join(base,'manifest.json'))),repliesPath=path.join(__dirname,'birth_cases.json'),repliesBytes=fs.readFileSync(repliesPath),replies=JSON.parse(repliesBytes);assert.equal(replies.version,'2.11.1');assert.equal(replies.cases.length,6);\n const read=row=>{const pin=manifest.articles.find(x=>x.oldid===row.before),packed=fs.readFileSync(path.join(base,pin.file)),raw=zlib.gunzipSync(packed);assert.equal(hash(packed),pin.gzipSha256);assert.equal(hash(raw),pin.sha256);return {...row,source:raw.toString(),sourceSha256:pin.sha256};};\n",
+          "module.exports=async function birthCategoryFlow({origin,driver,evaluate,report,hash,save,toggleCheckbox}){\n const base=path.resolve(__dirname,'../../corpus_v283'),manifest=JSON.parse(fs.readFileSync(path.join(base,'manifest.json'))),repliesPath=path.join(__dirname,'birth_cases.json'),repliesBytes=fs.readFileSync(repliesPath),replies=JSON.parse(repliesBytes);assert.equal(replies.version,'2.11.0','The historical native responses remain unchanged');assert.equal(replies.cases.length,6);\n const read=row=>{const pin=manifest.articles.find(x=>x.oldid===row.before),packed=fs.readFileSync(path.join(base,pin.file)),raw=zlib.gunzipSync(packed);assert.equal(hash(packed),pin.gzipSha256);assert.equal(hash(raw),pin.sha256);return {...row,source:raw.toString(),sourceSha256:pin.sha256};};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/browser/build_second_click_contract.cjs",
+      "target": "tests/v2111/browser/build_second_click_contract.cjs",
+      "sourceSha256": "2d8833527d7163d0bb9e912b15e39fb4badddbc6b5e34ec69b8aa1a749f5cf56",
+      "targetSha256": "0f16c8fd3edff64bf61371305296d3e9485bb41e6cabaf4b7989a816b7b8385c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/citation_flow.cjs",
+      "target": "tests/v2111/browser/citation_flow.cjs",
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/fixture.html",
+      "target": "tests/v2111/browser/fixture.html",
+      "sourceSha256": "c60f40ac1c01a9a590838b029e5468757d3fb5eb79aca4cb6847371f7b242aa0",
+      "targetSha256": "1733a5a1838bf9f5dfa9bc55c2c532fcfa11f184195f8d7bf0f68da35a891fdd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/fixture.js",
+      "target": "tests/v2111/browser/fixture.js",
+      "sourceSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "targetSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/responsive_flow.cjs",
+      "target": "tests/v2111/browser/responsive_flow.cjs",
+      "sourceSha256": "a072ad07875af97c61f1618d9633ac9a5db32aee5497981a511a89e85b474143",
+      "targetSha256": "2085957054198c37b517c7f79a9b162523d78fba3c0a6529ca2b61a45200c7d4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/run_release.cjs",
+      "target": "tests/v2111/browser/run_release.cjs",
+      "sourceSha256": "1e1a86baa253f94086745f96eeac5271396420c209edb37bb028c6b92fde0cc5",
+      "targetSha256": "456d85cb203416d24488bd70c6af66d842dadf3c511f073e805f7ee0c22a2b26",
+      "additionalSubstitutions": [
+        [
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  for(const name of ['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs'])await require('./'+name)({origin,driver,evaluate,report,hash,save,toggleCheckbox,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n",
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  for(const name of ['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs'])await require('./'+name)({origin,driver,evaluate,report,hash,save,toggleCheckbox,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n"
+        ],
+        [
+          "}\nconst v211Flows=Object.fromEntries(['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs'].map(name=>[name,hash(fs.readFileSync(path.join(__dirname,name)))]));\nconst report={v211Flows,v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.11.1',build:'2.11.1',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n",
+          "}\nconst v211Flows=Object.fromEntries(['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs'].map(name=>[name,hash(fs.readFileSync(path.join(__dirname,name)))]));\nconst report={v211Flows,v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.11.1',build:'2.11.1',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n"
+        ],
+        [
+          "const spouseCaseBytes=fs.readFileSync(path.join(__dirname,'spouse_cases.json')),spouseCases=JSON.parse(spouseCaseBytes);\nconst biographyCaseBytes=fs.readFileSync(path.join(__dirname,'biography_cases.json')),biographyCases=JSON.parse(biographyCaseBytes);assert.equal(biographyCases.version,'2.11.1');assert.equal(biographyCases.positive.length,15);assert.equal(biographyCases.negative.length,11);\nconst secondClickProofBytes=fs.readFileSync(path.join(__dirname,'SECOND_CLICK_DIFF_CONTRACT.json')),secondClickProof=JSON.parse(secondClickProofBytes);assert.equal(secondClickProof.cases.length,12);assert.equal(secondClickProof.releaseManifestSha256,hash(fs.readFileSync(pinsPath)));assert(secondClickProof.cases.every(item=>item.exactCumulativeEditPayload&&item.secondNewAdjustments===0));\n",
+          "const spouseCaseBytes=fs.readFileSync(path.join(__dirname,'spouse_cases.json')),spouseCases=JSON.parse(spouseCaseBytes);\nconst biographyCaseBytes=fs.readFileSync(path.join(__dirname,'biography_cases.json')),biographyCases=JSON.parse(biographyCaseBytes);assert.equal(biographyCases.version,'2.11.0','The historical synthetic fixture remains unchanged');assert.equal(biographyCases.positive.length,15);assert.equal(biographyCases.negative.length,11);\nconst secondClickProofBytes=fs.readFileSync(path.join(__dirname,'SECOND_CLICK_DIFF_CONTRACT.json')),secondClickProof=JSON.parse(secondClickProofBytes);assert.equal(secondClickProof.cases.length,12);assert.equal(secondClickProof.releaseManifestSha256,hash(fs.readFileSync(pinsPath)));assert(secondClickProof.cases.every(item=>item.exactCumulativeEditPayload&&item.secondNewAdjustments===0));\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/browser/summarize_release.cjs",
+      "target": "tests/v2111/browser/summarize_release.cjs",
+      "sourceSha256": "b26d96ef87f55d89d6cdb3c18ed01026c38cb68b0eae01d9981970f06c7ce904",
+      "targetSha256": "f3e54bac41938314c61ecb0a5ac1690c097e140b7df255fdffb47a2fa4790f7f",
+      "additionalSubstitutions": [
+        [
+          "}\nassert.equal(summary.cases,162);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n",
+          "}\nassert.equal(summary.cases,180);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n"
+        ],
+        [
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n for(const [name,pin] of Object.entries(report.v211Flows||{}))assert.equal(sha(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow source pin');assert.equal(Object.keys(report.v211Flows||{}).length,3);\n const additions=report.tests.filter(test=>test.name.startsWith('2.11 '));assert.equal(additions.length,10);assert(additions.every(test=>test.passed&&test.assertions>0),'All current UI flows passed');\n",
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n for(const [name,pin] of Object.entries(report.v211Flows||{}))assert.equal(sha(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow source pin');assert.equal(Object.keys(report.v211Flows||{}).length,4);\n const additions=report.tests.filter(test=>test.name.startsWith('2.11 '));assert.equal(additions.length,10);assert(additions.every(test=>test.passed&&test.assertions>0),'All current UI flows passed');\n"
+        ],
+        [
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,54);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n",
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,60);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n"
+        ],
+        [
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,54);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n",
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,60);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/browser/v210_repair_flow.cjs",
+      "target": "tests/v2111/browser/v210_repair_flow.cjs",
+      "sourceSha256": "033c6dd3fe008e0a438451ac6c2d87bd3c771dba513aeae91795f9bdb0e227ff",
+      "targetSha256": "98df6b727d829f8d141da6c7d6e65e3df84b8860526b2c21207ece33e1358539",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/v211_count_flow.cjs",
+      "target": "tests/v2111/browser/v211_count_flow.cjs",
+      "sourceSha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430",
+      "targetSha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/v211_freshness_flow.cjs",
+      "target": "tests/v2111/browser/v211_freshness_flow.cjs",
+      "sourceSha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d",
+      "targetSha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/v211_image_runtime.cjs",
+      "target": "tests/v2111/browser/v211_image_runtime.cjs",
+      "sourceSha256": "61d84af59d931c5c4eb8f1d2efe41f064c31fe6ae5f426bdca92980f35ecbacf",
+      "targetSha256": "586ce11e2a1f0f3bcb7f086512db52342c15daf959e1323c5589a6a7404b37c5",
+      "additionalSubstitutions": [
+        [
+          "assert(['Chrome','Firefox','Safari'].includes(browserName));const manifestPath=path.join(root,'tests/expected_release_v2111.json'),manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);\nassert.equal(sha(manifestBytes),'4817f492e57e660b0ba0b99b6f5d200c8172b464e3d825975c2ca445af776b36','The exact final runtime manifest is frozen');\nconst names={complete:'RevisaWiki_v2_11_1_completo.js',core:'RevisaWiki_v2_11_1.js',data:'RevisaWiki_v2_11_1_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_11_1.js',shared:'Chamada_fixa_RevisaWiki_common.js'},scripts={};\n",
+          "assert(['Chrome','Firefox','Safari'].includes(browserName));const manifestPath=path.join(root,'tests/expected_release_v2111.json'),manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);\nassert.equal(sha(manifestBytes),'554160c9ecc6ee0f14160ef71980e9a55c0e28c265e6c6bd23fb9c8a4fb16a17','The exact final runtime manifest is frozen');\nconst names={complete:'RevisaWiki_v2_11_1_completo.js',core:'RevisaWiki_v2_11_1.js',data:'RevisaWiki_v2_11_1_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_11_1.js',shared:'Chamada_fixa_RevisaWiki_common.js'},scripts={};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/browser/v211_minor_flow.cjs",
+      "target": "tests/v2111/browser/v211_minor_flow.cjs",
+      "sourceSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "targetSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/browser/v29_repair_flow.cjs",
+      "target": "tests/v2111/browser/v29_repair_flow.cjs",
+      "sourceSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "targetSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/candidate.cjs",
+      "target": "tests/v2111/candidate.cjs",
+      "sourceSha256": "46a8ea0096faff6d73daa898e4824f36be34aa738b719bc0f1df4f89303cb0fc",
+      "targetSha256": "e04e9d6b79a1386272b9fbeadeaf46ba1008633b81e09fdaa437fa2095d1fb08",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/check_server_grammar.php",
+      "target": "tests/v2111/check_server_grammar.php",
+      "sourceSha256": "6c9b4d88786462d77f9be6e1b80714576f7b61e44fc08f90cdaf24e46eb8b44b",
+      "targetSha256": "92e925223917bbeeec29533be26066acdeb394cda94dc75ac8558695f2b23388",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/engine_helper.cjs",
+      "target": "tests/v2111/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/install_size_diagnosis.cjs",
+      "target": "tests/v2111/install_size_diagnosis.cjs",
+      "sourceSha256": "5ba8ab4d76a0294d8331c9b5e25ad9c6a43c68c98698446797f50d32189773e8",
+      "targetSha256": "f80d6d56fbfd42e654b2730dbb4b8f6b2044dbc7520ab5b86d04a0a0b9712d02",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_all.cjs",
+      "target": "tests/v2111/run_all.cjs",
+      "sourceSha256": "b927314b937ede3187fea01579470a5bb56742dc4d43499b828f2b9fded7cc7b",
+      "targetSha256": "49e5e480864cabc2881b9c5c46347fca7ed3e74e7d397816787e4dc5bbc064b5",
+      "additionalSubstitutions": [
+        [
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','test_topic_portals.cjs','test_minor_classification.cjs','test_occurrence_count.cjs','test_ui_freshness.cjs','test_reference_columns_v211.cjs','test_lead_images_v211.cjs','install_size_diagnosis.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n",
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','test_topic_portals.cjs','test_minor_classification.cjs','test_occurrence_count.cjs','test_ui_freshness.cjs','test_reference_columns_v211.cjs','test_lead_images_v211.cjs','install_size_diagnosis.cjs','graph_test.cjs','citation_fields.cjs','test_warning_identity.cjs','independent_reference_qa.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/run_edited_corpus.cjs",
+      "target": "tests/v2111/run_edited_corpus.cjs",
+      "sourceSha256": "d6cec90c68b6e5e9578a265c7e4301e1e636ba260b9fdbedf9ba4901acdbc37f",
+      "targetSha256": "02376a7c87d55b925d9186f4af3b92c667b6f9673f67aef368d36bb8aa4b42cd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_engine.cjs",
+      "target": "tests/v2111/run_engine.cjs",
+      "sourceSha256": "0a0752e3cf99c103ea488a44dc68a3e90ed341ad9b64a14a530b9b4560b53f76",
+      "targetSha256": "0a0752e3cf99c103ea488a44dc68a3e90ed341ad9b64a14a530b9b4560b53f76",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_focus.cjs",
+      "target": "tests/v2111/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_quote_boundaries.cjs",
+      "target": "tests/v2111/run_quote_boundaries.cjs",
+      "sourceSha256": "4998f106951b553df201dcdd8ee6e22afc9b486b33c4d336796a66cdf417b819",
+      "targetSha256": "3acc8914e94cdef763591c9c757d971b7b6880dcda59f920aabea1c5420de1cd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_reference_column_geometry.cjs",
+      "target": "tests/v2111/run_reference_column_geometry.cjs",
+      "sourceSha256": "129d38416c89482c0b9b1b2bc664bf71786ae20d2934ada8473b1978b3daf420",
+      "targetSha256": "5ff4d2d31b4404c2fc130a2905d6a0960beff3162ef46eb8276383d3d724dd31",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_responsive_layout.cjs",
+      "target": "tests/v2111/run_responsive_layout.cjs",
+      "sourceSha256": "709f6acbf2646d186338801140fc72c1071f93da2dba07ffb779e4cf8d073c90",
+      "targetSha256": "e2a067b0e7d51e68f5378e662e5c472dd4a3053408b6792b190fceaf2c74c16b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_server_grammar.mjs",
+      "target": "tests/v2111/run_server_grammar.mjs",
+      "sourceSha256": "63da0423b171e525e0417fea7f1a26db7b2a146a4798bbd6fb81bd8afa2ccf67",
+      "targetSha256": "48a0c21763c50270b6b84b339965979b38a7aba30b9a51da098722e5fe24f5fd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_startup.cjs",
+      "target": "tests/v2111/run_startup.cjs",
+      "sourceSha256": "ddd92d478ba148aa0803571327b8f40a4d0999cff01ace59dfa8d5f8adc30733",
+      "targetSha256": "51425c4a213c7dbef6bd840e1aed93b08c951560dd8368162189c8ecb0f45d34",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/run_tag_adversarial.cjs",
+      "target": "tests/v2111/run_tag_adversarial.cjs",
+      "sourceSha256": "67374ca3e67e51da3cc361514d430781764f7688df3b4b07cf17b257f1d1958c",
+      "targetSha256": "4c996b8106c537c024d3f131b43440c2330af6e7abb3dc3ce1c7107b4f4c126c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/summarize.cjs",
+      "target": "tests/v2111/summarize.cjs",
+      "sourceSha256": "3eb3b1b1d54c97f750435eefe1c8ea84de7c6d61aa678205563742f28dc11622",
+      "targetSha256": "8e8e7de0c8b07c4f3834598fed5f7fabab0299763730085489f0e5472e2e4ffa",
+      "additionalSubstitutions": [
+        [
+          "const directory=candidate.artifactDirectory();\nconst names=['startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json','topic_portals.json','minor_classification.json','occurrence_count.json','ui_freshness.json','reference_columns_v211.json','lead_images.json','install_size_diagnosis.json'];\nconst report={version:'2.11.1',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n",
+          "const directory=candidate.artifactDirectory();\nconst names=['graph_contracts.json','citation_fields.json','warning_identity.json','independent_reference_qa.json','startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json','topic_portals.json','minor_classification.json','occurrence_count.json','ui_freshness.json','reference_columns_v211.json','lead_images.json','install_size_diagnosis.json'];\nconst report={version:'2.11.1',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/test_biography_composition.cjs",
+      "target": "tests/v2111/test_biography_composition.cjs",
+      "sourceSha256": "dc93dd238b461f105ba28820f7b8a9a533317fe5b52d7265ce089e07c2c31c39",
+      "targetSha256": "756ee950503d14c4ef3cdc5b40af99fe9a69f677996f5bcc35b3fb71620f9c09",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_biography_dates.cjs",
+      "target": "tests/v2111/test_biography_dates.cjs",
+      "sourceSha256": "531eacff6408ecf47e86326c4c79fafc01e4fc2160f9f2ef9945d6802b5f25a4",
+      "targetSha256": "40981ff5e975670c3468a05970250174abc0fb8f925324af3f742db1970faa3d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_biography_fields.cjs",
+      "target": "tests/v2111/test_biography_fields.cjs",
+      "sourceSha256": "507381d7e09c1a1aae7286ddc842f6da242832c487fafe90b54f78deafc055c3",
+      "targetSha256": "d2a3383e4a32751b7f393b5b7767c16a6e512cd0c132496b7b5feace1e63c008",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_birth_categories.cjs",
+      "target": "tests/v2111/test_birth_categories.cjs",
+      "sourceSha256": "db3eca6824ca11d1361aa5af433edd0a9450c46b51c5c2e635355d8ccdac569f",
+      "targetSha256": "f54a5f00f849c1d26cf2c09a3be927d822948dba0d3bd56d768897ae14fcb536",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_chat_permutations.cjs",
+      "target": "tests/v2111/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_chat_residues.cjs",
+      "target": "tests/v2111/test_chat_residues.cjs",
+      "sourceSha256": "cdb046f6cc8525ce428e1046caf7bf7afbdbc6d20b2349c4a3846c264afb032a",
+      "targetSha256": "c9d7e950bb8c5eea923044611df26d2b268ba2cc8299631b8320d6137a1fc14c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_chemical_guards.cjs",
+      "target": "tests/v2111/test_chemical_guards.cjs",
+      "sourceSha256": "27ea1c4a99d8c3281fe1685a168a1c197740f6e7237b2fd16c4fd01f3984a0c3",
+      "targetSha256": "ba4f68b9dad1defe24a17b2588637f6375016df6f22201295e7d0d116b4a31bd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_chemical_syntax.cjs",
+      "target": "tests/v2111/test_chemical_syntax.cjs",
+      "sourceSha256": "482b71e25b3126f2c313ff81d30ace5bad1c42e3de7d27d32a75e5e4cb785de6",
+      "targetSha256": "df3bb61d315d8bfdd6f2e2629577fc1b57f161032d34d2bf0c44b03550a45443",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_citation_families.cjs",
+      "target": "tests/v2111/test_citation_families.cjs",
+      "sourceSha256": "7463eed2f460770ac773e9f5ed669173c5f89bed13689edae277c1d09ec1f061",
+      "targetSha256": "b1e9a0b4b1a8fbbf4444a53d8ba230cdd873b8b017a09f4de3002bc64ad93098",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_diff_reporting.cjs",
+      "target": "tests/v2111/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_engine_adversarial.cjs",
+      "target": "tests/v2111/test_engine_adversarial.cjs",
+      "sourceSha256": "287cf5a9c907a0c534537be6023b3f8c1a90b310286d676cb18fcb8732964acc",
+      "targetSha256": "567f0e0bcf9ae91f166c900b584ca08c5daeee600d1c55019b3fdfc4603da46f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_historical_citations.cjs",
+      "target": "tests/v2111/test_historical_citations.cjs",
+      "sourceSha256": "85638ddbdd1dfac19671c5312600b66bc8f60440cd795b9d2c622ed9deb0cd8b",
+      "targetSha256": "9cd0eb176308e4726f9b54aff5abad13f9f13e73d71b8ba7f2299dcdec01c49a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_identifier_urls.cjs",
+      "target": "tests/v2111/test_identifier_urls.cjs",
+      "sourceSha256": "ee0cccb09f54a10c62e6f9c439d289dd06eb639d2cf2c8c4e31621978eddcb5c",
+      "targetSha256": "085e15ba584f0a844e929f954c75e97906506ea1420062692ac1745caa68b527",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_index.cjs",
+      "target": "tests/v2111/test_index.cjs",
+      "sourceSha256": "c99484ff6377f88ea6cb6eabdad9317888384f1e7a8c10520d0ab14f0ef837cb",
+      "targetSha256": "6bda8c98f23f58fd2afc5467b2e13d50fe2960b79e6d2c76a07d97a7a5a300cf",
+      "additionalSubstitutions": [
+        [
+          "  verify(await page.locator('a.raw-source').count()===5,'Each copy card has a raw-source view');\n  verify((await page.locator('body').innerText()).includes('distribui\u00e7\u00e3o r2'),'The visible index identifies this revised distribution');\n  await page.locator('details.notice > summary').click();\n",
+          "  verify(await page.locator('a.raw-source').count()===5,'Each copy card has a raw-source view');\n  verify((await page.locator('body').innerText()).includes('RevisaWiki 2.11.1'),'The visible index identifies the current release');\n  await page.locator('details.notice > summary').click();\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2110/test_lead_images_v211.cjs",
+      "target": "tests/v2111/test_lead_images_v211.cjs",
+      "sourceSha256": "c0af57765b0c57303c090a6963d49abded170ac3a2e0ec7dd8e6ea414d202cd1",
+      "targetSha256": "c9813af98b61110b875b6ec97479065c126ec94999a556aecf9e30b5b397a7ea",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_marriage_guards.cjs",
+      "target": "tests/v2111/test_marriage_guards.cjs",
+      "sourceSha256": "279142a8c926098cf57cb669963f45c14296089342f803ac198105ecab6b6ccd",
+      "targetSha256": "f577f5787429ed0d8f16db53af0bf1c187e3ef28a0e0c16cfbc1b349da3a0e01",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_marriage_syntax.cjs",
+      "target": "tests/v2111/test_marriage_syntax.cjs",
+      "sourceSha256": "7182c720cf920d2346404958f2bdde47aaf7f11c1a9baa5d33edd88e025d60c7",
+      "targetSha256": "2d9260a90d4e5d5a795b9c8859d7453f48984ba028eaf0d54024abb06104d972",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_minor_classification.cjs",
+      "target": "tests/v2111/test_minor_classification.cjs",
+      "sourceSha256": "c6ca2ef06133d7df77c2b5207a9d140efd636167b17556396de8644c84afb241",
+      "targetSha256": "ca7b0c894afeca49f5223e39f30041c71a1fa90c27560e3617a0fb44b609fa86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_multiple_marriages.cjs",
+      "target": "tests/v2111/test_multiple_marriages.cjs",
+      "sourceSha256": "6278b4e0bfa3e011c37532cfced0763060fcda2069adb3c8c7fcfa1555b9d179",
+      "targetSha256": "ed6f2f9ba7cc7191efd4eed69aac6ffedf12db1802cbd4c1badb88721b817fa6",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_no_section_buttons.cjs",
+      "target": "tests/v2111/test_no_section_buttons.cjs",
+      "sourceSha256": "f60407cc21527e4ce0d07fa9a7eb81aa3ac19bc1560706fd021e55537f473c02",
+      "targetSha256": "4184591e76eee2972ff3b0aab73029c25b4bf15e56f6e979f817b4927e9ba635",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_occurrence_count.cjs",
+      "target": "tests/v2111/test_occurrence_count.cjs",
+      "sourceSha256": "a34038e18be0fc6b14d20e47d04464ec59f5aa5bcc488f025fee4133d0d3e675",
+      "targetSha256": "a34038e18be0fc6b14d20e47d04464ec59f5aa5bcc488f025fee4133d0d3e675",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_quotes.cjs",
+      "target": "tests/v2111/test_quotes.cjs",
+      "sourceSha256": "555b4a71d7d99d612b932e370793988ee328d6323335080d5ffa6b89ccdbdbb0",
+      "targetSha256": "e64a57d506074fd1d5dc7dc64d04ff5f1ef9fc82419f2e77adcfc62e07901a05",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_reference_columns_v211.cjs",
+      "target": "tests/v2111/test_reference_columns_v211.cjs",
+      "sourceSha256": "c219d6d5b94ceeb43fcddf280c69ebbf78b593f5b538416f03360ea2344b6eb4",
+      "targetSha256": "ac795dc3ccde3838204ee2f1c18eded3afebe87c762fc5264a72d9e58b3a923e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_reference_graph.cjs",
+      "target": "tests/v2111/test_reference_graph.cjs",
+      "sourceSha256": "ee36275fbfdb6e3625dce5b728560f4d8f5b08285963eb027931f60a2b4521b0",
+      "targetSha256": "2565dc2aff7b6b7c3e442ea73a7331c212d2a74a0d7f93adf056a8e46be7d666",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_reference_repairs.cjs",
+      "target": "tests/v2111/test_reference_repairs.cjs",
+      "sourceSha256": "2544d28e9e7a3303b1889f476a497945653fcd731638f5d3fcf7ee5fb692ca91",
+      "targetSha256": "2eae9605189463648660113048ba8fe621a2d289dc9dc2a1e21c87c39202e221",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_responsive_tables.cjs",
+      "target": "tests/v2111/test_responsive_tables.cjs",
+      "sourceSha256": "4d2daf0e17fe9ab7b83db66071cfabcea21e85d3e284e229ef6e097ff442c0bd",
+      "targetSha256": "e523557ae432109f358bf954d9e6b1bb97d43522e0e63aba9a0704375f599c63",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_safe_automation.cjs",
+      "target": "tests/v2111/test_safe_automation.cjs",
+      "sourceSha256": "eb91528980bf5715cd47e82433232cbe1807141006f51198a440e04194844276",
+      "targetSha256": "23172e6bfbfcfe3d0099900650fd3677aef2fd7b1bb1580c89dafc22b651cf66",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_structural_engine.cjs",
+      "target": "tests/v2111/test_structural_engine.cjs",
+      "sourceSha256": "a81fe927c5866c5fb2b032d456367ac236ae26a182b3f422fbb8683cce0f81ff",
+      "targetSha256": "b1881c12f9a836e8bc46bb92a221880fd7580e59472940bffb926863a3533488",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_table_guards.cjs",
+      "target": "tests/v2111/test_table_guards.cjs",
+      "sourceSha256": "a18806b9392170c570a3b014e9e8adb490d81c0336f601860993ba7a63a3fcaa",
+      "targetSha256": "4109fd89f4bb568a8181f8be611f2f66267a7ae74e7dc9769ee4fa015dc4d916",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_table_repairs.cjs",
+      "target": "tests/v2111/test_table_repairs.cjs",
+      "sourceSha256": "551d0d3e54381c2e4b3ed28276785cb0bbeef6e9314cad7d0a2e8575ba962d65",
+      "targetSha256": "66f6d9b918a41e5d0b2379d1bdaa1ac6445d52ae3f9ae73c6563f6cb587f9407",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_table_structure.cjs",
+      "target": "tests/v2111/test_table_structure.cjs",
+      "sourceSha256": "1b4409bc38fccb60abadb92494841c6d7c3859a02e3aec0f509bb6e66bf6e027",
+      "targetSha256": "43a5fb2db3ec75651b06c8187d41cc70904fba1c946c6fe6cc5ae42d34a61f60",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_table_syntax.cjs",
+      "target": "tests/v2111/test_table_syntax.cjs",
+      "sourceSha256": "c3e6facb6b9d974ff974c8b95a16b369af782588525ee4080d6f1a36dff9f826",
+      "targetSha256": "10b3f1f83f42dd26e44d8778ab2e9be986b809fe3f5feeb6605384a15d407670",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_topic_portals.cjs",
+      "target": "tests/v2111/test_topic_portals.cjs",
+      "sourceSha256": "f70263012224ff37160adda19e92716f1f1c43ada4249477b969e73aeb467b9b",
+      "targetSha256": "c02c72e18ce1f597c08784bbd5d8a337d836b27ef50ecf0d487bd0d128bd6e8d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/test_ui_freshness.cjs",
+      "target": "tests/v2111/test_ui_freshness.cjs",
+      "sourceSha256": "afec211a06c871ccc5bd37291d00aa4117751133f30284f8f4f13d6e139acccc",
+      "targetSha256": "6e61b54484261705a5becab867187af493e6325ed44ff5da31872216a5d01170",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/verify_inherited.cjs",
+      "target": "tests/v2111/verify_inherited.cjs",
+      "sourceSha256": "87b6bf9e75c4103d339d09f7f02812eb2d62b03bc9ef2ab9d10adfe89b7392b9",
+      "targetSha256": "1131d8ed3f2f53f521199c7650436ee3f19ba9ec2ec604214a9dd9712cecb490",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2110/fixtures/repair_render_cases.json",
+      "target": "tests/v2111/fixtures/repair_render_cases.json",
+      "sourceSha256": "acb99ac2ebaff718192f9e81a0120bbfcdfe83fa58c6ffd62af833e6b96e3de3",
+      "targetSha256": "47f0721c660ce8bce4edc02b1faef450df629e3a768282716a2ca3e3d0d3da97",
+      "additionalSubstitutions": []
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v2111/browser/v2111_reference_flow.cjs",
+      "sha256": "db6414774e6cc1c6d868e75ac19309fdd35c1ccab884484a15e323ab1c5e8111"
+    },
+    {
+      "target": "tests/v2111/citation_fields.cjs",
+      "sha256": "75c6d1cc83a06c5fdfaf9948bffa28d7d71a3b258c333ad3e8f29b4f66937a26"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/old_11.html",
+      "sha256": "a6a44eab65f4e72eac098512d80955bd5c0c25c8ab2b3452dc53b31bb46cc78b"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/old_30.html",
+      "sha256": "d7c6214ffbc822649a90a746a85dfcbe5af0ee2e473c48cad4c0a8f3f97b3ea7"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/plain_10.html",
+      "sha256": "63c80ffcee68b204a40fc4b2c1b67ab7351eb4114767eeab5be667c6807ac724"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/plain_11.html",
+      "sha256": "de2767a47cc2157f23645079ee1ffa690023e393ea81a8bf4a6d9a0ddedc7ea4"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/plain_30.html",
+      "sha256": "decd64bb2c638a28d2aee4dd371027b13b306703bf6ee83023b1a5cd39507ee9"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/styled_10.html",
+      "sha256": "018696b5b1f36ce6d93c676666a5f2d0d8698784345e1842ea303524a5bdded7"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/styled_11.html",
+      "sha256": "1119d842a156bae5785412482bb9b7819e46243687010574c5bfb4bad426212d"
+    },
+    {
+      "target": "tests/v2111/fixtures/reference_column_geometry/styled_30.html",
+      "sha256": "01915f410bb1a9a74e4b64e27fcec0ef5a95a9d0dbb3b940dafeaf68b47ffd30"
+    },
+    {
+      "target": "tests/v2111/graph_contracts/aviation_stub.html",
+      "sha256": "d24ff4df42cf111b4f97d3aba1b4f7b4d4a5813811956f0da921a3fef708836a"
+    },
+    {
+      "target": "tests/v2111/graph_contracts/commons_category.html",
+      "sha256": "e43559a898532b425f0f64246003c838f349454508f9c238fb359e6ddcef4f8a"
+    },
+    {
+      "target": "tests/v2111/graph_contracts/list_notice.html",
+      "sha256": "cca140c10bffcf60419f2979c1a504ab743c8a35f56fe9191454cba0d891a981"
+    },
+    {
+      "target": "tests/v2111/graph_contracts/numeric_literal.html",
+      "sha256": "9772419ffa3eb5cc6d6597527d9d3b07a4acd65c1363c4a5461d2c4605e2744b"
+    },
+    {
+      "target": "tests/v2111/graph_contracts/reference_style.html",
+      "sha256": "43ac1cd46d237c86a7dff6f90c45c5f7ef25871006137611269cdc39d7c4a93e"
+    },
+    {
+      "target": "tests/v2111/graph_test.cjs",
+      "sha256": "d949520d4bd62b1a50e63b4dcdbb797837effa040c45567a91eaa3420de73b2f"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/blog_after_fresh.html",
+      "sha256": "2e1c99ab8bc2c7284c03201d40118a50bed32fa9546dac270ac38858b7a91a4a"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/blog_before_fresh.html",
+      "sha256": "bb7f0c39bccfba60589bee2bccb71e85bae633fb2fbe25fc74d0e7889ffbcc1a"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/projection_after_fresh.html",
+      "sha256": "e473e3d728aa095b0db09a225e1f75abe6496876172f035c33077a38398c7508"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/projection_after_native.html",
+      "sha256": "e473e3d728aa095b0db09a225e1f75abe6496876172f035c33077a38398c7508"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/projection_before_fresh.html",
+      "sha256": "7d85d59e70be1d1f7ff94cccd99439bd87c31593119ab14e3cbe0893c63a106d"
+    },
+    {
+      "target": "tests/v2111/independent_fixtures/projection_before_native.html",
+      "sha256": "7d85d59e70be1d1f7ff94cccd99439bd87c31593119ab14e3cbe0893c63a106d"
+    },
+    {
+      "target": "tests/v2111/independent_reference_qa.cjs",
+      "sha256": "76d75a0cbf18c25c0be9183b22ac3c7f1202615ff493d7522a2371cda07bc053"
+    },
+    {
+      "target": "tests/v2111/test_warning_identity.cjs",
+      "sha256": "58d650d8f4e4c4cf13b09d401a31232429d3f64841efa33fe77d4e0530693fee"
+    }
+  ]
+}

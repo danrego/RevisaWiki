@@ -1,0 +1,15 @@
+{
+  "version": "2.10.0",
+  "kind": "synthetic-native-dom-proof-cases",
+  "source": "Texto {{harvnb|Silva|2004|p=2}}\n== Bibliografia ==\n* {{citar livro|ultimo=Silva|ano=2004|titulo=Obra}}\n{{Referências}}",
+  "pageTitle": "Artigo de teste",
+  "beforeHtml": "<p>Texto <a href=\"#CITEREFSilva2004\">Silva</a></p><cite>Obra</cite>",
+  "afterHtml": "<p>Texto <a href=\"#CITEREFSilva2004\">Silva</a></p><cite id=\"CITEREFSilva2004\">Obra</cite>",
+  "negativeMutations": [
+    {"name": "changed visible source", "find": "Obra", "replace": "Outra obra"},
+    {"name": "changed short target", "find": "href=\"#CITEREFSilva2004\"", "replace": "href=\"#Outro\""},
+    {"name": "duplicate target", "append": "<span id=\"CITEREFSilva2004\"></span>"},
+    {"name": "new error", "append": "<strong class=\"error\">Erro</strong>"}
+  ],
+  "requiredCases": ["exact new anchor accepted", "native proof permits one candidate", "source edit invalidates proof", "page change invalidates proof", "mutated proof checksum refused", "existing before anchor refused", "missing after anchor refused", "each negative mutation refused"]
+}
