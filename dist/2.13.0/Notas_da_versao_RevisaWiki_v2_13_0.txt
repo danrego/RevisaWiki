@@ -1,0 +1,23 @@
+RevisaWiki 2.13.0
+16 de outubro de 2026
+
+- Repõe uma aspa inicial ausente em rowspan ou colspan quando a tabela completa confirma o reparo.
+- Repara um sinal de igual ausente em rowspan ou colspan nos formatos reconhecidos.
+- Corrige erros de digitação conferidos nos nomes rowspan e colspan.
+- Retira um atributo de ordenação repetido quando os valores são idênticos.
+- Retira aspas externas de um campo que contém somente um endereço reconhecido.
+- Recupera um identificador de uma ligação externa sem rótulo para o endereço oficial correspondente.
+- Corrige nome e grupo para os atributos nativos name e group em referências com identidade local confirmada.
+- Fecha uma referência composta somente por uma citação completa, imediatamente antes da lista final correspondente.
+- Retira uma chamada ISBN colocada dentro do próprio campo isbn quando há um único identificador válido.
+- Retira um sinal de igual inicial excedente em campos conferidos de endereço, data ou identificador.
+- Corrige o fechamento malformado de uma referência quando a abertura correspondente está confirmada.
+- Corrige aspas retas e tipográficas misturadas em rowspan ou colspan.
+- Corrige erros de digitação conferidos nos nomes dos atributos nativos de ordenação.
+- Conclui cadeias reconhecidas de reparos de endereços em uma aplicação, incluindo o campo arquivo-url.
+
+Os arquivos finais da 2.13.0 passaram por 30.339 casos e 225.291 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 426 fluxos locais, com 35.763 verificações, incluindo artigos completos, controles de falsos positivos, comparação, segunda análise e desfazer. As fotografias passaram por outros 54 fluxos de interface, e as colunas de referências passaram por 240 medições nos três navegadores. As tabelas com largura fixa tiveram 378 medições adicionais, com sete larguras de tela, três tamanhos de letra e três disposições do conteúdo. O código nativo de ordenação foi executado nos controles e nas tabelas com rolagem. Os novos reparos têm 34 projeções nativas, antes e depois, conferidas contra os dois arquivos executáveis. Os atributos novos passaram por 72 medições adicionais com o módulo nativo de ordenação em três larguras de tela. São verificações dos trechos afetados, não análises nativas de artigos inteiros. Os contratos nativos guardados e as respostas de versões anteriores foram conferidos novamente contra os arquivos atuais, mantendo as datas de origem. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.13.0. Nenhum teste editou a Wikipédia. O ensaio comparativo mediu duas versões em cinco artigos grandes. Os tempos desse teste local não comprovam um ganho geral de velocidade.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

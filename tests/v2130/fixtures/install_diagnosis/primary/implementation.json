@@ -1,0 +1,25 @@
+{
+  "license": "GPL-2.0-or-later",
+  "licenseUrl": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+  "licenseNotice": "/**\n * This program is free software; you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation; either version 2 of the License, or\n * (at your option) any later version.\n *\n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n * GNU General Public License for more details.\n *\n * You should have received a copy of the GNU General Public License along\n * with this program; if not, write to the Free Software Foundation, Inc.,\n * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n * http://www.gnu.org/copyleft/gpl.html\n",
+  "excerpts": {
+    "sizeGuard": {
+      "lineStart": 250,
+      "lineEnd": 258,
+      "text": "\t\tif ( strlen( $code ) > $this->maxBytes ) {\n\t\t\t// Disable syntax highlighting\n\t\t\t$lexer = null;\n\t\t\t$status->warning(\n\t\t\t\t'syntaxhighlight-error-exceeds-size-limit',\n\t\t\t\t$length,\n\t\t\t\t$this->maxBytes\n\t\t\t);\n\t\t}\n",
+      "sha256": "207e29034e30f5939fb896de989c522a17b4f7b730280718dfc6cfb9348df1d3"
+    },
+    "plainFallback": {
+      "lineStart": 267,
+      "lineEnd": 271,
+      "text": "\t\tif ( $lexer === null ) {\n\t\t\t// When syntax highlighting is disabled..\n\t\t\t$status->value = self::plainCodeWrap( $code, $isInline );\n\t\t\treturn $status;\n\t\t}\n",
+      "sha256": "8f37c8ae0d5e1e6053f46b0b3d67e673c13d9d5f51e017eba5a6b77b89d35fe0"
+    },
+    "plainWrapper": {
+      "lineStart": 216,
+      "lineEnd": 226,
+      "text": "\tprivate static function plainCodeWrap( $code, $isInline ) {\n\t\tif ( $isInline ) {\n\t\t\treturn htmlspecialchars( $code, ENT_NOQUOTES );\n\t\t}\n\n\t\treturn Html::rawElement(\n\t\t\t'div',\n\t\t\t[ 'class' => self::HIGHLIGHT_CSS_CLASS ],\n\t\t\tHtml::element( 'pre', [], $code )\n\t\t);\n\t}\n",
+      "sha256": "fbe42c3a176843b334b56fc0ee933fc2b2367b62232e5ee60ed8f7ee8256d082"
+    }
+  }
+}

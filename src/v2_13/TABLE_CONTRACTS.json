@@ -1,0 +1,18 @@
+{
+  "version": "2.13.0",
+  "scope": "Complete top-level literal regular wikitables in full main-namespace source; existing protected ranges, configuration and resource bounds remain authoritative.",
+  "spanRepairs": {
+    "missingOpeningQuote": "A sole rowspan or colspan, literal positive integer2 through999, one terminal straight quote, explicit cell separator and nonempty static payload. Insert that same opening quote only.",
+    "missingEquals": "A sole rowspan or colspan immediately followed by a matched straight-quoted literal integer2 through999, with optional intervening horizontal whitespace. Insert one equals sign immediately before the opening quote and preserve every existing space.",
+    "finiteKeyTypos": {"colpan": "colspan", "colpsan": "colspan", "rowpan": "rowspan", "rowpsan": "rowspan"},
+    "mixedQuotes": "Only straight opening plus its typographic closing quote, or typographic opening plus its straight closing quote, in the same single/double quote family. Change only the typographic character.",
+    "proof": "At most one malformed span in the complete table. The original table model must fail and the single literal correction must yield a complete regular candidate. No span value, cell, payload, row order, delimiter or content is inferred. Span-one values, additional attributes in the malformed prefix, links, templates, references and other payload markup are outside these four repairs."
+  },
+  "sortingRepairs": {
+    "duplicateAttributes": "Remove repeated data-sort-value fields only when all literal values are byte-identical. Identical repeated data-sort-type fields additionally require a physical header cell and a recognized native mode. Keep the first original field. Conflicting duplicates, misplaced modes and unknown modes remain unchanged.",
+    "finiteKeyTypos": {"data-sort-vaule": "data-sort-value", "data-srot-value": "data-sort-value", "data-sort-tyep": "data-sort-type"},
+    "proof": "A sortable wikitable, correct physical cell/header location, accepted literal values and recognized native sorting modes. At most one typo in the table, no target-field or alias collision, no malformed span in the same transaction. The corrected complete model must pass without changing any field value, reference, displayed cell or source row order. Native sorting tests separately check restored behavior."
+  },
+  "count": "One repaired attribute name counts once even when lexical diff splits a transposition into deletion and insertion. Exact source-bound field endpoints and the actual retained output are required.",
+  "silence": "Ambiguous cases remain unchanged without new generic review alerts."
+}

@@ -1,0 +1,32 @@
+'use strict';
+module.exports=async function({origin,driver,evaluate,report,hash,save,setVariant,toggleCheckbox}){
+ const source="'''Artigo de teste''' reúne dados para uma verificação local.\n\n[[Tema um|Tema um]], [[Tema dois|Tema dois]] e [[Tema três|Tema três]].\n\n{| class=\"wikitable\"\n! A !! B !! C !! D !! E\n|-\n| 1 || 2 || 3 || 4 || 5\n|}\n\n{{Referências}}\n";
+ const links=source.replaceAll('[[Tema um|Tema um]]','[[Tema um]]').replaceAll('[[Tema dois|Tema dois]]','[[Tema dois]]').replaceAll('[[Tema três|Tema três]]','[[Tema três]]');
+ const expected=links.replace('! A !! B !! C !! D !! E','! scope="col" | A !! scope="col" | B !! scope="col" | C !! scope="col" | D !! scope="col" | E');
+ for(const variant of ['shared','complete']){
+  setVariant(variant);const started=Date.now();
+  try{
+   await driver.navigate(origin+'/fixture.html?mode='+(variant==='shared'?'loader-shared':'direct-complete')+'&scenario=native-editor&title=Artigo%20de%20teste');
+   await evaluate(`await wait(()=>window.RevisaWiki&&document.querySelector('.ajg-run'));window.__countSource=${JSON.stringify(source)};window.__countExpected=${JSON.stringify(expected)};window.__countLinks=${JSON.stringify(links)};window.RevisaWikiConfig={authorityControl:false,endTemplateOrder:false};const box=document.getElementById('wpTextbox1');box.value=__countSource;box.dispatchEvent(new Event('input',{bubbles:true}));clean();`);
+   await driver.click('.ajg-run');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__countExpected,'The real Worker/editor action performs exactly three links and five header attributes');assert(RevisaWiki.processing.engine==='worker'&&!RevisaWiki.processing.workerFailure,'Counting is attached to the actual Worker result');assert(document.querySelector('.ajg-result-count').textContent==='8 ajustes aplicados','Prominent label counts eight individual corrections');assert(RevisaWiki.v27RetainedTypes(__countSource,__countExpected).count===2,'Two remains only the number of topics');assert(document.querySelector('.ajg-result-topics').textContent.includes('ligações')&&document.querySelector('.ajg-result-topics').textContent.includes('tabelas'),'Topics are displayed separately from correction total');clean();`);
+   await driver.click('.ajg-run');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__countExpected,'Second click preserves the exact first result');assert(document.querySelector('.ajg-result-count').textContent==='8 ajustes aplicados','Unchanged second click does not accumulate attempted changes');clean();`);
+   await driver.click('.ajg-show-changes');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled&&document.querySelectorAll('.ajg-change').length>0);assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===8,'Comparison exposes exactly eight source-confirmed occurrence entries');window.__countHunks=__rw26QA.workerResults.at(-1).result.hunks;window.__countTableIds=__countHunks.filter(h=>h.start>=__countSource.indexOf('{|')).map(h=>h.id);assert(__countTableIds.length===5,'The five independent header repairs have five source choices');clean();`);
+   await driver.click('.ajg-select-changes');
+   const ids=JSON.parse(await driver.evaluate('JSON.stringify(__countTableIds)'));
+   for(let i=0;i<ids.length;i++){
+    await toggleCheckbox('.ajg-change-choice[data-change='+JSON.stringify(ids[i])+']');
+    await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.querySelector('.ajg-result-count').textContent===${JSON.stringify((7-i)+' ajustes aplicados')},'Each rejected header decreases the retained correction count by exactly one');assert(document.querySelectorAll('.ajg-occurrence-ledger li').length===${7-i},'Exposed ledger follows the selected final endpoint');clean();`);
+   }
+   await evaluate(`assert(document.getElementById('wpTextbox1').value===__countLinks,'Rejecting table repairs leaves exactly the three corrected links');assert(document.querySelector('.ajg-result-count').textContent==='3 ajustes aplicados','Three retained links are not presented as one topic');assert(!document.querySelector('.ajg-result-topics').textContent.includes('tabelas'),'Rejected topic is absent');clean();`);
+   await driver.click('.ajg-undo');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__countSource,'Undo restores every original source byte');assert(document.querySelector('.ajg-result').hidden,'Undo removes the stale applied total');assert(document.getElementById('wpSummary').value==='','Undo restores the original empty summary');clean();`);
+   await driver.click('.ajg-run');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);const box=document.getElementById('wpTextbox1');box.value+='Texto manual.';box.dispatchEvent(new Event('input',{bubbles:true}));await wait(()=>document.querySelector('.ajg-result-count').textContent.includes('Execute o ajuste novamente'));assert(!/^\d/.test(document.querySelector('.ajg-result-count').textContent),'Manual draft mutation does not leave an exact-looking stale count');assert(box.value.endsWith('Texto manual.'),'Invalidating the count preserves the manual draft');clean();`);
+   const assertions=await driver.evaluate('__rw26QA.assertions');report.assertions+=assertions;report.tests.push({name:'2.11 '+variant+' retained occurrence count and selective endpoint',passed:true,assertions,evidence:{inputSha256:hash(Buffer.from(source)),expectedSha256:hash(Buffer.from(expected)),independentExpectedCorrections:8,retainedAfterRejection:3,secondClickStable:true,exactUndo:true,manualMutationInvalidatesCount:true,wikipediaWrites:0},milliseconds:Date.now()-started});
+  }catch(error){let state=null;try{state=JSON.parse(await driver.evaluate('JSON.stringify({source:document.getElementById("wpTextbox1")?.value,label:document.querySelector(".ajg-result-count")?.textContent,ledger:document.querySelectorAll(".ajg-occurrence-ledger li").length,status:document.querySelector(".ajg-status")?.textContent})'));}catch{}report.tests.push({name:'2.11 '+variant+' retained occurrence count and selective endpoint',passed:false,error:String(error.message),state,milliseconds:Date.now()-started});}
+  save();console.log(JSON.stringify(report.tests.at(-1)));
+ }
+};

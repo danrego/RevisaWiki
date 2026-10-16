@@ -1,0 +1,27 @@
+<includeonly><!--
+
+Título da seção de referências
+
+-->{{#ifeq: {{{nível|{{{3|}}}}}} | 0
+  |
+  |{{Esconder link para editar seção<!--
+    -->|{{{título|{{{1|Referências}}}}}}<!--
+    -->|{{#if: {{{nível|{{{2|}}}}}}
+          |{{{nível|{{{2}}}}}}
+          |2
+        }}<!--
+-->}}
+}}<!-- conteúdo adicional-->
+{{{extra|}}}<!--
+
+Lista de referências -->
+<div class="reflist" style="{{#if: {{{estilo|{{{5|}}}}}}
+  |{{{estilo|{{{5}}}}}};<!--
+-->}} list-style-type: <!--
+ -->{{{estilolista|{{#switch: {{{grupo|}}}
+    | upper-alpha
+    | upper-roman
+    | lower-alpha
+    | lower-greek
+    | lower-roman = {{{grupo}}}
+    | #default = decimal}}}}};">{{#tag:references|{{{refs|}}}|group={{{grupo|}}}}}</div></includeonly><noinclude>{{Documentação}}</noinclude>

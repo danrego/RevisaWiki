@@ -1,0 +1,58 @@
+RevisaWiki 2.13.0: instalação
+Programa e dados: 2.13.0
+
+Abra INICIO.html para copiar os arquivos completos, os destinos e os resumos. O código e as versões anteriores ficam em https://github.com/danrego/RevisaWiki. Os arquivos desta versão estão em dist/2.13.0.
+
+ATUALIZAR A DISTRIBUIÇÃO
+
+1. Copie RevisaWiki_v2_13_0_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js. Os catálogos continuam iguais aos da versão anterior, mas este arquivo passa a declarar 2.13.0. Atualize-o junto do núcleo, mesmo que a 2.12.0 já esteja instalada.
+2. Copie RevisaWiki_v2_13_0.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Atualize Usuário:Daniel G Rego/RevisaWiki/Carregador.js com o conteúdo completo de Carregador_comunitario_RevisaWiki_v2_13_0.js. Esse carregador espera o programa 2.13.0 e informa loaderRevision 2.13.0.
+4. Se já usa Chamada_fixa_RevisaWiki_common.js no common.js, mantenha esse bloco. Se ainda tem um carregador antigo inteiro no common.js, substitua somente o bloco do RevisaWiki pela chamada fixa. Preserve os outros scripts e mantenha uma única chamada.
+5. Copie Documentacao_RevisaWiki_v2_13_0.wiki para Usuário:Daniel G Rego/RevisaWiki.
+6. Faça uma recarga completa e abra Editar código-fonte. O painel deve mostrar PTwiki 2.13.0. Sobre e diagnóstico também deve indicar 2.13.0.
+
+Atualize os dados, o núcleo e o carregador central nessa ordem. As duas partes do programa precisam declarar 2.13.0 e combinar com a versão esperada pelo carregador. A chamada fixa do common.js permanece idêntica. Quem já a usa mantém esse bloco nas próximas atualizações.
+
+USAR A DISTRIBUIÇÃO COMPARTILHADA
+
+Quem já usa a chamada fixa pode mantê-la no common.js. Depois que as páginas centrais forem atualizadas, basta recarregar. Em uma instalação nova, coloque Chamada_fixa_RevisaWiki_common.js no common.js. Essa chamada curta abre Usuário:Daniel G Rego/RevisaWiki/Carregador.js, que carrega as partes da distribuição. Os arquivos centrais não precisam ser copiados para a sua conta.
+
+Se houver uma instalação antiga, substitua somente o bloco do RevisaWiki. Não acrescente uma segunda chamada. Preserve os demais scripts.
+
+MANTER UMA CÓPIA PRÓPRIA
+
+1. Copie RevisaWiki_v2_13_0_dados.js para a sua página RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_13_0.js para a sua página RevisaWiki.js.
+3. Atualize a sua página RevisaWiki/Carregador.js com Carregador_common_js_RevisaWiki_v2_13_0.js. Ele usa os arquivos da conta conectada.
+4. Mantenha Chamada_fixa_RevisaWiki_copia_propria.js no common.js se já usa essa chamada. Para instalar pela primeira vez, acrescente-a preservando os outros scripts. Use apenas uma das chamadas fixas.
+
+Nas próximas versões, atualize seus dados, núcleo e carregador central, nessa ordem. Mantenha a chamada curta. Se escolher nomes diferentes para as páginas, ajuste os destinos no carregador e na chamada correspondente.
+
+RevisaWiki_v2_13_0_completo.js reúne as partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Instale o programa em duas partes.
+
+CONFERIR A INSTALAÇÃO
+
+Copie apenas o código, sem cercas de Markdown ou marcas de sintaxe. O índice não instala nem publica nada automaticamente.
+
+No editor clássico e no CodeMirror reconhecido, Ajustar código aparece em verde azulado antes de Publicar. No editor de código-fonte de 2017, use o botão do painel superior, com o mesmo verde. A comparação e Desfazer ajustes ficam no painel. Os botões adicionais Editar aqui foram retirados. Os links de edição da própria Wikipédia permanecem.
+
+Se o painel não aparecer, confira os destinos, a cópia completa dos arquivos, a existência da página central e a presença de uma única chamada do RevisaWiki. No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R.
+
+A chamada curta calcula uma chave de cache por intervalo de cinco minutos ao abrir outra página ou recarregar. Ela não fica consultando atualizações numa página aberta e não cria edições na Wikipédia.
+
+AVISO DE TAMANHO AO EXIBIR O CÓDIGO
+
+A mensagem que cita 102400 bytes é do realce de sintaxe da página. Ela faz o visualizador mostrar o código sem colorir e não impede o salvamento nem a execução do JavaScript. Use Ver código bruto no índice para conferir o arquivo salvo. Uma recusa de publicação ou um erro de sintaxe precisa ser investigado separadamente. Não confunda esse aviso visual com o limite total de uma página.
+
+A versão 2.13.0 usa uma chave nova no carregador central para receber o programa e os dados correspondentes. A chamada fixa do common.js permanece igual.
+
+TESTES
+
+Os arquivos finais da 2.13.0 passaram por 30.339 casos e 225.291 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 426 fluxos locais, com 35.763 verificações, incluindo artigos completos, controles de falsos positivos, comparação, segunda análise e desfazer. As fotografias passaram por outros 54 fluxos de interface, e as colunas de referências passaram por 240 medições nos três navegadores. As tabelas com largura fixa tiveram 378 medições adicionais, com sete larguras de tela, três tamanhos de letra e três disposições do conteúdo. O código nativo de ordenação foi executado nos controles e nas tabelas com rolagem. Os novos reparos têm 34 projeções nativas, antes e depois, conferidas contra os dois arquivos executáveis. Os atributos novos passaram por 72 medições adicionais com o módulo nativo de ordenação em três larguras de tela. São verificações dos trechos afetados, não análises nativas de artigos inteiros. Os contratos nativos guardados e as respostas de versões anteriores foram conferidos novamente contra os arquivos atuais, mantendo as datas de origem. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.13.0. Nenhum teste editou a Wikipédia. O ensaio comparativo mediu duas versões em cinco artigos grandes. Os tempos desse teste local não comprovam um ganho geral de velocidade.
+
+CONSULTAS E PUBLICAÇÃO
+
+Os cálculos de ajuste e ortografia ficam no navegador. A pré-visualização envia o rascunho para processamento pela Wikipédia sem salvar uma edição. Os recursos de destinos, portais, DOI e confirmação de categorias de nascimento podem fazer as consultas públicas explicadas no manual.
+
+Ajustar código trabalha no rascunho. A publicação usa os controles do editor da Wikipédia. Confira a comparação e a pré-visualização antes de publicar. Leia o texto preparado por Copiar diagnóstico antes de compartilhá-lo.
