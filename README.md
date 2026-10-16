@@ -2,19 +2,22 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com comparação, escolha das mudanças e opção de desfazer.
 
-## Versão 2.11.1
+## Versão 2.12.0
 
-- Repara nomes repetidos de fontes diferentes quando todas as ocorrências têm conteúdo completo e o destino de cada chamada está confirmado.
-- Reconhece estilos literais nas listas de referências e um conjunto finito de chamadas nativas que não acrescentam fontes.
-- Troca `blog` por `obra` em citações nativas sem outro campo de publicação, mantendo o modelo e todos os valores.
-- Corrige endereços somente quando o artigo e a referência correspondem exatamente a um par previamente comprovado.
-- Mantém um único aviso por conflito restante, sem misturar nomes ou grupos diferentes.
+- Corrige `group` para `grupo` nas chamadas nativas de referências, sem mudar o atributo HTML.
+- Retira parâmetros de citação repetidos com valores iguais, respeitando a função de cada campo.
+- Desfaz colchetes indevidos em campos de endereço quando há uma única URL sem rótulo.
+- Retira atributos repetidos e idênticos de coletores de referências.
+- Reconhece números literais formatados em células para liberar reparos já conferidos.
+- Preserva atributos de ordenação nos locais aceitos das tabelas.
+- Corrige uma aspa trocada em expansão numérica de célula quando há uma única solução para a grade.
+- Acrescenta rolagem horizontal a tabelas com largura fixa reconhecida, sem alterar a tabela.
 
 Os recursos anteriores continuam disponíveis. Casos incertos ficam como estão, sem novos avisos. Nenhum comando publica uma edição por conta própria.
 
 ## Instalação
 
-[Pacote completo](dist/2.11.1/RevisaWiki_2.11.1.zip) · [Índice para copiar](dist/2.11.1/INICIO.html) · [Instruções](docs/2.11.1/Instalacao_RevisaWiki_v2_11_1.txt) · [Manual](docs/2.11.1/Documentacao_RevisaWiki_v2_11_1.wiki) · [Histórico resumido](docs/2.11.1/Notas_da_versao_RevisaWiki_v2_11_1.txt) · [Testes](docs/2.11.1/Relatorio_testes_RevisaWiki_v2_11_1.txt)
+[Pacote completo](dist/2.12.0/RevisaWiki_2.12.0.zip) · [Índice para copiar](dist/2.12.0/INICIO.html) · [Instruções](docs/2.12.0/Instalacao_RevisaWiki_v2_12_0.txt) · [Manual](docs/2.12.0/Documentacao_RevisaWiki_v2_12_0.wiki) · [Histórico resumido](docs/2.12.0/Notas_da_versao_RevisaWiki_v2_12_0.txt) · [Testes](docs/2.12.0/Relatorio_testes_RevisaWiki_v2_12_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -24,17 +27,17 @@ O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da pág
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.11.0 r2, conferidos por SHA-256, e aplica os módulos de `src/v2_11_1`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.11.1, conferidos por SHA-256, e aplica os módulos de `src/v2_12`. As versões arquivadas ficam intactas.
 
 ```sh
-python3 scripts/build_v2111.py
+python3 scripts/build_v2120.py
 npm test
 npm run test:complex
 npm run test:documentation
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v2111/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a data das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
+O [guia dos testes](tests/v2120/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a data das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
 
 A contagem individual é separada dos tipos de ajuste, dos blocos do diff e dos grupos que precisam ser aceitos juntos. Quando os limites do código impedem comprovar um total, o painel oferece a comparação sem inventar um número exato.
 

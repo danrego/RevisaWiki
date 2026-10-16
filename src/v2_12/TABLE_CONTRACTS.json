@@ -1,0 +1,29 @@
+{
+  "version": "2.12.0",
+  "scope": "Complete mainspace wikitext articles with independently bounded literal wikitables. Existing opt-outs, protected examples, dynamic structure and source-bound proof checks remain effective.",
+  "rules": {
+    "numericPayload": "The existing formatnum reference-free primitive is reused only for a no-argument magic-word call containing an optional sign, 1–24 decimal digits and optional 1–24 fraction digits. The call must lie wholly in an actual physical cell payload, after an existing explicit attribute separator or without an attribute-shaped prefix. Calls in attributes, captions, structural positions, nested expressions or parameterized calls remain dynamic. Every call byte remains unchanged.",
+    "sortingAttributes": "Only data-sort-value and data-sort-type in cell attribute zones of a sortable wikitable. data-sort-type stays on an explicit header cell and must match a documented native mode case-insensitively. A sort key must be nonempty, trimmed literal text of at most 240 characters. Duplicate or conflicting sorting fields, dynamic values and misplaced row or caption fields are refused. Existing cleanup may remove other exactly equal repeated fields or add proved scope attributes, without changing or moving the sorting fields.",
+    "oppositeSpanQuote": "A sole positive integer rowspan or colspan from 1 to 999, one opening straight quote and one opposite terminal straight quote, followed by an explicit bar and a nonempty static single-line payload. Only one malformed span candidate is admitted per table. The corrected candidate must be a complete known regular grid. No cell, span value, separator or payload is inferred or replaced.",
+    "fixedWidths": "A sole explicit integer width from 640 through 9999px in the style attribute, optionally with table-layout:fixed, or the equivalent integer native width attribute. Only the exact wikitable, wikitable sortable or sortable wikitable class profiles. No computed widths, extra CSS, conflicting widths, custom table attributes, HTML ancestor, nested table, presentation role, incomplete table or irregular grid. The exact original complete table bytes are enclosed in one bounded horizontal-scroll wrapper.",
+    "wrapperSourceBinding": "The existing table object proof also binds the responsive wrapper stage to the complete ordered table inventory. Altering a value, cell, caption, reference, attribute, sort key or row order cannot reuse the approved wrapper evidence."
+  },
+  "sortingModes": ["currency", "number", "isoDate", "time", "IPAddress", "usLongDate", "date", "text", "url"],
+  "canonicalWrapper": "<div style=\"max-width:100%;min-width:0;overflow-x:auto;\">\nTABLE_BYTES</div>\n",
+  "existingNegativeFixtures": "The frozen 2.11.1 table repair, table syntax and responsive table suites pass unchanged. No prior negative fixture is weakened or promoted in these suites.",
+  "notImplemented": [
+    "General expansion of unknown templates",
+    "Inferring a missing cell or a row/column span",
+    "Changing sort keys or choosing a sort mode",
+    "Removing explicit desktop widths",
+    "Wrapping every wide-looking table",
+    "Guessing changes to existing custom layout containers"
+  ],
+  "primarySources": [
+    "https://www.mediawiki.org/wiki/Help:Tables#Attributes_on_cells",
+    "https://www.mediawiki.org/wiki/Help:Sortable_tables#Forcing_the_sort_mode_of_a_column",
+    "https://www.mediawiki.org/wiki/Help:Sortable_tables#Specifying_a_sort_key",
+    "https://www.mediawiki.org/wiki/Help:Tables#Note_about_large_tables_(noresize_class)"
+  ],
+  "wikipediaWrites": 0
+}

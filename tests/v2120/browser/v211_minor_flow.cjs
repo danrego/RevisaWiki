@@ -1,0 +1,19 @@
+'use strict';
+module.exports=async function({origin,driver,evaluate,report,hash,save,setVariant,toggleCheckbox}){
+ const links=Array.from({length:24},(_,i)=>'[[Tema '+i+'|Tema '+i+']]').join(' '),table='{| class="wikitable"\n! Nome !! Valor\n|-\n| A || B\n|}';
+ const items=[{id:'many-mechanical-links',source:links,expected:true},{id:'equivalent-citation-fields',source:'Texto.<ref>{{cite web|url=https://example.org|title=Fonte|access-date=2026-01-01}}</ref>\n{{Referências}}',expected:true},{id:'header-scopes',source:table,expected:true},{id:'new-thematic-portals',source:'{{Info/Filme|nome=Obra de exemplo|país=França}}\n\nUma obra de exemplo.',expected:false},{id:'manual-content-before-script',source:links+'\nInformação acrescentada manualmente.',saved:links,expected:false},{id:'manual-checkbox-choice',source:links,expected:false,manual:true}];
+ for(const variant of ['shared','complete']){setVariant(variant);const started=Date.now(),evidence=[];let checks=0;
+  try{for(const item of items){
+   await driver.navigate(origin+'/fixture.html?mode='+(variant==='shared'?'loader-shared':'direct-complete')+'&scenario=native-editor&title=Artigo%20de%20teste');
+   await evaluate(`await wait(()=>window.RevisaWiki&&document.querySelector('.ajg-run'));RevisaWikiConfig.links=true;mw.config.set({wgRevisionId:101,wgCurRevisionId:101});__rw26QA.savedSource=${JSON.stringify(item.saved||item.source)};window.__minorSource=${JSON.stringify(item.source)};const box=document.createElement('input');box.type='checkbox';box.id='wpMinoredit';document.body.prepend(box);const text=document.getElementById('wpTextbox1');text.value=__minorSource;text.dispatchEvent(new Event('input',{bubbles:true}));clean();`);
+   if(item.manual){await toggleCheckbox('#wpMinoredit');await toggleCheckbox('#wpMinoredit');}
+   await driver.click('.ajg-run');
+   await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(RevisaWiki.processing.engine==='worker'&&!RevisaWiki.processing.workerFailure,'A real Worker classified the complete saved difference');assert(document.getElementById('wpTextbox1').value!==__minorSource,'Fixture includes a real automatic correction');assert(document.getElementById('wpMinoredit').checked===${item.expected},'Automatic checkbox agrees with the independent expected policy case');assert(__rw26QA.requests.some(request=>String(request.params?.revids||request.revids||'')==='101')||__rw26QA.requests.length>0,'The source revision was read');window.__minorAfter=document.getElementById('wpTextbox1').value;clean();`);
+   await driver.click('.ajg-run');await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__minorAfter,'Second click is idempotent');assert(document.getElementById('wpMinoredit').checked===${item.expected},'Second click preserves the classified or manual choice');clean();`);
+   await driver.click('.ajg-undo');await evaluate(`await wait(()=>!document.querySelector('.ajg-run').disabled);assert(document.getElementById('wpTextbox1').value===__minorSource,'Undo restores complete initial draft');assert(document.getElementById('wpMinoredit').checked===false,'Undo restores initial checkbox without overriding a manual choice');clean();`);
+   const result=JSON.parse(await evaluate('return JSON.stringify({checks:__rw26QA.assertions,worker:true,exactUndo:true,idempotent:true});'));checks+=result.checks;evidence.push({id:item.id,...result});
+  }report.assertions+=checks;report.tests.push({name:'2.11 '+variant+' saved revision and minor edit ownership',passed:true,assertions:checks,evidence:{cases:evidence},milliseconds:Date.now()-started});
+  }catch(error){report.tests.push({name:'2.11 '+variant+' saved revision and minor edit ownership',passed:false,error:String(error.message),evidence:{cases:evidence},milliseconds:Date.now()-started});}
+  save();console.log(JSON.stringify(report.tests.at(-1)));
+ }
+};

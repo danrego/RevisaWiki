@@ -1,0 +1,837 @@
+{
+  "baselineManifest": "tests/expected_release_v2111.json",
+  "baselineManifestSha256": "554160c9ecc6ee0f14160ef71980e9a55c0e28c265e6c6bd23fb9c8a4fb16a17",
+  "substitutions": [
+    [
+      "expected_release_v2111",
+      "expected_release_v2120"
+    ],
+    [
+      "2.11.1",
+      "2.12.0"
+    ],
+    [
+      "_v2_11_1",
+      "_v2_12_0"
+    ],
+    [
+      "/v2111/",
+      "/v2120/"
+    ],
+    [
+      "final_v2111",
+      "final_v2120"
+    ],
+    [
+      "/v2111'",
+      "/v2120'"
+    ],
+    [
+      "/v2111\"",
+      "/v2120\""
+    ],
+    [
+      "/v2111`",
+      "/v2120`"
+    ]
+  ],
+  "files": [
+    {
+      "source": "tests/v2111/benchmark_large.cjs",
+      "target": "tests/v2120/benchmark_large.cjs",
+      "sourceSha256": "897b4c33978a79b37b23263d081b646022edc50feb8683130073ae76303ab22c",
+      "targetSha256": "a9612618b19049c1d8199e0d5d52d72a9a99c307fbc2624580dfa039c3c9cea8",
+      "additionalSubstitutions": [
+        [
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.12.0','2.11.0']:['2.11.0','2.12.0']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.11.0',baseline],['2.12.0',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.12.0');manifest('2.11.0');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2120')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n",
+          "    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n    for(let index=0;index<inputs.length;index++)for(const version of index%2?['2.12.0','2.11.1']:['2.11.1','2.12.0']){const result=spawnSync(process.execPath,[__filename,...cliPins,'--child='+index,'--version='+version],{encoding:'utf8',maxBuffer:1024*1024,timeout:180000});assert.equal(result.status,0,'The isolated benchmark child completed: '+String(result.stderr).replaceAll(root,'<local-repository>'));out.rows.push(JSON.parse(result.stdout));}\n    for(const [version,pinned]of [['2.11.1',baseline],['2.12.0',current]])out.workerCancellations.push({version,...await cancellation(inputs[0],pinned)});\n    manifest('2.12.0');manifest('2.11.1');checked(corpusFile,args['corpus-pin']);out.status='passed';out.checks=out.rows.reduce((sum,row)=>sum+row.checks,0)+checkCount;\n    const directory=path.resolve(String(args.output||process.env.REVISAWIKI_REPORT_DIR||path.join(root,'artifacts/v2120')));fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'large_performance.json'),JSON.stringify(out,null,2)+'\\n');console.log(JSON.stringify({status:out.status,articles:inputs.length,measurements:out.rows.length,checks:out.checks,rows:out.rows.map(({version,revid,coldMilliseconds,warmMedianMilliseconds})=>({version,revid,coldMilliseconds,warmMedianMilliseconds})),workerCancellations:out.workerCancellations}));\n"
+        ],
+        [
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.12.0'),baseline=manifest('2.11.0'),inputs=sources(),out={version:'2.12.0',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n",
+          "    if(args.child!==undefined){child();return;}\n    const current=manifest('2.12.0'),baseline=manifest('2.11.1'),inputs=sources(),out={version:'2.12.0',kind:'largest-five-article-comparative-offline-benchmark',status:'running',releaseManifestSha256:args['final-pin'],baselineManifestSha256:args['baseline-pin'],corpusManifestSha256:args['corpus-pin'],runnerSha256:sha(fs.readFileSync(__filename)),timingLimits:'Sequential fresh processes alternate versions per article. Timings exclude source decompression and separate module load from calculation. Host scheduling and parallel work can affect results. Measurements do not establish a general speed improvement.',rows:[],workerCancellations:[],wikipediaWrites:0,networkAttempts:0};\n    const cliPins=['--final-pin='+args['final-pin'],'--baseline-pin='+args['baseline-pin'],'--corpus-pin='+args['corpus-pin']];\n"
+        ],
+        [
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.12.0',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_12_0.js':'RevisaWiki_v2_11_0.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n",
+          "function checked(file,pin){assert.match(pin||'',/^[a-f0-9]{64}$/,'Every manifest pin is explicit');const bytes=fs.readFileSync(file);assert.equal(sha(bytes),pin,'The manifest remains bound to its supplied pin');return JSON.parse(bytes);}\nfunction manifest(version){const current=version==='2.12.0',value=checked(current?releaseFile:baselineFile,current?args['final-pin']:args['baseline-pin']);assert.equal(value.version,version);const file=current?'RevisaWiki_v2_12_0.js':'RevisaWiki_v2_11_1.js',core=path.join(root,'dist',version,file),bytes=fs.readFileSync(core);assert.equal(bytes.length,value.files[file].bytes);assert.equal(sha(bytes),value.files[file].sha256);return {core,pin:value.files[file]};}\nfunction sources(){checked(corpusFile,args['corpus-pin']);return require('./run_edited_corpus.cjs').readCorpus(corpusFile,args['corpus-pin']).inputs.sort((a,b)=>b.item.bytes-a.item.bytes).slice(0,5);}\n"
+        ],
+        [
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2120.json'),baselineFile=path.join(root,'tests/expected_release_v2110.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n",
+          "const root=path.resolve(__dirname,'../..'),sha=value=>crypto.createHash('sha256').update(value).digest('hex'),args=Object.fromEntries(process.argv.slice(2).map(argument=>{const [key,...value]=argument.replace(/^--/,'').split('=');return [key,value.join('=')||true];}));\nconst releaseFile=path.join(root,'tests/expected_release_v2120.json'),baselineFile=path.join(root,'tests/expected_release_v2111.json'),corpusFile=path.join(root,'tests/v27/fixtures/large_articles/manifest.json');\nconst settings={namespaceNumber:0,authorityControl:false,endTemplateOrder:false,minorBaseConfirmed:false,autoPreview:false,registryDoiCheck:false};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/browser/birth_category_flow.cjs",
+      "target": "tests/v2120/browser/birth_category_flow.cjs",
+      "sourceSha256": "45f2801ee9618ead5573495fc82cab8545b88029e54bf082ad8d254ce4b2d9a8",
+      "targetSha256": "45f2801ee9618ead5573495fc82cab8545b88029e54bf082ad8d254ce4b2d9a8",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/build_second_click_contract.cjs",
+      "target": "tests/v2120/browser/build_second_click_contract.cjs",
+      "sourceSha256": "0f16c8fd3edff64bf61371305296d3e9485bb41e6cabaf4b7989a816b7b8385c",
+      "targetSha256": "7c8c5f6e777babff82739116e0085e5404c6ba48a24c365b78e9ea74f078061e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/citation_flow.cjs",
+      "target": "tests/v2120/browser/citation_flow.cjs",
+      "sourceSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "targetSha256": "25bb22a1ff9e06ef0b30b74e22a66d08e5ca121c9f7a0ecf81a7571f15fbd59d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/fixture.html",
+      "target": "tests/v2120/browser/fixture.html",
+      "sourceSha256": "1733a5a1838bf9f5dfa9bc55c2c532fcfa11f184195f8d7bf0f68da35a891fdd",
+      "targetSha256": "442029325b99bc05863579e4417815d655f4e9696a37d99322309ec67957a7e4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/fixture.js",
+      "target": "tests/v2120/browser/fixture.js",
+      "sourceSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "targetSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/responsive_flow.cjs",
+      "target": "tests/v2120/browser/responsive_flow.cjs",
+      "sourceSha256": "2085957054198c37b517c7f79a9b162523d78fba3c0a6529ca2b61a45200c7d4",
+      "targetSha256": "a1a7751c5170c5c3c664072ab3d6b05508d0d56813f3cb7b144c015967d4b526",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/run_release.cjs",
+      "target": "tests/v2120/browser/run_release.cjs",
+      "sourceSha256": "456d85cb203416d24488bd70c6af66d842dadf3c511f073e805f7ee0c22a2b26",
+      "targetSha256": "eb361ffd3f9dde655e0774b5c405a564c9089753c3ef881fa8ae7e7e88b611c6",
+      "additionalSubstitutions": [
+        [
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  for(const name of ['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs'])await require('./'+name)({origin,driver,evaluate,report,hash,save,toggleCheckbox,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n",
+          "  await require('./v210_repair_flow.cjs')({origin,driver,evaluate,report,hash,save,setVariant:value=>{mode=value;}});\n  for(const name of ['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs','v212_safe_fixes_flow.cjs'])await require('./'+name)({origin,driver,evaluate,report,hash,save,toggleCheckbox,setVariant:value=>{mode=value;}});\n  {const started=Date.now();try{await driver.navigate(origin+'/responsive.html');const geometry=await require('./responsive_flow.cjs')(driver);assert.equal(geometry.status,'passed');assert.equal(geometry.cases.length,162);assert.equal(geometry.failures.length,0);report.assertions+=geometry.checks;report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:true,assertions:geometry.checks,evidence:geometry,milliseconds:Date.now()-started});}catch(error){report.tests.push({name:'2.10 responsive table geometry across screen and text sizes',passed:false,error:String(error.message),milliseconds:Date.now()-started});}save();console.log(JSON.stringify(report.tests.at(-1)));}\n"
+        ],
+        [
+          "}\nconst v211Flows=Object.fromEntries(['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs'].map(name=>[name,hash(fs.readFileSync(path.join(__dirname,name)))]));\nconst report={v211Flows,v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.12.0',build:'2.12.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n",
+          "}\nconst v211Flows=Object.fromEntries(['v211_count_flow.cjs','v211_minor_flow.cjs','v211_freshness_flow.cjs','v2111_reference_flow.cjs','v212_safe_fixes_flow.cjs'].map(name=>[name,hash(fs.readFileSync(path.join(__dirname,name)))]));\nconst report={v211Flows,v210RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v210_repair_flow.cjs'))),responsiveFlowSha256:hash(fs.readFileSync(path.join(__dirname,'responsive_flow.cjs'))),fixtureScriptSha256:hash(fs.readFileSync(path.join(__dirname,'fixture.js'))),nativeHarvardFixtureSha256:hash(fs.readFileSync(path.join(__dirname,'../fixtures/native_harvard_render.json'))),v29RepairFlowSha256:hash(fs.readFileSync(path.join(__dirname,'v29_repair_flow.cjs'))),birthCategoryFlowSha256:hash(fs.readFileSync(path.join(__dirname,'birth_category_flow.cjs'))),birthCategoryCaseSha256:hash(fs.readFileSync(path.join(__dirname,'birth_cases.json'))),citationFlowSha256:hash(fs.readFileSync(path.join(__dirname,'citation_flow.cjs'))),version:'2.12.0',build:'2.12.0',browser:browserName,startedAt:new Date().toISOString(),pinManifestSha256:hash(fs.readFileSync(pinsPath)),corpusManifestSha256:hash(corpusManifestBytes),chemicalManifestSha256:hash(chemicalManifestBytes),tableManifestSha256:hash(tableManifestBytes),spouseCaseSha256:hash(spouseCaseBytes),biographyCaseSha256:hash(biographyCaseBytes),marriageRenderProofSha256:hash(marriageRenderProofBytes),headRenderProofSha256:hash(headRenderProofBytes),secondClickContractSha256:hash(secondClickProofBytes),marriageCompleteManifestSha256:hash(marriageManifestBytes),releaseFiles,hashes:Object.fromEntries(Object.entries(scripts).map(([k,v])=>[k,v.sha256])),cityFixture:{...cityPin,numericRows:cityNumericRows.length},latestCityFixture:latestCityPin,adaptations:['Safari releases native held keys after each button activation.','Only the ptwiki host guards are extended to localhost for this isolated fixture.','All API responses are local mocks. No production text or parser logic is altered.','Checkbox choices use native keyboard focus and Space in each browser. Checked state and DOM events are never changed by JavaScript.','The real Worker constructor is observed only to retain result counts for independent UI assertions.','The historical city source exercises positive diff controls; its already corrected recent revision is retained unchanged in the 31-article corpus.','Installation workflows begin in the ordinary source editor. A separate read-only view confirms both lazy loader and full core add no extra section controls and leave all native links intact.'],tests:[],assertions:0,actualWikipediaWrites:0,actualNetworkMutations:0,screenshots:0,clipboardWrites:0,serverRequests:[]};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/browser/summarize_release.cjs",
+      "target": "tests/v2120/browser/summarize_release.cjs",
+      "sourceSha256": "f3e54bac41938314c61ecb0a5ac1690c097e140b7df255fdffb47a2fa4790f7f",
+      "targetSha256": "c959f7b5a725a31bafa597715eea07f0c94446dd9ef27631a7a3c30c68915a06",
+      "additionalSubstitutions": [
+        [
+          "}\nassert.equal(summary.cases,180);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n",
+          "}\nassert.equal(summary.cases,246);assert(summary.checks>360);\nassert.equal(chemicalOutputHashes.size,3);summary.chemicalManifestSha256=sha(chemicalManifestBytes);summary.chemicalSourceOutputHashes=Object.fromEntries(chemicalOutputHashes);\n"
+        ],
+        [
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n for(const [name,pin] of Object.entries(report.v211Flows||{}))assert.equal(sha(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow source pin');assert.equal(Object.keys(report.v211Flows||{}).length,4);\n const additions=report.tests.filter(test=>test.name.startsWith('2.11 '));assert.equal(additions.length,10);assert(additions.every(test=>test.passed&&test.assertions>0),'All current UI flows passed');\n",
+          " summary.responsiveGeometryCases=(summary.responsiveGeometryCases||0)+responsiveGeometry.evidence.cases.length;\n for(const [name,pin] of Object.entries(report.v211Flows||{}))assert.equal(sha(fs.readFileSync(path.join(__dirname,name))),pin,'Current UI workflow source pin');assert.equal(Object.keys(report.v211Flows||{}).length,5);\n const additions=report.tests.filter(test=>test.name.startsWith('2.11 '));assert.equal(additions.length,10);assert(additions.every(test=>test.passed&&test.assertions>0),'All current UI flows passed');\n"
+        ],
+        [
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,60);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n",
+          " assert(report.serverRequests.length>0);assert(report.serverRequests.every(request=>request.method==='GET'));\n assert.equal(report.tests.length,82);assert(report.tests.every(test=>test.passed&&test.assertions>0));\n for(const variant of ['shared','own']){const install=report.tests.find(test=>test.name===variant+' stable installation chain');assert(install);assert.deepEqual(install.evidence,{primaryRoute:'native-source-editor',readingPageExtraLaunchers:0,staleOwnedButtonsRemoved:4,nativeLinksPreserved:true,readingCoreStaysLazy:true,explicitCoreMountsNoLaunchers:true,stalePendingRemainsInert:true});}\n"
+        ],
+        [
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,60);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n",
+          " assert.equal(report.corpusManifestSha256,corpusManifestSha256);assert.equal(report.finalSourceHashesVerified,true);assert.equal(report.runnerSha256,runnerSha256);assert.deepEqual(report.releaseFiles,manifest.files);\n assert(report.finishedAt);assert(report.browserVersion);assert.equal(report.failed,0);assert.equal(report.passed,82);\n assert.equal(report.tableManifestSha256,sha(tableManifestBytes));\n"
+        ],
+        [
+          " for(const [label,count,removed]of [['birth categories in six full biographies and exact undo',6,true],['birth category missing proof and network failure remain silent',2,false]]){const test=report.tests.find(x=>x.name===label);assert(test&&test.passed);assert.equal(test.evidence.cases.length,count);for(const item of test.evidence.cases){assert.equal(item.expectedRemoved,removed);for(const key of ['anonymousGet','realWorker','idempotent','exactUndo'])assert.equal(item[key],true);const id=item.title+'|'+item.mode;if(birthCategoryOutputHashes.has(id))assert.equal(item.outputSha256,birthCategoryOutputHashes.get(id),'Exact birth-category output parity');else birthCategoryOutputHashes.set(id,item.outputSha256);}}\n assert.equal(report.version,'2.12.0');assert.equal(report.pinManifestSha256,summary.pinManifestSha256);\n",
+          " for(const [label,count,removed]of [['birth categories in six full biographies and exact undo',6,true],['birth category missing proof and network failure remain silent',2,false]]){const test=report.tests.find(x=>x.name===label);assert(test&&test.passed);assert.equal(test.evidence.cases.length,count);for(const item of test.evidence.cases){assert.equal(item.expectedRemoved,removed);for(const key of ['anonymousGet','realWorker','idempotent','exactUndo'])assert.equal(item[key],true);const id=item.title+'|'+item.mode;if(birthCategoryOutputHashes.has(id))assert.equal(item.outputSha256,birthCategoryOutputHashes.get(id),'Exact birth-category output parity');else birthCategoryOutputHashes.set(id,item.outputSha256);}}\n const currentOracles=require('../independent_cases.cjs').items,flowPin=sha(fs.readFileSync(path.join(__dirname,'v212_safe_fixes_flow.cjs'))),oraclePin=sha(fs.readFileSync(path.join(__dirname,'../independent_cases.cjs')));\n assert.equal(report.v211Flows['v212_safe_fixes_flow.cjs'],flowPin);\n const representative=currentOracles.filter(item=>item.ui),combined={id:'all-eight-in-one-source-action',feature:0,positive:true,count:8,source:representative.map(i=>i.source).join('\\n\\n'),expected:representative.map(i=>i.expected).join('\\n\\n')};\n const newCases=[...representative,combined,currentOracles.find(item=>item.id==='citation-alias-decline-unequal-publications'),currentOracles.find(item=>item.id==='table-span-decline-unequal-grid')];assert.equal(newCases.length,11);\n for(const variant of ['shared','complete'])for(const item of newCases){const row=report.tests.find(row=>row.name==='2.12.0 '+variant+' '+item.id);assert(row&&row.passed);const proof=row.evidence;assert.equal(proof.oracleSha256,oraclePin);assert.equal(proof.inputSha256,sha(Buffer.from(item.source)));assert.equal(proof.expectedSha256,sha(Buffer.from(item.expected)));assert.equal(proof.independentCorrections,item.positive?item.count:0);assert.equal(proof.realWorker,true);assert.equal(proof.idempotentSecondAction,true);assert.equal(proof.exactUndo,item.positive);assert.equal(proof.minor,item.positive);assert.equal(proof.quietAmbiguity,!item.positive);assert.equal(proof.wikipediaWrites,0);}\n assert.equal(report.version,'2.12.0');assert.equal(report.pinManifestSha256,summary.pinManifestSha256);\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/browser/v210_repair_flow.cjs",
+      "target": "tests/v2120/browser/v210_repair_flow.cjs",
+      "sourceSha256": "98df6b727d829f8d141da6c7d6e65e3df84b8860526b2c21207ece33e1358539",
+      "targetSha256": "094c16cc023d8d7ac9b53a334c271f92cdd365099fbdd7c8abbf530f290f4748",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/v2111_reference_flow.cjs",
+      "target": "tests/v2120/browser/v2111_reference_flow.cjs",
+      "sourceSha256": "db6414774e6cc1c6d868e75ac19309fdd35c1ccab884484a15e323ab1c5e8111",
+      "targetSha256": "0adbab9f0dcd23687486ccc3f1c57f8d07f26fedab7b88c74ac2ac63331f470b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/v211_count_flow.cjs",
+      "target": "tests/v2120/browser/v211_count_flow.cjs",
+      "sourceSha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430",
+      "targetSha256": "224ff694ff14c104d58d2fb5a823c385036d5d3fb82ed53dd1f8aa099f58a430",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/v211_freshness_flow.cjs",
+      "target": "tests/v2120/browser/v211_freshness_flow.cjs",
+      "sourceSha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d",
+      "targetSha256": "3bb725a4851cff6970cd364b38186f34486db3e5ee136985bd9cc7a6fa35f41d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/v211_image_runtime.cjs",
+      "target": "tests/v2120/browser/v211_image_runtime.cjs",
+      "sourceSha256": "586ce11e2a1f0f3bcb7f086512db52342c15daf959e1323c5589a6a7404b37c5",
+      "targetSha256": "a8cdf27b231f86e61a1eb4aced21375c9b46ab8e519c5a2881294280f9618432",
+      "additionalSubstitutions": [
+        [
+          "assert(['Chrome','Firefox','Safari'].includes(browserName));const manifestPath=path.join(root,'tests/expected_release_v2120.json'),manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);\nassert.equal(sha(manifestBytes),'554160c9ecc6ee0f14160ef71980e9a55c0e28c265e6c6bd23fb9c8a4fb16a17','The exact final runtime manifest is frozen');\nconst names={complete:'RevisaWiki_v2_12_0_completo.js',core:'RevisaWiki_v2_12_0.js',data:'RevisaWiki_v2_12_0_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_12_0.js',shared:'Chamada_fixa_RevisaWiki_common.js'},scripts={};\n",
+          "assert(['Chrome','Firefox','Safari'].includes(browserName));const manifestPath=path.join(root,'tests/expected_release_v2120.json'),manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);\nassert.equal(sha(manifestBytes),'d3f50b141ac5c41f4b915f65c62b7c935084c1ec4f998f0e030e7c87fdfa3983','The exact final runtime manifest is frozen');\nconst names={complete:'RevisaWiki_v2_12_0_completo.js',core:'RevisaWiki_v2_12_0.js',data:'RevisaWiki_v2_12_0_dados.js',central:'Carregador_comunitario_RevisaWiki_v2_12_0.js',shared:'Chamada_fixa_RevisaWiki_common.js'},scripts={};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/browser/v211_minor_flow.cjs",
+      "target": "tests/v2120/browser/v211_minor_flow.cjs",
+      "sourceSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "targetSha256": "5e27a1a6c4749397a2f0a87ef7101093f1467728ab70c0dcba1801900988dff5",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/browser/v29_repair_flow.cjs",
+      "target": "tests/v2120/browser/v29_repair_flow.cjs",
+      "sourceSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "targetSha256": "20a1c9626131206f853960efb5717b240abaa726568e51116604f7a2072db4c0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/candidate.cjs",
+      "target": "tests/v2120/candidate.cjs",
+      "sourceSha256": "e04e9d6b79a1386272b9fbeadeaf46ba1008633b81e09fdaa437fa2095d1fb08",
+      "targetSha256": "43f84a1d2e13b40d860c3d11a6fd4ac158a1476935d7f23e607d97fa0c2f6327",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/check_server_grammar.php",
+      "target": "tests/v2120/check_server_grammar.php",
+      "sourceSha256": "92e925223917bbeeec29533be26066acdeb394cda94dc75ac8558695f2b23388",
+      "targetSha256": "273744283d7510454f2070933ba3ddb3beb2246468757799fa942da0f1cdadbd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/citation_fields.cjs",
+      "target": "tests/v2120/citation_fields.cjs",
+      "sourceSha256": "75c6d1cc83a06c5fdfaf9948bffa28d7d71a3b258c333ad3e8f29b4f66937a26",
+      "targetSha256": "fc0d5a22cdee019cb073eaccc95c0f417ceeb83c301340edad69354f045524ae",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/engine_helper.cjs",
+      "target": "tests/v2120/engine_helper.cjs",
+      "sourceSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "targetSha256": "876c18625a0d989211ec4c62908eb2137ab80fbdc1622ca772e8379f45d8aa86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_contracts/aviation_stub.html",
+      "target": "tests/v2120/graph_contracts/aviation_stub.html",
+      "sourceSha256": "d24ff4df42cf111b4f97d3aba1b4f7b4d4a5813811956f0da921a3fef708836a",
+      "targetSha256": "d24ff4df42cf111b4f97d3aba1b4f7b4d4a5813811956f0da921a3fef708836a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_contracts/commons_category.html",
+      "target": "tests/v2120/graph_contracts/commons_category.html",
+      "sourceSha256": "e43559a898532b425f0f64246003c838f349454508f9c238fb359e6ddcef4f8a",
+      "targetSha256": "e43559a898532b425f0f64246003c838f349454508f9c238fb359e6ddcef4f8a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_contracts/list_notice.html",
+      "target": "tests/v2120/graph_contracts/list_notice.html",
+      "sourceSha256": "cca140c10bffcf60419f2979c1a504ab743c8a35f56fe9191454cba0d891a981",
+      "targetSha256": "cca140c10bffcf60419f2979c1a504ab743c8a35f56fe9191454cba0d891a981",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_contracts/numeric_literal.html",
+      "target": "tests/v2120/graph_contracts/numeric_literal.html",
+      "sourceSha256": "9772419ffa3eb5cc6d6597527d9d3b07a4acd65c1363c4a5461d2c4605e2744b",
+      "targetSha256": "9772419ffa3eb5cc6d6597527d9d3b07a4acd65c1363c4a5461d2c4605e2744b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_contracts/reference_style.html",
+      "target": "tests/v2120/graph_contracts/reference_style.html",
+      "sourceSha256": "43ac1cd46d237c86a7dff6f90c45c5f7ef25871006137611269cdc39d7c4a93e",
+      "targetSha256": "43ac1cd46d237c86a7dff6f90c45c5f7ef25871006137611269cdc39d7c4a93e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/graph_test.cjs",
+      "target": "tests/v2120/graph_test.cjs",
+      "sourceSha256": "d949520d4bd62b1a50e63b4dcdbb797837effa040c45567a91eaa3420de73b2f",
+      "targetSha256": "a287b25f9f83b28199bb33e7142d4db8553c2a02f468a0c540dc229d895010be",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/independent_reference_qa.cjs",
+      "target": "tests/v2120/independent_reference_qa.cjs",
+      "sourceSha256": "76d75a0cbf18c25c0be9183b22ac3c7f1202615ff493d7522a2371cda07bc053",
+      "targetSha256": "eee4675919a46f9826a0ddec7c0281797a04d6443d383da8bab0d9ca1dcf1cc2",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/install_size_diagnosis.cjs",
+      "target": "tests/v2120/install_size_diagnosis.cjs",
+      "sourceSha256": "f80d6d56fbfd42e654b2730dbb4b8f6b2044dbc7520ab5b86d04a0a0b9712d02",
+      "targetSha256": "767e7f25621b45fa2f6c6367c0528ce5b3faf7fb6d048b418c822b91766ce456",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_all.cjs",
+      "target": "tests/v2120/run_all.cjs",
+      "sourceSha256": "49e5e480864cabc2881b9c5c46347fca7ed3e74e7d397816787e4dc5bbc064b5",
+      "targetSha256": "e714a15be402d3679d7fc32b6e62853b57dc8393145a7b235dc65257d599e090",
+      "additionalSubstitutions": [
+        [
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','test_topic_portals.cjs','test_minor_classification.cjs','test_occurrence_count.cjs','test_ui_freshness.cjs','test_reference_columns_v211.cjs','test_lead_images_v211.cjs','install_size_diagnosis.cjs','graph_test.cjs','citation_fields.cjs','test_warning_identity.cjs','independent_reference_qa.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n",
+          "candidate.verify();\nfor(const file of ['verify_inherited.cjs','run_startup.cjs','test_no_section_buttons.cjs','run_focus.cjs','run_quote_boundaries.cjs','test_quotes.cjs','run_tag_adversarial.cjs','test_safe_automation.cjs','test_diff_reporting.cjs','test_chat_residues.cjs','test_chat_permutations.cjs','test_chemical_syntax.cjs','test_chemical_guards.cjs','test_table_syntax.cjs','test_table_guards.cjs','test_marriage_syntax.cjs','test_marriage_guards.cjs','test_biography_fields.cjs','test_biography_dates.cjs','test_multiple_marriages.cjs','test_biography_composition.cjs','test_citation_families.cjs','test_historical_citations.cjs','test_birth_categories.cjs','test_reference_repairs.cjs','test_table_repairs.cjs','test_identifier_urls.cjs','test_reference_graph.cjs','test_table_structure.cjs','test_responsive_tables.cjs','test_structural_engine.cjs','test_engine_adversarial.cjs','run_engine.cjs','test_topic_portals.cjs','test_minor_classification.cjs','test_occurrence_count.cjs','test_ui_freshness.cjs','test_reference_columns_v211.cjs','test_lead_images_v211.cjs','install_size_diagnosis.cjs','graph_test.cjs','citation_fields.cjs','test_warning_identity.cjs','independent_reference_qa.cjs','reference_fields.cjs','reference_native_contract.cjs','table_safe_expansions.cjs','test_count_boundaries_v212.cjs','independent_safe_qa.cjs','summarize.cjs']){\n const result=spawnSync(process.execPath,[path.join(__dirname,file)],{cwd:candidate.root,env:process.env,stdio:'inherit'});\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/run_edited_corpus.cjs",
+      "target": "tests/v2120/run_edited_corpus.cjs",
+      "sourceSha256": "02376a7c87d55b925d9186f4af3b92c667b6f9673f67aef368d36bb8aa4b42cd",
+      "targetSha256": "fe897a2ea2e744020860ca529c28c32bbd9212e0b2123744d6659d8dfcb3a0bc",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_engine.cjs",
+      "target": "tests/v2120/run_engine.cjs",
+      "sourceSha256": "0a0752e3cf99c103ea488a44dc68a3e90ed341ad9b64a14a530b9b4560b53f76",
+      "targetSha256": "3c8c4777423f4b42508e2a7949ad8b209bca7c7f2915766508d8007eaa667f74",
+      "additionalSubstitutions": [
+        [
+          "  }\n  for(const change of manifest.changes){\n",
+          "  }\n  const currentAliasChange=manifest.changes.find(change=>change.name==='existing equal duplicate cleanup creates citation equivalence'),priorExpectation=require('../v2111/INHERITED_EXPECTATIONS.json').changes.find(change=>change.name===currentAliasChange.name);\n  assert.deepEqual(currentAliasChange.previousReviewedExpected,{version:'2.11.1',text:priorExpectation.newExpected,sha256:priorExpectation.newExpectedSha256},'The complete previous reviewed expectation is retained exactly');\n  const duplicateTitle='|titulo=Fonte|titulo=Fonte',singleTitle='|titulo=Fonte';\n  assert.equal(priorExpectation.newExpected.split(duplicateTitle).length-1,1,'Exactly one literal equal title pair occurs in the retained prior definition');\n  assert.equal(currentAliasChange.newExpected,priorExpectation.newExpected.replace(duplicateTitle,singleTitle),'The new handwritten endpoint differs only by that one identical title field');\n  const titleContract=require('../../src/v2_12/REFERENCE_FIELD_CONTRACTS.json').citationAliasFamilies.Title;assert(titleContract.includes('titulo'),'The native Title role explicitly accepts the retained field');\n  assert.equal(referenceFixtureCensus(currentAliasChange.newExpected).count,1,'The same sole complete reference remains');\n  assert.equal((currentAliasChange.newExpected.match(/https:\\/\\/example\\.invalid\\/a/g)||[]).length,1,'The original source URL remains exactly once');\n  for(const change of manifest.changes){\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/run_focus.cjs",
+      "target": "tests/v2120/run_focus.cjs",
+      "sourceSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "targetSha256": "bc8d60278682ed6678861d43d5b6dcd4821219bc725608ed3501190f95bdced4",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_quote_boundaries.cjs",
+      "target": "tests/v2120/run_quote_boundaries.cjs",
+      "sourceSha256": "3acc8914e94cdef763591c9c757d971b7b6880dcda59f920aabea1c5420de1cd",
+      "targetSha256": "b144ad9c2f9531a0dd57c2278458d9c9b2ce1090f0c2d0aaa7d6f70c921cf7b2",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_reference_column_geometry.cjs",
+      "target": "tests/v2120/run_reference_column_geometry.cjs",
+      "sourceSha256": "5ff4d2d31b4404c2fc130a2905d6a0960beff3162ef46eb8276383d3d724dd31",
+      "targetSha256": "78b4b242768f6a2d5a11eb2d67900359d848e8adb4f42fe80024ab777637cc7e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_responsive_layout.cjs",
+      "target": "tests/v2120/run_responsive_layout.cjs",
+      "sourceSha256": "e2a067b0e7d51e68f5378e662e5c472dd4a3053408b6792b190fceaf2c74c16b",
+      "targetSha256": "859ce315619a7749915032598c45a97bbe15bb959cb9a5679082472486352ade",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_server_grammar.mjs",
+      "target": "tests/v2120/run_server_grammar.mjs",
+      "sourceSha256": "48a0c21763c50270b6b84b339965979b38a7aba30b9a51da098722e5fe24f5fd",
+      "targetSha256": "8c19733e5a67def2e4c27890aa5ae4938845a361ca9c1476651dabc29446cd52",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_startup.cjs",
+      "target": "tests/v2120/run_startup.cjs",
+      "sourceSha256": "51425c4a213c7dbef6bd840e1aed93b08c951560dd8368162189c8ecb0f45d34",
+      "targetSha256": "475df12217699a07f9166b3b21ccbf270e3d891e363100700c088f6eb0a149ce",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/run_tag_adversarial.cjs",
+      "target": "tests/v2120/run_tag_adversarial.cjs",
+      "sourceSha256": "4c996b8106c537c024d3f131b43440c2330af6e7abb3dc3ce1c7107b4f4c126c",
+      "targetSha256": "ece91e991e031c2e9fc3b2ab2a7889e3b816dcdaa6f4fbe3b655b9b7b37c54dd",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/summarize.cjs",
+      "target": "tests/v2120/summarize.cjs",
+      "sourceSha256": "8e8e7de0c8b07c4f3834598fed5f7fabab0299763730085489f0e5472e2e4ffa",
+      "targetSha256": "c2171785e46a9b29b04b63f1b97d8d1b4d87a7366a9f09ee5cc037589b5514ff",
+      "additionalSubstitutions": [
+        [
+          "const directory=candidate.artifactDirectory();\nconst names=['graph_contracts.json','citation_fields.json','warning_identity.json','independent_reference_qa.json','startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json','topic_portals.json','minor_classification.json','occurrence_count.json','ui_freshness.json','reference_columns_v211.json','lead_images.json','install_size_diagnosis.json'];\nconst report={version:'2.12.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n",
+          "const directory=candidate.artifactDirectory();\nconst names=['reference_fields.json','reference_native_contract.json','table_safe_expansions.json','count_boundaries_v212.json','independent_safe_qa.json','graph_contracts.json','citation_fields.json','warning_identity.json','independent_reference_qa.json','startup.json','no_section_buttons.json','focused_candidate.json','quote_boundaries.json','quotes.json','tag_view_adversarial.json','safe_automation.json','diff_reporting.json','chat_residues.json','chat_permutations.json','chemical_syntax.json','chemical_guards.json','table_syntax.json','table_guards.json','marriage_syntax.json','marriage_guards.json','biography_fields.json','biography_dates.json','multiple_marriages.json','biography_composition.json','citation_families.json','historical_citations.json','birth_categories.json','reference_repairs.json','table_repairs.json','identifier_urls.json','reference_graph.json','table_repairs_v210.json','responsive_tables.json','structural_engine.json','engine_adversarial.json','contracts.json','integration.json','composition-options.json','quote-lexer.json','corpus-regressions.json','topic_portals.json','minor_classification.json','occurrence_count.json','ui_freshness.json','reference_columns_v211.json','lead_images.json','install_size_diagnosis.json'];\nconst report={version:'2.12.0',kind:'release-offline-qa-summary',frozenFiles:candidate.manifest.files,cases:0,checks:0,failed:0,reports:[],networkRequests:0,wikipediaWrites:0};\n"
+        ]
+      ]
+    },
+    {
+      "source": "tests/v2111/test_biography_composition.cjs",
+      "target": "tests/v2120/test_biography_composition.cjs",
+      "sourceSha256": "756ee950503d14c4ef3cdc5b40af99fe9a69f677996f5bcc35b3fb71620f9c09",
+      "targetSha256": "177902957b46bfde66aa8c2de5736ef977c103189d857a0e41cae45c15e83c86",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_biography_dates.cjs",
+      "target": "tests/v2120/test_biography_dates.cjs",
+      "sourceSha256": "40981ff5e975670c3468a05970250174abc0fb8f925324af3f742db1970faa3d",
+      "targetSha256": "6241757f12e713f0d5a71358c10b9174c945366618d6eb9b52cb52bb2d51b402",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_biography_fields.cjs",
+      "target": "tests/v2120/test_biography_fields.cjs",
+      "sourceSha256": "d2a3383e4a32751b7f393b5b7767c16a6e512cd0c132496b7b5feace1e63c008",
+      "targetSha256": "d77f953e8b98d772a3dfe8f884e0db863ce38fd1100bfcd72cae66357a599018",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_birth_categories.cjs",
+      "target": "tests/v2120/test_birth_categories.cjs",
+      "sourceSha256": "f54a5f00f849c1d26cf2c09a3be927d822948dba0d3bd56d768897ae14fcb536",
+      "targetSha256": "ef6d3025f4633da71fe1c969602c7a979f37117129898b7c0964ea494826fb19",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_chat_permutations.cjs",
+      "target": "tests/v2120/test_chat_permutations.cjs",
+      "sourceSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "targetSha256": "1e5687a5cfb8a0f7a409436ed8155e559a701654ce48d99575e9c4892c32036f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_chat_residues.cjs",
+      "target": "tests/v2120/test_chat_residues.cjs",
+      "sourceSha256": "c9d7e950bb8c5eea923044611df26d2b268ba2cc8299631b8320d6137a1fc14c",
+      "targetSha256": "b01cb4596393b7ca0557f49050611de8acf3d853d0731d3d31101fb7f4f58b9b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_chemical_guards.cjs",
+      "target": "tests/v2120/test_chemical_guards.cjs",
+      "sourceSha256": "ba4f68b9dad1defe24a17b2588637f6375016df6f22201295e7d0d116b4a31bd",
+      "targetSha256": "a1c69592813c910b349b66fb3bd712b0d2555e4a8b13d368297844ab693cdd85",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_chemical_syntax.cjs",
+      "target": "tests/v2120/test_chemical_syntax.cjs",
+      "sourceSha256": "df3bb61d315d8bfdd6f2e2629577fc1b57f161032d34d2bf0c44b03550a45443",
+      "targetSha256": "77ba6e058b0406e63b7f9134ee5c5d188ca4818cf1618f7dde803edf167594c3",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_citation_families.cjs",
+      "target": "tests/v2120/test_citation_families.cjs",
+      "sourceSha256": "b1e9a0b4b1a8fbbf4444a53d8ba230cdd873b8b017a09f4de3002bc64ad93098",
+      "targetSha256": "25219d1f4610e635d7bfa52f1c03d5cb344812a5f2680a9fa6604d88bc752f61",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_diff_reporting.cjs",
+      "target": "tests/v2120/test_diff_reporting.cjs",
+      "sourceSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "targetSha256": "a1fe3925f53c6afb3fd2792e3a70e9741ea4ee59e47389973ab1ffb9a4d9e9c9",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_engine_adversarial.cjs",
+      "target": "tests/v2120/test_engine_adversarial.cjs",
+      "sourceSha256": "567f0e0bcf9ae91f166c900b584ca08c5daeee600d1c55019b3fdfc4603da46f",
+      "targetSha256": "3e8aa618fbd4b9804c194e08d85d608a63c3ceb15e45212d7e5e1f9358af5c5b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_historical_citations.cjs",
+      "target": "tests/v2120/test_historical_citations.cjs",
+      "sourceSha256": "9cd0eb176308e4726f9b54aff5abad13f9f13e73d71b8ba7f2299dcdec01c49a",
+      "targetSha256": "4ea1c086834715aa68e66e9176233a5ffdf6fd0b93fbbd58104412cd39f87de9",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_identifier_urls.cjs",
+      "target": "tests/v2120/test_identifier_urls.cjs",
+      "sourceSha256": "085e15ba584f0a844e929f954c75e97906506ea1420062692ac1745caa68b527",
+      "targetSha256": "5319a7c6a1e0180e0be60e4fc507414a5e56ef3308ec3386b16ec9d81a57401c",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_index.cjs",
+      "target": "tests/v2120/test_index.cjs",
+      "sourceSha256": "6bda8c98f23f58fd2afc5467b2e13d50fe2960b79e6d2c76a07d97a7a5a300cf",
+      "targetSha256": "3dd7772ec1213d96e8fa8acc6651edb5613e8a0637e00f39cfa39e9764319f9e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_lead_images_v211.cjs",
+      "target": "tests/v2120/test_lead_images_v211.cjs",
+      "sourceSha256": "c9813af98b61110b875b6ec97479065c126ec94999a556aecf9e30b5b397a7ea",
+      "targetSha256": "149c72d31aa0d57bbcfadf88faf7bbc6f20d09de93171f69c6fc6e55a13695ee",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_marriage_guards.cjs",
+      "target": "tests/v2120/test_marriage_guards.cjs",
+      "sourceSha256": "f577f5787429ed0d8f16db53af0bf1c187e3ef28a0e0c16cfbc1b349da3a0e01",
+      "targetSha256": "da49b8bac926e4493d1c3e5ff179ec1041b8b7860d8b8127462e67432b4d008f",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_marriage_syntax.cjs",
+      "target": "tests/v2120/test_marriage_syntax.cjs",
+      "sourceSha256": "2d9260a90d4e5d5a795b9c8859d7453f48984ba028eaf0d54024abb06104d972",
+      "targetSha256": "38e937ac479f07664aee268b0fd6ac3141f769e605f33fb3f01196a80001c091",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_minor_classification.cjs",
+      "target": "tests/v2120/test_minor_classification.cjs",
+      "sourceSha256": "ca7b0c894afeca49f5223e39f30041c71a1fa90c27560e3617a0fb44b609fa86",
+      "targetSha256": "bffa6f3bfb0a79cf3e27074a53e52eb0b1f6ecdb3059686eace1c79b45ddf2e8",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_multiple_marriages.cjs",
+      "target": "tests/v2120/test_multiple_marriages.cjs",
+      "sourceSha256": "ed6f2f9ba7cc7191efd4eed69aac6ffedf12db1802cbd4c1badb88721b817fa6",
+      "targetSha256": "076113f64a1460cca624353345850092290f8d5e3b94b5836cd210508681c49b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_no_section_buttons.cjs",
+      "target": "tests/v2120/test_no_section_buttons.cjs",
+      "sourceSha256": "4184591e76eee2972ff3b0aab73029c25b4bf15e56f6e979f817b4927e9ba635",
+      "targetSha256": "fe96bc517c8e6ccd05b548d48326a05013ca5236fae4f9e7f9a0dfd2188ffae6",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_occurrence_count.cjs",
+      "target": "tests/v2120/test_occurrence_count.cjs",
+      "sourceSha256": "a34038e18be0fc6b14d20e47d04464ec59f5aa5bcc488f025fee4133d0d3e675",
+      "targetSha256": "a34038e18be0fc6b14d20e47d04464ec59f5aa5bcc488f025fee4133d0d3e675",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_quotes.cjs",
+      "target": "tests/v2120/test_quotes.cjs",
+      "sourceSha256": "e64a57d506074fd1d5dc7dc64d04ff5f1ef9fc82419f2e77adcfc62e07901a05",
+      "targetSha256": "fc931d6c93a8cb7fb182d549881fd26a4d576fd9ff85b67d7838cd642c41792e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_reference_columns_v211.cjs",
+      "target": "tests/v2120/test_reference_columns_v211.cjs",
+      "sourceSha256": "ac795dc3ccde3838204ee2f1c18eded3afebe87c762fc5264a72d9e58b3a923e",
+      "targetSha256": "5ce4d3b014bb8a49f4f45632946a83b5acc14b7e741a32419eb2ad9e1c14ed06",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_reference_graph.cjs",
+      "target": "tests/v2120/test_reference_graph.cjs",
+      "sourceSha256": "2565dc2aff7b6b7c3e442ea73a7331c212d2a74a0d7f93adf056a8e46be7d666",
+      "targetSha256": "421642bdff170d6d1607caff9178cc95ae34d0e759effd4964d4c6b78f83174b",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_reference_repairs.cjs",
+      "target": "tests/v2120/test_reference_repairs.cjs",
+      "sourceSha256": "2eae9605189463648660113048ba8fe621a2d289dc9dc2a1e21c87c39202e221",
+      "targetSha256": "7caad7d42aac80bd1cf2b95180983fce1939b1454e27191802cb73dcc3b5d697",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_responsive_tables.cjs",
+      "target": "tests/v2120/test_responsive_tables.cjs",
+      "sourceSha256": "e523557ae432109f358bf954d9e6b1bb97d43522e0e63aba9a0704375f599c63",
+      "targetSha256": "9fd0e9974e3892529e5bc9ec2e565cc4e7099178f28b3636dcaa0acb91af8f94",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_safe_automation.cjs",
+      "target": "tests/v2120/test_safe_automation.cjs",
+      "sourceSha256": "23172e6bfbfcfe3d0099900650fd3677aef2fd7b1bb1580c89dafc22b651cf66",
+      "targetSha256": "7d4e129cf28e4c7499f8bd4636119f42a5fbf66dc9d8b57c1c0c476791082f31",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_structural_engine.cjs",
+      "target": "tests/v2120/test_structural_engine.cjs",
+      "sourceSha256": "b1881c12f9a836e8bc46bb92a221880fd7580e59472940bffb926863a3533488",
+      "targetSha256": "28ef9defb9c6a0c3b65fba1d2068d24b959daeed73a6671b0c8e46b3b688f9c0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_table_guards.cjs",
+      "target": "tests/v2120/test_table_guards.cjs",
+      "sourceSha256": "4109fd89f4bb568a8181f8be611f2f66267a7ae74e7dc9769ee4fa015dc4d916",
+      "targetSha256": "7e8961677ae0e87d61510d7a7c6b7867befa4c1249539449efc074539e766e2a",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_table_repairs.cjs",
+      "target": "tests/v2120/test_table_repairs.cjs",
+      "sourceSha256": "66f6d9b918a41e5d0b2379d1bdaa1ac6445d52ae3f9ae73c6563f6cb587f9407",
+      "targetSha256": "1edf5468ce07d7bf972601470685d020983a7cac1501ad86447fbe467da9afe0",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_table_structure.cjs",
+      "target": "tests/v2120/test_table_structure.cjs",
+      "sourceSha256": "43a5fb2db3ec75651b06c8187d41cc70904fba1c946c6fe6cc5ae42d34a61f60",
+      "targetSha256": "15842875c713b796762beae148809180f75453f4b6ad1791489896d26996014e",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_table_syntax.cjs",
+      "target": "tests/v2120/test_table_syntax.cjs",
+      "sourceSha256": "10b3f1f83f42dd26e44d8778ab2e9be986b809fe3f5feeb6605384a15d407670",
+      "targetSha256": "59dd4c8b7f78a42d392876a1de5c5db10d4457f57ebadca334fa2d8aea5253be",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_topic_portals.cjs",
+      "target": "tests/v2120/test_topic_portals.cjs",
+      "sourceSha256": "c02c72e18ce1f597c08784bbd5d8a337d836b27ef50ecf0d487bd0d128bd6e8d",
+      "targetSha256": "5602ed46c8283471bcac3a67ee823a8078690f9e5c433c1a1d7ca8ce8e86834d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_ui_freshness.cjs",
+      "target": "tests/v2120/test_ui_freshness.cjs",
+      "sourceSha256": "6e61b54484261705a5becab867187af493e6325ed44ff5da31872216a5d01170",
+      "targetSha256": "615873267a0b3d1c6b49829fd14777a41f82c775db42272b200b17a4d28d34e5",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/test_warning_identity.cjs",
+      "target": "tests/v2120/test_warning_identity.cjs",
+      "sourceSha256": "58d650d8f4e4c4cf13b09d401a31232429d3f64841efa33fe77d4e0530693fee",
+      "targetSha256": "7c1e1cd60a2187609f07479c16b6809e0933b9c567eaa243b5478ea5d8cfe90d",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/verify_inherited.cjs",
+      "target": "tests/v2120/verify_inherited.cjs",
+      "sourceSha256": "1131d8ed3f2f53f521199c7650436ee3f19ba9ec2ec604214a9dd9712cecb490",
+      "targetSha256": "f50887d892d18171827c3073d7683c86a8d523cddaad6fcf19be7cbafbe52fbb",
+      "additionalSubstitutions": []
+    },
+    {
+      "source": "tests/v2111/fixtures/repair_render_cases.json",
+      "target": "tests/v2120/fixtures/repair_render_cases.json",
+      "sourceSha256": "47f0721c660ce8bce4edc02b1faef450df629e3a768282716a2ca3e3d0d3da97",
+      "targetSha256": "6d77d80b6ae1a92d907666361926617aa925fafc0091578c0ab8c7aca63d5c5a",
+      "additionalSubstitutions": []
+    }
+  ],
+  "additiveModules": [
+    {
+      "target": "tests/v2120/browser/v212_safe_fixes_flow.cjs",
+      "sha256": "79788afccd0b5f3de8022469c84e9e41470e0e87e7a828cc0df71de0aa494de1"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/old_11.html",
+      "sha256": "a6a44eab65f4e72eac098512d80955bd5c0c25c8ab2b3452dc53b31bb46cc78b"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/old_30.html",
+      "sha256": "d7c6214ffbc822649a90a746a85dfcbe5af0ee2e473c48cad4c0a8f3f97b3ea7"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/plain_10.html",
+      "sha256": "63c80ffcee68b204a40fc4b2c1b67ab7351eb4114767eeab5be667c6807ac724"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/plain_11.html",
+      "sha256": "de2767a47cc2157f23645079ee1ffa690023e393ea81a8bf4a6d9a0ddedc7ea4"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/plain_30.html",
+      "sha256": "decd64bb2c638a28d2aee4dd371027b13b306703bf6ee83023b1a5cd39507ee9"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/styled_10.html",
+      "sha256": "018696b5b1f36ce6d93c676666a5f2d0d8698784345e1842ea303524a5bdded7"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/styled_11.html",
+      "sha256": "1119d842a156bae5785412482bb9b7819e46243687010574c5bfb4bad426212d"
+    },
+    {
+      "target": "tests/v2120/fixtures/reference_column_geometry/styled_30.html",
+      "sha256": "01915f410bb1a9a74e4b64e27fcec0ef5a95a9d0dbb3b940dafeaf68b47ffd30"
+    },
+    {
+      "target": "tests/v2120/independent_cases.cjs",
+      "sha256": "1e46e6ed5b96c8343e2083fe7438c6194bc0d5af854389785923744ff0345037"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/bare-url-brackets_after.html",
+      "sha256": "b0c44323931f9a4f25e9d75f7cb881d2897091453e97fe3f9e26a08d312ea8b9"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/bare-url-brackets_before.html",
+      "sha256": "8efdc5aab65381aa923335c5f0bc0302f400a013d689f91abf06fb750940dd50"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/blog_after_fresh.html",
+      "sha256": "2e1c99ab8bc2c7284c03201d40118a50bed32fa9546dac270ac38858b7a91a4a"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/blog_before_fresh.html",
+      "sha256": "bb7f0c39bccfba60589bee2bccb71e85bae633fb2fbe25fc74d0e7889ffbcc1a"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/collector-group_after.html",
+      "sha256": "4af97b2700133eda65f3c451ffca495818e39bc87acfa9521bc1a5bc800f0ed3"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/collector-group_before.html",
+      "sha256": "cabd5e9063f37111a28b50dbca1ccbdbbd27125dcafbf4d4782c4be5b3499ca9"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/equal-publication-aliases_after.html",
+      "sha256": "7163e5367f409b211aa31bf7e95c5650aaf48e89d01224a0441d79f36e29e3a6"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/equal-publication-aliases_before.html",
+      "sha256": "cccd7ff40529c17ac973f10498c44f06507635fe5134335d7fcb519409358c51"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/equal-renderer-attributes_after.html",
+      "sha256": "dce920c8f2d86b6704c2049d86b5321e4546d60aa90d8e38a3daded922d71756"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/equal-renderer-attributes_before.html",
+      "sha256": "dce920c8f2d86b6704c2049d86b5321e4546d60aa90d8e38a3daded922d71756"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/projection_after_fresh.html",
+      "sha256": "e473e3d728aa095b0db09a225e1f75abe6496876172f035c33077a38398c7508"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/projection_after_native.html",
+      "sha256": "e473e3d728aa095b0db09a225e1f75abe6496876172f035c33077a38398c7508"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/projection_before_fresh.html",
+      "sha256": "7d85d59e70be1d1f7ff94cccd99439bd87c31593119ab14e3cbe0893c63a106d"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/projection_before_native.html",
+      "sha256": "7d85d59e70be1d1f7ff94cccd99439bd87c31593119ab14e3cbe0893c63a106d"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-literal-formatnum_after.html",
+      "sha256": "63ecb7e0f6093f510b4ce84352c4db930bbcdced80de8bf0dde4ab871f78fd11"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-literal-formatnum_before.html",
+      "sha256": "2eef6843bb7ed1eb1e85e1bd0194bd9922f65cbdcd34086a598658a284c257b5"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-mixed-colspan-quote_after.html",
+      "sha256": "d3a034ebd8922b082cd59d3a745d87d13ee2e1089473a99d0f949654e0f2393e"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-mixed-colspan-quote_before.html",
+      "sha256": "39d33709d096d2e62c3f6f06d7b8519aed60f0b204eca7424f37b0a2be99d17b"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-sort-attributes_after.html",
+      "sha256": "2b2f916cb1dd902c299711941bc2cdbbcf7aacf2d1b27498a7a3ed844c09c6c0"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-sort-attributes_before.html",
+      "sha256": "b412179d141099bb72a7bbb26760beab9868ae775c598f01b2e9217dee12c44a"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-wide-fixed-px_after.html",
+      "sha256": "d1b0de1ef8d9c03bc7361d4921ba93ca289829d053236a52558c053fa5a1a2b5"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-wide-fixed-px_before.html",
+      "sha256": "90b6670686496c72410b10ae93103be563a1836e2428d227832914952af1c009"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-wide-sortable_after.html",
+      "sha256": "69e2a32433c49aaf70a4a2adc01b0cfe7e351365c3ecefc39c46d6dff0617e21"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/table-wide-sortable_before.html",
+      "sha256": "fee4272eaf8b919be752312f0b585de0874e411b08e411008955325712a44cd1"
+    },
+    {
+      "target": "tests/v2120/independent_fixtures/tablesorter.js",
+      "sha256": "a3bd2f861b6dce66ad3653883ef6521d3d845766e45e34cd559a71862a43d5fc"
+    },
+    {
+      "target": "tests/v2120/independent_geometry.cjs",
+      "sha256": "98ebce9165ca269b9fc1780d37615dd69e780e47db426dbc0663d8e00aaa81ef"
+    },
+    {
+      "target": "tests/v2120/independent_safe_qa.cjs",
+      "sha256": "ae37d4acfe60ae79e1d7aff82f75b309b1377552eb16f5fb3aaf90687bb4632a"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/collector_attributes_after.html",
+      "sha256": "36be839e2e8d8abc9fdfa977d2e34d1bb1179dad32649d76b893bb28f916da6d"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/collector_attributes_before.html",
+      "sha256": "9cc6228a1c4ce0d5d8e3ea88f49e69d97520b361e1aaf98eb393fc7d38e73c8e"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/collector_group_after.html",
+      "sha256": "97240d785dc8df8cd4d950700fd361c71f0f1554d74d76ce54cc933406150a13"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/collector_group_before.html",
+      "sha256": "1bf55abb15070eeeacb64c6655f4fbea5dff08258a83b71ab946b7bbb649a1ff"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/isolated_url_after.html",
+      "sha256": "391fc18da2f5eb3ccecbdcbbec82d9d9364edaa1d3c84fdf5efe4e05a6d23ca4"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/isolated_url_before.html",
+      "sha256": "c306eb5149f3df8aff5a2f23ea396a3bb1ab0e5dacce0f560d8993a493364de4"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/publication_alias_after.html",
+      "sha256": "c22e676ad0bcaf0007442740a246ce63f315fae2dcb4beafcce07781356f1ffa"
+    },
+    {
+      "target": "tests/v2120/reference_contracts/publication_alias_before.html",
+      "sha256": "d6edd60b683113547c307f47e95a2374d2717f1ecf230bf7abe0264858dc3575"
+    },
+    {
+      "target": "tests/v2120/reference_fields.cjs",
+      "sha256": "e9e6fd9ce9fe23c89fa64c4dfb30262ac0e8e4a6c110f1ea1c490a227628b01a"
+    },
+    {
+      "target": "tests/v2120/reference_native_contract.cjs",
+      "sha256": "23a8dacb36bd26cc0b9aeb1eb97ff4b0a2bb3e5055cfa3d83032656c3b16ef09"
+    },
+    {
+      "target": "tests/v2120/table_safe_expansions.cjs",
+      "sha256": "3ba112b86d614be3a617483d26d2c5339b89c393e27f990c867864e3c5bfe950"
+    },
+    {
+      "target": "tests/v2120/test_count_boundaries_v212.cjs",
+      "sha256": "75e1448aa5e80b0a227b769f8b5bc57e1c7428c55cf0b684cb110782dc443df0"
+    }
+  ]
+}

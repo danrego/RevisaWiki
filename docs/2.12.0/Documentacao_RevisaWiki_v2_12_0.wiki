@@ -1,0 +1,966 @@
+O '''RevisaWiki''' ajusta o código das páginas da Wikipédia em português e mostra o que mudou antes de você salvar. O botão '''Ajustar código''' reúne os reparos automáticos e as correções exatas de grafia. Você pode comparar o resultado, rejeitar mudanças ou desfazer a execução.
+
+O [https://github.com/danrego/RevisaWiki GitHub do RevisaWiki] reúne o código, os arquivos de instalação, os catálogos e os relatórios da versão '''2.12.0'''. O programa e os dados usam essa versão. Na Wikipédia, a distribuição usa [[Usuário:Daniel G Rego/RevisaWiki.js]] e [[Usuário:Daniel G Rego/RevisaWiki/Dados.js]], com o carregador em [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]].
+
+== Instalação ==
+
+O RevisaWiki usa o núcleo em <code>RevisaWiki.js</code>, os catálogos em <code>RevisaWiki/Dados.js</code> e um carregador central em <code>RevisaWiki/Carregador.js</code>. Uma chamada curta no <code>common.js</code> abre esse carregador. Ela fica igual nas próximas versões, enquanto quem mantém a distribuição atualiza os dados, o núcleo e o carregador central. O índice <code>INICIO.html</code> traz os arquivos completos, os destinos e os resumos para copiar.
+
+A versão '''2.12.0''' amplia os reparos automáticos de tabelas e referências, com os dados originais preservados e critérios separados para cada formato. Os recursos das versões anteriores continuam disponíveis no botão Ajustar código, com comparação e opção de desfazer.
+
+=== Usar a distribuição compartilhada ===
+
+Depois que as páginas da distribuição estiverem atualizadas, acrescente a chamada abaixo a [[Especial:Minha página/common.js|seu common.js]]. Se já houver uma instalação antiga, substitua somente o bloco do RevisaWiki e preserve os outros scripts. Mantenha uma única chamada e copie apenas o código, sem as marcas de sintaxe.
+
+<syntaxhighlight lang="javascript">
+// RevisaWiki: chamada fixa para a distribuição compartilhada.
+(function () {
+    'use strict';
+    if (window.RevisaWikiBootstrapRegistered) return;
+    window.RevisaWikiBootstrapRegistered = true;
+    var page = 'User:Daniel G Rego/RevisaWiki/Carregador.js';
+    var url = '/w/index.php?title=' + encodeURIComponent(page) +
+        '&action=raw&ctype=text/javascript&rw=' + Math.floor(Date.now() / 300000);
+    mw.loader.getScript(url).then(function () {}, function () {
+        if (typeof mw.notify === 'function') {
+            mw.notify('Não foi possível abrir o carregador central do RevisaWiki. Confira a instalação e recarregue a página.', {type:'warn'});
+        }
+    });
+}());
+</syntaxhighlight>
+
+Essa chamada abre [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]]. Ela dispensa copiar os dados e o núcleo para a sua conta. Não é preciso trocar o common.js a cada versão. O endereço de consulta recebe uma chave de cache que muda em intervalos de cinco minutos, calculada ao abrir outra página ou recarregar. Não há consulta periódica em uma página que continua aberta nem edições automáticas na Wikipédia.
+
+Depois de salvar, recarregue a página e abra '''Editar código-fonte'''. O painel deve mostrar '''PTwiki 2.12.0'''. No Firefox e no Chrome para Mac, uma recarga completa usa '''Command + Shift + R'''. No Safari, use '''Option + Command + R'''.
+
+=== Atualizar as páginas da distribuição ===
+
+Quem mantém a distribuição deve atualizar os arquivos da pasta <code>dist/2.12.0</code> na ordem abaixo. A chamada fixa já instalada no common.js permanece igual.
+
+# Copie <code>RevisaWiki_v2_12_0_dados.js</code> para [[Usuário:Daniel G Rego/RevisaWiki/Dados.js]]. Os catálogos são os mesmos da versão anterior, mas o arquivo passa a declarar 2.12.0 e precisa ser atualizado junto do núcleo.
+# Copie <code>RevisaWiki_v2_12_0.js</code> para [[Usuário:Daniel G Rego/RevisaWiki.js]].
+# Crie ou atualize [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]] com o conteúdo completo de <code>Carregador_comunitario_RevisaWiki_v2_12_0.js</code>. Essa página recebe o carregador maior. A chamada curta acima pertence ao common.js.
+# Se já usa a chamada fixa acima no common.js, mantenha esse bloco. Em uma instalação antiga, substitua somente o bloco do RevisaWiki pela chamada fixa. Preserve os outros scripts e mantenha uma única chamada.
+# Copie <code>Documentacao_RevisaWiki_v2_12_0.wiki</code> para [[Usuário:Daniel G Rego/RevisaWiki]].
+# Recarregue e confira '''2.12.0''' em '''Configurações → Sobre e diagnóstico'''. Os dados, o núcleo e a versão esperada pelo carregador central precisam combinar. O carregador desta versão também informa <code>loaderRevision = '2.12.0'</code>.
+
+Nas próximas atualizações, dados, núcleo e carregador central continuam sendo publicados manualmente nessa ordem. A chamada curta no common.js permanece igual. O pacote e o índice não salvam nenhuma dessas páginas por conta própria.
+
+=== Aviso ao exibir arquivos grandes ===
+
+A mensagem "O tamanho do código ... excede o máximo permitido, 102400 bytes" pertence ao realce de sintaxe usado para mostrar o código na página. Nesse caso, o visualizador apresenta o texto sem colorir. Esse limite de exibição não impede o salvamento nem a execução do JavaScript. Uma recusa de publicação, um erro de sintaxe ou um modelo de conteúdo incorreto precisa ser investigado separadamente.<ref>[https://github.com/wikimedia/mediawiki-extensions-SyntaxHighlight_GeSHi/blob/ecb3ea99fb5bbec80ec11d78405f1bdc68fd6b2d/includes/SyntaxHighlight.php#L250-L271 Tratamento do limite na implementação do SyntaxHighlight] e [https://www.mediawiki.org/wiki/Extension:SyntaxHighlight documentação da extensão].</ref>
+
+O índice oferece '''Ver código bruto''' para abrir o arquivo sem esse realce. Também é possível conferir [https://pt.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Usu%C3%A1rio:Daniel_G_Rego/RevisaWiki/Dados.js o arquivo de dados] e [https://pt.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Usu%C3%A1rio:Daniel_G_Rego/RevisaWiki.js o programa]. Esses endereços mostram o que está salvo, que pode ser de uma versão anterior enquanto a atualização não terminou. Depois de salvar os arquivos, recarregue e confira '''2.12.0''' em '''Sobre e diagnóstico'''.
+
+=== Manter uma cópia própria ===
+
+Se preferir manter os arquivos na sua conta, salve <code>RevisaWiki_v2_12_0_dados.js</code> em <code>RevisaWiki/Dados.js</code>, depois <code>RevisaWiki_v2_12_0.js</code> em <code>RevisaWiki.js</code>. Crie <code>RevisaWiki/Carregador.js</code> com <code>Carregador_common_js_RevisaWiki_v2_12_0.js</code>. Por fim, coloque <code>Chamada_fixa_RevisaWiki_copia_propria.js</code> no seu common.js, preservando os outros scripts. Essa chamada usa o nome da conta conectada para abrir o seu carregador central. Escolha apenas uma das duas chamadas fixas.
+
+Para atualizar uma cópia própria, substitua seus dados, núcleo e carregador central, mantendo a chamada curta no common.js. Se mudar os nomes das páginas, ajuste os destinos no carregador e na chamada correspondente. O arquivo <code>RevisaWiki_v2_12_0_completo.js</code> reúne tudo para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki e deve ser instalado em duas partes.<ref>[https://pt.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=general&format=json&formatversion=2 Informações públicas da ptwiki], propriedade <code>maxarticlesize</code>, com limite de 2.097.152 bytes, conferida em 15 de outubro de 2026.</ref>
+
+== Usar, conferir e desfazer ==
+
+# Abra '''Editar código-fonte''' e clique em '''Ajustar código'''.
+# Leia o resultado e abra '''Ver o que mudou'''. A comparação mostra as linhas completas, destaca as partes alteradas e explica os ajustes.
+# Se quiser manter apenas algumas mudanças, use '''Escolher alterações'''. Alterações que precisam funcionar juntas ficam no mesmo conjunto, como a definição de uma referência e as chamadas que usam seu nome.
+# Confira o resultado na pré-visualização normal da Wikipédia e salve quando terminar de revisar.
+
+O botão '''Ajustar código''' fica no painel superior. No editor clássico e nas integrações reconhecidas de CodeMirror, há outro botão com o mesmo nome e o mesmo verde antes de '''Publicar página''' ou '''Publicar alterações'''. Os dois executam a mesma ação. No editor de código-fonte de 2017, use o botão superior.
+
+'''Desfazer ajustes''' recupera o texto anterior conforme as alterações ainda controladas pelo script. Se você editar manualmente o texto depois de uma análise, os resultados antigos não podem sobrescrever essa edição. O resumo acompanha apenas as mudanças mantidas.
+
+Durante o processamento, o painel mostra o andamento e oferece '''Cancelar análise'''. O texto só entra no editor quando o cálculo termina e o rascunho continua sendo o mesmo. '''Ver ajustes antes de aplicar''', em Mais ferramentas, prepara a comparação sem mudar o texto até você aceitar uma proposta.
+
+=== Relatório e comparação ===
+
+Alguns reparos precisam permanecer juntos para que o código e a conferência de dados continuem válidos. Nesses casos, aceitar ou rejeitar um trecho também muda a escolha dos demais trechos do mesmo grupo. Tabelas literais independentes e sem referências podem ter seus próprios conjuntos. Quando um conjunto falha na conferência nativa, o programa pode conservar outros que passaram, com um limite de quatro conferências adicionais. Mudanças ligadas às mesmas referências continuam juntas. Desfazer ajustes recupera o rascunho completo anterior.
+
+'''Ajustes aplicados''' conta as correções que permaneceram no texto. Cada ligação simplificada, parâmetro corrigido ou cabeçalho ajustado tem sua própria entrada na lista de conferência. A troca do nome de uma predefinição e a troca de três parâmetros contam como quatro correções. Um par de delimitadores que faz uma única conversão conta uma vez. Os tipos de ajuste ficam numa indicação separada. A contagem é refeita depois das escolhas da comparação. Os blocos do diff continuam sendo unidades de seleção, sem definir a quantidade de correções. Ao lado, o saldo em bytes mostra quanto o texto cresceu ou diminuiu. Aumentos aparecem em verde, reduções em vermelho e saldo zero em cinza, sempre com sinal e descrição que dispensam a leitura da cor. Um saldo zero também pode conter mudanças.
+
+'''Precisa de revisão''' reúne problemas confirmados e propostas que dependem de uma escolha. '''Informações técnicas''' guarda os limites de leitura e casos de código calculado, sem somá-los ao contador de problemas. '''Resultados anteriores e conferências''' recolhe resultados resolvidos, ignorados ou referentes a outro estado do rascunho. Uma conferência incompleta continua sem confirmação. Quando uma estrutura ambígua limita o trecho que pode ser ajustado, a explicação fica recolhida em '''Por que alguns ajustes não entraram'''. Essa limitação não aumenta o contador de problemas. Erros confirmados continuam em '''Precisa de revisão'''.
+
+A ferramenta evita avisos genéricos sobre datas numéricas que admitem duas leituras, retirada de etiquetas de manutenção e repetições que não pôde confirmar. Um código preservado pode precisar de leitura manual mesmo quando não gera um alerta.
+
+=== Mais ferramentas ===
+
+'''Conferir tudo''' lê o código, as tabelas e as datas, depois consulta a pré-visualização, os destinos das ligações e as edições posteriores à revisão aberta. Esse comando não modifica o texto nem o resumo. As consultas também podem ser executadas separadamente.
+
+'''Conferir outras grafias''' abre as escolhas ortográficas e as possíveis palavras repetidas. '''Ver ajustes antes de aplicar''' prepara a comparação. '''Configurações''' reúne os grupos de ajuste, as opções de ortografia e '''Sobre e diagnóstico'''.
+
+=== Edição de seções ===
+
+Os botões adicionais '''Editar aqui''' foram retirados na 2.7. Para editar uma seção, use a ligação '''editar''' da própria Wikipédia. No editor de código-fonte, o painel mantém '''Ajustar código''', a comparação, o resumo automático e '''Desfazer ajustes'''.
+
+As regras que exigem o artigo inteiro continuam desligadas na edição de uma seção. Isso evita acrescentar portais no meio do texto ou alterar referências cujo uso depende de outro trecho. A publicação usa os controles do editor da Wikipédia.
+
+=== Preparar a discussão de um artigo ===
+
+Na edição completa da discussão de um artigo, '''Criar código''' consulta os portais do artigo, monta o cabeçalho com PD primeiro e Marca de projeto depois e coloca o resultado no rascunho. Um clique faz a consulta e a inserção, sem salvar a página. Confira o texto em '''Ver o que mudou''' e na pré-visualização antes de publicar. '''Desfazer ajustes''' recupera a alteração enquanto ela ainda pertence à execução atual.
+
+A ação usa o registro completo de [[Módulo:Avaliação/Marcas]], os nomes alternativos ali definidos e os portais já conferidos no catálogo. Pode aproveitar chamadas de Portal3 no início da discussão ou nomes de portais colados na mesma linha. Um nome fora do catálogo recebe uma consulta pública para confirmar se existe um portal ou projeto correspondente antes da conversão. Por exemplo, <code>Portal da física Portal da tecnologia Portal da ciência</code> passa a um cabeçalho com Física, Tecnologia e Ciência. Os rótulos reconhecidos saem da linha original para não ficarem repetidos ao lado do cabeçalho. A mesma regra vale para os demais nomes confirmados. Se algum nome da linha não puder ser confirmado, a linha inteira fica intacta.<ref>[https://pt.wikipedia.org/w/index.php?oldid=73060837 Registro de marcas]. [https://pt.wikipedia.org/w/index.php?oldid=73060844 Módulo de avaliação], função que procura o projeto ou portal existente.</ref>
+
+<syntaxhighlight lang="wikitext">
+{{PD}}
+{{Marca de projeto|?|Física|?|Tecnologia|?|Ciência|?}}
+</syntaxhighlight>
+
+Portais dentro de referências, exemplos e outras predefinições não escolhem os projetos do artigo. Nomes desconhecidos, posições ambíguas e estruturas que não possam ser convertidas sem perder conteúdo permanecem para leitura manual. O texto existente permanece completo, incluindo comentários, assinaturas e chamadas de Traduzido. Se o texto mudar durante a consulta, o resultado antigo não pode substituir essa edição.
+
+Uma marca existente mantém a classificação, a importância e os parâmetros que já tinha. Os projetos confirmados podem ser acrescentados com <code>?</code>, sem atribuir uma avaliação ao artigo. Marcas com posições numeradas ou estrutura não reconhecida ficam preservadas, e cabeçalhos repetidos exigem conferência manual. Com o resumo automático ligado, um campo vazio recebe <code><nowiki>{{PD}}{{Marca de projeto}}</nowiki></code>, ou somente <code><nowiki>{{PD}}</nowiki></code> se não houver marca. Um resumo já escrito permanece igual.
+
+Os botões Ajustar código do painel e da área de publicação usam o mesmo verde. Depois de uma análise concluída, ambos passam a Código conferido, em verde claro. Eles continuam disponíveis para repetir a leitura e atualizar conferências públicas. Alterar o texto, mudar as opções ou desfazer os ajustes restaura a aparência inicial. Uma análise cancelada ou que falhou não recebe essa indicação.
+
+== Páginas e editores compatíveis ==
+
+O painel funciona no campo clássico de código-fonte, nas integrações de CodeMirror reconhecidas e no modo de código-fonte do editor de 2017. Não trabalha no modo visual do VisualEditor nem no wikEd. JavaScript, JSON e CSS comum ficam fora do painel. TemplateStyles tem uma conferência própria, descrita mais adiante.
+
+{| class="wikitable"
+! Tipo de página !! Como os ajustes funcionam
+|-
+| Artigo completo || Recebe os reparos de código e grafia. As regras de introdução, portais, idade, controle de autoridade, tabelas e edição menor têm confirmações próprias e podem exigir a página inteira.
+|-
+| Seção de artigo || Recebe apenas ajustes que não dependem de partes ausentes. A renomeação de famílias de referências e a reorganização do artigo exigem a página inteira.
+|-
+| Página de usuário, projeto, ajuda ou rascunho || Recebe os ajustes compatíveis de código e grafia. As adições próprias de artigos ficam desligadas.
+|-
+| Discussão || Uma assinatura reconhecida protege a conversa inteira, inclusive nas escolhas manuais de sintaxe, tabelas e ortografia. Mensagens novas e sem assinatura podem receber os ajustes mecânicos compatíveis. A ausência de assinatura não confirma a autoria do texto.
+|-
+| Definição de predefinição || Preserva os argumentos com três chaves e seus valores padrão. Não acrescenta elementos finais de artigo nem renomeia, reúne ou move referências. Ortografia automática e profissões em minúsculas ficam desligadas.
+|-
+| Documentação de predefinição || Pode ajustar a prosa de /doc e /documentação, preservando exemplos e código protegido.
+|}
+
+A correção ortográfica automática e o ajuste de profissões também ficam desligados nas discussões. Para preparar uma mensagem nova sem modificar comentários de outras pessoas, use o campo de nova seção.
+
+== Ajustes para páginas novas ==
+
+Os novos reparos automáticos usam '''Ajustar código''' e exigem que o programa reconheça o trecho completo e conserve o conteúdo que permanece no artigo.
+
+=== Título repetido antes da introdução ===
+
+Na página João da Silva, uma linha inicial <code><nowiki>== João da Silva ==</nowiki></code> pode ser retirada quando o primeiro parágrafo já começa pelo nome do mesmo assunto, com ou sem negrito. Uma seção inicial chamada Introdução pode receber o mesmo tratamento. O programa conserva o parágrafo e as estruturas anteriores, como uma infocaixa reconhecida.
+
+O ajuste exige a página inteira de um artigo e uma correspondência confirmada com o título da página. Não retira títulos no meio do texto, em tabelas, exemplos ou estruturas incompletas. Ligações para aquela seção, âncoras explícitas, títulos calculados ou uma abertura que não confirme o assunto impedem a retirada. Por cautela, outras ligações com uma parte iniciada por <code>#</code>, usada para apontar a uma seção, também podem impedir o ajuste. A regra não reescreve o primeiro parágrafo.<ref>[[Wikipédia:Livro de estilo/Seção introdutória|Livro de estilo, seção introdutória]].</ref>
+
+=== Chamadas e listas de referências repetidas ===
+
+Duas chamadas consecutivas da mesma referência podem virar uma quando usam o mesmo nome e grupo e existe uma definição completa sem conflito. Um nome igual em outro grupo não é a mesma referência. Texto entre as chamadas, nomes calculados ou definições concorrentes impedem o ajuste.
+
+Duas listas vazias e consecutivas de um mesmo grupo nomeado podem ser reunidas numa chamada. Listas que guardam definições, têm configurações diferentes, exibem grupos diferentes ou estão separadas por texto continuam no código. A regra não mistura notas com referências comuns.
+
+=== Citações com os mesmos campos em outra ordem ===
+
+Duas citações podem ser reutilizadas pelo mesmo nome quando têm exatamente os mesmos campos e valores, mesmo que os parâmetros estejam em ordem diferente. A comparação inclui os autores, títulos, páginas, datas, endereços e o conteúdo adicional. Não basta haver uma URL ou um DOI igual.
+
+A comparação também leva em conta as conversões de citações que o programa já aplicaria, como os campos de uma chamada importada de Cite web. Assim, a reutilização fica concluída na mesma execução, sem exigir outro clique. Os nomes alternativos válidos de citações nativas continuam como foram escritos, sem uma normalização nova só para uni-los. Campos repetidos, parâmetros definidos pela posição, conteúdo calculado e partes adicionais que impeçam confirmar a igualdade mantêm as referências separadas. A primeira definição fica completa e as demais usam o nome atribuído a ela.
+
+=== Atributos e fechamentos ===
+
+Um atributo de referência repetido com o mesmo valor pode ficar numa única ocorrência, como em <code>&lt;ref name="fonte" name="fonte"&gt;</code>. O mesmo vale para atributos literais reconhecidos na abertura de uma tabela. A lista de campos é restrita e todos os valores repetidos precisam ser idênticos. Valores diferentes ou atributos sem confirmação permanecem para revisão. A regra não inventa um nome nem substitui o grupo da fonte ou os dados da tabela.
+
+Os reparos de chamadas reconhecidas também podem tratar fechamentos trocados como <code>}]</code> e <code>]}</code>. O nome da predefinição, seus campos e a fronteira da chamada precisam ser reconhecidos. Nomes desconhecidos e estruturas calculadas continuam preservados.
+
+== Sintaxe e repetições ==
+
+'''Ajustar código''' procura os erros de fechamento previstos nas regras antes dos demais ajustes. Depois de um reparo, lê o resultado novamente. Os reparos estruturais exigem o artigo inteiro e ficam desligados em discussões, predefinições e edição de seção.
+
+Uma chamada simples de uma predefinição reconhecida pode receber as chaves finais quando termina com os delimitadores trocados previstos na lista ou perde uma das chaves. A chamada precisa ocupar uma linha isolada ou terminar numa fronteira de citação confirmada. Argumentos com três chaves, funções do analisador, nomes desconhecidos e campos calculados ficam preservados.
+
+Uma etiqueta final com barra invertida, como <code>&lt;\ref&gt;</code>, pode passar a <code>&lt;/ref&gt;</code> quando existe uma abertura correspondente sem conflito. A lista inclui apenas <code>ref</code>, <code>references</code>, <code>small</code>, <code>sup</code>, <code>sub</code> e <code>span</code>.
+
+Uma referência sem fechamento pode receber <code>&lt;/ref&gt;</code> diante de um <code>&lt;/references&gt;</code> compatível ou no fim real da página. Nesse último caso, o corpo precisa ser uma única linha de texto equilibrado ou uma única citação completa. A regra não escolhe onde interromper uma referência que possa ter englobado parágrafos do artigo.
+
+Uma abertura vazia <code>&lt;ref name="fonte"&gt;</code>, imediatamente antes de outra referência, pode virar uma chamada de reutilização quando há uma única definição compatível no mesmo grupo. Dentro de uma fonte já fechada, etiquetas abertas de <code>small</code>, <code>sup</code>, <code>sub</code> e <code>span</code> podem ser fechadas antes de <code>&lt;/ref&gt;</code>. Um fechamento correspondente fora da fonte impede essa mudança.
+
+Uma tabela simples que chega ao fim real da página sem <code>|}</code> pode receber essa marca. Todas as linhas precisam ser reconhecidas e ter a mesma quantidade de células. Células mescladas, tabelas internas, conteúdo calculado, prosa depois dos registros e linhas incompletas impedem o reparo. O programa não preenche dados.
+
+Desde a 2.6.2, a leitura das aspas fica limitada ao próprio campo nas referências completas e nos rótulos de ligações externas de uma linha. Em tabelas completas, esse limite também vale para células simples de uma linha, sem confundir os parâmetros de predefinições com células. A pontuação desses campos deixa de alcançar aspas de atributos fora deles, e as aspas do artigo são mantidas. Exemplos de código entre aspas e estruturas com limites incertos conservam suas proteções.
+
+Se uma estrutura continuar incompleta, o texto a partir do último limite confirmado fica igual. Alguns ajustes locais podem continuar na parte completa anterior. Nessa passagem, todas as referências nomeadas ficam protegidas para não mudar apenas parte de uma família que também pode aparecer adiante. O programa não acrescenta nem reorganiza portais, categorias ou listas finais com base numa leitura incompleta.
+
+Quando outros ajustes dependem do fechamento recuperado, a comparação os reúne no mesmo conjunto. Você pode aceitar ou rejeitar esse conjunto sem separar mudanças que precisam funcionar juntas. Os problemas resolvidos deixam de ser contados depois de uma nova leitura.
+
+=== Cópias de infocaixas e chamadas finais ===
+
+Uma segunda infocaixa pode ser retirada quando é uma cópia estática e exatamente igual do mesmo modelo. As caixas precisam estar juntas ou a primeira estar na introdução e a cópia no bloco final. Todos os campos, valores e sua ordem entram na comparação. Caixas com dados distintos, referências próprias, identificadores ou código não reconhecido permanecem.
+
+No fim da página, uma segunda chamada estática e idêntica de Portal3, Commonscat, Controle de autoridade ou uma caixa de navegação reconhecida pode ser retirada. Chamadas com parâmetros diferentes ficam no texto. Um título final comprovadamente vazio também pode ser retirado. Títulos que organizam subseções ou possuem conteúdo próprio permanecem.
+
+Listas globais de referências simples e redundantes podem ser reunidas numa lista depois das citações. Definições em <code>refs=</code>, grupos de notas, listas por seção, parâmetros próprios e conteúdo gerado por outros modelos continuam separados. Quando uma conversão precisa conservar uma lista sem título, a chamada usa <code>nível=0</code>.
+
+=== Resíduos de copiar e colar ===
+
+A categoria escrita diretamente como <code><nowiki>[[Categoria:!Artigos com descrição curta]]</nowiki></code> pode ser retirada. A regra não estende essa retirada a outras categorias de manutenção.
+
+Uma dupla codificação específica de <code>&amp;amp;</code> entre palavras pode virar <code>&amp;</code> na prosa comum. Referências, URLs, campos de infocaixas, aspas, itálicos, títulos, fórmulas e passagens sobre codificação ficam protegidos. Outras entidades não são interpretadas por essa regra.
+
+Cercas de Markdown que envolvem um artigo inteiro reconhecido podem ser retiradas quando têm abertura e fechamento compatíveis. Blocos internos, exemplos de programação e cercas incompletas permanecem. A retirada conserva o código do artigo dentro delas.
+
+A limpeza também reconhece os erros exatos de rótulo wiketext e wikitex. Marcas completas de citação deixadas ao exportar uma resposta de chat podem ser retiradas da prosa comum quando pertencem aos formatos conferidos. Referências, títulos, URLs, código, citações e exemplos ficam protegidos. Palavras como ChatGPT, Claude e Gemini não são apagadas por essa regra.
+
+=== Duplicações tratadas na 2.7 ===
+
+Em uma chamada simples de Portal3, o programa retira as repetições literais e mantém a primeira ocorrência. A regra também compõe essa limpeza com a conversão já existente de Portal para Portal3. Os demais portais ficam na mesma ordem. Chamadas com campos nomeados, opções, posições vazias ou valores calculados ficam como estão.
+
+Chamadas DEFAULTSORT exatamente iguais podem ser reunidas quando pertencem ao bloco final confirmado. A última chamada permanece. Chaves diferentes, opções e chamadas calculadas não recebem essa limpeza.
+
+Em uma infocaixa reconhecida, um campo vazio anterior pode ser retirado quando a última ocorrência do mesmo nome contém um valor literal preenchido. A regra não retira um campo vazio que esteja por último, não escolhe entre dois valores preenchidos e não trata comentários como conteúdo vazio.
+
+Referências com nomes diferentes podem passar a usar uma única definição quando o conteúdo é exatamente igual ou fica igual após as conversões de citações já conferidas. Todos os campos, a pontuação e os localizadores entram nessa comparação. A conferência exige nomes estáticos, definições sem conflito, o mesmo grupo e a mesma região de lista. Todas as chamadas precisam ser atualizadas juntas. Referências com páginas diferentes, continuação, conteúdo calculado ou limites incertos permanecem separadas.
+
+As quatro regras exigem o artigo inteiro no domínio principal. Comentários, exemplos literais e discussões assinadas permanecem protegidos.
+
+=== Nomes químicos e montagem da infocaixa ===
+
+Um hífen seguido de uma chave de abertura pode iniciar uma conversão de idioma no MediaWiki. Quando essa sequência pertence a um nome químico e não recebe o fechamento de uma conversão, a infocaixa pode aparecer como código no artigo.
+
+O RevisaWiki confere nome_IUPAC de Info/Droga e IUPACName ou SystematicName de Info/Química. Também confere um campo dadosN de Info ou Infocaixa quando há um único rótuloN com o texto literal Nome IUPAC. Se as chaves do nome estão pareadas e não há conversão válida, conteúdo calculado ou código protegido, a chave de abertura passa a ser escrita como entidade HTML. O texto visível continua igual.
+
+A regra exige o artigo inteiro no domínio principal. Campos duplicados ou ambíguos, exemplos, discussões, fórmulas e nomes com predefinições internas ficam preservados. A comparação mostra a troca e Desfazer ajustes restaura o código anterior.
+
+Em Info e Infocaixa, um identificador InChI literal e muito longo pode receber um elemento de apresentação que permite quebrar a linha. O identificador precisa estar em um par único de rótulo e dados, com o rótulo literal InChI ou InChI (forma hidratada). O valor precisa começar por 1S/, ter pelo menos 80 caracteres e formar um único trecho ASCII, sem espaços ou formatação. Caixas com classes ou estilos próprios ficam como estão. O programa não corta o texto, não insere espaços no identificador e não muda a largura escolhida para a caixa. Campos já formatados ficam como estão.
+
+== Citações e parâmetros ==
+
+O catálogo reconhece nomes de predefinições e campos usados na ptwiki. Um nome ausente do catálogo não é considerado errado por esse motivo. Perfis parciais preservam os campos que o programa ainda não conhece por completo.
+
+As formas aceitas <code>citar web</code> e <code>Citar web</code>, assim como parâmetros válidos como <code>titulo</code>, <code>título</code>, <code>lingua</code>, <code>língua</code> e <code>lang</code>, permanecem como foram escritas. Não há troca apenas para padronizar maiúsculas ou acentos. As regras de CS1 só são aplicadas aos modelos dessa família que aceitam os respectivos campos.
+
+A adaptação de <code>Cite news</code> usa <code>Citar jornal</code> e conserva o estilo CS1. Uma chamada válida de <code>Citation</code> já presente não é substituída só por ter nome em inglês. Esse modelo usa CS2 por padrão, com pontuação diferente.<ref>[https://pt.wikipedia.org/w/index.php?title=Predefinição:Cite_news&oldid=50398889 Redirecionamento de Cite news]. [https://pt.wikipedia.org/w/index.php?title=Predefinição:Citation&oldid=62525251 Código de Citation].</ref>
+
+=== Referências idênticas e chamadas repetidas ===
+
+Uma fonte sem nome pode reutilizar uma referência já nomeada quando todos os campos da fonte coincidem, incluindo páginas e notas. A comparação aceita as mesmas conversões de citações já usadas pelo programa, como Cite web para Citar web. As duas chamadas precisam estar no mesmo grupo e antes da mesma lista de referências. O conteúdo da definição mantida não é descartado nem substituído por uma fonte apenas parecida.
+
+Uma sequência de referências no mesmo ponto pode perder uma chamada repetida, sem texto, pontuação ou quebra de linha entre elas. Por exemplo, uma sequência A, B, A mantém A e B na ordem original. A regra também reconhece uma definição imediatamente seguida de outra chamada da própria referência. Pelo menos uma definição completa precisa permanecer no artigo.
+
+Uma etiqueta de referência sem atributos e sem conteúdo pode sair do código, como <code>&lt;ref /&gt;</code> ou <code>&lt;ref&gt;&lt;/ref&gt;</code>. Uma chamada com nome, grupo, comentário, predefinição ou qualquer outro conteúdo permanece. Um nome explicitamente vazio também não é usado para escolher outra definição.
+
+Quando uma referência completa termina com um único fechamento repetido, como <code>&lt;/ref&gt;&lt;/ref&gt;</code>, o segundo pode sair. A referência precisa ter corpo e limites completos, com o restante do código balanceado. Referências aninhadas, sequências maiores de fechamentos, exemplos e etiquetas malformadas ficam como estão.
+
+Essas regras novas exigem um artigo inteiro do domínio principal. Fontes definidas em listas têm os critérios próprios explicados abaixo. Chamadas calculadas, conteúdo protegido e atributos especiais, como follow ou details, impedem as consolidações incertas. Não há tentativa de descobrir uma fonte ausente por semelhança de nome ou endereço, nem novos avisos para os casos preservados.
+
+=== Fontes definidas na lista de referências ===
+
+Fontes completas guardadas em <code>&lt;references&gt;...&lt;/references&gt;</code> ou no parâmetro <code>refs=</code> de uma lista conhecida podem passar a uma única definição quando todos os campos coincidem. A comparação aceita as conversões de citações já conferidas pelo programa. As chamadas precisam pertencer ao mesmo grupo e à mesma região da lista. Páginas, trechos citados e outros localizadores entram na comparação, mesmo quando a URL é igual.
+
+Uma definição completa permanece no código e todas as chamadas reconhecidas recebem o nome correspondente. Fontes sem uso no texto, coletores com opções desconhecidas, grupos implícitos não conferidos, nomes calculados e predefinições que possam criar chamadas indiretas impedem o ajuste. O programa não escolhe entre fontes com dados diferentes.
+
+=== Nomes repetidos para fontes diferentes ===
+
+Um nome usado para duas fontes completas diferentes pode receber um sufixo na segunda fonte, como fonte-2, quando todas as ocorrências desse nome têm corpo completo. O nome novo precisa estar livre no mesmo grupo. Os nomes, as datas e o texto das fontes permanecem como estavam.
+
+Uma única chamada vazia, como <code>&lt;ref name="fonte" /&gt;</code>, impede essa separação porque não permite saber a qual das fontes ela se refere. O mesmo vale para chamadas indiretas, continuações, detalhes, definições dentro de listas e regiões de referências separadas. A correção não escolhe uma fonte pelo assunto do parágrafo.
+
+=== Espaço ausente na etiqueta ref ===
+
+Uma abertura como <code>&lt;refname="fonte"&gt;</code> pode passar a <code>&lt;ref name="fonte"&gt;</code> quando tem atributos literais válidos, um único fechamento correspondente e uma fonte completa. O reparo acrescenta somente o espaço necessário. Exemplos de código, citações, nomes calculados, atributos conflitantes e limites incertos ficam intactos.
+
+=== Estilos, publicação e endereços de referências ===
+
+Uma lista nativa de Referências com estilo literal pode participar dos reparos de nomes repetidos. O estilo fica exatamente como foi escrito. O programa também reconhece um conjunto pequeno de chamadas nativas conferidas que não acrescentam referências, incluindo números formatados e certas caixas finais. Isso permite conferir as fontes sem apagar essas chamadas. Predefinições desconhecidas, argumentos dinâmicos ou conteúdo que possa acrescentar outras referências continuam impedindo uma renomeação incerta.
+
+Nas chamadas nativas de Citar web e Citar jornal, um único parâmetro <code>blog</code>, com valor literal, pode virar <code>obra</code>. A mudança exige ausência de qualquer outro campo da mesma família, como jornal, revista, website ou site, mesmo se esse campo estiver vazio ou tiver o mesmo valor. O nome do modelo e os demais dados da fonte permanecem iguais. A presença de blog não decide se a referência deve usar Citar jornal ou Citar web.
+
+A correção de um endereço exige correspondência exata entre o artigo, a chamada e o endereço previamente conferidos. O catálogo guarda o par confirmado após consultas públicas ao endereço original e ao destino, com verificação da mesma publicação. Não há remoção geral de pontos ou outros sinais do fim das ligações. Um erro de rede, uma resposta bloqueada ou uma suposição pelo formato do endereço não autorizam a mudança. A regra não faz novas consultas aos sites durante o uso.
+
+Um título ausente, uma classificação de publicação duvidosa ou uma indicação de PDF sem comprovação precisam de revisão editorial. O script não inventa esses dados nem os apaga para esconder um aviso. Um conflito que permanece recebe um único aviso final por nome e grupo. Problemas diferentes continuam separados na conferência.
+
+=== Grupo da lista no parâmetro nativo ===
+
+Uma chamada como <code><nowiki>{{Referências|group=nota}}</nowiki></code> pode passar a <code><nowiki>{{Referências|grupo=nota}}</nowiki></code>. O nome em português é o campo aceito pela predefinição. A mudança exige um único grupo literal, sem outro parâmetro grupo, campos definidos pela posição ou argumentos calculados. O texto do grupo permanece igual. As etiquetas <code>&lt;ref group="nota"&gt;</code> e <code>&lt;references group="nota" /&gt;</code> continuam usando group, que é o atributo nativo dessas etiquetas.
+
+Um campo group ignorado pela predefinição não confirma que aquele grupo está sendo exibido, pois o atributo da etiqueta e o parâmetro da predefinição têm contratos diferentes. Uma chamada com grupos diferentes ou dados que não possam ser lidos com segurança permanece intacta.
+
+=== Campos equivalentes repetidos na citação ===
+
+Em Citar web, Citar jornal, Citar revista e Citar livro, campos que a implementação nativa trata como o mesmo dado podem perder as repetições. Por exemplo, <code>jornal=Publicação X</code> e <code>obra=Publicação X</code> ficam com o primeiro campo, exatamente como foi escrito. A regra compara todos os campos daquela família. Espaços nas pontas do valor podem ser ignorados na comparação, mas o valor mantido não é reescrito.
+
+Um campo vazio, um terceiro valor diferente ou conteúdo calculado impede a retirada daquela família. Autores e editores não entram nessa consolidação. Publicação e editora continuam sendo dados separados, mesmo quando têm o mesmo nome. O modelo, os demais parâmetros e os valores da fonte permanecem iguais. O catálogo aceita somente nomes de campos conferidos na implementação nativa.
+
+=== Colchetes no campo de endereço ===
+
+Um campo como <code>url=[https://example.test/fonte]</code> pode ficar como <code>url=https://example.test/fonte</code> se os colchetes envolverem somente um endereço HTTP ou HTTPS completo, sem rótulo. A regra conserva cada caractere do endereço, sem seguir redirecionamentos, retirar pontuação ou tentar reconstruir uma ligação.
+
+Um rótulo junto ao endereço, campos repetidos para a mesma função, credenciais, comentários, colchetes internos ou sintaxe calculada impedem a mudança. Endereço principal, endereço arquivado e endereço de capítulo têm campos próprios e não são trocados entre si. Os campos de capítulo recebem esse ajuste apenas na chamada nativa de Citar livro, onde a função foi conferida. O restante dos dados da citação permanece igual.
+
+=== Atributos repetidos da lista de referências ===
+
+Uma etiqueta <code>&lt;references group="nota" group="nota" /&gt;</code> pode ficar com um único atributo group quando todos os atributos são reconhecidos e os valores repetidos são exatamente iguais. O mesmo vale para responsive quando o valor literal é 0 ou 1. Um atributo desconhecido, uma aspa incompleta ou valores diferentes impedem o reparo.
+
+Quando a lista guarda fontes completas, cada definição precisa continuar no mesmo lugar e com o mesmo corpo. Bancos com conteúdo calculado, chamadas desconhecidas, exemplos protegidos ou estrutura ambígua permanecem como estão. A regra não transfere referências nem decide a qual fonte pertence uma chamada.
+
+Esses quatro ajustes exigem artigo inteiro do domínio principal e usam Ajustar código, com comparação e opção de desfazer. Não criam avisos genéricos para os casos preservados. Erros confirmados podem continuar na conferência. Cada campo ou atributo retirado conta como uma correção. Os dois colchetes externos de um único endereço contam juntos, como uma conversão.
+
+=== Destinos das citações abreviadas ===
+
+Uma chamada Harvard pode receber seu destino na bibliografia quando existe uma única obra local com a mesma sequência de autores e o mesmo ano. O programa propõe apenas <code>ref=harv</code> na citação completa, sem trocar autores, anos, títulos ou páginas. Um campo ref já escrito, inclusive none, impede a proposta.
+
+Antes de aplicar, a pré-visualização nativa precisa confirmar que o destino não existia, que passou a existir uma única vez e que o restante do conteúdo exibido ficou igual. A consulta também confere as ligações da citação abreviada. Cada confirmação vale para um único candidato no mesmo rascunho. Se o texto mudar ou a consulta falhar, o código permanece igual, sem um aviso adicional.
+
+=== Correção de referências de versões anteriores ===
+
+A 2.8.1 impede novas trocas indevidas de modelos, mas não desfaz uma troca que já tenha sido salva. A 2.8.2 acrescenta um catálogo de casos conferidos para corrigir essas referências pelo botão Ajustar código.
+
+Cada correção precisa corresponder ao artigo e à referência registrados. O título e os identificadores da fonte são conferidos com o registro, e diferenças nesses campos ou uma correspondência ambígua impedem a correção. O catálogo usa revisões públicas com número de revisão e hash, sem guardar os nomes de quem editou.
+
+O modelo de destino vem da referência conferida no artigo de origem. Notícias recebem Citar jornal, páginas web recebem Citar web e referências de revistas recebem Citar revista quando essa correspondência foi confirmada. Um endereço ausente só pode ser recuperado quando o mesmo endereço estiver comprovado para a mesma fonte. Os demais dados atuais ficam como estavam.
+
+No conjunto examinado, voltar todas as chamadas para Citar web repetiria erros de URL que já existiam antes da troca. A correção usa o tipo de cada fonte e os endereços conferidos para evitar esse resultado. Referências sem correspondência confirmada ficam como estão.
+
+Das 154 chamadas examinadas nesse caso, 132 receberam correspondência confirmada, com 101 chamadas de Citar web, 29 de Citar jornal e duas de Citar revista. As outras 22 continuam como Citation porque os dados disponíveis não bastam para confirmar a mesma fonte. A ferramenta não escolhe um endereço apenas pelo nome da publicação ou pela posição da referência no texto.
+
+Os 132 pares de referências, antes e depois da correção, foram conferidos na pré-visualização nativa da ptwiki por consultas anônimas, sem novos erros de citação. Um caso de controle com Citar web sem URL produziu o erro esperado.
+
+Uma chamada legítima de Citation fora desses casos permanece no mesmo modelo. A ferramenta não busca versões antigas durante o uso nem aplica essa correção a outro artigo por semelhança de título ou de publicação.
+
+=== Escolha do modelo da referência ===
+
+Uma chamada nativa de citar web continua nesse modelo quando o campo url falta ou está vazio, com os dados da fonte e a data de acesso preservados. A ferramenta não cria um endereço para preencher o campo nem retira dados por causa dessa ausência.
+
+Antes da 2.8.1, a proteção não alcançava todas as etapas da limpeza e uma chamada nativa sem URL ainda podia terminar como Citation. A 2.8.1 passou a manter o tipo da referência durante o processamento completo.
+
+Chamadas estrangeiras de notícias só recebem Citar jornal quando a equivalência do modelo foi conferida. Uma chamada válida de Citation já existente permanece nesse modelo, com seu estilo próprio. Modelos sem correspondência confirmada ficam como estavam.
+
+Os valores dos endereços de arquivo, inclusive os recebidos por archive-url, e os demais dados da referência são conservados. As adaptações de nomes de parâmetros continuam limitadas às equivalências já aceitas pela predefinição de destino.
+
+A conferência de preservação compara o tipo da citação e a data de acesso junto com o título e os identificadores da fonte. Ela recusa uma troca indevida de modelo ou a perda da data de consulta. Referências equivalentes ainda podem compartilhar uma definição.
+
+=== Nomes inválidos e parâmetros repetidos ===
+
+Parâmetros nomeados repetidos com valores idênticos podem ser consolidados, mantendo a formatação da última ocorrência. Valores diferentes permanecem. Parâmetros posicionais em posições diferentes não são reunidos.
+
+Um nome inválido pode receber a forma aceita quando há uma única equivalência confirmada no perfil completo e o campo de destino não está ocupado. A lista também contém erros exatos de digitação, como <code>acessodtaa</code>, <code>arquivourll</code> e <code>pagnias</code>. Uma forma válida já presente ou outro nome equivalente impede uma troca que criaria conflito.
+
+Campos vazios e comprovadamente inválidos podem ser retirados de um modelo com perfil completo. Campos válidos vazios permanecem, pois podem controlar um valor padrão. Modelos desconhecidos, perfis parciais e campos preenchidos não recebem essa retirada.
+
+Separadores ausentes só são recompostos entre campos completos reconhecidos. Por exemplo, uma data válida seguida de <code>url=https://example.org</code> pode receber a barra que faltou. A regra não divide frases, títulos ou endereços por adivinhação.
+
+=== Nomes de referências ===
+
+Nomes compostos apenas por algarismos podem ser substituídos por nomes válidos, com atualização conjunta das definições e chamadas. A regra alcança os atributos <code>name</code> e <code>follow</code>, além das formas reconhecidas de Refn, Nre, Efn e <code>#tag:ref</code>. O grupo permanece igual e pode continuar numérico.
+
+Referências anônimas exatamente iguais podem ser reunidas. A primeira recebe um nome livre como <code>ref-auto-1</code> e as seguintes usam esse nome. A regra mantém o grupo e não atravessa uma lista intermediária de referências. Fontes com páginas distintas, atributos especiais ou conteúdo adicional ficam separadas. Nomes antigos <code>RevisaWiki-auto-1</code> também podem receber a forma neutra, com todas as chamadas atualizadas.
+
+Essas mudanças exigem a página inteira e uma leitura completa das famílias envolvidas. Definições dentro de exemplos, estruturas calculadas ou código que não pôde ser lido impedem a mudança. A ferramenta não cria uma fonte para uma chamada sem definição.
+
+=== Cadernos, títulos e identificadores ===
+
+O campo <code>caderno</code> pode virar <code>departamento</code> em citações de jornal quando o nome do veículo, o domínio da URL e o valor da seção pertencem à lista conferida. O valor é mantido. Veículos sem confirmação, seções livres e campos concorrentes continuam para revisão.<ref>[https://pt.wikipedia.org/w/index.php?title=Predefinição:Citar_jornal/doc&oldid=57808104 Documentação de Citar jornal], campo departamento.</ref>
+
+Uma barra literal no título pode dividir o texto como se fosse outro parâmetro. Quando encontra um fragmento compatível, o programa oferece uma proposta para manter a barra como <code>&amp;#124;</code>. Você precisa conferir o título publicado antes de aceitar. Aspas comuns não protegem uma barra dentro de uma predefinição. A proposta não corta subtítulos ou slogans.
+
+Um DOI com possível ponto, vírgula ou ponto e vírgula acidental no fim pode receber uma consulta limitada à Crossref. O reparo exige confirmação do identificador sem a pontuação, do título, do ano e dos sobrenomes. Também precisa de respostas explícitas de ausência para o identificador original. Uma falha de conexão ou consulta incompleta mantém o valor. Há limite de três candidatos e seis segundos para cada consulta completa.<ref>[https://www.crossref.org/documentation/retrieve-metadata/rest-api/ API REST da Crossref].</ref>
+
+=== Endereços em campos de identificadores ===
+
+Quando pmc ou arxiv contém um endereço oficial no formato reconhecido, o RevisaWiki pode deixar somente o identificador que já estava nesse endereço. Um valor como <code>https://arxiv.org/abs/2501.12345v2</code> conserva <code>2501.12345v2</code>, incluindo a versão v2. O endereço da fonte em url permanece como está.
+
+A regra aceita caminhos exatos dos domínios oficiais conferidos para PMC e arXiv. Endereços com redirecionadores, consultas, fragmentos, credenciais, códigos calculados ou campos conflitantes permanecem. O programa não procura outro identificador nem consulta se o trabalho existe. O reparo só corrige o formato do campo, dentro dos limites aceitos pela predefinição nativa.
+
+=== Citações abreviadas ===
+
+Harvtxt, Harvnb, Sfn e outras formas reconhecidas podem ser conferidas contra a bibliografia do artigo. Parâmetros aceitos como last, last1, year e date também são reconhecidos nessa leitura, sem mudar o código da referência. O programa procura sobrenomes, anos e âncoras compatíveis e informa destinos ausentes ou conflitantes. Não inventa obras.
+
+Uma chamada como <code><nowiki>{{sfn|Smith, Jones|2020}}</nowiki></code> só pode ter os sobrenomes separados quando uma única obra da bibliografia confirma os dois autores nessa ordem, o mesmo ano e <code>ref=harv</code>. Outras obras, destinos próprios ou dados incompletos mantêm o código.
+
+=== Fotografias grandes na introdução ===
+
+Em artigos inteiros do domínio principal, sem infocaixa reconhecida, uma fotografia isolada na introdução pode receber apenas a opção <code>miniatura</code> quando a consulta pública confirma um arquivo do Wikimedia Commons, suas dimensões e os metadados reconhecidos de fotografia. O programa exige uma imagem grande, sem tamanho ou formato escolhido no código. Arquivo, legenda e texto alternativo permanecem como estão.
+
+Imagens dentro de infocaixas, tabelas, galerias, predefinições ou exemplos protegidos ficam fora dessa regra. Uso em linha, alinhamento explícito, ligações próprias e outras opções de apresentação impedem o ajuste. Arquivos identificados pelo nome ou pelas categorias como mapas, diagramas, bandeiras, assinaturas e panoramas também ficam preservados. Uma extensão de arquivo ou um nome que pareça fotografia não bastam para autorizar a mudança.
+
+A prova considera somente os campos necessários de identidade, tipo, dimensões e classificação fotográfica. A consulta falha ou inconclusiva mantém a imagem como está, sem um novo aviso. A miniatura usa o tamanho da Wikipédia e das preferências do leitor, sem acrescentar uma largura fixa.
+
+== Notas, listas e colunas ==
+
+As listas reconhecidas podem usar <code><nowiki>{{Referências}}</nowiki></code>. As formas singulares <code>Referência</code> e <code>Referencia</code> já são redirecionamentos válidos na ptwiki. O programa reconhece a lista antes de decidir se precisa acrescentar outra e pode trocar seu nome por <code>Referências</code>. Grupos, parâmetros, definições dentro de <code>refs=</code> e o restante do conteúdo ficam preservados. Uma lista de notas não passa a substituir a lista comum.<ref>[https://pt.wikipedia.org/w/index.php?oldid=46305837 Redirecionamento de Referência]. [https://pt.wikipedia.org/w/index.php?oldid=68804251 Redirecionamento de Referencia].</ref> Notas e referências simples, próximas e compatíveis podem ser reunidas em <code><nowiki>{{Notas e referências}}</nowiki></code>. Texto entre as listas, definições internas, grupos próprios e configurações diferentes impedem essa reunião.
+
+Nre e Efn são reconhecidas nas formas suportadas, inclusive em legendas. Efn é um nome alternativo de Nre e usa <code>lower-alpha</code> por padrão. Refn sem grupo usa a lista comum. O programa preserva essa diferença, os nomes válidos e os parâmetros que realmente funcionam na implementação da ptwiki. Não troca <code>group</code> por <code>grupo</code> apenas para traduzir a aparência do código.
+
+Uma lista de notas ausente só pode ser acrescentada quando a pré-visualização confirma o grupo não exibido no rascunho atual e há um ponto de inserção confirmado. Notas reconhecidas precisam estar no próprio código. Uma palavra numa URL ou em metadados não comprova a existência de uma nota. Grupos calculados, uma resposta antiga, um cabeçalho de notas já existente ou uma posição incerta impedem a inserção.
+
+=== Quando usar duas colunas ===
+
+Listas contínuas de '''Ligações externas''', '''Bibliografia''', '''Leitura adicional''' e '''Leitura complementar''' recebem duas colunas a partir de seis itens principais. Subitens não entram na contagem. Listas com até cinco itens ficam numa coluna. Pares simples de Div col já presentes podem ser retirados dessas listas curtas, sem modificar os itens. Estilos próprios e estruturas complexas ficam preservados. Listas curtas e escolhas válidas de formatação não geram avisos de revisão.
+
+O ajuste usa <code><nowiki>{{Div col|colunas=2}}</nowiki></code> e <code><nowiki>{{Div col fim}}</nowiki></code> apenas em torno da lista. Commons, portais, caixas de navegação, controle de autoridade e categorias ficam fora. InícioRef mantém a formatação bibliográfica sem ser tratado como uma definição de colunas.
+
+A opção de colunas para referências exige dez ou mais entradas reconhecidas na mesma lista. Uma referência nomeada conta uma vez por lista, mesmo quando tem várias chamadas. Os grupos e as listas sucessivas são contados separadamente. Listas com até nove entradas não recebem colunas fixas. Quando os dados não permitem confirmar a contagem de uma lista, sua apresentação permanece igual. Uma configuração válida de colunas já existente é mantida. Parâmetros antigos que a implementação conferida ignora podem ser retirados.
+
+O estilo novo permite até duas colunas, com uma largura mínima de leitura. Em telas estreitas, a lista volta a uma coluna. A quantidade de referências não altera a largura da tela, por isso a regra precisa conferir as duas condições. A orientação da ptwiki já prevê a divisão automática conforme a resolução. Esse mínimo de dez é um critério do script para acrescentar a formatação, sem impor uma regra editorial à Wikipédia.<ref>[[Wikipédia:Livro de estilo/Referências e notas de rodapé#Referências em colunas|Orientação sobre referências em colunas]].</ref>
+
+Notas e referências conserva a apresentação automática da predefinição. Essa chamada não recebe parâmetros novos de colunas. Os argumentos já escritos, as definições em <code>refs=</code> e os grupos são conservados. Atualizar o JavaScript não muda o código da predefinição compartilhada.
+
+=== Lista que mostra apenas um número ===
+
+Uma chamada de Colunas-lista pode mostrar só "2" quando o texto da lista contém um sinal de igual e ficou num argumento sem nome. O reparo explicita <code>2=</code> no argumento que guarda a lista. Conserva os itens, sua ordem, os endereços e o número de colunas. Argumentos duplicados, estruturas aninhadas e formas ambíguas permanecem iguais.
+
+== Infocaixas, profissões e idade ==
+
+Em Info/Biografia, o campo <code>fundo</code> vazio ou com o valor literal <code>instrumentista_sem_vocal</code> pode ser retirado. A implementação conferida ignora esse campo, e a comparação da infocaixa renderizada confirmou a mesma aparência. A exceção não autoriza apagar outros valores desconhecidos.
+
+O catálogo reúne infocaixas e modelos auxiliares com nomes, parâmetros, revisões de origem e indicação dos perfis parciais. Ele cobre pessoas, assentamentos, instituições, transportes, ciência, cultura e esportes. Uma infocaixa estrangeira ou um campo desconhecido não é convertido sem correspondência confirmada.
+
+Uma infocaixa reconhecida que já tenha um campo por linha pode receber espaços antes dos sinais de igual para alinhá-los no código-fonte. Os nomes dos campos, sua ordem e tudo que vem depois de cada sinal de igual permanecem como estavam, incluindo datas, ligações e referências. O ajuste exige o artigo inteiro do domínio principal. Caixas compactas, valores distribuídos em mais de uma linha e exemplos protegidos ficam iguais. Desligar Infocaixas ou Marcação também desliga esse alinhamento.
+
+Nos campos de ocupação de uma infocaixa individual reconhecida, profissões comuns podem receber inicial minúscula, como <code>professor da Universidade de Coimbra</code>. O restante do valor permanece igual. Nomes próprios, siglas, títulos inteiramente em maiúsculas e conteúdo calculado ficam protegidos. Em ligações, o destino permanece igual e apenas o rótulo pode ser ajustado.<ref>[https://pt.wikipedia.org/w/index.php?oldid=71089741 Documentação de Info/Biografia], observação 6. [https://pt.wikipedia.org/wiki/Ajuda_Discuss%C3%A3o:Infocaixa#Mai%C3%BAscula_ou_min%C3%BAscula_nos_campos_das_infocaixas_em_geral%3F Discussão sobre maiúsculas nos campos das infocaixas], consenso de 16 de janeiro de 2018.</ref>
+
+Listas de profissões só recebem o ajuste quando todos os itens são reconhecidos. A leitura aceita os campos de ocupação e profissão previstos no catálogo, incluindo formas alternativas. Não usa o texto de referências como profissão. Caixas musicais precisam indicar uma pessoa solo, pois o mesmo modelo também pode representar grupos.
+
+A exibição de idade pode ser recuperada retirando <code>si</code> ou <code>sem idade</code> de Dni no nascimento da infocaixa principal. A regra exige data completa, confirmação direta de Categoria:Pessoas vivas, ausência de indício reconhecido de morte e o artigo inteiro. As grafias válidas <code>dni</code> e <code>Dni</code> permanecem como foram escritas.
+
+A conferência de biografias também pode apontar títulos ou patentes antes do nome, siglas de distinções na abertura e diferenças entre datas do primeiro parágrafo e da infocaixa. Esses casos precisam de fontes e leitura manual. A ferramenta não escolhe uma data nem reescreve a biografia por conta própria.
+
+=== Casamento em campos de cônjuge ===
+
+A conversão cobre 33 infocaixas e nomes alternativos. A lista conferida fica em [https://github.com/danrego/RevisaWiki/blob/main/src/v2_7_3/CONTRACTS.json contratos das infocaixas]. Ela abrange biografias gerais, cientistas, políticos, atores, escritores, jornalistas, músicos e algumas modalidades esportivas. A ferramenta só trabalha no artigo inteiro do domínio principal, com uma única infocaixa pessoal no início do texto e um campo de cônjuge reconhecido.
+
+Um nome seguido de uma anotação como "casados em 2000" pode receber a predefinição de casamento. O nome, a ligação e a data permanecem nos argumentos. A forma escrita no campo determina o parâmetro de concordância. O programa não procura o gênero pelo nome nem completa dados com a data de morte da pessoa.
+
+<syntaxhighlight lang="wikitext">
+| cônjuge = [[Pessoa de exemplo]] (casados em 2000)
+</syntaxhighlight>
+
+O campo passa a usar:
+
+<syntaxhighlight lang="wikitext">
+| cônjuge = {{casamento|tipo=c|()=pequeno|[[Pessoa de exemplo]]|2000}}
+</syntaxhighlight>
+
+Anotações com "casado", "casada" ou "casados" precisam trazer uma data literal. São aceitos anos de quatro algarismos entre 1000 e 9999, datas completas por extenso e datas ISO, como 2000-03-15. O calendário é validado antes da conversão. As datas completas ficam escritas da mesma forma nos argumentos e nos detalhes que a predefinição exibe ao passar o ponteiro sobre o ano.
+
+Um intervalo explícito com "de" e "a" ou "entre" e "e" conserva as duas datas, sem deduzir divórcio ou viuvez. Uma indicação de divórcio, separação ou viuvez precisa ter sua própria data e concordar com a forma inicial. O estado civil é mantido no parâmetro fim. Se não houver data final, a ferramenta conserva apenas a data inicial e não acrescenta "presente".
+
+Referências colocadas depois de toda a anotação permanecem no mesmo ponto, com o conteúdo e a ordem preservados. Referências no meio do nome ou da data, datas aproximadas e construções ambíguas ficam como estavam. Listas de cônjuges só são convertidas nos casos separados e explícitos explicados abaixo. Um nome seguido apenas de anos também fica preservado, pois eles podem ser datas de nascimento e morte. Chamadas de casamento já existentes não são reescritas.
+
+Nas caixas musicais, o campo fundo precisa indicar explicitamente cantor solo, instrumentista sem vocal ou pessoa sem performances. O nome da caixa, sozinho, não basta para distinguir uma pessoa de uma banda. Nas caixas esportivas, parceiro de dupla não é cônjuge. A regra não cria campos que a infocaixa não exibe.
+
+Se a leitura de um trecho posterior ficar incompleta no analisador, a ferramenta pode conferir separadamente a infocaixa completa no início do artigo. Ela exige que os limites da mesma caixa sejam confirmados nas duas leituras, conserva o trecho protegido e não usa seu conteúdo para completar dados. Uma possível segunda infocaixa nesse trecho impede a conversão.
+
+A conversão aproveita apenas as correções de parâmetros já permitidas pelas regras anteriores. Quando a tradução de uma infocaixa ou de um campo estrangeiro já tem equivalência aprovada, ela pode ser concluída no mesmo clique, desde que o destino seja uma das 33 caixas conferidas. A opção de tradução precisa estar habilitada. Campos de cônjuge conflitantes e rótulos personalizados impedem esse ajuste. A conferência do resultado também vincula o casamento aos demais campos da mesma infocaixa, para que a comparação não separe ou perca informações. Desfazer ajustes restaura o rascunho original.
+
+=== Imagens e parâmetros de biografias ===
+
+Os campos e as revisões conferidos ficam nas listas de [https://github.com/danrego/RevisaWiki/blob/main/src/v2_8/FIELDS_CONTRACTS.json imagens, parâmetros e apresentação] e [https://github.com/danrego/RevisaWiki/blob/main/src/v2_8/DATES_CONTRACTS.json datas]. Uma regra só atua quando há correspondência explícita para a infocaixa usada.
+
+Quando o campo imagem contém uma única ligação simples de arquivo, a ferramenta pode separar o nome do arquivo, o tamanho e a legenda. Isso depende dos campos aceitos pela infocaixa. Uma legenda já preenchida com outro texto impede a conversão. Opções de recorte, destino da imagem, texto alternativo ou composição que a regra não compreende também mantêm o campo original.
+
+Erros como nacimento_data e nacionaldade têm correções próprias nas caixas conferidas. A regra não escolhe o parâmetro mais parecido. Nomes alternativos válidos continuam como estão, e um campo de destino preenchido não é sobrescrito.
+
+Uma ligação como <code><nowiki>[[https://example.org|Site oficial]]</nowiki></code> pode virar uma ligação externa no campo de site. Protocolos repetidos, como https://https://example.org, podem ser reduzidos ao protocolo único correspondente. O endereço, o caminho e o texto do link são conservados. A regra não troca HTTP por HTTPS nem escolhe outro domínio.
+
+Listas curtas de profissões conhecidas, separadas por vírgulas, podem receber quebras de linha. Cada item precisa ser uma profissão completa reconhecida. A ordem, as ligações e as referências são preservadas. Uma vírgula dentro de um nome ou uma expressão que a regra não reconhece impede a conversão.
+
+O negrito externo de um campo de nome só é retirado quando a infocaixa já exibe todo esse cabeçalho em negrito e não há estilos próprios. Outros nomes, nomes completos em campos secundários e ênfase em apenas parte do texto ficam como estavam.
+
+=== Categoria de nascimento repetida ===
+
+Quando a data de nascimento da pessoa está em uma chamada ativa de Dni na infocaixa principal reconhecida, o RevisaWiki pode retirar as linhas de categoria que repetem o mesmo ano. Antes disso, uma consulta anônima à ptwiki precisa confirmar que a chamada gera exatamente essa categoria. A categoria continua no artigo pelo resultado da predefinição. Também são aceitos os nomes alternativos DNI, Nascimento e idade e Data de nascimento.
+
+O ano precisa ter quatro algarismos, de 1000 até o ano atual, com mês e dia válidos quando informados. A infocaixa precisa ter um único campo de nascimento aceito e o nome da mesma pessoa do título do artigo.
+
+A retirada alcança apenas linhas de categoria explícita isoladas e sem barra vertical, incluindo repetições idênticas. Outra chamada ativa da mesma categoria com uma barra vertical impede o ajuste, mesmo que a chave esteja vazia. DEFAULTSORT permanece como está, sem impedir a retirada de uma linha simples. A regra não retira outras categorias nem muda datas ou os dados da infocaixa.
+
+O parâmetro si de Dni desliga a idade exibida, mas mantém a categoria do ano de nascimento. nocat vazio permite a categorização normal, mas qualquer valor preenchido, inclusive 0 ou false, impede esse ajuste. Uma categoria de outro ano, uma data sem confirmação, campos conflitantes, chamadas calculadas, trechos protegidos ou estruturas desconhecidas mantêm a categoria no código.
+
+A resposta precisa corresponder ao mesmo texto e à mesma chamada. Uma confirmação de um texto anterior ou uma resposta com avisos não autoriza a retirada.
+
+O ajuste exige um artigo inteiro do domínio principal. Não atua em discussões, predefinições ou edição de seção. Se a consulta falhar ou não confirmar a mesma categoria, ela permanece no código, sem um aviso adicional. Os outros ajustes podem continuar.
+
+=== Datas completas e idade ao morrer ===
+
+Uma data de nascimento com idade atual pode receber si quando a mesma infocaixa traz uma data de morte completa e válida. A ferramenta também pode usar nascimento e morte completos para preparar a chamada de Morte com idade ao morrer. Ela confere o calendário, a ordem das datas e a ausência de conflito com a categoria Pessoas vivas.
+
+As datas precisam estar explícitas em campos aceitos, sem valores concorrentes. Datas aproximadas, incompletas, futuras, calendários indicados separadamente e formatos desconhecidos ficam intactos. Referências depois da data permanecem no lugar. A ferramenta não presume a morte pela idade nem busca datas para completar o campo.
+
+=== Vários casamentos separados ===
+
+Uma lista de cônjuges pode ser convertida quando cada item está separado por uma quebra de linha HTML ou por um marcador de lista e tem sua própria anotação explícita de casamento. O nome, as datas e o estado civil continuam associados ao mesmo item, com as referências no mesmo ponto.
+
+Todos os itens precisam passar pela conferência. Um nome seguido apenas de anos, uma data solta ou uma indicação ambígua mantém a lista original. Vírgulas e a palavra e não são usadas para dividir nomes de cônjuges. A regra não deduz divórcio ou viuvez a partir de outro casamento ou da morte da pessoa.
+
+As regras novas atuam no artigo inteiro, em uma única infocaixa pessoal principal com limites completos. Exemplos em comentários, código, citações, páginas de discussão e caixas incorporadas não são usados como dados da pessoa. Casos recusados por essas regras não geram avisos adicionais.
+
+== Portais e elementos finais ==
+
+Uma infocaixa principal de pessoa pode confirmar a adição de '''Biografias''' numa chamada de Portal3. Se já houver portais, o programa usa uma posição vazia e conserva os demais. Biografia também conta como nome válido já presente. Caixas de banda, equipe, evento ou grupo não confirmam uma pessoa individual.
+
+O país exige nacionalidade ou cidadania explícita e sem conflito. Quando esses campos estão vazios, a regra pode usar um país escrito no local de nascimento. Cidade, clube, sobrenome ou língua não bastam. Um portal de estado brasileiro já presente impede acrescentar Brasil de forma redundante.
+
+Os assuntos usam profissões completas, a modalidade ou o tipo de infocaixa individual reconhecida. Jornalista pode permitir Jornalismo, químico pode permitir Química e jurista pode permitir Direito. Ator, sozinho, não escolhe cinema, teatro ou televisão. Piloto, sozinho, não escolhe uma modalidade.
+
+Em biografias esportivas, novas adições usam '''Esportes''' e podem incluir a modalidade confirmada. Os nomes existentes Esporte, Esportes, Desporto e Desportos contam como o mesmo portal para evitar duplicação. Tênis de mesa não vira Tênis e um dado incerto não escolhe outro esporte.
+
+Na leitura dos portais, as formas de nacionalidade <code><nowiki>{{RUSn|o}}</nowiki></code> e <code><nowiki>{{RUSn|a}}</nowiki></code> confirmam Rússia. Listas literais reconhecidas de Hlist e Lista horizontal permitem conferir cada ocupação. Cineasta documentarista confirma Cinema e Entretenimento, e professor confirma Educação. Uma predefinição desconhecida dentro desses campos mantém a leitura sem confirmação.
+
+=== Mulheres ===
+
+Mulheres exige uma confirmação própria. Pode vir de uma categoria diretamente escrita no artigo e presente na lista de categorias femininas verificadas. A outra forma usa uma consulta pública ao Wikidata, vinculada à pessoa e ao rascunho aberto. O item precisa corresponder ao título da página e ter dados pessoais compatíveis, sem conflitos reconhecidos.
+
+Nome, pronome e forma feminina de uma profissão não bastam. Campos de gênero literário ou musical também não confirmam dados pessoais. O programa não escreve no Wikidata nem preenche um campo de sexo ou gênero ao acrescentar o portal. Uma consulta sem resposta ou sem confirmação mantém o texto.
+
+=== Capacidade e ordem final ===
+
+Portal3 aceita dez posições. Campos repetidos, valores calculados, ausência de espaço ou uma chamada fora do bloco final impedem uma adição automática. Nenhum portal preenchido é retirado para abrir lugar. A regra usa valores posicionais simples e preserva os nomes válidos já escritos.
+
+Controle de autoridade só é acrescentado quando os identificadores disponíveis permitem mostrar conteúdo na implementação reconhecida. A presença de uma biografia, por si só, não basta. Falhas de consulta ou identificadores sem confirmação impedem a adição.
+
+A organização final usa apenas estruturas cuja função e posição foram reconhecidas. Mantém listas, Commons, caixas de navegação, controle de autoridade, portais, DEFAULTSORT e categorias fora de invólucros indevidos. Chamadas desconhecidas ou estruturas próprias podem impedir a reorganização. A ordenação não apaga categorias para fazer o texto caber num modelo.
+
+=== Novos assuntos dos portais automáticos ===
+
+Uma única infocaixa principal reconhecida precisa confirmar o assunto, antes da primeira seção. A regra exige artigo inteiro do domínio principal, conserva os portais já escritos e respeita o limite de dez posições. Exemplos de código, listas, desambiguações, caixas repetidas ou dados conflitantes impedem as inferências incertas.
+
+Nas biografias de futebol, as caixas nativas conferidas confirmam Biografias, Esportes e Futebol. A nacionalidade explícita tem prioridade para o país. Na ausência desse campo, um país de nascimento literal pode ser aproveitado mesmo quando há uma cidade num campo separado. Um clube, uma seleção, uma liga ou uma cidade isolada não confirmam nacionalidade. Dados explícitos de futebol de salão ou futebol americano impedem aplicar o padrão de futebol de campo. Mulheres exige confirmação própria, sem adivinhar pelo nome.
+
+Filmes reconhecidos podem receber Cinema e Entretenimento. Programas de televisão exigem um formato reconhecido. Ficção, variedades e competições podem receber Entretenimento, enquanto um programa jornalístico recebe somente Televisão por esse critério. Animação precisa estar explícita. O país vem da produção, sem dedução pelo idioma, local de gravação, emissora, elenco ou premiações.
+
+Em taxonomia, campos literais de reino, domínio, classe ou grupo viral podem confirmar Biologia e os portais correspondentes. Animais, plantas, fungos, bactérias e vírus têm critérios separados. Um nome latino, uma cor de caixa ou a área de distribuição não bastam para escolher um grupo. Categorias amplas que reúnem grupos diferentes não autorizam um portal mais específico.
+
+Infocaixas nativas de vacinas confirmam Farmácia, Medicina e Saúde. Caixas de medicamentos confirmam Farmácia, e caixas de doenças confirmam Medicina e Saúde. Uma infocaixa química genérica exige os campos farmacológicos reconhecidos, com classificação estruturada. Uma fórmula química ou um identificador isolado não bastam. O agente causador, o tratamento ou o fabricante não mudam o assunto principal da página.
+
+Caixas finais reconhecidas de elenco e seleção podem permitir acrescentar portais sem reorganizar o restante. Uma predefinição desconhecida não passa a ser tratada como navegação só pelo título. As consultas para conferir a função dessas caixas também funcionam quando a opção de reordenar o final está desligada. Casos sem confirmação ficam como estão, sem novos avisos.
+
+== Resíduos de traduções e apresentação ==
+
+O catálogo tem regras de código para 23 edições linguísticas. Inclui inglês, espanhol, alemão, francês, russo, ucraniano, turco, hebraico, italiano, romeno, coreano, japonês, chinês, cantonês, vietnamita, tailandês, neerlandês, dinamarquês, sueco, finlandês e árabe, além de regras separadas para o norueguês bokmål e nynorsk. A cobertura varia entre as línguas.
+
+As regras podem adaptar nomes de predefinições, campos, opções de imagens, categorias e arquivos, títulos de seções, palavras mágicas e funções reconhecidas. Títulos publicados, autores e endereços ficam preservados. O texto do artigo e os nomes de categorias não são traduzidos por adivinhação. Campos preenchidos sem equivalência confirmada podem impedir uma conversão.
+
+As chamadas <code>AP</code>, <code>Ap</code> e <code>Main</code> já são nomes alternativos válidos de <code>Artigo principal</code> na ptwiki. A correção troca somente o nome da chamada. Conserva os argumentos, a ordem, os rótulos e a numeração explícita, inclusive quando um valor contém <code>=</code>. Esses nomes não são apontados como resíduos de outra Wikipédia apenas por usarem uma abreviatura ou uma palavra em inglês.<ref>[https://pt.wikipedia.org/w/index.php?oldid=46228305 Redirecionamento de AP]. [https://pt.wikipedia.org/w/index.php?oldid=57134504 Redirecionamento de Ap]. [https://pt.wikipedia.org/w/index.php?oldid=46260353 Redirecionamento de Main].</ref>
+
+O nome de um módulo Lua em <code>#invoke</code> ou <code>#invocar</code> é mantido. Conferir destinos pode procurar módulos ausentes. Uma ligação com Anexo também permanece sem confirmação do destino equivalente, pois retirar o prefixo pode apontar para outro título.
+
+Ligações internas redundantes podem ser simplificadas quando destino e texto permanecem equivalentes. Sete correspondências históricas de nomes, como Alquindi e Avicena, têm destinos portugueses confirmados. Isso não autoriza traduzir outros nomes livremente.
+
+Formas simples de séculos e anos antes de Cristo podem receber séc e AC nas condições previstas nas regras. Aspas, itálicos, títulos, ligações, tabelas e fontes ficam protegidos. O ponto final de uma legenda simples de imagem pode ser retirado quando não é uma abreviatura, reticência ou outro caso protegido. O arquivo e as palavras da legenda permanecem iguais.
+
+=== Atalhos opcionais ===
+
+Atalhos opcionais que dependiam de páginas pessoais deixaram de ser expandidos.
+
+=== Ligações em títulos de seções ===
+
+Quando todo o título é uma ligação, Ajustar código pode conservar o rótulo em texto simples e inserir Artigo principal logo abaixo. Precisa confirmar por consulta pública que o destino existe, está no domínio principal e não é uma desambiguação nem o próprio artigo. Uma chamada existente para o mesmo destino é conservada. Uma remissão diferente, fragmentos, ligações parciais, nomes calculados ou títulos em tabelas mantêm o código.<ref>[https://pt.wikipedia.org/w/index.php?title=Wikipédia:Livro_de_estilo&oldid=73204357#Títulos_das_seções_do_artigo Livro de estilo, títulos de seções]. A chamada Artigo principal é uma escolha restrita da ferramenta para esse padrão.</ref>
+
+== Tabelas e datas ==
+
+A conferência de tabelas procura células sobrepostas, linhas incompletas e fechamentos ausentes. Leva em conta <code>rowspan</code>, <code>colspan</code> e <code>rowspan="0"</code> nas estruturas reconhecidas. Tabelas internas, linhas produzidas por predefinições, atributos calculados e estruturas que atingem o limite de leitura ficam sem reparo automático.
+
+Pode reduzir um rowspan que ultrapasse o fim de uma tabela estática e retirar uma barra isolada depois dos atributos da tabela ou de uma linha. Precisa reconhecer a grade inteira e confirmar que os dados, as referências, as imagens e as ligações permanecem iguais.
+
+Em tabelas simples de dados, pode acrescentar <code>scope="col"</code> ou <code>scope="row"</code> a células já escritas como cabeçalhos. A regra exige wikitable, uma linha completa de cabeçalhos, pelo menos duas colunas e uma linha de dados. Células mescladas, cabeçalhos vazios e tabelas de apresentação ficam fora. Não transforma uma célula comum em cabeçalho por adivinhação.
+
+Subtítulos anuais podem ser colocados fora de uma tabela estática e separados em tabelas por ano. Os anos precisam estar entre 1000 e 2999 e ser o único conteúdo de uma linha reconhecida como subseção. Os cabeçalhos simples são repetidos e os blocos de dados permanecem completos. Rowspan que atravesse o limite, tabelas internas, referências nos cabeçalhos e código calculado impedem a divisão. Linhas iguais não são apagadas como se fossem eventos repetidos.
+
+A posição das referências junto à pontuação conserva os separadores de tabelas e os sinais entre dígitos, como em 3,14 e 12:30. A conferência também preserva desigualdades matemáticas, fórmulas e trechos protegidos.
+
+A conferência de datas procura dias impossíveis, morte anterior ao nascimento e término anterior ao início. Aceita as formas completas reconhecidas em ISO, meses em português e chamadas simples de Dni e DataExt. Uma data numérica com barras só é comparada se a ordem for inequívoca ou dia e mês forem iguais. Anos isolados, aproximações, outros calendários e campos concorrentes permanecem sem decisão. Nenhuma data é escolhida por adivinhação.
+
+=== Aspas em atributos de células ===
+
+Em uma tabela completa, uma aspa ausente no valor numérico de rowspan ou colspan pode ser acrescentada quando o separador seguinte e a estrutura da célula confirmam onde ela deve fechar. A regra exige o artigo inteiro no domínio principal, uma wikitable literal fora de outras tabelas e um único rowspan ou colspan antes do separador. O valor precisa ser um inteiro positivo, e o conteúdo da célula precisa ser fixo e ocupar uma só linha. Atributos calculados, trechos protegidos e estruturas ambíguas ficam preservados. Se uma segunda leitura expõe outro reparo que não pôde ser confirmado junto do primeiro, o código permanece como estava.
+
+Algumas predefinições de resultados, como Ind e Venceu, fornecem os atributos e o separador da célula. Uma linha com rowspan seguido de uma dessas chamadas pode estar correta. O programa conserva essa composição e não acrescenta um separador antes da chamada.
+
+As aspas que começam dentro de um trecho em itálico ou negrito e terminam logo depois dele passam a ser lidas em conjunto. Essa mudança pertence ao analisador e mantém o texto do artigo idêntico.
+
+Depois dos reparos confirmados, a ferramenta verifica novamente se o trecho final pode ser ajustado. Os portais continuam dependendo dos critérios de biografia, assunto e dados confirmados descritos neste manual. Uma tabela ainda incompleta não autoriza alterações no trecho protegido.
+
+=== Atributos e cabeçalhos de tabelas ===
+
+Em células, linhas e legendas de tabelas literais completas, atributos repetidos podem ficar com uma única ocorrência quando têm valores exatamente iguais. Por exemplo, <code>colspan="2" colspan="2"</code> mantém <code>colspan="2"</code>. Valores diferentes não são escolhidos pelo programa. A grade, a ordem dos dados e o conteúdo das células precisam permanecer iguais.
+
+Uma aspa de fechamento repetida em rowspan ou colspan pode sair quando há um único atributo numérico, um separador explícito e texto simples na célula. A regra não tenta completar células nem escolher quantas colunas uma tabela deveria ter. Tabelas calculadas, aninhadas, incompletas ou com estrutura incerta ficam como estão.
+
+Em um cabeçalho simples com dois níveis, a fileira superior pode agrupar colunas com colspan e a inferior pode receber <code>scope="col"</code>. Os grupos precisam cobrir exatamente as colunas inferiores, e o corpo precisa formar uma grade regular. A mudança informa aos leitores de tela quais células são cabeçalhos de coluna, sem alterar os nomes ou os valores exibidos.
+
+Esse acréscimo não muda o alcance dos grupos superiores e não substitui associações já definidas. Cabeçalhos com rowspan, identificadores próprios, associações headers ou escopos conflitantes impedem a mudança. As novas regras de tabela atuam somente na edição completa de artigos do domínio principal.
+
+=== Separadores e fechamentos de tabelas ===
+
+Em uma tabela estática completa, um separador <code>|</code> ausente entre atributos e conteúdo pode ser recolocado quando o campo começa com atributos reconhecidos entre aspas e tem um scope, rowspan ou colspan explícito. Aspas tipográficas emparelhadas em um rowspan ou colspan numérico podem virar aspas retas. Uma linha vazia de separação repetida ou deixada imediatamente antes do fim também pode sair, desde que não tenha atributos, comentário ou conteúdo próprio.
+
+Um fechamento isolado <code>&lt;/table&gt;</code> pode passar a <code>|}</code> quando encerra uma única wikitable literal e não há tabela HTML ou tabela interna que explique aquela etiqueta. Os reparos precisam produzir uma grade completa e regular, preservando as linhas, os rótulos, as referências e os dados das células. O programa não completa linhas pela aparência nem decide quantas células deveriam existir.
+
+=== Cabeçalhos com três ou quatro níveis ===
+
+Cabeçalhos individuais de coluna podem receber <code>scope="col"</code> sob três ou quatro níveis de grupos explícitos de colspan. Cada grupo precisa cobrir exatamente os grupos ou colunas abaixo dele, sem cruzamentos. A fileira inferior deve ter uma célula por coluna e o corpo precisa manter uma grade regular. Rowspan, associações headers, identificadores próprios ou escopos conflitantes impedem o acréscimo. Os grupos superiores conservam sua marcação.
+
+=== Rolagem de tabelas largas ===
+
+Uma tabela larga pode receber um contêiner de rolagem quando tem o formato estático reconhecido, com width de 100%, table-layout fixo e uma largura mínima explícita de pelo menos 640 px ou 40 em ou rem. O contêiner recebe <code>max-width:100%;min-width:0;overflow-x:auto;</code>. Uma caixa simples de rolagem já existente também pode receber esses limites quando envolve somente aquela tabela.
+
+A largura mínima da tabela permanece no código, assim como todas as células e seus dados. A mudança limita a caixa de rolagem à área disponível, sem impor uma largura nova a cada coluna. Tabelas aninhadas, contêineres próprios, atributos fora da lista reconhecida e estruturas calculadas ficam como estavam. A existência de uma tabela grande, por si só, não autoriza reescrever sua apresentação.
+
+=== Números formatados e ordenação ===
+
+Uma chamada como <code><nowiki>{{formatnum:1200}}</nowiki></code> no conteúdo de uma célula pode permanecer na tabela sem impedir os demais reparos. A chamada precisa conter somente um número literal, sem outro argumento ou expansão. O programa não calcula nem substitui o número. Uso dentro de atributos, antes de um separador ausente ou em partes que possam mudar a estrutura continua impedindo o reparo que depende dessa leitura.
+
+Tabelas ordenáveis podem conservar <code>data-sort-value</code> e <code>data-sort-type</code> enquanto recebem os reparos já confirmados para a grade. Os valores são preservados exatamente. O tipo precisa pertencer à lista reconhecida, e data-sort-type só é admitido em cabeçalhos. A tabela também precisa declarar a classe sortable. Chaves calculadas, atributos de ordenação repetidos ou tipos desconhecidos impedem esses reparos. O script não escolhe outra ordem nem recalcula as chaves das células.
+
+=== Aspas incompatíveis em extensões numéricas ===
+
+Em um atributo como <code>colspan="2'</code>, a aspa final pode virar <code>"</code> quando essa troca resolve o único caso incompatível e produz uma grade completa e regular. O mesmo princípio vale para rowspan e para uma abertura com aspa simples. A regra conserva a aspa de abertura e troca somente o fechamento incompatível.
+
+É preciso haver um único caso desse tipo na tabela, com inteiro positivo, separador explícito e conteúdo literal. A correção precisa produzir uma grade completa e regular. Números fracionários, valores calculados, outra leitura possível ou linhas que continuem incompatíveis impedem a mudança. A regra não acrescenta células para completar a tabela.
+
+=== Largura fixa e telas pequenas ===
+
+Uma tabela nativa com classe wikitable e largura fixa de 640 a 9.999 pixels pode receber um contêiner de rolagem. A largura pode estar no atributo width ou num estilo simples, como <code>width:1200px;</code>. Tabelas ordenáveis também podem receber o contêiner quando os atributos e a grade foram confirmados. A tabela inteira permanece igual entre a abertura e o fechamento novos.
+
+O contêiner usa <code>max-width:100%;min-width:0;overflow-x:auto;</code>. Quando a tabela não cabe, a rolagem fica nessa área. A mudança não reduz a fonte, esconde colunas ou corta células. Em telas maiores, a mesma tabela mantém os dados e a largura que já tinha.
+
+A regra nova exige tabela inteira, isolada no nível principal do artigo, com até 500.000 caracteres. Classes próprias, identificadores, tabelas aninhadas, contêineres já existentes, larguras percentuais ou relativas, posições especiais e estilos fora do conjunto reconhecido impedem esse novo ajuste. Uma tabela estreita não recebe rolagem por esse critério. Os reparos anteriores de largura mínima continuam disponíveis nos formatos já conferidos.
+
+== Ortografia ==
+
+'''Ajustar código''' aplica 2.537 trocas exatas de grafia em palavras minúsculas da prosa. Outras 28 formas admitem mais de uma substituição e ficam em '''Conferir outras grafias'''. O catálogo tem 2.565 correspondências e não é um dicionário completo. Uma palavra desconhecida não é tratada como erro por esse motivo.
+
+Código, predefinições, referências, tabelas, títulos, URLs, nomes de arquivos, ligações e rótulos permanecem protegidos. O mesmo vale para aspas, parênteses, itálicos e negritos. Palavras com maiúsculas, inclusive no início de frases, ficam fora da correção. Parágrafos que discutem grafias, nomes ou títulos e as listas bibliográficas também são preservados.
+
+As regras mantêm formas válidas do Brasil e de Portugal e grafias anteriores ao Acordo Ortográfico. Não há correções gerais de concordância, regência ou pares que dependem do sentido, como mas/mais, mal/mau, há/a e sessão/seção/cessão. As listas foram preparadas com conferência dos dicionários pt_BR e pt_PT do LibreOffice e referências de uso indicadas em cada regra.
+
+=== Escolhas por ocorrência ===
+
+Em '''Conferir outras grafias''', você pode filtrar grafias e possíveis repetições, abrir o contexto e usar '''Ir ao trecho'''. '''Conferir a grafia na fonte''' abre a entrada indicada pela regra. '''Substituir por''' aplica apenas a ocorrência selecionada.
+
+'''Ignorar nesta edição''' oculta uma ocorrência. '''Ignorar esta palavra nesta edição''' oculta as ocorrências da mesma regra naquele editor. Para repetições, há uma escolha equivalente. Esses comandos não alteram o texto nem o resumo. '''Rever sugestões ignoradas nesta edição''' mostra as ocorrências ocultadas sem apagar a lista pessoal.
+
+'''Não sugerir esta palavra''' guarda uma exceção no navegador, separada por conta e wiki. A lista pessoal aceita até 500 palavras sem espaços ou código. Em '''Ortografia: opções e palavras''', você pode acrescentar uma entrada, usar '''Voltar a conferir''' ou '''Limpar lista pessoal'''. Se o navegador bloquear o armazenamento, as escolhas duram apenas naquela aba.
+
+As possíveis palavras repetidas usam uma lista restrita, não atravessam código nem quebras de linha e precisam de leitura antes de aceitar '''Manter apenas'''. Formas como "se se", "que que" e "muito muito" ficam fora. A lista pessoal controla grafia, sem ocultar sugestões de repetição.
+
+O relatório mostra até cem ocorrências por vez. A configuração <code>spellingLimit</code> aceita de 1 a 500, <code>spellingAllowedWords</code> define palavras adicionais a preservar e <code>spellingRepeated</code> controla as possíveis repetições. A conferência opcional permanece disponível nos conjuntos Só referências e Só infocaixas, com os limites das discussões e exemplos protegidos.
+
+== Destinos e consultas online ==
+
+'''Conferir destinos''' consulta ligações, categorias, arquivos, predefinições e módulos reconhecidos. Um resultado ausente não torna toda ligação vermelha indevida. Se a consulta atingir o limite, você pode usar '''Continuar conferência'''. Respostas parciais e cancelamentos não confirmam que toda a página foi conferida.
+
+Para desambiguações, '''Escolher destino''' mostra até cinquenta entradas confirmadas e oferece uma ligação para a página completa. Leia a ocorrência e use '''Aplicar nesta ocorrência''' para mudar apenas aquele destino. O texto visível é mantido. Fragmentos próprios e ligações que dependem do pipe trick ficam para revisão manual. Uma proposta antiga é recusada se o rascunho mudou.
+
+A pré-visualização automática envia o rascunho para processamento pela Wikipédia, sem publicar uma edição. Compara erros anteriores e posteriores e confere a conservação das referências, infocaixas e tabelas nos casos reconhecidos. As consultas do texto anterior e do resultado começam em paralelo. Cada resposta tem prazo de oito segundos, e a conferência final tem limite de doze segundos de espera online. Quando um reparo de sintaxe serve de base a outros ajustes, também confere o resultado intermediário. Uma mudança responsável por erro técnico pode ser desfeita, e um resultado que não passou pela conservação é recusado. Se a consulta online falhar, uma indicação discreta oferece Mostrar previsão. A falha não entra na contagem de problemas do artigo nem é apresentada como uma conferência bem-sucedida.
+
+Uma falha de conexão mantém a etapa como incompleta. Os reparos locais podem continuar disponíveis, sem indicar que toda a página foi validada. Consultas de notas, destinos de títulos e dados pessoais dos portais só valem para o rascunho correspondente. O programa não usa respostas antigas para sobrescrever trabalho novo.
+
+A confirmação da categoria de nascimento envia a infocaixa reconhecida para a API de análise da ptwiki, sem conta e sem salvar. O resultado só vale para o texto que foi consultado.
+
+Os cálculos de ajuste e ortografia ficam no navegador. A restauração de um destino Harvard pode comparar o rascunho e uma única proposta na API de pré-visualização, sem conta e sem salvar. As consultas online usam a API pública da Wikipédia, Wikidata ou Crossref conforme o recurso. Nenhum desses comandos salva páginas ou altera as publicações citadas.
+
+== Resumo da edição e edição menor ==
+
+O resumo automático considera apenas as mudanças que ficaram no texto desde o estado guardado antes dos ajustes. Propostas recusadas, avisos e conferências sem mudança não são anunciados. Ao desfazer todas as alterações, o resumo anterior é recuperado se ainda for o texto preenchido pelo script.
+
+Um resumo já escrito pelo editor e a indicação automática da seção permanecem. Você pode desligar '''Resumo automático''' ou usar <code>summaryText</code> para definir um texto fixo. Se também houver mudanças manuais de conteúdo, adapte o resumo antes de publicar.
+
+A marcação automática de edição menor exige artigo inteiro, revisão pública de origem confirmada e correspondência exata com os reparos mecânicos permitidos. A quantidade de bytes e de blocos do diff deixou de definir essa autorização. Correções comprovadas de ligações, grafia, espaços, sintaxe equivalente de citações, referências e tabelas podem receber a marcação. Adições de portais, controle de autoridade, categorias, fontes, dados ou conteúdo ficam fora. O ajuste de miniatura fica fora dessa marcação automática. Se a edição mistura mudanças permitidas e mudanças fora dessa lista, a caixa não é marcada automaticamente.
+
+A caixa só fica sob controle do script se ele próprio a marcou. Uma escolha manual do editor é respeitada. Uma mudança posterior retira a marcação automática e Desfazer recupera o estado anterior sem sobrescrever uma escolha manual posterior. O recurso exige a caixa <code>wpMinoredit</code> do editor e pode ser desligado com <code>autoMinor: false</code>.<ref>[[Ajuda:Guia de edição/Menus e ferramentas/Edição menor|Orientação sobre edição menor]].</ref>
+
+== Preferências e processamento ==
+
+Em '''Configurações''', escolha '''Todos os ajustes''', '''Só referências''' ou '''Só infocaixas'''. Os grupos específicos permitem controlar citações, grafia, profissões, portais, tabelas, colunas e os demais reparos. Os limites de cada tipo de página continuam valendo mesmo quando a opção está ligada.
+
+As preferências ficam no navegador. Sessões privadas, outro navegador ou limpeza de dados locais podem não recuperar essas escolhas. <code>window.RevisaWikiConfig</code> aceita a configuração pessoal e pode fixar opções do painel. <code>window.AjusteGeralPTConfig</code> ainda é lida quando não existe a configuração nova.
+
+Os cálculos usam um processamento separado quando o navegador permite. Essa execução tem limite de sessenta segundos. Um artigo de quase 2 MiB atingiu esse limite no Firefox e no Safari e manteve o rascunho original, como também ocorria na versão 2.4.0. Se o tempo acabar, o rascunho é mantido e o painel informa que a análise não terminou. Você pode tentar novamente ou trabalhar numa seção, onde as regras que precisam do artigo inteiro ficam desligadas. A alternativa ao processamento separado divide o trabalho em etapas com pausas, mas uma etapa longa ainda pode causar demora. Leituras do mesmo texto são reutilizadas, com limites de quantidade e tamanho para os dados guardados. O teto de 32 MiB de uma dessas áreas não equivale ao consumo total de memória do navegador.
+
+A leitura estrutural da 2.10 compartilha os resultados de referências, tabelas e predefinições do mesmo texto. Esse cache mantém até quatro rascunhos e estima um teto de 12 MiB para seus próprios dados. Ele se soma às áreas de leitura já existentes. Uma alteração no rascunho invalida as posições anteriores. O cache reduz leituras repetidas, sem prometer que um artigo de qualquer tamanho terminará dentro do prazo.
+
+=== Principais opções pessoais ===
+
+{| class="wikitable"
+! Opção !! O que controla
+|-
+| <code>automaticTopicPortals</code> || Portais de obras, taxonomia e saúde, com infocaixa principal e campos confirmados.
+|-
+| <code>structuralRepairs</code>, <code>syntaxRepairs</code>, <code>partialSyntaxRecovery</code> || Reparos estruturais, fechamentos e ajustes na parte completa anterior a um problema.
+|-
+| <code>automaticIdenticalReferences</code>, <code>neutralReferenceNames</code> || Reutilização de fontes iguais e nomes automáticos neutros.
+|-
+| <code>automaticParameterDuplicates</code>, <code>automaticParameterNames</code>, <code>automaticEmptyParameters</code> || Parâmetros repetidos, nomes inválidos com destino único e campos vazios inválidos confirmados.
+|-
+| <code>tableChecks</code>, <code>automaticTableRepairs</code>, <code>tableAccessibility</code> || Conferência, reparos e alcance de cabeçalhos de tabelas.
+|-
+| <code>dateChecks</code>, <code>shortCitationChecks</code>, <code>biographyStyleChecks</code> || Conferência de datas, citações abreviadas e apresentação de biografias.
+|-
+| <code>referenceColumns</code>, <code>endMatterColumns</code>, <code>externalLinkColumns</code> || Colunas de referências, ajuste das listas finais e propostas de colunas quando o automático está desligado.
+|-
+| <code>occupationCase</code>, <code>biographyPortal</code>, <code>translationResidues</code> || Profissões em minúsculas, portal de biografias e resíduos conhecidos de tradução.
+|-
+| <code>automaticSpelling</code>, <code>autoPreview</code>, <code>registryDoiCheck</code>, <code>autoMinor</code> || Grafias automáticas, pré-visualização, consultas de DOI e edição menor.
+|}
+
+As opções <code>referenceGraphRepairs</code>, <code>harvardAnchorRepairs</code>, <code>tableSyntaxRepairs</code>, <code>responsiveTableWrappers</code> e <code>independentRepairGroups</code> controlam, respectivamente, os vínculos de referências, os destinos Harvard, a sintaxe de tabelas, os contêineres de rolagem e os conjuntos independentes de mudanças.
+
+Use <code>false</code> para desligar uma opção. Os nomes completos e os detalhes de cada família de regras ficam na [https://github.com/danrego/RevisaWiki/blob/main/docs/2.12.0/Referencia_tecnica_RevisaWiki_v2_12_0.txt referência técnica].
+
+== TemplateStyles ==
+
+Em páginas do espaço de predefinições com conteúdo '''CSS sanitizado''', há um painel menor com '''Conferir CSS''' e '''Desfazer'''. Os controles de artigos não aparecem ali. A análise local reconhece propriedades próprias e um caso simples de <code>var()</code> em <code>border-color</code>, com proposta para separar a cor da borda nas propriedades de cada lado. O valor e <code>!important</code> são mantidos. Você decide se aceita.
+
+A consulta online usa TemplateSandbox sem salvar o CSS. Compara propriedades reconhecidas com as devolvidas pelo sanitizador e aponta declarações ausentes na resposta. Isso não confirma todos os valores nem avalia a aparência final. Se a API não responder, os avisos locais continuam e a etapa online fica incompleta. Confira novamente depois de uma mudança. Desfazer preserva edições manuais posteriores.<ref>[https://www.mediawiki.org/wiki/Help:TemplateStyles/pt Documentação de TemplateStyles]. [https://www.mediawiki.org/wiki/Extension:TemplateSandbox Documentação de TemplateSandbox].</ref>
+
+== Se algo não funcionar ==
+
+Se o painel não aparecer, confira se abriu um editor de código-fonte compatível, se copiou o carregador completo e se os dois endereços apontam para páginas com os arquivos inteiros. Mantenha uma única chamada do RevisaWiki. Um endereço errado não é corrigido fechando e abrindo o navegador.
+
+Se houver versões diferentes, confira o núcleo, os dados e <code>expectedVersion</code> no carregador central, depois faça uma recarga completa. A chamada curta no common.js não contém uma versão para trocar. '''Sobre e diagnóstico''' mostra a versão recebida e o editor reconhecido.
+
+'''Copiar diagnóstico''' prepara um texto com a versão, página, revisão, editor, opções e avisos ainda válidos. Pode incluir até doze mudanças com seiscentos caracteres de cada lado e até cem avisos. O conteúdo fica visível antes de copiar e não é enviado automaticamente. Leia-o antes de compartilhar. Se a cópia automática não funcionar, selecione o campo e use Copiar.
+
+Relate erros em [https://github.com/danrego/RevisaWiki/issues Issues no GitHub]. Informe o botão usado e um exemplo antes e depois. Para problemas de interface, indique também o navegador e o editor. Não é preciso enviar capturas de tela do computador inteiro, dados da conta ou informações pessoais.
+
+== Limites da ferramenta ==
+
+Ajustar código e as prévias alteram ou conferem o rascunho. A decisão de publicar continua com o editor, pelos controles da Wikipédia. O programa não substitui a leitura do artigo. Não estabelece notoriedade, neutralidade ou verificabilidade, não confirma se uma fonte sustenta uma frase e não traduz a prosa de um artigo. Falta de aviso técnico não garante que conteúdo e apresentação estejam corretos.
+
+Os catálogos têm data e revisões de coleta. Uma predefinição pode mudar depois disso. Um perfil parcial ou parâmetro desconhecido não autoriza apagar informação. Propostas manuais também precisam ser lidas, pois podem envolver escolhas que o automático recusou.
+
+Fórmulas, código, comentários, exemplos, citações e os demais trechos protegidos precisam permanecer completos. Se a leitura ficar incompleta, a ferramenta pode limitar o ajuste ou conservar o rascunho anterior. Leia a comparação e a pré-visualização normal antes de salvar.
+
+== Histórico das versões ==
+
+As versões aparecem da mais recente para a mais antiga. O [https://github.com/danrego/RevisaWiki/tree/main/dist arquivo de distribuições] e os [https://github.com/danrego/RevisaWiki/tree/main/tests relatórios e testes] ficam no GitHub. O histórico abaixo resume as mudanças para quem usa a ferramenta, sem misturar relatórios antigos às instruções atuais.
+
+=== 2.12.0 ===
+* Corrige group para grupo nas listas nativas de Referências quando o campo é único e literal.
+* Retira campos equivalentes repetidos das citações quando os valores coincidem, sem misturar funções diferentes.
+* Retira os colchetes de um campo de endereço que contém somente uma URL HTTP ou HTTPS, sem rótulo.
+* Retira atributos idênticos repetidos em listas references, conservando as definições e os grupos.
+* Permite os reparos de tabelas quando formatnum contém apenas um número literal no conteúdo de uma célula.
+* Preserva os atributos de ordenação reconhecidos enquanto aplica os demais reparos confirmados da tabela.
+* Corrige uma aspa incompatível em rowspan ou colspan quando há uma única correção e a grade completa confere.
+* Acrescenta rolagem local a tabelas reconhecidas com largura fixa de 640 a 9.999 pixels, sem alterar os dados.
+
+=== 2.11.1 ===
+* Desbloqueia reparos de referências quando há estilos literais e chamadas nativas conferidas que não acrescentam fontes.
+* Separa nomes repetidos de fontes diferentes quando todas as ocorrências têm conteúdo completo, preservando cada referência.
+* Troca blog por obra em citações nativas sem outro campo de publicação e corrige somente endereços com correspondência previamente comprovada.
+* Reúne os avisos repetidos de um mesmo conflito, mantendo separados os nomes e grupos diferentes.
+
+=== 2.11.0 ===
+* Acrescenta portais de biografias esportivas quando a infocaixa confirma a pessoa e a modalidade, com o país quando ele também está confirmado.
+* Reconhece infocaixas principais de filmes e formatos conferidos de programas de televisão, com critérios separados para notícias e entretenimento.
+* Usa os campos taxonômicos explícitos para acrescentar portais de biologia e de grupos reconhecidos.
+* Reconhece as infocaixas de vacinas, medicamentos e doenças, com critérios próprios para caixas químicas.
+* Marca como menores mais ajustes mecânicos comprovados, respeitando a revisão salva e a escolha manual do editor.
+* Conta as correções mantidas por ocorrência, com uma lista para conferência, separada dos tipos de ajuste e dos blocos do diff.
+* Refaz o contador depois das escolhas da comparação e mantém os controles de desfazer.
+* Iguala o verde dos dois botões e mostra Código conferido enquanto o texto e as opções permanecerem iguais.
+* Acrescenta miniatura a fotografias grandes e isoladas na introdução, com confirmação pública do arquivo e preservação da legenda.
+* Aplica o mínimo de dez referências por lista, com colunas que se adaptam à tela e respeito às configurações existentes.
+* Explica o aviso de tamanho do realce de sintaxe e oferece acesso direto ao código bruto para conferir a instalação.
+* Revê a redação do manual e do histórico, sem exemplos identificados de artigos ou editores.
+
+=== 2.10.0 ===
+* Corrige separadores ausentes, aspas trocadas, linhas vazias repetidas e fechamentos incompatíveis em tabelas estáticas reconhecidas.
+* Acrescenta scope aos cabeçalhos individuais de tabelas com três ou quatro níveis completos e sem associações conflitantes.
+* Reutiliza fontes idênticas definidas em references ou refs=, mantendo grupos, páginas e demais campos.
+* Separa nomes conflitantes quando cada ocorrência traz a fonte completa e não há chamadas vazias ou indiretas.
+* Corrige o espaço ausente em uma abertura refname quando a referência completa tem limites confirmados.
+* Restaura um destino Harvard ausente somente com autores e ano exatos e confirmação na pré-visualização nativa.
+* Limita a rolagem horizontal de tabelas largas nos formatos reconhecidos, sem apagar suas larguras mínimas ou alterar os dados.
+* Compartilha leituras do mesmo rascunho em um cache limitado, descartando posições quando o texto muda.
+* Permite conservar conjuntos independentes de ajustes que passaram na conferência, mantendo juntas as mudanças que dependem umas das outras.
+
+=== 2.9.0 ===
+* Reutiliza uma fonte sem nome quando todos os campos coincidem com uma referência já nomeada.
+* Retira chamadas repetidas da mesma referência no mesmo ponto do texto.
+* Retira etiquetas de referência sem atributos e sem conteúdo.
+* Corrige um único fechamento de referência repetido quando o limite está completo.
+* Retira atributos idênticos repetidos em células, linhas e legendas de tabelas completas.
+* Corrige uma aspa de fechamento repetida em rowspan ou colspan nos casos literais reconhecidos.
+* Acrescenta scope de coluna aos cabeçalhos inferiores de tabelas simples com dois níveis.
+* Extrai o identificador de um endereço oficial preenchido em pmc ou arxiv, preservando sua versão.
+
+=== 2.8.3 ===
+* Retira a categoria explícita de ano de nascimento quando uma chamada ativa e conferida de Dni já gera a mesma categoria.
+* Confirma a categoria por consulta anônima à ptwiki antes da retirada.
+* Preserva chaves de ordenação, DEFAULTSORT e os casos sem confirmação, sem novos avisos.
+* Mantém os recursos da 2.8.2 e a chamada fixa do common.js.
+
+=== 2.8.2 ===
+* Corrige trocas antigas de modelos de referência somente em casos previamente verificados e registrados no catálogo.
+* Escolhe o modelo nativo pela fonte original e recupera endereços apenas quando o vínculo com a mesma referência foi confirmado.
+* Confere o título do artigo e os dados da fonte antes de aplicar cada correção, preservando os demais valores atuais.
+* Mantém chamadas legítimas de Citation fora dos casos registrados e não consulta o histórico durante o uso.
+* Mantém os recursos da 2.8.1 e a chamada fixa do common.js.
+
+=== 2.8.1 ===
+* Mantém chamadas nativas de citar web quando falta a URL, com os dados e a data de acesso preservados.
+* Conserva os endereços de arquivo e os demais campos, sem inventar dados para completar uma fonte.
+* Adapta modelos estrangeiros de notícias com equivalência conferida para Citar jornal e preserva chamadas válidas de Citation.
+* Reforça a conferência do tipo da citação e da data de acesso, ligadas ao mesmo título e aos mesmos identificadores.
+* Mantém os recursos da 2.8.0 e a chamada fixa do common.js.
+
+=== 2.8.0 ===
+* Separa arquivo, tamanho e legenda de imagens inseridas como ligações completas em campos de infocaixas conferidas.
+* Corrige uma lista conferida de erros nos nomes dos parâmetros e repara links malformados de sites oficiais.
+* Organiza listas simples de profissões e retira negrito externo redundante de cabeçalhos que já o aplicam.
+* Impede a idade atual em datas de nascimento quando a mesma caixa informa uma data de morte completa e válida. Usa as datas existentes para calcular a idade ao morrer.
+* Formata vários casamentos separados quando cada item traz seu próprio nome, data e situação conjugal explícita.
+* Preserva campos preenchidos, nomes, referências e casos ambíguos. Mantém o botão Ajustar código e a chamada fixa do common.js.
+
+=== 2.7.3 ===
+* Formata dados explícitos de casamento com a predefinição nativa, conservando nomes, datas completas e estados civis.
+* Cobre 33 infocaixas e nomes alternativos de biografias, com campos de cônjuge conferidos.
+* Exige um perfil individual explícito nas caixas musicais e preserva parceiros de duplas esportivas.
+* Confere o calendário, as referências e os demais campos da infocaixa antes de aceitar a conversão.
+* Mantém os recursos anteriores e a chamada fixa do common.js. Dados, programa e carregador central passam para 2.7.3.
+
+=== 2.7.2 ===
+* Fecha aspas ausentes em atributos numéricos de células quando a estrutura completa confirma o ponto do reparo.
+* Corrige a leitura de aspas que atravessam o limite do itálico ou negrito, sem alterar a redação ou a formatação do artigo.
+* Depois do reparo confirmado, permite os ajustes finais e a adição dos portais que atendem aos critérios existentes.
+* Preserva chamadas válidas de predefinições que fornecem atributos e o separador da célula, como Ind e Venceu.
+* Programa, dados e carregador central na versão 2.7.2. A chamada fixa do common.js permanece igual.
+
+=== 2.7.1 ===
+* Corrige nomes químicos cuja notação fazia a infocaixa aparecer como código no artigo, nos campos IUPAC conferidos.
+* Quebra de linha de identificadores InChI literais muito longos em infocaixas genéricas, sem cortar nem modificar o identificador.
+* Preservação do nome exibido, dos dados e das referências da infocaixa. Conversões de idioma válidas, campos calculados e exemplos ficam como estão.
+* Conferência dos limites da regra, da comparação e da opção de desfazer.
+* Programa, dados e carregador central na versão 2.7.1. A chamada fixa do common.js permanece igual.
+
+=== 2.7.0 ===
+* Comparação de artigos grandes com mudanças locais separadas, sem contar um bloco extenso como se fosse uma única correção.
+* Resultado com os tipos de ajuste que permaneceram no texto. O número de blocos pertence à comparação e não é apresentado como total de correções.
+* Retirada de nomes de portais literalmente repetidos em chamadas simples de Portal3, preservando a ordem dos demais.
+* Reunião de chamadas DEFAULTSORT exatamente iguais no bloco final, com manutenção da última chamada.
+* Retirada de um campo vazio duplicado de infocaixa quando a última ocorrência do mesmo campo está preenchida.
+* Reutilização de referências nomeadas com conteúdo exatamente igual, quando todas as definições e chamadas podem ser conferidas juntas.
+* Retirada dos botões adicionais Editar aqui das seções. Ajustar código continua no editor de código-fonte.
+* Limpeza de cercas externas com os rótulos wiketext e wikitex e de marcas exatas de citação copiadas de chats, com preservação de referências e exemplos.
+* Programa, dados e carregador central na versão 2.7.0. A chamada fixa do common.js permanece igual.
+
+=== 2.6.2 ===
+* Leitura de aspas pelo contexto, com separação entre o texto de citações e ligações externas e os atributos de referências, etiquetas HTML e tabelas.
+* Correção de falsos limites de leitura que podiam marcar tabelas completas como incompletas e impedir ajustes no restante do artigo.
+* Preservação das aspas, do texto e dos dados das tabelas. As proteções para código realmente incompleto continuam disponíveis.
+* Programa, dados e carregador central na versão 2.6.2. Os catálogos continuam iguais, com a identificação do arquivo de dados atualizada. A chamada fixa no common.js permanece igual.
+
+=== 2.6.1 ===
+* O pacote 2.6.1-hotfix.1 corrige a instalação sem mudar a versão 2.6.1 do programa ou dos dados. O carregador usa sintaxe aceita pelo processamento do common.js na Wikipédia.
+* Chamada fixa no common.js, com carregador central separado. Nas próximas versões, a atualização fica nos dados, no núcleo e no carregador central.
+* Proteção de uma expressão regular para que o salvamento do JavaScript na Wikipédia não a transforme em assinatura.
+* Consultas do núcleo e dos dados recebem identificadores de versão e conteúdo para evitar arquivos antigos no cache.
+* Retirada do atalho de edição rápida junto ao título da página. Os links Editar aqui das seções foram mantidos.
+* Reconhecimento de Referência e Referencia antes da procura por uma lista ausente, com troca do nome e preservação de grupos, parâmetros e fontes definidas na lista.
+* Conversão dos nomes alternativos AP, Ap e Main para Artigo principal sem remontar ou descartar argumentos.
+* Criar código prepara e insere o cabeçalho da discussão em um clique, com PD primeiro e marcas de projeto. Usa o registro completo de marcas, aproveita os portais colados na mesma linha e consulta nomes fora do catálogo antes de converter.
+* Correção da leitura de aspas junto a etiquetas HTML que podia interromper a análise de código completo.
+* Limites de leitura ficam em Por que alguns ajustes não entraram, sem um aviso genérico sobre todo o restante do artigo.
+
+=== 2.6.0 ===
+* Edição rápida de seções na página de leitura, com o mesmo motor de ajustes, comparação e desfazer.
+* Pré-visualização visual opcional, com respostas vinculadas à versão atual do rascunho.
+* Publicação por clique deliberado, com revisão de origem e recuperação diante de conflitos ou falhas.
+* Resumo, edição menor, preferências de vigiar e saída para o editor completo.
+* Onze formas de ligações confirmadas e quatro correções de grafia, com proteção de títulos, citações e nomes.
+* Correção de falsos avisos de Harvtxt e retirada de alertas sobre formatação preservada.
+* Consultas de pré-visualização em paralelo, com prazo limitado e falhas separadas dos problemas do artigo.
+* Leitura de nacionalidade RUSn e listas literais de ocupação para confirmar portais em biografias com essas informações confirmadas.
+* Retirada de fundo vazio ou instrumentista_sem_vocal em Info/Biografia, com equivalência visual confirmada.
+* Atalhos opcionais que dependiam de páginas pessoais deixaram de ser expandidos.
+
+=== 2.5.0 ===
+* Retirada do título repetido antes da introdução quando o assunto e a posição estão confirmados.
+* Reutilização de citações iguais com parâmetros em outra ordem e retirada de chamadas e listas imediatamente repetidas.
+* Reparo de atributos idênticos repetidos e mais fechamentos trocados reconhecidos.
+* Alinhamento dos sinais de igual em infocaixas reconhecidas que já tenham um campo por linha, sem mudar os valores.
+* Ação separada para preparar PD e marcas de projeto na discussão de um artigo, com proposta antes de aplicar.
+* Manual reorganizado, com linguagem revista e relatórios técnicos separados.
+
+=== 2.4.0 ===
+* Reparos de fechamento antes dos demais ajustes, 29 erros exatos de nomes de parâmetros e ajuste do trecho completo anterior a um trecho incompleto.
+* Referências nomeadas ficam protegidas nessa passagem.
+* Os avisos são conferidos novamente depois dos reparos.
+
+=== 2.3.0 ===
+* Retirada de cópias idênticas de infocaixas e chamadas finais, consolidação de listas globais redundantes e reparos de resíduos conhecidos de copiar e colar.
+* Conservação de separadores entre dígitos e das fontes no bloco final.
+
+=== 2.2.1 ===
+* Atalho Ajustar código antes do botão Publicar, com as mesmas regras e os mesmos catálogos da 2.2.0.
+
+=== 2.2.0 ===
+* Correção da conferência de tabelas, remissões depois de títulos de seções e redução de avisos sem ação necessária.
+* Reparos de apresentação conferidos em revisões públicas.
+
+=== 2.1.1 ===
+* Separação de subtítulos anuais em tabelas reconhecidas, mantendo os registros e as referências.
+
+=== 2.1.0 ===
+* Ampliação das profissões e dos portais de biografias, confirmação própria para Mulheres e revisão da leitura de notas e das respostas de pré-visualização.
+
+=== 2.0.1 ===
+* Reparo do argumento de Colunas-lista, conversão de Cite news para Citar jornal e proteção dos separadores de tabelas junto a referências.
+
+=== 2.0.0 ===
+* Reparos confirmados de citações e tabelas, conferência automática da pré-visualização e separação entre o programa e os catálogos na instalação.
+
+=== 1.9.1 ===
+* Preservação de dni e Dni, proteção contra a adição redundante de Brasil quando há portal de estado brasileiro e uso de parâmetros posicionais em chamadas simples de Portal3.
+
+=== 1.9.0 ===
+* Grafias exatas em Ajustar código, inicial minúscula nas profissões da infocaixa, portais pela infocaixa, idade com confirmação de pessoa viva, abertura nos espaços de wikitexto e nomes neutros para referências.
+
+=== 1.8.0 ===
+* Melhoria do processamento, reutilização de referências idênticas, reparos automáticos de parâmetros, contador de bytes e marcação de edição menor para mudanças mecânicas confirmadas.
+
+=== 1.7.0 ===
+* Ampliação do catálogo, colunas de referências a partir de seis entradas, preservação de nomes alternativos válidos e conferência de citações abreviadas.
+
+=== 1.6.0 ===
+* Reorganização do painel e do relatório, comparação com linhas de contexto, resumos automáticos revistos e correções de estabilidade.
+
+=== 1.5.0 ===
+* Conferência de tabelas e datas, escolhas para desambiguações, conferência integrada, resumos específicos e diagnóstico copiável.
+* Conferência experimental de TemplateStyles.
+
+=== 1.4.0 ===
+* Ampliação da sintaxe importada, controle de autoridade e organização das seções finais.
+* A entrega de biografias com o mesmo número acrescentou Biografias em artigos com infocaixa individual reconhecida.
+
+=== 1.3.0 ===
+* Ampliação do catálogo ortográfico, propostas de possíveis palavras repetidas e lista pessoal de palavras.
+
+=== 1.2.1 ===
+* Revisão do uso de colunas nas referências e ajuste automático de colunas em listas compatíveis de Leitura adicional e Ligações externas.
+
+=== 1.2.0 ===
+* Reutilização da leitura de predefinições na pontuação das referências, processamento separado quando disponível, andamento visível e cancelamento.
+* Reorganização do painel.
+
+=== 1.1.0 ===
+* Conferência ortográfica separada, com contexto e escolhas por ocorrência.
+* As regras de código da 1.0 foram mantidas.
+
+=== 1.0.0 ===
+* Adoção do nome RevisaWiki, com as regras do Ajuste geral 2.5, comparação, escolhas por trecho, desfazer e resumo automático sem nome de usuário.
+
+== Testes e detalhes técnicos ==
+
+Os arquivos finais da 2.12.0 passaram por 23.697 casos e 186.457 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 246 fluxos locais, com 28.233 verificações, incluindo artigos completos, controles de falsos positivos, comparação, segunda análise e desfazer. As fotografias passaram por outros 54 fluxos de interface, e as colunas de referências passaram por 240 medições nos três navegadores. As tabelas com largura fixa tiveram 378 medições adicionais, com sete larguras de tela, três tamanhos de letra e três disposições do conteúdo. O código nativo de ordenação foi executado nos controles e nas tabelas com rolagem. As novas respostas nativas cobrem 18 projeções sintéticas, antes e depois dos reparos. São verificações dos trechos afetados, não análises nativas de artigos inteiros. Os contratos nativos guardados e as respostas de versões anteriores foram conferidos novamente contra os arquivos atuais, mantendo as datas de origem. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.12.0. Nenhum teste editou a Wikipédia. O ensaio comparativo mediu duas versões em cinco artigos grandes. Os tempos desse teste local não comprovam um ganho geral de velocidade.
+
+Os testes usam revisões fixadas, casos de preservação e páginas locais nos navegadores. O relatório de testes desta versão separa os resultados, os limites e os arquivos executados. Nenhum teste publica na Wikipédia.
+
+O relatório desta versão fica em [https://github.com/danrego/RevisaWiki/blob/main/docs/2.12.0/Relatorio_testes_RevisaWiki_v2_12_0.txt Relatório de testes 2.12.0]. As revisões usadas, os casos de controle e os limites de cada execução ficam separados das instruções de uso. Os resultados de versões anteriores permanecem nos respectivos diretórios do repositório.
+
+A [https://github.com/danrego/RevisaWiki/blob/main/docs/2.12.0/Referencia_tecnica_RevisaWiki_v2_12_0.txt referência técnica] explica os critérios detalhados e os identificadores das regras. Os catálogos JSON do pacote guardam as revisões de origem. Neles, <code>releaseVersion</code> informa a distribuição atual, enquanto <code>version</code> e <code>snapshotVersion</code> podem identificar uma coleta anterior. Esses registros não autorizam misturar núcleo e dados de versões diferentes.
+
+== Referências da documentação ==
+
+{{Referências}}
+
+== Créditos e licença ==
+
+Parte das regras foi adaptada e reescrita a partir de scripts públicos da ptwiki. As revisões permanentes usadas ficam nas ligações abaixo e no cabeçalho do código.
+
+* [https://pt.wikipedia.org/w/index.php?oldid=66288743 Script de ajustes, revisão 66288743]
+* [https://pt.wikipedia.org/w/index.php?oldid=72349758 Script de ajustes, revisão 72349758]
+* [https://pt.wikipedia.org/w/index.php?oldid=73087684 Script de ajustes, revisão 73087684]
+
+O código declara a licença [https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br Creative Commons Atribuição-CompartilhaIgual 4.0].

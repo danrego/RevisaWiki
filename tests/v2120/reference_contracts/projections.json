@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "version": "2.12.0",
+  "method": "anonymous public GET",
+  "wikipediaWrites": 0,
+  "cases": [
+    {
+      "name": "collector_group",
+      "projections": [
+        {
+          "phase": "before",
+          "source": "Texto.<ref group=\"nota\">Fonte de controle.</ref>\n{{Referências|group=nota}}",
+          "sourceSha256": "b4f64973fb729a5a984c5651010cf84a902ae951079c269043da5f1a47687123",
+          "htmlFile": "collector_group_before.html",
+          "htmlSha256": "1bf55abb15070eeeacb64c6655f4fbea5dff08258a83b71ab946b7bbb649a1ff",
+          "parsewarnings": []
+        },
+        {
+          "phase": "after",
+          "source": "Texto.<ref group=\"nota\">Fonte de controle.</ref>\n{{Referências|grupo=nota}}",
+          "sourceSha256": "3bddf25e7cd90ce7890a6684874636473d0e1ee28524861cc7b032b0e09fd5fe",
+          "htmlFile": "collector_group_after.html",
+          "htmlSha256": "97240d785dc8df8cd4d950700fd361c71f0f1554d74d76ce54cc933406150a13",
+          "parsewarnings": []
+        }
+      ]
+    },
+    {
+      "name": "publication_alias",
+      "projections": [
+        {
+          "phase": "before",
+          "source": "{{Citar jornal|titulo=Fonte de controle|jornal=Jornal de controle|obra=Jornal de controle|url=https://example.test/fonte}}",
+          "sourceSha256": "ec74edb7b31d4b67f5892e5211e9388a94c169a8d377b60194f91cd9d1af34a8",
+          "htmlFile": "publication_alias_before.html",
+          "htmlSha256": "d6edd60b683113547c307f47e95a2374d2717f1ecf230bf7abe0264858dc3575",
+          "parsewarnings": []
+        },
+        {
+          "phase": "after",
+          "source": "{{Citar jornal|titulo=Fonte de controle|jornal=Jornal de controle|url=https://example.test/fonte}}",
+          "sourceSha256": "74bd1cd42f9f010727bb9d231f80a775022481af2cabd9ea854a832fc065b76f",
+          "htmlFile": "publication_alias_after.html",
+          "htmlSha256": "c22e676ad0bcaf0007442740a246ce63f315fae2dcb4beafcce07781356f1ffa",
+          "parsewarnings": []
+        }
+      ]
+    },
+    {
+      "name": "isolated_url",
+      "projections": [
+        {
+          "phase": "before",
+          "source": "{{Citar web|titulo=Fonte de controle|url=[https://example.test/fonte]}}",
+          "sourceSha256": "3021e537db3ee69c0c77ed5ee5ad0193cbd08a7a3b88111aa9e93f48021e10ef",
+          "htmlFile": "isolated_url_before.html",
+          "htmlSha256": "c306eb5149f3df8aff5a2f23ea396a3bb1ab0e5dacce0f560d8993a493364de4",
+          "parsewarnings": []
+        },
+        {
+          "phase": "after",
+          "source": "{{Citar web|titulo=Fonte de controle|url=https://example.test/fonte}}",
+          "sourceSha256": "2eebf8ac0baac483bfbbb47ed19111496e767e1f5710bc2c187d3869e240ba52",
+          "htmlFile": "isolated_url_after.html",
+          "htmlSha256": "391fc18da2f5eb3ccecbdcbbec82d9d9364edaa1d3c84fdf5efe4e05a6d23ca4",
+          "parsewarnings": []
+        }
+      ]
+    },
+    {
+      "name": "collector_attributes",
+      "projections": [
+        {
+          "phase": "before",
+          "source": "Texto.<ref group=\"nota\" name=\"a\"/>\n<references group=\"nota\" group=\"nota\"><ref name=\"a\">Fonte de controle.</ref></references>",
+          "sourceSha256": "1096f85a3b7d492187226ac8087a4c117e05021017c47b53849ea02d04835e3b",
+          "htmlFile": "collector_attributes_before.html",
+          "htmlSha256": "9cc6228a1c4ce0d5d8e3ea88f49e69d97520b361e1aaf98eb393fc7d38e73c8e",
+          "parsewarnings": []
+        },
+        {
+          "phase": "after",
+          "source": "Texto.<ref group=\"nota\" name=\"a\"/>\n<references group=\"nota\"><ref name=\"a\">Fonte de controle.</ref></references>",
+          "sourceSha256": "10e35dea7c54cf1b9280fbe45324e6fe87a14ab3d43c45800097ff15e6659e0b",
+          "htmlFile": "collector_attributes_after.html",
+          "htmlSha256": "36be839e2e8d8abc9fdfa977d2e34d1bb1179dad32649d76b893bb28f916da6d",
+          "parsewarnings": []
+        }
+      ]
+    }
+  ]
+}

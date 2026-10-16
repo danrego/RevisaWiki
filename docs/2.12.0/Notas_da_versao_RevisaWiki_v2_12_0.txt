@@ -1,0 +1,17 @@
+RevisaWiki 2.12.0
+16 de outubro de 2026
+
+- Corrige group para grupo nas listas nativas de Referências quando o campo é único e literal.
+- Retira campos equivalentes repetidos das citações quando os valores coincidem, sem misturar funções diferentes.
+- Retira os colchetes de um campo de endereço que contém somente uma URL HTTP ou HTTPS, sem rótulo.
+- Retira atributos idênticos repetidos em listas references, conservando as definições e os grupos.
+- Permite os reparos de tabelas quando formatnum contém apenas um número literal no conteúdo de uma célula.
+- Preserva os atributos de ordenação reconhecidos enquanto aplica os demais reparos confirmados da tabela.
+- Corrige uma aspa incompatível em rowspan ou colspan quando há uma única correção e a grade completa confere.
+- Acrescenta rolagem local a tabelas reconhecidas com largura fixa de 640 a 9.999 pixels, sem alterar os dados.
+
+Os arquivos finais da 2.12.0 passaram por 23.697 casos e 186.457 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 246 fluxos locais, com 28.233 verificações, incluindo artigos completos, controles de falsos positivos, comparação, segunda análise e desfazer. As fotografias passaram por outros 54 fluxos de interface, e as colunas de referências passaram por 240 medições nos três navegadores. As tabelas com largura fixa tiveram 378 medições adicionais, com sete larguras de tela, três tamanhos de letra e três disposições do conteúdo. O código nativo de ordenação foi executado nos controles e nas tabelas com rolagem. As novas respostas nativas cobrem 18 projeções sintéticas, antes e depois dos reparos. São verificações dos trechos afetados, não análises nativas de artigos inteiros. Os contratos nativos guardados e as respostas de versões anteriores foram conferidos novamente contra os arquivos atuais, mantendo as datas de origem. As rodadas finais não tiveram falhas. Os resultados e os hashes ficam em tests/evidence/2.12.0. Nenhum teste editou a Wikipédia. O ensaio comparativo mediu duas versões em cinco artigos grandes. Os tempos desse teste local não comprovam um ganho geral de velocidade.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

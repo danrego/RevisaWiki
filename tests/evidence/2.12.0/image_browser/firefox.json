@@ -1,0 +1,864 @@
+{
+  "version": "2.12.0",
+  "kind": "native-lead-image-proof-ui",
+  "browser": "Firefox",
+  "pinManifestSha256": "d3f50b141ac5c41f4b915f65c62b7c935084c1ec4f998f0e030e7c87fdfa3983",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_12_0.js": {
+      "bytes": 9651,
+      "sha256": "b4617aefb1746b6831051ba4a64890f3af7252fac10353c01af80abd365525d0"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_12_0.js": {
+      "bytes": 9653,
+      "sha256": "21bdad5191268e88f639592c10e9d48dcd8d94b21903dd298b6057a8d6960d0c"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_12_0.js": {
+      "bytes": 1367062,
+      "sha256": "0baac0529429b769abb6cc2259af9d0e0709bb9edbb65fd056295ed96f9c446a"
+    },
+    "RevisaWiki_v2_12_0_completo.js": {
+      "bytes": 2880207,
+      "sha256": "e01b4d6c4036f02123e611a97824c8306c23603f8dd36f70004e519e288e11e8"
+    },
+    "RevisaWiki_v2_12_0_dados.js": {
+      "bytes": 1523935,
+      "sha256": "9b2e00d324960caf66d47c84be6d40d9421e76944229c1d80b4249428db38cbd"
+    }
+  },
+  "fixtureScriptSha256": "c8428b54dc21773db48603b0bb334622fd1fb4dd57e6c88408f1e3fe1153af53",
+  "imageEvidenceSha256": "49a22078c193d775121900be3683d0432f766f9f51356d4b51f0083fb6dcc43c",
+  "startedAt": "2026-10-16T18:16:25.767Z",
+  "tests": [
+    {
+      "id": "verified-photo",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 564
+    },
+    {
+      "id": "manual-minor-choice",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": true,
+      "minorSecond": true,
+      "manualMinor": true,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 470
+    },
+    {
+      "id": "preserved-alt-and-linked-caption",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "outputSha256": "e8dd9897bbef1626b7b96bd7a391511b3b3e281e76b75a916af534d87b8c472c",
+      "restoredSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 440
+    },
+    {
+      "id": "unavailable-photo-proof",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 37,
+      "metadataReads": 2,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 325
+    },
+    {
+      "id": "unconfirmed-photo-classification",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 33,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 326
+    },
+    {
+      "id": "panorama-dimensions",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 33,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 345
+    },
+    {
+      "id": "existing-explicit-size",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "outputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "restoredSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 310
+    },
+    {
+      "id": "inline-source",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "outputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "restoredSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 306
+    },
+    {
+      "id": "other-namespace",
+      "bundle": "shared",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 302
+    },
+    {
+      "id": "verified-photo",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 407
+    },
+    {
+      "id": "manual-minor-choice",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": true,
+      "minorSecond": true,
+      "manualMinor": true,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "ab29d9bc547078117149de914ab95139b2db2f114db0c95d95c674498e01b73b",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 353
+    },
+    {
+      "id": "preserved-alt-and-linked-caption",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 52,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "outputSha256": "e8dd9897bbef1626b7b96bd7a391511b3b3e281e76b75a916af534d87b8c472c",
+      "restoredSha256": "0e77b34f5dfb97fe3d8612cf935d6ae58e4a4a73f3659dfacbe4f5c062baab63",
+      "realWorker": true,
+      "confirmedProof": true,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 374
+    },
+    {
+      "id": "unavailable-photo-proof",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 37,
+      "metadataReads": 2,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 302
+    },
+    {
+      "id": "unconfirmed-photo-classification",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 33,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 317
+    },
+    {
+      "id": "panorama-dimensions",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 33,
+      "metadataReads": 1,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 339
+    },
+    {
+      "id": "existing-explicit-size",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "outputSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "restoredSha256": "b104c9c8cbfab63e7f80bfe656269b4f0dd5b38beedd87de59c34f7c5ccc0651",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 319
+    },
+    {
+      "id": "inline-source",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "outputSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "restoredSha256": "610ede0e75875c5f95ca5abe2ddfcea5efb35cc62da1a692ea1cfac5d614efce",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 299
+    },
+    {
+      "id": "other-namespace",
+      "bundle": "complete",
+      "passed": true,
+      "assertions": 29,
+      "metadataReads": 0,
+      "minorFirst": false,
+      "minorSecond": false,
+      "manualMinor": false,
+      "inputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "outputSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "restoredSha256": "6cd0011bd775aeca0c58e6b98c88c1b0d61203d9328f2bd27c7eab45b70659b7",
+      "realWorker": true,
+      "confirmedProof": false,
+      "exactUndo": true,
+      "idempotent": true,
+      "milliseconds": 284
+    }
+  ],
+  "assertions": 692,
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/favicon.ico"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/central.js"
+    },
+    {
+      "method": "GET",
+      "path": "/core.js"
+    },
+    {
+      "method": "GET",
+      "path": "/data.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.html"
+    },
+    {
+      "method": "GET",
+      "path": "/jquery.js"
+    },
+    {
+      "method": "GET",
+      "path": "/textSelection.js"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture.js"
+    },
+    {
+      "method": "GET",
+      "path": "/production.js"
+    }
+  ],
+  "wikipediaWrites": 0,
+  "actualWikipediaWrites": 0,
+  "networkMutations": 0,
+  "outsideRequests": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "adaptations": [
+    "Only the existing ptwiki host guards are extended to localhost.",
+    "The real photo metadata is a pinned allowlisted response projection. A fixture fetch adapter supplies it without external network.",
+    "The real browser Worker and editor controls execute the unchanged runtime. Worker messages are observed without altering their payload."
+  ],
+  "runnerSha256": "a8cdf27b231f86e61a1eb4aced21375c9b46ab8e519c5a2881294280f9618432",
+  "browserVersion": "158.0",
+  "finalRuntimePinsVerified": true,
+  "cleanup": {
+    "ownSessionClosed": true,
+    "ownProcessExited": true,
+    "ownProfileRemoved": true,
+    "unknownBrowserSessionsTouched": false
+  },
+  "completedAt": "2026-10-16T18:16:33.795Z",
+  "status": "passed",
+  "passed": 18,
+  "failed": 0
+}

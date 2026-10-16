@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "version": "2.12.0",
+  "kind": "explicit-source-pinned-inherited-contract-expectation-changes",
+  "unchangedAssertionCode": true,
+  "oldFixtureCount": 81,
+  "newFixtureCount": 81,
+  "originalFiles": [
+    {
+      "file": "tests/v26_engine/negative_contracts.json",
+      "sha256": "0c403f245a2baa85c84c41cf8b4eed787ee8f52268ba82285fbf2e5231f36e74",
+      "bytes": 9582,
+      "cases": 55
+    },
+    {
+      "file": "tests/v26_engine/positive_contracts.json",
+      "sha256": "7d90636fa9c3ca01ba0e448b318b908e7bf5fabaf28dd0494a5778910f7945c9",
+      "bytes": 9028,
+      "cases": 26
+    }
+  ],
+  "changes": [
+    {
+      "fixtureFile": "tests/v26_engine/negative_contracts.json",
+      "fixtureIndex": 2,
+      "name": "different named groups",
+      "originalKind": "negative",
+      "originalFixture": {
+        "name": "different named groups",
+        "source": "<ref name=\"a\">Fonte</ref><ref name=\"a\" group=\"nota\">Nota</ref><ref name=\"a\"/><ref name=\"a\" group=\"nota\"/>"
+      },
+      "sourceSha256": "2ef335d37c4875081934e55e10f75b812ae8c91cefa785cdac69cbb0c374d8d6",
+      "originalExpected": "<ref name=\"a\">Fonte</ref><ref name=\"a\" group=\"nota\">Nota</ref><ref name=\"a\"/><ref name=\"a\" group=\"nota\"/>",
+      "originalExpectedSha256": "2ef335d37c4875081934e55e10f75b812ae8c91cefa785cdac69cbb0c374d8d6",
+      "newKind": "positive",
+      "newExpected": "<ref name=\"a\">Fonte</ref><ref name=\"a\" group=\"nota\">Nota</ref>",
+      "newExpectedSha256": "1b948c7aa5f0b52a89aae626b256c368490f18d4e87184a046763d6b079c7eac",
+      "rule": "v29AnchorReferences",
+      "reason": "Repeated calls at the same source anchor have the same name only within their own literal group. Both complete original definitions remain, so the two distinct source groups are preserved."
+    },
+    {
+      "fixtureFile": "tests/v26_engine/positive_contracts.json",
+      "fixtureIndex": 13,
+      "name": "existing equal duplicate cleanup creates citation equivalence",
+      "originalKind": "positive",
+      "originalFixture": {
+        "name": "existing equal duplicate cleanup creates citation equivalence",
+        "source": "<ref>{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref>{{Citar web|titulo=Fonte|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+        "expected": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref name=\"ref-auto-1\" />",
+        "rule": "safeEquivalentCitations"
+      },
+      "sourceSha256": "9763b839ab666e0bd73e0011dc30723a38339645396d6adb3885045f69b0a37b",
+      "originalExpected": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref><ref name=\"ref-auto-1\" />",
+      "originalExpectedSha256": "ed927313dd06564bd4ae768330cdf613bb6080f1b4f31c71a8fd6176ec8ce5bc",
+      "newKind": "positive",
+      "newExpected": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte}}</ref>",
+      "newExpectedSha256": "2b8983d1e13dc8729211404874298b1587213d99e9acc14ddc3de94de6dbacd5",
+      "rule": "safeEquivalentCitations",
+      "reason": "The prior reviewed same-anchor removal remains. The native Title alias contract now also removes one identical titulo parameter from the retained definition. The URL, title, citation model and all other bytes remain exact.",
+      "previousReviewedExpected": {
+        "version": "2.11.1",
+        "text": "<ref name=\"ref-auto-1\">{{Citar web|url=https://example.invalid/a|titulo=Fonte|titulo=Fonte}}</ref>",
+        "sha256": "53488f4ae8c7419361faf1457fdb1c1fdf8833ccab11268e7a228087ea13b9b8"
+      }
+    },
+    {
+      "fixtureFile": "tests/v26_engine/positive_contracts.json",
+      "fixtureIndex": 14,
+      "name": "existing invalid parameter capitalization cleanup creates equality",
+      "originalKind": "positive",
+      "originalFixture": {
+        "name": "existing invalid parameter capitalization cleanup creates equality",
+        "source": "<ref>{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref>{{Citar web|url=https://example.invalid/a|Titulo=Fonte}}</ref>",
+        "expected": "<ref name=\"ref-auto-1\">{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref name=\"ref-auto-1\" />",
+        "rule": "safeEquivalentCitations"
+      },
+      "sourceSha256": "0a947d7b0ea90e2c98761ba29c8bb5c6163a5e604db46a598fe837c2fc29c26f",
+      "originalExpected": "<ref name=\"ref-auto-1\">{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref><ref name=\"ref-auto-1\" />",
+      "originalExpectedSha256": "ef166463860017affc3269014946c03ec3bc40a1405ce4769fb8dcf012a98a7b",
+      "newKind": "positive",
+      "newExpected": "<ref name=\"ref-auto-1\">{{Citar web|Titulo=Fonte|url=https://example.invalid/a}}</ref>",
+      "newExpectedSha256": "f8fe728341c51ce7e6565da90724e1321b5429dc4008a36467f50e28e7e97e3f",
+      "rule": "safeEquivalentCitations",
+      "reason": "The existing parameter-name equivalence creates a named definition and an immediately repeated call. The new same-anchor rule removes only that redundant call. The exact original definition and original equivalence rule remain part of the contract."
+    }
+  ],
+  "scope": "Only disposable copies used by tests/v2120/run_engine.cjs are adapted. The original assertion code, all 81 inherited fixture cases and every tests/v26_engine fixture file remain byte-identical.",
+  "outputFixtureChanges": [
+    {
+      "name": "real biography legacy output with source-equivalent reference reuse",
+      "sourceFile": "tests/v26_engine/regressions/73139500.wiki",
+      "sourceSha256": "8bcec1af092b3268053c0c15daf5585183d965d6c442627f780a9f650c434b25",
+      "sourceBytes": 122533,
+      "originalOutputFile": "tests/v26_engine/regressions/ken_legacy_cleanup.wiki",
+      "originalOutputSha256": "bb5cef6d26ba66f0742d6c7c0bf8fecf819abb54696f3ec7811d7b5f00ec8298",
+      "originalOutputBytes": 119263,
+      "metadataFile": "tests/v26_engine/derived_fixture.json",
+      "originalMetadataSha256": "d8117b8ed2cfeb084f8d4f6bfae9a42d8214ed6b98233f17026017adb18732b7",
+      "originalMetadataBytes": 545,
+      "originalMetadata": {
+        "file": "regressions/ken_legacy_cleanup.wiki",
+        "sha256": "bb5cef6d26ba66f0742d6c7c0bf8fecf819abb54696f3ec7811d7b5f00ec8298",
+        "bytes": 119263,
+        "derivedFromRevision": 73139500,
+        "sourceSha256": "8bcec1af092b3268053c0c15daf5585183d965d6c442627f780a9f650c434b25",
+        "transformation": "Existing 2.4 cleanup, independently verified byte-identical to candidate 04. This fixture isolates the parser-only change.",
+        "license": "CC BY-SA 4.0",
+        "attributionHistory": "https://pt.wikipedia.org/w/index.php?title=Ken_Jennings&action=history"
+      },
+      "replacements": [
+        {
+          "before": "<ref>{{Citar jornal|ultimo=Kennedy|primeiro=Randy|titulo='Jeopardy!' Whiz Ken Jennings Loses|título-trad=O prodígio do Jeopardy! Ken Jennings é derrotado|url=https://www.nytimes.com/2004/12/01/arts/television/jeopardy-whiz-ken-jennings-loses.html|jornal=The New York Times|data=1 de dezembro de 2004|acessodata=8 de julho de 2026}}</ref>",
+          "after": "<ref name=\"a833\">{{Citar jornal|ultimo=Kennedy|primeiro=Randy|titulo='Jeopardy!' Whiz Ken Jennings Loses|título-trad=O prodígio do Jeopardy! Ken Jennings é derrotado|url=https://www.nytimes.com/2004/12/01/arts/television/jeopardy-whiz-ken-jennings-loses.html|jornal=The New York Times|data=1 de dezembro de 2004|acessodata=8 de julho de 2026}}</ref>",
+          "occurrences": 1
+        },
+        {
+          "before": "<ref name=\"a833\">{{Citar jornal|ultimo=Kennedy|primeiro=Randy|titulo='Jeopardy!' Whiz Ken Jennings Loses|título-trad=O prodígio do Jeopardy! Ken Jennings é derrotado|url=https://www.nytimes.com/2004/12/01/arts/television/jeopardy-whiz-ken-jennings-loses.html|jornal=The New York Times|data=1 de dezembro de 2004|acessodata=8 de julho de 2026}}</ref>",
+          "after": "<ref name=\"a833\" />",
+          "occurrences": 1
+        }
+      ],
+      "newOutputSha256": "381894bcda16fdebe6129efba70e3127ba96a16f952b85a8352db65537cb77fd",
+      "newOutputBytes": 118990,
+      "referenceCount": 223,
+      "orderedResolvedReferenceSha256": "9c91d172e5d796b1de4e0404a99a65bfc374b9e80bcbb1ebdb5142c71abd3bd9",
+      "outsideReferenceTextSha256": "34a579024d8ac9ada5110aaf79617c7d6c8bfc2fdbfedaa650dbb0aed14373a8",
+      "reason": "The anonymous reference at index 20 and the named reference at index 29 have the exact same complete citation body. The first gains the existing name a833 and keeps that body. The later duplicate becomes a reuse. Every ordered resolved reference body and group stays unchanged. Separately, the sole confirmed collector with 180 distinct entries replaces only its old fixed-count style with the reviewed responsive width, gap and maximum width, adding exactly 48 bytes. Every byte outside the two declared reference occurrences and this one collector style remains unchanged. The original article source and inherited assertion code are unchanged.",
+      "referenceOnlyOutputSha256": "b31555b25de0bd4e570282deb03f4530dc7b4c27ec508f691640af1a92452546",
+      "referenceOnlyOutputBytes": 118942,
+      "styleReplacement": {
+        "before": "{{Referências|estilo=column-count:2;}}",
+        "after": "{{Referências|estilo=column-count:2;column-width:30em;column-gap:2em;max-width:62em;}}",
+        "occurrences": 1,
+        "beforeSha256": "ac3545468638b5994b372c27e068cd872c20074f125fb172194087814dc35610",
+        "afterSha256": "b7344e662be0d510b9f28bdcd519275a7f85bd3aaec2d1a710ab0bf49c0f0218",
+        "byteDelta": 48,
+        "minimumEntries": 10,
+        "confirmedEntries": 180
+      },
+      "newOutsideReferenceTextSha256": "7e01ca65f65348abbcd941806ffcab5825cdbe530270400acf7857d583920897",
+      "outsideApprovedChangesSha256": "e56b11cc82a559fd55037a99f7e9d2ec3747462e6519434e521e708615cc454d"
+    }
+  ]
+}

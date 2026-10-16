@@ -1,0 +1,76 @@
+{
+  "version": "2.11.0",
+  "scope": "Synthetic public-syntax specimens only. No unpublished draft or account content is submitted.",
+  "cases": [
+    {
+      "id": "empty-markers",
+      "api": "v210TableRepairPlan",
+      "kind": "table",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "missing-attribute-bar",
+      "api": "v210TableRepairPlan",
+      "kind": "label",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! scope=\"col\" Nome !! Ano\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! scope=\"col\" | Nome !! Ano\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "paired-curly-span",
+      "api": "v210TableRepairPlan",
+      "kind": "span",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n| colspan=“2” | Alfa\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n| colspan=\"2\" | Alfa\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "mixed-table-closer",
+      "api": "v210TableRepairPlan",
+      "kind": "closer",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n</table>\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! Nome !! Ano\n|-\n| Alfa || Beta\n|-\n| Gama || Delta\n|}\n\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "three-header-levels",
+      "api": "v210TableRepairPlan",
+      "kind": "scope",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\"\n! colspan=\"4\" | Grupo\n|-\n! colspan=\"2\" | Subgrupo A !! colspan=\"2\" | Subgrupo B\n|-\n! Um !! Dois !! Três !! Quatro\n|-\n| A || B || C || D\n|}\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n{| class=\"wikitable\"\n! colspan=\"4\" | Grupo\n|-\n! colspan=\"2\" | Subgrupo A !! colspan=\"2\" | Subgrupo B\n|-\n! scope=\"col\" | Um !! scope=\"col\" | Dois !! scope=\"col\" | Três !! scope=\"col\" | Quatro\n|-\n| A || B || C || D\n|}\n\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "bank-identical-sources",
+      "api": "v210ReferenceRepairPlan",
+      "kind": "refs",
+      "source": "Texto de abertura. A<ref name=\"a\"/> B<ref name=\"b\"/>\n\nTexto de encerramento.\n\n<references>\n<ref name=\"a\">Fonte completa, p. 12.</ref>\n<ref name=\"b\">Fonte completa, p. 12.</ref>\n</references>",
+      "expected": "Texto de abertura. A<ref name=\"a\"/> B<ref name=\"a\"/>\n\nTexto de encerramento.\n\n<references>\n<ref name=\"a\">Fonte completa, p. 12.</ref>\n\n</references>"
+    },
+    {
+      "id": "complete-conflicting-names",
+      "api": "v210ReferenceRepairPlan",
+      "kind": "conflict",
+      "source": "Texto de abertura.\n\nA<ref name=\"fonte\">Fonte A, p. 1.</ref> B<ref name=\"fonte\">Fonte B, p. 2.</ref>\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\nA<ref name=\"fonte\">Fonte A, p. 1.</ref> B<ref name=\"fonte-2\">Fonte B, p. 2.</ref>\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "refname-missing-space",
+      "api": "v210ReferenceRepairPlan",
+      "kind": "ref-tag",
+      "source": "Texto de abertura.\n\nA<refname=\"fonte\">Fonte A, p. 1.</ref>\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\nA<ref name=\"fonte\">Fonte A, p. 1.</ref>\n\nTexto de encerramento.\n\n<references />"
+    },
+    {
+      "id": "harvard-anchor",
+      "api": "native-harvard",
+      "kind": "harvard",
+      "source": "Texto de abertura. {{harvnb|Silva|2004}}\n\nTexto de encerramento.\n\n== Bibliografia ==\n* {{Citar livro|ultimo=Silva|primeiro=Ana|ano=2004|titulo=Obra de teste}}",
+      "expected": "Texto de abertura. {{harvnb|Silva|2004}}\n\nTexto de encerramento.\n\n== Bibliografia ==\n* {{Citar livro|ultimo=Silva|primeiro=Ana|ano=2004|titulo=Obra de teste|ref=harv}}"
+    },
+    {
+      "id": "wide-unwrapped-table",
+      "api": "v210ResponsiveTablePlan",
+      "kind": "responsive",
+      "source": "Texto de abertura.\n\n{| class=\"wikitable\" style=\"width:100%;min-width:72em;table-layout:fixed;\"\n! Nome !! Ano\n|-\n| Alfa || Beta\n|}\n\n\nTexto de encerramento.\n\n<references />",
+      "expected": "Texto de abertura.\n\n<div style=\"max-width:100%;min-width:0;overflow-x:auto;\">\n{| class=\"wikitable\" style=\"width:100%;min-width:72em;table-layout:fixed;\"\n! Nome !! Ano\n|-\n| Alfa || Beta\n|}\n</div>\n\n\nTexto de encerramento.\n\n<references />"
+    }
+  ]
+}
