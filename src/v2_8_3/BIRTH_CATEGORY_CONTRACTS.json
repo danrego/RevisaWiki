@@ -1,0 +1,116 @@
+{
+  "version": "2.8.3",
+  "feature": "Render-confirmed removal of a redundant explicit birth-year category",
+  "category": "Nascidos em YYYY",
+  "primarySources": [
+    {
+      "title": "Predefinição:Dni",
+      "oldid": 69218531,
+      "timestamp": "2024-12-22T08:50:06Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=69218531"
+    },
+    {
+      "title": "Predefinição:Dni/doc",
+      "oldid": 62534660,
+      "timestamp": "2021-12-03T19:21:38Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=62534660"
+    },
+    {
+      "title": "Predefinição:Dni2",
+      "oldid": 68821500,
+      "timestamp": "2024-10-15T16:16:01Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=68821500"
+    },
+    {
+      "title": "Predefinição:Dnicirca",
+      "oldid": 59450100,
+      "timestamp": "2020-09-26T19:08:34Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=59450100"
+    },
+    {
+      "title": "Predefinição:Categorizar-ano-século-milénio",
+      "oldid": 60995044,
+      "timestamp": "2021-04-24T16:15:44Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=60995044"
+    },
+    {
+      "title": "Predefinição:Categorizar-ano-século-milénio/1",
+      "oldid": 59443897,
+      "timestamp": "2020-09-25T19:26:04Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=59443897"
+    },
+    {
+      "title": "Predefinição:Categorizar-ano-século-milénio/ac",
+      "oldid": 60995043,
+      "timestamp": "2021-04-24T16:15:44Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=60995043"
+    },
+    {
+      "title": "Predefinição:Nascimento e idade",
+      "oldid": 46305889,
+      "timestamp": "2016-07-29T21:12:38Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=46305889"
+    },
+    {
+      "title": "Predefinição:Data de nascimento",
+      "oldid": 54933782,
+      "timestamp": "2019-04-24T18:18:29Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=54933782"
+    },
+    {
+      "title": "Predefinição:DNI",
+      "oldid": 34005172,
+      "timestamp": "2013-02-07T20:15:11Z",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=34005172"
+    }
+  ],
+  "verifiedDniNames": [
+    "Dni",
+    "DNI",
+    "Nascimento e idade",
+    "Data de nascimento"
+  ],
+  "nativeBirthFieldContract": {
+    "path": "src/v2_8/DATES_CONTRACTS.json",
+    "sha256": "7a04fb6ab99ac339c5c9d5a71a5b4de34b2c17b9d30bfdc461e8c6c6446692c3",
+    "rule": "Only the registered native principal person infobox and its accepted reviewed birth fields. Existing family or parameter migration is not used as proof."
+  },
+  "eligibility": [
+    "Full wikitext article in namespace 0 with a positive page ID and base revision ID, no section editing, redirect, disambiguation or discussion context.",
+    "Exactly one complete principal person infobox. A literal subject name must match the article title, and every populated field must be accepted by that native profile.",
+    "Exactly one accepted birth field contains one direct Dni call or a verified redirect, optionally followed by unchanged trailing references.",
+    "Literal unambiguous four-digit year from 1000 through the current UTC year, with optional valid numeric month and day. Explicit positional parameters are resolved without guessing.",
+    "Only parameters 1, 2, 3, 4, lang, nowrap, nocat, circa and c are recognized. Duplicate or unsupported parameters, nonempty nocat, nonempty circa or c, dynamic values and invalid or future dates decline.",
+    "The fourth parameter may be empty, si or sem idade. These values do not suppress the birth-year category. lang, when nonempty, must be br or pt.",
+    "The matching explicit category must be on its own line after the infobox, without a pipe or sort key, template/ref/table nesting, or inline content. Identical plain duplicates may all be removed.",
+    "Any other explicit Nascidos em year category, any matching piped category, or an active includeonly, noinclude or onlyinclude control anywhere in the article declines this feature.",
+    "A current anonymous parse of the exact complete infobox must return the exact same birth-year category with an empty explicit sort key, matching page title and no API or parse warnings."
+  ],
+  "preservation": [
+    "Only approved explicit birth-category lines are deleted. The infobox, Dni, source dates, trailing citations, other categories and their sort keys are preserved.",
+    "DEFAULTSORT is permitted and left unchanged. The preservation endpoints compare its ordered key inventory and all remaining category keys.",
+    "Production composition and preservation audits accept only the unchanged original category inventory or the exact recomputed deletion projection. Existing proven namespace normalization, obsolete short-description category cleanup and identical duplicate consolidation remain possible.",
+    "Proof binds the exact full source, source hash, infobox, page title, namespace, page ID, revision ID and full-page context. It expires after five minutes and is recomputed before accepting a deletion."
+  ],
+  "runtime": {
+    "method": "anonymous GET",
+    "credentials": "omit",
+    "maxRequestUrlLength": 6500,
+    "timeoutMilliseconds": 4000,
+    "proofTtlMilliseconds": 300000,
+    "networkFailure": "Preserve the category silently.",
+    "cache": "Bound to the exact page context and full source; no cross-page or changed-source authorization.",
+    "writes": 0
+  },
+  "unsupportedExamples": [
+    "Dni2",
+    "Dnicirca",
+    "arithmetic or ambiguous years",
+    "unread or unknown infobox fields",
+    "Dni hidden in a conditional or unused template argument",
+    "custom category sort keys",
+    "protected examples",
+    "section or nonmain edits"
+  ],
+  "sourceAttribution": "Primary template revisions are linked by permanent revision URL. No editorial account metadata is retained."
+}

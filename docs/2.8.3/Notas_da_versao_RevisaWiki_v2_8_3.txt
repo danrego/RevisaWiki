@@ -1,0 +1,13 @@
+RevisaWiki 2.8.3
+16 de outubro de 2026
+
+- Retira a categoria explícita de ano de nascimento quando uma chamada ativa e conferida de Dni já gera a mesma categoria.
+- Confirma a categoria por consulta anônima à ptwiki antes da retirada.
+- Preserva chaves de ordenação, DEFAULTSORT e os casos sem confirmação, sem novos avisos.
+- Mantém os recursos da 2.8.2 e a chamada fixa do common.js.
+
+Os arquivos finais da 2.8.3 passaram por 14.722 casos e 100.939 verificações na rodada principal. A matriz de artigos complexos acrescentou 128 casos em 16 artigos de pelo menos 100 KB. Outra rodada conferiu 31 artigos grandes nas duas distribuições. Chrome, Firefox e Safari passaram por 81 fluxos locais, com 11.103 verificações. A categorização de nascimento foi conferida também na renderização real da ptwiki, com a mesma categoria e chave de ordenação após a retirada da linha redundante. As rodadas finais não tiveram falhas. Os relatórios e os hashes desta execução estão em tests/evidence/2.8.3. Nenhum teste editou a Wikipédia.
+
+Abra INICIO.html e siga a ordem: dados, programa, carregador central e documentação. Quem já usa a chamada fixa mantém o common.js como está.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki
