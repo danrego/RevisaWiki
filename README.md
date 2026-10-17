@@ -2,22 +2,22 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.15.1
+## Versão 2.16
 
-- Move a infocaixa pessoal para antes da abertura quando a posição pode ser confirmada e retira a indentação acidental antes da caixa.
-- Destaca o nome inicial exato do assunto e retira sua ligação para o próprio artigo.
-- Organiza datas e locais já escritos na identificação inicial. Pode completá-los com campos explícitos e referenciados de uma única infocaixa pessoal.
-- Corrige caracteres invisíveis em nomes de campos e um sinal de igual de largura completa quando o campo nativo é confirmado.
-- Corrige a unidade repetida de tamanho da imagem nos campos cujo funcionamento foi conferido.
-- Separa arquivo de imagem, texto alternativo, tamanho e legenda nos campos nativos confirmados, preservando o conteúdo.
-- Conta cada operação mantida e inclui a identificação inicial no resumo quando ela muda. A inserção de dados na abertura não recebe marcação automática de edição menor.
-- Mantém os campos de sepultamento como estavam. Dados conflitantes, referências incertas e estruturas ambíguas ficam intactos.
+- Completa campos pessoais ausentes com datas e locais explicitamente referenciados na abertura, mantendo o texto de origem.
+- Separa uma data seguida do local no mesmo campo quando cada parte tem sua referência e o destino foi conferido.
+- Organiza datas completas isoladas sem acrescentar idade ou categorias de nascimento.
+- Retira uma idade manual apenas quando ela repete a idade que Dni mostra na mesma data UTC.
+- Retira uma unidade literal quando a definição conferida da caixa já acrescenta a mesma unidade.
+- Recupera quebras de linha entre itens ligados de uma lista com marcadores explícitos.
+- Retira rótulos copiados nos valores e ligações do cabeçalho para o próprio artigo, preservando o texto exibido.
+- Conclui a retirada de títulos finais vazios depois da movimentação do bloco final, sem precisar de outro clique.
 
 Os reparos conservam os dados e as referências. Datas incompletas, nomes conflitantes e construções ambíguas ficam como estavam. Os limites de cada regra ficam no manual e nos testes. A publicação continua sob controle de quem edita.
 
 ## Instalação
 
-[Pacote completo](dist/2.15.1/RevisaWiki_2.15.1.zip) · [Índice para copiar](dist/2.15.1/INICIO.html) · [Instruções](docs/2.15.1/Instalacao_RevisaWiki_v2_15_1.txt) · [Manual](docs/2.15.1/Documentacao_RevisaWiki_v2_15_1.wiki) · [Histórico resumido](docs/2.15.1/Notas_da_versao_RevisaWiki_v2_15_1.txt) · [Testes](docs/2.15.1/Relatorio_testes_RevisaWiki_v2_15_1.txt)
+[Pacote completo](dist/2.16.0/RevisaWiki_2.16.0.zip) · [Índice para copiar](dist/2.16.0/INICIO.html) · [Instruções](docs/2.16.0/Instalacao_RevisaWiki_v2_16_0.txt) · [Manual](docs/2.16.0/Documentacao_RevisaWiki_v2_16_0.wiki) · [Histórico resumido](docs/2.16.0/Notas_da_versao_RevisaWiki_v2_16_0.txt) · [Testes](docs/2.16.0/Relatorio_testes_RevisaWiki_v2_16_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -27,17 +27,17 @@ O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da pág
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.15.0, conferidos por SHA-256, e aplica os módulos de `src/v2_15_1`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.15.1, conferidos por SHA-256, e aplica os módulos de `src/v2_16`. As versões arquivadas ficam intactas.
 
 ```sh
-python3 scripts/build_v2151.py
+python3 scripts/build_v2160.py
 npm test
 npm run test:complex
 npm run test:documentation
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v2151/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a identificação das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
+O [guia dos testes](tests/v216/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a identificação das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
 
 A contagem informa as operações confirmadas, separadas dos tipos de ajuste. Quando não consegue comprovar um total, o painel não inventa um número exato. Mostrar alterações permite conferir o resultado no editor.
 

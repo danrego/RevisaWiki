@@ -1,0 +1,17 @@
+RevisaWiki 2.16.0
+16 de outubro de 2026
+
+- Completa campos pessoais ausentes com datas e locais explicitamente referenciados na abertura, mantendo o texto de origem.
+- Separa uma data seguida do local no mesmo campo quando cada parte tem sua referência e o destino foi conferido.
+- Organiza datas completas isoladas sem acrescentar idade ou categorias de nascimento.
+- Retira uma idade manual apenas quando ela repete a idade que Dni mostra na mesma data UTC.
+- Retira uma unidade literal quando a definição conferida da caixa já acrescenta a mesma unidade.
+- Recupera quebras de linha entre itens ligados de uma lista com marcadores explícitos.
+- Retira rótulos copiados nos valores e ligações do cabeçalho para o próprio artigo, preservando o texto exibido.
+- Conclui a retirada de títulos finais vazios depois da movimentação do bloco final, sem precisar de outro clique.
+
+Os arquivos finais da versão 2.16.0 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 9 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

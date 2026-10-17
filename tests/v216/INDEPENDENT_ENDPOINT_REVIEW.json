@@ -1,0 +1,22 @@
+{
+  "version": "2.16.0",
+  "kind": "independent-endpoint-correction",
+  "fixture": "explicit linked bullet markers receive missing line boundaries",
+  "originalExpectation": "Outer newlines were included before the first and after the last bullet.",
+  "correctedExpectation": "Retain the source boundary whitespace and insert only the missing newline between linked bullet items.",
+  "reason": "The native infobox already creates the first list-item boundary. Additional outer newlines are unnecessary cosmetic changes.",
+  "nativeCapture": "tests/v216/native_field_values.json",
+  "captureSha256": "3a944273384bf16503d73f9e5560eee6a9b979ab90682aaf88e1be5be3265b0e",
+  "exactSourceSha256": "afe58167839329a345d1369af1a34ebb567b1f63caa899c690be8bc9f5bb5812",
+  "nativeHtmlSha256": "76f3f612f7f726c225096cbebf271396f86c80008f5c5e5a10380df5c3dbbd7e",
+  "behavioralAssertionsRemoved": [],
+  "networkMethod": "GET",
+  "wikipediaWrites": 0,
+  "uiSummaryReview": {
+    "case": "a header self link keeps its visible name",
+    "originalExpectation": "Ajustes de infocaixas com RevisaWiki.",
+    "correctExpectation": "Ajustes de infocaixas e ligações com RevisaWiki.",
+    "reason": "The action removes an actual self-link in an infobox, so both completed topics belong in the summary.",
+    "assertionRemoved": false
+  }
+}
