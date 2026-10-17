@@ -1,0 +1,209 @@
+{
+  "kind": "anonymous-observational-editorial-pattern-audit",
+  "status": "completed",
+  "sourceVersion": "2.17.0",
+  "sampleEdits": 50,
+  "distinctArticles": 46,
+  "capturedRevisionCount": 96,
+  "sampleInputBytes": 1787400,
+  "largestInputBytes": 193836,
+  "wikipediaWrites": 0,
+  "privateEvidencePublished": false,
+  "baselineRuntime": {
+    "file": "RevisaWiki_v2_17_0_completo.js",
+    "sha256": "56ce01c62020e065443c05bc34c540607393e5885db6656a384d7068857d8d2b",
+    "executions": 50,
+    "pagesWithPartialPrefix": 13,
+    "pagesWithPreservationWarnings": 0
+  },
+  "observedOverlappingPatterns": [
+    {
+      "kind": "Editorial maintenance or deletion decision",
+      "edits": 3,
+      "eligibility": "retained as editorial or already accepted syntax"
+    },
+    {
+      "kind": "Editorial lexical or transliteration changes",
+      "edits": 45,
+      "eligibility": "retained as editorial or already accepted syntax"
+    },
+    {
+      "kind": "Adjacent unavailable-link marker moved into citation",
+      "edits": 7,
+      "eligibility": "requires individual source-bound proof"
+    },
+    {
+      "kind": "Accepted file namespace alias preference",
+      "edits": 2,
+      "eligibility": "retained as editorial or already accepted syntax"
+    },
+    {
+      "kind": "English citation family localization",
+      "edits": 2,
+      "eligibility": "requires individual source-bound proof"
+    },
+    {
+      "kind": "Punctuation moved before citation marker",
+      "edits": 3,
+      "eligibility": "requires individual source-bound proof"
+    }
+  ],
+  "confirmedBaselineGaps": {
+    "EnglishCitations": {
+      "editsWithLocalization": 2,
+      "originalCalls": 152,
+      "callsAfterEditorialChanges": 0,
+      "callsAfterAutomaticBaseline": 33,
+      "cause": "Complete named-reference bodies were opaque during partial-prefix processing. Local re-reading of a truncated prefix could also create a quotation diagnostic that did not exist in the full-source context."
+    },
+    "AdjacentUnavailableLinkMarkers": {
+      "editsWithFolding": 7,
+      "markersFoldedByEditorialChanges": 11,
+      "markersFoldedByAutomaticBaseline": 0,
+      "safeCandidate": "Only a complete literal marker and one accepted native citation inside the same closed reference, preserving its existing literal date exactly and refusing every conflicting value. An undated marker must not be assigned a new check date."
+    }
+  },
+  "notAutomaticEditorialRules": [
+    "Changing personal names or transliteration conventions",
+    "Changing lexical choices or adding conceptual links",
+    "Marking source or deletion criteria",
+    "Changing an already accepted file namespace alias",
+    "Replacing accepted parameter spellings solely for style"
+  ],
+  "interpretation": "Pattern counts overlap and describe observed text differences, not safe automatic operations. The sample is observational. Both actual candidate bundles have matching outputs and no preservation warnings across the captured sample, while explicitly declined contexts remain unchanged.",
+  "candidateRuntime": {
+    "kind": "anonymous-current-candidate-observational-runtime-audit",
+    "status": "passed-with-conservative-coverage-limits",
+    "bindings": [
+      {
+        "file": "RevisaWiki_v2_18_0.js",
+        "bytes": 1735379,
+        "sha256": "ce84231e232820e7f50e04ebea1e834f0c2f218bd7caf13becebdc5ba5daf0bf"
+      },
+      {
+        "file": "RevisaWiki_v2_18_0_completo.js",
+        "bytes": 3248524,
+        "sha256": "9a5e5d5265c9152042f26cb4414ebfbc499af8cd7e85606e0041c65cc4582a8d"
+      },
+      {
+        "file": "RevisaWiki_v2_18_0_dados.js",
+        "bytes": 1523935,
+        "sha256": "bc4db125210d6cc50948187f23903bfc5469068c94ad00146607a20ba04ed033"
+      }
+    ],
+    "sourceCaptures": 50,
+    "distinctArticles": 46,
+    "bundleExecutions": 100,
+    "coreCompleteOutputParity": true,
+    "pagesWithPreservationWarningsPerBundle": [
+      0,
+      0
+    ],
+    "partialSyntaxPagesPerBundle": [
+      13,
+      13
+    ],
+    "englishCallsBeforePerBundle": [
+      152,
+      152
+    ],
+    "englishCallsAfterPerBundle": [
+      17,
+      17
+    ],
+    "englishLocalizationObservations": [
+      {
+        "before": 95,
+        "afterEditorialChange": 0,
+        "afterCandidate": 17
+      },
+      {
+        "before": 57,
+        "afterEditorialChange": 0,
+        "afterCandidate": 0
+      }
+    ],
+    "remainingEnglishCoverage": {
+      "callCount": 17,
+      "quotationShieldContexts": 16,
+      "unsupportedNativeStatusValue": 1,
+      "policy": "Retain unsupported or shielded contexts. Do not broaden quotation or native-value contracts without a separate proof."
+    },
+    "wikipediaWrites": 0,
+    "privateEvidencePublished": false,
+    "firstOutputsReconfirmedByInvariantAudit": true
+  },
+  "candidateInvariantAudit": {
+    "kind": "anonymous-current-candidate-observational-sample-invariant-audit",
+    "status": "passed",
+    "bindings": [
+      {
+        "file": "RevisaWiki_v2_18_0.js",
+        "bytes": 1735379,
+        "sha256": "ce84231e232820e7f50e04ebea1e834f0c2f218bd7caf13becebdc5ba5daf0bf"
+      },
+      {
+        "file": "RevisaWiki_v2_18_0_completo.js",
+        "bytes": 3248524,
+        "sha256": "9a5e5d5265c9152042f26cb4414ebfbc499af8cd7e85606e0041c65cc4582a8d"
+      },
+      {
+        "file": "RevisaWiki_v2_18_0_dados.js",
+        "bytes": 1523935,
+        "sha256": "bc4db125210d6cc50948187f23903bfc5469068c94ad00146607a20ba04ed033"
+      }
+    ],
+    "sourceCaptures": 50,
+    "distinctArticles": 46,
+    "sourceBundlePairs": 100,
+    "actualCalculateCalls": 200,
+    "independentPreservationChecks": 200,
+    "independentCompositionChecks": 200,
+    "idempotentSourcePairsPerBundle": [
+      50,
+      50
+    ],
+    "preservationWarnings": 0,
+    "compositionFailures": 0,
+    "firstAndSecondCoreCompleteOutputParity": true,
+    "matchesPreviousPinnedFirstOutputReceipts": true,
+    "findings": 0,
+    "baselineReplayExecutions": 0,
+    "baselineReplayPolicy": "A finding requires a matching actual baseline replay and individual classification. No finding was waived.",
+    "wikipediaWrites": 0,
+    "privateEvidencePublished": false
+  },
+  "candidateUnavailableLinkMarkerCoverage": {
+    "observedEditorialFolds": 11,
+    "automaticFolds": 0,
+    "status": "The candidate does not implement the sampled marker-to-field folds. These observations remain a bounded coverage difference.",
+    "undatedMarkers": {
+      "count": 7,
+      "editorialAction": "The manual edits supplied the current month.",
+      "automaticPolicy": "Preserve the marker. Do not manufacture a check date."
+    },
+    "datedMarkers": {
+      "count": 4,
+      "contexts": [
+        {
+          "count": 1,
+          "reason": "The citation already has a conflicting unavailable-link date. The manual fold introduced a duplicate field."
+        },
+        {
+          "count": 1,
+          "reason": "The reference also contains trailing italic prose, beyond a sole literal citation and marker."
+        },
+        {
+          "count": 1,
+          "reason": "The marker carries additional bot metadata."
+        },
+        {
+          "count": 1,
+          "reason": "The citation has malformed braces and orphaned publication text inside a table-caption context."
+        }
+      ],
+      "automaticPolicy": "Preserve these distinct contexts until each has an independent source-bound native contract."
+    },
+    "interpretation": "Runtime preservation and idempotence do not establish that every sampled editorial correction is automated."
+  }
+}

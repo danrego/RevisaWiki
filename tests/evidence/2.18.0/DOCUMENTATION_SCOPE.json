@@ -1,0 +1,33 @@
+{
+  "version": "2.18.0",
+  "status": "approved",
+  "releaseDatePT": "17 de outubro de 2026",
+  "intro": "A versão '''2.18''' corrige citações que ficavam protegidas por engano, amplia os ajustes de datas e campos de referências e remove espaços excedentes em trechos de prosa. A lista de fontes acompanha a apresentação responsiva nativa da Wikipédia.",
+  "features": [
+    "Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.",
+    "Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.",
+    "Preserva comentários completos dentro dos valores e aceita combinações literais de estado ou acesso cuja equivalência foi conferida na implementação nativa.",
+    "Corrige datas literais em campos aceitos de citações, mantendo a precisão informada e conferindo o calendário. Não acrescenta um dia a uma data que só informa mês e ano.",
+    "Corrige nomes inválidos ou obsoletos de campos de citação e uma data completa colocada no campo de ano, após conferir os outros nomes usados para o mesmo campo.",
+    "Reduz linhas vazias excedentes, inclusive linhas contendo espaços ou tabulações, na prosa e nos limites finais reconhecidos.",
+    "Retira o espaço horizontal entre pontuação e uma referência ativa, corrige uma barra invertida em uma quebra de linha sem atributos e corrige títulos de seções finais escritos como chamadas literais sem argumentos cujos destinos foram conferidos.",
+    "Deixa as referências usarem a divisão responsiva nativa e retira apenas o conjunto exato de estilos fixos acrescentado por versões anteriores do programa.",
+    "Compara as 241 regras do código de referência que fazem substituições no texto de artigos, com casos executáveis e registro das diferenças preservadas ou ainda sem comprovação suficiente."
+  ],
+  "compatibilityScope": [
+    "Uma referência completa pode receber a tradução de seu nome de predefinição e de campos conferidos sem esperar que outra parte incompleta da página seja corrigida. O programa conserva os valores, os nomes das referências, os grupos e os delimitadores. A leitura do trecho inicial usa o contexto de aspas do texto inteiro. Uma seção posterior só entra nesse ajuste após verificações separadas de sua estrutura. Trechos ainda protegidos ficam como estão quando o contexto ao redor não permite confirmar a mudança, mesmo que o corpo da citação pareça completo.",
+    "Comentários HTML completos dentro de valores podem permanecer com os mesmos caracteres enquanto o nome da citação e de outros campos é traduzido. Os estados de endereço e de acesso aceitos por essa regra ficam exatamente como estavam. Combinações desconhecidas, comentários incompletos e nomes ou campos formados por código dinâmico não recebem essa tradução isolada.",
+    "Datas por extenso, abreviações de mês e formatos literais conferidos podem ser corrigidos nos campos nativos e em chamadas estrangeiras com destino já identificado. O mesmo dia, mês e ano precisam permanecer. Datas impossíveis e valores ambíguos ficam preservados. Datas de acesso e de arquivo precisam informar um dia completo para essa regra atuar.",
+    "Os nomes de campos corrigidos têm um destino conferido na predefinição local. A presença de outro nome para o mesmo campo, inclusive um argumento vazio, impede a troca. Grafias aceitas que não estejam obsoletas continuam como estavam. Uma data completa em ano ou year só passa para data quando não há outro campo de data ou de ano em conflito.",
+    "A comparação com o código de referência separa regras já cobertas, correções acrescentadas, escolhas válidas preservadas e casos ainda sem comprovação. A tabela de cobertura e os testes ficam no repositório. Essa comparação não é uma promessa de reproduzir toda substituição do código anterior nem todas as decisões de uma revisão humana. Marcadores de manutenção sem data comprovada, com argumentos conflitantes, texto adicional ou estrutura não confirmada ficam como estavam.",
+    "Os 241 itens são regras de substituição no texto de artigos e não abrangem todas as funções do programa de origem. Prefixos de espaço nominal em chamadas de predefinições seguem uma regra separada, limitada às famílias confirmadas no catálogo. Chamadas desconhecidas, protegidas, dinâmicas ou com substituição ficam preservadas.",
+    "Os adaptadores atendem ao editor clássico, às integrações reconhecidas de CodeMirror e ao modo de código-fonte do editor de 2017. O RevisaWiki não reproduz a abertura em lote de páginas a partir de categorias e afluentes, o fluxo de conversão do editor visual nem a integração com wikEd. A conferência dessas funções no código de origem não equivale a um novo teste delas nos navegadores."
+  ],
+  "technicalScope": [
+    "As mudanças desta versão são calculadas a partir de trechos exatos do texto de origem. Cada plano guarda os intervalos alterados e os dados usados para conferir a mudança. As verificações de preservação e aplicação parcial continuam recusando a perda ou alteração de títulos, identificadores, datas de acesso e conteúdo das referências.",
+    "A comparação dos dados de uma citação aplica as mesmas equivalências delimitadas de nomes e datas antes de executar a verificação existente. Isso permite reconhecer a correção de um campo escrito incorretamente sem dispensar a comparação de seus valores. Mudanças de valor, endereço, título ou estado que não façam parte do plano continuam recusadas.",
+    "A marcação de edição menor exige a confirmação de que o rascunho parte da revisão original e uma edição completa do domínio principal. Uma tradução isolada de nomes e campos só recebe essa marca quando coincide com o plano exato de equivalência nativa e passa pelas verificações de preservação e aplicação parcial. Um campo antes ignorado que passe a exibir dados não recebe essa autorização apenas por ter seu nome corrigido.",
+    "A conferência das referências reconhece equivalências limitadas na posição de negrito ou itálico em ligações literais e nos prefixos nativos de arquivos. A prova mantém o destino e o rótulo das ligações, seus destaques, os atributos das imagens e o conteúdo dos campos. Esse reconhecimento permite conferir ajustes de marcação já previstos pelo programa. Formas dinâmicas e diferenças de conteúdo continuam recusadas.",
+    "As opções automaticCitationIslands, automaticCitationDateValues, automaticCitationKeyRepairs, automaticLegacyMarkup e automaticProseGaps permitem desligar as ampliações correspondentes. Os carregadores fixos de common.js permanecem com os mesmos bytes da versão anterior."
+  ]
+}

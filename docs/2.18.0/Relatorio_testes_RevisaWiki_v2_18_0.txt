@@ -1,0 +1,34 @@
+RevisaWiki 2.18.0: resultados dos testes
+17 de outubro de 2026
+
+Os arquivos finais da versão 2.18.0 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 8 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.
+
+- Casos de reparo e regressões nas duas distribuições: 61.362 casos e 240.285 verificações, sem falhas.
+- Interface local nos três navegadores: 204 casos e 1.620 verificações, sem falhas.
+- Reconstrução isolada dos arquivos publicados: 113 verificações, sem falhas.
+- Validação dos totais e comprovantes de teste, com entradas fictícias: 38 casos e 14 verificações, sem falhas.
+- Páginas reais do corpus completo: 4.853 casos e 82.501 verificações, com 24 ocorrências idênticas às da versão anterior e nenhuma regressão nova.
+
+Os resultados públicos trazem os totais, os arquivos executados e os hashes dos comprovantes validados. Os relatórios individuais, as coordenadas dos casos, as capturas reais e os registros de execução ficam locais. Os comprovantes originais são conferidos antes de gerar os resumos públicos. Os exemplos fictícios das provas nativas e a matriz de regras ficam disponíveis para reprodução.
+
+Casos sintéticos e execuções nas duas distribuições não são artigos distintos. Os resultados e hashes ficam em tests/evidence/2.18.0. Os comprovantes nativos anteriores mantêm sua origem e não são contados como consultas novas.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_18_0.js: 9651 bytes
+SHA-256: d1c114595174eaa72c1342dd64ec889c4239c8c57e49c76edd67d7524149d906
+Carregador_comunitario_RevisaWiki_v2_18_0.js: 9653 bytes
+SHA-256: e99fbfaf3942b41e99cc3f901637d71b52aa42c108585ddcbd46ca13467b40cb
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_18_0.js: 1735379 bytes
+SHA-256: ce84231e232820e7f50e04ebea1e834f0c2f218bd7caf13becebdc5ba5daf0bf
+RevisaWiki_v2_18_0_completo.js: 3248524 bytes
+SHA-256: 9a5e5d5265c9152042f26cb4414ebfbc499af8cd7e85606e0041c65cc4582a8d
+RevisaWiki_v2_18_0_dados.js: 1523935 bytes
+SHA-256: bc4db125210d6cc50948187f23903bfc5469068c94ad00146607a20ba04ed033
+
+Nenhum teste editou a Wikipédia.
+Código e arquivos: https://github.com/danrego/RevisaWiki

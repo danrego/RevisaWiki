@@ -1,0 +1,356 @@
+{
+  "schema": 1,
+  "kind": "anonymous-whole-source-feature-coverage-audit",
+  "status": "completed",
+  "version": "2.18.0",
+  "bindings": {
+    "sourceRevision": {
+      "oldid": 66288743,
+      "sha256": "c05cb31034a9f82fef3de7f14098d122583913c38f32defe8411f1d7c6347063",
+      "permanentLink": "https://pt.wikipedia.org/w/index.php?oldid=66288743"
+    },
+    "inventory": {
+      "file": "tests/v218/source_coverage_inventory.json",
+      "sha256": "91c761b898cf7b1d7677da65321d85b3ff6e2cd75af5173bc0583c7bfa2868d2"
+    },
+    "releaseManifest": {
+      "file": "tests/expected_release_v2180.json",
+      "sha256": "992cd2efe4a460270601c93f825164771fa50f8ef6c9c916c1ed01319406cb67"
+    },
+    "runtimes": [
+      {
+        "file": "RevisaWiki_v2_18_0.js",
+        "bytes": 1735379,
+        "sha256": "ce84231e232820e7f50e04ebea1e834f0c2f218bd7caf13becebdc5ba5daf0bf"
+      },
+      {
+        "file": "RevisaWiki_v2_18_0_completo.js",
+        "bytes": 3248524,
+        "sha256": "9a5e5d5265c9152042f26cb4414ebfbc499af8cd7e85606e0041c65cc4582a8d"
+      }
+    ]
+  },
+  "descriptorBoundary": {
+    "articleTextSubstitutionDescriptors": 241,
+    "articleTextGroups": {
+      "citationDateValues": 64,
+      "citationTranslations": 109,
+      "citationDetails": 21,
+      "duplicateFields": 8,
+      "generalMarkup": 37,
+      "listMarkup": 2
+    },
+    "browserEditLinkDescriptors": 2,
+    "additionalDirectArticleTextSteps": 1,
+    "explanation": "The 241-entry inventory covers every active article-text substitution descriptor in the pinned source. It is not a count of all gadget features. One namespace-prefix cleanup step and two browser HTML edit-link generators are audited separately."
+  },
+  "namespacePrefixCleanup": {
+    "status": "existing-bounded-coverage-with-deliberate-safety-differences",
+    "originalBehavior": "A global replacement removes an explicit template namespace prefix wherever its spelling matches, without a protected-text or destination check.",
+    "currentBehavior": "Catalog-confirmed citation, reference-renderer and infobox destinations are already canonicalized. Unknown valid template names and protected examples retain their bytes.",
+    "safetyBoundary": "An explicit template namespace can distinguish a template title from a magic word, another namespace or a substitution prefix. Generic removal is therefore not a required safe correction.",
+    "actualWitnessAudit": {
+      "witnessCount": 8,
+      "bundleExecutions": 16,
+      "checks": 130,
+      "scope": "Eight synthetic namespace-prefix scenarios only. These counts do not claim browser/UI testing or an exhaustive namespace grammar.",
+      "witnesses": [
+        {
+          "id": "registered-citation",
+          "sourceSha256": "e364ff1da0612e5b1b32ce1392bf99b183fdfea80f22021134311e2389947935",
+          "sourceBytes": 77,
+          "expectedAdjustments": 1,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "c64dbf6c4c363f000f1df968a757359fc30856d12403a03a3e989c748c866132",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "c64dbf6c4c363f000f1df968a757359fc30856d12403a03a3e989c748c866132",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "registered-reference-renderer",
+          "sourceSha256": "41de61027fd2aaa9465f970294401b4447269e50fb277df03248ac2ac9235dca",
+          "sourceBytes": 31,
+          "expectedAdjustments": 1,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "70db10b7ff79be3ded6fc82f2e24f6fb91804316f36205768fbd316c045fee05",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "70db10b7ff79be3ded6fc82f2e24f6fb91804316f36205768fbd316c045fee05",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "registered-infobox",
+          "sourceSha256": "1744317f973ca7bbde74ffe98e6df7f79a36c371029b33fb712cbb17ad642743",
+          "sourceBytes": 55,
+          "expectedAdjustments": 1,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "cbcb8f1ed159c2eb303f61eadc7a649c73b51ea8c0e96059d4b26519ce5ed6dc",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "cbcb8f1ed159c2eb303f61eadc7a649c73b51ea8c0e96059d4b26519ce5ed6dc",
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "unknown-literal-template",
+          "sourceSha256": "5910952a7a0e580dc7f5dc04af8dfc4c47dfcb848a1d0e2a454dd94ed48492a9",
+          "sourceBytes": 47,
+          "expectedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "5910952a7a0e580dc7f5dc04af8dfc4c47dfcb848a1d0e2a454dd94ed48492a9",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "5910952a7a0e580dc7f5dc04af8dfc4c47dfcb848a1d0e2a454dd94ed48492a9",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "protected-literal-example",
+          "sourceSha256": "57335dd27d984c7e2cb8a4b01b73ea71b4390979de14f418f5c4e981d802bca1",
+          "sourceBytes": 52,
+          "expectedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "57335dd27d984c7e2cb8a4b01b73ea71b4390979de14f418f5c4e981d802bca1",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "57335dd27d984c7e2cb8a4b01b73ea71b4390979de14f418f5c4e981d802bca1",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "magic-word-collision",
+          "sourceSha256": "bf845bdef3e8405d85f701d30d621d0c1842499064de2a32fa09c34e4f5909a9",
+          "sourceBytes": 30,
+          "expectedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "bf845bdef3e8405d85f701d30d621d0c1842499064de2a32fa09c34e4f5909a9",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "bf845bdef3e8405d85f701d30d621d0c1842499064de2a32fa09c34e4f5909a9",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "other-namespace-collision",
+          "sourceSha256": "e6d8175d79f5aa425cbc168bfd6737179a6fdff70828a7dab7912c491627687d",
+          "sourceBytes": 44,
+          "expectedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "e6d8175d79f5aa425cbc168bfd6737179a6fdff70828a7dab7912c491627687d",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "e6d8175d79f5aa425cbc168bfd6737179a6fdff70828a7dab7912c491627687d",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        },
+        {
+          "id": "substitution-prefix-collision",
+          "sourceSha256": "9b931f9fff9417f44868208ef2d6814054ef650895a275fc141073ac39ab251d",
+          "sourceBytes": 41,
+          "expectedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "outputSha256": "9b931f9fff9417f44868208ef2d6814054ef650895a275fc141073ac39ab251d",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "outputSha256": "9b931f9fff9417f44868208ef2d6814054ef650895a275fc141073ac39ab251d",
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "surroundingFeatures": [
+    {
+      "id": "date-helper-functions",
+      "verification": "source-inspection-and-descriptor-witnesses",
+      "coverage": "Month conversion, date-family wrappers and fallback handling are exercised through the date and maintenance descriptors. One witness per descriptor does not prove every possible regex input safe."
+    },
+    {
+      "id": "duplicate-value-parser",
+      "verification": "source-inspection-and-descriptor-witnesses",
+      "coverage": "The nested-value parser supplies the eight duplicate descriptors. RevisaWiki removes identical duplicates while preserving conflicting and empty overrides, rather than copying the original value-selection changes."
+    },
+    {
+      "id": "nested-substitution-and-scope",
+      "verification": "source-inspection",
+      "coverage": "RevisaWiki uses protected-source parsing, native destination contracts and source-bound edits. It does not copy the same nested scanning implementation or assume the same processing scope."
+    },
+    {
+      "id": "bounded-repeat-orchestration",
+      "verification": "source-inspection",
+      "coverage": "The original fixed-point loops and pass caps are replaced by staged bounded plans and idempotence checks. Equal iteration counts are not a feature-parity claim."
+    },
+    {
+      "id": "syntax-validation",
+      "verification": "source-inspection",
+      "coverage": "Structural scans, preservation guards and bounded recovery provide validation. RevisaWiki does not reproduce the original whole-page abort, warning and bypass flow."
+    },
+    {
+      "id": "manual-action-and-source-editors",
+      "verification": "source-inspection-not-a-fresh-browser-test",
+      "coverage": "Both tools provide a manual adjustment action and source editor integration. Current RevisaWiki adapters support classic/CodeMirror and the 2017 source editor."
+    },
+    {
+      "id": "true-visual-editor",
+      "verification": "explicit-current-adapter-contract",
+      "coverage": "The original can obtain wikitext from true VisualEditor mode and hand it to a source diff form. Current RevisaWiki explicitly declines true visual mode. Switch to source editing."
+    },
+    {
+      "id": "active-wiked-editor",
+      "verification": "explicit-current-adapter-contract",
+      "coverage": "The original integrates with wikEd. Current RevisaWiki explicitly declines an active wikEd adapter rather than modify an unconfirmed editor model."
+    },
+    {
+      "id": "category-and-backlink-launchers",
+      "verification": "source-inspection",
+      "coverage": "The two original browser HTML descriptors append JavaScript Edit launchers to category and backlinks results. RevisaWiki does not provide this category/backlinks batch launcher."
+    },
+    {
+      "id": "edit-summary",
+      "verification": "source-inspection",
+      "coverage": "The original prepends generic feature summaries. RevisaWiki describes retained changes and preserves a summary manually written by the editor. The exact original summary format is not copied."
+    },
+    {
+      "id": "minor-edit-marking",
+      "verification": "source-inspection",
+      "coverage": "The original always checks the available minor-edit control after adjustment. RevisaWiki requires a confirmed mechanical-change proof and source-revision confirmation."
+    },
+    {
+      "id": "native-diff-workflow",
+      "verification": "source-inspection",
+      "coverage": "The original automatically invokes a native diff or submits a diff form. RevisaWiki exposes the native comparison control while leaving publication with the editor."
+    },
+    {
+      "id": "browser-controls-and-shortcuts",
+      "verification": "source-inspection",
+      "coverage": "Original button cloning, access-key changes, delayed polling and editor navigation are not copied as an identical interface. RevisaWiki has its own mounting, cancellation, undo and editor safeguards."
+    },
+    {
+      "id": "session-error-logging-option",
+      "verification": "source-inspection",
+      "coverage": "The original changes a session error-logging opt-out. RevisaWiki does not copy this browser setting, which is not an article-text correction."
+    }
+  ],
+  "claims": {
+    "supported": "The complete pinned source was reviewed, including active article transformations and surrounding helpers, validation, summaries and browser/editor controls.",
+    "notSupported": "RevisaWiki is not an exact replacement for every feature or every browser workflow of the other gadget. The 241-rule witness count is not exhaustive regex-input coverage, byte parity or complete UI parity."
+  },
+  "primaryContracts": [
+    "https://www.mediawiki.org/wiki/Help:Transclusion",
+    "https://www.mediawiki.org/wiki/Help:Magic_words",
+    "https://www.mediawiki.org/wiki/Help:Templates"
+  ],
+  "execution": {
+    "networkRequests": 0,
+    "wikipediaWrites": 0,
+    "privateEvidencePublished": false,
+    "scope": "Production frozen bundles, with automatic preview and network DOI checks disabled for deterministic local execution."
+  }
+}

@@ -1,0 +1,30 @@
+RevisaWiki 2.18.0: referência técnica
+17 de outubro de 2026
+
+A reconstrução parte da distribuição 2.17.0 fixada por SHA-256 e aplica os módulos de src/v2_18. Os arquivos históricos permanecem intactos. Cada plano de reparo fica vinculado ao código de entrada e ao resultado previsto.
+
+As mudanças desta versão são calculadas a partir de trechos exatos do texto de origem. Cada plano guarda os intervalos alterados e os dados usados para conferir a mudança. As verificações de preservação e aplicação parcial continuam recusando a perda ou alteração de títulos, identificadores, datas de acesso e conteúdo das referências.
+
+A comparação dos dados de uma citação aplica as mesmas equivalências delimitadas de nomes e datas antes de executar a verificação existente. Isso permite reconhecer a correção de um campo escrito incorretamente sem dispensar a comparação de seus valores. Mudanças de valor, endereço, título ou estado que não façam parte do plano continuam recusadas.
+
+A marcação de edição menor exige a confirmação de que o rascunho parte da revisão original e uma edição completa do domínio principal. Uma tradução isolada de nomes e campos só recebe essa marca quando coincide com o plano exato de equivalência nativa e passa pelas verificações de preservação e aplicação parcial. Um campo antes ignorado que passe a exibir dados não recebe essa autorização apenas por ter seu nome corrigido.
+
+A conferência das referências reconhece equivalências limitadas na posição de negrito ou itálico em ligações literais e nos prefixos nativos de arquivos. A prova mantém o destino e o rótulo das ligações, seus destaques, os atributos das imagens e o conteúdo dos campos. Esse reconhecimento permite conferir ajustes de marcação já previstos pelo programa. Formas dinâmicas e diferenças de conteúdo continuam recusadas.
+
+As opções automaticCitationIslands, automaticCitationDateValues, automaticCitationKeyRepairs, automaticLegacyMarkup e automaticProseGaps permitem desligar as ampliações correspondentes. Os carregadores fixos de common.js permanecem com os mesmos bytes da versão anterior.
+
+Entre parágrafos comuns de um artigo, duas ou mais linhas vazias passam a uma única linha vazia quando a estrutura e os limites do trecho estão completos. Essas linhas podem conter apenas espaços ou tabulações. O texto dos parágrafos e suas referências permanecem iguais. A mesma limpeza pode ocorrer antes de uma chamada nativa reconhecida de referências, portais ou controle de autoridade, ou de uma linha de categoria.
+
+Uma referência completa dentro do parágrafo pode conter uma predefinição de citação sem impedir essa limpeza. O programa conserva o código da fonte e usa apenas os limites da referência para reconhecer o texto ao redor. Depois dos outros ajustes, ele confere novamente o espaçamento, para concluir no mesmo clique a limpeza de um espaço deixado pela retirada de uma marca obsoleta.
+
+As linhas dentro de predefinições, referências, tabelas, citações, exemplos, código, poemas, ligações e elementos HTML permanecem intactas. Limites de listas e texto pré-formatado também impedem a mudança. A regra preserva a indentação, uma única linha vazia já existente, o início e o fim da página e as quebras de linha de formatos misturados. Não retira espaçamento de discussões nem de documentação de predefinições. Use automaticProseGaps: false para desligar a ampliação de espaços em branco desta versão.
+
+As referências usam a apresentação responsiva nativa da Wikipédia, que adapta a lista à largura disponível. O programa deixa de acrescentar um número fixo de colunas ou um estilo externo a partir de dez entradas. A quantidade de referências, sozinha, não decide quantas colunas a tela deve mostrar.
+
+O conjunto exato de quatro declarações CSS que versões anteriores do programa acrescentavam ao envoltório de Referências pode ser retirado para deixar a lista nativa ajustar sua largura. A regra reconhece o conjunto inteiro, com os valores conferidos, antes de remover o argumento. Estilos próprios, argumentos posicionais que possam renumerar outros valores e conjuntos diferentes ficam como estavam.
+
+Parâmetros antigos que a implementação nativa conferida ignora também podem ser retirados. O conteúdo da lista, as definições em refs=, os nomes, os grupos e os demais argumentos permanecem iguais. A limpeza não envolve as referências em uma Div col e não muda a quantidade ou a ordem das fontes. Notas e referências conserva a apresentação da própria predefinição, sem receber parâmetros novos de colunas.
+
+Os resultados públicos trazem os totais, os arquivos executados e os hashes dos comprovantes validados. Os relatórios individuais, as coordenadas dos casos, as capturas reais e os registros de execução ficam locais. Os comprovantes originais são conferidos antes de gerar os resumos públicos. Os exemplos fictícios das provas nativas e a matriz de regras ficam disponíveis para reprodução.
+
+Os arquivos finais da versão 2.18.0 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 8 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.

@@ -1,0 +1,68 @@
+{
+  "kind": "synthetic-native-closed-markup-and-heading-repairs",
+  "status": "passed",
+  "synthetic": true,
+  "endpoint": "https://pt.wikipedia.org/w/api.php",
+  "action": "parse",
+  "requestCount": 2,
+  "wikipediaWrites": 0,
+  "networkWrites": 0,
+  "sourceSha256": {
+    "before": "33c4ec1d3728d071705f60d13295148eec8edb008e8dcc3caec2cd38c3ce407f",
+    "after": "6afbc7273d70ac77cd139a0e2d81be8c34b0016c4d20a696c4acb542ead6154f"
+  },
+  "responseSha256": {
+    "before": "551f7248d51f5d4956e1b3f00d4e2760a4f809415cc2b38797aff39dc99af7e6",
+    "after": "1eb7796629635889864cc7d7b1d70c3108775c4fc323dda23adbce084550f134"
+  },
+  "comparison": {
+    "headingsCountEqual": true,
+    "threeExpectedHeadings": true,
+    "otherHeadingsEqual": true,
+    "listsEqual": true,
+    "referencesEqual": true,
+    "preEqual": true,
+    "literalControlsEqual": true,
+    "knownMalformedBreakRepaired": true,
+    "onlyHorizontalReferenceGapRemoved": true,
+    "existingHatnoteErrorRemoved": true
+  },
+  "nativeDefinitions": {
+    "substitution-only-heading": 64720924,
+    "see-also-redirect": 71944043,
+    "see-also-target": 72767371,
+    "bibliography-template": 60819487,
+    "bibliography-module": 60819166,
+    "labelled-list-hatnote-module": 70200776
+  },
+  "method": "Anonymous native rendering of fictional complete pages. Three exact argument-free whole headings intentionally acquire their plain labels. A literal malformed break becomes a native line break and one horizontal space before a reference marker disappears. References, list items and protected literal controls remain equal. Raw responses and HTML remain private.",
+  "zeroArgumentHeadingContracts": [
+    {
+      "template": "Bibliografia",
+      "templateOldid": 60819487,
+      "module": "Wikidata/Referências",
+      "moduleOldid": 60819166,
+      "allowedShape": "An exact whole heading containing a single template call with no arguments",
+      "argumentSource": "frame:getParent().args",
+      "entryPoint": "citeItem(frame) calls reference.citeitem(args[1], args)",
+      "earlyReturn": "if not entityId then return nil end",
+      "returnBefore": "wd.getEntity(entityId)",
+      "pageDefaultLookupPossible": false,
+      "condition": "The absent first parent argument reaches the nil return before any entity lookup."
+    },
+    {
+      "template": "Ver Também",
+      "redirectOldid": 71944043,
+      "targetTemplateOldid": 72767371,
+      "module": "Labelled list hatnote",
+      "moduleOldid": 70200776,
+      "allowedShape": "An exact whole heading containing a single template call with no arguments",
+      "argumentSource": "mArguments.getArgs(frame, {parentOnly = true})",
+      "pageListConstruction": "preprocessDisplays collects only numeric parent arguments",
+      "emptyPageListBranch": "#pages == 0 and removednonexist == false returns makeWikitextError(noInputWarning)",
+      "noInputWarning": "nenhum nome de página especificado",
+      "pageDefaultLookupPossible": false,
+      "condition": "No numeric parent arguments produce an empty page list. The label from frame.args is separate and cannot supply a page name."
+    }
+  ]
+}

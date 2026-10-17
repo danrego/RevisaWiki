@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -8,17 +8,17 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node tests/v217/run_all.cjs",
-    "test:focused": "node tests/v217/run_all.cjs --focused",
-    "test:complex": "node tests/v217/run_all.cjs",
-    "test:regression": "node tests/v217/run_all.cjs --previous-only",
-    "test:engine": "node tests/v217/run_all.cjs --previous-only",
-    "test:large-articles": "node tests/v217/corpus.cjs",
+    "test": "node tests/v218/run_all.cjs --extra=source_coverage_cases.cjs --extra=independent_cases.cjs --extra=legacy_markup_cases.cjs",
+    "test:focused": "node tests/v218/run_all.cjs --focused --extra=source_coverage_cases.cjs --extra=independent_cases.cjs --extra=legacy_markup_cases.cjs",
+    "test:complex": "node tests/v218/run_all.cjs --extra=source_coverage_cases.cjs --extra=independent_cases.cjs --extra=legacy_markup_cases.cjs",
+    "test:regression": "node tests/v218/run_all.cjs --previous-only",
+    "test:engine": "node tests/v218/run_all.cjs --previous-only",
+    "test:large-articles": "node tests/v218/corpus.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:documentation": "python3 scripts/audit_documentation_v2170.py",
-    "build": "python3 scripts/build_v2170.py",
-    "build:index": "python3 scripts/build_index_v2170.py",
+    "test:documentation": "python3 scripts/audit_documentation_v2180.py",
+    "build": "python3 scripts/build_v2180.py",
+    "build:index": "python3 scripts/build_index_v2180.py",
     "test:previous2130": "node tests/v2130/run_all.cjs",
     "test:previous": "node tests/run_all.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
@@ -37,6 +37,7 @@
     "test:previous2110": "node tests/v2110/run_all.cjs",
     "test:previous2111": "node tests/v2111/run_all.cjs",
     "test:previous2120": "node tests/v2120/run_all.cjs",
-    "test:previous2140": "node tests/v2140/run_all.cjs"
+    "test:previous2140": "node tests/v2140/run_all.cjs",
+    "test:previous2170": "node tests/v217/run_all.cjs"
   }
 }

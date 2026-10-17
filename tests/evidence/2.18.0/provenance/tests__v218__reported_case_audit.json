@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "kind": "anonymous-reported-case-regression-audit",
+  "status": "passed",
+  "version": "2.18.0",
+  "manifest": {
+    "file": "tests/expected_release_v2180.json",
+    "sha256": "992cd2efe4a460270601c93f825164771fa50f8ef6c9c916c1ed01319406cb67"
+  },
+  "scope": "Three reported scenarios, including a previously corrected variant, independently replayed against both frozen production bundles.",
+  "execution": {
+    "source": "private captured revisions",
+    "networkRequests": 0,
+    "wikipediaWrites": 0,
+    "privateEvidencePublished": false,
+    "options": "Production defaults in main-namespace full-source mode. Network DOI checks and automatic preview are disabled; the source revision is confirmed for minor-edit evaluation."
+  },
+  "expectedRequirements": [
+    "Runtime bytes match the frozen release manifest.",
+    "The first action reaches the independently specified case endpoint.",
+    "A second action leaves the exact output unchanged.",
+    "The production preservation guard reports no lost content.",
+    "safeComposition returns no objection.",
+    "Retained adjustments are exact and match both the expected operation count and the sum shown to the user.",
+    "Both bundles return byte-identical output for each captured input."
+  ],
+  "runtimes": [
+    {
+      "file": "RevisaWiki_v2_18_0.js",
+      "sha256": "ce84231e232820e7f50e04ebea1e834f0c2f218bd7caf13becebdc5ba5daf0bf",
+      "bytes": 1735379
+    },
+    {
+      "file": "RevisaWiki_v2_18_0_completo.js",
+      "sha256": "9a5e5d5265c9152042f26cb4414ebfbc499af8cd7e85606e0041c65cc4582a8d",
+      "bytes": 3248524
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "closed-citation-localization",
+      "variants": [
+        {
+          "id": "captured-source",
+          "sourceSha256": "ee6c292ed02cc5946627773d6198254d15e1ef7aa899d4ae4f3244cd64826ec3",
+          "sourceBytes": 36156,
+          "expectedRetainedAdjustments": 65,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "status": "passed",
+              "outputSha256": "2fba16674ecff8e81a5133d26ab036434265f2c61533eb19c7a8d4613a96f1fa",
+              "outputBytes": 36233,
+              "exactRetainedAdjustments": 65,
+              "displayedAdjustments": 65,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "sourceBoundOperations": 65,
+                "closedCitations": 15,
+                "remainingImportedCalls": 0,
+                "unrelatedSourceRetainedByExactPlan": true
+              }
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "status": "passed",
+              "outputSha256": "2fba16674ecff8e81a5133d26ab036434265f2c61533eb19c7a8d4613a96f1fa",
+              "outputBytes": 36233,
+              "exactRetainedAdjustments": 65,
+              "displayedAdjustments": 65,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "sourceBoundOperations": 65,
+                "closedCitations": 15,
+                "remainingImportedCalls": 0,
+                "unrelatedSourceRetainedByExactPlan": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excess-prose-spacing",
+      "variants": [
+        {
+          "id": "captured-source",
+          "sourceSha256": "0d582829b49a32c90e0297afafb46ee121af60350cd01333fddfe412e6f42829",
+          "sourceBytes": 7275,
+          "expectedRetainedAdjustments": 3,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "status": "passed",
+              "outputSha256": "f9a3cb09042e63f360c76d018d853428ae15ba53f529a28b67b842163d1d2151",
+              "outputBytes": 7277,
+              "exactRetainedAdjustments": 3,
+              "displayedAdjustments": 3,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "excessSpacingOperations": 1,
+                "validatedDateValueOperations": 2,
+                "remainingReportedGap": 0
+              }
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "status": "passed",
+              "outputSha256": "f9a3cb09042e63f360c76d018d853428ae15ba53f529a28b67b842163d1d2151",
+              "outputBytes": 7277,
+              "exactRetainedAdjustments": 3,
+              "displayedAdjustments": 3,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "excessSpacingOperations": 1,
+                "validatedDateValueOperations": 2,
+                "remainingReportedGap": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native-responsive-reference-layout",
+      "variants": [
+        {
+          "id": "generated-wrapper",
+          "sourceSha256": "16ff41fd177887750126cde9aa3be568adaf8de54118bf98b3142a6f0dc6db8f",
+          "sourceBytes": 10296,
+          "expectedRetainedAdjustments": 1,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "status": "passed",
+              "outputSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76",
+              "outputBytes": 10225,
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "generatedStyleArgumentsRemoved": 1,
+                "nativeRendererRetained": true,
+                "referencePayloadsUnchanged": true,
+                "correctedCaptureSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76"
+              }
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "status": "passed",
+              "outputSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76",
+              "outputBytes": 10225,
+              "exactRetainedAdjustments": 1,
+              "displayedAdjustments": 1,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": true,
+              "evidence": {
+                "generatedStyleArgumentsRemoved": 1,
+                "nativeRendererRetained": true,
+                "referencePayloadsUnchanged": true,
+                "correctedCaptureSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76"
+              }
+            }
+          ]
+        },
+        {
+          "id": "already-corrected",
+          "sourceSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76",
+          "sourceBytes": 10225,
+          "expectedRetainedAdjustments": 0,
+          "outcomes": [
+            {
+              "runtime": "RevisaWiki_v2_18_0.js",
+              "status": "passed",
+              "outputSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76",
+              "outputBytes": 10225,
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": false,
+              "evidence": {
+                "generatedStyleArgumentsRemoved": 0,
+                "nativeRendererRetained": true,
+                "referencePayloadsUnchanged": true,
+                "correctedCaptureSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76"
+              }
+            },
+            {
+              "runtime": "RevisaWiki_v2_18_0_completo.js",
+              "status": "passed",
+              "outputSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76",
+              "outputBytes": 10225,
+              "exactRetainedAdjustments": 0,
+              "displayedAdjustments": 0,
+              "idempotent": true,
+              "preservationIssues": 0,
+              "compositionIssue": false,
+              "minorEligible": false,
+              "evidence": {
+                "generatedStyleArgumentsRemoved": 0,
+                "nativeRendererRetained": true,
+                "referencePayloadsUnchanged": true,
+                "correctedCaptureSha256": "7e500a17e5b005a6d8c5135ae9e34756e5c84bb11df5cd91c6f3a7df7e872e76"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": 116,
+  "failures": [],
+  "executions": 8,
+  "passedExecutions": 8
+}

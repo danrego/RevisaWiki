@@ -1,0 +1,18 @@
+RevisaWiki 2.18.0
+17 de outubro de 2026
+
+- Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.
+- Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.
+- Preserva comentários completos dentro dos valores e aceita combinações literais de estado ou acesso cuja equivalência foi conferida na implementação nativa.
+- Corrige datas literais em campos aceitos de citações, mantendo a precisão informada e conferindo o calendário. Não acrescenta um dia a uma data que só informa mês e ano.
+- Corrige nomes inválidos ou obsoletos de campos de citação e uma data completa colocada no campo de ano, após conferir os outros nomes usados para o mesmo campo.
+- Reduz linhas vazias excedentes, inclusive linhas contendo espaços ou tabulações, na prosa e nos limites finais reconhecidos.
+- Retira o espaço horizontal entre pontuação e uma referência ativa, corrige uma barra invertida em uma quebra de linha sem atributos e corrige títulos de seções finais escritos como chamadas literais sem argumentos cujos destinos foram conferidos.
+- Deixa as referências usarem a divisão responsiva nativa e retira apenas o conjunto exato de estilos fixos acrescentado por versões anteriores do programa.
+- Compara as 241 regras do código de referência que fazem substituições no texto de artigos, com casos executáveis e registro das diferenças preservadas ou ainda sem comprovação suficiente.
+
+Os arquivos finais da versão 2.18.0 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 8 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.
+
+Atualize dados, programa, carregador central e documentação, nessa ordem. A chamada fixa do common.js continua igual.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki

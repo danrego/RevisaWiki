@@ -1,0 +1,700 @@
+{
+  "schema": 1,
+  "kind": "anonymous-native-reference-markup-proof",
+  "status": "passed",
+  "sourceHelper": {
+    "file": "src/v2_18/reference_markup_proof.js",
+    "sha256": "527679ec60cfe8c0d717c21c0d68e2ec5ff2e6300b0607ea84201f2bbc7f0cf6"
+  },
+  "nativeOperation": {
+    "api": "https://pt.wikipedia.org/w/api.php",
+    "action": "parse",
+    "method": "GET",
+    "anonymous": true,
+    "wikipediaWrites": 0,
+    "imageDownloads": 0,
+    "inputKind": "fictional synthetic wikitext only"
+  },
+  "comparison": "Visible text with link target and italic/bold state, image attributes, all link targets and CSS classes. Non-visible style text and parser-only stylesheet deduplication are excluded. Emphasis placement can yield different HTML nesting with identical tested visible semantics.",
+  "scope": {
+    "emphasisDelimiterLengths": [
+      2,
+      3
+    ],
+    "fileNamespace": 6,
+    "embeddedAliases": [
+      "File",
+      "Image",
+      "Ficheiro",
+      "Arquivo",
+      "Imagem"
+    ],
+    "citationFamilies": [
+      "Citar web",
+      "Citar jornal",
+      "Citar revista",
+      "Citar periódico",
+      "Citar livro"
+    ],
+    "literalCitationFields": [
+      "página",
+      "páginas",
+      "page",
+      "pages"
+    ],
+    "leadingColonPolicy": "All leading-colon file links remain outside the projection. Native unpiped colon links display the written namespace prefix, so prefix replacement can change their visible text.",
+    "adjacentClosedCitation": "Literal embedded file tokens immediately after a complete verified native CS1 citation remain within the namespace-only equivalence. URL inspection is bounded after the verified closed call only when its original URL match begins inside that call. The remaining tail is rechecked for a real bare URL."
+  },
+  "nativeContracts": [
+    {
+      "url": "https://pt.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces%7Cnamespacealiases&format=json",
+      "kind": "canonical File and native namespace 6 aliases"
+    },
+    {
+      "oldid": 73016847,
+      "kind": "CS1 native alias families"
+    }
+  ],
+  "captures": [
+    {
+      "responseSha256": "16f1e8b30f4e8049b5dcd0afb69d296daf516ce72ed9629090b8c9032cab416f",
+      "htmlSha256": "da16df8c8429f5891eee295fbd2d31af9be38bad2ac42b749d042cb03f889e9d",
+      "httpStatus": 200,
+      "samples": 24,
+      "comparisons": 20
+    },
+    {
+      "responseSha256": "e53599fc3bcbd258b5be9112a86a70011d471ba06a99e185a42b3c38226b7bc8",
+      "htmlSha256": "cc9d293e306e15c0501eab3979d8b5d76ddb1156d91568a18d2ae9d90e33e7ba",
+      "httpStatus": 200,
+      "samples": 16,
+      "comparisons": 8
+    },
+    {
+      "responseSha256": "57c0daccd250d251c0f46e6498e1210ea1bb9bfce4735be4364c5a8eb26483cd",
+      "htmlSha256": "c3746f904d5caee07219918aa513b87a1905aa6a2cb8b01de6318ff145bc9e75",
+      "httpStatus": 200,
+      "samples": 4,
+      "comparisons": 2
+    }
+  ],
+  "sampleCount": 44,
+  "comparisonCount": 30,
+  "equivalenceComparisons": 20,
+  "requiredDifferenceComparisons": 10,
+  "samples": [
+    {
+      "id": "italic-inner",
+      "wikitext": "[[Ciência|''texto literal'']]",
+      "inputSha256": "533e7b0e594ce4b50c9af50167cc493246e7427f0da96152e0715a936412e336",
+      "renderedSemanticsSha256": "96f6691079023c7378ec068f382f56acc13d283c7cb15dfc9f5e817642b6df25",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "italic-outer",
+      "wikitext": "''[[Ciência|texto literal]]''",
+      "inputSha256": "534ddfa5535d8b33b973520dc18698148c46f67ecf319812f5674e16e75ae80c",
+      "renderedSemanticsSha256": "96f6691079023c7378ec068f382f56acc13d283c7cb15dfc9f5e817642b6df25",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "bold-inner",
+      "wikitext": "[[Ciência|'''texto literal''']]",
+      "inputSha256": "3c24349b6cd4919ef64e0b71961cd39043d59511b330720c7ffb5dd6172df4ed",
+      "renderedSemanticsSha256": "7f80ec5c1af72d26d7dfd5a9fddeea53e15580b1a8b800d79684271ceb4de765",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "bold-outer",
+      "wikitext": "'''[[Ciência|texto literal]]'''",
+      "inputSha256": "0e6d57d7fa39851c71067bd7c51302db297fd1e6358d86b41099f95c46ca6c32",
+      "renderedSemanticsSha256": "7f80ec5c1af72d26d7dfd5a9fddeea53e15580b1a8b800d79684271ceb4de765",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "changed-target",
+      "wikitext": "''[[Física|texto literal]]''",
+      "inputSha256": "c05fe961b21069839ce4b93f4f969a54f582d3e8755c7e5ab118dfdf40594a02",
+      "renderedSemanticsSha256": "c736ba675855ece9d732916b5e2edeadcbca82d9a7b0520e595bf3e250bd7b92",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "changed-label",
+      "wikitext": "''[[Ciência|texto alterado]]''",
+      "inputSha256": "1bfc0d7b7376c5f67aef5c69081152d298bd9b71b0163a31b99e34d68bcc1cb9",
+      "renderedSemanticsSha256": "21a9d327d1eb6f5e91dad0ea96ec26b2241175934797578ea08b02b7a8979f41",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "changed-delimiter",
+      "wikitext": "'''[[Ciência|texto literal]]'''",
+      "inputSha256": "0e6d57d7fa39851c71067bd7c51302db297fd1e6358d86b41099f95c46ca6c32",
+      "renderedSemanticsSha256": "7f80ec5c1af72d26d7dfd5a9fddeea53e15580b1a8b800d79684271ceb4de765",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "file-File",
+      "wikitext": "[[File:Example.svg|10px|alt=ícone literal]]",
+      "inputSha256": "48c18d1b637d136780a9ae05dd2375da6da35dc2dfadc685fb495b7779ade9ec",
+      "renderedSemanticsSha256": "8d3278463bbc7b14a2363926ce1bbd3ca970dcfa3d901ed155b788638e370b09",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "colon-File",
+      "wikitext": "[[:File:Example.svg]]",
+      "inputSha256": "97659f54cbe7be298e4bb3e633c75cd53124219291187be8da01ebe52593e59d",
+      "renderedSemanticsSha256": "e05d135a17cc4d2e41b5ecf5c67543f1201b93824144ab1f16241febee6a18ff",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "page-File",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "a04db8b933e18b69dae5d2958fa6086b6c3392579e6fb368f44497d82e54d65d",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "file-Image",
+      "wikitext": "[[Image:Example.svg|10px|alt=ícone literal]]",
+      "inputSha256": "da8bcf8305a41524069d6629c8a59ccf8dec2fd7b242b5a2ad3afdf7e44ed250",
+      "renderedSemanticsSha256": "8d3278463bbc7b14a2363926ce1bbd3ca970dcfa3d901ed155b788638e370b09",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "colon-Image",
+      "wikitext": "[[:Image:Example.svg]]",
+      "inputSha256": "9b9d04c317b8b8ab90baa3e73597ea32e68ec9c0c00cd861693c06abd12d8eda",
+      "renderedSemanticsSha256": "8f01ed6ad02de2d338d3e5f93306875bfd0f55a48e72a766ea07c0c996e210ee",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "page-Image",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Image:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "9fa2c1332754d61c5838fecf80929c0c806e1964a2b60df944664110e98f660c",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "file-Ficheiro",
+      "wikitext": "[[Ficheiro:Example.svg|10px|alt=ícone literal]]",
+      "inputSha256": "625338bf697ff23c9f8e3a772eac3ddf952f5896de5157cc7197468b4dd34a71",
+      "renderedSemanticsSha256": "8d3278463bbc7b14a2363926ce1bbd3ca970dcfa3d901ed155b788638e370b09",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "colon-Ficheiro",
+      "wikitext": "[[:Ficheiro:Example.svg]]",
+      "inputSha256": "497fa873ff592679b182850b2c5051a17364655231025194845aa7a7e02355c7",
+      "renderedSemanticsSha256": "559d530acf1e75256ec1f89f98fa56988a76de8fe7abde00461ede259e0517c7",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "page-Ficheiro",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Ficheiro:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "7d2f94e6f2c1d559bcfeb5583f1f166c6313f1d4c83d41eb170629ae494a460b",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "file-Arquivo",
+      "wikitext": "[[Arquivo:Example.svg|10px|alt=ícone literal]]",
+      "inputSha256": "55c52473613c1ffe699da02c87e8b24cb741b593207b0a81b6acd8da89cb04a9",
+      "renderedSemanticsSha256": "8d3278463bbc7b14a2363926ce1bbd3ca970dcfa3d901ed155b788638e370b09",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "colon-Arquivo",
+      "wikitext": "[[:Arquivo:Example.svg]]",
+      "inputSha256": "99cf0ca01babe4bf14d9b5211e0ba3902d292110c081ad0e4f932b5c6c7e657b",
+      "renderedSemanticsSha256": "cc39178588a2872870038b18ede636f8a8f3d117b9c982a916d0d47a0a5fc96e",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "page-Arquivo",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Arquivo:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "f30d3973617e2d5ce5458b4a60e2151e1fa28e022244b9b29d6eb36006cc715f",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "file-Imagem",
+      "wikitext": "[[Imagem:Example.svg|10px|alt=ícone literal]]",
+      "inputSha256": "694db8dda5f7620bef42f3520ff56b698c13fa36822a845b1af70a976b85a97d",
+      "renderedSemanticsSha256": "8d3278463bbc7b14a2363926ce1bbd3ca970dcfa3d901ed155b788638e370b09",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "colon-Imagem",
+      "wikitext": "[[:Imagem:Example.svg]]",
+      "inputSha256": "fa90b8a0efe56f4bf4127852a6abece498c9e20d7034b0578f1b3eeaba4e685b",
+      "renderedSemanticsSha256": "c566564d7ccf92accfaba02ce9408a40106d253da5b62e3ae9dd0af03ffbdda4",
+      "visibleTextSegments": 1,
+      "imageCount": 0,
+      "linkCount": 1
+    },
+    {
+      "id": "page-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "ab32a7ab8987bc234752be82a8c91da349e41ec39fc280c52300b14e7f587e24",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "changed-file",
+      "wikitext": "[[Imagem:Example.png|10px|alt=ícone literal]]",
+      "inputSha256": "fbf26824670665b98190defaa0cb315b39c5470d6d694359d0f3f326195b3423",
+      "renderedSemanticsSha256": "8a430e0a5a1866ad91d7f1bbf50d7262786d7cc1c07a9ff9d0a385f15b6fe2cf",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "changed-option",
+      "wikitext": "[[Imagem:Example.svg|20px|alt=ícone literal]]",
+      "inputSha256": "6283bf8e4783cbf1c5838dd8e07d268d97f50867778b70871f8d888854d62f4a",
+      "renderedSemanticsSha256": "1a5526e9d59fa61065553e1459e79d75bd5202d1ccd556571f36dbcab1040209",
+      "visibleTextSegments": 0,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-0-File",
+      "wikitext": "{{Citar web|título=Fonte fictícia|url=https://example.org/fonte|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "ccf38a37645836aaa45246c6bd587b88ed60cca64756a3552a164d3f6589aa0e",
+      "renderedSemanticsSha256": "147b2e8de142be05772a06a8f2dcaf87133c0ce24ab7e8f45f2a718729334dbc",
+      "visibleTextSegments": 2,
+      "imageCount": 1,
+      "linkCount": 2
+    },
+    {
+      "id": "family-0-Imagem",
+      "wikitext": "{{Citar web|título=Fonte fictícia|url=https://example.org/fonte|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "d99b2ffc31024d40be69e5c9e3ef91e1eb7089eca151809ead9b2da96c31bdf9",
+      "renderedSemanticsSha256": "147b2e8de142be05772a06a8f2dcaf87133c0ce24ab7e8f45f2a718729334dbc",
+      "visibleTextSegments": 2,
+      "imageCount": 1,
+      "linkCount": 2
+    },
+    {
+      "id": "family-1-File",
+      "wikitext": "{{Citar jornal|título=Fonte fictícia|periódico=Jornal fictício|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "b217727dcc0016e88009d9f16aaed8b2dcf7b1f03439f47c2d0ead90e734e225",
+      "renderedSemanticsSha256": "984b3f793c3eccc7294cf9c5084cf651547ed4feedd9cd9a4c01b41987a119db",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-1-Imagem",
+      "wikitext": "{{Citar jornal|título=Fonte fictícia|periódico=Jornal fictício|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "301c2411a833fcefd17dc8bcce21eb0a1846329c47cb743fbf692ecd655e5aca",
+      "renderedSemanticsSha256": "984b3f793c3eccc7294cf9c5084cf651547ed4feedd9cd9a4c01b41987a119db",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-2-File",
+      "wikitext": "{{Citar revista|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "b1eb309fdc11654cde20e3d6886f93fd71113d4cf457039ac13d79d97c66d6f6",
+      "renderedSemanticsSha256": "1c41d02d548b2169e34ea26ff2f20b7888f8fc6c25d3cdc67c840f9ed1a6835a",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-2-Imagem",
+      "wikitext": "{{Citar revista|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "5909a231d2f6ec8060e470603fdafce2e739af5f464a85c26e24bf6335932be3",
+      "renderedSemanticsSha256": "1c41d02d548b2169e34ea26ff2f20b7888f8fc6c25d3cdc67c840f9ed1a6835a",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-3-File",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "a04db8b933e18b69dae5d2958fa6086b6c3392579e6fb368f44497d82e54d65d",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-3-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "ab32a7ab8987bc234752be82a8c91da349e41ec39fc280c52300b14e7f587e24",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-4-File",
+      "wikitext": "{{Citar livro|título=Fonte fictícia|editora=Editora fictícia|página=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "6d8d43708e0f5c656c8fbda631453f973ac402300c1edc0608aded17a4bb5d38",
+      "renderedSemanticsSha256": "e893fa9e136a385db56596503611e2c863b04089ba3effb0dcccd2d7292d1dc3",
+      "visibleTextSegments": 2,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "family-4-Imagem",
+      "wikitext": "{{Citar livro|título=Fonte fictícia|editora=Editora fictícia|página=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "0869ede450daee9d5898fc8e24ca6281c937f86e88febf2612f45d7e047d4f36",
+      "renderedSemanticsSha256": "e893fa9e136a385db56596503611e2c863b04089ba3effb0dcccd2d7292d1dc3",
+      "visibleTextSegments": 2,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-páginas-File",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|páginas=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "d266213a53dfb687ca4e64ca85e02994168acb642d2ec229b9efec4f040e6b1c",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-páginas-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|páginas=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "2da8faaac019bd539a6ed803a20694cef5d11aa1714bdcc8c47c0df72af4d63f",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-page-File",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|page=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "84fe99de5996777b686b8f1b491fd731b7654c39f620896f9aec39a32b3a480d",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-page-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|page=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "d495fceba1d51bcbfda495375286db5be715cc09aa52dbdbdc7ac3d835697ca3",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-pages-File",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|pages=7 [[File:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "7c87f3e45e7a9ab7302dd27d30d00845fc75279f207de08696421d6ce60bc5f8",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "key-pages-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|periódico=Revista fictícia|pages=7 [[Imagem:Example.svg|10px|alt=ícone literal]]}}",
+      "inputSha256": "a6172eabd410c33805089e8e3a206ac6bcadc4929a5c729239c5fc049acc9910",
+      "renderedSemanticsSha256": "d57ec280cc879d598a63e37c6d18acc69218ced107cef318223ee5e6d821eac6",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 1
+    },
+    {
+      "id": "Citar-web-Arquivo",
+      "wikitext": "{{Citar web|título=Fonte fictícia|data=2001|url=https://example.test/fonte}}[[Arquivo:Example.svg|10px|alt=ícone literal]] Texto literal.",
+      "inputSha256": "52f8f3ca415ee2f0551ec80dfc422d6bf44ea5db13eeeda8ced4d83a0787d0f1",
+      "renderedSemanticsSha256": "2a02c278d959a326e2dd8289666d419d9af40078f16b6d54980f51bfce0a1c58",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 2
+    },
+    {
+      "id": "Citar-web-Imagem",
+      "wikitext": "{{Citar web|título=Fonte fictícia|data=2001|url=https://example.test/fonte}}[[Imagem:Example.svg|10px|alt=ícone literal]] Texto literal.",
+      "inputSha256": "ca8b32c72b3e0f510525d2fa7b39e030b6387a38fbfdf47b517231e23f471133",
+      "renderedSemanticsSha256": "2a02c278d959a326e2dd8289666d419d9af40078f16b6d54980f51bfce0a1c58",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 2
+    },
+    {
+      "id": "Citar-periódico-Arquivo",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|data=2001|url=https://example.test/fonte}}[[Arquivo:Example.svg|10px|alt=ícone literal]] Texto literal.",
+      "inputSha256": "55a4bc66ba9f1d094238845c04cc0603e010e0eaf25834b24026c4e0296a6bb6",
+      "renderedSemanticsSha256": "81462159d1ff402d8e9d9cc4ed256ddf5e70041a798c55ae3aec47f1a060a1a7",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 2
+    },
+    {
+      "id": "Citar-periódico-Imagem",
+      "wikitext": "{{Citar periódico|título=Fonte fictícia|data=2001|url=https://example.test/fonte}}[[Imagem:Example.svg|10px|alt=ícone literal]] Texto literal.",
+      "inputSha256": "87f0d7b7dcb7ff479b2b67adccd983829c58ec37d0ef4383a6e0a97783abd5e0",
+      "renderedSemanticsSha256": "81462159d1ff402d8e9d9cc4ed256ddf5e70041a798c55ae3aec47f1a060a1a7",
+      "visibleTextSegments": 3,
+      "imageCount": 1,
+      "linkCount": 2
+    }
+  ],
+  "checks": [
+    {
+      "left": "italic-inner",
+      "right": "italic-outer",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "bold-inner",
+      "right": "bold-outer",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "file-Image",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "file-Ficheiro",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "file-Arquivo",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "file-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "colon-File",
+      "right": "colon-Image",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true,
+      "boundary": "Unpiped leading-colon links display the written namespace prefix."
+    },
+    {
+      "left": "colon-File",
+      "right": "colon-Ficheiro",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true,
+      "boundary": "Unpiped leading-colon links display the written namespace prefix."
+    },
+    {
+      "left": "colon-File",
+      "right": "colon-Arquivo",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true,
+      "boundary": "Unpiped leading-colon links display the written namespace prefix."
+    },
+    {
+      "left": "colon-File",
+      "right": "colon-Imagem",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true,
+      "boundary": "Unpiped leading-colon links display the written namespace prefix."
+    },
+    {
+      "left": "page-File",
+      "right": "page-Image",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "page-File",
+      "right": "page-Ficheiro",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "page-File",
+      "right": "page-Arquivo",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "page-File",
+      "right": "page-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "italic-inner",
+      "right": "changed-target",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "italic-inner",
+      "right": "changed-label",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "italic-inner",
+      "right": "changed-delimiter",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "changed-file",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "changed-option",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "file-File",
+      "right": "colon-File",
+      "expectedEquivalent": false,
+      "nativeEquivalent": false,
+      "passed": true
+    },
+    {
+      "left": "family-0-File",
+      "right": "family-0-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "family-1-File",
+      "right": "family-1-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "family-2-File",
+      "right": "family-2-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "family-3-File",
+      "right": "family-3-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "family-4-File",
+      "right": "family-4-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "key-páginas-File",
+      "right": "key-páginas-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "key-page-File",
+      "right": "key-page-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "key-pages-File",
+      "right": "key-pages-Imagem",
+      "expectedEquivalent": true,
+      "nativeEquivalent": true,
+      "passed": true
+    },
+    {
+      "left": "Citar-web-Arquivo",
+      "right": "Citar-web-Imagem",
+      "equal": true
+    },
+    {
+      "left": "Citar-periódico-Arquivo",
+      "right": "Citar-periódico-Imagem",
+      "equal": true
+    }
+  ],
+  "limits": [
+    "This proof supports the finite guard-only projection, not arbitrary markup rewriting.",
+    "A filename, options, label, target, delimiter or leading-colon change is not an allowed equivalent operation.",
+    "Citation field support is limited to the tested native CS1 families and four explicit page aliases."
+  ]
+}

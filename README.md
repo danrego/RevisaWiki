@@ -2,24 +2,25 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.17
+## Versão 2.18
 
-- Mostra na revisão problemas confirmados no rascunho final e escolhas que ainda correspondem ao trecho.
-- Agrupa problemas repetidos, mantendo todos os locais e as opções de cada ocorrência acessíveis.
-- Deixa de exibir avisos antigos, lacunas de catálogo e consultas opcionais inconclusivas como erros do artigo.
-- Corrige 21 erros de acentuação conferidos em campos de quatro infocaixas pessoais.
-- Retira aliases vazios em dez famílias de campos quando a exibição e as referências permanecem iguais.
-- Corrige `nome` e `grupo` em etiquetas de referência quando uma definição ou chamada nativa confirma a ligação entre as ocorrências.
-- Corrige juntos de dois a quatro nomes de atributos de células quando só uma combinação forma a tabela regular.
-- Mantém a revisão no painel existente, sem mudar o código apenas para ocultar avisos ou desligar as proteções de conteúdo.
+- Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.
+- Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.
+- Preserva comentários completos dentro dos valores e aceita combinações literais de estado ou acesso cuja equivalência foi conferida na implementação nativa.
+- Corrige datas literais em campos aceitos de citações, mantendo a precisão informada e conferindo o calendário. Não acrescenta um dia a uma data que só informa mês e ano.
+- Corrige nomes inválidos ou obsoletos de campos de citação e uma data completa colocada no campo de ano, após conferir os outros nomes usados para o mesmo campo.
+- Reduz linhas vazias excedentes, inclusive linhas contendo espaços ou tabulações, na prosa e nos limites finais reconhecidos.
+- Retira o espaço horizontal entre pontuação e uma referência ativa, corrige uma barra invertida em uma quebra de linha sem atributos e corrige títulos de seções finais escritos como chamadas literais sem argumentos cujos destinos foram conferidos.
+- Deixa as referências usarem a divisão responsiva nativa e retira apenas o conjunto exato de estilos fixos acrescentado por versões anteriores do programa.
+- Compara as 241 regras do código de referência que fazem substituições no texto de artigos, com casos executáveis e registro das diferenças preservadas ou ainda sem comprovação suficiente.
 
-As regras de infocaixas cobrem seis definições nativas. Nomes alternativos aceitos, campos preenchidos diferentes e valores explicitamente vazios que controlam a exibição permanecem como estavam. Em `ocupação=|ocupações=Escritora`, o campo vazio tem precedência e não é retirado. Os campos de sepultamento continuam sem alteração.
+As 241 regras dizem respeito às substituições de texto em artigos. A comparação separa correções cobertas, diferenças preservadas e casos sem comprovação suficiente. Ela não promete reproduzir toda função do programa de origem nem as escolhas de uma revisão humana. Os adaptadores atendem ao editor clássico, às integrações reconhecidas de CodeMirror e ao modo de código-fonte do editor de 2017. O fluxo visual, a integração com wikEd e a abertura em lote por categorias ou afluentes ficam fora do RevisaWiki.
 
-Nas referências, o nome e o grupo precisam ter uma única definição e uma única lista correspondente depois das chamadas. Uma predefinição que possa acrescentar fontes pode impedir essa confirmação. As correções de tabelas conservam os números e o conteúdo das células. O manual explica os limites de cada regra, e a publicação continua sob controle de quem edita.
+O programa mantém as grafias e os parâmetros já aceitos. Trechos protegidos, conflitos e valores ambíguos continuam como estavam. A apresentação responsiva das referências é independente da regra de seis itens para colunas em listas finais. O manual explica os limites, e a publicação continua sob controle de quem edita.
 
 ## Instalação
 
-[Pacote completo](dist/2.17.0/RevisaWiki_2.17.0.zip) · [Índice para copiar](dist/2.17.0/INICIO.html) · [Instruções](docs/2.17.0/Instalacao_RevisaWiki_v2_17_0.txt) · [Manual](docs/2.17.0/Documentacao_RevisaWiki_v2_17_0.wiki) · [Histórico resumido](docs/2.17.0/Notas_da_versao_RevisaWiki_v2_17_0.txt) · [Testes](docs/2.17.0/Relatorio_testes_RevisaWiki_v2_17_0.txt)
+[Pacote completo](dist/2.18.0/RevisaWiki_2.18.0.zip) · [Índice para copiar](dist/2.18.0/INICIO.html) · [Instruções](docs/2.18.0/Instalacao_RevisaWiki_v2_18_0.txt) · [Manual](docs/2.18.0/Documentacao_RevisaWiki_v2_18_0.wiki) · [Histórico resumido](docs/2.18.0/Notas_da_versao_RevisaWiki_v2_18_0.txt) · [Testes](docs/2.18.0/Relatorio_testes_RevisaWiki_v2_18_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -29,19 +30,18 @@ O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da pág
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.16.0, conferidos por SHA-256, e aplica os módulos de `src/v2_17`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.17.0, conferidos por SHA-256, e aplica os módulos de `src/v2_18`. As versões arquivadas ficam intactas.
 
 ```sh
-python3 scripts/build_v2170.py
-npm test
-npm run test:complex
+python3 scripts/build_v2180.py
+REVISAWIKI_ORIGINAL_SOURCE=ARQUIVO_LOCAL_CONFERIDO npm test
 npm run test:documentation
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v217/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a identificação das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
+O [guia dos testes](tests/v218/README.md) explica a cópia fixada do código de referência, os comandos, os comprovantes e os limites. As 71 invocações finitas passaram com 61.362 casos e 240.285 verificações. A regressão privada conferiu 4.853 páginas nas duas distribuições, sem regressões novas, e separou 24 achados idênticos aos da versão anterior, em oito páginas. Casos sintéticos, execuções repetidas e artigos distintos têm contagens separadas. A interface foi conferida localmente no Chrome, no Firefox e no Safari. Nenhum teste editou a Wikipédia.
 
-A contagem informa as operações confirmadas, separadas dos tipos de ajuste. Quando não consegue comprovar um total, o painel não inventa um número exato. Mostrar alterações permite conferir o resultado no editor. A escolha do que aparece em Precisa de revisão não altera o código. Nos problemas agrupados, Ir ao trecho percorre as ocorrências confirmadas. As propostas mantêm as escolhas de cada trecho, inclusive quando se resolve uma ocorrência que não era a primeira.
+Os resultados públicos trazem totais, hashes e resumos dos comprovantes validados. Os originais, as coordenadas dos casos e os detalhes das páginas reais ficam locais. A matriz das regras e os exemplos fictícios das provas nativas ficam disponíveis para reprodução. Uma inspeção do código de origem não é contada como um teste novo de navegador.
 
 ## Referências de versões anteriores
 
