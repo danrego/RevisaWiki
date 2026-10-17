@@ -1,0 +1,72 @@
+{
+  "kind": "anonymous-native-read-only-parse",
+  "transport": "web open API GET",
+  "templateRevision": 72993800,
+  "templateOldidURL": "https://pt.wikipedia.org/w/index.php?oldid=72993800",
+  "accountUse": false,
+  "wikipediaWrites": 0,
+  "fixtures": [
+    {
+      "id": "explicit_alt",
+      "side": "before",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3D%5B%5BFicheiro%3ACat03.jpg%7Cthumb%7C200px%7Calt%3DUma%20pessoa%7CLegenda%20exata.%5D%5D%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=[[Ficheiro:Cat03.jpg|thumb|200px|alt=Uma pessoa|Legenda exata.]]}}",
+      "automaticConversionAllowed": true
+    },
+    {
+      "id": "explicit_alt",
+      "side": "after",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3DCat03.jpg%7Calt%3DUma%20pessoa%7Cimagem_tamanho%3D200px%7Cimagem_legenda%3DLegenda%20exata.%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=Cat03.jpg|alt=Uma pessoa|imagem_tamanho=200px|imagem_legenda=Legenda exata.}}",
+      "automaticConversionAllowed": true
+    },
+    {
+      "id": "empty_alt",
+      "side": "before",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3D%5B%5BFicheiro%3ACat03.jpg%7C200px%7Calt%3D%7CLegenda%20exata.%5D%5D%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=[[Ficheiro:Cat03.jpg|200px|alt=|Legenda exata.]]}}",
+      "automaticConversionAllowed": false
+    },
+    {
+      "id": "empty_alt",
+      "side": "after",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3DCat03.jpg%7Calt%3D%7Cimagem_tamanho%3D200px%7Cimagem_legenda%3DLegenda%20exata.%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=Cat03.jpg|alt=|imagem_tamanho=200px|imagem_legenda=Legenda exata.}}",
+      "automaticConversionAllowed": false
+    },
+    {
+      "id": "existing_caption_alias",
+      "side": "before",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3D%5B%5BFicheiro%3ACat03.jpg%7C200px%7Calt%3DUma%20pessoa%7CLegenda%20exata.%5D%5D%7Clegenda%3DLegenda%20exata.%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=[[Ficheiro:Cat03.jpg|200px|alt=Uma pessoa|Legenda exata.]]|legenda=Legenda exata.}}",
+      "automaticConversionAllowed": true
+    },
+    {
+      "id": "existing_caption_alias",
+      "side": "after",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3DCat03.jpg%7Clegenda%3DLegenda%20exata.%7Calt%3DUma%20pessoa%7Cimagem_tamanho%3D200px%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=Cat03.jpg|legenda=Legenda exata.|alt=Uma pessoa|imagem_tamanho=200px}}",
+      "automaticConversionAllowed": true
+    },
+    {
+      "id": "caption_reference",
+      "side": "before",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3D%5B%5BFicheiro%3ACat03.jpg%7Cthumb%7C200px%7Calt%3DUma%20pessoa%7CLegenda%3Cref%20name%3D%22imagem%22%3EFonte%20da%20imagem.%3C%2Fref%3E%5D%5D%7D%7D%0A%7B%7BRefer%C3%AAncias%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=[[Ficheiro:Cat03.jpg|thumb|200px|alt=Uma pessoa|Legenda<ref name=\"imagem\">Fonte da imagem.</ref>]]}}\n{{Referências}}",
+      "automaticConversionAllowed": true
+    },
+    {
+      "id": "caption_reference",
+      "side": "after",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Pessoa%20de%20teste&text=%7B%7BInfo%2FBiografia%7Cnome%3DPessoa%20de%20teste%7Cimagem%3DCat03.jpg%7Calt%3DUma%20pessoa%7Cimagem_tamanho%3D200px%7Cimagem_legenda%3DLegenda%3Cref%20name%3D%22imagem%22%3EFonte%20da%20imagem.%3C%2Fref%3E%7D%7D%0A%7B%7BRefer%C3%AAncias%7D%7D&contentmodel=wikitext&prop=text%7Cparsewarnings&disablelimitreport=1",
+      "source": "{{Info/Biografia|nome=Pessoa de teste|imagem=Cat03.jpg|alt=Uma pessoa|imagem_tamanho=200px|imagem_legenda=Legenda<ref name=\"imagem\">Fonte da imagem.</ref>}}\n{{Referências}}",
+      "automaticConversionAllowed": true
+    }
+  ],
+  "notes": [
+    "Empty ALT is a rejected proposed conversion: the runtime now preserves that source unchanged because the native destination omits its explicit empty HTML alt attribute.",
+    "All captured article subjects are fictional. Cat03.jpg is a Commons file used without downloading media.",
+    "The curl route returned 429; successful captures use anonymous web open GET requests.",
+    "JSON returned as numbered source lines was reassembled by preserving its escaped newline inside a quoted HTML title attribute."
+  ]
+}

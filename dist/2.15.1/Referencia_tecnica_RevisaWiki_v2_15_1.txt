@@ -1,0 +1,28 @@
+RevisaWiki 2.15.1: referência técnica
+16 de outubro de 2026
+
+A reconstrução parte da distribuição 2.15.0 fixada por SHA-256 e aplica os módulos de src/v2_15_1. Os arquivos históricos permanecem intactos. O plano de cada reparo é calculado a partir do código de entrada.
+
+Em artigos completos, uma infocaixa pessoal nativa e isolada pode passar de depois da abertura para antes dela. A abertura precisa identificar o assunto do título da página. A regra exige uma única caixa principal antes da primeira seção e um ponto de inserção confirmado. Avisos iniciais reconhecidos permanecem no lugar. Comentários com posição incerta, caixas múltiplas, tabelas, contêineres de layout, exemplos e construções dinâmicas impedem a movimentação. Uma indentação acidental feita com espaços antes da caixa também pode ser retirada.
+
+Durante a movimentação, o código da caixa e da abertura permanece igual, com suas referências e ligações, e as notas podem mudar de número porque a caixa passa a ser lida primeiro. O programa não reescreve as fontes para manter a numeração anterior. Para desativar essa regra na configuração, use automaticInfoboxOrder: false.
+
+O nome que abre o artigo pode receber negrito quando corresponde exatamente ao assunto do título. Uma ligação inicial para o próprio artigo pode perder apenas a marcação de ligação, conservando o texto exibido. Nomes diferentes, variantes que exigem interpretação e títulos dinâmicos ficam como estavam.
+
+Datas e locais de nascimento e falecimento podem completar a abertura quando estão em campos individuais, explícitos e referenciados de uma única infocaixa pessoal nativa. A identidade da caixa precisa corresponder à abertura. Um campo de nome vazio ou um nome diferente impede a cópia. A ausência desse campo só é aceita nas caixas em que o uso do título da página foi conferido. Cada campo de origem precisa ter seu uso confirmado na definição da caixa. Um nome aceito apenas pelo verificador de parâmetros não basta. Caixas com uso indireto de dados ou condições ainda não conferidas ficam fora dessa cópia automática.
+
+A regra exige datas completas do calendário gregoriano a partir de 1583 e conserva os dados de origem na caixa. Cada dado novo leva sua referência, com reutilização de chamadas nomeadas somente quando a definição é única e válida. Campos duplicados, referências indefinidas, dados futuros ou conflitantes e valores calculados impedem a cópia. Dados já presentes na abertura não são substituídos por outros da caixa.
+
+Uma conversão de infocaixa, campo ou data que o programa já suporta pode anteceder essa conferência quando permite um reparo confirmado na mesma execução. Essa preparação também precisa conservar o dado e sua referência de origem. Se não puder comprovar essa correspondência, mantém o caminho anterior de conversão.
+
+A identificação inicial usa os dados aceitos na ordem local e data. Referências de um conjunto inteiro permanecem com esse conjunto. Uma posição de referência que impeça confirmar qual dado ela sustenta bloqueia a reorganização. A inserção de dados na abertura não é marcada automaticamente como edição menor. As demais alterações seguem a conferência de edição menor já usada pelo programa.
+
+Caracteres U+200B e U+FEFF dentro do nome de um campo podem sair quando sua retirada produz um único parâmetro nativo com uso e aliases conferidos, sem colisão com outro campo. O sinal ＝ pode passar a = nas mesmas condições. A unidade repetida pxpx só é corrigida no contrato de tamanho conferido da família Info/Biografia, sem mudar o número nem impor uma largura geral a outras caixas.
+
+Uma imagem escrita como ligação completa pode ser dividida entre os campos de arquivo, texto alternativo, tamanho e legenda da família Info/Biografia quando cada destino foi confirmado. O texto alternativo, a legenda e suas referências permanecem iguais. Opções desconhecidas, texto alternativo vazio ou com espaços que mudariam sua expansão, campos conflitantes e outras famílias sem esse contrato ficam intactos.
+
+Os parâmetros sepultamento, enterro, enterro_local e resting_place permanecem como estavam nesta versão. Não há uma conversão nova desses parâmetros enquanto a discussão da comunidade continua.
+
+Essas regras novas não se aplicam a edições de seção, discussões, exemplos ou definições de predefinições. A alteração fica no rascunho e pode ser conferida em Mostrar alterações ou revertida com Desfazer. Para desativar os outros grupos novos, use automaticBiographyLead: false, automaticFieldSyntax: false ou automaticInfoboxImages: false.
+
+Os arquivos finais da versão 2.15.1 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 10 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.
