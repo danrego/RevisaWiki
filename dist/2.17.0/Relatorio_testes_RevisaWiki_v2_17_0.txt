@@ -1,0 +1,34 @@
+RevisaWiki 2.17.0: resultados dos testes
+16 de outubro de 2026
+
+Os arquivos finais da versão 2.17.0 passaram pelos casos de reparo, pelas regressões e pelos testes locais no Chrome, no Firefox e no Safari. A conferência das páginas reais cobriu 4.853 páginas acessíveis do domínio principal, incluindo 1.033 com infocaixas pessoais reconhecidas. O conjunto inclui 605 redirecionamentos reconhecidos, contados separadamente no relatório. Todas as páginas elegíveis do histórico coletado entraram nos testes, mesmo sem uma infocaixa reconhecida. Foram conferidos os resultados das duas distribuições, a repetição da execução e as proteções de conteúdo, sem regressões novas nesse corpus. Os títulos e os detalhes do histórico ficaram locais. Os casos sintéticos e suas execuções repetidas são contados separadamente dos artigos. Nenhum teste editou a Wikipédia. O verificador independente registrou 9 páginas com avisos que se repetiram de forma idêntica na versão anterior. Esses avisos permanecem separados das regressões novas no relatório.
+
+Nas mesmas 4.853 páginas medidas, o cabeçalho de Precisa de revisão passou de 5.791 para 497 entradas, com redução de 91,42%. O total de entradas acessíveis no relatório passou de 5.838 para 497, com redução de 91,49%. As duas versões partiram do mesmo texto guardado, com suas próprias opções padrão e sem pré-visualização online. A comparação usa o rascunho final de cada versão depois dos ajustes e mede os reparos junto da apresentação do relatório. Problemas agrupados conservam seus locais e escolhas.
+
+- Casos de reparo e regressões nas duas distribuições: 59.112 casos e 226.094 verificações, sem falhas.
+- Interface local nos três navegadores: 204 casos e 1.620 verificações, sem falhas.
+- Reconstrução isolada dos arquivos publicados: 109 verificações, sem falhas.
+- Validação dos totais e comprovantes de teste, com entradas fictícias: 27 casos e 11 verificações, sem falhas.
+- Páginas reais do corpus completo: 4.853 casos e 82.501 verificações, com 30 ocorrências idênticas às da versão anterior e nenhuma regressão nova.
+
+Casos sintéticos e execuções nas duas distribuições não são artigos distintos. Os resultados e hashes ficam em tests/evidence/2.17.0. Os comprovantes nativos anteriores mantêm sua origem e não são contados como consultas novas.
+
+Arquivos executados
+
+Carregador_common_js_RevisaWiki_v2_17_0.js: 9651 bytes
+SHA-256: b1aafab0a899c80966c63542cf93c9c240f0f7f9f3da401dbec22d95c89fd9db
+Carregador_comunitario_RevisaWiki_v2_17_0.js: 9653 bytes
+SHA-256: 0e3d4482dd90cbb1913887905f4c3690356a9e3b71e38dd8c188604fa0b48ebf
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+RevisaWiki_v2_17_0.js: 1672743 bytes
+SHA-256: 1b030778771bbf882f90fb7294d210c3c123f3caeb23195d4b63eb3601b7f3c2
+RevisaWiki_v2_17_0_completo.js: 3185888 bytes
+SHA-256: 56ce01c62020e065443c05bc34c540607393e5885db6656a384d7068857d8d2b
+RevisaWiki_v2_17_0_dados.js: 1523935 bytes
+SHA-256: 97924a6dd83bbefbe43b61c4f3c9fb79f8154810a1024402d11c515f9a733fac
+
+Nenhum teste editou a Wikipédia.
+Código e arquivos: https://github.com/danrego/RevisaWiki

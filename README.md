@@ -2,22 +2,24 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.16
+## Versão 2.17
 
-- Completa campos pessoais ausentes com datas e locais explicitamente referenciados na abertura, mantendo o texto de origem.
-- Separa uma data seguida do local no mesmo campo quando cada parte tem sua referência e o destino foi conferido.
-- Organiza datas completas isoladas sem acrescentar idade ou categorias de nascimento.
-- Retira uma idade manual apenas quando ela repete a idade que Dni mostra na mesma data UTC.
-- Retira uma unidade literal quando a definição conferida da caixa já acrescenta a mesma unidade.
-- Recupera quebras de linha entre itens ligados de uma lista com marcadores explícitos.
-- Retira rótulos copiados nos valores e ligações do cabeçalho para o próprio artigo, preservando o texto exibido.
-- Conclui a retirada de títulos finais vazios depois da movimentação do bloco final, sem precisar de outro clique.
+- Mostra na revisão problemas confirmados no rascunho final e escolhas que ainda correspondem ao trecho.
+- Agrupa problemas repetidos, mantendo todos os locais e as opções de cada ocorrência acessíveis.
+- Deixa de exibir avisos antigos, lacunas de catálogo e consultas opcionais inconclusivas como erros do artigo.
+- Corrige 21 erros de acentuação conferidos em campos de quatro infocaixas pessoais.
+- Retira aliases vazios em dez famílias de campos quando a exibição e as referências permanecem iguais.
+- Corrige `nome` e `grupo` em etiquetas de referência quando uma definição ou chamada nativa confirma a ligação entre as ocorrências.
+- Corrige juntos de dois a quatro nomes de atributos de células quando só uma combinação forma a tabela regular.
+- Mantém a revisão no painel existente, sem mudar o código apenas para ocultar avisos ou desligar as proteções de conteúdo.
 
-Os reparos conservam os dados e as referências. Datas incompletas, nomes conflitantes e construções ambíguas ficam como estavam. Os limites de cada regra ficam no manual e nos testes. A publicação continua sob controle de quem edita.
+As regras de infocaixas cobrem seis definições nativas. Nomes alternativos aceitos, campos preenchidos diferentes e valores explicitamente vazios que controlam a exibição permanecem como estavam. Em `ocupação=|ocupações=Escritora`, o campo vazio tem precedência e não é retirado. Os campos de sepultamento continuam sem alteração.
+
+Nas referências, o nome e o grupo precisam ter uma única definição e uma única lista correspondente depois das chamadas. Uma predefinição que possa acrescentar fontes pode impedir essa confirmação. As correções de tabelas conservam os números e o conteúdo das células. O manual explica os limites de cada regra, e a publicação continua sob controle de quem edita.
 
 ## Instalação
 
-[Pacote completo](dist/2.16.0/RevisaWiki_2.16.0.zip) · [Índice para copiar](dist/2.16.0/INICIO.html) · [Instruções](docs/2.16.0/Instalacao_RevisaWiki_v2_16_0.txt) · [Manual](docs/2.16.0/Documentacao_RevisaWiki_v2_16_0.wiki) · [Histórico resumido](docs/2.16.0/Notas_da_versao_RevisaWiki_v2_16_0.txt) · [Testes](docs/2.16.0/Relatorio_testes_RevisaWiki_v2_16_0.txt)
+[Pacote completo](dist/2.17.0/RevisaWiki_2.17.0.zip) · [Índice para copiar](dist/2.17.0/INICIO.html) · [Instruções](docs/2.17.0/Instalacao_RevisaWiki_v2_17_0.txt) · [Manual](docs/2.17.0/Documentacao_RevisaWiki_v2_17_0.wiki) · [Histórico resumido](docs/2.17.0/Notas_da_versao_RevisaWiki_v2_17_0.txt) · [Testes](docs/2.17.0/Relatorio_testes_RevisaWiki_v2_17_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -27,19 +29,19 @@ O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da pág
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.15.1, conferidos por SHA-256, e aplica os módulos de `src/v2_16`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.16.0, conferidos por SHA-256, e aplica os módulos de `src/v2_17`. As versões arquivadas ficam intactas.
 
 ```sh
-python3 scripts/build_v2160.py
+python3 scripts/build_v2170.py
 npm test
 npm run test:complex
 npm run test:documentation
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v216/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a identificação das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
+O [guia dos testes](tests/v217/README.md) explica os comandos adicionais, os dados fixados e os limites. As execuções usam distribuições modular e completa, revisões públicas guardadas e páginas locais nos navegadores. As comparações nativas guardam a origem e a identificação das respostas, sem transformar resultados antigos em novos testes. Nenhum teste edita a Wikipédia.
 
-A contagem informa as operações confirmadas, separadas dos tipos de ajuste. Quando não consegue comprovar um total, o painel não inventa um número exato. Mostrar alterações permite conferir o resultado no editor.
+A contagem informa as operações confirmadas, separadas dos tipos de ajuste. Quando não consegue comprovar um total, o painel não inventa um número exato. Mostrar alterações permite conferir o resultado no editor. A escolha do que aparece em Precisa de revisão não altera o código. Nos problemas agrupados, Ir ao trecho percorre as ocorrências confirmadas. As propostas mantêm as escolhas de cada trecho, inclusive quando se resolve uma ocorrência que não era a primeira.
 
 ## Referências de versões anteriores
 

@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "version": "2.17.0",
+  "releaseManifestSha256": "6b5d26107594246a437da8adac5a4680c16313b0c975386a2c9e655c6bfce3d7",
+  "groups": [
+    {
+      "label": "Casos de reparo e regressões nas duas distribuições",
+      "receipts": [
+        {
+          "file": "artifacts/v2170/final/execution.json",
+          "kind": "execution",
+          "verification": "artifacts/v2170/final/verification.json",
+          "expectedBundles": [
+            "RevisaWiki_v2_17_0.js",
+            "RevisaWiki_v2_17_0_completo.js"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Interface local nos três navegadores",
+      "receipts": [
+        {
+          "file": "artifacts/v2170/browser-alerts/chrome/alert_ui.json",
+          "kind": "browser",
+          "binding": "artifacts/v2170/browser-alerts/chrome/binding.json",
+          "expectedBundles": [
+            "RevisaWiki_v2_17_0.js",
+            "RevisaWiki_v2_17_0_completo.js"
+          ]
+        },
+        {
+          "file": "artifacts/v2170/browser-alerts/firefox/alert_ui.json",
+          "kind": "browser",
+          "binding": "artifacts/v2170/browser-alerts/firefox/binding.json",
+          "expectedBundles": [
+            "RevisaWiki_v2_17_0.js",
+            "RevisaWiki_v2_17_0_completo.js"
+          ]
+        },
+        {
+          "file": "artifacts/v2170/browser-alerts/safari/alert_ui.json",
+          "kind": "browser",
+          "binding": "artifacts/v2170/browser-alerts/safari/binding.json",
+          "expectedBundles": [
+            "RevisaWiki_v2_17_0.js",
+            "RevisaWiki_v2_17_0_completo.js"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Reconstrução isolada dos arquivos publicados",
+      "receipts": [
+        {
+          "file": "artifacts/v2170/rebuild/rebuild.json",
+          "kind": "runtime",
+          "expectedBundles": [
+            "RevisaWiki_v2_17_0.js",
+            "RevisaWiki_v2_17_0_completo.js"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Validação dos totais e comprovantes de teste, com entradas fictícias",
+      "receipts": [
+        {
+          "file": "artifacts/v2170/aggregate_test.json",
+          "kind": "utility",
+          "sourceBindings": {
+            "runnerSha256": "tests/v217/aggregate_corpus_test.py",
+            "aggregateUtilitySha256": "scripts/aggregate_corpus_v2170.py"
+          }
+        },
+        {
+          "file": "artifacts/v2170/summary_binding.json",
+          "kind": "utility",
+          "sourceBindings": {
+            "runnerSha256": "tests/v217/summary_binding_test.py",
+            "summaryUtilitySha256": "scripts/summarize_v2170.py"
+          }
+        }
+      ]
+    }
+  ],
+  "corpus": "artifacts/v2170/corpus_aggregate.json",
+  "provenance": [
+    "src/v2_17/infobox_contract_review.json",
+    "tests/v217/native/reference_table_native_proof.json",
+    "tests/v217/native/reference_table_provenance.json",
+    "artifacts/v2170/corpus_verification.json"
+  ]
+}

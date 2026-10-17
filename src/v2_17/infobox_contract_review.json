@@ -1,0 +1,2434 @@
+{
+  "version": "2.17.0",
+  "contractVersion": "native-infobox-values-1",
+  "reviewedOn": "2026-10-16",
+  "successfulPublishedEvidenceRequests": 12,
+  "rateLimited": true,
+  "policy": "Stopped further network requests. Unrendered candidates are not promoted.",
+  "anonymousReadOnly": true,
+  "wikipediaWrites": 0,
+  "rawHtmlRetainedInPublicFiles": false,
+  "contracts": [
+    {
+      "template": "Info/Biografia",
+      "oldid": 72993800,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72993800",
+      "sourceSha256": "fca7303d40976b8f39ab61c182d32e92077c56df8e04a6f857725431325972d6",
+      "documentation": {
+        "oldid": 73220734,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=73220734",
+        "sha256": "aa5860776854522371127f591aa2296f782be23ab59484c2b3f76bf5b8bd5b0e"
+      },
+      "accents": {
+        "residencia": "residência",
+        "educacao": "educação",
+        "outras_ocupacoes": "outras_ocupações",
+        "profissao": "profissão",
+        "religiao": "religião",
+        "organizacao": "organização",
+        "titulos": "títulos",
+        "nome_mae": "nome_mãe"
+      },
+      "displayExpressions": {
+        "residência": [
+          "| dados12     = {{{residência|{{{pais_de_residencia|{{{país_de_residência|}}}}}}}}}"
+        ],
+        "educação": [
+          "| dados29    = {{{educação|}}}"
+        ],
+        "outras_ocupações": [
+          "| dados32    = {{{outras_ocupações|}}}"
+        ],
+        "profissão": [
+          "| dados33    = {{{profissão|}}}"
+        ],
+        "religião": [
+          "| dados111  = {{{religião|}}}"
+        ],
+        "organização": [
+          "| rótulo35   = {{#if:{{{organização|}}}{{{organizações|}}}|Organizações|Organização}}",
+          "| dados35    = {{{organização|{{{organizações|}}}}}}"
+        ],
+        "títulos": [
+          "| dados4        = {{{conhecido_por|{{{conhecido por|{{{títulos|}}}}}}}}}"
+        ],
+        "nome_mãe": [
+          "| dados23    = {{#if: {{{nome_mãe|}}} | <small>Mãe:</small> {{{nome_mãe|}}} }}{{#if: {{{nome_mãe|}}}| {{#if: {{{nome_pai|}}} | <br> }} }}{{#if: {{{nome_pai|}}} | <small>Pai:</small> {{{nome_pai|}}} }}"
+        ]
+      },
+      "aliases": [
+        {
+          "kind": "occupation",
+          "mode": "presence",
+          "keys": [
+            "ocupação",
+            "ocupações",
+            "ocupacao",
+            "trabalho civil",
+            "Ocupação"
+          ],
+          "expressions": {
+            "ocupação": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "ocupações": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "ocupacao": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "trabalho civil": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "Ocupação": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-occupation-after",
+            "alias-Info-Biografia-occupation-after-ref"
+          ]
+        },
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "| dados26    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "| dados26    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-spouse-after",
+            "alias-Info-Biografia-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "fullName",
+          "mode": "presence",
+          "keys": [
+            "nome_completo",
+            "nome_de_batismo"
+          ],
+          "expressions": {
+            "nome_completo": [
+              "| dados1        = {{{nome_completo|{{{nome_de_batismo|}}}}}}"
+            ],
+            "nome_de_batismo": [
+              "| dados1        = {{{nome_completo|{{{nome_de_batismo|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-fullName-after",
+            "alias-Info-Biografia-fullName-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "site",
+            "url",
+            "sítio",
+            "site_oficial",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "url": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "sítio": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site_oficial": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "homepage": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-website-after",
+            "alias-Info-Biografia-website-after-ref"
+          ]
+        }
+      ]
+    },
+    {
+      "template": "Info/Futebolista",
+      "oldid": 70095373,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70095373",
+      "sourceSha256": "25df2174220fbaa5aeffa9a4a3eff35a1fdaa440986d789b62f6bebe864981b4",
+      "documentation": {
+        "oldid": 72772091,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=72772091",
+        "sha256": "04c7e1f79c7a381ba71565fd007d898e2259fedc0961537c35deea7f80827fce"
+      },
+      "accents": {
+        "posicao": "posição",
+        "pe": "pé",
+        "nascimento_pais": "nascimento_país"
+      },
+      "displayExpressions": {
+        "posição": [
+          "{{#if:{{{atividade|<noinclude>-</noinclude>}}}{{{atividade|<noinclude>-</noinclude>}}}{{{clubenumero|<noinclude>-</noinclude>}}}{{{posição|<noinclude>-</noinclude>}}}{{{site|<noinclude>-</noinclude>}}} |",
+          "{{#if: {{{posição|<noinclude>-</noinclude>}}} | ",
+          "{{!}} colspan=\"2\" {{!}} {{{posição|}}}"
+        ],
+        "pé": [
+          "{{#if: {{{pé|<noinclude>-</noinclude>}}} |",
+          "{{!}} colspan=\"2\" {{!}} {{{pé|}}}"
+        ],
+        "nascimento_país": [
+          "|colspan=\"2\"|{{#if: {{{nascimento_local|{{{cidadenatal|{{{nascimento_cidade|}}}}}}}}} |{{{nascimento_local|{{{cidadenatal|{{{nascimento_cidade}}}}}}}}}, | }}  {{{paisnatal|{{{nascimento_país|}}}}}}"
+        ]
+      },
+      "aliases": []
+    },
+    {
+      "template": "Info/Ator",
+      "oldid": 72882232,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72882232",
+      "sourceSha256": "64980d263d78828e6ca072d269cf836ff63f7647c6d01cce21ac862328db4da3",
+      "documentation": {
+        "oldid": 72967743,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=72967743",
+        "sha256": "ea73ba4d34b3599fd7e84174b1ef7241ae6e7a4da436f694e9ee3343a0ff6b78"
+      },
+      "accents": {
+        "educacao": "educação",
+        "residencia": "residência",
+        "ocupacao": "ocupação",
+        "nome_mae": "nome_mãe",
+        "conjuge": "cônjuge"
+      },
+      "displayExpressions": {
+        "educação": [
+          "| dados8      = {{{educação|}}}"
+        ],
+        "residência": [
+          "| dados9      = {{{residência|}}}"
+        ],
+        "ocupação": [
+          "| dados10     = {{{ocupação|}}}"
+        ],
+        "nome_mãe": [
+          "| dados12     = {{#if: {{{nome_mãe|}}} | <small>Mãe:</small> {{{nome_mãe|}}} }}{{#if: {{{nome_mãe|}}}| {{#if: {{{nome_pai|}}} | <br /> }} }}{{#if: {{{nome_pai|}}} | <small>Pai:</small> {{{nome_pai|}}} }}"
+        ],
+        "cônjuge": [
+          "| dados14     = {{{cônjuge|}}}"
+        ]
+      },
+      "aliases": []
+    },
+    {
+      "template": "Info/Político",
+      "oldid": 72931974,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72931974",
+      "sourceSha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a",
+      "documentation": {
+        "oldid": 72264074,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=72264074",
+        "sha256": "976d2d35acfb44965ea04984330b52ddf37aadbe7e493cb285e78dfb26b93669"
+      },
+      "accents": {
+        "religiao": "religião",
+        "profissao": "profissão",
+        "ocupacao": "ocupação",
+        "residencia": "residência",
+        "nome_mae": "nome_mãe"
+      },
+      "displayExpressions": {
+        "religião": [
+          "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+          "|   dados69    = {{{religião|}}}"
+        ],
+        "profissão": [
+          "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+          "|   dados70    = {{{profissão|}}}"
+        ],
+        "ocupação": [
+          "|   dados71    = {{{ocupação|}}}"
+        ],
+        "residência": [
+          "|   dados72    = {{{residência|}}}"
+        ],
+        "nome_mãe": [
+          "|   dados59    = {{#se: {{{nome_mãe|}}} | {{small|Mãe:}} {{{nome_mãe|}}} }}{{#if: {{{nome_mãe|}}}| {{#if: {{{nome_pai|}}} | <br /> }} }}{{#if: {{{nome_pai|}}} | {{small|Pai:}} {{{nome_pai|}}} }}"
+        ]
+      },
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados65    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados65    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Político-spouse-after",
+            "alias-Info-Político-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados75    = {{{website|{{{homepage|}}}}}}"
+            ],
+            "homepage": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados75    = {{{website|{{{homepage|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Político-website-after",
+            "alias-Info-Político-website-after-ref"
+          ]
+        }
+      ]
+    },
+    {
+      "template": "Info/Militar",
+      "oldid": 70403402,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70403402",
+      "sourceSha256": "7381e0af2c62c17aba56da2f203494349e1b7c9b8c0a16b22b463be98b201ff7",
+      "documentation": {
+        "oldid": 73220772,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=73220772",
+        "sha256": "99937071374036609f1c40197a4527d0a4b10fd841304638a28722f1182341ca"
+      },
+      "accents": {},
+      "displayExpressions": {},
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "|tópico1    = {{#se: {{{nascimento_data|{{{nascimento|}}} }}}{{{morte_data|{{{falecimento|}}} }}}{{{data_morte|{{{morte_data|}}}}}}{{{nacionalidade|}}}{{{cônjuge|{{{conjuge|}}}}}}|Dados pessoais|}}",
+              "|dados7.5   ={{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "|tópico1    = {{#se: {{{nascimento_data|{{{nascimento|}}} }}}{{{morte_data|{{{falecimento|}}} }}}{{{data_morte|{{{morte_data|}}}}}}{{{nacionalidade|}}}{{{cônjuge|{{{conjuge|}}}}}}|Dados pessoais|}}",
+              "|dados7.5   ={{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Militar-spouse-after",
+            "alias-Info-Militar-spouse-after-ref"
+          ]
+        }
+      ]
+    },
+    {
+      "template": "Info/Modelo",
+      "oldid": 72130922,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72130922",
+      "sourceSha256": "1ebae6dea86c829117daa783d639b08baa151e559d6208cf0fd5e2766716217b",
+      "documentation": {
+        "oldid": 72730839,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=72730839",
+        "sha256": "83c153e26cd6a282319721fc045f8bd248be41bb83f83b7432a5fa85e23967a6"
+      },
+      "accents": {},
+      "displayExpressions": {},
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "conjuge",
+            "cônjuge"
+          ],
+          "expressions": {
+            "conjuge": [
+              "| dados22   = {{{conjuge|{{{cônjuge|}}}}}}"
+            ],
+            "cônjuge": [
+              "| dados22   = {{{conjuge|{{{cônjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-spouse-after",
+            "alias-Info-Modelo-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "occupation",
+          "mode": "presence",
+          "keys": [
+            "ocupacao",
+            "ocupação"
+          ],
+          "expressions": {
+            "ocupacao": [
+              "| dados12   = {{{ocupacao|{{{ocupação|}}}}}}"
+            ],
+            "ocupação": [
+              "| dados12   = {{{ocupacao|{{{ocupação|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-occupation-after",
+            "alias-Info-Modelo-occupation-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "site",
+            "url",
+            "sítio",
+            "site_oficial",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "url": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "sítio": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site_oficial": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "homepage": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-website-after",
+            "alias-Info-Modelo-website-after-ref"
+          ]
+        }
+      ]
+    },
+    {
+      "template": "Info/Magistrado",
+      "oldid": 72947166,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72947166",
+      "sourceSha256": "be2369f2c217b7b2388ef1b7a94991ff356991ec138aefd7e18bcddd24e08391",
+      "documentation": {
+        "oldid": 71733191,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=71733191",
+        "sha256": "a3f984209801074b1e2936d6fa599a32475e84381112baa7da8de230c5e7c760"
+      },
+      "accents": {},
+      "displayExpressions": {},
+      "aliases": []
+    },
+    {
+      "template": "Info/Ciclista",
+      "oldid": 70644942,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70644942",
+      "sourceSha256": "8cb08e3a27f50ea944292e07cdfa99f482b75e8d012cb1e3ea61028b456fb534",
+      "documentation": {
+        "oldid": 56476611,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=56476611",
+        "sha256": "9a473d18b683afb353d9ca2cf47d2f1fa98b6e2c3099db85a65ef5f1571dbb7f"
+      },
+      "accents": {},
+      "displayExpressions": {},
+      "aliases": []
+    },
+    {
+      "template": "Info/Música/artista",
+      "oldid": 73044750,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73044750",
+      "sourceSha256": "c909cd8de97dd9619b5ba0daf412bc42bc6f7c03530360d82a27ab9391e3ced0",
+      "documentation": {
+        "oldid": 72801559,
+        "url": "https://pt.wikipedia.org/w/index.php?oldid=72801559",
+        "sha256": "418018c2609b15fe201435ce09de1ef4a81a84fd73cbd127d5a2556bbe8518e2"
+      },
+      "accents": {},
+      "displayExpressions": {},
+      "aliases": []
+    }
+  ],
+  "parseBatches": [
+    {
+      "id": "batch-accent-Info-Biografia",
+      "canonical": "{{Info/Biografia|nome=Pessoa de teste|residência=CampoProva0|educação=CampoProva1|outras_ocupações=CampoProva2|profissão=CampoProva3|religião=CampoProva4|organização=CampoProva5|organizações=CampoProva6|títulos=CampoProva7|nome_mãe=CampoProva8}}",
+      "misspelled": "{{Info/Biografia|nome=Pessoa de teste|residencia=CampoProva0|educacao=CampoProva1|outras_ocupacoes=CampoProva2|profissao=CampoProva3|religiao=CampoProva4|organizacao=CampoProva5|organizacoes=CampoProva6|titulos=CampoProva7|nome_mae=CampoProva8}}",
+      "completed": true
+    },
+    {
+      "id": "batch-accent-Info-Futebolista",
+      "canonical": "{{Info/Futebolista|nome=Pessoa de teste|nascimento_local=Cidade|morte_local=Cidade|posição=CampoProva9|pé=CampoProva10|nascimento_país=CampoProva11|morte_país=CampoProva12}}",
+      "misspelled": "{{Info/Futebolista|nome=Pessoa de teste|nascimento_local=Cidade|morte_local=Cidade|posicao=CampoProva9|pe=CampoProva10|nascimento_pais=CampoProva11|morte_pais=CampoProva12}}",
+      "completed": true
+    },
+    {
+      "id": "batch-accent-Info-Ator",
+      "canonical": "{{Info/Ator|nome=Pessoa de teste|descrição=CampoProva13|educação=CampoProva14|residência=CampoProva15|ocupação=CampoProva16|nome_mãe=CampoProva17|cônjuge=CampoProva18}}",
+      "misspelled": "{{Info/Ator|nome=Pessoa de teste|descricao=CampoProva13|educacao=CampoProva14|residencia=CampoProva15|ocupacao=CampoProva16|nome_mae=CampoProva17|conjuge=CampoProva18}}",
+      "completed": true
+    },
+    {
+      "id": "batch-accent-Info-Político",
+      "canonical": "{{Info/Político|nome=Pessoa de teste|religião=CampoProva19|profissão=CampoProva20|ocupação=CampoProva21|residência=CampoProva22|nome_mãe=CampoProva23}}",
+      "misspelled": "{{Info/Político|nome=Pessoa de teste|religiao=CampoProva19|profissao=CampoProva20|ocupacao=CampoProva21|residencia=CampoProva22|nome_mae=CampoProva23}}",
+      "completed": true
+    },
+    {
+      "id": "batch-accent-Info-Militar",
+      "canonical": "{{Info/Militar|nome=Pessoa de teste|nome_mãe=CampoProva24|outros_serviços=CampoProva25|país=CampoProva26|força=CampoProva27|anos_de_serviço=CampoProva28|função=CampoProva29}}",
+      "misspelled": "{{Info/Militar|nome=Pessoa de teste|nome_mae=CampoProva24|outros_servicos=CampoProva25|pais=CampoProva26|forca=CampoProva27|anos_de_servico=CampoProva28|funcao=CampoProva29}}",
+      "completed": false
+    },
+    {
+      "id": "batch-accent-Info-Modelo",
+      "canonical": "{{Info/Modelo|nome=Pessoa de teste|nascimento_país=CampoProva30|residência=CampoProva31|educação=CampoProva32|títulos=CampoProva33|nome_mãe=CampoProva34|religião=CampoProva35}}",
+      "misspelled": "{{Info/Modelo|nome=Pessoa de teste|nascimento_pais=CampoProva30|residencia=CampoProva31|educacao=CampoProva32|titulos=CampoProva33|nome_mae=CampoProva34|religiao=CampoProva35}}",
+      "completed": false
+    },
+    {
+      "id": "batch-accent-Info-Magistrado",
+      "canonical": "{{Info/Magistrado|nome=Pessoa de teste|nome_mãe=CampoProva36|ocupação=CampoProva37|prêmios=CampoProva38|religião=CampoProva39|profissão=CampoProva40}}",
+      "misspelled": "{{Info/Magistrado|nome=Pessoa de teste|nome_mae=CampoProva36|ocupacao=CampoProva37|premios=CampoProva38|religiao=CampoProva39|profissao=CampoProva40}}",
+      "completed": false
+    },
+    {
+      "id": "batch-accent-Info-Ciclista",
+      "canonical": "{{Info/Ciclista|nome=Pessoa de teste|mãe=CampoProva41|cônjuge=CampoProva42|ocupação=CampoProva43|profissão=CampoProva44}}",
+      "misspelled": "{{Info/Ciclista|nome=Pessoa de teste|mae=CampoProva41|conjuge=CampoProva42|ocupacao=CampoProva43|profissao=CampoProva44}}",
+      "completed": false
+    },
+    {
+      "id": "batch-accent-Info-Música-artista",
+      "canonical": "{{Info/Música/artista|nome=Pessoa de teste|fundo=artista_solo|país=CampoProva45|ocupação=CampoProva46|nome_mãe=CampoProva47|cônjuge=CampoProva48|instrumentos_notáveis=CampoProva49|outras ocupações=CampoProva50|afiliações=CampoProva51}}",
+      "misspelled": "{{Info/Música/artista|nome=Pessoa de teste|fundo=artista_solo|pais=CampoProva45|ocupacao=CampoProva46|nome_mae=CampoProva47|conjuge=CampoProva48|instrumentos_notaveis=CampoProva49|outras ocupacoes=CampoProva50|afiliacoes=CampoProva51}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-presence-after",
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva0|ocupações=}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva4|conjuge=}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva8|nome_de_batismo=}}\n{{Info/Biografia|nome=Pessoa de teste|website=ValorProva12|site=}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva16|conjuge=}}\n{{Info/Político|nome=Pessoa de teste|website=ValorProva20|homepage=}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva24|conjuge=}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva28|cônjuge=}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva32|ocupação=}}\n{{Info/Modelo|nome=Pessoa de teste|website=ValorProva36|site=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva0}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva4}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva8}}\n{{Info/Biografia|nome=Pessoa de teste|website=ValorProva12}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva16}}\n{{Info/Político|nome=Pessoa de teste|website=ValorProva20}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva24}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva28}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva32}}\n{{Info/Modelo|nome=Pessoa de teste|website=ValorProva36}}",
+      "completed": true
+    },
+    {
+      "id": "batch-alias-presence-after-ref",
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva1<ref name=\"prova1\">Fonte sintética.</ref>|ocupações=}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva5<ref name=\"prova5\">Fonte sintética.</ref>|conjuge=}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva9<ref name=\"prova9\">Fonte sintética.</ref>|nome_de_batismo=}}\n{{Info/Biografia|nome=Pessoa de teste|website=ValorProva13<ref name=\"prova13\">Fonte sintética.</ref>|site=}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva17<ref name=\"prova17\">Fonte sintética.</ref>|conjuge=}}\n{{Info/Político|nome=Pessoa de teste|website=ValorProva21<ref name=\"prova21\">Fonte sintética.</ref>|homepage=}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva25<ref name=\"prova25\">Fonte sintética.</ref>|conjuge=}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva29<ref name=\"prova29\">Fonte sintética.</ref>|cônjuge=}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva33<ref name=\"prova33\">Fonte sintética.</ref>|ocupação=}}\n{{Info/Modelo|nome=Pessoa de teste|website=ValorProva37<ref name=\"prova37\">Fonte sintética.</ref>|site=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva1<ref name=\"prova1\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva5<ref name=\"prova5\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva9<ref name=\"prova9\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|website=ValorProva13<ref name=\"prova13\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva17<ref name=\"prova17\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|website=ValorProva21<ref name=\"prova21\">Fonte sintética.</ref>}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva25<ref name=\"prova25\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva29<ref name=\"prova29\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva33<ref name=\"prova33\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|website=ValorProva37<ref name=\"prova37\">Fonte sintética.</ref>}}",
+      "completed": true
+    },
+    {
+      "id": "batch-alias-presence-before",
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=|ocupações=ValorProva2}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva6}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=|nome_de_batismo=ValorProva10}}\n{{Info/Biografia|nome=Pessoa de teste|website=|site=ValorProva14}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva18}}\n{{Info/Político|nome=Pessoa de teste|website=|homepage=ValorProva22}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva26}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=|cônjuge=ValorProva30}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=|ocupação=ValorProva34}}\n{{Info/Modelo|nome=Pessoa de teste|website=|site=ValorProva38}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupações=ValorProva2}}\n{{Info/Biografia|nome=Pessoa de teste|conjuge=ValorProva6}}\n{{Info/Biografia|nome=Pessoa de teste|nome_de_batismo=ValorProva10}}\n{{Info/Biografia|nome=Pessoa de teste|site=ValorProva14}}\n{{Info/Político|nome=Pessoa de teste|conjuge=ValorProva18}}\n{{Info/Político|nome=Pessoa de teste|homepage=ValorProva22}}\n{{Info/Militar|nome=Pessoa de teste|conjuge=ValorProva26}}\n{{Info/Modelo|nome=Pessoa de teste|cônjuge=ValorProva30}}\n{{Info/Modelo|nome=Pessoa de teste|ocupação=ValorProva34}}\n{{Info/Modelo|nome=Pessoa de teste|site=ValorProva38}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-presence-before-ref",
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=|ocupações=ValorProva3<ref name=\"prova3\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva7<ref name=\"prova7\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|nome_completo=|nome_de_batismo=ValorProva11<ref name=\"prova11\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|website=|site=ValorProva15<ref name=\"prova15\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva19<ref name=\"prova19\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|website=|homepage=ValorProva23<ref name=\"prova23\">Fonte sintética.</ref>}}\n{{Info/Militar|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva27<ref name=\"prova27\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|conjuge=|cônjuge=ValorProva31<ref name=\"prova31\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|ocupacao=|ocupação=ValorProva35<ref name=\"prova35\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|website=|site=ValorProva39<ref name=\"prova39\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupações=ValorProva3<ref name=\"prova3\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|conjuge=ValorProva7<ref name=\"prova7\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|nome_de_batismo=ValorProva11<ref name=\"prova11\">Fonte sintética.</ref>}}\n{{Info/Biografia|nome=Pessoa de teste|site=ValorProva15<ref name=\"prova15\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|conjuge=ValorProva19<ref name=\"prova19\">Fonte sintética.</ref>}}\n{{Info/Político|nome=Pessoa de teste|homepage=ValorProva23<ref name=\"prova23\">Fonte sintética.</ref>}}\n{{Info/Militar|nome=Pessoa de teste|conjuge=ValorProva27<ref name=\"prova27\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|cônjuge=ValorProva31<ref name=\"prova31\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|ocupação=ValorProva35<ref name=\"prova35\">Fonte sintética.</ref>}}\n{{Info/Modelo|nome=Pessoa de teste|site=ValorProva39<ref name=\"prova39\">Fonte sintética.</ref>}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-nonempty-after",
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva40|conjuge=}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva44|nome_comp=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva40}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva44}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-nonempty-after-ref",
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva41<ref name=\"prova41\">Fonte sintética.</ref>|conjuge=}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva45<ref name=\"prova45\">Fonte sintética.</ref>|nome_comp=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva41<ref name=\"prova41\">Fonte sintética.</ref>}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva45<ref name=\"prova45\">Fonte sintética.</ref>}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-nonempty-before",
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva42}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=|nome_comp=ValorProva46}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|conjuge=ValorProva42}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_comp=ValorProva46}}",
+      "completed": false
+    },
+    {
+      "id": "batch-alias-nonempty-before-ref",
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva43<ref name=\"prova43\">Fonte sintética.</ref>}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_completo=|nome_comp=ValorProva47<ref name=\"prova47\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|conjuge=ValorProva43<ref name=\"prova43\">Fonte sintética.</ref>}}\n{{Info/Magistrado|nome=Pessoa de teste|nome_comp=ValorProva47<ref name=\"prova47\">Fonte sintética.</ref>}}",
+      "completed": false
+    }
+  ],
+  "accentEvidence": [
+    {
+      "id": "batch-accent-Info-Biografia-0",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "residencia",
+      "target": "residência",
+      "marker": "CampoProva0",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-1",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "educacao",
+      "target": "educação",
+      "marker": "CampoProva1",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-2",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "outras_ocupacoes",
+      "target": "outras_ocupações",
+      "marker": "CampoProva2",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-3",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "profissao",
+      "target": "profissão",
+      "marker": "CampoProva3",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-4",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "religiao",
+      "target": "religião",
+      "marker": "CampoProva4",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-5",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "organizacao",
+      "target": "organização",
+      "marker": "CampoProva5",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-6",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "organizacoes",
+      "target": "organizações",
+      "marker": "CampoProva6",
+      "accepted": false,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": false,
+      "misspelledDisplaysMarker": false,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Biografia-7",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "titulos",
+      "target": "títulos",
+      "marker": "CampoProva7",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Biografia-8",
+      "parseBatch": "batch-accent-Info-Biografia",
+      "template": "Info/Biografia",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva8",
+      "accepted": true,
+      "canonicalHtmlSha256": "dbde28f71272074d1744befc7b12ade51ba6946cffee7e0db92ab3d700664a70",
+      "misspelledHtmlSha256": "0cf4a1831f062532bf49eee7ca44b9a62ae38de779678d67a6afba9c8ac64831",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Futebolista-0",
+      "parseBatch": "batch-accent-Info-Futebolista",
+      "template": "Info/Futebolista",
+      "bad": "posicao",
+      "target": "posição",
+      "marker": "CampoProva9",
+      "accepted": true,
+      "canonicalHtmlSha256": "9775fd1275bb60ad9811e68b5d4d7a7579ab0069057eacb808b18687fcb38c82",
+      "misspelledHtmlSha256": "0d1d34257b3abc676618ed39c50b32f0fa1b8d2cab1f38cbacf44161cc843176",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Futebolista-1",
+      "parseBatch": "batch-accent-Info-Futebolista",
+      "template": "Info/Futebolista",
+      "bad": "pe",
+      "target": "pé",
+      "marker": "CampoProva10",
+      "accepted": true,
+      "canonicalHtmlSha256": "9775fd1275bb60ad9811e68b5d4d7a7579ab0069057eacb808b18687fcb38c82",
+      "misspelledHtmlSha256": "0d1d34257b3abc676618ed39c50b32f0fa1b8d2cab1f38cbacf44161cc843176",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Futebolista-2",
+      "parseBatch": "batch-accent-Info-Futebolista",
+      "template": "Info/Futebolista",
+      "bad": "nascimento_pais",
+      "target": "nascimento_país",
+      "marker": "CampoProva11",
+      "accepted": true,
+      "canonicalHtmlSha256": "9775fd1275bb60ad9811e68b5d4d7a7579ab0069057eacb808b18687fcb38c82",
+      "misspelledHtmlSha256": "0d1d34257b3abc676618ed39c50b32f0fa1b8d2cab1f38cbacf44161cc843176",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Futebolista-3",
+      "parseBatch": "batch-accent-Info-Futebolista",
+      "template": "Info/Futebolista",
+      "bad": "morte_pais",
+      "target": "morte_país",
+      "marker": "CampoProva12",
+      "accepted": false,
+      "canonicalHtmlSha256": "9775fd1275bb60ad9811e68b5d4d7a7579ab0069057eacb808b18687fcb38c82",
+      "misspelledHtmlSha256": "0d1d34257b3abc676618ed39c50b32f0fa1b8d2cab1f38cbacf44161cc843176",
+      "canonicalDisplaysMarker": false,
+      "misspelledDisplaysMarker": false,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ator-0",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "descricao",
+      "target": "descrição",
+      "marker": "CampoProva13",
+      "accepted": false,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": false,
+      "misspelledDisplaysMarker": false,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ator-1",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "educacao",
+      "target": "educação",
+      "marker": "CampoProva14",
+      "accepted": true,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Ator-2",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "residencia",
+      "target": "residência",
+      "marker": "CampoProva15",
+      "accepted": true,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Ator-3",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "ocupacao",
+      "target": "ocupação",
+      "marker": "CampoProva16",
+      "accepted": true,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Ator-4",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva17",
+      "accepted": true,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Ator-5",
+      "parseBatch": "batch-accent-Info-Ator",
+      "template": "Info/Ator",
+      "bad": "conjuge",
+      "target": "cônjuge",
+      "marker": "CampoProva18",
+      "accepted": true,
+      "canonicalHtmlSha256": "a2768175266a59b42249165719b40225a13fd53372834ac750115de3b33a6995",
+      "misspelledHtmlSha256": "c0ba9f42aba400abaa8123b43e6414a18f3691e55eef3b96a12a4178370dc660",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Político-0",
+      "parseBatch": "batch-accent-Info-Político",
+      "template": "Info/Político",
+      "bad": "religiao",
+      "target": "religião",
+      "marker": "CampoProva19",
+      "accepted": true,
+      "canonicalHtmlSha256": "24e9e3b169200dee1cdf9106e7f8cd3acac9dd7a76fe302fdcf2754ac0100129",
+      "misspelledHtmlSha256": "6e443d28718de0ba535651421b01cf444a1f2bc7610d77ec02564da25433e808",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Político-1",
+      "parseBatch": "batch-accent-Info-Político",
+      "template": "Info/Político",
+      "bad": "profissao",
+      "target": "profissão",
+      "marker": "CampoProva20",
+      "accepted": true,
+      "canonicalHtmlSha256": "24e9e3b169200dee1cdf9106e7f8cd3acac9dd7a76fe302fdcf2754ac0100129",
+      "misspelledHtmlSha256": "6e443d28718de0ba535651421b01cf444a1f2bc7610d77ec02564da25433e808",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Político-2",
+      "parseBatch": "batch-accent-Info-Político",
+      "template": "Info/Político",
+      "bad": "ocupacao",
+      "target": "ocupação",
+      "marker": "CampoProva21",
+      "accepted": true,
+      "canonicalHtmlSha256": "24e9e3b169200dee1cdf9106e7f8cd3acac9dd7a76fe302fdcf2754ac0100129",
+      "misspelledHtmlSha256": "6e443d28718de0ba535651421b01cf444a1f2bc7610d77ec02564da25433e808",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Político-3",
+      "parseBatch": "batch-accent-Info-Político",
+      "template": "Info/Político",
+      "bad": "residencia",
+      "target": "residência",
+      "marker": "CampoProva22",
+      "accepted": true,
+      "canonicalHtmlSha256": "24e9e3b169200dee1cdf9106e7f8cd3acac9dd7a76fe302fdcf2754ac0100129",
+      "misspelledHtmlSha256": "6e443d28718de0ba535651421b01cf444a1f2bc7610d77ec02564da25433e808",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Político-4",
+      "parseBatch": "batch-accent-Info-Político",
+      "template": "Info/Político",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva23",
+      "accepted": true,
+      "canonicalHtmlSha256": "24e9e3b169200dee1cdf9106e7f8cd3acac9dd7a76fe302fdcf2754ac0100129",
+      "misspelledHtmlSha256": "6e443d28718de0ba535651421b01cf444a1f2bc7610d77ec02564da25433e808",
+      "canonicalDisplaysMarker": true,
+      "misspelledDisplaysMarker": false,
+      "reason": null
+    },
+    {
+      "id": "batch-accent-Info-Militar-0",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva24",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Militar-1",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "outros_servicos",
+      "target": "outros_serviços",
+      "marker": "CampoProva25",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Militar-2",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "pais",
+      "target": "país",
+      "marker": "CampoProva26",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Militar-3",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "forca",
+      "target": "força",
+      "marker": "CampoProva27",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Militar-4",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "anos_de_servico",
+      "target": "anos_de_serviço",
+      "marker": "CampoProva28",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Militar-5",
+      "parseBatch": "batch-accent-Info-Militar",
+      "template": "Info/Militar",
+      "bad": "funcao",
+      "target": "função",
+      "marker": "CampoProva29",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-0",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "nascimento_pais",
+      "target": "nascimento_país",
+      "marker": "CampoProva30",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-1",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "residencia",
+      "target": "residência",
+      "marker": "CampoProva31",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-2",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "educacao",
+      "target": "educação",
+      "marker": "CampoProva32",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-3",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "titulos",
+      "target": "títulos",
+      "marker": "CampoProva33",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-4",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva34",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Modelo-5",
+      "parseBatch": "batch-accent-Info-Modelo",
+      "template": "Info/Modelo",
+      "bad": "religiao",
+      "target": "religião",
+      "marker": "CampoProva35",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Magistrado-0",
+      "parseBatch": "batch-accent-Info-Magistrado",
+      "template": "Info/Magistrado",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva36",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Magistrado-1",
+      "parseBatch": "batch-accent-Info-Magistrado",
+      "template": "Info/Magistrado",
+      "bad": "ocupacao",
+      "target": "ocupação",
+      "marker": "CampoProva37",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Magistrado-2",
+      "parseBatch": "batch-accent-Info-Magistrado",
+      "template": "Info/Magistrado",
+      "bad": "premios",
+      "target": "prêmios",
+      "marker": "CampoProva38",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Magistrado-3",
+      "parseBatch": "batch-accent-Info-Magistrado",
+      "template": "Info/Magistrado",
+      "bad": "religiao",
+      "target": "religião",
+      "marker": "CampoProva39",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Magistrado-4",
+      "parseBatch": "batch-accent-Info-Magistrado",
+      "template": "Info/Magistrado",
+      "bad": "profissao",
+      "target": "profissão",
+      "marker": "CampoProva40",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ciclista-0",
+      "parseBatch": "batch-accent-Info-Ciclista",
+      "template": "Info/Ciclista",
+      "bad": "mae",
+      "target": "mãe",
+      "marker": "CampoProva41",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ciclista-1",
+      "parseBatch": "batch-accent-Info-Ciclista",
+      "template": "Info/Ciclista",
+      "bad": "conjuge",
+      "target": "cônjuge",
+      "marker": "CampoProva42",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ciclista-2",
+      "parseBatch": "batch-accent-Info-Ciclista",
+      "template": "Info/Ciclista",
+      "bad": "ocupacao",
+      "target": "ocupação",
+      "marker": "CampoProva43",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Ciclista-3",
+      "parseBatch": "batch-accent-Info-Ciclista",
+      "template": "Info/Ciclista",
+      "bad": "profissao",
+      "target": "profissão",
+      "marker": "CampoProva44",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-0",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "pais",
+      "target": "país",
+      "marker": "CampoProva45",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-1",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "ocupacao",
+      "target": "ocupação",
+      "marker": "CampoProva46",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-2",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "nome_mae",
+      "target": "nome_mãe",
+      "marker": "CampoProva47",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-3",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "conjuge",
+      "target": "cônjuge",
+      "marker": "CampoProva48",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-4",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "instrumentos_notaveis",
+      "target": "instrumentos_notáveis",
+      "marker": "CampoProva49",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-5",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "outras ocupacoes",
+      "target": "outras ocupações",
+      "marker": "CampoProva50",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    },
+    {
+      "id": "batch-accent-Info-Música-artista-6",
+      "parseBatch": "batch-accent-Info-Música-artista",
+      "template": "Info/Música/artista",
+      "bad": "afiliacoes",
+      "target": "afiliações",
+      "marker": "CampoProva51",
+      "accepted": false,
+      "canonicalHtmlSha256": null,
+      "misspelledHtmlSha256": null,
+      "canonicalDisplaysMarker": null,
+      "misspelledDisplaysMarker": null,
+      "reason": "No native marker proof in this bounded fixture, or native parse not completed after rate limiting. This is not evidence that the field is invalid."
+    }
+  ],
+  "aliasEvidence": [
+    {
+      "id": "alias-Info-Biografia-occupation-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva0",
+      "template": "Info/Biografia",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupação",
+        "ocupações",
+        "ocupacao",
+        "trabalho civil",
+        "Ocupação"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva0|ocupações=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva0}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-occupation-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva1",
+      "template": "Info/Biografia",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupação",
+        "ocupações",
+        "ocupacao",
+        "trabalho civil",
+        "Ocupação"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva1<ref name=\"prova1\">Fonte sintética.</ref>|ocupações=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupação=ValorProva1<ref name=\"prova1\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-occupation-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva2",
+      "template": "Info/Biografia",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupação",
+        "ocupações",
+        "ocupacao",
+        "trabalho civil",
+        "Ocupação"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=|ocupações=ValorProva2}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupações=ValorProva2}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-occupation-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva3",
+      "template": "Info/Biografia",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupação",
+        "ocupações",
+        "ocupacao",
+        "trabalho civil",
+        "Ocupação"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|ocupação=|ocupações=ValorProva3<ref name=\"prova3\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|ocupações=ValorProva3<ref name=\"prova3\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-spouse-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva4",
+      "template": "Info/Biografia",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva4|conjuge=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva4}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-spouse-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva5",
+      "template": "Info/Biografia",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva5<ref name=\"prova5\">Fonte sintética.</ref>|conjuge=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=ValorProva5<ref name=\"prova5\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-spouse-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva6",
+      "template": "Info/Biografia",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva6}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|conjuge=ValorProva6}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-spouse-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva7",
+      "template": "Info/Biografia",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva7<ref name=\"prova7\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|conjuge=ValorProva7<ref name=\"prova7\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-fullName-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva8",
+      "template": "Info/Biografia",
+      "kind": "fullName",
+      "mode": "presence",
+      "keys": [
+        "nome_completo",
+        "nome_de_batismo"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva8|nome_de_batismo=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva8}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-fullName-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva9",
+      "template": "Info/Biografia",
+      "kind": "fullName",
+      "mode": "presence",
+      "keys": [
+        "nome_completo",
+        "nome_de_batismo"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva9<ref name=\"prova9\">Fonte sintética.</ref>|nome_de_batismo=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=ValorProva9<ref name=\"prova9\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-fullName-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva10",
+      "template": "Info/Biografia",
+      "kind": "fullName",
+      "mode": "presence",
+      "keys": [
+        "nome_completo",
+        "nome_de_batismo"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=|nome_de_batismo=ValorProva10}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|nome_de_batismo=ValorProva10}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-fullName-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva11",
+      "template": "Info/Biografia",
+      "kind": "fullName",
+      "mode": "presence",
+      "keys": [
+        "nome_completo",
+        "nome_de_batismo"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|nome_completo=|nome_de_batismo=ValorProva11<ref name=\"prova11\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|nome_de_batismo=ValorProva11<ref name=\"prova11\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-website-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva12",
+      "template": "Info/Biografia",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|website=ValorProva12|site=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|website=ValorProva12}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-website-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva13",
+      "template": "Info/Biografia",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|website=ValorProva13<ref name=\"prova13\">Fonte sintética.</ref>|site=}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|website=ValorProva13<ref name=\"prova13\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Biografia-website-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva14",
+      "template": "Info/Biografia",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|website=|site=ValorProva14}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|site=ValorProva14}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Biografia-website-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva15",
+      "template": "Info/Biografia",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Biografia|nome=Pessoa de teste|website=|site=ValorProva15<ref name=\"prova15\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Biografia|nome=Pessoa de teste|site=ValorProva15<ref name=\"prova15\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Político-spouse-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva16",
+      "template": "Info/Político",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva16|conjuge=}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva16}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Político-spouse-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva17",
+      "template": "Info/Político",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva17<ref name=\"prova17\">Fonte sintética.</ref>|conjuge=}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|cônjuge=ValorProva17<ref name=\"prova17\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Político-spouse-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva18",
+      "template": "Info/Político",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Político|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva18}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|conjuge=ValorProva18}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Político-spouse-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva19",
+      "template": "Info/Político",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Político|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva19<ref name=\"prova19\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|conjuge=ValorProva19<ref name=\"prova19\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Político-website-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva20",
+      "template": "Info/Político",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Político|nome=Pessoa de teste|website=ValorProva20|homepage=}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|website=ValorProva20}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Político-website-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva21",
+      "template": "Info/Político",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Político|nome=Pessoa de teste|website=ValorProva21<ref name=\"prova21\">Fonte sintética.</ref>|homepage=}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|website=ValorProva21<ref name=\"prova21\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Político-website-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva22",
+      "template": "Info/Político",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Político|nome=Pessoa de teste|website=|homepage=ValorProva22}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|homepage=ValorProva22}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Político-website-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva23",
+      "template": "Info/Político",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Político|nome=Pessoa de teste|website=|homepage=ValorProva23<ref name=\"prova23\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Político|nome=Pessoa de teste|homepage=ValorProva23<ref name=\"prova23\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Militar-spouse-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva24",
+      "template": "Info/Militar",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva24|conjuge=}}",
+      "after": "{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva24}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Militar-spouse-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva25",
+      "template": "Info/Militar",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva25<ref name=\"prova25\">Fonte sintética.</ref>|conjuge=}}",
+      "after": "{{Info/Militar|nome=Pessoa de teste|cônjuge=ValorProva25<ref name=\"prova25\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Militar-spouse-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva26",
+      "template": "Info/Militar",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Militar|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva26}}",
+      "after": "{{Info/Militar|nome=Pessoa de teste|conjuge=ValorProva26}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Militar-spouse-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva27",
+      "template": "Info/Militar",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Militar|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva27<ref name=\"prova27\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Militar|nome=Pessoa de teste|conjuge=ValorProva27<ref name=\"prova27\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-spouse-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva28",
+      "template": "Info/Modelo",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "conjuge",
+        "cônjuge"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva28|cônjuge=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva28}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-spouse-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva29",
+      "template": "Info/Modelo",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "conjuge",
+        "cônjuge"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva29<ref name=\"prova29\">Fonte sintética.</ref>|cônjuge=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|conjuge=ValorProva29<ref name=\"prova29\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-spouse-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva30",
+      "template": "Info/Modelo",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "conjuge",
+        "cônjuge"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|conjuge=|cônjuge=ValorProva30}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|cônjuge=ValorProva30}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-spouse-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva31",
+      "template": "Info/Modelo",
+      "kind": "spouse",
+      "mode": "presence",
+      "keys": [
+        "conjuge",
+        "cônjuge"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|conjuge=|cônjuge=ValorProva31<ref name=\"prova31\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|cônjuge=ValorProva31<ref name=\"prova31\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-occupation-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva32",
+      "template": "Info/Modelo",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupacao",
+        "ocupação"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva32|ocupação=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva32}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-occupation-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva33",
+      "template": "Info/Modelo",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupacao",
+        "ocupação"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva33<ref name=\"prova33\">Fonte sintética.</ref>|ocupação=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=ValorProva33<ref name=\"prova33\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-occupation-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva34",
+      "template": "Info/Modelo",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupacao",
+        "ocupação"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=|ocupação=ValorProva34}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|ocupação=ValorProva34}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-occupation-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva35",
+      "template": "Info/Modelo",
+      "kind": "occupation",
+      "mode": "presence",
+      "keys": [
+        "ocupacao",
+        "ocupação"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|ocupacao=|ocupação=ValorProva35<ref name=\"prova35\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|ocupação=ValorProva35<ref name=\"prova35\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-website-after",
+      "parseBatch": "batch-alias-presence-after",
+      "marker": "ValorProva36",
+      "template": "Info/Modelo",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|website=ValorProva36|site=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|website=ValorProva36}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "afterHtmlSha256": "a08a9fd61a10dbf6192f111c9120ca43fd55027bc84e9051872043e6a35a7bf2",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-website-after-ref",
+      "parseBatch": "batch-alias-presence-after-ref",
+      "marker": "ValorProva37",
+      "template": "Info/Modelo",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|website=ValorProva37<ref name=\"prova37\">Fonte sintética.</ref>|site=}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|website=ValorProva37<ref name=\"prova37\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": true,
+      "beforeHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "afterHtmlSha256": "831f2ad94b96c21d729d9e442e604372419b61d79be93088afb5205a7cdd2228",
+      "renderProven": true
+    },
+    {
+      "id": "alias-Info-Modelo-website-before",
+      "parseBatch": "batch-alias-presence-before",
+      "marker": "ValorProva38",
+      "template": "Info/Modelo",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|website=|site=ValorProva38}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|site=ValorProva38}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Modelo-website-before-ref",
+      "parseBatch": "batch-alias-presence-before-ref",
+      "marker": "ValorProva39",
+      "template": "Info/Modelo",
+      "kind": "website",
+      "mode": "presence",
+      "keys": [
+        "website",
+        "site",
+        "url",
+        "sítio",
+        "site_oficial",
+        "homepage"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Modelo|nome=Pessoa de teste|website=|site=ValorProva39<ref name=\"prova39\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Modelo|nome=Pessoa de teste|site=ValorProva39<ref name=\"prova39\">Fonte sintética.</ref>}}",
+      "expectedEqual": false,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-spouse-after",
+      "parseBatch": "batch-alias-nonempty-after",
+      "marker": "ValorProva40",
+      "template": "Info/Magistrado",
+      "kind": "spouse",
+      "mode": "nonempty",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva40|conjuge=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva40}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-spouse-after-ref",
+      "parseBatch": "batch-alias-nonempty-after-ref",
+      "marker": "ValorProva41",
+      "template": "Info/Magistrado",
+      "kind": "spouse",
+      "mode": "nonempty",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva41<ref name=\"prova41\">Fonte sintética.</ref>|conjuge=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=ValorProva41<ref name=\"prova41\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-spouse-before",
+      "parseBatch": "batch-alias-nonempty-before",
+      "marker": "ValorProva42",
+      "template": "Info/Magistrado",
+      "kind": "spouse",
+      "mode": "nonempty",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva42}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|conjuge=ValorProva42}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-spouse-before-ref",
+      "parseBatch": "batch-alias-nonempty-before-ref",
+      "marker": "ValorProva43",
+      "template": "Info/Magistrado",
+      "kind": "spouse",
+      "mode": "nonempty",
+      "keys": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|cônjuge=|conjuge=ValorProva43<ref name=\"prova43\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|conjuge=ValorProva43<ref name=\"prova43\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-fullName-after",
+      "parseBatch": "batch-alias-nonempty-after",
+      "marker": "ValorProva44",
+      "template": "Info/Magistrado",
+      "kind": "fullName",
+      "mode": "nonempty",
+      "keys": [
+        "nome_completo",
+        "nome_comp"
+      ],
+      "emptyBefore": false,
+      "references": false,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva44|nome_comp=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva44}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-fullName-after-ref",
+      "parseBatch": "batch-alias-nonempty-after-ref",
+      "marker": "ValorProva45",
+      "template": "Info/Magistrado",
+      "kind": "fullName",
+      "mode": "nonempty",
+      "keys": [
+        "nome_completo",
+        "nome_comp"
+      ],
+      "emptyBefore": false,
+      "references": true,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva45<ref name=\"prova45\">Fonte sintética.</ref>|nome_comp=}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=ValorProva45<ref name=\"prova45\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-fullName-before",
+      "parseBatch": "batch-alias-nonempty-before",
+      "marker": "ValorProva46",
+      "template": "Info/Magistrado",
+      "kind": "fullName",
+      "mode": "nonempty",
+      "keys": [
+        "nome_completo",
+        "nome_comp"
+      ],
+      "emptyBefore": true,
+      "references": false,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=|nome_comp=ValorProva46}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|nome_comp=ValorProva46}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    },
+    {
+      "id": "alias-Info-Magistrado-fullName-before-ref",
+      "parseBatch": "batch-alias-nonempty-before-ref",
+      "marker": "ValorProva47",
+      "template": "Info/Magistrado",
+      "kind": "fullName",
+      "mode": "nonempty",
+      "keys": [
+        "nome_completo",
+        "nome_comp"
+      ],
+      "emptyBefore": true,
+      "references": true,
+      "before": "{{Info/Magistrado|nome=Pessoa de teste|nome_completo=|nome_comp=ValorProva47<ref name=\"prova47\">Fonte sintética.</ref>}}",
+      "after": "{{Info/Magistrado|nome=Pessoa de teste|nome_comp=ValorProva47<ref name=\"prova47\">Fonte sintética.</ref>}}",
+      "expectedEqual": true,
+      "equal": null,
+      "beforeHtmlSha256": null,
+      "afterHtmlSha256": null,
+      "renderProven": false
+    }
+  ],
+  "fallbackDependency": [
+    {
+      "title": "Predefinição:If empty",
+      "oldid": 67884368,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=67884368",
+      "sha256": "ddab84b08840374ac495f3a009efb7d57cd35b9678e2d891a12541e913101527"
+    },
+    {
+      "title": "Predefinição:Se vazio",
+      "oldid": 48428091,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=48428091",
+      "sha256": "58c4eebf5d684d6a06ba3e2f6dad79c6d928d4132b871f2f27d2f15904fedc50"
+    },
+    {
+      "title": "Módulo:Se vazio",
+      "oldid": 49700098,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=49700098",
+      "sha256": "cd2baf6ca77e8807dc62bdcd263876eb9bd94114917e6ba0137556835d5ddb6a"
+    }
+  ],
+  "limitations": [
+    "An explicitly empty higher-precedence Bio occupation suppresses lower-precedence populated aliases and cannot be removed.",
+    "Only lower-precedence empty presence-fallback aliases or reviewed first-nonempty aliases may be removed.",
+    "No date, burial, Wikidata default, unknown, or unreviewed alias is deleted.",
+    "First-nonempty Magistrado groups and 31 unrendered accent candidates remain disabled.",
+    "Missing markers in combined fixtures may result from native row conditions or fallback precedence and are not evidence that an accepted field is invalid."
+  ],
+  "runtimeCounts": {
+    "accentMappings": 21,
+    "presenceAliasGroups": 10,
+    "accentTemplateDefinitions": 4,
+    "aliasTemplateDefinitions": 4
+  },
+  "method": {
+    "endpoint": "https://pt.wikipedia.org/w/api.php",
+    "action": "parse",
+    "httpMethod": "GET",
+    "credentials": "omitted",
+    "title": "RevisaWiki teste local",
+    "disablelimitreport": true,
+    "disableeditsection": true,
+    "htmlComparison": "Exact API text bytes, with no filtering or normalization. Raw HTML is private temporary evidence only."
+  }
+}
