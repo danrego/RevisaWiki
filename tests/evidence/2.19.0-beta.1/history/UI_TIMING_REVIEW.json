@@ -1,0 +1,9 @@
+{
+  "kind": "test-harness-timing-correction",
+  "originalStatus": "failed",
+  "originalStatusUnchanged": true,
+  "runtimeChanged": false,
+  "oldRunnerSha256": "5a54275d4b3017612782b3ecb7dc537e5d1aeefa13c1653ca45f78c488ba5823",
+  "newRunnerSha256": "d5bdd33beb2551a0fb71c805859c2c3626ec3391166949b6d73df5cadf84f2c9",
+  "reason": "Undo is asynchronous and uses a Worker refresh. The first assertion ran before the existing completion message. The new test waits for that message and then retains the same exact source and summary assertions."
+}

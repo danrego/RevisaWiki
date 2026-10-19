@@ -1,0 +1,14 @@
+RevisaWiki 2.19.0-beta.1
+
+Controles específicos e de identidade: 1540 casos, 2304 verificações.
+Suítes herdadas executadas novamente: 2249 casos, 13711 verificações.
+chrome 155.0.8059.80: 13 casos, 83 verificações.
+firefox 158.0: 13 casos, 83 verificações.
+
+Os controles de identidade comparam os corpos das funções públicas com a base publicada. Não são contados como artigos. As seis suítes herdadas usam os arquivos reais da beta e não injetam reparos auxiliares.
+
+A primeira execução da interface antecipava a checagem do Desfazer, que é assíncrono. O teste passou a aguardar a mensagem de conclusão e manteve as mesmas exigências de restauração exata do texto e do resumo. O resultado anterior foi preservado. Não foi necessário alterar o programa.
+
+Safari: a sessão de automação não iniciou e nenhuma verificação do programa foi executada nesse navegador. O resultado da tentativa permanece como falha de infraestrutura.
+
+Os controles do índice de cópia são registrados separadamente após a geração do pacote. A rodada final da 2.19 não foi retomada. O artigo extremo não foi repetido. O limite de 60 segundos e as verificações de preservação permanecem. Nenhuma edição na Wikipédia.

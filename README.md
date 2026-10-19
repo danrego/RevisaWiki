@@ -1,5 +1,13 @@
 # RevisaWiki
 
+## Beta 2.19.0-beta.1
+
+Esta beta tem instalação separada e acrescenta somente o reconhecimento dos redirecionamentos do cabeçalho de discussão à base publicada 2.18. A validação da 2.19 final continua pausada.
+
+[Pacote da beta](dist/2.19.0-beta.1/RevisaWiki_2.19.0-beta.1.zip) · [Índice de cópia](dist/2.19.0-beta.1/INICIO.html) · [Instalação](docs/2.19.0-beta.1/Instalacao_RevisaWiki_v2_19_0_beta_1.txt) · [Manual](docs/2.19.0-beta.1/Documentacao_RevisaWiki_v2_19_0_beta_1.wiki) · [Testes](tests/beta219/README.md)
+
+Desative a chamada estável no common.js antes de usar a chamada da beta. Os arquivos da versão estável permanecem nos seus destinos. Chrome e Firefox passaram nos controles de interface e instalação. O teste automatizado do Safari ficou pendente porque a sessão não iniciou.
+
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
 ## Versão 2.18

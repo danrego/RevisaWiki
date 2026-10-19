@@ -61,7 +61,7 @@ def identity_findings(text,reviewed_css=frozenset()):
  decoded=unquote(text).replace('+',' ')
  owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
  owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
- technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
+ technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador)\\.js)?|RevisaWiki/Beta(?:\\.js|/(?:Dados|Carregador)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
  css_property=re.compile(r'--image-size-'+r'user'+r':var\(--image-size-(?:standard|small|large)\)(?=[;}])')
  masked=css_property.sub(lambda m:' '*len(m.group())if hashlib.sha256(m.group().encode()).hexdigest()in reviewed_css else m.group(),masked)

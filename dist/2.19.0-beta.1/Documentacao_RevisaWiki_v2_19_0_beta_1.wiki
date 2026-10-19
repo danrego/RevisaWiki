@@ -1,0 +1,68 @@
+Esta é a documentação do '''RevisaWiki 2.19.0-beta.1'''. A beta parte da versão publicada 2.18 e acrescenta um reparo delimitado no cabeçalho de discussão. As demais funções continuam sendo as da 2.18. A validação da versão final 2.19 está pausada.
+
+== O que mudou ==
+
+O botão '''Criar código''' reconhece os redirecionamentos conferidos de <nowiki>{{PD}}</nowiki>, como <nowiki>{{pd}}</nowiki> e <nowiki>{{Página de discussão}}</nowiki>. Ele conserva a chamada que já está na página, com seus parâmetros. Se encontrar um cabeçalho válido fora do início da discussão, preserva o texto e não acrescenta outro.
+
+A comparação respeita a forma como o MediaWiki lê os títulos. A primeira letra pode variar de caixa e espaços podem ser escritos com sublinhados. Uma grafia incorreta no restante do nome não passa a ser um redirecionamento válido. Uma chamada dentro de um comentário ou exemplo protegido também não conta como cabeçalho da página.
+
+As avaliações de projetos existentes continuam sendo tratadas pela lógica da 2.18. Esta beta não acrescenta a substituição de avaliações automáticas por ponto de interrogação.
+
+== Como usar ==
+
+* Abra '''Editar código-fonte'''. Em artigos, '''Ajustar código''' mantém os reparos de sintaxe, referências, tabelas e infocaixas da 2.18.
+* Na edição completa da discussão de um artigo, '''Criar código''' prepara o cabeçalho e as marcas de projeto no rascunho. A conversão de portais que já existia continua disponível.
+* Use '''Mostrar alterações''' e '''Mostrar previsão''' para conferir o resultado. '''Desfazer ajustes''' restaura o texto anterior enquanto você não tiver feito outras alterações.
+* A publicação continua no botão normal do editor. Instalar o script ou copiar arquivos neste índice não publica uma edição.
+
+== Instalação separada ==
+
+# Instale os dados em [[Usuário:Daniel G Rego/RevisaWiki/Beta/Dados.js]].
+# Instale o programa em [[Usuário:Daniel G Rego/RevisaWiki/Beta.js]].
+# Instale o carregador em [[Usuário:Daniel G Rego/RevisaWiki/Beta/Carregador.js]].
+# No seu <code>common.js</code>, desative a chamada estável e use somente a chamada fixa da beta, fornecida no pacote. Preserve seus outros scripts.
+# Recarregue sem cache e confirme que o painel mostra <code>2.19.0-beta.1</code>.
+
+Os arquivos estáveis ficam nos destinos anteriores. Para voltar, retire a chamada da beta, restaure a chamada estável e recarregue sem cache. Se usa a opção própria <code>dataPage</code>, ela também precisa apontar para os dados da beta.
+
+O programa e os dados são fornecidos em arquivos separados para respeitar o limite de tamanho da página. O arquivo completo serve para download e testes locais. O aviso visual de 102400 bytes do realce de sintaxe não é o limite de tamanho da página.
+
+== O que testar ==
+
+* Uma discussão que já comece com <nowiki>{{pd}}</nowiki> ou <nowiki>{{Página de discussão}}</nowiki> deve continuar com uma única chamada, sem mudar seus parâmetros.
+* Um cabeçalho válido colocado depois de uma conversa não deve receber uma segunda chamada no início.
+* Ao criar o cabeçalho com projetos, confira se o texto da conversa e as avaliações existentes foram conservados. Teste também '''Desfazer ajustes'''.
+* Em artigos, confira os ajustes habituais pela comparação e pela pré-visualização. Informe a versão, a chamada original e o resultado se encontrar um problema. Retire informações pessoais antes de enviar um relato.
+
+== Limites ==
+
+Esta beta não reúne todas as mudanças em preparação para a 2.19. Os novos reparos de referências, imagens e portais que ainda dependem da validação final ficaram de fora. As limitações e os resultados históricos da 2.18 não foram reclassificados como testes aprovados da beta.
+
+O processamento separado mantém o limite de 60 segundos. Ao atingir esse limite, a análise é interrompida sem aplicar o resultado atrasado. O teste do artigo extremo de aproximadamente 1,9 MB não foi repetido para esta beta. A quantidade de reparos pode variar com a configuração e com a presença de código incompleto.
+
+== Testes desta beta ==
+
+Foram executados os controles do cabeçalho, as comparações das funções com a base publicada e seis suítes de regressão nas duas distribuições. Os controles locais de interface, instalação e edição passaram no Chrome e no Firefox. A automação do Safari não conseguiu iniciar a sessão, portanto os testes nesse navegador ficaram pendentes. O resultado dessa tentativa foi preservado. As versões dos navegadores e os resultados completos acompanham o pacote. Os testes não fizeram edições na Wikipédia.
+
+Os controles desta beta não substituem a rodada extensa da 2.19 final. Os resultados anteriores dessa rodada continuam preservados e o trabalho principal permanece pausado.
+
+== Histórico ==
+
+=== 2.19.0-beta.1 ===
+
+* Instalação separada para testes, com destinos próprios para programa, dados e carregador.
+* Reconhecimento dos redirecionamentos conferidos do cabeçalho de discussão, preservando a chamada existente.
+* Detecção desse cabeçalho fora do início da página, evitando acrescentar outra chamada.
+* Comparação com a 2.18 e novos testes de falsos positivos, interface e instalação.
+
+=== 2.18.0, base desta beta ===
+
+* Reparos de citações completas em contextos reconhecidos, mesmo quando outro trecho está incompleto.
+* Correções de campos e valores literais de citações conferidos.
+* Limpeza de linhas vazias excedentes na prosa e formatação responsiva das referências.
+
+== Código e documentação ==
+
+* [https://github.com/danrego/RevisaWiki Repositório no GitHub]
+* [https://github.com/danrego/RevisaWiki/releases/tag/v2.19.0-beta.1 Código completo, instalação, índice de cópia e relatório desta beta]
+* [[Usuário:Daniel G Rego/RevisaWiki|Documentação da versão estável]]

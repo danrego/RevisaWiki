@@ -17,6 +17,10 @@ case('fictional wiki test account',('User:'+ 'Editor de teste').encode(),[])
 case('nontechnical wiki account',('User:'+ 'Other account').encode(),['unreviewed-wiki-user-destination'])
 case('owner identity requires a technical path',g.TECHNICAL_SCRIPT_TITLE.split('/')[0].encode(),['unreviewed-wiki-user-destination','nontechnical-owner-identity'])
 case('owner noreply is not approved',('https://github.com/danrego'.rsplit('/',1)[-1]+'@users.noreply.github.com').encode(),['unreviewed-email'])
+for suffix in ['RevisaWiki/Beta', 'RevisaWiki/Beta.js', 'RevisaWiki/Beta/Dados.js', 'RevisaWiki/Beta/Carregador.js']:
+ case('beta exact technical destination '+suffix,g.TECHNICAL_SCRIPT_TITLE.replace('RevisaWiki.js',suffix).encode(),[])
+ for ending in ['.private','/private']:
+  case('beta unreviewed suffix '+suffix+ending,g.TECHNICAL_SCRIPT_TITLE.replace('RevisaWiki.js',suffix+ending).encode(),['unreviewed-wiki-user-destination','nontechnical-owner-identity'])
 case('central loader technical destination',(g.TECHNICAL_SCRIPT_TITLE.replace('RevisaWiki.js','RevisaWiki/Carregador.js')).encode(),[])
 case('central loader followed by comma',(g.TECHNICAL_SCRIPT_TITLE.replace('RevisaWiki.js','RevisaWiki/Carregador.js')+',').encode(),[])
 case('central loader suffix remains private',(g.TECHNICAL_SCRIPT_TITLE.replace('RevisaWiki.js','RevisaWiki/Carregador.js.private')).encode(),['unreviewed-wiki-user-destination','nontechnical-owner-identity'])
