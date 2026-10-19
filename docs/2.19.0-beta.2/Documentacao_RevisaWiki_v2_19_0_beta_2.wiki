@@ -1,0 +1,66 @@
+O '''RevisaWiki 2.19.0-beta.2''' acrescenta três grupos de correções conferidas à beta.1. A rodada principal da versão final 2.19 continua pausada.
+
+== O que mudou ==
+
+* '''Datas duplicadas em infocaixas:''' remove um campo redundante quando dois parâmetros nativos da mesma data têm conteúdo literalmente idêntico. Valores diferentes e campos com funções distintas são preservados.
+* '''Idade repetida:''' em sete modelos de infocaixa conferidos, retira a idade digitada depois de uma chamada de nascimento que já a exibe. A data e suas referências são mantidas. Idades divergentes, opções desconhecidas e trechos protegidos ficam intactos.
+* '''Tabelas:''' impede reduzir um <code>rowspan</code> apenas pela contagem de linhas explícitas. Também impede reparos de separadores quando os atributos estão incompletos ou o trecho depende de conteúdo protegido.
+
+A correção de <nowiki>{{PD}}</nowiki> da beta.1 continua incluída. O botão '''Criar código''' reconhece os redirecionamentos conferidos, como <nowiki>{{pd}}</nowiki> e <nowiki>{{Página de discussão}}</nowiki>, e preserva a chamada existente. Se ela estiver depois de uma conversa, não acrescenta outra no início.
+
+As demais funções vêm da versão publicada 2.18. Esta beta não incorpora todo o código em preparação para a 2.19 final.
+
+== Instalação ==
+
+# Atualize os dados em [[Usuário:Daniel G Rego/RevisaWiki/Beta/Dados.js]].
+# Atualize o programa em [[Usuário:Daniel G Rego/RevisaWiki/Beta.js]].
+# Atualize o carregador em [[Usuário:Daniel G Rego/RevisaWiki/Beta/Carregador.js]].
+# Atualize esta documentação com o arquivo fornecido no índice.
+# Recarregue sem cache e confirme <code>2.19.0-beta.2</code> no painel.
+
+Se já usa a beta.1, a chamada fixa do <code>common.js</code> é a mesma. Na primeira instalação, desative a chamada estável e acrescente somente a chamada fixa da beta, preservando seus outros scripts. Para voltar à versão estável, restaure a chamada anterior. Não carregue as duas versões na mesma página.
+
+O programa e os dados são fornecidos separadamente para respeitar o limite de tamanho das páginas. O arquivo completo serve para download e testes locais. Os cartões do índice oferecem o conteúdo inteiro e o destino de cada arquivo. Copiar ou abrir um cartão não publica nenhuma edição.
+
+== Como testar ==
+
+Abra '''Editar código-fonte''' e use '''Ajustar código'''. Confira o resultado com '''Mostrar alterações''' e '''Mostrar previsão'''. Na discussão, use '''Criar código'''. A publicação continua sendo feita por você no botão normal do editor.
+
+Os controles desta beta conferem o resultado completo, a preservação de referências e os casos em que nada deve mudar. Eles também verificam se uma segunda execução produz alterações inesperadas. São casos locais de teste, não uma contagem de artigos revisados.
+
+== Limites e testes ==
+
+Os três grupos de correções passaram novamente nas duas distribuições. Os testes locais da interface passaram no Chrome e no Firefox. Os testes do índice verificam os conteúdos copiados, os destinos e a apresentação em telas de tamanhos diferentes. Os números e as versões dos navegadores estão no relatório do pacote.
+
+Os testes no Safari ficaram pendentes após a falha de infraestrutura registrada na beta.1. A sessão não foi repetida nesta atualização. Esse resultado anterior permanece como estava, sem ser convertido em aprovação.
+
+O processamento mantém o limite de 60 segundos e as verificações de preservação. Ao atingir o limite, a análise é interrompida sem aplicar o resultado atrasado. O artigo extremo de aproximadamente 1,9 MB permanece uma limitação conhecida e não foi testado novamente nesta beta.
+
+A rodada extensa da versão final 2.19 não foi retomada. Reparos de referências, imagens e portais que ainda dependem dessa validação ficaram de fora. Os resultados históricos continuam preservados. Nenhum teste ou etapa de preparação desta versão fez edições na Wikipédia.
+
+== Histórico ==
+
+=== 2.19.0-beta.2 ===
+
+* Remoção de campos nativos redundantes com a mesma data literal.
+* Remoção de idade manual repetida em campos de nascimento conferidos.
+* Proteção de valores de rowspan e de cabeçalhos com atributos incompletos.
+* Instalação separada, com a mesma chamada fixa da beta.1.
+
+=== 2.19.0-beta.1 ===
+
+* Reconhecimento dos redirecionamentos conferidos de PD, preservando a chamada existente.
+* Prevenção de duplicação quando o cabeçalho está fora do início da discussão.
+* Instalação separada e controles de falsos positivos, interface e cópia.
+
+=== 2.18.0, base desta beta ===
+
+* Reparos de citações em contextos reconhecidos.
+* Correções de campos literais conferidos.
+* Limpeza de linhas vazias excedentes e formatação responsiva das referências.
+
+== Código e documentação ==
+
+* [https://github.com/danrego/RevisaWiki Repositório no GitHub]
+* [https://github.com/danrego/RevisaWiki/releases/tag/v2.19.0-beta.2 Arquivos completos desta beta]
+* [[Usuário:Daniel G Rego/RevisaWiki|Documentação da versão estável]]

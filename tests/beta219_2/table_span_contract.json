@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "positive-rowspan-preservation",
+  "source": {
+    "url": "https://html.spec.whatwg.org/multipage/tables.html#processing-model-1",
+    "retrieved": "2026-10-17",
+    "sha256": "b9f6362d00b90f7383ed4d6d36b354c6e2e53f42ee198c5130c7d0b0f952fa20",
+    "bytes": 254870
+  },
+  "nativeModel": {
+    "positiveSpan": "Processing a cell increases the table model height when the positive rowspan reaches beyond its current height. A row group can therefore contain implied rows beyond its explicit tr elements.",
+    "zeroSpan": "A zero rowspan grows downward to the end of its own row group. It is not an instruction to use the explicit row count of the entire table.",
+    "groupBoundary": "One cell cannot span multiple row groups. Explicit thead, tbody and tfoot require group-aware semantics.",
+    "clamp": "The numeric content-attribute limit for rowspan is 65534. There is no general rule replacing a positive rowspan with the number of explicit source rows remaining."
+  },
+  "automaticContract": "Retain the original numeric span. A syntactically complete regular source grid, with the overflowing span capped by the checker itself, does not independently prove equivalence.",
+  "integration": {
+    "writer": "automaticTables",
+    "oldFilter": "analysis.repairs.filter(r=>r.rule!=='tableHeaderScopes'||cfg.tableAccessibility!==false)",
+    "newFilter": "analysis.repairs.filter(r=>v219TableAutomaticRepairAllowed(r)&&(r.rule!=='tableHeaderScopes'||cfg.tableAccessibility!==false))",
+    "otherUses": "The v272 missing-quote guard reads tableSpanRepairs to refuse an uncertain compound candidate. Keep that read-only refusal guard. v272 inventories and v213 joint repairs select only tableHeaderScopes, not numeric span writes.",
+    "automaticWritersFound": 1,
+    "diagnosticCandidateIsNotAnAutomaticWrite": true
+  },
+  "wikipediaWrites": 0
+}
