@@ -1,6 +1,17 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
+
+// Additive causal metadata is authored from the supplied source/options/expected.
+// It never changes a product option, fixture endpoint or proof.
+function cc9Pair(report,id,option,role,source,onOptions,offOptions,onExpected,offExpected,proof=null){
+ const canon=v=>Array.isArray(v)?v.map(canon):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canon(v[k])])):v;
+ const h=v=>require('node:crypto').createHash('sha256').update(typeof v==='string'?v:JSON.stringify(canon(v))).digest('hex');
+ const keys=[...new Set([...Object.keys(onOptions),...Object.keys(offOptions)])].sort(),changed=keys.filter(k=>JSON.stringify(canon(onOptions[k]))!==JSON.stringify(canon(offOptions[k])));
+ require('node:assert/strict').deepEqual(changed,[option]);require('node:assert/strict').equal(onOptions[option],true);require('node:assert/strict').equal(offOptions[option],false);
+ (report.causalControls??=[]).push({schemaVersion:1,id,option,role,sourceSha256:h(source),onOptionsSnapshot:canon(onOptions),offOptionsSnapshot:canon(offOptions),onOptionsSha256:h(onOptions),offOptionsSha256:h(offOptions),onExpectedSha256:h(onExpected),offExpectedSha256:h(offExpected),proofSha256:proof?h(proof):null,identicalProofAcrossPair:!!proof,writerPositiveCredit:0});
+}
+
 const fixtures=[
  {id:'unconfirmed-short-citation',source:'Texto.{{Harvnb|Autor|1980}}\n{{Referências}}',baseline:1,current:0,unchanged:true},
  {id:'valid-follow-attribute',source:'Texto.<ref name="a">Fonte.</ref><ref follow="a">Nota.</ref>\n{{Referências}}',baseline:1,current:0,unchanged:true},
@@ -81,6 +92,14 @@ function run(api,baselineApi,output){
   equal(api.v217VisibleReviewPlan({result,source,options:cfg,findings}).headerCount,1,'The enabled final biography audit is visible');
   equal(api.v217VisibleReviewPlan({result,source,options:changed,findings}).headerCount,0,'An old same-source audit cannot survive a changed checking option');
   equal(api.v217FinalReviewResult(result,changed).reviewBinding===result.reviewBinding,false,'Final evidence is bound to options as well as source and the UTC day');
+ });
+ test('cc9-biography-style-fresh-single-flag-off',()=>{
+  const source=fixtures[6].source,onOptions=cfg,offOptions={...cfg,biographyStyleChecks:false},on=api.calculate({kind:'audit',source,options:onOptions}),off=api.calculate({kind:'audit',source,options:offOptions});
+  equal(on.text,source,'The existing valid report source is unchanged');equal(off.text,source,'The single-flag report control is unchanged');
+  equal(on.localReports.biographies.map(x=>x.code),['biography-birth-conflict'],'The original conflicting dates produce one explicit biography report');equal(off.localReports.biographies,[],'Only the parent biography report flag is disabled');
+  for(const domain of ['references','syntax','translation','tables','dates'])equal(off.localReports[domain],on.localReports[domain],'Other report domains keep identical source/options');
+  equal(api.v217VisibleReviewPlan({result:on,source,options:onOptions}).headerCount,1,'The fresh on report is actionable');equal(api.v217VisibleReviewPlan({result:off,source,options:offOptions}).headerCount,0,'A fresh off calculation has no biography conflict row');
+  cc9Pair(report,'biography-style-fresh-audit','biographyStyleChecks','actual-audit-report',source,onOptions,offOptions,['biography-birth-conflict'],[]);
  });
  test('late-core-errors-must-match-the-final-draft',()=>{
   const source='Texto completo.',result={kind:'audit',text:source,warnings:[],suggestions:[]},findings=[{domain:'syntax',source,state:'pending',code:'unclosed-link',start:0,severity:'error',message:'Ligação sem fechamento.'}];

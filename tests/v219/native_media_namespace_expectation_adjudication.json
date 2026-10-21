@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "kind": "primary-native-alias-preservation-fixture-correction",
+  "originalSha256": "8473ae1983dd7dddd41de8305995315390c847ba67556642c644821cfbd098dc",
+  "proposedSha256": "d54ee0bc3e1fad97d89495c22645416396fca55277e780822e8ab4aa4d9a63a7",
+  "oldExpectation": "expected=source.replace('[['+alias+':','[[Imagem:').replace('|alinhar=','|posição=');",
+  "correctedExpectation": "expected=source.replace('|alinhar=','|posição=');",
+  "reason": "All four literal media namespace headers in this fixture are accepted native namespace aliases. The actual writer deliberately preserves them, while still fixing the independently invalid quote-position field. Requiring their canonical spelling would reintroduce cosmetic native syntax churn. Read-only displayed-value equivalence normalization remains covered separately, with its original assertions unchanged.",
+  "changedAssertions": "Only the complete expected source for 24 namespace/position/EOL descriptors is corrected. Every source fixture, action, positive quote-field conversion, option set, preservation/convergence/guard assertion and independent read-only projection test is unchanged.",
+  "runtimeChangesRequired": false,
+  "promoted": true,
+  "wikipediaWrites": 0,
+  "primaryContract": {
+    "file": "tests/v219/foreign_media_context_contract.json",
+    "sha256": "6bc5a3684f05e240b85249d7a8f5ec26dd2c1eb53dd0f7e32e1499a60d4005ae",
+    "source": {
+      "language": "pt",
+      "url": "https://pt.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces%7Cnamespacealiases%7Cmagicwords%7Cfileextensions&format=json&formatversion=2",
+      "sha256": "92f25f23485000bfde80c0fa1f73a8f3b90a1d7ca6ada1b8e44031a7203b8198"
+    }
+  },
+  "observedNamespace6": {
+    "namespace": {
+      "id": 6,
+      "case": "first-letter",
+      "name": "Ficheiro",
+      "subpages": false,
+      "canonical": "File",
+      "content": false,
+      "nonincludable": false,
+      "namespaceprotection": "autoconfirmed"
+    },
+    "aliases": [
+      {
+        "id": 6,
+        "alias": "Arquivo"
+      },
+      {
+        "id": 6,
+        "alias": "Image"
+      },
+      {
+        "id": 6,
+        "alias": "Imagem"
+      }
+    ],
+    "captureSha256": "92f25f23485000bfde80c0fa1f73a8f3b90a1d7ca6ada1b8e44031a7203b8198"
+  },
+  "correctedTestValidation": {
+    "runtimeCoreSha256": "a7da3942cef7f2849c8568e66a8e7c1554eb8c6f8725d77b4e08d0baee199b9a",
+    "status": "passed",
+    "cases": 100,
+    "checks": 544,
+    "receiptSha256": "7cdce073a7a25dd898f7e002061044960af01e5fedbc675317e6c25b95488fcb"
+  },
+  "publicRunnerSha256": "d54ee0bc3e1fad97d89495c22645416396fca55277e780822e8ab4aa4d9a63a7",
+  "originalFailureReceiptRetainedPrivately": true
+}

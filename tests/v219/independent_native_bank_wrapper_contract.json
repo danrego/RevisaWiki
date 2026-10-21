@@ -1,0 +1,25 @@
+{
+  "kind": "finite-native-default-refs-bank-wrapper-identity",
+  "productionRuntimeChanged": false,
+  "primarySources": [
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=56151616",
+      "sha256": "aa0a74d11ea3cc248c65ee9a055c2a433d026f69b01d7d06cbe1a1b434bb2abe",
+      "contract": "The native Reflist implementation emits a headless default-group reference list and forwards the sole refs argument as its bank."
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=63785697",
+      "sha256": "ada3498405143752e8a466b7d040bc598811ade32d9286506e5e90605c5a07b4",
+      "contract": "The native target selects the same default group and raw refs bank. Explicit nível=0 suppresses its own heading."
+    }
+  ],
+  "projection": "Only one explicitly named nonempty refs argument, preserving the entire raw argument name, padding and value byte-for-byte. Replace the exact native Reflist header with Referências and append nível=0. Existing target calls remain completely raw. No group, entity, body, nested call, alias priority, blank or extra argument is normalized.",
+  "vetoes": [
+    "Other internal title casing",
+    "Positional, empty, duplicate or additional arguments",
+    "Changed reference identity, group, body, metadata or order"
+  ],
+  "limitations": "This is a bounded native wrapper contract for logical reference identities. Uncertain entities and opaque note bodies remain ambiguous and unexpanded. It is not a whole-document HTML equivalence claim.",
+  "tests": "independent_native_bank_wrapper_cases.py",
+  "wikipediaWrites": 0
+}

@@ -1,0 +1,182 @@
+{
+  "kind": "independently-preauthored-native-interface-option-boundaries",
+  "expectationAuthority": "Every expected endpoint is literal and authored from the cited native redirect/wrapper and supplied-key contract, before production execution.",
+  "primaryContracts": [
+    {
+      "title": "Predefinição:Lien web",
+      "oldid": 46288422,
+      "target": "Citar web",
+      "targetOldid": 48262420,
+      "meaning": "exact local redirect forwards all raw arguments"
+    },
+    {
+      "title": "Supplied-key repair",
+      "oldid": 72349758,
+      "declaration": "c.citation.tradpred.124",
+      "nativeConfigOldid": 73016847,
+      "nativeWhitelistOldid": 71860752,
+      "meaning": "exact supplied titre→nativeTitle intended repair, separate names+sourcecompat gates, no French rendering equivalence"
+    },
+    {
+      "title": "Predefinição:Infobox person",
+      "oldid": 63097825,
+      "sourceSha256": "8837c3d380be59d1fad2ef5f710b4529f14ed263414e15d82d25d6bf0e9d1e89",
+      "meaning": "valid native wrapper name→nome, source-specific ocupation-before-occupation priority; preserve wrapper rather than import foreign EN profile"
+    }
+  ],
+  "rows": [
+    {
+      "id": "local-original",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "all-disabled",
+      "options": {
+        "citations": true,
+        "multilingual": true
+      },
+      "classification": "native-header-forwarding"
+    },
+    {
+      "id": "local-names-only",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "all-disabled",
+      "options": {
+        "citations": true,
+        "multilingual": true,
+        "automaticParameterNames": true
+      },
+      "classification": "sourcecompat-off-retention"
+    },
+    {
+      "id": "local-names-sourcecompat",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "base": "all-disabled",
+      "options": {
+        "citations": true,
+        "multilingual": true,
+        "automaticParameterNames": true,
+        "automaticSourceCompatibility": true
+      },
+      "classification": "declared-supplied-key-repair"
+    },
+    {
+      "id": "local-full",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "base": "defaults",
+      "options": {},
+      "classification": "declared-supplied-key-repair"
+    },
+    {
+      "id": "native-full",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "base": "defaults",
+      "options": {},
+      "classification": "declared-supplied-key-repair"
+    },
+    {
+      "id": "native-compat-off",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "automaticSourceCompatibility": false
+      },
+      "classification": "sourcecompat-off-retention"
+    },
+    {
+      "id": "local-compat-off",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "automaticSourceCompatibility": false
+      },
+      "classification": "header-only-with-sourcecompat-off"
+    },
+    {
+      "id": "local-names-off",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "classification": "header-only-with-names-off"
+    },
+    {
+      "id": "local-multilingual-off",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Lien web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "multilingual": false
+      },
+      "classification": "multilingual-off-retention"
+    },
+    {
+      "id": "local-citations-off",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Lien web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "citations": false
+      },
+      "classification": "citations-off-retention"
+    },
+    {
+      "id": "native-multilingual-off",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "base": "defaults",
+      "options": {
+        "multilingual": false
+      },
+      "classification": "native-key-multilingual-off-retention"
+    },
+    {
+      "id": "infobox-original",
+      "source": "{{Infobox person|name=Pessoa fictícia}}",
+      "expected": "{{Infobox person|name=Pessoa fictícia}}",
+      "base": "all-disabled",
+      "options": {
+        "infoboxes": true,
+        "multilingual": true
+      },
+      "classification": "native-wrapper-preservation"
+    },
+    {
+      "id": "infobox-multilingual-off",
+      "source": "{{Infobox person|name=Pessoa fictícia}}",
+      "expected": "{{Infobox person|name=Pessoa fictícia}}",
+      "base": "all-disabled",
+      "options": {
+        "infoboxes": true,
+        "multilingual": false
+      },
+      "classification": "native-wrapper-preservation"
+    },
+    {
+      "id": "infobox-infoboxes-off",
+      "source": "{{Infobox person|name=Pessoa fictícia}}",
+      "expected": "{{Infobox person|name=Pessoa fictícia}}",
+      "base": "all-disabled",
+      "options": {
+        "infoboxes": false,
+        "multilingual": true
+      },
+      "classification": "native-wrapper-preservation"
+    },
+    {
+      "id": "infobox-full",
+      "source": "{{Infobox person|name=Pessoa fictícia}}",
+      "expected": "{{Infobox person|name=Pessoa fictícia}}",
+      "base": "defaults",
+      "options": {},
+      "classification": "native-wrapper-preservation"
+    }
+  ]
+}

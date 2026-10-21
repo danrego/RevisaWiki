@@ -49,6 +49,18 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
   '49e61808257d9d856d5cbec3c7714a4c40b3ec4721da689dfc9a1c512f6228e3'
  }
 }
+# Exact fictional URL-userinfo fixtures exercise URL grammar without real accounts.
+# Only reviewed complete source files and exact reserved-domain URLs qualify.
+# Reserved documentation/test domains: https://www.rfc-editor.org/rfc/rfc2606.html
+APPROVED_SYNTHETIC_URL_FIXTURES={
+ '82bf0d011eeb3ed6de32526d3506a6b91bd2a1ddea460cad63622809a5b39908':{'a34610cafad11b3e4554e3093b3acb94c1764c8e77b5ca27deddc5dd59605362'},
+ '5b18d685c06a5bbcd2f3e3c07188bdd7ab5194ed891b5b40d4dd435ecb946894':{'88ea6f85d62ab24778c7ef01b8859a64270ab74f74dd49933de1261f850ce07c'},
+ 'ea4dbbedfc166655bb5cfe6865371afc9d1c251b4050e520f1674b055e0002cb':{'da2dcf3acd0c4547e70094e71d173ecea4fa55e11f92964341b79d76094f2051'},
+ '0343f9f07debc32a87954a2cf59a3adae3ba18f577891af13a8825bdd86fb709':{'a692a7ec69ebe3d4ec689358982cfcb744e5c4aca3a51eaecbe735ae2fb1cdbf'},
+}
+APPROVED_SYNTHETIC_WIKI_NAMESPACE_FIXTURES={
+ '1c1f745f2e8adc81df35fd9cf9fd4f339fa2be998f0fbe027049af9f5f636502':{'8d23e4f465673ff8a69aad160a76a5cffc13b3ce9dc5a5f50e1e565ba54f897f','d5b366ddea4e0ad2b4e278cff09240d55fbeef61406d790d923e6091a9d6a14e'}
+}
 PUBLIC_NOREPLY='revisawiki@reserved.invalid'
 IMAGE_MAGIC=(b'\x89PNG',b'\xff\xd8',b'GIF8',b'RIFF',b'BM',b'%PDF')
 IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.heic','.pdf','.svg'}
@@ -73,6 +85,17 @@ def identity_findings(text,reviewed_css=frozenset()):
  matches=list(re.finditer(owner_pattern,masked,re.I))
  if matches:result.append(('nontechnical-owner-identity',len(matches),masked[:matches[0].start()].count('\n')+1))
  return result
+
+def reviewed_fixture_view(text,content_hash):
+ approved=APPROVED_SYNTHETIC_URL_FIXTURES.get(content_hash,frozenset())
+ namespaces=APPROVED_SYNTHETIC_WIKI_NAMESPACE_FIXTURES.get(content_hash,frozenset())
+ if not approved and not namespaces:return text
+ pattern=re.compile(r"https?://[^\s\"'<>]+",re.I)
+ text=pattern.sub(lambda match:' '*len(match.group()) if hashlib.sha256(match.group().encode()).hexdigest() in approved else match.group(),text)
+ # These literal namespace lookalikes are not real-account evidence. Retain
+ # the exact template-title fixture, including its ambiguous native basename.
+ pattern=re.compile(r"(?:Usuário|User):[^\s\]\[<>|\"'`}{]+")
+ return pattern.sub(lambda match:' '*len(match.group()) if hashlib.sha256(match.group().encode()).hexdigest() in namespaces else match.group(),text)
 
 def safe_relative(value):
  p=pathlib.PurePosixPath(value)
@@ -116,7 +139,8 @@ class Scanner:
   try:text=data.decode('utf-8')
   except UnicodeDecodeError:self.fail(path,'unreviewed-binary-file');return
   content_hash=hashlib.sha256(data).hexdigest()
-  for rule,count,line in identity_findings(text,APPROVED_PUBLIC_CSS_PROPERTIES.get(content_hash,set())):self.fail(path,rule,count,line)
+  identity_view=reviewed_fixture_view(text,content_hash)
+  for rule,count,line in identity_findings(identity_view,APPROVED_PUBLIC_CSS_PROPERTIES.get(content_hash,set())):self.fail(path,rule,count,line)
   # Imported citation URLs can legitimately contain home-directory-like paths.
   non_url=URL.sub(lambda m:' '*len(m[0]),text)
   for name,rx in RULES.items():
@@ -126,7 +150,7 @@ class Scanner:
   for literal in self.denied:
    if literal and literal in text:self.fail(path,'private-local-denylist',text.count(literal))
   reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(content_hash,set())|APPROVED_PUBLIC_CITATION_IDENTIFIERS.get(content_hash,set())
-  for m in EMAIL.finditer(text):
+  for m in EMAIL.finditer(identity_view):
    value=m[0]
    if value==PUBLIC_NOREPLY:continue
    digest=hashlib.sha256(value.encode()).hexdigest()

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "suite": "reference_spacing",
+  "argv": [
+    "<CORE>",
+    "<FULL>",
+    "--data=<DATA>",
+    "--fixtures=<DIR>/fixtures.json",
+    "--contract=<DIR>/CONTRACT.json",
+    "--recipe=<DIR>/ORIGIN.json",
+    "--source-builder=<ROOT>/scripts/build_v2190.py",
+    "--descriptor-pins=<DIR>/descriptor_pins.json",
+    "--output=<OUTPUT>",
+    "--execute-authorized-spacing-controls"
+  ],
+  "expectedRows": 104,
+  "rowArrays": [
+    "rows"
+  ],
+  "fixtureFiles": [
+    "fixtures.json",
+    "descriptor_pins.json"
+  ],
+  "defaultRole": "whole-action",
+  "typedCounts": {
+    "role": "whole-action",
+    "sourceDescriptors": 52,
+    "wholeBundleRows": 104,
+    "calculate": 208,
+    "preservationAudit": 104,
+    "safeComposition": 104
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/SUITE.json",
+    "<DIR>/descriptor_pins.json",
+    "<DIR>/fixtures.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/SUITE.json",
+    "<ROOT>/scripts/build_v2190.py"
+  ]
+}

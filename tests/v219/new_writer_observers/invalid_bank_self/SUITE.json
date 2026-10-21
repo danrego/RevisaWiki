@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "suite": "invalid_bank_self",
+  "argv": [
+    "<CORE>",
+    "<FULL>"
+  ],
+  "expectedRows": 132,
+  "rowArrays": [
+    "rows",
+    "mutants"
+  ],
+  "fixtureFiles": [
+    "original_controls.json",
+    "additive_controls.json",
+    "whole_role_amendments.json",
+    "mutants.json"
+  ],
+  "defaultRole": "source-plan-whole-and-specific-mutations",
+  "typedCounts": {
+    "role": "source-plan-whole-and-specific-mutations",
+    "sourceDescriptors": 54,
+    "planBundleRows": 108,
+    "wholeBundleRowsSubset": 32,
+    "mutationRows": 24,
+    "calculate": 64,
+    "plan": 108,
+    "proof": 132
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/SOURCE_INPUTS.json",
+    "<DIR>/SUITE.json",
+    "<DIR>/additive_controls.json",
+    "<DIR>/mutants.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/original_controls.json",
+    "<DIR>/whole_role_amendments.json",
+    "<DIR>/SUITE.json"
+  ]
+}

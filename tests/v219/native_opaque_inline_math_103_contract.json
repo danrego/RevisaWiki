@@ -1,0 +1,33 @@
+{
+  "kind": "independent-model103-nonexpanding-inline-math-note-attribution",
+  "status": "private-source-proposal-not-final-corpus-acceptance",
+  "predecessorReaderSha256": "b4bc976701ad6a83549278d0e44997392d7b723b042cb45d62ad888d31a360da",
+  "predecessorContractSha256": "57e6006c152b886a87ecdcc4b0b95215355fbbba8dd6da6a6109ce33b4980d56",
+  "primarySourcePins": [
+    {
+      "oldid": 68628864,
+      "sourceSha256": "1491f426cac41148ee380027ab41b2c358b796f301f7120ff5553322bd91515f",
+      "sourceURL": "https://pt.wikipedia.org/w/index.php?oldid=68628864"
+    },
+    {
+      "oldid": 68628877,
+      "sourceSha256": "49d1a2a4b129e2d234a6d10221c81843816f8f597f0a79190b8ef6084c177787",
+      "sourceURL": "https://pt.wikipedia.org/w/index.php?oldid=68628877"
+    }
+  ],
+  "authority": "Native Efn is the exact local redirect to Nre; its unchanged single position1 body and absent explicit identity/group fields retain the same native emitter interface. This model observes complete raw bytes, outside associations and material event order only. It never evaluates TeX, display behavior, generated name, note body or full native rendering.",
+  "lexicalExtension": "Only <math display=\"inline\">paired body</math> with exactly one attribute, inside the preexisting one-position native Efn model102 subset. Every unsupported attribute/header/helper/field remains conservative.",
+  "renderingClaimedEquivalent": false,
+  "opaqueRemainsAmbiguous": true,
+  "noRuntimeJavaScriptImported": true,
+  "noCandidateTextNormalized": true,
+  "sourceScope": "Fictional fixtures test unchanged raw helper plus independently authored typed CS1 date/author/archive repairs and proved bare native Notelist projection. Actual retained page is used only for diagnostic attribution, never to construct a fictional expected endpoint.",
+  "modelSourceDelta": [
+    {
+      "original": "        isinstance(node, nodes.Tag) and str(node.tag) == 'math' and not node.attributes and not node.self_closing\n",
+      "replacement": "        isinstance(node, nodes.Tag) and str(node.tag) == 'math' and not node.self_closing and\n        (not node.attributes or len(node.attributes) == 1 and str(node).startswith('<math display=\"inline\">') and str(node).endswith('</math>'))\n"
+    }
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

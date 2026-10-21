@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "suite": "bank_peer",
+  "argv": [
+    "<CORE>",
+    "<FULL>"
+  ],
+  "expectedRows": 126,
+  "rowArrays": [
+    "rows",
+    "mutants"
+  ],
+  "fixtureFiles": [
+    "fixtures.json"
+  ],
+  "defaultRole": "source-plan-and-specific-proof",
+  "typedCounts": {
+    "role": "source-plan-and-specific-proof",
+    "sourceDescriptors": 57,
+    "planBundleRows": 114,
+    "mutationRows": 12,
+    "calculate": 0,
+    "plan": 116,
+    "proof": 126
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/SOURCE_INPUTS.json",
+    "<DIR>/SUITE.json",
+    "<DIR>/fixtures.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/SUITE.json",
+    "<ROOT>/src/v2_19/invalid_bank_self_calls.js"
+  ]
+}

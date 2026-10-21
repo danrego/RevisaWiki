@@ -1,0 +1,57 @@
+{
+  "status": "SOURCE-preauthored-unexecuted",
+  "sourceRow": "default-literal-bank-self",
+  "candidateMutants": [
+    {
+      "id": "outside-marker-loss",
+      "after": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\nOutra chamada.\n<references></references>",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    },
+    {
+      "id": "outside-body-change",
+      "after": "Texto.<ref name=\"fonte\">Outra fonte.</ref>\nOutra chamada.<ref name=\"fonte\" />\n<references></references>",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    },
+    {
+      "id": "outside-name-change",
+      "after": "Texto.<ref name=\"outra\">Fonte literal.</ref>\nOutra chamada.<ref name=\"outra\" />\n<references></references>",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    },
+    {
+      "id": "collector-group-change",
+      "after": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\nOutra chamada.<ref name=\"fonte\" />\n<references group=\"nota\"></references>",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    },
+    {
+      "id": "collector-removal",
+      "after": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\nOutra chamada.<ref name=\"fonte\" />\n",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    },
+    {
+      "id": "collector-duplicate",
+      "after": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\nOutra chamada.<ref name=\"fonte\" />\n<references></references><references></references>",
+      "expectSpecificProof": false,
+      "expectAuditReject": true,
+      "expectCompositionReject": true
+    }
+  ],
+  "proofMutants": [
+    "wrong-source-hash",
+    "stale-body",
+    "forged-bank-ordinal",
+    "forged-outside-raw",
+    "references-off",
+    "automaticReferenceRepairs-off"
+  ],
+  "noUniversalGuardScope": "Only these explicit reference/list obligations, not arbitrary unrelated URL/protected-byte validators."
+}

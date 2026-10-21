@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "kind": "anonymous-native-displayed-structural-equivalence",
+  "status": "passed",
+  "nativeOperation": {
+    "api": "https://pt.wikipedia.org/w/api.php",
+    "action": "parse",
+    "method": "GET",
+    "anonymous": true,
+    "wikipediaWrites": 0,
+    "imageDownloads": 0,
+    "inputKind": "fictional synthetic wikitext only"
+  },
+  "comparison": "Visible text, link destinations and classes, bold/italic state, image source/alt/width/height/class. No raw HTML nesting equivalence is claimed.",
+  "nativeResponseSha256": [
+    "33d28630797e33410b7c35e8fd39f6487c470be9bf743bf2bffff8e43307200a",
+    "4053f0e900a88db9b3f1c799d2eae90014d8eddff6aa2bd72b91f005c43e8963"
+  ],
+  "samples": [
+    {
+      "id": "emphasis-2-0",
+      "source": "[[Tema d'exemplo|''Rótulo literal'']]",
+      "expected": "''[[Tema d'exemplo|Rótulo literal]]''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "27a1444ca57ca29b80a86643d26d34246f5c92ac827e2f0177005aaf1fdfba5f",
+      "targetSemanticsSha256": "27a1444ca57ca29b80a86643d26d34246f5c92ac827e2f0177005aaf1fdfba5f"
+    },
+    {
+      "id": "emphasis-2-1",
+      "source": "[[Tema fictício|''Rótulo literal'']]",
+      "expected": "''[[Tema fictício|Rótulo literal]]''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "b432bd8f2a440e5a50d4d3abe03bf37f0ff36203e0d80639c36a128d201a45ec",
+      "targetSemanticsSha256": "b432bd8f2a440e5a50d4d3abe03bf37f0ff36203e0d80639c36a128d201a45ec"
+    },
+    {
+      "id": "emphasis-3-2",
+      "source": "[[Tema d'exemplo|'''Rótulo literal''']]",
+      "expected": "'''[[Tema d'exemplo|Rótulo literal]]'''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "629308541e298e526c45d0ed99de82c1d42c27dc3947a4acdf31383f5f7dd70c",
+      "targetSemanticsSha256": "629308541e298e526c45d0ed99de82c1d42c27dc3947a4acdf31383f5f7dd70c"
+    },
+    {
+      "id": "emphasis-3-3",
+      "source": "[[Tema fictício|'''Rótulo literal''']]",
+      "expected": "'''[[Tema fictício|Rótulo literal]]'''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "bceff56bb0f7cfbad38486a9a8edc66c196d51eef7b96c7bc9813460f66d1314",
+      "targetSemanticsSha256": "bceff56bb0f7cfbad38486a9a8edc66c196d51eef7b96c7bc9813460f66d1314"
+    },
+    {
+      "id": "emphasis-5-4",
+      "source": "[[Tema d'exemplo|'''''Rótulo literal''''']]",
+      "expected": "'''''[[Tema d'exemplo|Rótulo literal]]'''''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "c343ba154237d3f184d175679a2acd2996bda029e379825d0028b7cc57c3a9fd",
+      "targetSemanticsSha256": "c343ba154237d3f184d175679a2acd2996bda029e379825d0028b7cc57c3a9fd"
+    },
+    {
+      "id": "emphasis-5-5",
+      "source": "[[Tema fictício|'''''Rótulo literal''''']]",
+      "expected": "'''''[[Tema fictício|Rótulo literal]]'''''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b",
+      "targetSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b"
+    },
+    {
+      "id": "nested-emphasis-3",
+      "source": "'''[[Tema fictício|''Rótulo literal'']]'''",
+      "expected": "'''''[[Tema fictício|Rótulo literal]]'''''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b",
+      "targetSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b"
+    },
+    {
+      "id": "nested-emphasis-2",
+      "source": "''[[Tema fictício|'''Rótulo literal''']]''",
+      "expected": "'''''[[Tema fictício|Rótulo literal]]'''''",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b",
+      "targetSemanticsSha256": "2be01995648cf39c3b43432e8a0d835796bf79c7596cf1ea1bfab63faa9a947b"
+    },
+    {
+      "id": "filename-padding-Imagem-8",
+      "source": "[[Imagem: Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Imagem-9",
+      "source": "[[Imagem:\tExample.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "612f9aca778c5ecb408d370299e6e98b2cdc39c64f74a0229da509a7082e70f0",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Imagem-10",
+      "source": "[[Imagem:   Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Arquivo-11",
+      "source": "[[Arquivo: Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Arquivo-12",
+      "source": "[[Arquivo:\tExample.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "04406e1464e3ecf0bf01ce8545213753b42d2172e877ef2b1bb58286cd50cee2",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Arquivo-13",
+      "source": "[[Arquivo:   Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-File-14",
+      "source": "[[File: Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-File-15",
+      "source": "[[File:\tExample.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "0fc08927395bcf6d487176f204be919ae8a6c27a1e7939d4c64d25fedb825d21",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-File-16",
+      "source": "[[File:   Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Ficheiro-17",
+      "source": "[[Ficheiro: Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Ficheiro-18",
+      "source": "[[Ficheiro:\tExample.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "82b7d3fd48371e43a3c419024173643f5233d037c45ade639c7e5bb059ac1e00",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "filename-padding-Ficheiro-19",
+      "source": "[[Ficheiro:   Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expected": "[[Imagem:Example.jpg |50px|alt=Descrição literal|Legenda literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4",
+      "targetSemanticsSha256": "d7342860ab7b0b66f1750dd9ccc412e5913b79702b9326989eb9b2f255d537d4"
+    },
+    {
+      "id": "leading-colon-visible",
+      "source": "[[:Arquivo:Example.jpg]]",
+      "expected": "[[:Imagem:Example.jpg]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "eaf06f67201ff1850da145ef0d12d452e000c0df019b6a8a31bd2fa672919bbc",
+      "targetSemanticsSha256": "1ca03b8f2e499119b7259948177b0f1eb31ca14ed65b9650486afdc26f8375e9"
+    },
+    {
+      "id": "target-change",
+      "source": "[[Tema d'exemplo|'''Rótulo literal''']]",
+      "expected": "'''[[Outro tema|Rótulo literal]]'''",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "629308541e298e526c45d0ed99de82c1d42c27dc3947a4acdf31383f5f7dd70c",
+      "targetSemanticsSha256": "4fd9e04280987e06fd04c637ba7309b1b1467ec4aaedcda07f9c923aadd96b42"
+    }
+  ],
+  "headerGrammar": [
+    {
+      "source": "[[File:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[File :Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[ File:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[  File :Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[File: Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[File : Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[File:\tExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[File:\nExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[File:\rExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[File\t:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[File\n:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[\tFile:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[Imagem :Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[ Imagem:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[  Imagem :Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[Imagem: Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[Imagem : Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": true
+    },
+    {
+      "source": "[[Imagem:\tExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[Imagem:\nExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[Imagem:\rExample.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[Imagem\t:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[Imagem\n:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    },
+    {
+      "source": "[[\tImagem:Example.jpg|50px|Legenda]]",
+      "expected": "[[Imagem:Example.jpg|50px|Legenda]]",
+      "equivalent": false
+    }
+  ],
+  "displayedField": {
+    "source": "https://pt.wikipedia.org/w/index.php?oldid=70403402",
+    "oldid": 70403402,
+    "sourceSha256": "7381e0af2c62c17aba56da2f203494349e1b7c9b8c0a16b22b463be98b201ff7",
+    "key": "hierarquia",
+    "literalWitness": "|dados13    ={{{hierarquia|}}}",
+    "scope": "Exact accepted field in the pinned native military infobox family. Namespace/padding equivalence only, no filename or media option change."
+  },
+  "boundaries": [
+    "Only U+0020 spaces around the embedded-file namespace delimiter are proved native padding. TAB, CR, LF and other controls must not activate an image.",
+    "Leading-colon links retain their displayed namespace.",
+    "Balanced 2/3/5 apostrophe runs preserve emphasis state only with the same complete target and label. Isolated apostrophes inside a target are literal. Unbalanced or adjacent unsupported runs remain outside the equivalence.",
+    "This is read-only guard evidence, not an instruction to rewrite every proved equivalent form."
+  ]
+}

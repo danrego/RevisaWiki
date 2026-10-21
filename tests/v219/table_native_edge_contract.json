@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded-native-table-and-sort-rendering-contract",
+  "status": "passed",
+  "primary": {
+    "method": "anonymous GET action=parse with fictional inputs; no edits",
+    "site": "https://pt.wikipedia.org/w/api.php",
+    "tableResponseSha256": "b3f7ecd4070f8119370a1bbad9b9854df4f4683fa2fccf4ee3947d91aaad2150",
+    "sortResponseSha256": "508f9e2794bcd2acb9d6cc782cb659e76abb0754912e1f6bf15b1d33e622b4c7",
+    "normalization": "Only newly inserted TH scope attributes and generated reference-call ids are omitted from table event comparison. Other attributes, tags, visible text, emphasis and citation targets are retained. Blank inter-tag whitespace is omitted."
+  },
+  "tablePairs": [
+    {
+      "id": "unclosed-style",
+      "source": "{| class=\"wikitable\"\n! style=\"background:black; | <span style=\"color:white;\"> Período </span>\n! style=\"background:black; | <span style=\"color:white;\"> Nome </span>\n|-\n|Primeiro||Segundo\n|}",
+      "expected": "{| class=\"wikitable\"\n! scope=\"col\" | style=\"background:black; | <span style=\"color:white;\"> Período </span>\n! scope=\"col\" | style=\"background:black; | <span style=\"color:white;\"> Nome </span>\n|-\n|Primeiro||Segundo\n|}",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "69bb49836f59c26c10e24270e68a869b1224926913e2baaa566bf2b47148a465",
+      "targetSemanticsSha256": "972340311ae470c7a1035cf55acb325324a5b9eb7763a452fe3c395256f55131"
+    },
+    {
+      "id": "open-bold-header",
+      "source": "{| class=\"wikitable\"\n! Cabeçalho simples<ref name=\"fonteA\">Fonte literal A</ref>\n!'''Sistema de classificação de acordo com<br />Pessoa fictícia et al. 2006<ref name=\"fonteB\">Fonte literal B</ref>\n!'''Sistema de classificação de acordo com<br />Outra pessoa 2004<ref name=\"fonteC\">Fonte literal C</ref>\n|-\n|Primeiro||Segundo||Terceiro\n|}",
+      "expected": "{| class=\"wikitable\"\n! scope=\"col\" | Cabeçalho simples<ref name=\"fonteA\">Fonte literal A</ref>\n! scope=\"col\" |'''Sistema de classificação de acordo com<br />Pessoa fictícia et al. 2006<ref name=\"fonteB\">Fonte literal B</ref>\n! scope=\"col\" |'''Sistema de classificação de acordo com<br />Outra pessoa 2004<ref name=\"fonteC\">Fonte literal C</ref>\n|-\n|Primeiro||Segundo||Terceiro\n|}",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "574660311b82c539b88fa9c36c27fe340dee90a0048af2794e0bc19de35d1777",
+      "targetSemanticsSha256": "574660311b82c539b88fa9c36c27fe340dee90a0048af2794e0bc19de35d1777"
+    },
+    {
+      "id": "consecutive-rows",
+      "source": "{| class=\"wikitable\"\n!Ano\n!Nome\n|-\n|2001||Primeiro\n|-\n|-\n|2002||Segundo\n|}",
+      "expected": "{| class=\"wikitable\"\n!Ano\n!Nome\n|-\n|2001||Primeiro\n|-\n|2002||Segundo\n|}",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "6a47a053df234cd23056a26ccc41afdbc4ac45dac4647011b4f61fb5846f6b02",
+      "targetSemanticsSha256": "6a47a053df234cd23056a26ccc41afdbc4ac45dac4647011b4f61fb5846f6b02"
+    }
+  ],
+  "sortPairs": [
+    {
+      "source": "{{DEFAULTSORT:Chave fictícia}}\n{{DEFAULTSORT:Chave fictícia}}\n[[Categoria:Exemplo fictício]]",
+      "defaultsort": [
+        "Chave fictícia"
+      ]
+    },
+    {
+      "source": "{{DEFAULTSORT:Chave fictícia}}\n[[Categoria:Exemplo fictício]]",
+      "defaultsort": [
+        "Chave fictícia"
+      ]
+    },
+    {
+      "source": "{{DEFAULTSORT:Primeira chave}}\n{{DEFAULTSORT:Última chave}}\n[[Categoria:Exemplo fictício]]",
+      "defaultsort": [
+        "Última chave"
+      ]
+    }
+  ],
+  "dispositions": [
+    "A recovered unterminated header attribute is not safe for scope insertion.",
+    "Line-reset bold markup inside distinct header cells retains the same native cells under scope insertion.",
+    "Two consecutive empty row markers can render the same native row structure after removing one marker. This pair does not authorize removing rows with attributes or contents.",
+    "Two identical DEFAULTSORT declarations have the same native effective value as one. Conflicting declarations retain last-winning priority."
+  ],
+  "wikipediaWrites": 0,
+  "mediaDownloads": 0
+}

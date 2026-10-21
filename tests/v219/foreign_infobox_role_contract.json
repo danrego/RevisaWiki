@@ -1,0 +1,83 @@
+{
+  "kind": "source-bound-explicit-infobox-field-role-and-selection-contract",
+  "sources": {
+    "Modèle:Infobox Biographie": {
+      "oldid": 234065743,
+      "sourceSha256": "cd019c3c4653fcec8a677b15c4ecc6c9d5f4f4a3659476d1ac3daf5d9ca4216d"
+    },
+    "Modèle:Infobox Biographie2": {
+      "oldid": 210441979,
+      "sourceSha256": "ecd2184c3799c4ff5efe365c3bbacab439a96285518f35d07bda99f56ecdd341"
+    },
+    "Modèle:Infobox Cinéma (film)": {
+      "oldid": 229223249,
+      "sourceSha256": "d585a9da2f62b2fb0d97d5e8698b47c22d60db68e4b3e0e9750b9c1a85a248d8"
+    },
+    "Vorlage:Infobox Film": {
+      "oldid": 271099997,
+      "sourceSha256": "32a492d524c252fa82fb6461bf399385242a5c8944aa3ab893479b0fc3b8fd5b"
+    },
+    "Plantilla:Ficha de persona": {
+      "oldid": 149592279,
+      "moduleOldid": 174164758,
+      "redirectTargetOldid": null,
+      "sourceSha256": "320b9f47d89675ccdf57bcc268ec4b958d4cc9944ec8fa37ea819a5651e69c4b"
+    },
+    "Plantilla:Ficha de científico": {
+      "oldid": 134792125,
+      "moduleOldid": 174164758,
+      "redirectTargetOldid": 149592279,
+      "sourceSha256": "320b9f47d89675ccdf57bcc268ec4b958d4cc9944ec8fa37ea819a5651e69c4b"
+    },
+    "Plantilla:Ficha de película": {
+      "oldid": 149592502,
+      "moduleOldid": 168323586,
+      "redirectTargetOldid": null,
+      "sourceSha256": "eb30257f7f192644582da76fc1f0e8c76a0a15081dca65c58dd323359aeae78b"
+    }
+  },
+  "selectionContracts": [
+    {
+      "source": "es persona174164758",
+      "lines": [
+        1107,
+        1130
+      ],
+      "selection": "literal no becomes empty suppression; blank fields become absent; normal Lua or priorities then select the first remaining alias"
+    },
+    {
+      "source": "es película168323586",
+      "lines": [
+        436,
+        437,
+        703,
+        725
+      ],
+      "selection": "año OR estreno feeds the SAME Año role; estreno1 is the distinct Estreno role; no sentinel and empty-field filtering as above"
+    },
+    {
+      "source": "de Film271099997",
+      "selection": "case-sensitive documented wikitext keys passed to Medienbox; no Bildbeschreibung consumer; named source fields retain first-defined/default behavior"
+    },
+    {
+      "source": "fr Cinéma229223249",
+      "selection": "all14 declared mappings have literal primary consumers, including année de sortie; this is not absent. Separate sortie/year rows are native declared source roles."
+    }
+  ],
+  "nativeTargets": {
+    "Info/Biografia": 72993800,
+    "Info/Cientista": 72993800,
+    "Info/Filme": 71961260
+  },
+  "quietRefusalConditions": [
+    "Spanish supported field with exact literal no after native named-value ASCII padding",
+    "Spanish person/scientist padre or madre present, including blank, without an independently proved donor-role-repair interface",
+    "Spanish film año and estreno both present, either order, same/different/blank, because they feed one source Año role",
+    "German Bildbeschreibung present, including blank, without a consumed source role"
+  ],
+  "sourceBlankFiltering": "ES Lua removes blank fields before alias or lookup; explicit no suppresses fallback. Do not select a nonselected alias as another native role.",
+  "ordinaryKnownFieldScopeRetained": true,
+  "WikidataAndDerivedDefaultParityProved": false,
+  "nativeSameTitlePriorityUnchanged": true,
+  "allFrozenInputsUnchanged": true
+}

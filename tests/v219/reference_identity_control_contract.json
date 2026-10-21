@@ -1,0 +1,125 @@
+{
+  "kind": "native-reference-name-control-and-supplied-marker-identity-contract",
+  "schemaVersion": 1,
+  "primaryRead": {
+    "method": "GET",
+    "authenticated": false,
+    "endpoint": "https://pt.wikipedia.org/w/api.php",
+    "requestUrl": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Teste+fict%C3%ADcio+de+compatibilidade&text=%3D%3D+Nomes+fict%C3%ADcios+%3D%3D%0AA%3Cref+group%3D%22c1%22+name%3D%22%26%23128%3B%22%3EFonte+literal+c1.%3C%2Fref%3E+B%3Cref+group%3D%22c1%22+name%3D%22%E2%82%AC%22%2F%3E+C%3Cref+group%3D%22c1%22+name%3D%22%26%23x80%3B%22%2F%3E%0AD%3Cref+group%3D%22c1%22+name%3D%22%C2%80%22%2F%3E%0A%3Creferences+group%3D%22c1%22%2F%3E%0AA%3Cref+group%3D%22cr%22+name%3D%22alpha%26%2313%3Bbeta%22%3EFonte+literal+cr.%3C%2Fref%3E+B%3Cref+group%3D%22cr%22+name%3D%22alpha%0Dbeta%22%2F%3E+C%3Cref+group%3D%22cr%22+name%3D%22alpha+beta%22%2F%3E%0A%3Creferences+group%3D%22cr%22%2F%3E%0AA%3Cref+group%3D%22lf%22+name%3D%22alpha%26%2310%3Bbeta%22%3EFonte+literal+lf.%3C%2Fref%3E+B%3Cref+group%3D%22lf%22+name%3D%22alpha%0Abeta%22%2F%3E+C%3Cref+group%3D%22lf%22+name%3D%22alpha+beta%22%2F%3E%0A%3Creferences+group%3D%22lf%22%2F%3E%0AA%3Cref+group%3D%22tab%22+name%3D%22alpha%26%239%3Bbeta%22%3EFonte+literal+tab.%3C%2Fref%3E+B%3Cref+group%3D%22tab%22+name%3D%22alpha%09beta%22%2F%3E+C%3Cref+group%3D%22tab%22+name%3D%22alpha+beta%22%2F%3E%0A%3Creferences+group%3D%22tab%22%2F%3E%0A%3D%3D+Marcadores+fornecidos+%3D%3D%0A%3Cdiv+class%3D%22audit-before%22%3E%7B%7BCitar+web%7Ct%C3%ADtulo%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7Cautores%3DExemplo+AB%2C+Pessoa+CD%2C+et+al.%7Cano%3D2001%7Cref%3Dharv%7D%7D+%7B%7Bharvnb%7CExemplo%7C2001%7D%7D%3C%2Fdiv%3E%0A%3Cdiv+class%3D%22audit-after%22%3E%7B%7BCitar+web%7Ct%C3%ADtulo%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7Cautores%3DExemplo+AB%2C+Pessoa+CD%7Cano%3D2001%7Cref%3Dharv%7Cnumero-autores%3Det+al%7D%7D+%7B%7Bharvnb%7CExemplo%7C2001%7D%7D%3C%2Fdiv%3E%0A%3Cdiv+class%3D%22audit-year-control%22%3E%7B%7BCitar+web%7Ct%C3%ADtulo%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7Cautores%3DExemplo+AB%2C+Pessoa+CD%7Cano%3D2002%7Cref%3Dharv%7Cnumero-autores%3Det+al%7D%7D+%7B%7Bharvnb%7CExemplo%7C2002%7D%7D%3C%2Fdiv%3E&prop=text%7Cwikitext%7Cparsewarnings&disablelimitreport=1&disableeditsection=1&preview=1&curtimestamp=1",
+    "httpStatus": 200,
+    "exactSourceEcho": true,
+    "sourceSha256": "416966c9c7ac52fb5f54716e619f00e0b3c840c50c3ff9872b392f15c82e04d6",
+    "responseSha256": "f72b3c7aabab1c3abe274f0f930c9e48b351fc26236972b81c2cb3ebfafc9adb",
+    "renderedHtmlSha256": "e56b4982d860e80c2b3dc8cfe9afb603dc1055beb65ecea52a1f292a35373c11",
+    "wikipediaWrites": 0
+  },
+  "referenceClasses": [
+    {
+      "group": "c1",
+      "sameNativeClasses": [
+        [
+          "&#128;",
+          "&#x80;"
+        ],
+        [
+          "\u20ac"
+        ],
+        [
+          "\u0080"
+        ]
+      ],
+      "observedNativeClassCount": 3,
+      "meaning": "The decimal and hexadecimal numeric aliases share one native reference. The literal euro and literal U+0080 are two separate classes. This does not prove equivalence to a literal replacement character."
+    },
+    {
+      "group": "cr",
+      "sameNativeClasses": [
+        [
+          "alpha&#13;beta"
+        ],
+        [
+          "alpha\rbeta",
+          "alpha beta"
+        ]
+      ],
+      "observedNativeClassCount": 2
+    },
+    {
+      "group": "lf",
+      "sameNativeClasses": [
+        [
+          "alpha&#10;beta"
+        ],
+        [
+          "alpha\nbeta",
+          "alpha beta"
+        ]
+      ],
+      "observedNativeClassCount": 2
+    },
+    {
+      "group": "tab",
+      "sameNativeClasses": [
+        [
+          "alpha&#9;beta"
+        ],
+        [
+          "alpha\tbeta",
+          "alpha beta"
+        ]
+      ],
+      "observedNativeClassCount": 2
+    }
+  ],
+  "protectionBoundary": {
+    "meaning": "Numeric character references for C0, DEL or C1 and literal controls do not authorize decoding-based name/group equivalence. Preserve their source identities conservatively. No new decoder or name spelling is inferred from this probe.",
+    "conservativeCodepointRanges": [
+      [
+        0,
+        31
+      ],
+      [
+        127,
+        159
+      ]
+    ],
+    "differentRenderedIdOrdinalsMatter": true,
+    "noNewAlerts": true
+  },
+  "authorsMarker": {
+    "primaryConfigOldid": 73016847,
+    "primaryModuleOldid": 72936771,
+    "contractFile": "native_person_etal_contract.json",
+    "renderedBindings": {
+      "before": {
+        "citeHtmlSha256": "198873c824d3f2473829a4e3c096100176abe9c73e0bdff7709daab9303bd2ec",
+        "coinsTitleSha256": "38da93352389718b3f4f7136e8f7100d047cf1c9deca75e07acf4bc6190a0383",
+        "citationIds": [],
+        "harvardHrefs": [
+          "#CITEREFExemplo2001"
+        ]
+      },
+      "after": {
+        "citeHtmlSha256": "198873c824d3f2473829a4e3c096100176abe9c73e0bdff7709daab9303bd2ec",
+        "coinsTitleSha256": "38da93352389718b3f4f7136e8f7100d047cf1c9deca75e07acf4bc6190a0383",
+        "citationIds": [],
+        "harvardHrefs": [
+          "#CITEREFExemplo2001"
+        ]
+      },
+      "year-control": {
+        "citeHtmlSha256": "ada508f832b0ec2175477174b2a0800861591e48ce94bd0b761ea4d65b3d411a",
+        "coinsTitleSha256": "8eb4a59ab654057b3841bec452213080b03d992364d9fbe458373991695ca3f6",
+        "citationIds": [],
+        "harvardHrefs": [
+          "#CITEREFExemplo2002"
+        ]
+      }
+    },
+    "scope": "Only the exact native Authors body and supplied terminal marker. Before and after visible citation markup, COinS title metadata and Harvard links match. The inline-et-al maintenance category disappears. Neither citation produces a CITEREF id, and the existing Harvard link remains unresolved in both. This is not proof of resolving a missing anchor or a whole-HTML equivalence claim."
+  },
+  "mutations": {
+    "sameBodyNamesSwap": "Two distinct source definitions keep their bodies and swap only name attributes, while later named calls remain unchanged. This changes those calls native source association and must be rejected.",
+    "asciiControl": "The same mutation with ordinary alpha/beta names isolates general binding retention from entity decoding."
+  }
+}

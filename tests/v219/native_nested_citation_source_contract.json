@@ -1,0 +1,199 @@
+{
+  "kind": "fresh-source-native-citation-cosmetic-proof-in-preserved-named-reference-owner",
+  "sourceAuthority": {
+    "sha256": "97b4b70260d30c709dc7ec70b5f1c47db2cd513e0a0cab58df1454bc8cdb0e2e",
+    "primarySourceAuthoritySha256": "bb38424ac28f654e7352119ab9491a749db339377a730c4537ad1f9242c01f43",
+    "nativeDirectProfiles": {
+      "Citar web": 48262420,
+      "Citar livro": 48159689,
+      "Citar jornal": 55834874,
+      "Citar periódico": 48090957,
+      "Citar revista": 68628855
+    },
+    "localAlias": {
+      "title": "Citar publicação",
+      "aliasOldid": 57056957,
+      "target": "Citar revista",
+      "targetOldid": 68628855,
+      "moduleOldid": 49463910
+    },
+    "configOldid": 73016847,
+    "whitelistOldid": 71860752,
+    "imageOutputModule": {
+      "oldid": 72932632,
+      "sourceSha256": "8dd398d625774293c9b1ae766cdccd1dcda3dec574e7365036cdc12feef2a4b7",
+      "conditions": "No source branch tests file existence. After empty/placeholder/URL/rich cases, ordinary filename branch constructs a nonempty [[Ficheiro:...]] string at lines204–253.",
+      "lineExcerpts": [
+        {
+          "line": 112,
+          "endLine": 148,
+          "text": "    -- Intercepta e traduz os argumentos no ponto de entrada\n    local args = normalizarArgumentos(frame.args)\n    \n    local image = args[\"image\"];\n    \n    if isempty(image) then\n        return \"\";\n    end\n    if image == \"&nbsp;\" then\n        return image;\n    end\n    if args[\"suppressplaceholder\"] ~= \"no\" then\n        if i.IsPlaceholder(image) == true then\n            return \"\";\n        end\n    end\n    \n    if string.find(image, \"^%[*https?:\") then\n        -- Error category.\n        return trackingCat(\"url_image_links\")\n    end\n\n    if mw.ustring.sub(image,1,2) == \"[[\" then\n        -- search for thumbnail images and add to tracking cat if found\n        local cat = \"\";\n        if mw.title.getCurrentTitle().namespace == 0 and (mw.ustring.find(image, \"|%s*thumb%s*[|%]]\") or mw.ustring.find(image, \"|%s*thumbnail%s*[|%]]\")) then\n            cat = trackingCat(\"thumbnail_images\")\n        end\n        return image .. cat;\n    elseif mw.ustring.sub(image,1,2) == \"{{\" and mw.ustring.sub(image,1,3) ~= \"{{{\" then\n        return image;\n    elseif mw.ustring.sub(image,1,1) == \"<\" then\n        return image;\n    elseif mw.ustring.sub(image,1,8) == mw.ustring.char(127)..\"'\\\"`UNIQ\" then\n        -- Found strip marker at begining, so pass don't process at all\n        return image;\n    else"
+        },
+        {
+          "line": 174,
+          "endLine": 253,
+          "text": "        if not isempty(maxsize) then\n            -- if no sizedefault nor upright, then set to maxsize\n            if isempty(sizedefault) and isempty(upright) then\n                sizedefault = maxsize\n            end\n            -- check to see if size bigger than maxsize\n            local maxsizenumber = tonumber(mw.ustring.match(maxsize,\"%d*\")) or 0;\n            if not isempty(size) then\n                local sizenumber = tonumber(mw.ustring.match(size,\"%d*\")) or 0;\n                if sizenumber > maxsizenumber and maxsizenumber > 0 then\n                    size = maxsize;\n                end\n            end\n            -- check to see if upright bigger than maxsize (at default preferred size)\n            if not isempty(upright) then\n                local uprightnumber = tonumber(upright) or (upright == \"yes\" and 0.75) or 0\n                if uprightnumber*defaultThumbnailSize > maxsizenumber and maxsizenumber > 0 then\n                    upright = tostring(maxsizenumber/defaultThumbnailSize)\n                end\n            end\n        end\n        -- add px to size if just a number\n        if (tonumber(size) or 0) > 0 then\n            size = size .. \"px\";\n        end\n        -- add px to sizedefault if just a number\n        if (tonumber(sizedefault) or 0) > 0 then\n            sizedefault = sizedefault .. \"px\";\n        end\n        \n        result = \"[[Ficheiro:\" .. image;\n        if not isempty(page) then\n            result = result .. \"|page=\" .. page;\n        end\n        if not isempty(size) then\n            result = result .. \"|\" .. size;\n        elseif not isempty(sizedefault) and isempty(upright) then\n            result = result .. \"|\" .. sizedefault;\n        else\n            result = result .. \"|frameless\";\n        end\n        if center == \"yes\" then\n            result = result .. \"|center\"\n        end\n        if not isempty(alt) then\n            result = result .. \"|alt=\" .. alt;\n        end\n        if not isempty(link) then\n            result = result .. \"|link=\" .. link;\n        end\n        if border == \"yes\" then\n            result = result .. \"|border\";\n        end\n        if upright == \"yes\" then\n            result = result .. \"|upright\";\n        elseif upright ~= \"\" then\n            result = result .. \"|upright=\" .. upright;\n        end\n        if thumbtime ~= \"\" then\n            result = result .. \"|thumbtime=\" .. thumbtime;\n        end\n        if not isempty(class) then\n            result = result .. \"|class=\" .. class;\n        end\n        -- if alt value is a keyword then do not use as a description\n        if alt == \"thumbnail\" or alt == \"thumb\" or alt == \"frameless\" or alt == \"left\" or alt == \"center\" or alt == \"right\" or alt == \"upright\" or alt == \"border\" or alt == \"centro\" or alt == \"direita\" or alt == \"esquerda\" or mw.ustring.match(alt or \"\", '^[0-9]*px$', 1) ~= nil then\n            alt = nil;\n        end\n        if not isempty(title) then\n            -- does title param contain any templatestyles? If yes then set to blank.\n            if mw.ustring.match(frame:preprocess(title), 'UNIQ%-%-templatestyles', 1) ~= nil then\n                title = nil;\n            end\n        end\n        if not isempty(title) then\n            result = result .. \"|\" .. title;\n        end\n        result = result .. \"]]\";\n        \n        return result;"
+        }
+      ]
+    },
+    "imagePlaceholderData": {
+      "oldid": 72932557,
+      "sourceSha256": "b7b0af2cda3152b13f04814d3bcf96378840f02c1e194427ff348187774f6831",
+      "literalEntries": 66,
+      "literalArraySha256": "110ef45f436bc2cb6360cd0a8e57c7f3789c1acb338b430dd9e60373ad8f266c"
+    }
+  },
+  "guardOnly": true,
+  "producerChanges": false,
+  "sourceGrammar": [
+    "Complete main/wikitext source, citations truthy, references exactly false.",
+    "Sole literal native citation within a complete named paired ref with only name/group attrs.",
+    "Unique explicit named citation keys accepted by the pinned native interface. No nested templates, tags, C0/C1/PUA or numeric/implicit arguments are projected.",
+    "Source-owned old native citation writer must reach exactly the admitted field changes. No target text feeds the plan.",
+    "Only source terminal LF/CRLF plus following ASCII horizontal padding at named field/header boundaries; unique Edition ASCII-edge cleanup; exact separately proved personal wikilink split with all competing aliases retained.",
+    "Unknown populated fields not accepted by the native whitelist are not released. A whitelisted auxiliary field never acquires a fabricated display role."
+  ],
+  "nativeOwnerBoundary": [
+    "Root refs may retain their existing native context.",
+    "Caixa de citação68629072: only selected autor metadata without competing author/2 alias. Quotation body is not released.",
+    "Info/Emissora de rádio72719420: only legenda with a unique supplied conventional bare ASCII image filename, not one of the exact66 placeholders in72932557, no descricao/descrição/imagem_tamanho/logo_upright/alt. Native72932632 then constructs a nonempty File string; Infocaixa70262218/module72782381 renders the caption as wikitext. Rich, URL, namespaced, custom-control or suppressed image remains unproved.",
+    "All source owner permissions go through exact whole-source StageSafeEdits and existing atomic named-definition filter. No unknown/protected ancestor or peer is freed.",
+    "Filename absence from the captured placeholder list is not an image-existence claim. This particular module branch does not query image existence."
+  ],
+  "acceptanceObligations": [
+    "Existing full ordered partial reference/helper/collector event comparison remains exact against the SOURCE projection.",
+    "Original raw-name identical-definition split guard remains earlier and unchanged.",
+    "Complete literal affected native-owner rawcalls, same-kind occurrence order, parent template fields, HTML context, table opening context and link-container counts must match SOURCE projection and untouched candidate.",
+    "No generated reference identity calculation, collector insertion, movement or full reference normalization is authorized.",
+    "Linked-owner SOURCE contexts are refused explicitly, so local context inventory makes no linked-target equivalence claim."
+  ],
+  "excluded": [
+    "General unknown-body equivalence",
+    "Foreign genre inference",
+    "Candidate normalization",
+    "General v25ReferenceProofNormalization when references=false",
+    "Named/implicit or duplicate-argument selection changes",
+    "Dynamic rich metadata with templates/tags",
+    "Inactive caption exposure inference",
+    "Full native HTML or full article semantic validation",
+    "Placeholder-suppressed or custom/unknown image-output branch",
+    "Any SOURCE reference inside a wiki-link or external-link container, regardless of target or nesting count.",
+    "Person-link projection with any supplied native Ref-role field, including blank. No specific CITEREF/COinS render-pair equivalence was captured; no CS2 generic Citation profile is allowed."
+  ],
+  "ruleIdClassification": "v219-native-citation-source-proof is guard-only; no independent edit feature/count",
+  "developmentAdjudication": {
+    "oldFixture": "V1 image=Example.jpg",
+    "fact": "Module InfoboxImage/data72932557 explicitly lists Example.jpg as placeholder; native image branch returns empty before caption display. V1 green pure guard receipt therefore did not prove native exposure.",
+    "action": "V1 source/fixtures/receipts remain untouched; V2 adds placeholder proof and preauthors new literal Fictional radio logo.jpg positive and explicit placeholder/shape/custom-control refusals. No expectation was extracted from production."
+  },
+  "capturedNativeSources": [
+    {
+      "title": "Predefinição:Citar livro",
+      "oldid": 48159689,
+      "sourceSha256": "5f2796c38c8656adf645613cb41a3932f87e767451a373fda8a14f9a277792e3",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=48159689"
+    },
+    {
+      "title": "Predefinição:Citar web",
+      "oldid": 48262420,
+      "sourceSha256": "c65ba5eda457700941d31195f1d03e57b6a071bec313d3707c6b0aff7956d0cb",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=48262420"
+    },
+    {
+      "title": "Predefinição:Citar publicação",
+      "oldid": 57056957,
+      "sourceSha256": "139f2c92a3c35cc551b413d729d6866259c885a77930b90ae6aad8d8d791519f",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=57056957"
+    },
+    {
+      "title": "Predefinição:Citar revista",
+      "oldid": 68628855,
+      "sourceSha256": "a2d86d4fd09ef015ab7f183dcdcc8f1b70fda4c116ebdc36075596db320ef618",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=68628855"
+    },
+    {
+      "title": "Módulo:Citar livro",
+      "oldid": 49448102,
+      "sourceSha256": "e17c137e585291bd1bbeffc30d40d149a20012f48122deacf1956efd6c6534e1",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=49448102"
+    },
+    {
+      "title": "Módulo:Citar web",
+      "oldid": 48965255,
+      "sourceSha256": "9ad7687ef279854b0c9966357b375169b5ea60f1849cc1fab05fecc6a52da1b2",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=48965255"
+    },
+    {
+      "title": "Módulo:Citar periódico",
+      "oldid": 49463910,
+      "sourceSha256": "8f0d94f8fcbdbb23987cc4da2ab963ce1d8232415c69d74559a8e1f2ff889a25",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=49463910"
+    },
+    {
+      "title": "Módulo:Citação/CS1",
+      "oldid": 72936771,
+      "sourceSha256": "54a85c535d5788163ee690d9d502c0d3cce04b4d308f7da3f6b515c432c11e27",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=72936771"
+    },
+    {
+      "title": "Módulo:Citação/CS1/Configuração",
+      "oldid": 73016847,
+      "sourceSha256": "4924bb13ea17c8d105e5132b9ef06dc438a6280d5d940bbf199aeb62e2cc8099",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=73016847"
+    },
+    {
+      "title": "Módulo:Citação/CS1/Whitelist",
+      "oldid": 71860752,
+      "sourceSha256": "42ae453955495114d5c6239677d90c700b3e2d270e4e454886dde368773f4609",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=71860752"
+    },
+    {
+      "title": "Módulo:Citação/CS1/COinS",
+      "oldid": 58159041,
+      "sourceSha256": "95970438195963a45a9b5750e0bc4d5255cb23f59de3149694be921c4f233563",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=58159041"
+    },
+    {
+      "title": "Predefinição:Info/Emissora de rádio",
+      "oldid": 72719420,
+      "sourceSha256": "51f8e122db2230df26b395ce27b7a23569a0f115b1f20a024ce79c8006c0c20e",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=72719420"
+    },
+    {
+      "title": "Módulo:Infocaixa",
+      "oldid": 72782381,
+      "sourceSha256": "364bfac2ed4123da0c8169f3379916f44ff9c8c7b71b3b3824bf58139cbca947",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=72782381"
+    },
+    {
+      "title": "Predefinição:Caixa de citação",
+      "oldid": 68629072,
+      "sourceSha256": "57dda41b090929121b932638839c196893ae2084dce2bbf9eda2d14df2a13579",
+      "permalink": "https://pt.wikipedia.org/w/index.php?oldid=68629072"
+    },
+    {
+      "title": "Predefinição:Infocaixa",
+      "oldid": 70262218,
+      "sourceSha256": "bb4027b93e2204eca74ba57387235111451d43ecb91c25d8eef962c835d036cb"
+    }
+  ],
+  "noNativeRenderPairClaim": true,
+  "testsScope": "Source-only proof, whole calculate endpoints under exact options, second click, both production guards, independent unrelated-candidate controls. The new rule has guard-only inventory credit.",
+  "declaredPersonLinkRepair": {
+    "authority": "Declared existing citation repair, exact supplied label and target preserved into native name plus native Link role under fresh existing SOURCE writer proof.",
+    "nativeConfigOldid": 73016847,
+    "nativeCS1Oldid": 72936771,
+    "nativeCOinSOldid": 58159041,
+    "sourceConditions": [
+      "One literal author/editor/translator wiki-link, no competing person alias/First/Mask/Link fields.",
+      "No supplied native Ref-role field, including blank; only direct native CS1 five families or separately pinned local Citar publicação→magazine chain.",
+      "Complete original owner and ordered reference/group/call/collector obligations remain."
+    ],
+    "notClaimed": [
+      "Full native HTML equality",
+      "COinS byte equality",
+      "CITEREF/Harvard anchor equivalence"
+    ],
+    "intermediateMetadataLimit": "The intermediate Last value may change from supplied wikilink syntax to the exact plain supplied label. Native COinS also removes wikilink syntax during final encoding. This contract does not assert final COinS byte equality."
+  }
+}

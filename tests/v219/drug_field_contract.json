@@ -1,0 +1,634 @@
+{
+  "contexts": {
+    "drug": {
+      "title": "Info/Droga",
+      "oldid": 69873897,
+      "catalog": "info/droga",
+      "sha256": "4fd2cc49a26a67610ad1b1aac8b039d1f1b15480b9a7dbddfcac045e2d746b44",
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=69873897",
+      "targetBindings": {
+        "nome_IUPAC": true,
+        "sinonimos": true,
+        "fórmula_química": true,
+        "imagem": true,
+        "imagem2": true,
+        "número_CAS": true,
+        "suplemento_CAS": true,
+        "prefixo_ATC": true,
+        "sufixo_ATC": true,
+        "suplemento_ATC": true,
+        "smiles": true,
+        "biodisponibilidade": true,
+        "ligação_a_proteínas": true,
+        "metabolismo": true,
+        "meia_vida_de_eliminação": true,
+        "excreção": true,
+        "vias_de_administração": true
+      }
+    },
+    "chem": {
+      "title": "Info/Química",
+      "oldid": 69946908,
+      "catalog": "info/química",
+      "nativeRedirect": {
+        "title": "Chembox",
+        "oldid": 46323499
+      },
+      "sha256": "d0b653b4a4f3f5c3fa2c905e745522db03f55771ca0c46688fe8a8750c367f27",
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=69946908",
+      "targetBindings": {
+        "Name": true,
+        "IUPACName": true,
+        "SystematicName": true,
+        "OtherNames": true,
+        "Formula": true,
+        "CASNo": true,
+        "SMILES": true,
+        "ImageFile": true,
+        "ImageCaption": true,
+        "ImageAlt": true,
+        "ImageClass": true,
+        "ImageFile2": true,
+        "ImageCaption2": true,
+        "ImageAlt2": true,
+        "ImageClass2": true,
+        "ImageFile3": true,
+        "ImageCaption3": true
+      }
+    },
+    "identifiers": {
+      "title": "Chembox Identifiers",
+      "oldid": 69934566,
+      "sha256": "3fa7eb745db060c56573577e2450e65ab1f76bbdff8596e409a2535db6204874",
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=69934566",
+      "targetBindings": {
+        "CASNo": true,
+        "ChemSpiderID": true,
+        "SMILES": true,
+        "InChI": true,
+        "InChIKey": true,
+        "InChI_Ref": true,
+        "InChIKey_Ref": true,
+        "ATCCode_prefix": true,
+        "ATCCode_suffix": true,
+        "ATC_Supplemental": true
+      }
+    },
+    "pharmacology": {
+      "title": "Chembox Pharmacology",
+      "oldid": 70092713,
+      "sha256": "bcc31519167b2f3459daf13e36f5d1cc760c3f911885b846f123a12549ce7893",
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=70092713",
+      "targetBindings": {
+        "ATCCode_prefix": true,
+        "ATCCode_suffix": true,
+        "ATC_Supplemental": true,
+        "Bioavail": true,
+        "ProteinBound": true,
+        "Metabolism": true,
+        "HalfLife": true,
+        "Excretion": true,
+        "AdminRoutes": true
+      }
+    },
+    "properties": {
+      "title": "Chembox Properties",
+      "oldid": 69934732,
+      "sha256": "519912e104cc131fde3f9552f8b07de4745f21684226c6ccf6b310bfd62ec07c",
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=69934732",
+      "targetBindings": {
+        "Formula": true
+      }
+    }
+  },
+  "rules": {
+    "drug": [
+      {
+        "target": "nome_IUPAC",
+        "type": "text",
+        "aliases": [
+          "IUPAC_name",
+          "Nombre_IUPAC",
+          "nomIUPAC"
+        ]
+      },
+      {
+        "target": "sinonimos",
+        "type": "text",
+        "aliases": [
+          "synonyms",
+          "Sinónimos",
+          "synonymes",
+          "autresNoms",
+          "Andere Namen"
+        ]
+      },
+      {
+        "target": "fórmula_química",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ]
+      },
+      {
+        "target": "imagem",
+        "type": "file",
+        "aliases": [
+          "image",
+          "Imagen",
+          "imagen"
+        ]
+      },
+      {
+        "target": "imagem2",
+        "type": "file",
+        "aliases": [
+          "image2",
+          "Imagen2",
+          "imagen2"
+        ]
+      },
+      {
+        "target": "número_CAS",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ]
+      },
+      {
+        "target": "suplemento_CAS",
+        "type": "cas-list",
+        "aliases": [
+          "CAS_supplemental",
+          "Suplemento_CAS"
+        ],
+        "requires": "número_CAS"
+      },
+      {
+        "target": "prefixo_ATC",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ]
+      },
+      {
+        "target": "sufixo_ATC",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ]
+      },
+      {
+        "target": "suplemento_ATC",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true
+      },
+      {
+        "target": "smiles",
+        "type": "smiles",
+        "aliases": [
+          "SMILES"
+        ]
+      },
+      {
+        "target": "biodisponibilidade",
+        "type": "clinical",
+        "aliases": [
+          "bioavailability",
+          "Biodisponibilidad",
+          "biodisponibilite",
+          "Biodisp",
+          "Bioavail"
+        ]
+      },
+      {
+        "target": "ligação_a_proteínas",
+        "type": "clinical",
+        "aliases": [
+          "protein_bound",
+          "Unión_proteica",
+          "liaisonProteique",
+          "ProteinBound"
+        ]
+      },
+      {
+        "target": "metabolismo",
+        "type": "clinical",
+        "aliases": [
+          "metabolism",
+          "Metabolismo",
+          "metabolisme",
+          "Metabolism"
+        ]
+      },
+      {
+        "target": "meia_vida_de_eliminação",
+        "type": "clinical",
+        "aliases": [
+          "elimination_half-life",
+          "Vida_media_eliminación",
+          "demiVieElim",
+          "Semivida",
+          "HalfLife"
+        ]
+      },
+      {
+        "target": "excreção",
+        "type": "clinical",
+        "aliases": [
+          "excretion",
+          "Excreción",
+          "Excretion"
+        ]
+      },
+      {
+        "target": "vias_de_administração",
+        "type": "clinical",
+        "aliases": [
+          "routes_of_administration",
+          "Vías_administración",
+          "administration",
+          "voieAdministration",
+          "AdminRoutes"
+        ]
+      }
+    ],
+    "chem": [
+      {
+        "target": "Name",
+        "type": "text",
+        "aliases": [
+          "drug_name",
+          "nombre_medicamento",
+          "nombre",
+          "nom"
+        ],
+        "nativeAliases": [
+          "Nome"
+        ]
+      },
+      {
+        "target": "IUPACName",
+        "type": "text",
+        "aliases": [
+          "IUPAC_name",
+          "Nombre_IUPAC",
+          "nomIUPAC",
+          "IUPAC"
+        ]
+      },
+      {
+        "target": "SystematicName",
+        "type": "text",
+        "aliases": [
+          "nomSystematique"
+        ]
+      },
+      {
+        "target": "OtherNames",
+        "type": "text",
+        "aliases": [
+          "synonyms",
+          "Sinónimos",
+          "synonymes",
+          "autresNoms",
+          "Andere Namen",
+          "otros nombres"
+        ]
+      },
+      {
+        "target": "Formula",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ]
+      },
+      {
+        "target": "CASNo",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ]
+      },
+      {
+        "target": "SMILES",
+        "type": "smiles",
+        "aliases": [
+          "smiles"
+        ]
+      },
+      {
+        "target": "ImageFile",
+        "type": "file",
+        "aliases": [
+          "image",
+          "Imagen",
+          "imagen"
+        ]
+      },
+      {
+        "target": "ImageCaption",
+        "type": "text",
+        "aliases": [
+          "caption",
+          "légende",
+          "pie de imagen"
+        ],
+        "requires": "ImageFile",
+        "singleImageAliases": [
+          "caption",
+          "légende"
+        ]
+      },
+      {
+        "target": "ImageAlt",
+        "type": "text",
+        "aliases": [
+          "alt",
+          "alternative"
+        ],
+        "requires": "ImageFile"
+      },
+      {
+        "target": "ImageClass",
+        "type": "class",
+        "aliases": [
+          "image_class",
+          "classe image"
+        ],
+        "requires": "ImageFile"
+      },
+      {
+        "target": "ImageFile2",
+        "type": "file",
+        "aliases": [
+          "image2",
+          "Imagen2",
+          "imagen2"
+        ]
+      },
+      {
+        "target": "ImageCaption2",
+        "type": "text",
+        "aliases": [
+          "caption2",
+          "légende2",
+          "pie de imagen2"
+        ],
+        "requires": "ImageFile2",
+        "singleImageAliases": []
+      },
+      {
+        "target": "ImageAlt2",
+        "type": "text",
+        "aliases": [
+          "alt2",
+          "alternative2"
+        ],
+        "requires": "ImageFile2"
+      },
+      {
+        "target": "ImageClass2",
+        "type": "class",
+        "aliases": [
+          "image_class2",
+          "classe image2"
+        ],
+        "requires": "ImageFile2"
+      },
+      {
+        "target": "ImageFile3",
+        "type": "file",
+        "aliases": [
+          "imagen3"
+        ]
+      },
+      {
+        "target": "ImageCaption3",
+        "type": "text",
+        "aliases": [
+          "pie de imagen3"
+        ],
+        "requires": "ImageFile3",
+        "singleImageAliases": []
+      }
+    ],
+    "identifiers": [
+      {
+        "target": "CASNo",
+        "type": "cas",
+        "aliases": [
+          "CAS_number",
+          "Número_CAS",
+          "CAS"
+        ]
+      },
+      {
+        "target": "ChemSpiderID",
+        "type": "integer",
+        "aliases": [
+          "ChemSpider"
+        ]
+      },
+      {
+        "target": "SMILES",
+        "type": "smiles",
+        "aliases": [
+          "smiles"
+        ]
+      },
+      {
+        "target": "InChI",
+        "type": "inchi",
+        "aliases": [
+          "StdInChI"
+        ]
+      },
+      {
+        "target": "InChIKey",
+        "type": "inchi-key",
+        "aliases": [
+          "StdInChIKey"
+        ]
+      },
+      {
+        "target": "InChI_Ref",
+        "type": "reference",
+        "aliases": [
+          "StdInChI_Ref"
+        ],
+        "requires": "InChI"
+      },
+      {
+        "target": "InChIKey_Ref",
+        "type": "reference",
+        "aliases": [
+          "StdInChIKey_Ref"
+        ],
+        "requires": "InChIKey"
+      },
+      {
+        "target": "ATCCode_prefix",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ]
+      },
+      {
+        "target": "ATCCode_suffix",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ]
+      },
+      {
+        "target": "ATC_Supplemental",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true
+      }
+    ],
+    "pharmacology": [
+      {
+        "target": "ATCCode_prefix",
+        "type": "atc-prefix",
+        "aliases": [
+          "ATC_prefix",
+          "Prefijo_ATC"
+        ]
+      },
+      {
+        "target": "ATCCode_suffix",
+        "type": "atc-suffix",
+        "aliases": [
+          "ATC_suffix",
+          "Sufijo_ATC"
+        ]
+      },
+      {
+        "target": "ATC_Supplemental",
+        "type": "atc",
+        "aliases": [
+          "ATC_supplemental",
+          "Suplemento_ATC"
+        ],
+        "requiresATC": true
+      },
+      {
+        "target": "Bioavail",
+        "type": "clinical",
+        "aliases": [
+          "bioavailability",
+          "Biodisponibilidad",
+          "biodisponibilite",
+          "Biodisp"
+        ]
+      },
+      {
+        "target": "ProteinBound",
+        "type": "clinical",
+        "aliases": [
+          "protein_bound",
+          "Unión_proteica",
+          "liaisonProteique"
+        ]
+      },
+      {
+        "target": "Metabolism",
+        "type": "clinical",
+        "aliases": [
+          "metabolism",
+          "Metabolismo",
+          "metabolisme"
+        ]
+      },
+      {
+        "target": "HalfLife",
+        "type": "clinical",
+        "aliases": [
+          "elimination_half-life",
+          "Vida_media_eliminación",
+          "demiVieElim",
+          "Semivida"
+        ]
+      },
+      {
+        "target": "Excretion",
+        "type": "clinical",
+        "aliases": [
+          "excretion",
+          "Excreción"
+        ]
+      },
+      {
+        "target": "AdminRoutes",
+        "type": "clinical",
+        "aliases": [
+          "routes_of_administration",
+          "Vías_administración",
+          "administration",
+          "voieAdministration"
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "target": "Formula",
+        "type": "formula",
+        "aliases": [
+          "chemical_formula",
+          "Fórmula_química",
+          "formule brute",
+          "Summenformel",
+          "fórmula3"
+        ]
+      }
+    ]
+  },
+  "kind": "finite-native-drug-chemistry-field-contract",
+  "ruleCount": 54,
+  "aliasCount": 149,
+  "scope": "The declared foreign-label catalog supplies a finite workload, while exact native source bindings and independently specified typed values supply the expected key-only endpoints. No observed current output defines an expected result.",
+  "historicalNativeRenderReceipt": {
+    "path": "tests/v2140/drug_import_native_capture.json",
+    "sha256": "66af8430b01df134b5e18a3851cd0e4de36e235f51261108aca7a7c12a81669f",
+    "method": "historical two anonymous native render projections of five contexts; not a fresh rendering claim"
+  },
+  "typedBoundary": "A field rename keeps all original value bytes. Clinical text and formula display fields are not independently diagnosed, recomputed or inferred. CAS checks use the decimal weighted checksum; ATC and other identifiers use finite shape checks; images require local filename scalars and dependent metadata requires its matching image. Aliases, blank overrides, unknown owners, quoted/code examples and ambiguous values do not get selected.",
+  "networkRequestsDuringTests": 0,
+  "wikipediaWrites": 0,
+  "freshSubtemplateRevisionCheck": {
+    "method": "anonymous read-only query via web; rvprop=ids; no user metadata",
+    "source": "https://pt.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=ids&rvslots=main&format=json&formatversion=2&titles=Predefini%C3%A7%C3%A3o%3AChembox%20Identifiers%7CPredefini%C3%A7%C3%A3o%3AChembox%20Pharmacology%7CPredefini%C3%A7%C3%A3o%3AChembox%20Properties",
+    "currentOldids": [
+      69934566,
+      70092713,
+      69934732
+    ],
+    "result": "all three current revision identifiers exactly match the pinned source contents",
+    "writes": 0
+  }
+}

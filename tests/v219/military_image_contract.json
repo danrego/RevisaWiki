@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-military-image-display-contract",
+  "status": "passed",
+  "primary": {
+    "source": "https://pt.wikipedia.org/w/index.php?oldid=70403402",
+    "sourceSha256": "7381e0af2c62c17aba56da2f203494349e1b7c9b8c0a16b22b463be98b201ff7",
+    "imageModule": "https://pt.wikipedia.org/w/index.php?oldid=72932632",
+    "responseSha256": "89c0e07b5600735e4aaebb20ad1787b1fdb3aab1ea83c001a2ca6bd3a9f442ef",
+    "method": "anonymous GET action=parse, fictional native templates; no edits or media downloads"
+  },
+  "fieldPriority": {
+    "image": [
+      "imagem"
+    ],
+    "size": [
+      "imagem_tamanho"
+    ],
+    "caption": [
+      "imagem_legenda",
+      "legenda"
+    ],
+    "alt": [
+      "alt"
+    ]
+  },
+  "literalWitness": "image={{{imagem|}}}|size={{{imagem_tamanho|}}}|sizedefault=frameless|upright={{{image_upright|1}}}|alt={{{alt|}}}",
+  "nativeRenderingPairs": [
+    {
+      "id": "Info/Militar",
+      "source": "{{Info/Militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|200px]]}}",
+      "expected": "{{Info/Militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=200px}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Militar|imagem_legenda=Legenda literal|alt=Descrição literal",
+      "source": "{{Info/Militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|200px]]|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "expected": "{{Info/Militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=200px|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Combatente militar",
+      "source": "{{Info/Combatente militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|200px]]}}",
+      "expected": "{{Info/Combatente militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=200px}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Combatente militar|imagem_legenda=Legenda literal|alt=Descrição literal",
+      "source": "{{Info/Combatente militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|200px]]|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "expected": "{{Info/Combatente militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=200px|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    }
+  ],
+  "comparison": "Visible text, link target/class, emphasis state, image src/alt/width/height/class. Only these exact displayed roles are proved. Competing keys including blanks require separate priority proof.",
+  "wikipediaWrites": 0,
+  "mediaDownloads": 0
+}

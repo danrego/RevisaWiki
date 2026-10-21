@@ -2,6 +2,17 @@ const qa = require('./harness.cjs');
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const api=qa.api;
+
+// Additive causal metadata is authored from the supplied source/options/expected.
+// It never changes a product option, fixture endpoint or proof.
+function cc9Pair(report,id,option,role,source,onOptions,offOptions,onExpected,offExpected,proof=null){
+ const canon=v=>Array.isArray(v)?v.map(canon):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canon(v[k])])):v;
+ const h=v=>require('node:crypto').createHash('sha256').update(typeof v==='string'?v:JSON.stringify(canon(v))).digest('hex');
+ const keys=[...new Set([...Object.keys(onOptions),...Object.keys(offOptions)])].sort(),changed=keys.filter(k=>JSON.stringify(canon(onOptions[k]))!==JSON.stringify(canon(offOptions[k])));
+ require('node:assert/strict').deepEqual(changed,[option]);require('node:assert/strict').equal(onOptions[option],true);require('node:assert/strict').equal(offOptions[option],false);
+ (report.causalControls??=[]).push({schemaVersion:1,id,option,role,sourceSha256:h(source),onOptionsSnapshot:canon(onOptions),offOptionsSnapshot:canon(offOptions),onOptionsSha256:h(onOptions),offOptionsSha256:h(offOptions),onExpectedSha256:h(onExpected),offExpectedSha256:h(offExpected),proofSha256:proof?h(proof):null,identicalProofAcrossPair:!!proof,writerPositiveCredit:0});
+}
+
 const results=[];
 function test(name,fn){try{fn();results.push({name,passed:true});}catch(e){results.push({name,passed:false,error:e.stack});}}
 const table='{| class="wikitable"\n! Ano !! Partido\n|-\n| 1982\n| rowspan="3" | PT\n|-\n| 1984\n|}';
@@ -25,6 +36,12 @@ test('impossible biography date warned',()=>assert(api.dateAudit('{{Info/Biograf
 test('impossible citation date warned',()=>assert(api.dateAudit('{{Citar web|data=2000-02-31|url=https://example.org}}').some(x=>x.code==='date-impossible')));
 test('date ranges use recognized date fields',()=>assert(api.dateAudit('{{Info/Político|data_inicio=2024-01-01|data_fim=2020-01-01}}').some(x=>x.code==='date-reversed-range')));
 test('date audit never changes the text',()=>{const s='{{Info/Biografia|nascimento_data={{Dni|1|1|2000|si}}|morte_data=1990-10-01}}';assert.equal(api.calculate({kind:'audit',source:s,options:{}}).text,s);});
+test('cc9-date-checks-fresh-single-flag-off',()=>{
+ const source='{{Info/Biografia|nascimento_data={{Dni|1|1|2000|si}}|morte_data=1990-10-01}}',onOptions={...api.defaults},offOptions={...onOptions,dateChecks:false},on=api.calculate({kind:'audit',source,options:onOptions}),off=api.calculate({kind:'audit',source,options:offOptions});
+ assert.equal(on.text,source);assert.equal(off.text,source);assert(on.localReports.dates.some(x=>x.code==='date-death-before-birth'));assert.deepEqual(off.localReports.dates,[]);
+ for(const domain of ['references','syntax','translation','tables','biographies'])assert.deepEqual(off.localReports[domain],on.localReports[domain]);
+ const causal={};cc9Pair(causal,'date-checks-fresh-audit','dateChecks','actual-audit-report',source,onOptions,offOptions,['date-death-before-birth'],[]);results[results.length] = {name:'cc9-date-causal-binding',passed:true,...causal};
+});
 test('ambiguous dates and duplicate birth fields not compared',()=>{for(const s of ['{{Info/Biografia|nascimento_data=1/2/2000|morte_data=1990-10-01}}','{{Info/Biografia|nascimento_data=2000-01-01|nascimento_data=2001-01-01|nascimento_data=2002-01-01|morte_data=1990-10-01}}'])assert.equal(api.dateAudit(s).length,0);});
 test('protected examples and unknown templates do not receive date warnings',()=>{for(const s of ['<nowiki>{{Info/Biografia|nascimento_data=2000-02-31}}</nowiki>','{{Unknown|nascimento_data=2000-02-31}}'])assert.equal(api.dateAudit(s).length,0);});
 for(const [s,label] of [['[[Diretor]]','Diretor'],['[[Diretor|diretor]]','diretor'],['[[:Diretor|o diretor]]','o diretor'],['[[Diretor|diretor]]es','diretor']])test('manual disambiguation preserves visible label '+s,()=>{const o=api.linkOccurrences(s,'Diretor')[0];const r=api.replaceDisambiguationLink(s,o,'Diretor de cinema');assert(r.text.includes('|'+label+']]'));assert(s.endsWith('es')?r.text.endsWith('es'):true);});

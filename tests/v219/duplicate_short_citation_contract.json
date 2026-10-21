@@ -1,0 +1,47 @@
+{
+  "kind": "native-duplicate-numeric-short-citation-wrapper-contract",
+  "repairClass": "declared-nested-reference-repair-not-original-rendering-equivalence",
+  "primarySources": [
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=67697954",
+      "oldid": 67697954,
+      "sourceSha256": "fd949cebd40d9d19b1c88b9a5e745154ec32924ad88e12e4ef810e22f54a1437",
+      "fact": "The native template directly invokes Footnotes.sfn."
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=52819217",
+      "oldid": 52819217,
+      "sourceSha256": "8c827316ef063e2b5fe58890fdd8b914b46ea562c847391e19d4fcdf4836533d",
+      "lines": [
+        169,
+        188
+      ],
+      "fact": "The module reads parent numeric args1..5 and emits a generated FOOTNOTE-prefixed name. The anonymous outer extension tag is not an argument frame."
+    }
+  ],
+  "existingNativeRenderContracts": [
+    {
+      "path": "tests/v219/native_nested_short_reference_repair_contract.json",
+      "sha256": "2dc81b685ae6076620bc4ac7c6cdaf09bcbc0d622032f0ed662f8fbaa2ca4e0a"
+    },
+    {
+      "path": "tests/v219/native_short_citation_positions_contract.json",
+      "sha256": "5c2ff042a8f79f74113bc9512bef25fe0a2e1be47490cf8bbbb02a0dc4827773"
+    },
+    {
+      "path": "tests/v219/native_short_reference_prefix_contract.json",
+      "sha256": "d094b3feac2ec9e770bc4ec9f957b50d3ef15a76381a73889a5fac0321b48f6f"
+    }
+  ],
+  "derivation": "Removing only the complete anonymous outer ref leaves the native template invocation and its argument frame byte-exact, including duplicate numeric bindings and their existing resolution. No duplicate is removed, reordered, chosen or assigned a new value. The independently proved nested-note repair changes the outer Cite structure and is deliberately nonminor.",
+  "exception": "Only the existing exact native Sfn identity and repeated canonical numeric1..5. Existing literal/source/bank/generated-dependency guards and exact helper-event equality remain active.",
+  "refusals": [
+    "Noncanonical numeric0/01/6+ or unknown fields in a duplicate-numeric candidate",
+    "Explicit name/nome including blank",
+    "Duplicate or competing nonnumeric role aliases",
+    "Dynamic values, unknown parents, quoted/code examples and list-defined banks",
+    "Raw FOOTNOTE dependencies or a mutated helper payload"
+  ],
+  "wikipediaWrites": 0,
+  "networkRequestsForThisReview": 0
+}

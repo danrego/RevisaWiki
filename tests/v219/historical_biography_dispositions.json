@@ -1,0 +1,2338 @@
+{
+  "schemaVersion": 2,
+  "kind": "immutable-biography-date-suite-source-bound-dispositions",
+  "observedCandidate": "BI-discovery",
+  "finalAcceptanceClaim": false,
+  "immutableTest": {
+    "path": "tests/v28/test_biography_dates.cjs",
+    "sha256": "5183a8f6843cf46dd71d750c0d962c1544165b303cc178b27618898e482f83be"
+  },
+  "historicalAssertionsRewritten": false,
+  "historicalFixturesRewritten": false,
+  "actualReplay": {
+    "runtimeSha256": "9d4d611ac9cacc08cbc921cafe7a44123ea8494d26052861fd564a6f543534e8",
+    "receiptSha256": "420554ee7e97c10243bd75ef29e8802da1b3d1a372ee9782b9e3b323a9e6a0a2",
+    "bundlesExecuted": 1,
+    "cases": 353,
+    "assertionCallsReportedByOriginalLeaf": 911,
+    "unchangedAssertionFailures": 224,
+    "evidenceKind": "Original helper, guard and whole-action assertions remain unchanged. These counts do not imply that each case is a complete-action transformation."
+  },
+  "priorObservation": {
+    "candidate": "X",
+    "cases": 353,
+    "assertionCalls": 950,
+    "failures": 221,
+    "ledgerSha256": "dc7fb2b8c20992707b6321003b6af958308f6aa56bee9c29d05ecfffce26a095",
+    "receiptRetained": true
+  },
+  "primaryTitleLookup": {
+    "retrieved": "2026-10-17",
+    "endpoint": "https://pt.wikipedia.org/w/api.php",
+    "query": {
+      "action": "query",
+      "prop": "info",
+      "formatversion": 2
+    },
+    "responseSha256": "150ffd17d7a1d8f14134ab683ce2d73911f806cb51305dbba2da7b5b95388d1d",
+    "requestedLiteralTitles": 30,
+    "missingLiteralTitles": [
+      "Info/wrestler",
+      "Info/titular de cargo",
+      "Info/senador do império do brasil",
+      "Info/político",
+      "Info/piloto de automóvel",
+      "Info/personalidade",
+      "Info/músico",
+      "Info/motorista da f1",
+      "Info/modelo",
+      "Info/militar",
+      "Info/magistrado",
+      "Info/lutador de wrestling profissional",
+      "Info/jornalista",
+      "Info/gastrônomo",
+      "Info/escritor",
+      "Info/dublador",
+      "Info/criminoso",
+      "Info/comediante",
+      "Info/combatente militar",
+      "Info/cientista",
+      "Info/ciclista",
+      "Info/cantor",
+      "Info/autor",
+      "Info/atriz",
+      "Info/ator",
+      "Info/artista musical",
+      "Info/artista marcial",
+      "Info/actor"
+    ],
+    "existingDifferentImplementation": "Info/biografia",
+    "existingEquivalentRedirect": "Info/música/artista"
+  },
+  "primaryContracts": [
+    {
+      "path": "tests/v219/biography_date_contracts.json",
+      "sha256": "dadf04f4c90eb22ae324d8764fa081a0ffb57924dcb8aa838c075638e3f55ea0"
+    },
+    {
+      "path": "tests/v219/date_wrapper_contracts.json",
+      "sha256": "901b96f9a59c94e7188e29f90b1fc382fcced3e526536471e0a28d1f505d471f"
+    }
+  ],
+  "remainingCounts": {
+    "old-helper-expectation-recovered-through-new-whole-action-prestage": 1,
+    "native-wrapper-category-side-effects-preserved": 9,
+    "quiet-preservation-no-native-literal-title": 194,
+    "quiet-preservation-distinct-native-implementation": 20
+  },
+  "remainingCases": [
+    {
+      "caseSha256": "4249d6528704303bd8883bbd50b5d9bbfaabd8746db735000ada2c828f8d46a3",
+      "status": "old-helper-expectation-recovered-through-new-whole-action-prestage",
+      "contract": "The original assertion calls v28BiographyDatePlan directly. The current separate source-bound duplicate-date prestage removes an identical same-role date alias before formatting in the complete action; the old standalone helper assertion remains failed.",
+      "currentReplacement": [
+        "tests/v219/biography_date_alias_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "bea915104eb238126600fab9514df1517773f0a7ffa9c0af03be65b97d8f0f01",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "bfa2109b022c698714bc02d5db4576231e4ebf808ad1a8190e035c672b238ec9",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "6a5a9d800ddbb654a2fb1748bd264e456efc5ebf89c72aeec1ed26fa2a4ea1e2",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "61849318ef06c349e3e91419f74824daa619a521c550f4d9ace2efdeac6415aa",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "9793182cfd63924e16ac36e08d13da59a209416acde6b882a3a86193330407af",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "510732593023a736dbd4e66d5c91d31bf824914d2a82c54e249dcdf2b3679267",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "266458ae267809ab0e9c22df713e7e9de1a4fcd27c918f93f14805daf0adbdc7",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "ecd76c4d5fc4ba1d97587ad2906479726179f2c348fe956095767530024915cf",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "1e564f84201215309bed93959ba37b6a065bbe4cd4b94e674778152dd6274bc8",
+      "status": "native-wrapper-category-side-effects-preserved",
+      "contract": "At least one exact native Birth date, Death date or Death date and age call has independent category semantics. Replacing it with Dni/Morte can introduce a year category, so the old conversion expectation is deliberately not applied.",
+      "currentReplacement": [
+        "tests/v219/date_wrapper_contracts.json",
+        "tests/v219/date_wrapper_category_cases.cjs",
+        "tests/v219/native_date_wrapper_cases.cjs"
+      ]
+    },
+    {
+      "caseSha256": "f682389d39394c11ec2751afcbf76e4ad46b8debb42023f91b47fc12f9254e1a",
+      "literalNativeTitle": "info/actor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "39f83bb3d2613d1205ddf77324de455cf53a398e65194ce422d6472dcc4e2ec8",
+      "literalNativeTitle": "info/actor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "805411c15d88fcfdef82928bfa21e4941b835f6ec281d15794e8e4d18dfd1b13",
+      "literalNativeTitle": "info/actor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2ff88bdd8ee6ee80f037e193c049f92f38e1180a99dc0435699a514aad6bef07",
+      "literalNativeTitle": "info/actor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2f2e8fc2073d113163041ecaffccac50ef85d1f7b509832dc0018239aee2f3c8",
+      "literalNativeTitle": "info/artista marcial",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "dc20672beb87f7a41c524f8cc1333531d8aca95e1b35a2e7a39377edf566f33e",
+      "literalNativeTitle": "info/artista marcial",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ac2d3a6917958652116f92f726bb480d249a85190c8c49f0855ad524ecde675c",
+      "literalNativeTitle": "info/artista marcial",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f4530c4b8e9753d4ea5991f91fb911ee4142631afd9291457f805a8b48eae116",
+      "literalNativeTitle": "info/artista marcial",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "29c9d70f827fcad489e0c8c1beca7550b8a116698da445c4de96dc890832853e",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a1bdfce0fc3de4c046b089d5e9c4848bcbd7c88ea0280ac7691197a2b2028c6a",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2f6a3fc4bd3847bdaf067e27253a5a73b7fe511e6764d9c96422e58453f47873",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e5c9fe4afcab8ff5c577ae8cdbbbe59d288481e246e1cb65ae9468d54e8a67c2",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "dd4401641ee4118353dddc7947881649f525adb9c9a910128048b3d12b08eceb",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "5a228701cfceead3648e39e5b117733d84df2a234684ecb14633bdf1fb472f24",
+      "literalNativeTitle": "info/artista musical",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2384f9ba6bb86e3527912790142976043c65ed7fe77f454d30c4e6fefdf61c5e",
+      "literalNativeTitle": "info/ator",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "50b4db9b405e52bf9a9a4e3914415ae979dd2a2a32156c4044d7b9ba8521994d",
+      "literalNativeTitle": "info/ator",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0186917acbc4d14b1cf00082e8b73662e8c5a4838f31630bd4d0ffd5eddf07f1",
+      "literalNativeTitle": "info/ator",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9b1275e79c707176e440056fbdd46753b22ee35126ddaedb3c411718efe3030a",
+      "literalNativeTitle": "info/ator",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2cc13dff4d6a28c8db1babed15f1a39659cf921a36313b11415346b600ed4b3b",
+      "literalNativeTitle": "info/atriz",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "fd4353e895d3c94713ab4d890dba0417eee0bc4a6f04019a8ea7a62066839f0d",
+      "literalNativeTitle": "info/atriz",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c4586f6e76ac3b2f199dc572c3951be5a5c87a93541b887b91a233b4439ffbc8",
+      "literalNativeTitle": "info/atriz",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0483401cfb62d30f02f2d29d977a07b4b5f355b0c9283aed786a6e05a54d0d33",
+      "literalNativeTitle": "info/atriz",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b46a140dbfee3dfd0d3eb4b65eaa112615fd0a5fa86266d21c058cd835d4aebc",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "77b23be22951edda1701524aafc1743e7b9a6a0809bdde5c8d4e5692713554a6",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c81c9b4b145520fa2f558dbc3a28729aecdb04403841613a2ce1408f7b878924",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "90239c369376ea1c0f08d27f168c1d9835e68934c8fa2b8d09cd891e2b86ca0c",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9209c9adace4a40175e9f271ebe9ca90888f6f7dec28674a23abaad63f1ebc23",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "001343296087c7940f05fdb7fbb86da84d73fa1eeb789abe102dcea201b3794a",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "cbc79367b91cc2e4212cd75fd67768407aecb8c3f79af2da5daa4e96c0649bab",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f8da3fded96f193093d98a671eaa97eaa88339636cb7690f492e94f0e951a61c",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "46fbe5182b038c96ae66cda4cb6665a2fc19c240162a745a84acccfd2b03b6a7",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e88e4a50ac97f605a8f7f0e01e4a7a2f2ebda882a0eea11dc5f8ad35fd580e5b",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "197ca9366e6229571c8a145ddecdf9e86771bbfe5372d0f886eca30cc2af703e",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "821db234aa1e6b3da9e428266f4295192149719946e72b830efafa364003371d",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "092a459cb46dc11f2d75be2a84d85fbf54ae9ae633c72c1f5ff55decff1cb536",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "86c775ca810aadd0c900205ba34fd0cb440a7dec3acf7e7e6beb00f22b3097e5",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "72a9694dba9910160ff5f42e9fdd3def815d3e5542ee321b55f6a51ef8a158bc",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "aa1ea1a28c1444d62a6f5edad5ee4654f255758a333ded3c9085f3b1988109ec",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a21d189cfdb0f7bdbb720c003678aecf3d14ceb18190c3a220817a5f1f0aa496",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e12f253dd4a846ef563d70bfe26abdb31e8c9f443457234b1342ab5869dfaa2c",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a0b440f06eeae5336046ffb556425c13a40e06f31a3dc0dac7a1c456ab906cb0",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9c1405bbdd034cae78a13740ca6b31f06df71072504dac136d0bb4e008ce1944",
+      "literalNativeTitle": "info/autor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "1580ea0faabca5818837c4589616e18a2ce0e237b7961e79ff6b6e7a0caf0790",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "40b53d483aea047c6a15a69b0540766621f528ea98461c59d2078eb93fafe62d",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "425bd7975627cee1a8fa4b509313d4779ea722426ba5ecd1b259a7de52d5d508",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f118c09c47fb743e8035059bff0abc7d2e2f28d30ac9072882f0509f87a47312",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b1903197c267acf856e81fe4ac140cf19b2e67c1317c81b61792bf8b7b8ed00c",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "87104e6839466e7476ae4ce016f97135a01ae91bac43c140ac73c9926eab5391",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "085a68d05915150a2eeb85f03ed3fd040b1c80c31a43e333a7eac5de3197107f",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b5cb5199d4e5dfcaca68cb4ad2a11ca1a0ece0e9f10229f1c0ff4b23b603bbb2",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d320370b6f0e20439f7bc55db314496378af0dd285554dd8f29074bdf0e887f1",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e85e131fdce29f3097b7cc7f7b8e194d328d0e9d4f287d7de0592b3152b80305",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "fc2e8525eab8367c43d1bf53449da31078448d0c54fcb1d9ac3ec90d04545d1c",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f07119d3126c453981e1a1c759cbb0b7f003ff22a88ed2abd100737b2416e070",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4ac6bd28769e4de02f5b95f47afc62b9971f32d910e5d22bf1bcedf35e4d2039",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c983421ea0b969fbcbf87a96f1651ae4c8eae117f0e9baa3d9302ba5ea5de2a0",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c83d7c01737480c9d6fa6b62cf32e48982dbd458b70de8b591a98cb3d7a8b4b7",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7b559d5b2a032a0d00c3301ebf1fe98bc01c0a022f131efaa3bc920d00bd4e5c",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "48b0e7b986ead47e44a85adbee0ac1b909e99714c00cdb16de1c0407f429896c",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c227a11f432fae626f531cb427354a8e1a2b57eeb73e0df2d1dbfa6fd3ce44b3",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ee06773ba4d3e9c20c3ad4bd8e35db00b66991a9578df2d73daa8631a3a686dc",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "fc9971e66585125d049f8a7c72844d7b71a8a771398079d0e8fd95b0000fcd1d",
+      "literalNativeTitle": "info/biografia",
+      "status": "quiet-preservation-distinct-native-implementation",
+      "contract": "The exact existing redirect targets Info/Biografia/Lua. Canonical Info/Biografia date roles do not prove the roles of that different implementation.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2a5028f3d7d7b871550f125f1e86136539d04d1db8a6ffc5ea29fff1541fe8d1",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f9c3398bb363dc3e7e24880aa493161fcced92c4b81e5d9fc52ceefa78b002fe",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "300a0e9934486225fa58cfc43fbf67ebc3543cb4aeebdbbef99ed94b2e3a27ec",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "83546abb0acfdf99865810b1049eae711a4ec0af42684cd967938dab2843da29",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "6fd812419b645a616ab959cd0ba8aa589679f62ac1a362e756ffd4ea7567a70e",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7296c20b5e40c98287fea9d770e855f894a2d45e6e553897e3da3533d1b50ef1",
+      "literalNativeTitle": "info/cantor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4bca2211974d681c82278df651bfb9ed2dba4d12b64f335650979201ebcb3211",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3e65011a52d58ecf60205ea796f0b4a17db61ae0b4a4601a84a6a315f3fe8e05",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "bcf941a4bbcd0d24c07a5c4de16ad85b7e0c85ccf5f2fd54fb7f8682f1c84d4e",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9ae34c6efbe8d6611f36010e3323e57fdfbd987af3961cecc87d4f8e83f18257",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4131d63a2971388f17c2edeebc7e4e91a979b59f4545edbc1f0ddf88b36c7140",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0ce01451d6361fff7efe4c77a22db80fece5b29761625b1fef586e94a653c33b",
+      "literalNativeTitle": "info/ciclista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e30345828e9f79551ee9e0deb58a1e35f745b2adca33b3140ed97692811fea5a",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7766beb9f782362ff9d99979d6965aa254519b6ac883ec7f582d656d43f9aae8",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "97b83693f7d7ca0564a5f5fbb98581600a9e545575d4dc578241c14c403e4f34",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e7f0d7d1c6cdd75110aa60a44d4ad96c0094c59cfb7640e5338ab717155eec35",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a97ee4feab4621939138549626d38056ac87d98aa1dc511d27e2612dd2d6d1db",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "90c97f63c7d59b2587663b6ff9b0c8c4048afc04df3328ddb32c7729db7b62e6",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "174a50aa8ae8d22f3c0154594d950f6482bf16265369cf784d8a14afa7f8908e",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9efbc1bea10f49c20d2933fd2a747e335bec685cbf04534560aab35d84029a6a",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "db738e1f849d93f10cb44e8cf947bc6128e4cd76108673fd44a27b6f392b5f8a",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "56f429f52646d8838ec750d16ef06ab09e8a760299d224178da569546b6626da",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "19ab976556a17c724d294dbdcb5d86822f22c361a77cba174e7de7ec3654b758",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "df577ba0309485dac39a324f771bb51cda3390e43f234f2792cf954cf942bd39",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "88abb0a22c6cc93e641d9dd7d920f47874ecf16057f6a26f8e838b605a48c78f",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "8104cef18a84d4a158cb633c4cac3527e4c6893636d0dc0faecd420119d10361",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "6fd1aceb8d13ba5b5c8745547ec20f047192d874176f493c7954941bab5bf3c7",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "deacf15bcfe5a82e1092913e6716a6635046f340b090f4b000be593cc829045c",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3309ba1871af1e66c24e01235098507168edeed03c3d2b6b4315ed55b414c77a",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "35d94c8e30cbdf9f0360f0b1a96cad8e99e3d09296263fc9c6b0d2d28a63eebb",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "175d88fad17a078663e1592fbc69d41168bd758d783dfe15ae467cd74404aba3",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "efa4c434660955b5a623d1b0a0f329edcd7fd7f379c8c7976e2f85b2d3a102d6",
+      "literalNativeTitle": "info/cientista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "06b06c0a503c29e293e74bdba241160818dacf9c175d374d402fd7c34736ec0b",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "02de6ec7c07391456617056a34024935d0743e8a80f1ce5cf6cb2e243f32f426",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "692dff103d084da6ddcb6c0d464673562a2775b3e09e3dbab61d28fc2926de24",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "1a644fccb19648f32ec93431e7ed21a92f3ec32fb8a9e10eef32f98f29eb7587",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ef2257c6f97b251df4602391396d410fc7c3b01fbb49dbedf715a51b1e174d53",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f2ef4e3ce0eaf4ca39e98108c24de626ef9f8836c08ea138384f6dd31682c38b",
+      "literalNativeTitle": "info/combatente militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "5a5c12fe01123e450d68066049ea746ce7ab877e80f89a3a28beb57a3a45d580",
+      "literalNativeTitle": "info/comediante",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f2a7c9434cb62c51ecdfbe1ca2a438f63de0ea582b54cedd0a860743ca4fba81",
+      "literalNativeTitle": "info/comediante",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9e0b1979826ba166ba1769122b5b3fe2bcb2cbf0008f0d4c1043e154d2a76045",
+      "literalNativeTitle": "info/comediante",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "6a4b65dfcd0749ed0de5583aeb42154a32ac2db9d24403118661980b7ce3dfde",
+      "literalNativeTitle": "info/comediante",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0894f618e694842acb592ec65d591158e902ac8bb84c477c1205dc9c68dbb03d",
+      "literalNativeTitle": "info/criminoso",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "8d84a5ca4e37dcbc708145bc8c8b0ef981223ddc1a155d7e740434ade4d29b1a",
+      "literalNativeTitle": "info/criminoso",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d914f20fb9d684fd91d621c9f0140fe9d28ae4dd513dc5bbdffa6ccd3ab8f35c",
+      "literalNativeTitle": "info/criminoso",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c0c31adf05ce521373f862800bf631cd9141531b1938ed69c50394ee90cdf2ea",
+      "literalNativeTitle": "info/criminoso",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "bb329baf3bea1bad2d643d0f87d670a8fa3c32c9b5afece39f8b827673b50a05",
+      "literalNativeTitle": "info/dublador",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "401e86d67417095186b82c08e80e67bd2833af6dc258269d49718dcfbc9553bd",
+      "literalNativeTitle": "info/dublador",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "1bfda3a2190091650f38f11435e9efe0841cda7db1d5782e656552d6cd4b20cc",
+      "literalNativeTitle": "info/dublador",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "71d247e36d80eda95cf2bb382671eeab74c73035daf3a08c9800acd9e760820e",
+      "literalNativeTitle": "info/dublador",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ec94acf066c7bc49821a887475d50a48aeb160f8fd5a254cb5ebe0666dc82557",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3d6d73fb9eb588495b2796e92f5ab05b0165125dd78a9123f6735e0fa0f0f02e",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "457a0214e539f06cf22868a978d7bf3e49126e80de56200ef6bd9f3e6ffc207d",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0dd3514e33d883990aa6467be2cd5ad4898ce528ebe91a15a6160067d68f4ba4",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9ca4a061b3b8382d87c9e2ac1733b1f0ae0f909faadc4d49064ad90affb5b41e",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c201ec44c2caca2b3df5f84fb946a3c18ffa5c9ba2f3b60b898366efcd1955b4",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e414d2dd53f39762b6f89b6c5787b0e597ae52782efcfaefed6ef945c597cb4f",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d261e2af354d563e632535f7cdb81005c2351d65873f034e26d9b8370f5e5e56",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "04248a6d9bdc1006723038baaaa941bd15899ed8bcb20f2ebad677e06e8502fb",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0d51960b9a8d3c4c5bf65824f117a0367f871c91e74f1d88564c85abadb74969",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ae1e4aa5379d2ee1cc460e4d635f656a31cca54eaf82b6a185135f157e6eac9c",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "cdb7b66702320e6a5048a167f261336f4f1466fb6251a9bd7d25c3417f10a1ba",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d7d5664bc17c6385b23b9073bde1f158ae93b9432f4e2492578cdad1e0f762a6",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "090ed1811e0754d77c33b407c7991700f477b672b4c426a0db185bc73324754c",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "56a5ee85fff7e4ca62f6f6487952c70ecf5b8e1f7d705cb824ccfb5b1c3b7617",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "26c64111d44079e1492c739e75360da0a0b08cb641ec73193599d7c3fbdc1c86",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "5ddf7dbfa83bc165b2b3a5eab4c09363c3e53163fe9ec163ff67aeac4d8be116",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "6a576df9c50b9bf3a7d4ff00c861e24e6cc383b4fbd0df99e3790c01f7e57116",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0ac64f249b23de84ca062220143a2eb443d0edf8e89b6ddabe403db8b18c4291",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2866b56d8b2b002aca0b5dc4fa401534d32ae2bce024589296ab24343ad39d64",
+      "literalNativeTitle": "info/escritor",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b31e59ac602b60300b3b38d0b2a2307607407d5bae66edda5aaf32d2b2feb158",
+      "literalNativeTitle": "info/gastrônomo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "531741afbbb5afcb2526c710bf455b900626a1fa35b456b331c105e5a8b9806e",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "806d0c90c64edc7c7b5775fbd2b47d37c03e894605e8582e949e83756130b49b",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "17a317c01f29c7c9b0d60f1eca8ef6036a39e4af54f44937628991015e6161d6",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e119d58c42878cc6eda936d9002254972474c432c209358fc6b851edb142d7b0",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a04c533b373e41fcdd683f9bd485d4cb4e3a52dc85e76bad758195b983bc0395",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "fbbb574fba2cae864b6d41eaaae3d5de254541dcd9910fb770b92d842da93b15",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3e1b9120f5b0ab18e534732ac3021c7baa79fdea320c4aa11fee482e9673e15c",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d1acc88a578485d0733e996c0a29dda98104525106f2ac49eebd40c46944f67d",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4887fee8a57f881e220cdf9964c4aeca2a48306f18e04eb4e71de0762e2bbde1",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "18102261100c96ee9d00c8bf626d9cdc8e7c8d598761e872bd2d206b94af2081",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c633fe1395679912df14fc59c8f5d2a59200a79bf4e8ef4c4ea904d5c3d516d1",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f37a0d086bdc827ec459be97e5ce643e2d731e2715803586d908a8312d81a44d",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7ff95a7343da5c1bb7e5e65f015473317ab707d15bafc26864019d1a23d0ca89",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "8df6246a0ac04dd22319ef8b06fcf550a41c7dc254aaf97b476283c7f6af9b77",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "439f5f296caba12db104d29006b9a6028377343a4b284667ff35e2566e3b0329",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "32bb4ea0b7f0b939900e72d4b39bb651faeb32a9c08958be0409e83e419b9e9d",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "15c4cfbd4df7b3f559b122f93abb02bab9c6b5427130dc1f67a90f77ef983c9d",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7e80885d04991aae8eb00007c4c592dfdc370a6ed679bb82cae73ff22639e50d",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "363ad9a6f07e432f6ab928e80c96d29ccad5c7fec0f2aaa6981add5031e75b46",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f20435ac4f926b12a0d70ec1aae1a3d1cdfe6e20da849ea5bd27ae69a7455afe",
+      "literalNativeTitle": "info/jornalista",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2295d324dafdfa01e048af12eb23710e0249aa863c246e8de34de356ef1c9086",
+      "literalNativeTitle": "info/lutador de wrestling profissional",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "155d0a6cc9fd50b2aed654dd3c04cf7db9b0c41c7781f4058245e37b7c7128f3",
+      "literalNativeTitle": "info/lutador de wrestling profissional",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4c88f8adae763500bba0eb02f1bb3ec5e59e2faa304d69d353d6b11e40a9ce77",
+      "literalNativeTitle": "info/magistrado",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "65f12112e137aee7bc5265c9de49b62233274294e026b2ab67abdaed82bfb5e8",
+      "literalNativeTitle": "info/magistrado",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "de4e506998939d4b6180c1b0d3964588539ebd7b7533aed0e56da95dcd00b3b4",
+      "literalNativeTitle": "info/magistrado",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "50a27d5eae8eaa13a67f595339f0051e798b5760e6287537d855f0bfb5b729c4",
+      "literalNativeTitle": "info/magistrado",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7ca8766dac391de5d9e48d544954730946cbcec37054d4837339c2b166fc4b8b",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ed110ac0e6a6f81e75d205245544f52c8f137ec885b69e4241ca33046eb3b490",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ccd91e1b9efbe0cd361c49d5b52b296ff73c01fb1318f25c93da01129f9331ac",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "573a0c0b5437b8613baad34227da4cb1abbe4d729225feb1b32682e897fb7569",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e5d9afaf1b7229c7a01d77de011cc5a79e7c0d5ba50c034ce3f11f0ef11c1045",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d18d476bd68f8827a8c7cad28bb07f739c75ae07ec81e8115c8d0f7dac241f1a",
+      "literalNativeTitle": "info/militar",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b1ce19ef3d11776de43760afa9ab5c884d2612c11912e79185cfc6796ada7ff8",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "bf93b0daaba204096603e82daa14896c0e44ba7a81214a3209bfd43236ca72cd",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "dab4c1b2e863c06d8f425dfbb224dc46541ca897f9850521e633dc4c9f160d55",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ce04f46d957e4a00dbe22421cfeacd415e86dd007f51574f07a38dd83c80df59",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d5827ef88061ce7b8371276cf94e6ad8412e5d316da634a49801d357287a6374",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4f1c551a5a66ac3338a67d2ec8f87319fa27c58d4ec9db20b89c56ee3b0eed4c",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "dcb10c200582ef837b4c0d9526c5fe9a5381981c8055638ab98fd6f5c9f68470",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0fab5f498b6988bdd6d3e3ad0e4d5d51cd265a0c75284c54298887b9ac640930",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3b1ccb535fff2e2b6753e711537e3c79b0eb2c3fce755ad6934dd9df4ba128eb",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e67ecc1192475e16c5b0ada19b0a4ce42b37d254b7b5ef40a7026a8f5abf63bf",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "6628c68ad5478e03592acdbec835166162e7ea557902063ae798dc14ed066feb",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "806d023411c26994abab154536ed50b8c57ad3e6da0d75b6675ea9e9acffb459",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3d6bf3fde888bfacf925525fddf84db8f68e026e33e557a8f87b63d1eeb790c4",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9546e7b0b3c25ce919b5c8a5dd8348fce7cf490f3c93430d193bac3835556785",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c7867653f6b130334bd815c716afc85a37576d31b0b05cab18bf2f6f7d6fecb9",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "e8da836694698e31769a8030cec6b9a7cfa4c28bbeae6d6afa21887e46c14bd9",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "c8731569a73c572a6b9dde48b0f3e47d14d4bef65f937c432882981ab0e4dff6",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9f32aa300a10df7190f63db95e8e90ba1515e42efc8fbeca78f25c639d841633",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "dc14b72c299ce56a7ea7d9eb4cb6601799c666718e2484ffc584e091dc842c28",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9ba1874db9a445566b3727854876307de4bf0d9d7dfc8b59dae4633eaad1a927",
+      "literalNativeTitle": "info/modelo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d321398a0aa05a54a58c98c16f6f5df9223d385197967148a37d7088442232b8",
+      "literalNativeTitle": "info/motorista da f1",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3f6632b0fd1b0dea2de8b16a7419a02692ec25166fd593765c180a13c93aa5c6",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "1a28d619ce5d4805654c7322a528bf8aeb4ac7e8393bfad8222cb3362a8ac294",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "fb6667498968f52f2bd903fe54c3eb184e2d08a0bce51d4949f118ca6bda47f7",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3901577bbc918e9ba46822a392fdcab61e24127d963950ac02c4cd151e6c28c9",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b048bcafedfd14c6907f80df2676a20a869ff5bde22dfebd9737e7b473d101b8",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "a154254d92bd6118961db06ee7a2d7079321107760ccf2d26ecdb1cd5c937cc1",
+      "literalNativeTitle": "info/músico",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "421362f3015a00b2ca5da23754563a456ba00a6fcd17bdd2f2208bb163852039",
+      "literalNativeTitle": "info/personalidade",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4c147932c987279f2355cd043ffa1c87c440928a57ebffb99885e995d0a36c84",
+      "literalNativeTitle": "info/personalidade",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "8d3b234cdfb03bac3b0c579f7cef5b4a8b415fcf364607cbae5ab5bc21c8402b",
+      "literalNativeTitle": "info/personalidade",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9c713ce1e9f4b1cabf430f77c8a812f4482b27ce6c96d4bbfc62146bf479d978",
+      "literalNativeTitle": "info/personalidade",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "b01c0265208d2956a51fad3eac47b65f6c72c2720178d186cf3a04511bd31667",
+      "literalNativeTitle": "info/piloto de automóvel",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "3e71dc82d8456db04c1439d64aa0e95c67e7d8578b6b49804c5c4e61e444ecbf",
+      "literalNativeTitle": "info/piloto de automóvel",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ee8cac3e0bd16b89140f1a468dcb73d3904b7e8012494b7390a21b712c2db865",
+      "literalNativeTitle": "info/piloto de automóvel",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4791afc67f7c79d28762082596616ebd42d829fbe0d281968b6626f709beee1d",
+      "literalNativeTitle": "info/piloto de automóvel",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0db4ca82560dcdc16b65eb218871bc9d8d38dd09d71ff8475f7452b2288dd540",
+      "literalNativeTitle": "info/político",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "4d02ab9f8b174447f9832031bf664dea82965c1f62dcfe13eb32002d170bfd25",
+      "literalNativeTitle": "info/político",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "0a4b665a7b89f555395e5b3068a289ee4e5759304deb13c7df13a89b6f6013d5",
+      "literalNativeTitle": "info/político",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "9eb4b49c05073a670254ed2f5822011efff2de5de41ada9912eb9e359508777d",
+      "literalNativeTitle": "info/político",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "d3a8c7bcede9aaae6c8acdc5c9da8962a7490d08228a6f584c60c44863955c25",
+      "literalNativeTitle": "info/senador do império do brasil",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "2dcff86f31e278a311da2e30327e7656d970db041fa0f1a492cf6af4fb919b80",
+      "literalNativeTitle": "info/senador do império do brasil",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "32fdcad0aace26cd989225379ae208bee1f28e3e2d38ce512ad968bcec5a1cec",
+      "literalNativeTitle": "info/senador do império do brasil",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "352d0a148af3208e8a303863b54fe99e1fd0c14c015ae0ce0899405153df5088",
+      "literalNativeTitle": "info/senador do império do brasil",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "f25c2541662274cbf880df6cf60df5e59c7aca5de2ff7d3a2f6439fbe946fc30",
+      "literalNativeTitle": "info/titular de cargo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "cf5abaaef104c71a4d9d3d9633ea630cae376b5083f99f409fce4ce3a9c36289",
+      "literalNativeTitle": "info/titular de cargo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "54a76875ca0b4b63bb4fed38753edc40ed2fb9473296f8742052f3c7b66e047d",
+      "literalNativeTitle": "info/titular de cargo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "5c2aacd9370a2df8ddb5d86aa6cb421b0639bb241317b1f71c1950392b04b80f",
+      "literalNativeTitle": "info/titular de cargo",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "7a9c9dd4782bdb3c424ef021c514b94dda9104c61ac6182ccecbcba1390946db",
+      "literalNativeTitle": "info/wrestler",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    },
+    {
+      "caseSha256": "ddaa2a4e80b0c14fddc01ad8e795e242982d21a62beadd2e6d2a594105d208cb",
+      "literalNativeTitle": "info/wrestler",
+      "status": "quiet-preservation-no-native-literal-title",
+      "contract": "The immutable fixture lowercases an internal subpage title that the anonymous native lookup reports missing. First-character title equivalence does not authorize internal case folding.",
+      "currentReplacement": [
+        "tests/v219/biography_date_cases.cjs",
+        "tests/v219/biography_date_contracts.json"
+      ]
+    }
+  ],
+  "recoveredExistingFunctionality": {
+    "exactMusicAliasFailuresInPriorXObservation": 6,
+    "currentExactAlias": "Info/música/artista",
+    "redirectOldid": 31808051,
+    "currentReplacement": "tests/v219/biography_date_cases.cjs",
+    "originalMusicAliasAssertionsNowPassed": true,
+    "originalFullExplicitDniMorteCasesPassed": 35
+  },
+  "releaseConclusion": "This is an adjudication ledger, not a passing original-suite report. Current whole-action replacements and conservative native preservation are recorded separately. No remaining original failure is relabeled as a pass.",
+  "wikipediaWrites": 0
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "foreign-generated-short-reference-dependency-refusal",
+  "schemaVersion": 1,
+  "decision": "Preserve each complete registered foreign generated-short-reference call until its generated name, group and bibliography dependencies have an independently approved source-bound migration. Positional resemblance alone is insufficient.",
+  "runtimeTargetBoundary": [
+    "Sfn",
+    "Sfnp",
+    "Sfnm",
+    "Sfnmp",
+    "HarvRef"
+  ],
+  "actualCatalogProfiles": [
+    {
+      "literal": "sfn",
+      "disposition": "already-native-identity-preserved"
+    },
+    {
+      "literal": "template:sfn",
+      "disposition": "already-native-identity-preserved"
+    },
+    {
+      "literal": "modèle:sfn",
+      "disposition": "quiet-whole-call-preservation",
+      "sourceOldid": 239462663
+    },
+    {
+      "literal": "vorlage:sfn",
+      "disposition": "quiet-whole-call-preservation",
+      "sourceOldid": null
+    },
+    {
+      "literal": "plantilla:sfn",
+      "disposition": "quiet-whole-call-preservation",
+      "sourceOldid": null
+    }
+  ],
+  "otherGeneratedTargetProfilesInReviewedCatalog": 0,
+  "primarySources": [
+    {
+      "url": "https://fr.wikipedia.org/w/index.php?oldid=239462663",
+      "oldid": 239462663,
+      "sourceSha256": "7691f5af968a30f758e86f3d4f4ea6d3608abbb3074e60a2aa642a697e712d7e",
+      "facts": [
+        "The wrapper builds a #tag:ref name from trimmed numeric1..5 plus id, texte, p, pp, loc and ps without a FOOTNOTE prefix.",
+        "Each numeric field is conditionally forwarded only when nonempty.",
+        "The group fallback is groupe then group then gr."
+      ]
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=67697954",
+      "oldid": 67697954,
+      "sourceSha256": "fd949cebd40d9d19b1c88b9a5e745154ec32924ad88e12e4ef810e22f54a1437"
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=52819217",
+      "oldid": 52819217,
+      "sourceSha256": "8c827316ef063e2b5fe58890fdd8b914b46ea562c847391e19d4fcdf4836533d",
+      "lines": [
+        169,
+        188
+      ],
+      "facts": [
+        "Native Sfn reads parent numeric args1..5 and prefixes its generated name with FOOTNOTE."
+      ]
+    }
+  ],
+  "unpinnedSources": "The two other foreign declarations have null source revisions. This is an unresolved migration proof, not evidence that their templates are missing.",
+  "nativePrefixContract": {
+    "path": "tests/v219/native_short_reference_prefix_contract.json",
+    "sha256": "d094b3feac2ec9e770bc4ec9f957b50d3ef15a76381a73889a5fac0321b48f6f"
+  },
+  "oldNumericBindingAssertion": "Unchanged: any accepted migration must retain every effective numeric argument binding. The three unproved foreign generated-reference profiles now refuse the entire call.",
+  "wikipediaWrites": 0,
+  "networkRequestsForThisReview": 0
+}

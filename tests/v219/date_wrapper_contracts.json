@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-and-foreign-date-wrapper-side-effect-boundaries",
+  "nativeSources": [
+    {
+      "title": "Predefinição:Date de décès",
+      "missing": true
+    },
+    {
+      "title": "Predefinição:Date de naissance",
+      "missing": true
+    },
+    {
+      "title": "Predefinição:Nascimento",
+      "oldid": 46237215,
+      "sourceSha256": "fe0c0b53167ca253a8993775bfb3c087703642d9074527250c0870ccef1d911e"
+    },
+    {
+      "title": "Predefinição:Birth date and age",
+      "oldid": 58365541,
+      "sourceSha256": "12d6b5dfdf0860c4020945aea87cc05a5641eafb31903fb10fa4e6d29be2ce57"
+    },
+    {
+      "title": "Predefinição:Birth date",
+      "oldid": 58362992,
+      "sourceSha256": "ceda90ee4b93731b93df96c009818048c3e24d096316a8473995b97f356fa91c"
+    },
+    {
+      "title": "Predefinição:Date",
+      "oldid": 59283611,
+      "sourceSha256": "5892f8f31351c9c23b7f33bd377fee26b85fb91da68fa5210718ebaeb0c9848f"
+    },
+    {
+      "title": "Predefinição:Falecimento e idade",
+      "oldid": 50216928,
+      "sourceSha256": "e14309931bd778150706e6f89c4f827b74abd1ab325ea0a60755b4543c97d2f9"
+    },
+    {
+      "title": "Predefinição:Morte e idade",
+      "oldid": 60787871,
+      "sourceSha256": "e14309931bd778150706e6f89c4f827b74abd1ab325ea0a60755b4543c97d2f9"
+    },
+    {
+      "title": "Predefinição:Morte",
+      "oldid": 69218537,
+      "sourceSha256": "38bf59a322754fa3954c165db7531a344f84d61cc262f75c5f83976fd8a0fe65"
+    },
+    {
+      "title": "Predefinição:Death date",
+      "oldid": 58364211,
+      "sourceSha256": "559bef3e9c52dbb8d66c3c68ae9920834309e7f4110ddd7f4c8754daab340d4d"
+    },
+    {
+      "title": "Predefinição:Falecimento",
+      "oldid": 50216720,
+      "sourceSha256": "e14309931bd778150706e6f89c4f827b74abd1ab325ea0a60755b4543c97d2f9"
+    },
+    {
+      "title": "Predefinição:Death date and age",
+      "oldid": 50557924,
+      "sourceSha256": "0b7383afea541366a53919690df3ddb2f121b15b428943c660325188d4668982"
+    }
+  ],
+  "nativeTargets": [
+    {
+      "title": "Dni",
+      "oldid": 69218531
+    },
+    {
+      "title": "Morte",
+      "oldid": 69218537
+    }
+  ],
+  "foreignBirthSource": {
+    "language": "fr",
+    "title": "Modèle:Date de naissance",
+    "oldid": 145206399,
+    "dependency": {
+      "language": "fr",
+      "title": "Module:Date",
+      "oldid": 238976179,
+      "sourceSha256": "1f38c0a662b38c471471c843d19853890e90632df23513c05ee80a6065c7a7a2",
+      "sourceBytes": 53571
+    }
+  },
+  "dispositions": [
+    {
+      "identities": [
+        "Birth date",
+        "Death date",
+        "Death date and age",
+        "Date"
+      ],
+      "action": "preserve-entire-native-call",
+      "reason": "Already accepted local implementations have their own link, age, microformat and category semantics. In particular Birth date and the two Death date implementations do not emit birth/death year categories, whereas Dni/Morte do by default. Date is a native local name and must not inherit a French template interface."
+    },
+    {
+      "identities": [
+        "Date de naissance",
+        "modèle:date de naissance"
+      ],
+      "action": "quietly-refuse-unproved-migration",
+      "reason": "A generic foreign birth-date call does not prove that this page is its subject biography or authorize new birth-year/living-person categories. No category or microformat equivalence has been established for conversion to Dni."
+    },
+    {
+      "identities": [
+        "Nascimento",
+        "Birth date and age",
+        "Falecimento",
+        "Falecimento e idade",
+        "Morte e idade"
+      ],
+      "action": "retain-existing-bounded-positional-migration",
+      "reason": "These exact local wrappers already delegate to Dni/Morte. Their three/six numeric positional calls are covered separately, with the original wrapper calendar, age and category behavior."
+    }
+  ],
+  "nativeParseProof": {
+    "kind": "native-birth-date-wrapper-category-side-effect",
+    "method": "anonymous GET action=parse, fictional date and list title, no edits",
+    "nativeSources": [
+      {
+        "title": "Birth date",
+        "oldid": 58362992
+      },
+      {
+        "title": "Dni",
+        "oldid": 69218531
+      }
+    ],
+    "samples": [
+      {
+        "id": "source-native-date",
+        "source": "{{Birth date|1900|1|1|df=yes}}",
+        "responseSha256": "28854e9c8fe71a5cc0ada7d8bfa90fa7557d0bcbf0c43165d82da660b627840b",
+        "categories": [],
+        "nativeHtml": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"pt\" dir=\"ltr\"><p>1 janeiro 1900<span style=\"display:none\">(<span class=\"bday\">1900-01-01</span>)</span>\n</p></div>"
+      },
+      {
+        "id": "categorized-target",
+        "source": "{{Dni|1|1|1900|si}}",
+        "responseSha256": "411b029e562f3a93b32cd6a39c37568b3c2657348274430ad6a7babd896bd335",
+        "categories": [
+          {
+            "sortkey": "",
+            "category": "Nascidos_em_1900"
+          }
+        ],
+        "nativeHtml": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"pt\" dir=\"ltr\"><p><a href=\"/wiki/1_de_janeiro#Nascimentos\" title=\"1 de janeiro\">1 de janeiro</a> de <a href=\"/wiki/1900\" title=\"1900\">1900</a>\n</p></div>"
+      },
+      {
+        "id": "explicit-no-category-target",
+        "source": "{{Dni|1|1|1900|si|nocat=sim}}",
+        "responseSha256": "729d4a82dfec16de7f41d7ffa8576e6eeb3b46456be70aaf192b45e09cccb7f9",
+        "categories": [],
+        "nativeHtml": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"pt\" dir=\"ltr\"><p><a href=\"/wiki/1_de_janeiro#Nascimentos\" title=\"1 de janeiro\">1 de janeiro</a> de <a href=\"/wiki/1900\" title=\"1900\">1900</a>\n</p></div>"
+      }
+    ],
+    "wikipediaWrites": 0
+  },
+  "limitations": [
+    "This contract does not establish general equivalence between foreign calendar/date templates and Portuguese date templates.",
+    "An explicit nocat parameter alone would not prove the same links, age formatting or hidden date behavior.",
+    "Existing valid syntax is preserved even when the template name uses an English word."
+  ],
+  "wikipediaWrites": 0
+}

@@ -2,25 +2,25 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.18
+## Versão 2.19
 
-- Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.
-- Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.
-- Preserva comentários completos dentro dos valores e aceita combinações literais de estado ou acesso cuja equivalência foi conferida na implementação nativa.
-- Corrige datas literais em campos aceitos de citações, mantendo a precisão informada e conferindo o calendário. Não acrescenta um dia a uma data que só informa mês e ano.
-- Corrige nomes inválidos ou obsoletos de campos de citação e uma data completa colocada no campo de ano, após conferir os outros nomes usados para o mesmo campo.
-- Reduz linhas vazias excedentes, inclusive linhas contendo espaços ou tabulações, na prosa e nos limites finais reconhecidos.
-- Retira o espaço horizontal entre pontuação e uma referência ativa, corrige uma barra invertida em uma quebra de linha sem atributos e corrige títulos de seções finais escritos como chamadas literais sem argumentos cujos destinos foram conferidos.
-- Deixa as referências usarem a divisão responsiva nativa e retira apenas o conjunto exato de estilos fixos acrescentado por versões anteriores do programa.
-- Compara as 241 regras do código de referência que fazem substituições no texto de artigos, com casos executáveis e registro das diferenças preservadas ou ainda sem comprovação suficiente.
+- Marca como edição menor os ajustes feitos exclusivamente pelo programa em artigos completos, respeitando a escolha manual.
+- Oferece uma [demonstração interativa](dist/2.19.0/Demonstracao_RevisaWiki_v2_19_0.html) com exemplos e comparação do resultado.
+- Confere as regras pelo resultado da ação completa, incluindo opções desligadas, exemplos protegidos e entradas semelhantes que precisam ficar intactas.
+- Corrige bloqueios entre a leitura do texto, as etapas de ajuste e as provas de preservação.
+- Reorganiza títulos redundantes de notas e referências, mantendo grupos, listas, definições e a posição das citações.
+- Conserva nomes e campos já aceitos pela ptwiki, sem trocar uma grafia válida só por preferência.
+- Usa o contexto da página inteira quando uma parte incompleta limita os reparos ao começo do texto.
+- Vincula consultas, escolhas do relatório e restauração ao rascunho de origem.
+- Calcula a contagem de textos grandes numa etapa própria e permite desfazer sem repetir a análise.
 
-As 241 regras dizem respeito às substituições de texto em artigos. A comparação separa correções cobertas, diferenças preservadas e casos sem comprovação suficiente. Ela não promete reproduzir toda função do programa de origem nem as escolhas de uma revisão humana. Os adaptadores atendem ao editor clássico, às integrações reconhecidas de CodeMirror e ao modo de código-fonte do editor de 2017. O fluxo visual, a integração com wikEd e a abertura em lote por categorias ou afluentes ficam fora do RevisaWiki.
+A comparação com os três programas de referência distingue ajustes automáticos, comandos, recursos de interface e substituições que não devem ser reproduzidas. Cada regra tem uma disposição no registro técnico. Uma leitura do código ou um teste de um auxiliar não é contado como uma correção completa aplicada a um artigo.
 
-O programa mantém as grafias e os parâmetros já aceitos. Trechos protegidos, conflitos e valores ambíguos continuam como estavam. A apresentação responsiva das referências é independente da regra de seis itens para colunas em listas finais. O manual explica os limites, e a publicação continua sob controle de quem edita.
+Os adaptadores atendem ao editor clássico, às integrações reconhecidas de CodeMirror e ao modo de código-fonte do editor de 2017. O fluxo visual, a integração com wikEd e a abertura em lote por categorias ou afluentes ficam fora do RevisaWiki. A publicação continua sob controle de quem edita.
 
 ## Instalação
 
-[Pacote completo](dist/2.18.0/RevisaWiki_2.18.0.zip) · [Índice para copiar](dist/2.18.0/INICIO.html) · [Instruções](docs/2.18.0/Instalacao_RevisaWiki_v2_18_0.txt) · [Manual](docs/2.18.0/Documentacao_RevisaWiki_v2_18_0.wiki) · [Histórico resumido](docs/2.18.0/Notas_da_versao_RevisaWiki_v2_18_0.txt) · [Testes](docs/2.18.0/Relatorio_testes_RevisaWiki_v2_18_0.txt)
+[Pacote completo](dist/2.19.0/RevisaWiki_2.19.0.zip) · [Índice para copiar](dist/2.19.0/INICIO.html) · [Instruções](docs/2.19.0/Instalacao_RevisaWiki_v2_19_0.txt) · [Manual](docs/2.19.0/Documentacao_RevisaWiki_v2_19_0.wiki) · [Histórico resumido](docs/2.19.0/Notas_da_versao_RevisaWiki_v2_19_0.txt) · [Testes](docs/2.19.0/Relatorio_testes_RevisaWiki_v2_19_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -28,20 +28,25 @@ O índice permite copiar o arquivo inteiro, o destino e o resumo, com um link di
 
 O aviso que cita o máximo de 102400 bytes pertence ao realce de sintaxe da página. Nesse caso, o visualizador mostra o código sem cores. Esse limite de exibição não impede salvar nem executar JavaScript. O índice oferece um link para conferir o arquivo bruto. Erros de sintaxe ou recusas de publicação exigem uma verificação separada.
 
+A análise em processamento separado tem limite de 60 segundos, que pode ser atingido em textos complexos menores que o caso extremo de aproximadamente 1,9 MB registrado nos testes. Ao atingir esse prazo, o programa mantém o rascunho, o resumo e a marcação de edição menor anteriores. As verificações de preservação continuam ativas, e a edição pode prosseguir normalmente. O relatório distingue esses timeouts das comparações que terminaram.
+
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.17.0, conferidos por SHA-256, e aplica os módulos de `src/v2_18`. As versões arquivadas ficam intactas.
+A reconstrução parte dos sete arquivos da distribuição 2.18.0, conferidos por SHA-256, e aplica os módulos de `src/v2_19`. As versões arquivadas ficam intactas.
+
+Para reconstruir o código e executar os testes, use Python 3, Node.js 24 ou superior e npm 10 ou superior. Na pasta do repositório:
 
 ```sh
-python3 scripts/build_v2180.py
-REVISAWIKI_ORIGINAL_SOURCE=ARQUIVO_LOCAL_CONFERIDO npm test
-npm run test:documentation
+npm ci
+python3 scripts/build_v2190.py
+npm test
+npm run test:documentation -- --output artifacts/documentation/audit_v2190.json
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v218/README.md) explica a cópia fixada do código de referência, os comandos, os comprovantes e os limites. As 71 invocações finitas passaram com 61.362 casos e 240.285 verificações. A regressão privada conferiu 4.853 páginas nas duas distribuições, sem regressões novas, e separou 24 achados idênticos aos da versão anterior, em oito páginas. Casos sintéticos, execuções repetidas e artigos distintos têm contagens separadas. A interface foi conferida localmente no Chrome, no Firefox e no Safari. Nenhum teste editou a Wikipédia.
+O [guia dos testes](tests/v219/README.md) distingue os casos dirigidos, a matriz dos catálogos, as revisões reais, o histórico e os testes de navegador. Os [resultados da versão](docs/2.19.0/Relatorio_testes_RevisaWiki_v2_19_0.txt) trazem as contagens concluídas, os hashes executados e os limites de cada prova. Artigos distintos, situações sintéticas, execuções repetidas e verificações têm denominadores próprios. Nenhum teste salva edições na Wikipédia.
 
-Os resultados públicos trazem totais, hashes e resumos dos comprovantes validados. Os originais, as coordenadas dos casos e os detalhes das páginas reais ficam locais. A matriz das regras e os exemplos fictícios das provas nativas ficam disponíveis para reprodução. Uma inspeção do código de origem não é contada como um teste novo de navegador.
+Os resultados públicos trazem totais, hashes e resumos dos testes. As capturas completas, os perfis de navegador e os arquivos temporários ficam locais. A matriz das regras inclui exemplos fictícios e trechos públicos de provas nativas, com a revisão de origem indicada. As contagens de navegador vêm das execuções registradas.
 
 ## Referências de versões anteriores
 
@@ -53,4 +58,3 @@ Os arquivos publicados passam pela [conferência de privacidade](docs/PRIVACIDAD
 
 O código próprio do RevisaWiki usa [CC BY-SA 4.0](LICENSE). Os arquivos de terceiros conservam suas licenças. Os [casos de referência do MediaWiki](tests/v2150/reader_official_contracts.json) mantêm a indicação GPL-2.0-or-later e a origem registrada no próprio arquivo. As fontes e revisões dos scripts consultados ficam no cabeçalho e no manual.
 
-Arquivos de terceiros mantêm as licenças indicadas nas pastas correspondentes.

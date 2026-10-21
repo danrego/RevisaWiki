@@ -1,0 +1,312 @@
+{
+  "kind": "public-table-syntax-optout-exact-legacy-bar-subset",
+  "authority": {
+    "publicManual": "docs/2.18.0/Documentacao_RevisaWiki_v2_18_0.wiki:880",
+    "instruction": "tableSyntaxRepairs controls table syntax; false disables an option",
+    "approvedScope": "Honor false only for isolated legacy attribute-bar rule tableSyntaxRepairs; keep automaticTableRepairs general, header scopes/yearsections independent."
+  },
+  "baseOptions": {
+    "namespaceNumber": 0,
+    "pageTitle": "Pessoa fictícia",
+    "contentModel": "wikitext",
+    "markup": true,
+    "syntaxRepairs": true,
+    "structuralRepairs": true,
+    "tableChecks": true,
+    "automaticTableRepairs": true,
+    "tableSyntaxRepairs": true,
+    "tableAccessibility": false
+  },
+  "rows": [
+    {
+      "id": "enabled/table/1",
+      "source": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {},
+      "kind": "enabled",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "syntax-off/table/1",
+      "source": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "tableSyntaxRepairs": false
+      },
+      "kind": "syntax-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "parent-off/table/1",
+      "source": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "automaticTableRepairs": false
+      },
+      "kind": "parent-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "checks-off/table/1",
+      "source": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "tableChecks": false
+      },
+      "kind": "checks-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "enabled/table/2",
+      "source": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {},
+      "kind": "enabled",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "syntax-off/table/2",
+      "source": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "tableSyntaxRepairs": false
+      },
+      "kind": "syntax-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "parent-off/table/2",
+      "source": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "automaticTableRepairs": false
+      },
+      "kind": "parent-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "checks-off/table/2",
+      "source": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "tableChecks": false
+      },
+      "kind": "checks-off",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "enabled/row/1",
+      "source": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" \n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {},
+      "kind": "enabled",
+      "controlPositiveSource": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "syntax-off/row/1",
+      "source": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "tableSyntaxRepairs": false
+      },
+      "kind": "syntax-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "parent-off/row/1",
+      "source": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "automaticTableRepairs": false
+      },
+      "kind": "parent-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "checks-off/row/1",
+      "source": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "expected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "options": {
+        "tableChecks": false
+      },
+      "kind": "checks-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\n|- style=\"background:#eee\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\n|- style=\"background:#eee\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "enabled/row/2",
+      "source": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {},
+      "kind": "enabled",
+      "controlPositiveSource": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "syntax-off/row/2",
+      "source": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "tableSyntaxRepairs": false
+      },
+      "kind": "syntax-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "parent-off/row/2",
+      "source": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "automaticTableRepairs": false
+      },
+      "kind": "parent-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "checks-off/row/2",
+      "source": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "expected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "options": {
+        "tableChecks": false
+      },
+      "kind": "checks-off",
+      "controlPositiveSource": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\"\r\n|- style=\"background:#eee\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "protected/nowiki/1",
+      "source": "<nowiki>{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}</nowiki>",
+      "expected": "<nowiki>{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}</nowiki>",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "protected/nowiki/2",
+      "source": "<nowiki>{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}</nowiki>",
+      "expected": "<nowiki>{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}</nowiki>",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "protected/comment/1",
+      "source": "<!-- {| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|} -->",
+      "expected": "<!-- {| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|} -->",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "protected/comment/2",
+      "source": "<!-- {| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|} -->",
+      "expected": "<!-- {| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|} -->",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "protected/code/1",
+      "source": "<code>{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}</code>",
+      "expected": "<code>{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}</code>",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "protected/code/2",
+      "source": "<code>{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}</code>",
+      "expected": "<code>{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}</code>",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "protected/fence/1",
+      "source": "Exemplo de código:\n```wikitext\n{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}\n```\nFim.",
+      "expected": "Exemplo de código:\n```wikitext\n{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}\n```\nFim.",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "protected/fence/2",
+      "source": "Exemplo de código:\r\n```wikitext\r\n{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}\r\n```\r\nFim.",
+      "expected": "Exemplo de código:\r\n```wikitext\r\n{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}\r\n```\r\nFim.",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "protected/unknown-owner/1",
+      "source": "{{Modelo fictício|exemplo={| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}}}",
+      "expected": "{{Modelo fictício|exemplo={| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}}}",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \n! A !! B\n|-\n| 1 || 2\n|}"
+    },
+    {
+      "id": "protected/unknown-owner/2",
+      "source": "{{Modelo fictício|exemplo={| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}}}",
+      "expected": "{{Modelo fictício|exemplo={| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}}}",
+      "options": {},
+      "kind": "protected",
+      "controlPositiveSource": "{| class=\"wikitable\" |\r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}",
+      "controlPositiveExpected": "{| class=\"wikitable\" \r\n! A !! B\r\n|-\r\n| 1 || 2\r\n|}"
+    },
+    {
+      "id": "independent/header-scope-with-syntax-off",
+      "source": "{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| Alfa || 1\n|}\n",
+      "expected": "{| class=\"wikitable\"\n! scope=\"col\" | Nome !! scope=\"col\" | Valor\n|-\n| Alfa || 1\n|}\n",
+      "options": {
+        "tableSyntaxRepairs": false,
+        "tableAccessibility": true
+      },
+      "kind": "independent-positive"
+    },
+    {
+      "id": "independent/year-sections-with-syntax-off",
+      "source": "{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| colspan=\"2\" |\n=== 2001 ===\n|-\n| Alfa || 1\n|-\n| colspan=\"2\" |\n=== 2002 ===\n|-\n| Beta || 2\n|}\n",
+      "expected": "=== 2001 ===\n{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| Alfa || 1\n|}\n\n=== 2002 ===\n{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| Beta || 2\n|}\n",
+      "options": {
+        "tableSyntaxRepairs": false,
+        "headings": true
+      },
+      "kind": "independent-positive"
+    },
+    {
+      "id": "independent/outside-link-with-syntax-off",
+      "source": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}\n\n[[Tema fictício|Tema fictício]]",
+      "expected": "{| class=\"wikitable\" |\n! A !! B\n|-\n| 1 || 2\n|}\n\n[[Tema fictício]]",
+      "options": {
+        "tableSyntaxRepairs": false,
+        "links": true
+      },
+      "kind": "independent-positive"
+    }
+  ],
+  "existingOriginalSourcesExpectedAndAssertionsChanged": false,
+  "originalFourFlagFalseRepairEndpoints": "retained separately for explicit reviewed incompatibility, never relabeled as unchanged pass"
+}

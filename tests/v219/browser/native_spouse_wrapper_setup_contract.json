@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "kind": "exact-native-spouse-wrapper-UI-consistency-fixture-adjudication",
+  "historicalFixtureSha256": "dfcc350b48c76e676a1ac706565fbb194f4dc4eeadc60fdffd30bd94cd88e35c",
+  "currentFixtureVersion": "2.7.3",
+  "originalPositiveRows": 12,
+  "sourceAndIDOrderRetained": true,
+  "currentDispositionCounts": {
+    "changed": 10,
+    "exactNativeWrapperPreservation": 2
+  },
+  "optionsOverrides": {
+    "namespaceNumber": 0,
+    "pageTitle": "Pessoa de teste",
+    "authorityControl": false,
+    "endTemplateOrder": false,
+    "links": false,
+    "captureTrace": true
+  },
+  "nativeUIOptionsOverrides": {
+    "namespaceNumber": 0,
+    "pageTitle": "Pessoa de teste",
+    "authorityControl": false,
+    "endTemplateOrder": false,
+    "links": false
+  },
+  "primary": [
+    {
+      "title": "Infobox person",
+      "oldid": 63097825,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=63097825",
+      "sourceSha256": "8837c3d380be59d1fad2ef5f710b4529f14ed263414e15d82d25d6bf0e9d1e89"
+    },
+    {
+      "title": "Infobox scientist",
+      "oldid": 67624760,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=67624760",
+      "sourceSha256": "af5ff3db9ae2e706711e749dbb8d2a35af8075ecc04b1cab18e9661256ae40cc"
+    },
+    {
+      "title": "Módulo:Template wrapper",
+      "oldid": 70602877,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70602877",
+      "sourceSha256": "48c41e04fa268e28b9fee6ee99bcfe41a6914820d9ac9c1aeccb6010a5c984d0"
+    }
+  ],
+  "dependencySchemas": {
+    "Infobox person": "Exact native63097825 includeonly calls Info/Biografia and forwards literal name and spouse. It also has its own ocupation→occupation explicit-defined fallback and safesubst prefix. This contract grants whole-call preservation only, no foreign role migration.",
+    "Infobox scientist": "Exact native67624760 invokes Module:Template wrapper70602877 with _template=Infobox person and its own _alias-map/_exclude/generated module fields. This is not the enwiki Infobox scientist→Info/Cientista interface. This contract grants whole-call preservation only.",
+    "independentAlias": "Exact Main46260353→Artigo principal72102523 header-only forwarding is a separate existing writer; retaining a wrapper does not disable disjoint supported aliases."
+  },
+  "rows": [
+    {
+      "id": "approved-person-template-migration",
+      "sourceSha256": "a666592a2d8f6b31afa7a7322ff4f797010966d4bb6671965d3504782857c01f",
+      "fixtureDescriptorSha256": "cadd0659004a4068645309df517ece838a6637547c51c32a578be2a5807cfee5",
+      "exactOriginalDescriptor": {
+        "id": "approved-person-template-migration",
+        "infobox": "Infobox person",
+        "field": "spouse",
+        "expectedField": "cônjuge",
+        "expectedInfobox": "Info/Biografia",
+        "value": "Pessoa A (casada em 2000)",
+        "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+        "source": "{{Infobox person\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+        "approvedForeignAlias": true
+      },
+      "expectedSource": "{{Infobox person\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "nativeTitle": "Infobox person",
+      "nativeOldid": 63097825,
+      "disposition": "exact-native-wrapper-preservation",
+      "originalForeignMigrationExpectationRetained": {
+        "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+        "expectedField": "cônjuge",
+        "expectedInfobox": "Info/Biografia",
+        "approvedForeignAlias": true
+      },
+      "authority": "Exact local native wrapper and its argument bytes are preserved before any same-spelled foreign profile can apply."
+    },
+    {
+      "id": "approved-scientist-template-migration",
+      "sourceSha256": "48640a3d4e161af2dae49a850be95c187bdb1008b8c61f5d40a5128aaa735d42",
+      "fixtureDescriptorSha256": "bd59e7e5da29342cb2b33d2c77158720a27dcbc37f44d28eb0c12780875be2d3",
+      "exactOriginalDescriptor": {
+        "id": "approved-scientist-template-migration",
+        "infobox": "Infobox scientist",
+        "field": "spouse",
+        "expectedField": "cônjuge",
+        "expectedInfobox": "Info/Cientista",
+        "value": "Pessoa A (casada em 2000)",
+        "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+        "source": "{{Infobox scientist\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+        "approvedForeignAlias": true
+      },
+      "expectedSource": "{{Infobox scientist\n|name=Pessoa de teste\n|spouse=Pessoa A (casada em 2000)\n}}\n'''Pessoa de teste''' é o nome usado neste exemplo local.\n\n{{Referências}}\n{{Portal3|Biografias}}\n",
+      "nativeTitle": "Infobox scientist",
+      "nativeOldid": 67624760,
+      "disposition": "exact-native-wrapper-preservation",
+      "originalForeignMigrationExpectationRetained": {
+        "expected": "{{casamento|tipo=m|()=pequeno|Pessoa A|2000}}",
+        "expectedField": "cônjuge",
+        "expectedInfobox": "Info/Cientista",
+        "approvedForeignAlias": true
+      },
+      "authority": "Exact local native wrapper and its argument bytes are preserved before any same-spelled foreign profile can apply."
+    }
+  ],
+  "limitations": [
+    "This is a source-backed expectation amendment for two exact historical UI-consistency fixtures. It is not runtime repair authority.",
+    "Original fixtures, IDs, options overrides and order remain unchanged. Ten conversion expectations remain unmodified.",
+    "The generated second-click payload is UI cumulative-diff consistency only, not an independent semantic oracle.",
+    "The observed root setup failed on the first native person fixture; the scientist case is source-predicted, not newly executed."
+  ]
+}

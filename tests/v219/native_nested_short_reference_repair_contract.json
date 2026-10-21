@@ -1,0 +1,106 @@
+{
+  "kind": "native-exact-nested-short-reference-wrapper-declared-repair",
+  "version": 1,
+  "rows": [
+    {
+      "label": "before",
+      "source": "<ref>{{sfn|Nome|2001}}</ref>\n\n{{Referências}}\n\n",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Teste+fict%C3%ADcio+de+preserva%C3%A7%C3%A3o+de+refer%C3%AAncia&text=%3Cref%3E%7B%7Bsfn%7CNome%7C2001%7D%7D%3C%2Fref%3E%0A%0A%7B%7BRefer%C3%AAncias%7D%7D%0A%0A&prop=text%7Cwikitext%7Cparsewarnings&disablelimitreport=1&disableeditsection=1&preview=1",
+      "method": "GET",
+      "authenticated": false,
+      "wikipediaWrites": 0,
+      "sourceSha256": "118556fada8278adf4fda1e0d5ed2c560fc20930a28dd92bc184063378ad8916",
+      "responseSha256": "0c14e046b56d48dbe6037b27b1dd5cea249510baf45aef019a9511d655118c3e",
+      "htmlSha256": "462413197e0eb6df064e79915819424d6af70764a5c741ccd04805e9cd504c04",
+      "exactSourceEcho": true,
+      "graph": {
+        "orderedTargets": [
+          {
+            "target": "cite_note-1",
+            "text": "↑ \n",
+            "backlinks": [
+              "#cite_ref-1"
+            ],
+            "rawNoteHtml": "<li id=\"cite&#95;note-1\"><span class=\"mw-cite-backlink\"><a href=\"#cite_ref-1\">↑</a></span> <span class=\"reference-text\"></span>\n</li>"
+          }
+        ],
+        "orderedCallTargets": [
+          "cite_note-1"
+        ],
+        "group": "",
+        "citationErrorPresent": true,
+        "nativeCiteErrorCount": 1
+      },
+      "parsewarnings": []
+    },
+    {
+      "label": "after",
+      "source": "{{sfn|Nome|2001}}\n\n{{Referências}}\n\n",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Teste+fict%C3%ADcio+de+preserva%C3%A7%C3%A3o+de+refer%C3%AAncia&text=%7B%7Bsfn%7CNome%7C2001%7D%7D%0A%0A%7B%7BRefer%C3%AAncias%7D%7D%0A%0A&prop=text%7Cwikitext%7Cparsewarnings&disablelimitreport=1&disableeditsection=1&preview=1",
+      "method": "GET",
+      "authenticated": false,
+      "wikipediaWrites": 0,
+      "sourceSha256": "4235ae2a651a5995e57f43f9e2cd1a0830805d4f966cf04237e1ad062366be09",
+      "responseSha256": "9ec2a2635a8ffc27ef1e6daaa7bbe66e34bf29b1d71439a37953d00a879f5cce",
+      "htmlSha256": "01ed2ddc1308ff0445306712313f8c79f1db817bcf02166e941f4defff4b9b81",
+      "exactSourceEcho": true,
+      "graph": {
+        "orderedTargets": [
+          {
+            "target": "cite_note-FOOTNOTENome2001-1",
+            "text": "↑ Nome 2001.\n",
+            "backlinks": [
+              "#cite_ref-FOOTNOTENome2001_1-0"
+            ],
+            "rawNoteHtml": "<li id=\"cite&#95;note-FOOTNOTENome2001-1\"><span class=\"mw-cite-backlink\"><a href=\"#cite_ref-FOOTNOTENome2001_1-0\">↑</a></span> <span class=\"reference-text\"><a href=\"#CITEREFNome2001\">Nome 2001</a>.</span>\n</li>"
+          }
+        ],
+        "orderedCallTargets": [
+          "cite_note-FOOTNOTENome2001-1"
+        ],
+        "group": "",
+        "citationErrorPresent": false,
+        "nativeCiteErrorCount": 0
+      },
+      "parsewarnings": []
+    }
+  ],
+  "orderedGraphEqual": false,
+  "meaning": "This declared repair removes an anonymous attribute-free outer ref whose entire body is one exact pinned native Sfn call that emits its own reference. It preserves every supplied argument; native rendering need not be equivalent because the original is structurally invalid.",
+  "nativeSources": [
+    {
+      "title": "Sfn",
+      "oldid": 67697954,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=67697954",
+      "sourceSha256": "fd949cebd40d9d19b1c88b9a5e745154ec32924ad88e12e4ef810e22f54a1437",
+      "role": "The literal native wrapper invokes Footnotes sfn."
+    },
+    {
+      "title": "Módulo:Footnotes",
+      "oldid": 52819217,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=52819217",
+      "sourceSha256": "8c827316ef063e2b5fe58890fdd8b914b46ea562c847391e19d4fcdf4836533d",
+      "role": "The supplied arguments are read on lines173–181; lines183–190 compute a default name and emit the native ref."
+    }
+  ],
+  "sourceRuleId": "b.wikify.19",
+  "originalWitnessSource": "<ref>{{sfn|Nome|2001}}</ref>",
+  "originalWitnessSourceSha256": "112ff35f531c572fd555cbd7e54f55bfbacaefabcbb22bc92782e52db69e68d4",
+  "observationSetup": "The same explicit native collector was appended to the before source to expose its note body. The after source is the exact independently specified whole-action endpoint.",
+  "nativeObservation": "With an explicit default collector, the wrapped source produces an empty anonymous note plus a native unused-definition Cite error for the generated inner name. Removing only the wrapper lets the unchanged Sfn call display the supplied Nome/2001 body without that Cite error. Each has one root visible call and backlink, but the identity and body intentionally differ.",
+  "repairClass": "declared-known-native-emitter-wrapper-repair",
+  "renderingEquivalenceClaim": false,
+  "minorEditAssumption": false,
+  "bounds": [
+    "exact verified native emitter identity",
+    "anonymous outer ref with no attributes",
+    "the entire trimmed outer body is one complete unchanged native call",
+    "every supplied helper argument byte retained",
+    "fresh source-bound wrapper-removal proof",
+    "literal/unknown/protected owners preserved",
+    "no external generated-name or cite-note identity dependency",
+    "no conflicting generated native reference name",
+    "default group in the captured witness; overrides need their own proved contract"
+  ],
+  "evidenceReaderCorrection": "The initial error reader omitted the current mw-ext-cite-error class. Exact previously captured HTML was re-read, changing only that factual error flag/count and its explanation. Native response/source/HTML bytes were not replaced and no request was repeated."
+}

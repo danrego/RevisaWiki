@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "suite": "gaia_argument_retention",
+  "argv": [
+    "<CORE>",
+    "<FULL>",
+    "--data=<DATA>",
+    "--fixtures=<DIR>/fixtures.json",
+    "--contract=<DIR>/CONTRACT.json",
+    "--recipe=<DIR>/ORIGIN.json",
+    "--source-helper=<ROOT>/src/v2_19/gaia_wrapper_safety.js",
+    "--output=<OUTPUT>",
+    "--execute-authorized-typed-gaia-controls"
+  ],
+  "expectedRows": 86,
+  "rowArrays": [
+    "rows"
+  ],
+  "fixtureFiles": [
+    "fixtures.json"
+  ],
+  "defaultRole": "own-argument-retention",
+  "typedCounts": {
+    "role": "own-argument-retention",
+    "sourceDescriptors": 43,
+    "bundleRows": 86,
+    "retention": 86,
+    "calculate": 0,
+    "preservationAudit": 54,
+    "safeComposition": 54,
+    "writerCredit": 0
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/SUITE.json",
+    "<DIR>/fixtures.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/SUITE.json",
+    "<ROOT>/src/v2_19/gaia_wrapper_safety.js"
+  ]
+}

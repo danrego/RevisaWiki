@@ -1,0 +1,61 @@
+{
+  "kind": "exact-source-pinned-native-cosmetic-extension",
+  "familiesAdded": {
+    "Nre": {
+      "profileOldid": 68628864,
+      "emitterOldid": 68628864,
+      "effectiveArguments": "Nested first-defined body1/reference/content/text/referência/conteúdo/texto; group/grupo and name/nome priority untouched. Only identical same-key repetitions and truly unknown empty keys may be removed."
+    },
+    "Sfn": {
+      "profileOldid": 67697954,
+      "moduleOldid": 52819217,
+      "effectiveArguments": "f.sfn reads indexed1..5 and finite lower-case controls. User BracketLeft is not read. Duplicate removal preserves every effective native argument and numeric slot binding."
+    }
+  },
+  "sources": [
+    {
+      "oldid": 68628864,
+      "sourceSha256": "1491f426cac41148ee380027ab41b2c358b796f301f7120ff5553322bd91515f",
+      "source": "<includeonly>{{#if:{{{name|{{{nome|}}}}}}\n |{{#tag:ref|{{{1|{{{reference|{{{content|{{{text|{{{referência|{{{conteúdo|{{{texto|}}}}}}}}}}}}}}}}}}}}}|name={{{name|{{{nome|}}}}}}|group={{#switch: {{{group|{{{grupo|}}}}}}\n    | nota\n    | upper-alpha\n    | upper-roman\n    | lower-alpha\n    | lower-greek\n    | lower-roman = {{{group|{{{group|}}}}}}\n    | #default = lower-alpha\n   }}\n }}\n |{{#tag:ref|{{{1|{{{reference|{{{content|{{{text|{{{referência|{{{conteúdo|{{{texto|}}}}}}}}}}}}}}}}}}}}}|group={{#switch: {{{group|{{{grupo|}}}}}}\n    | nota\n    | upper-alpha\n    | upper-roman\n    | lower-alpha\n    | lower-greek\n    | lower-roman = {{{group|{{{grupo|}}}}}}\n    | #default = lower-alpha\n   }}\n }}\n}}</includeonly><noinclude>\n{{documentação}}\n</noinclude>",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=68628864"
+    },
+    {
+      "oldid": 67697954,
+      "sourceSha256": "fd949cebd40d9d19b1c88b9a5e745154ec32924ad88e12e4ef810e22f54a1437",
+      "source": "<includeonly>{{#invoke:Footnotes|sfn}}</includeonly><noinclude>\n{{documentação}}\n</noinclude>",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=67697954"
+    },
+    {
+      "oldid": 52819217,
+      "sourceSha256": "8c827316ef063e2b5fe58890fdd8b914b46ea562c847391e19d4fcdf4836533d",
+      "source": "f = {\n    args_default = {\n        bracket_left = \"\",\n        bracket_right = \"\",\n        bracket_year_left = \"\",\n        bracket_year_right = \"\",\n        postscript = \"\",\n        page = \"\",\n        pages = \"\",\n        location = \"\",\n        page_sep = \", p.&nbsp;\",\n        pages_sep = \", pp.&nbsp;\",\n        ref = \"\",\n        P1 = \"\",\n        P2 = \"\",\n        P3 = \"\",\n        P4 = \"\",\n        P5 = \"\"\n    }\n}\n\nfunction trim( str )\n    if str == nil then\n        return nil\n    end\n    return str:match( \"^%s*(.-)%s*$\")\nend\n\nfunction core( args )\n    local result;\n--TODO: evaluate to make sure that the following if correctly handles the parameter set when there is no year\n    local ano\n\n    if args.P5 ~= \"\" then\n        result = args.P1 .. ' et al. ' .. args.bracket_year_left .. args.P5 ..\n        args.bracket_year_right\n    elseif args.P4 ~= \"\" then\n        result = args.P1 .. ', ' .. args.P2 .. ' &amp; ' .. args.P3 .. ' ' ..\n        args.bracket_year_left .. args.P4 .. args.bracket_year_right\n    elseif args.P3 ~= \"\" then\n        result = args.P1 .. ' &amp; ' .. args.P2 .. ' ' .. args.bracket_year_left ..\n        args.P3 .. args.bracket_year_right\n    elseif args.P2 ~= \"\" then\n        local ano = args.P2\n        -- converte possível hífen para traço\n        if string.match(ano, \"^[1-9]%d%d%d?[%-–][1-9]%d%d%d?%a?$\") then\n            ano = (\"%d–%d\"):format(string.match(args.P2, \"(%d%d%d%d?)%-(%d%d%d%d?)%a?\"))\n        end\n        local isDate\n        for _, tmp in ipairs {'%d%d', 'Século', 'século', 'AC', 'A%.C%.', 'AD', 'A%.D%.'\n            , 'aC', 'a%.C%.', 'dC', 'd%.C%.', 'DC', 'D%.C%.', 'n%.d%.', 'nd', 's%.d%.', 'sd'}\n        do\n            if ano:find(tmp) then\n                isDate = true\n                break\n            end\n        end\n\n        if isDate then\n            result = args.P1 .. ' ' .. args.bracket_year_left .. ano .. args.bracket_year_right\n        else\n            result = args.P1 .. ' &amp; ' .. args.P2 -- for the case where the last numbered parameter is a name and not a year and not no-date\n        end\n        args.P2 = ano\n    else\n        result = trim( args.P1 .. ' ' .. args.bracket_year_left .. args.P2 ..\n        args.bracket_year_right )\n    end\n\n    if ('.' == result:sub(-1)) and ('' == args.page) and ('' == args.pages) and ('' == args.location) then\n        args.postscript = '' -- prevent double periods when date is 'n.d.'\n    end\n\n    if args.ref ~= 'none' then\n        if args.ref ~= \"\" then\n            result = \"[[#\" .. mw.uri.anchorEncode(args.ref) .. \"|\" .. result .. \"]]\"\n        else\n            result = \"[[#CITEREF\" .. mw.uri.anchorEncode(args.P1 .. (ano or args.P2)\n                .. args.P3 .. args.P4 .. args.P5) .. \"|\" .. result .. \"]]\"\n        end\n    end\n\n    if args.page ~= \"\" then\n        result = result .. args.page_sep .. args.page\n    elseif args.pages ~= \"\" then\n        result = result .. args.pages_sep .. args.pages\n    end\n\n    if args.location ~= \"\" then\n        result = result .. \", \" .. args.location\n    end\n\n    result = args.bracket_left .. result .. args.bracket_right .. args.postscript\n    return result\nend\n\nfunction f.harvard_core( frame )\n    local args = {}\n    local pframe = frame:getParent()\n\n    args.bracket_left = pframe.args.BracketLeft or \"\"\n    args.bracket_right = pframe.args.BracketRight or \"\"\n    args.bracket_year_left = pframe.args.BracketYearLeft or \"\"\n    args.bracket_year_right = pframe.args.BracketYearRight or \"\"\n    args.postscript = pframe.args.Postscript or \"\"\n    if 'none' == args.postscript then\n        args.postscript = ''\n    end\n\n    args.page = pframe.args.Page or \"\"\n    args.pages = pframe.args.Pages or \"\"\n    args.location = pframe.args.Location or \"\"\n    args.page_sep = pframe.args.PageSep or \"\"\n    args.pages_sep = pframe.args.PagesSep or \"\"\n    args.ref = pframe.args.REF or \"{{{REF}}}\"\n    args.P1 = trim( pframe.args.P1 ) or \"\"\n    args.P2 = trim( pframe.args.P2 ) or \"\"\n    args.P3 = trim( pframe.args.P3 ) or \"\"\n    args.P4 = trim( pframe.args.P4 ) or \"\"\n    args.P5 = trim( pframe.args.P5 ) or \"\"\n\n    return core( args )\nend\n\nfunction f.harvard_citation( frame )\n    local args = f.args_default\n    pframe = frame:getParent()\n\n    args.bracket_left = \"(\"\n    args.bracket_right = \")\"\n    args.page = pframe.args.p or pframe.args.page or \"\"\n    args.pages = pframe.args.pp or pframe.args.pages or \"\"\n    args.location = pframe.args.loc or \"\"\n    args.ref = pframe.args.ref or pframe.args.Ref or \"\"\n    args.P1 = trim( pframe.args[1] ) or \"\"\n    args.P2 = trim( pframe.args[2] ) or \"\"\n    args.P3 = trim( pframe.args[3] ) or \"\"\n    args.P4 = trim( pframe.args[4] ) or \"\"\n    args.P5 = trim( pframe.args[5] ) or \"\"\n\n    return core( args )\nend\n\nfunction f.harvard_citation_no_bracket( frame )\n    local args = f.args_default\n    pframe = frame:getParent()\n\n    args.page = pframe.args.p or pframe.args.page or \"\"\n    args.pages = pframe.args.pp or pframe.args.pages or \"\"\n    args.location = pframe.args.loc or \"\"\n    args.ref = pframe.args.ref or pframe.args.Ref or \"\"\n    args.P1 = trim( pframe.args[1] ) or \"\"\n    args.P2 = trim( pframe.args[2] ) or \"\"\n    args.P3 = trim( pframe.args[3] ) or \"\"\n    args.P4 = trim( pframe.args[4] ) or \"\"\n    args.P5 = trim( pframe.args[5] ) or \"\"\n\n    return core( args )\nend\n\nfunction f.sfn( frame )\n    local args = f.args_default\n    for k, v in pairs( frame.args ) do -- for {{sfnp}}, override default with values provided in the #invoke:\n        args[k] = v\n    end\n\n    pframe = frame:getParent()\n\n    args.postscript = pframe.args.postscript or pframe.args.ps or \".\"\n    if 'none' == args.postscript then\n        args.postscript = ''\n    end\n    args.page = pframe.args.p or pframe.args.page or \"\"\n    args.pages = pframe.args.pp or pframe.args.pages or \"\"\n    args.location = pframe.args.loc or \"\"\n    args.ref = pframe.args.ref or pframe.args.Ref or \"\"\n    args.P1 = trim( pframe.args[1] ) or \"\"\n    args.P2 = trim( pframe.args[2] ) or \"\"\n    args.P3 = trim( pframe.args[3] ) or \"\"\n    args.P4 = trim( pframe.args[4] ) or \"\"\n    args.P5 = trim( pframe.args[5] ) or \"\"\n\n    local result = core( args );\n    local name = trim(pframe.args['name']) or trim(pframe.args['nome']) or\n        \"FOOTNOTE\" .. args.P1 .. args.P2 .. args.P3 .. args.P4 .. args.P5 ..\n        args.page .. args.pages .. args.location\n\n    local group = trim(pframe.args['group']) or trim(pframe.args['grupo'])\n\n    result = frame:extensionTag{ name = \"ref\", args = { name = name,  group = group}, content=result }\n\n    return result\nend\n\nreturn f",
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=52819217"
+    }
+  ],
+  "sourceSelectionBoundary": "Reuse unchanged COSV3 fresh plan/proof, exact original-header check before canonicalization, literal values only, hard/unknown owner and peer protection, no nonempty unknown fields or changed numeric positions.",
+  "nativeRenderObservations": "NATIVE_OBSERVATIONS.json",
+  "nativeSfnPairComplete": false,
+  "sourceProofSufficientForIgnoredBracketLeft": true,
+  "existingSixFamiliesUnchanged": true,
+  "frozenInputsModified": false,
+  "sourceOnlyCollectorComposition": {
+    "stage": "v219UncertainReferenceRetention",
+    "originalFirst": true,
+    "sourceProjection": "fresh v219BankProjection(before,cfg), then fresh v219NativeHelperCosmeticSource on that source endpoint",
+    "candidateNormalization": false,
+    "baseGuardUnchanged": true,
+    "associationGuardUnchanged": true,
+    "nativeCollectorPins": [
+      56151616,
+      63785697
+    ],
+    "retainedObligations": [
+      "uncertain ref identities and bytes",
+      "helper roles",
+      "collector group/style/count/order",
+      "bank ordered entries and bodies"
+    ],
+    "reason": "An independently proved disjoint native Reflist forwarding must compose with uncertain references whose identities remain byte-identical."
+  },
+  "scope": "Exact Nre68628864 and Sfn67697954/Footnotes52819217 argument preservation. Native Sfn supplemental before/after pair was incomplete after429; source-module proof supplies the ignored BracketLeft boundary, without claiming a completed native pair."
+}

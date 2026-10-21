@@ -1,0 +1,78 @@
+{
+  "kind": "native-exact-quoted-link-unclosed-italic-reference-move-pair",
+  "version": 1,
+  "rows": [
+    {
+      "label": "before",
+      "source": "<ref name=\"a\"/>\n\nTexto. ''literal''.\n\n<ref name=\"a\">Fonte A. [https://example.invalid/a \"Título literal\"]. ''Publicação literal, 2001</ref>\n{{Referências}}",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Teste+fict%C3%ADcio+de+preserva%C3%A7%C3%A3o+de+refer%C3%AAncia&text=%3Cref+name%3D%22a%22%2F%3E%0A%0ATexto.+%27%27literal%27%27.%0A%0A%3Cref+name%3D%22a%22%3EFonte+A.+%5Bhttps%3A%2F%2Fexample.invalid%2Fa+%22T%C3%ADtulo+literal%22%5D.+%27%27Publica%C3%A7%C3%A3o+literal%2C+2001%3C%2Fref%3E%0A%7B%7BRefer%C3%AAncias%7D%7D&prop=text%7Cwikitext%7Cparsewarnings&disablelimitreport=1&disableeditsection=1&preview=1",
+      "method": "GET",
+      "authenticated": false,
+      "wikipediaWrites": 0,
+      "sourceSha256": "85d89e4ee2db35355edc0cbbd7ddce1f4db06a4fb75b406988ce4cae9551417e",
+      "responseSha256": "b885bba9c83b90f12ddada8988e939162ecd821f9e32a9746f3fb6718d53a110",
+      "htmlSha256": "d395cfa3041f4e71daabf885d350c52e8594e4a0fe8910412d3174eac5487356",
+      "exactSourceEcho": true,
+      "graph": {
+        "orderedTargets": [
+          {
+            "target": "cite_note-a-1",
+            "text": "↑ a b Fonte A. \"Título literal\". Publicação literal, 2001\n",
+            "backlinks": [
+              "#cite_ref-a_1-0",
+              "#cite_ref-a_1-1"
+            ],
+            "rawNoteHtml": "<li id=\"cite&#95;note-a-1\"><span class=\"mw-cite-backlink\">↑ <sup><i><b><a href=\"#cite_ref-a_1-0\">a</a></b></i></sup> <sup><i><b><a href=\"#cite_ref-a_1-1\">b</a></b></i></sup></span> <span class=\"reference-text\">Fonte A. <a rel=\"nofollow\" class=\"external text\" href=\"https://example.invalid/a\">\"Título literal\"</a>. <i>Publicação literal, 2001</i></span>\n</li>"
+          }
+        ],
+        "orderedCallTargets": [
+          "cite_note-a-1",
+          "cite_note-a-1"
+        ],
+        "group": "",
+        "citationErrorPresent": false
+      },
+      "parsewarnings": []
+    },
+    {
+      "label": "after",
+      "source": "<ref name=\"a\">Fonte A. [https://example.invalid/a \"Título literal\"]. ''Publicação literal, 2001</ref>\n\nTexto. ''literal''.\n\n<ref name=\"a\"/>\n{{Referências}}",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&title=Teste+fict%C3%ADcio+de+preserva%C3%A7%C3%A3o+de+refer%C3%AAncia&text=%3Cref+name%3D%22a%22%3EFonte+A.+%5Bhttps%3A%2F%2Fexample.invalid%2Fa+%22T%C3%ADtulo+literal%22%5D.+%27%27Publica%C3%A7%C3%A3o+literal%2C+2001%3C%2Fref%3E%0A%0ATexto.+%27%27literal%27%27.%0A%0A%3Cref+name%3D%22a%22%2F%3E%0A%7B%7BRefer%C3%AAncias%7D%7D&prop=text%7Cwikitext%7Cparsewarnings&disablelimitreport=1&disableeditsection=1&preview=1",
+      "method": "GET",
+      "authenticated": false,
+      "wikipediaWrites": 0,
+      "sourceSha256": "d725ebfb85494e00465a23e80883a01efa2df4d209151e1a390338fecb995575",
+      "responseSha256": "5e0dd7e25c7cc93002f533b00c848b2f3681e6d83d6fb30c359c445e46a535d3",
+      "htmlSha256": "d395cfa3041f4e71daabf885d350c52e8594e4a0fe8910412d3174eac5487356",
+      "exactSourceEcho": true,
+      "graph": {
+        "orderedTargets": [
+          {
+            "target": "cite_note-a-1",
+            "text": "↑ a b Fonte A. \"Título literal\". Publicação literal, 2001\n",
+            "backlinks": [
+              "#cite_ref-a_1-0",
+              "#cite_ref-a_1-1"
+            ],
+            "rawNoteHtml": "<li id=\"cite&#95;note-a-1\"><span class=\"mw-cite-backlink\">↑ <sup><i><b><a href=\"#cite_ref-a_1-0\">a</a></b></i></sup> <sup><i><b><a href=\"#cite_ref-a_1-1\">b</a></b></i></sup></span> <span class=\"reference-text\">Fonte A. <a rel=\"nofollow\" class=\"external text\" href=\"https://example.invalid/a\">\"Título literal\"</a>. <i>Publicação literal, 2001</i></span>\n</li>"
+          }
+        ],
+        "orderedCallTargets": [
+          "cite_note-a-1",
+          "cite_note-a-1"
+        ],
+        "group": "",
+        "citationErrorPresent": false
+      },
+      "parsewarnings": []
+    }
+  ],
+  "orderedGraphEqual": true,
+  "meaning": "Only this exact source pair is checked: the complete reference body contains a quoted external-link label and unclosed italic marker, and remains byte-identical while moving to the first same-name call. No markup is invented or normalized.",
+  "fullNativeHtmlEqual": true,
+  "rawReferenceMarkers": [
+    2,
+    2
+  ],
+  "scopeBoundary": "The complete supplied reference body and ordered two-use native graph are identical for this exact pair. This specifically demonstrates a recovery boundary for an independent source parser. It is not a waiver for changed bodies, swapped associations, changed names/groups, missing collectors or arbitrary malformed markup."
+}

@@ -1,0 +1,280 @@
+{
+  "kind": "read-only-bank-association-guard-controls-not-positive-writers",
+  "rows": [
+    {
+      "id": "exact-primary-single-bank",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "expectedGuardAccepts": true,
+      "obligation": "fresh one collector, exact selected bank/group/style and unchanged outside event order"
+    },
+    {
+      "id": "changed-group",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=lower-alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "d1039ad3e95ffa5c8e24263cf2d040bfeb25f26fef7af548df52386dab11084b",
+      "expectedGuardAccepts": false,
+      "obligation": "same raw bank cannot justify selecting another reference group"
+    },
+    {
+      "id": "removed-group",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "3e20099b2b7c8ce56f9a66ed36349c12ae23d6cd6297191ed11012c8c06f0b00",
+      "expectedGuardAccepts": false,
+      "obligation": "explicit source group must not disappear"
+    },
+    {
+      "id": "wrong-style",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=decimal|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "d9ca863c75a4da952d1030904b1b1197ba538b5a1ee242440747fc269c9a8270",
+      "expectedGuardAccepts": false,
+      "obligation": "same raw bank cannot justify changing source marker style"
+    },
+    {
+      "id": "removed-style",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "ef9a4e38b3034b656d752d52a5d6bb6d30f3e7b479367cf18de98ac580dabf9c",
+      "expectedGuardAccepts": false,
+      "obligation": "custom source style must not inherit a different native default"
+    },
+    {
+      "id": "added-heading",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=2}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "197e71deba3394b559d821b8642ac4f6eac5d6bf3b4429ab84596d4655863d3d",
+      "expectedGuardAccepts": false,
+      "obligation": "headless source must not gain heading in this producer transaction"
+    },
+    {
+      "id": "bank-author-text",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte modificada, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "9bc5ccb1416d7a73b773135a07047f8e40c2d465ef9281ff83b1d7ef449b5596",
+      "expectedGuardAccepts": false,
+      "obligation": "bank text byte retention"
+    },
+    {
+      "id": "bank-year",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2002. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "ed639217a87f6def6673ac16d4a1e6b6a564b30fb69c0b8c81324606579b26f2",
+      "expectedGuardAccepts": false,
+      "obligation": "bank year byte retention"
+    },
+    {
+      "id": "bank-url",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/outra</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "74d42d9d08ca537c70389a5b084db56d07cf5f8c2cfdcff61b75c5bc19636e86",
+      "expectedGuardAccepts": false,
+      "obligation": "bank URL byte retention"
+    },
+    {
+      "id": "bank-name",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-outra\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "8236a56186226b28aaeb481dec012ecff2cf1ae9f2ff6e06c704f11b6dcbac91",
+      "expectedGuardAccepts": false,
+      "obligation": "reference definition identity retention"
+    },
+    {
+      "id": "bank-explicit-group",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\" group=\"outro\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "b7e5e52efe1dc635635d693d3f3c4c7119ca3917b986358cb6dbe37d4ccd5c91",
+      "expectedGuardAccepts": false,
+      "obligation": "explicit ref group changes cannot be erased by collector inheritance"
+    },
+    {
+      "id": "outside-prior-name",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"outra-primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "dd6643a793dc4c1158297f346299653ea586112997032f651639352697768877",
+      "expectedGuardAccepts": false,
+      "obligation": "outside reference names unchanged"
+    },
+    {
+      "id": "outside-prior-body",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior modificada.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "7aff6e47598dfe6eadd1e4c68b798ea9e7e44594582aec85e51f42de6e60a687",
+      "expectedGuardAccepts": false,
+      "obligation": "outside reference bodies unchanged"
+    },
+    {
+      "id": "outside-tail-name",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"outra-posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "a3eaf0ee0fa9efa264f9e1759dfeccbc01af294a73d4cef3e56f03ec83c7e148",
+      "expectedGuardAccepts": false,
+      "obligation": "outside reference names unchanged"
+    },
+    {
+      "id": "collector-moved-before-prior-ref",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "2fce180c54c32b4e558eb73d5d3e4e36be77b68e84e027f4150fa6da1ffbdbe7",
+      "expectedGuardAccepts": false,
+      "obligation": "collector event remains at the same ordered reference boundary"
+    },
+    {
+      "id": "collector-moved-after-following-ref",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}",
+      "candidateSha256": "f24e4237e6b9de5d7371b996e13679ad5dcffba29f6d7caa3eb35e0b32ea5975",
+      "expectedGuardAccepts": false,
+      "obligation": "collector event remains at the same ordered reference boundary"
+    },
+    {
+      "id": "collector-duplicated",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "8ec5ce89f46037c1ebd4589db0c12dae4f63f20561bb413ababc179efab6f23b",
+      "expectedGuardAccepts": false,
+      "obligation": "one source collector must not become two"
+    },
+    {
+      "id": "collector-removed",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "feb2f093b0f817b11bb5c6852c4eb3e583ec522bc1a938cb4bd2b1d6b016b051",
+      "expectedGuardAccepts": false,
+      "obligation": "source collector must not disappear"
+    },
+    {
+      "id": "dual-Notas-substitution",
+      "source": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{modèle:Références|groupe=alpha|références=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "sourceSha256": "ff3e209e94de79e45302a413e21df18a52b5d63dc7f154a95ffba6c94cd67935",
+      "expectedApprovedEndpoint": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Referências|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|estilolista=lower-alpha|nível=0}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "expectedApprovedEndpointSha256": "8fbca751a693e276ecba36afcbcbd63acf9e45caf875e918413e53dd1f35ac93",
+      "candidate": "Texto anterior.<ref name=\"primeira\" group=\"alpha\">Fonte anterior.</ref>\n{{Notas|grupo=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>}}\nTexto posterior.<ref name=\"posterior\" group=\"alpha\">Fonte posterior.</ref>",
+      "candidateSha256": "41a3284462b3b45815b552995fbcf31e1db33a8b9b1f0f57cf7163facb4d1fa9",
+      "expectedGuardAccepts": false,
+      "obligation": "native Notas59102402 always invokes two collectors and is not a single-list equivalent"
+    },
+    {
+      "id": "native-header-exact",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "candidateSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "expectedGuardAccepts": true,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    },
+    {
+      "id": "native-header-activates-ignored-group",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |grupo=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "candidateSha256": "6ea8f6757efeb23c79dc0b9fafe29dc145e06fffda0f43096e5750689f68f650",
+      "expectedGuardAccepts": false,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    },
+    {
+      "id": "native-header-activates-ignored-bank",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |groupe=alpha|refs=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "candidateSha256": "d8a026121a04b82069d31adbaef0691566d77d8d4f5f1e3222e3b4084fd7ba0d",
+      "expectedGuardAccepts": false,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    },
+    {
+      "id": "native-header-drops-latent-bank",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |groupe=alpha|grupo=|refs=|1=Título literal}}",
+      "candidateSha256": "159ef72d296a4f0dade0306e24b5e17fd24a06b29bb997f7a6ea57d8db217cd7",
+      "expectedGuardAccepts": false,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    },
+    {
+      "id": "native-header-drops-explicit-blank",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|refs=|1=Título literal}}",
+      "candidateSha256": "adbd22bad280f28c273ef3ac19d436bcc042f826cda10eefb1418ed2f9fc25c5",
+      "expectedGuardAccepts": false,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    },
+    {
+      "id": "native-header-changes-position",
+      "source": "{{Template:Références |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "sourceSha256": "7c8b077e81bebf28f215c9b33e19da32f6d17163cb800647b1d49a6c0f6f779c",
+      "expectedApprovedEndpoint": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|1=Título literal}}",
+      "expectedApprovedEndpointSha256": "a97203e00f0df443aea1e9e2e7ca806d7af6c57adb5e2d28c46e4bbff0898294",
+      "candidate": "{{Referências |groupe=alpha|referencias=<ref name=\"fonte-banco\">Fonte literal, 2001. https://example.invalid/fonte</ref>|grupo=|refs=|2=Título literal}}",
+      "candidateSha256": "9ad96e5d18d24b47517eb6d3c17f3a31564fbadc2eb9228f03fc0c9e1212c764",
+      "expectedGuardAccepts": false,
+      "obligation": "exact native redirect has the target interface; every original argument byte retains its binding"
+    }
+  ]
+}

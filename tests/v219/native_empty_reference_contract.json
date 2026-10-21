@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "declared-invalid-empty-reference-removal",
+  "anonymous": true,
+  "wikipediaWrites": 0,
+  "primaryRendering": {
+    "url": "https://pt.wikipedia.org/w/api.php?action=parse&text=%3D%3D+Antes+%3D%3D%0ATexto.%3Cref+%2F%3E+Outra+frase.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Depois+%3D%3D%0ATexto.+Outra+frase.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E&contentmodel=wikitext&title=Tema+fict%C3%ADcio&prop=text%7Cwikitext%7Cparsewarnings&format=json&formatversion=2&disablelimitreport=1&disableeditsection=1",
+    "source": "== Antes ==\nTexto.<ref /> Outra frase.<ref>Fonte literal.</ref>\n<references/>\n== Depois ==\nTexto. Outra frase.<ref>Fonte literal.</ref>\n<references/>",
+    "responseSha256": "a4cdd9acad1ac846b49fa36606ccf4301993774c5f339be0c0d7ff236752343a"
+  },
+  "observed": "Self-closing, paired empty and paired ASCII-whitespace unnamed refs emit the native no-content error and supply no reference body. The exact paired cleanup retains the separately supplied valid source and marker/list. Comment-only, named and grouped refs remain distinct controls.",
+  "classification": "declared-invalid-syntax-cleanup; original HTML not equivalent",
+  "scope": "Complete literal attribute-free self-closing or paired ref with no supplied body except ASCII space, tab, CR or LF, outside native literal and unknown template owners. Every remaining ordered binding, definition, group, emitted list and pending marker must match the exact target.",
+  "negativeControls": [
+    "Any name/group/follow/details or unknown attribute",
+    "Any body content, including comments; unclosed opening, or body outside the exact ASCII-whitespace empty forms",
+    "Any missing or changed valid reference, name, group, order, or body",
+    "Unknown/native literal owner"
+  ],
+  "additionalPrimaryRendering": [
+    {
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&text=%3D%3D+Paired+empty+%3D%3D%0ATexto.%3Cref%3E%3C%2Fref%3E+Outra+frase.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Removed+empty+%3D%3D%0ATexto.+Outra+frase.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Alias+before+%3D%3D%0ATexto.%3Cref%3Ehttps%3A%2F%2Fexample.invalid%2Ffonte%7B%7BDead+link%7Cdate%3DJanuary+2001%7Coutro%3Dvalor+literal%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Alias+after+%3D%3D%0ATexto.%3Cref%3Ehttps%3A%2F%2Fexample.invalid%2Ffonte%7B%7BLiga%C3%A7%C3%A3o+inativa%7Cdate%3DJanuary+2001%7Coutro%3Dvalor+literal%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E&contentmodel=wikitext&title=Tema+fict%C3%ADcio&prop=text%7Cwikitext%7Cparsewarnings&format=json&formatversion=2&disablelimitreport=1&disableeditsection=1",
+      "sourceSha256": "5edbdf5d5f7fd07e3724c5152d3a18447d988a6e23503bd8179b099e680a4c8a",
+      "responseSha256": "d90a020368cccb651b92954a8cc78ec274350a659a670582a709e067a3417389",
+      "sourceEchoVerified": true
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&text=%3D%3D+Space+%3D%3D%0ATexto.%3Cref%3E+%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Newline+%3D%3D%0ATexto.%3Cref%3E%0A%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Tabs+%3D%3D%0ATexto.%3Cref%3E%09+%0A%09%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Comment+control+%3D%3D%0ATexto.%3Cref%3E%3C%21--literal--%3E%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Named+control+%3D%3D%0ATexto.%3Cref+name%3D%22origem%22%3E%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E%0A%3D%3D+Group+control+%3D%3D%0ATexto.%3Cref+group%3D%22nota%22%3E%3C%2Fref%3E+Outro.%3Cref%3EFonte+literal.%3C%2Fref%3E%0A%3Creferences%2F%3E&contentmodel=wikitext&title=Tema+fict%C3%ADcio&prop=text%7Cwikitext%7Cparsewarnings&format=json&formatversion=2&disablelimitreport=1&disableeditsection=1",
+      "sourceSha256": "5898c0b7048b0679fde67bd1520da988f72a4024cf78b2c4ae00626490a8c52c",
+      "responseSha256": "5e88c1e9455358eb7703896d6afc77316bd970fd37951bc95c8b78e65b9622b3",
+      "sourceEchoVerified": true
+    }
+  ]
+}

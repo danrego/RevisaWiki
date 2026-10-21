@@ -1,0 +1,28 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),root=path.resolve(__dirname,'../..'),sha=v=>crypto.createHash('sha256').update(v).digest('hex'),files=process.argv.slice(2).map(f=>path.resolve(f));
+if(!files.length)files.push(...['RevisaWiki_v2_19_0.js','RevisaWiki_v2_19_0_completo.js'].map(f=>path.join(root,'dist/2.19.0',f)));
+const report={kind:'crossing-quotation-reference-owner-boundaries',status:'passed',runnerSha256:sha(fs.readFileSync(__filename)),bundles:[],cases:[],checks:0,failures:[],networkRequests:0,wikipediaWrites:0},eq=(a,b,m)=>{report.checks++;assert.deepEqual(a,b,m);},ok=(v,m)=>{report.checks++;assert.ok(v,m);};
+function test(bundle,id,source,expected,cfg,fn){const row={bundle,id,sourceSha256:sha(source),expectedEndpointSha256:sha(expected),optionsSha256:sha(JSON.stringify(cfg)),scenarioSha256:sha(JSON.stringify({source,expected,cfg})),intentSha256:sha(id)};try{fn(row);row.status='passed';}catch(error){row.status='failed';report.status='failed';report.failures.push({bundle,id,message:error.message});}report.cases.push(row);}
+for(const file of files){
+ const api=require(file),bundle=path.basename(file),cfg={...Object.fromEntries(Object.keys(api.defaults).map(k=>[k,false])),namespaceNumber:0,pageTitle:'Tema fictício',contentModel:'wikitext',bareReferences:true},calculate=s=>api.calculate({kind:'adjust',source:s,options:cfg});report.bundles.push({bundle,runtimeSha256:sha(fs.readFileSync(file)),version:api.version});
+ for(const [opening,closing]of [['“','”'],['«','»'],['"','"']])for(const eol of ['\n','\r\n'])for(const attr of ['', ' name="fonte"',' group="nota"']){
+  const ref='<ref'+attr+'>[https://example.org/fonte '+opening+'Título literal'+closing+']</ref>',source='Texto com '+opening+'uma abertura que atravessa uma fronteira.'+eol+eol+'Outra frase.'+ref;
+  // ASCII quotation marks in complete opening-tag attributes close the
+  // preceding prose quote before the reference body. They do not establish
+  // the body-crossing condition represented by the curly/guillemet cases.
+  const attributeQuote=opening==='"'&&attr!=='',expected=attributeQuote?source.replace(ref,'<ref'+attr+'>{{Citar web|url=https://example.org/fonte|título='+opening+'Título literal'+closing+'}}</ref>'):source;
+  test(bundle,'quotation-closes-inside-reference-'+sha(source).slice(0,18),source,expected,cfg,row=>{const ranges=api.v219QuotedTemplateRanges(source),start=source.indexOf('<ref');eq(ranges.some(r=>r.start<=start&&r.end>=start+ref.length),!attributeQuote,'Only an actual body-crossing quotation protects the complete reference, not punctuation inside a complete tag attribute');const result=calculate(source);eq(result.text,expected,'The native reference body boundary controls conversion without manufacturing syntax across a code quotation');eq(calculate(result.text).text,expected,'The separately specified body or attribute endpoint is stable');eq(api.preservationAudit(source,result.text,cfg),[],'No source code is manufactured across the opaque quotation boundary');row.actualEndpointSha256=sha(result.text);row.appliedIds=result.changes.map(x=>x.id);});
+ }
+ for(const [opening,closing]of [['“','”'],['«','»'],['"','"']])for(const eol of ['\n','\r\n']){
+  // The native source reader deliberately bounds a quote inside an external
+  // reference label. Its isolated punctuation is not a cross-object code
+  // quotation. The initial failed pilot incorrectly demanded such a range.
+  const ref='<ref>[https://example.org/fonte '+opening+'Título literal]</ref>',source='Texto literal.'+ref+eol+'Fim da citação'+closing,expected='Texto literal.<ref>{{Citar web|url=https://example.org/fonte|título='+opening+'Título literal}}</ref>'+eol+'Fim da citação'+closing;
+  test(bundle,'reference-owned-unpaired-title-punctuation-'+sha(source).slice(0,18),source,expected,cfg,row=>{const result=calculate(source);eq(result.text,expected,'The already bounded bare-reference rule preserves all supplied title punctuation without inventing a closing quote');eq(calculate(result.text).text,expected,'The native endpoint has no second-click syntax work');eq(api.preservationAudit(source,expected,cfg),[],'No source reference or metadata punctuation is lost');eq(api.safeComposition(source,expected,cfg),'','The native reference-owned punctuation remains syntactically bounded');row.actualEndpointSha256=sha(result.text);row.appliedIds=result.changes.map(x=>x.id);});
+ }
+ for(const [opening,closing]of [['“','”'],['«','»'],['"','"']])for(const eol of ['\n','\r\n']){
+  const title=opening+'Título literal'+closing,ref='<ref>[https://example.org/fonte '+title+']</ref>',source='Texto literal.'+ref+eol,expected='Texto literal.<ref>{{Citar web|url=https://example.org/fonte|título='+title+'}}</ref>'+eol;
+  test(bundle,'contained-title-quotation-'+sha(source).slice(0,18),source,expected,cfg,row=>{const start=source.indexOf('<ref'),ranges=api.v219QuotedTemplateRanges(source);eq(ranges.some(r=>r.start<=start&&r.end>=start+ref.length),false,'A complete quotation inside reference metadata does not protect the unrelated wrapper');const result=calculate(source);eq(result.text,expected,'The existing independently bounded bare-reference repair remains available');eq(calculate(expected).text,expected,'The repaired native citation is stable');eq(api.preservationAudit(source,expected,cfg),[],'The supplied title punctuation and URL are retained');row.actualEndpointSha256=sha(result.text);row.appliedIds=result.changes.map(x=>x.id);});
+ }
+}
+report.caseCount=report.cases.length;process.stdout.write(JSON.stringify(report,null,2)+'\n');if(report.status!=='passed')process.exitCode=1;

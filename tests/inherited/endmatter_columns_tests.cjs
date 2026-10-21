@@ -5,6 +5,17 @@ const fs = require('node:fs');
 const path = require('node:path');
 const apiPath = qa.apiPath;
 const api = require(apiPath);
+
+// Additive causal metadata is authored from the supplied source/options/expected.
+// It never changes a product option, fixture endpoint or proof.
+function cc9Pair(report,id,option,role,source,onOptions,offOptions,onExpected,offExpected,proof=null){
+ const canon=v=>Array.isArray(v)?v.map(canon):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,canon(v[k])])):v;
+ const h=v=>require('node:crypto').createHash('sha256').update(typeof v==='string'?v:JSON.stringify(canon(v))).digest('hex');
+ const keys=[...new Set([...Object.keys(onOptions),...Object.keys(offOptions)])].sort(),changed=keys.filter(k=>JSON.stringify(canon(onOptions[k]))!==JSON.stringify(canon(offOptions[k])));
+ require('node:assert/strict').deepEqual(changed,[option]);require('node:assert/strict').equal(onOptions[option],true);require('node:assert/strict').equal(offOptions[option],false);
+ (report.causalControls??=[]).push({schemaVersion:1,id,option,role,sourceSha256:h(source),onOptionsSnapshot:canon(onOptions),offOptionsSnapshot:canon(offOptions),onOptionsSha256:h(onOptions),offOptionsSha256:h(offOptions),onExpectedSha256:h(onExpected),offExpectedSha256:h(offExpected),proofSha256:proof?h(proof):null,identicalProofAcrossPair:!!proof,writerPositiveCredit:0});
+}
+
 let passed = 0;
 const failures = [];
 const results = [];
@@ -93,6 +104,12 @@ test('legacy manual external-column proposal remains usable when auto mode disab
     const result = api.cleanup(source, {endMatterColumns: false}); assert.equal(result.text, source);
     const proposal = result.suggestions.find(p => p.id.startsWith('external-columns')); assert(proposal);
     const applied = api.applySuggestion(source, proposal, 0); assert(applied.includes(open)); assert(applied.includes(close + '\n{{Portal3'));
+});
+for(const option of ['externalLinkColumns','review'])test('cc9-manual-external-columns-single-off-'+option,()=>{
+ const source='== Ligações externas ==\n'+sixLinks+'{{Portal3|Brasil}}',onOptions={...api.defaults,endMatterColumns:false},offOptions={...onOptions,[option]:false},expected='== Ligações externas ==\n'+open+'\n'+sixLinks.replace(/\n$/,'')+'\n'+close+'\n{{Portal3|Brasil}}';
+ const on=api.calculate({kind:'adjust',source,options:onOptions}),off=api.calculate({kind:'adjust',source,options:offOptions}),proposal=on.suggestions.find(p=>p.id.startsWith('external-columns'));
+ assert.equal(on.text,source);assert.equal(off.text,source);assert(proposal);assert.equal(api.applySuggestion(source,proposal,0),expected);assert.equal(off.suggestions.some(p=>p.id.startsWith('external-columns')),false);
+ assert.equal(onOptions.endMatterColumns,false);assert.equal(offOptions.endMatterColumns,false);const causal={};cc9Pair(causal,'manual-external-columns-'+option,option,'actual-optional-proposal-and-explicit-choice',source,onOptions,offOptions,expected,source);results.push({name:'cc9-'+option+'-causal-binding',passed:true,...causal});
 });
 test('ignored native column parameter removed automatically, short lists stay uncolumned', () => {
     for (const source of ['{{Referências|col=3}}', '{{Referências|col=2|colwidth=30em}}']) {

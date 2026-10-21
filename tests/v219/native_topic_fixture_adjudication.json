@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "kind": "new-fixture-primary-adjudication-not-historical-pass",
+  "retainedFailedDraft": "AR",
+  "retainedFailedRunnerSha256": "be9a713908eb3dcc06379ad8d6fd13d77df6c26fa8c02ff7572b919d061b80d5",
+  "correctedRunnerSha256": "0cb06e0a1c70269f577885e8921933af80f4dac4855b49b3808965d57fb4bd4b",
+  "primaryResponseSha256": "8caf7ca4460a32f92a492af77dcb1c2c6a1277b3c3d8026bb89f7770ce7cbf19",
+  "primaryRole": "Taxobox72742269 invokes Info/Taxonomia/core and forwards regnum fallback reino literally. Speciesbox67142015 invokes Info/Taxonomia/core. Automatictaxobox64110476 invokes Automatedtaxobox. No unknown argument authorizes a narrower kingdom.",
+  "rows": [
+    {
+      "nativeTemplate": "Taxobox",
+      "nativeOldid": 72742269,
+      "sourceFields": "|campo_desconhecido=Animalia",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Taxobox",
+      "nativeOldid": 72742269,
+      "sourceFields": "|reino=Animalia|reino=Plantae",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Taxobox",
+      "nativeOldid": 72742269,
+      "sourceFields": "|reino={{Reino}}",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Taxobox",
+      "nativeOldid": 72742269,
+      "sourceFields": "|reino=Animalia|name=<code>Exemplo</code>",
+      "expectedPortals": [
+        "Biologia",
+        "Zoologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Taxobox",
+      "nativeOldid": 72742269,
+      "sourceFields": "|1=Animalia",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Speciesbox",
+      "nativeOldid": 67142015,
+      "sourceFields": "|reino=Animalia",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    },
+    {
+      "nativeTemplate": "Automatic taxobox",
+      "nativeOldid": 64110476,
+      "sourceFields": "|taxon=Genus ficticius",
+      "expectedPortals": [
+        "Biologia"
+      ],
+      "reason": "The exact native taxon wrapper independently establishes generic biology. Only a unique native reino=Animalia establishes zoology; unrelated literal name markup does not supply or change the kingdom."
+    }
+  ],
+  "unchangedHistoricalAssertions": true,
+  "noRuntimeGuardChanges": true
+}

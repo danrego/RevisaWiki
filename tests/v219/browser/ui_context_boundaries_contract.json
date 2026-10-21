@@ -1,0 +1,23 @@
+{
+  "kind": "native-ui-context-boundary-regression-provenance",
+  "scenarios": 36,
+  "priorPassedRuntime": "CE",
+  "priorRunnerBodies": [
+    {
+      "file": "talk_context_confirmed_probe.cjs",
+      "sha256": "2ccc779edcc76ec73b17ae8a420e94028bdd394777dc4c32e14498ebc1c179c4"
+    },
+    {
+      "file": "talk_second_await_confirmed_probe.cjs",
+      "sha256": "d3dfeb40894cd555d89cf77905df12c545fe6d7d0f6877c56e17008e2000026b"
+    },
+    {
+      "file": "talk_registered_rollback_probe.cjs",
+      "sha256": "4663101d47cb0c47c8c7b188a0a544d070538173be574e1093346c91a55fc39e"
+    }
+  ],
+  "assertionPolicy": "The same 20 first-query/reply/Undo, 12 second-query/fresh-proof and 4 actual registered-adapter rollback case bodies are combined without changing their expected source, summary or minor properties. Only fixture response delivery and one-time registered adapter faults are controlled. No production UI function is replaced.",
+  "scope": "Actual local production core/full with fictional MediaWiki fixture, exact source/revision/page identity, native browser transport and owned-session cleanup. This does not claim a live production-server editor session.",
+  "wikipediaWrites": 0,
+  "screenshots": 0
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "source-proven-publication-month-year-repair",
+  "primarySources": [
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=72349758", "contract": "The isolated original date declarations 9 and 67 through 69 explicitly interpret full month words with a supplied year. Their useful month-precision endpoints are checked separately from their unsafe alternatives."},
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=73016847", "contract": "The native configuration defines Date, Year and OrigYear roles. Month aliases mes, mês, month and acessomesdia are explicitly obsolete. The latter participates as a collision blocker and is never a repair source."},
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=72936771", "contract": "The native CS1 renderer reads its publication Date and Year through the common native argument configuration. No active Month use is established. This repair makes supplied obsolete month metadata visible and does not claim render equivalence to the ignored source field."},
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=71860752", "contract": "The native whitelist independently accepts mes, mês and month. Whitelist acceptance is not treated as proof of an active renderer role."}
+  ],
+  "scalarGrammar": "A complete four-digit year followed by one complete English month word. Month precision is retained. No day is invented.",
+  "pairGrammar": "Exactly one native Year argument and one obsolete mes/mês/month argument, with a full English or Portuguese month or two increasing full month words separated by a slash. No other publication-date/year/original-date, day, blank alias or dynamic component may compete.",
+  "bounds": [
+    "Only the five exact pinned native CS1 families and their independently verified local redirects participate.",
+    "Unknown, reversed or repeated months, three-month spans, numeric unknown-day markers, extra date roles and literal markup are preserved.",
+    "Every operation is nonminor and uses the existing citation-date change label.",
+    "Source field/value edits and removal of the obsolete month argument are one source-bound transaction. Their exact supplied year, month, order and association remain independently auditable."
+  ],
+  "wikipediaWrites": 0
+}

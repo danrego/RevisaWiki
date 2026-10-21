@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "kind": "anonymous-native-media-container-equivalence",
+  "status": "passed",
+  "api": "https://pt.wikipedia.org/w/api.php",
+  "method": "GET",
+  "responseSha256": "7da83bca648a61337726f96e6bf7fa2b0d8ff96e82252e4aab01a84de50b5986",
+  "comparison": "Visible text, link targets/classes, emphasis state, image src/alt/width/height/class. Wrapper alias roles are separately proved by exact native redirect sources.",
+  "samples": [
+    {
+      "id": "nested-html-media",
+      "source": "[[Imagem:Example.jpg|thumb|<ul><li>[[Ficheiro:Example.jpg|16px]] Texto literal</li></ul>]]",
+      "expected": "[[Imagem:Example.jpg|thumb|<ul><li>[[Imagem:Example.jpg|16px]] Texto literal</li></ul>]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "125a21e2ace741a9a1fe059e7027a52e7c4f492fc6327ab5fc765d333a646a2f",
+      "targetSemanticsSha256": "125a21e2ace741a9a1fe059e7027a52e7c4f492fc6327ab5fc765d333a646a2f"
+    },
+    {
+      "id": "explicit-colon-label",
+      "source": "[[:Image:Example.jpg|Rótulo literal]]",
+      "expected": "[[:Ficheiro:Example.jpg|Rótulo literal]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "e1bee8cc65dd86d860028be47d927af06a69051849cc7171b9366208eeb5eea0",
+      "targetSemanticsSha256": "e1bee8cc65dd86d860028be47d927af06a69051849cc7171b9366208eeb5eea0"
+    },
+    {
+      "id": "implicit-colon-label",
+      "source": "[[:Image:Example.jpg]]",
+      "expected": "[[:Ficheiro:Example.jpg]]",
+      "expectedEquivalence": false,
+      "passed": true,
+      "sourceSemanticsSha256": "2c666f8867a93d363a7ca939dfd89f54bcc9f65ad8cd97b7a76d99f99a182ff0",
+      "targetSemanticsSha256": "6e344f401fa9345225bdc3f32840270fdfb76f49aff6f58baa5c28cb9e5db471"
+    },
+    {
+      "id": "ref-wrapper-in-caption",
+      "source": "[[Imagem:Example.jpg|thumb|{{refbegin|2}}Texto literal.{{refend}}]]",
+      "expected": "[[Imagem:Example.jpg|thumb|{{InícioRef|2}}Texto literal.{{-fim}}]]",
+      "expectedEquivalence": true,
+      "passed": true,
+      "sourceSemanticsSha256": "192bf286def4f5d2b7db14d057a0b4c45c3d2161bb7e2f0bfb9fe9cad0edb6c9",
+      "targetSemanticsSha256": "192bf286def4f5d2b7db14d057a0b4c45c3d2161bb7e2f0bfb9fe9cad0edb6c9"
+    }
+  ],
+  "wikipediaWrites": 0,
+  "imageDownloads": 0
+}

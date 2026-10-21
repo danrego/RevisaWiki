@@ -1,0 +1,43 @@
+{
+  "kind": "native-citation-url-state-role-contract",
+  "status": "proved-preservation-boundary",
+  "sources": [
+    {
+      "oldid": 73016847,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "sha256": "4924bb13ea17c8d105e5132b9ef06dc438a6280d5d940bbf199aeb62e2cc8099"
+    },
+    {
+      "oldid": 72936771,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "sha256": "54a85c535d5788163ee690d9d502c0d3cce04b4d308f7da3f6b515c432c11e27"
+    }
+  ],
+  "roles": {
+    "UrlStatus": [
+      "url-status"
+    ],
+    "DeadURL": [
+      "datali",
+      "li",
+      "ligação inativa",
+      "ligação inactiva",
+      "urlmorta",
+      "dead-url",
+      "deadurl"
+    ]
+  },
+  "nativeBehavior": {
+    "UrlStatus": "The pinned configuration declares this separate accepted role. The pinned renderer has no explicit A.UrlStatus read, so equivalence with DeadURL is not established.",
+    "DeadURL": "The pinned renderer reads this role, defaults it to não and lowercases it. Its main original/archive-URL and inactive-link branches distinguish não/no from other supplied values. Dated markers and non-boolean values must not be reduced to guessed booleans.",
+    "counterexamples": [
+      "url-status=yes must not become an active urlmorta=sim field.",
+      "urlmorta=live must not become não, because the main inactive-link condition does not treat live as a negative value."
+    ]
+  },
+  "helper": "v219CitationUrlState",
+  "helperMeaning": "Returns the original exact key and value only. This is preservation evidence and does not authorize foreign-template migration.",
+  "automaticBooleanConversionsAdded": 0,
+  "newAlertsAdded": 0,
+  "foreignBoundary": "A genuine foreign UrlStatus source requires separate role and value semantics. The native accepted-field proof does not establish such a migration."
+}

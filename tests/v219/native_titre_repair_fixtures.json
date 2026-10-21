@@ -1,0 +1,1898 @@
+{
+  "kind": "preauthored-private-whole-action-endpoints",
+  "rows": [
+    {
+      "id": "Citar web-literal-0",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar web-literal-1",
+      "source": "{{Citar web|titre=Título com acento e 2 espaços  finais}}",
+      "expected": "{{Citar web|título=Título com acento e 2 espaços  finais}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar web-literal-2",
+      "source": "{{Citar web|titre=A & B: fonte literal.}}",
+      "expected": "{{Citar web|título=A & B: fonte literal.}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar web-literal-3",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar web-literal-4",
+      "source": "{{Citar web|titre=Fonte\tcontinuação}}",
+      "expected": "{{Citar web|título=Fonte\tcontinuação}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar web-competing-5",
+      "source": "{{Citar web|titre=Fonte literal|título=}}",
+      "expected": "{{Citar web|titre=Fonte literal|título=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-6",
+      "source": "{{Citar web|título=|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-7",
+      "source": "{{Citar web|titre=Fonte literal|título=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|título=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-8",
+      "source": "{{Citar web|título=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-9",
+      "source": "{{Citar web|titre=Fonte literal|titulo=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titulo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-10",
+      "source": "{{Citar web|titulo=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titulo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-11",
+      "source": "{{Citar web|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-12",
+      "source": "{{Citar web|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-13",
+      "source": "{{Citar web|titre=Fonte literal|title=}}",
+      "expected": "{{Citar web|titre=Fonte literal|title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-14",
+      "source": "{{Citar web|title=|titre=Fonte literal}}",
+      "expected": "{{Citar web|title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-15",
+      "source": "{{Citar web|titre=Fonte literal|title=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-competing-16",
+      "source": "{{Citar web|title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-unsupported-17",
+      "source": "{{Citar web|titre={{!}}}}",
+      "expected": "{{Citar web|titre={{!}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-unsupported-18",
+      "source": "{{Citar web|titre={{Modelo desconhecido|X}}}}",
+      "expected": "{{Citar web|titre={{Modelo desconhecido|X}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-unsupported-19",
+      "source": "{{Citar web|titre=Fonte<!-- comentário --> literal}}",
+      "expected": "{{Citar web|titre=Fonte<!-- comentário --> literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-unsupported-20",
+      "source": "{{Citar web|titre=Fonte<ref>Nota literal.</ref>}}",
+      "expected": "{{Citar web|titre=Fonte<ref>Nota literal.</ref>}}",
+      "options": {
+        "endMatter": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-unsupported-21",
+      "source": "{{Citar web|titre=Fonte\nsegunda linha}}",
+      "expected": "{{Citar web|titre=Fonte\nsegunda linha}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-otherkey-TITRE",
+      "source": "{{Citar web|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-option-automaticParameterNames",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-option-citations",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "citations": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-option-multilingual",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "multilingual": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-option-automaticSourceCompatibility",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "automaticSourceCompatibility": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-27",
+      "source": "<nowiki>{{Citar web|titre=Fonte literal}}</nowiki>",
+      "expected": "<nowiki>{{Citar web|titre=Fonte literal}}</nowiki>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-28",
+      "source": "<pre>{{Citar web|titre=Fonte literal}}</pre>",
+      "expected": "<pre>{{Citar web|titre=Fonte literal}}</pre>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-29",
+      "source": "\"{{Citar web|titre=Fonte literal}}\"",
+      "expected": "\"{{Citar web|titre=Fonte literal}}\"",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-30",
+      "source": "''{{Citar web|titre=Fonte literal}}''",
+      "expected": "''{{Citar web|titre=Fonte literal}}''",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-31",
+      "source": "{{Modelo desconhecido|{{Citar web|titre=Fonte literal}}}}",
+      "expected": "{{Modelo desconhecido|{{Citar web|titre=Fonte literal}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-protected-32",
+      "source": "```wikitext\n{{Citar web|titre=Fonte literal}}\n```",
+      "expected": "```wikitext\n{{Citar web|titre=Fonte literal}}\n```",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-context-33",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "namespaceNumber": 1
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-context-34",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "sectionOnly": true
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-context-35",
+      "source": "{{Citar web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "contentModel": "javascript"
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-literal-36",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar livro-literal-37",
+      "source": "{{Citar livro|titre=Título com acento e 2 espaços  finais}}",
+      "expected": "{{Citar livro|título=Título com acento e 2 espaços  finais}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar livro-literal-38",
+      "source": "{{Citar livro|titre=A & B: fonte literal.}}",
+      "expected": "{{Citar livro|título=A & B: fonte literal.}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar livro-literal-39",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar livro-literal-40",
+      "source": "{{Citar livro|titre=Fonte\tcontinuação}}",
+      "expected": "{{Citar livro|título=Fonte\tcontinuação}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar livro-competing-41",
+      "source": "{{Citar livro|titre=Fonte literal|título=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|título=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-42",
+      "source": "{{Citar livro|título=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|título=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-43",
+      "source": "{{Citar livro|titre=Fonte literal|título=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|título=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-44",
+      "source": "{{Citar livro|título=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|título=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-45",
+      "source": "{{Citar livro|titre=Fonte literal|titulo=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titulo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-46",
+      "source": "{{Citar livro|titulo=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titulo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-47",
+      "source": "{{Citar livro|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-48",
+      "source": "{{Citar livro|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-49",
+      "source": "{{Citar livro|titre=Fonte literal|title=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-50",
+      "source": "{{Citar livro|title=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-51",
+      "source": "{{Citar livro|titre=Fonte literal|title=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-competing-52",
+      "source": "{{Citar livro|title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-unsupported-53",
+      "source": "{{Citar livro|titre={{!}}}}",
+      "expected": "{{Citar livro|titre={{!}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-unsupported-54",
+      "source": "{{Citar livro|titre={{Modelo desconhecido|X}}}}",
+      "expected": "{{Citar livro|titre={{Modelo desconhecido|X}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-unsupported-55",
+      "source": "{{Citar livro|titre=Fonte<!-- comentário --> literal}}",
+      "expected": "{{Citar livro|titre=Fonte<!-- comentário --> literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-unsupported-56",
+      "source": "{{Citar livro|titre=Fonte<ref>Nota literal.</ref>}}",
+      "expected": "{{Citar livro|titre=Fonte<ref>Nota literal.</ref>}}",
+      "options": {
+        "endMatter": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-unsupported-57",
+      "source": "{{Citar livro|titre=Fonte\nsegunda linha}}",
+      "expected": "{{Citar livro|titre=Fonte\nsegunda linha}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-otherkey-TITRE",
+      "source": "{{Citar livro|TITRE=Fonte literal}}",
+      "expected": "{{Citar livro|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-option-automaticParameterNames",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-option-citations",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "citations": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-option-multilingual",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "multilingual": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-option-automaticSourceCompatibility",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "automaticSourceCompatibility": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-63",
+      "source": "<nowiki>{{Citar livro|titre=Fonte literal}}</nowiki>",
+      "expected": "<nowiki>{{Citar livro|titre=Fonte literal}}</nowiki>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-64",
+      "source": "<pre>{{Citar livro|titre=Fonte literal}}</pre>",
+      "expected": "<pre>{{Citar livro|titre=Fonte literal}}</pre>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-65",
+      "source": "\"{{Citar livro|titre=Fonte literal}}\"",
+      "expected": "\"{{Citar livro|titre=Fonte literal}}\"",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-66",
+      "source": "''{{Citar livro|titre=Fonte literal}}''",
+      "expected": "''{{Citar livro|titre=Fonte literal}}''",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-67",
+      "source": "{{Modelo desconhecido|{{Citar livro|titre=Fonte literal}}}}",
+      "expected": "{{Modelo desconhecido|{{Citar livro|titre=Fonte literal}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-protected-68",
+      "source": "```wikitext\n{{Citar livro|titre=Fonte literal}}\n```",
+      "expected": "```wikitext\n{{Citar livro|titre=Fonte literal}}\n```",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-context-69",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "namespaceNumber": 1
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-context-70",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "sectionOnly": true
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-context-71",
+      "source": "{{Citar livro|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "contentModel": "javascript"
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-literal-72",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar jornal-literal-73",
+      "source": "{{Citar jornal|titre=Título com acento e 2 espaços  finais}}",
+      "expected": "{{Citar jornal|título=Título com acento e 2 espaços  finais}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar jornal-literal-74",
+      "source": "{{Citar jornal|titre=A & B: fonte literal.}}",
+      "expected": "{{Citar jornal|título=A & B: fonte literal.}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar jornal-literal-75",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|título=Fonte literal}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar jornal-literal-76",
+      "source": "{{Citar jornal|titre=Fonte\tcontinuação}}",
+      "expected": "{{Citar jornal|título=Fonte\tcontinuação}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "Citar jornal-competing-77",
+      "source": "{{Citar jornal|titre=Fonte literal|título=}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|título=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-78",
+      "source": "{{Citar jornal|título=|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|título=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-79",
+      "source": "{{Citar jornal|titre=Fonte literal|título=Fonte concorrente}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|título=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-80",
+      "source": "{{Citar jornal|título=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|título=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-81",
+      "source": "{{Citar jornal|titre=Fonte literal|titulo=}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|titulo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-82",
+      "source": "{{Citar jornal|titulo=|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titulo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-83",
+      "source": "{{Citar jornal|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|titulo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-84",
+      "source": "{{Citar jornal|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titulo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-85",
+      "source": "{{Citar jornal|titre=Fonte literal|title=}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-86",
+      "source": "{{Citar jornal|title=|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-87",
+      "source": "{{Citar jornal|titre=Fonte literal|title=Fonte concorrente}}",
+      "expected": "{{Citar jornal|titre=Fonte literal|title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-competing-88",
+      "source": "{{Citar jornal|title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-unsupported-89",
+      "source": "{{Citar jornal|titre={{!}}}}",
+      "expected": "{{Citar jornal|titre={{!}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-unsupported-90",
+      "source": "{{Citar jornal|titre={{Modelo desconhecido|X}}}}",
+      "expected": "{{Citar jornal|titre={{Modelo desconhecido|X}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-unsupported-91",
+      "source": "{{Citar jornal|titre=Fonte<!-- comentário --> literal}}",
+      "expected": "{{Citar jornal|titre=Fonte<!-- comentário --> literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-unsupported-92",
+      "source": "{{Citar jornal|titre=Fonte<ref>Nota literal.</ref>}}",
+      "expected": "{{Citar jornal|titre=Fonte<ref>Nota literal.</ref>}}",
+      "options": {
+        "endMatter": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-unsupported-93",
+      "source": "{{Citar jornal|titre=Fonte\nsegunda linha}}",
+      "expected": "{{Citar jornal|titre=Fonte\nsegunda linha}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-otherkey-TITRE",
+      "source": "{{Citar jornal|TITRE=Fonte literal}}",
+      "expected": "{{Citar jornal|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-option-automaticParameterNames",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-option-citations",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "citations": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-option-multilingual",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "multilingual": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-option-automaticSourceCompatibility",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "automaticSourceCompatibility": false
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-99",
+      "source": "<nowiki>{{Citar jornal|titre=Fonte literal}}</nowiki>",
+      "expected": "<nowiki>{{Citar jornal|titre=Fonte literal}}</nowiki>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-100",
+      "source": "<pre>{{Citar jornal|titre=Fonte literal}}</pre>",
+      "expected": "<pre>{{Citar jornal|titre=Fonte literal}}</pre>",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-101",
+      "source": "\"{{Citar jornal|titre=Fonte literal}}\"",
+      "expected": "\"{{Citar jornal|titre=Fonte literal}}\"",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-102",
+      "source": "''{{Citar jornal|titre=Fonte literal}}''",
+      "expected": "''{{Citar jornal|titre=Fonte literal}}''",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-103",
+      "source": "{{Modelo desconhecido|{{Citar jornal|titre=Fonte literal}}}}",
+      "expected": "{{Modelo desconhecido|{{Citar jornal|titre=Fonte literal}}}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-protected-104",
+      "source": "```wikitext\n{{Citar jornal|titre=Fonte literal}}\n```",
+      "expected": "```wikitext\n{{Citar jornal|titre=Fonte literal}}\n```",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-context-105",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "namespaceNumber": 1
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-context-106",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "sectionOnly": true
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar jornal-context-107",
+      "source": "{{Citar jornal|titre=Fonte literal}}",
+      "expected": "{{Citar jornal|titre=Fonte literal}}",
+      "options": {
+        "contentModel": "javascript"
+      },
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-duplicate-108",
+      "source": "{{Citar web|titre=Fonte literal|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-duplicate-109",
+      "source": "{{Citar web|titre=Primeiro título|titre=Outro título}}",
+      "expected": "{{Citar web|titre=Primeiro título|titre=Outro título}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-duplicate-110",
+      "source": "{{Citar web|titre=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-duplicate-111",
+      "source": "{{Citar web|titre=Fonte literal|titre=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-duplicate-112",
+      "source": "{{Citar web|titre=|titre=}}",
+      "expected": "{{Citar web|titre=|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-duplicate-113",
+      "source": "{{Citar livro|titre=Fonte literal|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-duplicate-114",
+      "source": "{{Citar livro|titre=Primeiro título|titre=Outro título}}",
+      "expected": "{{Citar livro|titre=Primeiro título|titre=Outro título}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-duplicate-115",
+      "source": "{{Citar livro|titre=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-duplicate-116",
+      "source": "{{Citar livro|titre=Fonte literal|titre=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar livro-duplicate-117",
+      "source": "{{Citar livro|titre=|titre=}}",
+      "expected": "{{Citar livro|titre=|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-header-and-title",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|título=Fonte literal}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Lien web-names-off",
+      "source": "{{Lien web|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal}}",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "kind": "independent-header-repair"
+    },
+    {
+      "id": "Lien web-composition-120",
+      "source": "{{Lien web|titre=Fonte literal|pág=5}}",
+      "expected": "{{Citar web|título=Fonte literal|página=5}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Lien web-composition-121",
+      "source": "{{Lien web|titre=Fonte literal|url=https://example.invalid/fonte}}",
+      "expected": "{{Citar web|título=Fonte literal|url=https://example.invalid/fonte}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Lien web-duplicate-122",
+      "source": "{{Lien web|titre=Fonte literal|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=Fonte literal|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-duplicate-123",
+      "source": "{{Lien web|titre=Primeiro título|titre=Outro título}}",
+      "expected": "{{Citar web|titre=Primeiro título|titre=Outro título}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-duplicate-124",
+      "source": "{{Lien web|titre=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titre=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-duplicate-125",
+      "source": "{{Lien web|titre=Fonte literal|titre=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-duplicate-126",
+      "source": "{{Lien web|titre=|titre=}}",
+      "expected": "{{Citar web|titre=|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-header-and-title",
+      "source": "{{Ouvrage|titre=Fonte literal}}",
+      "expected": "{{Citar livro|título=Fonte literal}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Ouvrage-names-off",
+      "source": "{{Ouvrage|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal}}",
+      "options": {
+        "automaticParameterNames": false
+      },
+      "kind": "independent-header-repair"
+    },
+    {
+      "id": "Ouvrage-composition-129",
+      "source": "{{Ouvrage|titre=Fonte literal|pág=5}}",
+      "expected": "{{Citar livro|título=Fonte literal|página=5}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Ouvrage-composition-130",
+      "source": "{{Ouvrage|titre=Fonte literal|url=https://example.invalid/fonte}}",
+      "expected": "{{Citar livro|título=Fonte literal|url=https://example.invalid/fonte}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "Ouvrage-duplicate-131",
+      "source": "{{Ouvrage|titre=Fonte literal|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-duplicate-132",
+      "source": "{{Ouvrage|titre=Primeiro título|titre=Outro título}}",
+      "expected": "{{Citar livro|titre=Primeiro título|titre=Outro título}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-duplicate-133",
+      "source": "{{Ouvrage|titre=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titre=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-duplicate-134",
+      "source": "{{Ouvrage|titre=Fonte literal|titre=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-duplicate-135",
+      "source": "{{Ouvrage|titre=|titre=}}",
+      "expected": "{{Citar livro|titre=|titre=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-136",
+      "source": "{{Citar web|titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-137",
+      "source": "{{Citar web|Title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-138",
+      "source": "{{Citar web|titre=Fonte literal|Title=}}",
+      "expected": "{{Citar web|titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-139",
+      "source": "{{Citar web|Title=|titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-140",
+      "source": "{{Citar web|titre=Fonte literal|titel=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|titel=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-141",
+      "source": "{{Citar web|titel=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|titel=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-142",
+      "source": "{{Citar web|titre=Fonte literal|titel=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titel=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-143",
+      "source": "{{Citar web|titel=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titel=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-144",
+      "source": "{{Citar web|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-145",
+      "source": "{{Citar web|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-146",
+      "source": "{{Citar web|titre=Fonte literal|titolo=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titolo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Citar web-ambiguous-title-147",
+      "source": "{{Citar web|titolo=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titolo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-148",
+      "source": "{{Lien web|titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-149",
+      "source": "{{Lien web|Title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-150",
+      "source": "{{Lien web|titre=Fonte literal|Title=}}",
+      "expected": "{{Citar web|titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-151",
+      "source": "{{Lien web|Title=|titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-152",
+      "source": "{{Lien web|titre=Fonte literal|titel=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|titel=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-153",
+      "source": "{{Lien web|titel=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|titel=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-154",
+      "source": "{{Lien web|titre=Fonte literal|titel=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titel=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-155",
+      "source": "{{Lien web|titel=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titel=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-156",
+      "source": "{{Lien web|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "expected": "{{Citar web|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-157",
+      "source": "{{Lien web|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar web|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-158",
+      "source": "{{Lien web|titre=Fonte literal|titolo=}}",
+      "expected": "{{Citar web|titre=Fonte literal|titolo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Lien web-ambiguous-title-159",
+      "source": "{{Lien web|titolo=|titre=Fonte literal}}",
+      "expected": "{{Citar web|titolo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-160",
+      "source": "{{Ouvrage|titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-161",
+      "source": "{{Ouvrage|Title=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|Title=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-162",
+      "source": "{{Ouvrage|titre=Fonte literal|Title=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-163",
+      "source": "{{Ouvrage|Title=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|Title=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-164",
+      "source": "{{Ouvrage|titre=Fonte literal|titel=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titel=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-165",
+      "source": "{{Ouvrage|titel=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titel=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-166",
+      "source": "{{Ouvrage|titre=Fonte literal|titel=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titel=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-167",
+      "source": "{{Ouvrage|titel=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titel=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-168",
+      "source": "{{Ouvrage|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titolo=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-169",
+      "source": "{{Ouvrage|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titolo=Fonte concorrente|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-170",
+      "source": "{{Ouvrage|titre=Fonte literal|titolo=}}",
+      "expected": "{{Citar livro|titre=Fonte literal|titolo=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "Ouvrage-ambiguous-title-171",
+      "source": "{{Ouvrage|titolo=|titre=Fonte literal}}",
+      "expected": "{{Citar livro|titolo=|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "native-biography-unproved-name-172",
+      "source": "{{Info/Biografia|Titre=Fonte literal}}",
+      "expected": "{{Info/Biografia|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "native-biography-unproved-name-173",
+      "source": "{{Info/Biografia|TITRE=Fonte literal}}",
+      "expected": "{{Info/Biografia|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "native-biography-unproved-name-174",
+      "source": "{{Info/Biografia| titre =Fonte literal}}",
+      "expected": "{{Info/Biografia| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "native-biography-unproved-name-175",
+      "source": "{{Info/Biografia|titre =Fonte literal}}",
+      "expected": "{{Info/Biografia|titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "other-family-Oficial",
+      "source": "{{Oficial|titre=Fonte literal}}",
+      "expected": "{{Oficial|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "other-family-Info/Biografia",
+      "source": "{{Info/Biografia|titre=Fonte literal}}",
+      "expected": "{{Info/Biografia|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "other-family-Modelo desconhecido",
+      "source": "{{Modelo desconhecido|titre=Fonte literal}}",
+      "expected": "{{Modelo desconhecido|titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-179",
+      "source": "{{Citar web|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-180",
+      "source": "{{Citar web|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-181",
+      "source": "{{Citar web|Titre=Fonte literal|Title=}}",
+      "expected": "{{Citar web|Titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-182",
+      "source": "{{Citar web|Title=|Titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-183",
+      "source": "{{Citar web|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-184",
+      "source": "{{Citar web|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-185",
+      "source": "{{Citar web|Titre=Fonte literal|TITLE=}}",
+      "expected": "{{Citar web|Titre=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-186",
+      "source": "{{Citar web|TITLE=|Titre=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-187",
+      "source": "{{Citar web|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-188",
+      "source": "{{Citar web|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-189",
+      "source": "{{Citar web|TITRE=Fonte literal|Title=}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-190",
+      "source": "{{Citar web|Title=|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|Title=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-191",
+      "source": "{{Citar web|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-192",
+      "source": "{{Citar web|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-193",
+      "source": "{{Citar web|TITRE=Fonte literal|TITLE=}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-194",
+      "source": "{{Citar web|TITLE=|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-195",
+      "source": "{{Citar web| titre =Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web| titre =Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-196",
+      "source": "{{Citar web|Title=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-197",
+      "source": "{{Citar web| titre =Fonte literal|Title=}}",
+      "expected": "{{Citar web| titre =Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-198",
+      "source": "{{Citar web|Title=| titre =Fonte literal}}",
+      "expected": "{{Citar web|Title=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-199",
+      "source": "{{Citar web| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-200",
+      "source": "{{Citar web|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-201",
+      "source": "{{Citar web| titre =Fonte literal|TITLE=}}",
+      "expected": "{{Citar web| titre =Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-202",
+      "source": "{{Citar web|TITLE=| titre =Fonte literal}}",
+      "expected": "{{Citar web|TITLE=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "title-page-control-203",
+      "source": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|pág=5}}",
+      "expected": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|página=5}}",
+      "options": {},
+      "kind": "independent-field-repair"
+    },
+    {
+      "id": "title-page-control-204",
+      "source": "{{Citar web|titre=Fonte literal|pág=5}}",
+      "expected": "{{Citar web|título=Fonte literal|página=5}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "title-page-control-205",
+      "source": "{{Citar web|titre=Fonte literal|págg=5}}",
+      "expected": "{{Citar web|título=Fonte literal|págg=5}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "title-page-control-206",
+      "source": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "expected": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-207",
+      "source": "{{Lien web|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-208",
+      "source": "{{Lien web|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-209",
+      "source": "{{Lien web|Titre=Fonte literal|Title=}}",
+      "expected": "{{Citar web|Titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-210",
+      "source": "{{Lien web|Title=|Titre=Fonte literal}}",
+      "expected": "{{Citar web|Title=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-211",
+      "source": "{{Lien web|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-212",
+      "source": "{{Lien web|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-213",
+      "source": "{{Lien web|Titre=Fonte literal|TITLE=}}",
+      "expected": "{{Citar web|Titre=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-214",
+      "source": "{{Lien web|TITLE=|Titre=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-215",
+      "source": "{{Lien web|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-216",
+      "source": "{{Lien web|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-217",
+      "source": "{{Lien web|TITRE=Fonte literal|Title=}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-218",
+      "source": "{{Lien web|Title=|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|Title=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-219",
+      "source": "{{Lien web|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-220",
+      "source": "{{Lien web|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-221",
+      "source": "{{Lien web|TITRE=Fonte literal|TITLE=}}",
+      "expected": "{{Citar web|TITRE=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-222",
+      "source": "{{Lien web|TITLE=|TITRE=Fonte literal}}",
+      "expected": "{{Citar web|TITLE=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-223",
+      "source": "{{Lien web| titre =Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar web| titre =Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-224",
+      "source": "{{Lien web|Title=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar web|Title=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-225",
+      "source": "{{Lien web| titre =Fonte literal|Title=}}",
+      "expected": "{{Citar web| titre =Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-226",
+      "source": "{{Lien web|Title=| titre =Fonte literal}}",
+      "expected": "{{Citar web|Title=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-227",
+      "source": "{{Lien web| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar web| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-228",
+      "source": "{{Lien web|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar web|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-229",
+      "source": "{{Lien web| titre =Fonte literal|TITLE=}}",
+      "expected": "{{Citar web| titre =Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-230",
+      "source": "{{Lien web|TITLE=| titre =Fonte literal}}",
+      "expected": "{{Citar web|TITLE=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "title-page-control-231",
+      "source": "{{Lien web|title=Fonte aceita|Titre=Fonte candidata|pág=5}}",
+      "expected": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|página=5}}",
+      "options": {},
+      "kind": "independent-field-repair"
+    },
+    {
+      "id": "title-page-control-232",
+      "source": "{{Lien web|titre=Fonte literal|pág=5}}",
+      "expected": "{{Citar web|título=Fonte literal|página=5}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "title-page-control-233",
+      "source": "{{Lien web|titre=Fonte literal|págg=5}}",
+      "expected": "{{Citar web|título=Fonte literal|págg=5}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "title-page-control-234",
+      "source": "{{Lien web|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "expected": "{{Citar web|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-235",
+      "source": "{{Ouvrage|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar livro|Titre=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-236",
+      "source": "{{Ouvrage|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar livro|Title=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-237",
+      "source": "{{Ouvrage|Titre=Fonte literal|Title=}}",
+      "expected": "{{Citar livro|Titre=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-238",
+      "source": "{{Ouvrage|Title=|Titre=Fonte literal}}",
+      "expected": "{{Citar livro|Title=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-239",
+      "source": "{{Ouvrage|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar livro|Titre=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-240",
+      "source": "{{Ouvrage|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=Fonte concorrente|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-241",
+      "source": "{{Ouvrage|Titre=Fonte literal|TITLE=}}",
+      "expected": "{{Citar livro|Titre=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-242",
+      "source": "{{Ouvrage|TITLE=|Titre=Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=|Titre=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-243",
+      "source": "{{Ouvrage|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar livro|TITRE=Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-244",
+      "source": "{{Ouvrage|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar livro|Title=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-245",
+      "source": "{{Ouvrage|TITRE=Fonte literal|Title=}}",
+      "expected": "{{Citar livro|TITRE=Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-246",
+      "source": "{{Ouvrage|Title=|TITRE=Fonte literal}}",
+      "expected": "{{Citar livro|Title=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-247",
+      "source": "{{Ouvrage|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar livro|TITRE=Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-248",
+      "source": "{{Ouvrage|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=Fonte concorrente|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-249",
+      "source": "{{Ouvrage|TITRE=Fonte literal|TITLE=}}",
+      "expected": "{{Citar livro|TITRE=Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-250",
+      "source": "{{Ouvrage|TITLE=|TITRE=Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=|TITRE=Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-251",
+      "source": "{{Ouvrage| titre =Fonte literal|Title=Fonte concorrente}}",
+      "expected": "{{Citar livro| titre =Fonte literal|Title=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-252",
+      "source": "{{Ouvrage|Title=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar livro|Title=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-253",
+      "source": "{{Ouvrage| titre =Fonte literal|Title=}}",
+      "expected": "{{Citar livro| titre =Fonte literal|Title=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-254",
+      "source": "{{Ouvrage|Title=| titre =Fonte literal}}",
+      "expected": "{{Citar livro|Title=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-255",
+      "source": "{{Ouvrage| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "expected": "{{Citar livro| titre =Fonte literal|TITLE=Fonte concorrente}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-256",
+      "source": "{{Ouvrage|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=Fonte concorrente| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-257",
+      "source": "{{Ouvrage| titre =Fonte literal|TITLE=}}",
+      "expected": "{{Citar livro| titre =Fonte literal|TITLE=}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "weak-hint-258",
+      "source": "{{Ouvrage|TITLE=| titre =Fonte literal}}",
+      "expected": "{{Citar livro|TITLE=| titre =Fonte literal}}",
+      "options": {},
+      "kind": "boundary"
+    },
+    {
+      "id": "title-page-control-259",
+      "source": "{{Ouvrage|title=Fonte aceita|Titre=Fonte candidata|pág=5}}",
+      "expected": "{{Citar livro|title=Fonte aceita|Titre=Fonte candidata|página=5}}",
+      "options": {},
+      "kind": "independent-field-repair"
+    },
+    {
+      "id": "title-page-control-260",
+      "source": "{{Ouvrage|titre=Fonte literal|pág=5}}",
+      "expected": "{{Citar livro|título=Fonte literal|página=5}}",
+      "options": {},
+      "kind": "composed-intended-repair"
+    },
+    {
+      "id": "title-page-control-261",
+      "source": "{{Ouvrage|titre=Fonte literal|págg=5}}",
+      "expected": "{{Citar livro|título=Fonte literal|págg=5}}",
+      "options": {},
+      "kind": "intended-repair"
+    },
+    {
+      "id": "title-page-control-262",
+      "source": "{{Ouvrage|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "expected": "{{Citar livro|title=Fonte aceita|Titre=Fonte candidata|págg=5}}",
+      "options": {},
+      "kind": "boundary"
+    }
+  ]
+}

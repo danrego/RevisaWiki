@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "kind": "additional-native-displayed-birth-field-duplicate-age-only-contract",
+  "retrieved": "2026-10-17",
+  "scope": "Only removal of an identical current-UTC manual age following a complete native three-argument Dni in one uniquely selected displayed birth-date field. This does not authorize copying dates or places into the lead, whole-field formatting, additional Wikidata retrieval, or any other biography transformation.",
+  "profiles": [
+    {
+      "title": "Info/Ciclista",
+      "oldid": 70644942,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=70644942",
+      "sourceSha256": "8cb08e3a27f50ea944292e07cdfa99f482b75e8d012cb1e3ea61028b456fb534",
+      "displayedBirthFallbackKeys": [
+        "data_nascimento",
+        "nascimento_data",
+        "datadenascimento",
+        "datanascimento"
+      ],
+      "literalValueWitness": {
+        "line": 31,
+        "sourceLineSha256": "8627597d27de3e8a230aa87d4ee9900cf948f4f7462f5b4b02043e420e81f482",
+        "expression": "| dados6 =  {{#invoke:WikidataIB |getValue |P569 |fetchwikidata={{{buscarwikidata|ALL}}} |qid={{{qid|}}}|idioma={{{lang|pt}}}|noicon={{{noicon|yes}}}|onlysourced={{{comfontes|no}}}|name=data_nascimento|suppressfields={{{suprimir|}}}|{{{data_nascimento|{{{nascimento_data|{{{datadenascimento|{{{datanascimento|}}}}}}}}}}}}}}{{#if:{{#invoke:WikidataIB |getValue |P19 |fetchwikidata={{{buscarwikidata|ALL}}} |qid={{{qid|}}}|idioma={{{lang|pt}}}|noicon={{{noicon|yes}}}|onlysourced={{{comfontes|no}}}|name=local_nascimento|suppressfields={{{suprimir|}}}|{{{local_nascimento|{{{nascimento_local|}}}}}}}}|{{#if:{{#invoke:WikidataIB |getValue |P569 |fetchwikidata={{{buscarwikidata|ALL}}} |qid={{{qid|}}}|idioma={{{lang|pt}}}|noicon={{{noicon|yes}}}|onlysourced={{{comfontes|no}}}|name=data_nascimento|suppressfields={{{suprimir|}}}|{{{data_nascimento|{{{nascimento_data|}}}}}}}}|<br>}}{{#invoke:WikidataIB |getValue |P19 |fetchwikidata={{{buscarwikidata|ALL}}} |qid={{{qid|}}}|idioma={{{lang|pt}}}|noicon={{{noicon|yes}}}|onlysourced={{{comfontes|no}}}|name=local_nascimento|suppressfields={{{suprimir|}}}|{{{local_nascimento|{{{nascimento_local|}}}}}}}}}}"
+      },
+      "roleReview": "The P569 local argument is supplied verbatim to WikidataIB.getValue. Its explicit local-argument branch returns the supplied value unchanged. A nonempty suppression field is excluded."
+    },
+    {
+      "title": "Info/Gastrônomo",
+      "oldid": 72109254,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72109254",
+      "sourceSha256": "932dd3407a9c36a0d369aeb736f902eb03f913382f087a6b0ee58239381eb08f",
+      "displayedBirthFallbackKeys": [
+        "nascimento"
+      ],
+      "literalValueWitness": {
+        "line": 22,
+        "sourceLineSha256": "15e1c0e8e4d19465843b49b4e5aa1b0ad27f4d6ca4eb026717488176199ca9f9",
+        "expression": "|dados4         = {{{nascimento|}}}"
+      },
+      "roleReview": "dados4 displays the literal local nascimento argument."
+    },
+    {
+      "title": "Info/Lutador de wrestling profissional",
+      "oldid": 69488735,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=69488735",
+      "sourceSha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267",
+      "displayedBirthFallbackKeys": [
+        "birth_date",
+        "nascimento_data",
+        "data de nascimento"
+      ],
+      "literalValueWitness": {
+        "line": 21,
+        "sourceLineSha256": "5253389d48d6552f528c49b4bc21991b64aa12a6bb6a6419d6fdb3fa793c514c",
+        "expression": "| dados2         = {{br separated entries|{{{birth_date|{{{nascimento_data|{{{data de nascimento|}}}}}}}}}|{{{birth_place|{{{nascimento_local|{{{local de nascimento|}}}}}}}}} }}"
+      },
+      "roleReview": "dados2 passes the birth fallback value to native Br separated entries, which joins argument values without rewriting them."
+    },
+    {
+      "title": "Info/Motorista da F1",
+      "oldid": 71101279,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=71101279",
+      "sourceSha256": "d9037e6c4ada0a038be65fb2105137636a48baac3f1b9411bd26d501b2e8a1a5",
+      "displayedBirthFallbackKeys": [
+        "nascimento_data",
+        "Data nasc",
+        "Date of birth"
+      ],
+      "literalValueWitness": {
+        "line": 33,
+        "sourceLineSha256": "8890bec52bbf8b8abe956ff4a4b5f0d1bec0f3966efd5b51c2daf1b85b7d3706",
+        "expression": "| dados4      = {{{nascimento_data|{{{Data nasc|{{{Date of birth|}}}}}}}}}{{#se:{{{nascimento_local|{{{Local nasc|{{{Place birth|}}}}}}}}}|<br />{{{nascimento_local|{{{Local nasc|{{{Place birth|}}}}}}}}} }}"
+      },
+      "roleReview": "dados4 emits the birth fallback value unchanged, before its independently supplied location."
+    },
+    {
+      "title": "Info/Personalidade",
+      "oldid": 66194847,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=66194847",
+      "sourceSha256": "de90c8f331ce73cd71b428b6ed1cfcae1e309d39cc6e6321775390cd92692244",
+      "displayedBirthFallbackKeys": [
+        "data_nascimento",
+        "nascimento_data"
+      ],
+      "literalValueWitness": {
+        "line": 123,
+        "sourceLineSha256": "4fcff728eec11a760fed6613220f27855040249f51e0a317fc37bcb8b20704a4",
+        "expression": "|   dados42    = {{{data_nascimento|{{{nascimento_data|}}}}}} {{#se:{{{local_nascimento|}}}{{{nascimento_local|}}}|<br />{{{local_nascimento|{{{nascimento_local|}}}}}}|}}"
+      },
+      "roleReview": "dados42 emits the birth fallback value unchanged, before its independently supplied location."
+    },
+    {
+      "title": "Info/Titular de cargo",
+      "oldid": 72581852,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72581852",
+      "sourceSha256": "595b3670500abe76a116717727be7af1020354ca3df87387b088cb5a562dda28",
+      "displayedBirthFallbackKeys": [
+        "data_nascimento",
+        "nascimento_data"
+      ],
+      "literalValueWitness": {
+        "line": 127,
+        "sourceLineSha256": "4fcff728eec11a760fed6613220f27855040249f51e0a317fc37bcb8b20704a4",
+        "expression": "|   dados42    = {{{data_nascimento|{{{nascimento_data|}}}}}} {{#se:{{{local_nascimento|}}}{{{nascimento_local|}}}|<br />{{{local_nascimento|{{{nascimento_local|}}}}}}|}}"
+      },
+      "roleReview": "dados42 emits the birth fallback value unchanged, before its independently supplied location."
+    },
+    {
+      "title": "Info/Wrestler",
+      "oldid": 58866342,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=58866342",
+      "sourceSha256": "3520ca9c63b35e02b006f2c58c1d95641da71325d18d2096164a46ea50855c48",
+      "displayedBirthFallbackKeys": [
+        "birth_date",
+        "nascimento_data",
+        "data de nascimento"
+      ],
+      "literalValueWitness": {
+        "line": 8,
+        "sourceLineSha256": "6f84621ad0b3149093f46dcfe6285d70a4515bed963ebf340eae05216156125c",
+        "expression": "|data de nascimento  = {{{birth_date|{{{nascimento_data|{{{data de nascimento|}}}}}}}}}"
+      },
+      "roleReview": "The exact forwarding wrapper sends the chosen birth fallback as data de nascimento to Info/Lutador de wrestling profissional69488735."
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Predefinição:Info",
+      "oldid": 73035397,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=73035397",
+      "sourceSha256": "b69c573849b1e91054cf0c4f3cfcd2728fab44cdc67c0df23d93018b20ecb766"
+    },
+    {
+      "title": "Predefinição:Br separated entries",
+      "oldid": 60787942,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=60787942",
+      "sourceSha256": "60d851e0783eaaf9e0786a49bdcc692d40a83d3c5ef84daa019ee1f9d05f7291"
+    },
+    {
+      "title": "Módulo:WikidataIB",
+      "oldid": 62691729,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=62691729",
+      "sourceSha256": "fa391d1562de03ca0adb3c7bf3e7b9aa409da66679c88377f7e322a786e84f8d"
+    },
+    {
+      "title": "Módulo:Separated entries",
+      "oldid": 71193045,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=71193045",
+      "sourceSha256": "26efe80e1912dea518166aaca0ba4f89817129c3d539ba0071cd4444ab3f6957"
+    }
+  ],
+  "nativeAgeSource": {
+    "oldid": 69218531,
+    "source": "https://pt.wikipedia.org/w/index.php?oldid=69218531",
+    "contract": "Three numeric Dni parameters display the current UTC age. Fourth suppression or other named options are excluded."
+  },
+  "nativeRendering": {
+    "method": "One anonymous GET action=parse, fourteen fictional calls, no edits or user access.",
+    "inputSha256": "1098f5c97d7e9502854e391d5df00a9593f7a41675a0b4d06a5fb8e78ae5fc58",
+    "responseSha256": "54e3d0960ff731964b95ae9ec3353c1f7d7c465768a518c2bb01a97dfc0fd412",
+    "calendarUTC": "2026-10-17",
+    "pairCount": 7,
+    "pairs": [
+      {
+        "template": "Info/Ciclista",
+        "field": "data_nascimento",
+        "beforeVisibleTextSha256": "9749593770276545d8eeae94dd15de250ae666c2403241a532bf8c55daac58c0",
+        "afterVisibleTextSha256": "1234aeaaced0f3412e414cda531b796c358ea1db9a11dfccef4c47a31b1d7d55",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Gastrônomo",
+        "field": "nascimento",
+        "beforeVisibleTextSha256": "7c237a0b3a180c9b9bc2fc3241e2098a352365a5f71a257a835a9c348f61c754",
+        "afterVisibleTextSha256": "454701a99880dea05d9ea65bb65781891784401397e641ce1fb52764196bb6dc",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Lutador de wrestling profissional",
+        "field": "birth_date",
+        "beforeVisibleTextSha256": "85c9688b4116c395d0fb1702ca759238d67200182e42d2177ebd530d66f92b8e",
+        "afterVisibleTextSha256": "079e4c2f554cf5c027e17f0ca1fb3c8596022bb2e6561c87dea99f9aa5e6aca1",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Motorista da F1",
+        "field": "nascimento_data",
+        "beforeVisibleTextSha256": "82d34a7d16d946557cc4382838e21f0fcb870c5c2f8e548b5b3c7cab44f210e4",
+        "afterVisibleTextSha256": "e688f907eab2e3b3d39bd9697342d3a129d79852b8bf07079bb7a1c4f922e72c",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Personalidade",
+        "field": "data_nascimento",
+        "beforeVisibleTextSha256": "814c5a4164c1c0d1ae0d2759a44c0be41f3e7d00c1167756672f82f6871bc2ac",
+        "afterVisibleTextSha256": "300fa72cad863cdb53993710c41e886c00f4a0df4fc27892766a79d0c4c60013",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Titular de cargo",
+        "field": "data_nascimento",
+        "beforeVisibleTextSha256": "e78a99b36725a882e78e0910ec2af4da6110f5a4a962fb8a8bfd4592cc0c7f31",
+        "afterVisibleTextSha256": "bf4cb7485fffc9004c6369f6addbb415cca550d48f2e5333f9c022614ff69e9f",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      },
+      {
+        "template": "Info/Wrestler",
+        "field": "birth_date",
+        "beforeVisibleTextSha256": "85c9688b4116c395d0fb1702ca759238d67200182e42d2177ebd530d66f92b8e",
+        "afterVisibleTextSha256": "079e4c2f554cf5c027e17f0ca1fb3c8596022bb2e6561c87dea99f9aa5e6aca1",
+        "exactVisibleDifference": "One repeated identical manual-age suffix, while the native Dni age remains.",
+        "beforeIdenticalAgeCopies": 2,
+        "afterIdenticalAgeCopies": 1
+      }
+    ]
+  },
+  "requiredRefusals": [
+    "Competing birth-key aliases, even blank or identical, select no field.",
+    "A native field identity must match the exact source-pinned profile and literal accepted key.",
+    "Unknown or protected parents, quotations, code, multiple persons, non-mainspace and section-only edits remain preserved.",
+    "The Dni call and all references remain byte-identical. Only its following age copy may disappear.",
+    "Wrong age, plural, suppression flags, extra arguments, relative or incomplete dates, nonempty calendar/suppression controls remain preserved.",
+    "The source, independently regenerated plan, exact endpoint and UTC expiry must match."
+  ],
+  "wikipediaWrites": 0,
+  "implementationEvidence": "This primary source contract does not itself claim runtime coverage. The dedicated complete-action receipt must bind the actual frozen core and complete bundle, every selected field, guards and independently specified endpoints."
+}

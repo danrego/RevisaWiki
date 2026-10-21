@@ -1,0 +1,159 @@
+{
+  "kind": "native-CS1-supplied-person-etal-marker-contract",
+  "primarySources": [
+    {
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "sha256": "4924bb13ea17c8d105e5132b9ef06dc438a6280d5d940bbf199aeb62e2cc8099",
+      "lines": [
+        [
+          194,
+          195
+        ],
+        [
+          284,
+          299
+        ],
+        [
+          174,
+          174
+        ]
+      ],
+      "contract": "AuthorList and EditorList Last/First/Link/Mask aliases and separate DisplayAuthors/DisplayEditors argument roles."
+    },
+    {
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "sha256": "54a85c535d5788163ee690d9d502c0d3cce04b4d308f7da3f6b515c432c11e27",
+      "lines": [
+        [
+          1054,
+          1076
+        ],
+        [
+          1110,
+          1157
+        ],
+        [
+          1318,
+          1345
+        ],
+        [
+          2087,
+          2120
+        ],
+        [
+          1732,
+          1750
+        ],
+        [
+          2112,
+          2128
+        ]
+      ],
+      "contract": "extract_names removes an explicit et-al suffix and retains a supplied-marker flag. get_display_authors_editors accepts et-al spellings and emits every supplied author/editor followed by that marker. Translators and contributors explicitly call list_people with false."
+    }
+  ],
+  "simpleNativeRoleEquivalence": {
+    "source": "{{Citar web|título=Fonte literal|autor=Pessoa fictícia et al.}}",
+    "target": "{{Citar web|título=Fonte literal|autor=Pessoa fictícia|numero-autores=et al}}",
+    "scope": "A unique unindexed native AuthorList-Last or EditorList-Last and complete plain personal name, with no other same-family person/list/display/coauthor/mask/link/first field, including explicit blanks. The displayed person list, supplied et-al marker and person metadata are the same. The old inline-marker maintenance category may disappear. This is a bounded native-marker cleanup, not whole-rendered-HTML equivalence."
+  },
+  "broaderWriterRepair": "The tool can separately rewrite complete personal lists or carefully proved indexed names. Those are declared source-marker repairs with stricter context and are not inferred by this simple equivalence contract.",
+  "vetoes": [
+    "Institutional names and ambiguous suffixes",
+    "Existing same-role aliases, including blank",
+    "A competing display/count field",
+    "Mask field",
+    "A later indexed person or missing preceding person",
+    "Unproved translator et-al display",
+    "Dynamic values and literal/unknown-owner code examples"
+  ],
+  "tests": [
+    "citation_people_cases.cjs",
+    "citation_person_link_cases.cjs"
+  ],
+  "wikipediaWrites": 0,
+  "unchangedBodyNativeMarkerEquivalence": {
+    "primaryModuleOldid": 72936771,
+    "sourceLines": [
+      [
+        1056,
+        1076
+      ],
+      [
+        1127,
+        1157
+      ],
+      [
+        1326,
+        1342
+      ]
+    ],
+    "scope": "A terminal supplied et-al marker may move from one selected AuthorList-Last/First or EditorList-Last/First value to the matching DisplayAuthors/DisplayEditors field when the preceding name body, native family, exact person index, all other publication metadata and every competing argument remain bound. This includes an unchanged inverted personal name, an unchanged dotted-initial personal name, and an unchanged complete comma-separated personal-list body. It does not by itself authorize splitting that body into different fields.",
+    "examples": [
+      {
+        "before": "{{Citar web|título=Fonte literal|autor=Exemplo, Pessoa et al.}}",
+        "after": "{{Citar web|título=Fonte literal|autor=Exemplo, Pessoa|numero-autores=et al}}"
+      },
+      {
+        "before": "{{Citar web|título=Fonte literal|autor=P. P. Exemplo et al.}}",
+        "after": "{{Citar web|título=Fonte literal|autor=P. P. Exemplo|numero-autores=et al}}"
+      },
+      {
+        "before": "{{Citar web|título=Fonte literal|autor=Exemplo AB, Pessoa CD, Outro EF, et al.}}",
+        "after": "{{Citar web|título=Fonte literal|autor=Exemplo AB, Pessoa CD, Outro EF|numero-autores=et al}}"
+      },
+      {
+        "before": "{{Citar web|título=Fonte literal|autor1=Primeira Pessoa|autor2=Segunda Pessoa et al.}}",
+        "after": "{{Citar web|título=Fonte literal|autor1=Primeira Pessoa|autor2=Segunda Pessoa|numero-autores=et al}}"
+      }
+    ],
+    "vetoes": [
+      "Any body-name byte change or author/editor role/index swap",
+      "Any existing display field including blank",
+      "Duplicate or competing same-name aliases, including blank",
+      "Masked or institutional names",
+      "Missing or ambiguous indexed predecessors or a later indexed name",
+      "Unproved translator/contributor display semantics",
+      "A pure marker field without a supplied person body is not covered by this contract",
+      "A separate person-list split requires its independent primary-bound contract"
+    ]
+  },
+  "unstructuredAuthorsNativeMarkerEquivalence": {
+    "primaryConfigOldid": 73016847,
+    "primaryModuleOldid": 72936771,
+    "configSourceLines": [
+      [
+        174,
+        174
+      ],
+      [
+        194,
+        194
+      ]
+    ],
+    "moduleSourceLines": [
+      [
+        1732,
+        1750
+      ],
+      [
+        2112,
+        2128
+      ]
+    ],
+    "scope": "A unique selected native Authors value, such as autores or authors, can move one explicit terminal supplied et-al marker to its native DisplayAuthors role while keeping the entire preceding supplied personal-name body byte-identical. The renderer first selects the native Authors argument, initializes the marker from DisplayAuthors, then applies name_has_etal to that unchanged body and appends the same supplied marker. This does not authorize splitting its body, changing publication association, guessing additional names, or treating every terminal institutional phrase as a marker.",
+    "example": {
+      "before": "{{Citar web|título=Fonte literal|autores=Exemplo AB, Pessoa CD, Outro EF, et al.}}",
+      "after": "{{Citar web|título=Fonte literal|autores=Exemplo AB, Pessoa CD, Outro EF|numero-autores=et al}}"
+    },
+    "vetoes": [
+      "A competing native Authors alias, including blank",
+      "Any AuthorList, Vauthors, Coauthors or Collaboration role, including blank",
+      "An existing DisplayAuthors role, including blank",
+      "Any supplied person-body change, person-list split or target citation association change",
+      "Institutional, dynamic or ambiguous person bodies",
+      "Literal examples and unknown owners"
+    ],
+    "meaning": "Bounded supplied-marker cleanup under the primary native renderer. It is not whole-HTML equivalence, because the inline-marker maintenance category may disappear."
+  }
+}

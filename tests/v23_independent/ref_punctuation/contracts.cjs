@@ -20,7 +20,11 @@ assert(fs.existsSync(historyFile),'Bundled real regression fixture is required')
  const before=fs.readFileSync(historyFile,'utf8'),r=api.calculate({kind:'adjust',source:before,originalSource:before,options:cfg});
  ok(before.includes('</ref>.Galileu Galilei'),'Frozen source has the original glued punctuation');
  ok(!r.text.includes('</ref>Galileu Galilei'),'First pass does not create a glued word');
- ok(/honraria\.<ref name=":7">[\s\S]{1,800}?<\/ref> Galileu Galilei/.test(r.text),'Period moves before original book ref and following name has one space');
+ const originalBookRef=before.match(/<ref name=":7">[\s\S]*?<\/ref>/g);eq(originalBookRef.length,1,'The frozen source has one exact named book definition');
+ const sourceBook=originalBookRef[0];ok(sourceBook.startsWith('<ref name=":7">{{citar livro|'),'The original native book header and literal fields are pinned');
+ const sameInterfaceBook=sourceBook.replace('{{citar livro|','{{Citar livro|');
+ const allowedBookContexts=[sourceBook,sameInterfaceBook].map(raw=>'honraria'+raw+'.Galileu Galilei (1564 — 1642)');
+ ok(allowedBookContexts.some(raw=>r.text.includes(raw)),'The exact original reference body, arguments, name and order stay before the original period and following prose');
  eq(api.cleanup(r.text,cfg).text,r.text,'Full real article stable on first pass');eq(r.preservation,[],'Real article content retained');
  for(const fact of ['As 100 maiores personalidades da história: uma classificação das pessoas que mais influenciaram a história.','Michael H.','Hart','85-7432-010-2','Galileu Galilei (1564 — 1642)'])ok(r.text.includes(fact),'Original bibliographic/prose fact retained: '+fact);
  const hunks=api.comparison(before,r);eq(api.composeChanges(before,hunks),r.text,'Accept-all exact');eq(api.composeChanges(before,hunks.map(h=>({...h,accepted:false}))),before,'Reject-all exact original');

@@ -1,0 +1,29 @@
+{
+  "kind": "native-cs1-month-year-ascii-outer-padding",
+  "parentContract": "source_month_year_contract.json",
+  "primarySources": [
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "role": "Exact native publication Year/Date aliases and obsolete month-role boundaries."
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "role": "Native named citation argument trimming preserves supplied scalar metadata precision; no day is inferred."
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=71860752",
+      "role": "Whitelist acceptance is kept distinct from active obsolete Month rendering."
+    }
+  ],
+  "newAuthority": "Only ASCII space, tab, CR and LF around an otherwise complete four-digit year, one complete month token/range, or the complete year-first English-month scalar. Internal CR/LF, non-ASCII whitespace, controls, comments and dynamic values remain outside the grammar.",
+  "byteContract": "The exact retained Year/scalar leading and trailing bytes remain in the replacement. Removing the unique obsolete Month field removes that entire field as one already-declared repair. Every other field, delimiter and supplied year/month precision remains exact.",
+  "gates": [
+    "dates",
+    "automaticCitationDateValues",
+    "automaticSourceCompatibility",
+    "automaticParameterNames",
+    "citations",
+    "namespace/content-model/source safety"
+  ],
+  "wikipediaWrites": 0
+}

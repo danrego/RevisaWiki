@@ -1,0 +1,356 @@
+{
+  "kind": "independent-bounded-three-source-endpoints",
+  "meaning": "These finite endpoints recover useful source intent. Some intentionally replace defective or destructive original outputs with a separately proved safe endpoint. They do not claim arbitrary-regex or whole-script parity.",
+  "rows": [
+    {
+      "id": "b.autores.11",
+      "source": "{{Citar web|título=Fonte literal|autor=Nome Exemplo; Outra Pessoa}}",
+      "expected": "{{Citar web|título=Fonte literal|autor=Nome Exemplo|autor2=Outra Pessoa}}",
+      "implementation": "v219CitationPeopleSplitAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "b.autores.13",
+      "source": "{{Citar web|título=Fonte literal|autor=Nome Exemplo et al.}}",
+      "expected": "{{Citar web|título=Fonte literal|autor=Nome Exemplo|numero-autores=et al}}",
+      "implementation": "v219CitationPeopleTailAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.geral.3",
+      "source": "{{Citar web|título=Fonte literal|autor=Nome Exemplo et al.}}",
+      "expected": "{{Citar web|título=Fonte literal|autor=Nome Exemplo|numero-autores=et al}}",
+      "implementation": "v219CitationPeopleTailAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.geral.6",
+      "source": "{{Citar web|título=Fonte literal|autor=Nome Exemplo et al.}}",
+      "expected": "{{Citar web|título=Fonte literal|autor=Nome Exemplo|numero-autores=et al}}",
+      "implementation": "v219CitationPeopleTailAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "b.autores.14",
+      "source": "{{Citar web|título=Fonte literal|editor=Nome Exemplo; Outra Pessoa}}",
+      "expected": "{{Citar web|título=Fonte literal|editor=Nome Exemplo|editor2=Outra Pessoa}}",
+      "implementation": "v219CitationPeopleSplitAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "b.autores.16",
+      "source": "{{Citar web|título=Fonte literal|editor=Nome Exemplo et al.}}",
+      "expected": "{{Citar web|título=Fonte literal|editor=Nome Exemplo|numero-editores=et al}}",
+      "implementation": "v219CitationPeopleTailAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.geral.7",
+      "source": "{{Citar web|título=Fonte literal|editor=Nome Exemplo et al.}}",
+      "expected": "{{Citar web|título=Fonte literal|editor=Nome Exemplo|numero-editores=et al}}",
+      "implementation": "v219CitationPeopleTailAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "b.autores.22",
+      "source": "{{Citar web|título=Fonte literal|tradutor=Nome Exemplo; Outra Pessoa}}",
+      "expected": "{{Citar web|título=Fonte literal|tradutor=Nome Exemplo|tradutor2=Outra Pessoa}}",
+      "implementation": "v219CitationPeopleSplitAllowed",
+      "focusedSuite": "citation_people_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "b.cs1.8",
+      "source": "{{Citar web|título=Fonte literal|doi=10.1234 / exemplo}}",
+      "expected": "{{Citar web|título=Fonte literal|doi=10.1234/exemplo}}",
+      "implementation": "v219SourceDOISlashSpacing",
+      "focusedSuite": "citation_syntax_subset_cases.cjs",
+      "primaryOldids": [
+        73016847
+      ]
+    },
+    {
+      "id": "b.wikify.5",
+      "source": "Texto literal.  \nOutra frase.",
+      "expected": "Texto literal.\nOutra frase.",
+      "implementation": "cleanup",
+      "focusedSuite": "literal_markup_boundaries.cjs",
+      "primaryOldids": []
+    },
+    {
+      "id": "b.wikify.21",
+      "source": "Texto literal.</br>Outra frase.",
+      "expected": "Texto literal.<br />Outra frase.",
+      "implementation": "v25SafeRepairPlan",
+      "focusedSuite": "syntax_boundary_actions.cjs",
+      "primaryOldids": []
+    },
+    {
+      "id": "c.citation.datas.9",
+      "source": "{{Citar web|título=Fonte literal|data=2001 March}}",
+      "expected": "{{Citar web|título=Fonte literal|data=março de 2001}}",
+      "implementation": "v219SourceMonthYearEdits",
+      "focusedSuite": "source_month_year_cases.cjs",
+      "primaryOldids": [
+        72349758,
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.datas.21",
+      "source": "{{Citar web|título=Fonte literal|data={{Data|2001|3|5}}}}",
+      "expected": "{{Citar web|título=Fonte literal|data=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        46302438,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.22",
+      "source": "{{Citar web|título=Fonte literal|data={{DataExt|5|3|2001}}}}",
+      "expected": "{{Citar web|título=Fonte literal|data=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        72119775,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.32",
+      "source": "{{Citar web|título=Fonte literal|acessodata={{Data|2001|3|5}}}}",
+      "expected": "{{Citar web|título=Fonte literal|acessodata=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        46302438,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.33",
+      "source": "{{Citar web|título=Fonte literal|acessodata={{DataExt|5|3|2001}}}}",
+      "expected": "{{Citar web|título=Fonte literal|acessodata=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        72119775,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.38",
+      "source": "{{Citar web|título=Fonte literal|data=15 -03 -2001}}",
+      "expected": "{{Citar web|título=Fonte literal|data=15 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.60",
+      "source": "{{Citar web|título=Fonte literal|arquivodata={{Data|2001|3|5}}}}",
+      "expected": "{{Citar web|título=Fonte literal|arquivodata=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        46302438,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.63",
+      "source": "{{Citar web|título=Fonte literal|data=5 de março de [[2001]]}}",
+      "expected": "{{Citar web|título=Fonte literal|data=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.67",
+      "source": "{{Citar web|título=Fonte literal|ano=2001|month=March/April}}",
+      "expected": "{{Citar web|título=Fonte literal|data=março–abril de 2001}}",
+      "implementation": "v219SourceMonthYearEdits",
+      "focusedSuite": "source_month_year_cases.cjs",
+      "primaryOldids": [
+        72349758,
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.datas.68",
+      "source": "{{Citar web|título=Fonte literal|ano=2001|mês=March}}",
+      "expected": "{{Citar web|título=Fonte literal|data=março de 2001}}",
+      "implementation": "v219SourceMonthYearEdits",
+      "focusedSuite": "source_month_year_cases.cjs",
+      "primaryOldids": [
+        72349758,
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.datas.69",
+      "source": "{{Citar web|título=Fonte literal|mês=March|ano=2001}}",
+      "expected": "{{Citar web|título=Fonte literal|data=março de 2001}}",
+      "implementation": "v219SourceMonthYearEdits",
+      "focusedSuite": "source_month_year_cases.cjs",
+      "primaryOldids": [
+        72349758,
+        73016847,
+        72936771
+      ]
+    },
+    {
+      "id": "c.citation.datas.112",
+      "source": "{{Citar web|título=Fonte literal|data=2001-03-05.}}",
+      "expected": "{{Citar web|título=Fonte literal|data=2001-03-05}}",
+      "implementation": "v219SourceISOPeriodEdits",
+      "focusedSuite": "citation_syntax_subset_cases.cjs",
+      "primaryOldids": [
+        72349758,
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.datas.119",
+      "source": "{{Citar web|título=Fonte literal|acessodata=March 2001}}",
+      "expected": "{{Citar web|título=Fonte literal|acessodata=março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        73016847
+      ]
+    },
+    {
+      "id": "c.citation.tradpred.140",
+      "source": "{{Citar web|título=Fonte literal|url https://example.org/fonte}}",
+      "expected": "{{Citar web|título=Fonte literal|url= https://example.org/fonte}}",
+      "implementation": "v219SourceMissingEquals",
+      "focusedSuite": "citation_syntax_subset_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        71860752
+      ]
+    },
+    {
+      "id": "c.citation.tradpred.141",
+      "source": "{{Citar web|título=Fonte literal|acessodata 2001-03-05}}",
+      "expected": "{{Citar web|título=Fonte literal|acessodata= 2001-03-05}}",
+      "implementation": "v219SourceMissingEquals",
+      "focusedSuite": "citation_syntax_subset_cases.cjs",
+      "primaryOldids": [
+        73016847,
+        71860752
+      ]
+    },
+    {
+      "id": "c.general.4",
+      "source": "{{Infobox person|name=Pessoa fictícia}}",
+      "expected": "{{Infobox person|name=Pessoa fictícia}}",
+      "implementation": "native-consumed-wrapper-preservation",
+      "focusedSuite": "option_action_cases.cjs",
+      "primaryOldids": [
+        63097825,
+        72993800
+      ],
+      "supersededExpectedEndpoint": "{{Info/Biografia|nome=Pessoa fictícia}}",
+      "supersededImplementation": "migrateForeignTemplate",
+      "disposition": "preserved",
+      "primaryContract": "predecessor_native_person_wrapper_contract.json",
+      "reason": "The exact native Infobox person wrapper63097825 already consumes name and forwards selected fields with its own blank-priority and substitution behavior. Preserve this accepted native interface, its children and argument bytes; the foreign same-name profile is not the local consumer."
+    },
+    {
+      "id": "c.general.64",
+      "source": "{{Citar web|título=Fonte literal|data=segunda-feira, 5 de março de 2001}}",
+      "expected": "{{Citar web|título=Fonte literal|data=5 de março de 2001}}",
+      "implementation": "v218CitationDateValue",
+      "focusedSuite": "citation_date_boundaries.cjs",
+      "primaryOldids": [
+        73016847
+      ]
+    },
+    {
+      "id": "c.general.67",
+      "source": "{{Citar web|título=Fonte literal|páginas={{P.|5–7}}}}",
+      "expected": "{{Citar web|título=Fonte literal|páginas=5–7}}",
+      "implementation": "v219SourcePageWrapperEdits",
+      "focusedSuite": "citation_syntax_subset_cases.cjs",
+      "primaryOldids": [
+        47405734,
+        73016847
+      ]
+    },
+    {
+      "id": "c.general.94",
+      "source": "Texto.{{Citation needed|data=março de 2001}}",
+      "expected": "Texto.{{Carece de fontes|data=março de 2001}}",
+      "implementation": "migrateForeignTemplate",
+      "focusedSuite": "translation_safety_cases.cjs",
+      "primaryOldids": []
+    },
+    {
+      "id": "c.general.96",
+      "source": "Texto.<ref>Fonte literal.</ref>\n\n== Referências ==",
+      "expected": "Texto.<ref>Fonte literal.</ref>\n\n{{Referências}}\n\n",
+      "implementation": "referenceReconciliation",
+      "focusedSuite": "reference_table_remaining_actions.cjs",
+      "primaryOldids": []
+    },
+    {
+      "id": "c.general.97",
+      "source": "{{Referência}}",
+      "expected": "{{Referências}}",
+      "implementation": "v219NativeReferenceCollector",
+      "focusedSuite": "reference_remaining_actions.cjs",
+      "primaryOldids": []
+    },
+    {
+      "id": "c.general.98",
+      "source": "{{Références|groupe=nota}}",
+      "expected": "{{Referências|grupo=nota}}",
+      "implementation": "migrateForeignTemplate",
+      "focusedSuite": "renderer_context_cases.cjs",
+      "primaryOldids": []
+    }
+  ],
+  "wikipediaWrites": 0
+}

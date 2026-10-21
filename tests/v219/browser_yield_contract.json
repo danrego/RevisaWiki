@@ -1,0 +1,18 @@
+{
+  "kind": "native-self-posted-message-macrotask-fallback",
+  "version": 1,
+  "primary": {
+    "url": "https://html.spec.whatwg.org/multipage/web-messaging.html#posting-messages",
+    "observedLivingStandardDate": "2026-10-16",
+    "section": "9.3.3 Posting messages",
+    "steps": [8, "8.1", "8.3", "8.7"]
+  },
+  "contract": [
+    "Window.postMessage queues a global task on the posted message task source. It does not replace the yield with a Promise microtask.",
+    "The receiver checks the exact same Window source, the exact current origin and a unique payload before resolving.",
+    "The helper sends only an internal token to its own window, using the exact current origin. It sends no article text, account data or network request.",
+    "The exact listener is removed after delivery and after a synchronous postMessage failure. Unsupported environments return null so the existing timer fallback remains available.",
+    "The existing processing-task guard runs after this awaited yield, so cancellation and draft-staleness checks retain their current ownership."
+  ],
+  "nativePerformanceBoundary": "The standard establishes the task-source semantics. Actual hidden-window completion and cancellation require separately recorded native browser runs; isolated helper tests alone make no performance claim."
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "native-Cite-named-reference-collector-intervals",
+  "anonymous": true,
+  "wikipediaWrites": 0,
+  "primaryRenderingProofs": [
+    {
+      "source": "A.<ref name=alpha>{{Cite web|title=Fonte literal|url=https://example.invalid/fonte}}</ref>\n<references/>\nB.<ref name=alpha>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte}}</ref>\n<references/>\nC.<ref name=beta>Fonte um.</ref>\n<references/>\nD.<ref name=beta>Fonte dois.</ref>\n<references/>",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&text=A.%3Cref+name%3Dalpha%3E%7B%7BCite+web%7Ctitle%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E%0AB.%3Cref+name%3Dalpha%3E%7B%7BCitar+web%7Ct%C3%ADtulo%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E%0AC.%3Cref+name%3Dbeta%3EFonte+um.%3C%2Fref%3E%0A%3Creferences%2F%3E%0AD.%3Cref+name%3Dbeta%3EFonte+dois.%3C%2Fref%3E%0A%3Creferences%2F%3E&contentmodel=wikitext&title=Tema+fict%C3%ADcio&prop=text%7Cwikitext%7Cparsewarnings&format=json&formatversion=2&disablelimitreport=1&disableeditsection=1",
+      "responseSha256": "7571662b42603b4d5feb428e319bcb37752d654e1bd5d2c0713e74c64a36ee2b"
+    },
+    {
+      "source": "A.<ref name=alpha>{{Cite web|title=Fonte literal|url=https://example.invalid/fonte}}</ref> B.<ref name=alpha>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte}}</ref>\n<references/>\nC.<ref name=beta>[https://example.invalid/fonte Fonte literal]</ref> D.<ref name=beta>{{Citar web|url=https://example.invalid/fonte|título=Fonte literal}}</ref>\n<references/>\nE.<ref name=gamma>Fonte literal.</ref><references/> F.<ref name=gamma/><references/>",
+      "url": "https://pt.wikipedia.org/w/api.php?action=parse&text=A.%3Cref+name%3Dalpha%3E%7B%7BCite+web%7Ctitle%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7D%7D%3C%2Fref%3E+B.%3Cref+name%3Dalpha%3E%7B%7BCitar+web%7Ct%C3%ADtulo%3DFonte+literal%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E%0AC.%3Cref+name%3Dbeta%3E%5Bhttps%3A%2F%2Fexample.invalid%2Ffonte+Fonte+literal%5D%3C%2Fref%3E+D.%3Cref+name%3Dbeta%3E%7B%7BCitar+web%7Curl%3Dhttps%3A%2F%2Fexample.invalid%2Ffonte%7Ct%C3%ADtulo%3DFonte+literal%7D%7D%3C%2Fref%3E%0A%3Creferences%2F%3E%0AE.%3Cref+name%3Dgamma%3EFonte+literal.%3C%2Fref%3E%3Creferences%2F%3E+F.%3Cref+name%3Dgamma%2F%3E%3Creferences%2F%3E&contentmodel=wikitext&title=Tema+fict%C3%ADcio&prop=text%7Cwikitext%7Cparsewarnings&format=json&formatversion=2&disablelimitreport=1&disableeditsection=1",
+      "responseSha256": "46a4e8186f89113b8cbc88629c5b00015fd7a21d8008e021833a72c02308b660"
+    }
+  ],
+  "verifiedBoundaries": [
+    "A complete native collector consumes its exact group and resets named definitions in that group for the next list.",
+    "Different raw definitions of the same name within one list create a native duplicate-content error even when typed citation aliases render the same source.",
+    "The same name may have a different raw body after its group collector without a duplicate-content error.",
+    "A selfcall after its group collector cannot borrow a full definition from the previous list.",
+    "A collector for another group does not reset this group."
+  ],
+  "readerLimits": "Ordered marker bodies, group/name associations and list consumption remain exact. Raw duplicate-content conflicts are checked only within the same known group collector interval. Unknown emitters or unresolved enclosing owners remain explicit ambiguities."
+}

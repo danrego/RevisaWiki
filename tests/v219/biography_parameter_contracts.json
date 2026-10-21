@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "kind": "current-native-biography-parameter-and-priority-contracts",
+  "retrieved": "2026-10-17",
+  "reviewedContractSha256": "68c11b92bf1d8971bf8efe68f29f303990e700e8a60acc535afe3bd8ae7cb596",
+  "scope": "The reviewed finite field roles and priority chains are reused only where the complete current native source is byte-identical. Every alias family is presence-based, so explicit high-priority blanks can suppress a lower argument.",
+  "contracts": [
+    {
+      "template": "Info/Biografia",
+      "oldid": 72993800,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72993800",
+      "sourceSha256": "fca7303d40976b8f39ab61c182d32e92077c56df8e04a6f857725431325972d6",
+      "accents": {
+        "residencia": "residência",
+        "educacao": "educação",
+        "outras_ocupacoes": "outras_ocupações",
+        "profissao": "profissão",
+        "religiao": "religião",
+        "organizacao": "organização",
+        "titulos": "títulos",
+        "nome_mae": "nome_mãe"
+      },
+      "aliases": [
+        {
+          "kind": "occupation",
+          "mode": "presence",
+          "keys": [
+            "ocupação",
+            "ocupações",
+            "ocupacao",
+            "trabalho civil",
+            "Ocupação"
+          ],
+          "expressions": {
+            "ocupação": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "ocupações": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "ocupacao": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "trabalho civil": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ],
+            "Ocupação": [
+              "| dados31    = {{{ocupação|{{{ocupações|{{{ocupacao|{{{trabalho civil|{{{Ocupação|}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-occupation-after",
+            "alias-Info-Biografia-occupation-after-ref"
+          ]
+        },
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "| dados26    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "| dados26    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-spouse-after",
+            "alias-Info-Biografia-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "fullName",
+          "mode": "presence",
+          "keys": [
+            "nome_completo",
+            "nome_de_batismo"
+          ],
+          "expressions": {
+            "nome_completo": [
+              "| dados1        = {{{nome_completo|{{{nome_de_batismo|}}}}}}"
+            ],
+            "nome_de_batismo": [
+              "| dados1        = {{{nome_completo|{{{nome_de_batismo|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-fullName-after",
+            "alias-Info-Biografia-fullName-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "site",
+            "url",
+            "sítio",
+            "site_oficial",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "url": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "sítio": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site_oficial": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "homepage": [
+              "|rótulo126 = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}|Website}}",
+              "|dados126 = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Biografia-website-after",
+            "alias-Info-Biografia-website-after-ref"
+          ]
+        }
+      ],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {
+        "residência": [
+          {
+            "sourceLine": 54,
+            "literalSha256": "ff66a3b8d6f0276bcbb9501c7cc46e05eb01b6e55b7692a29b75211b61efd771"
+          }
+        ],
+        "educação": [
+          {
+            "sourceLine": 95,
+            "literalSha256": "958372c3d45ac3460f5354ff8b483a570b9a835358846ded67d8f366a619242f"
+          }
+        ],
+        "outras_ocupações": [
+          {
+            "sourceLine": 101,
+            "literalSha256": "37be61eaa8c267bfcdc1c40a29df8c0b38db24949d05fe9e9650b88a93f625e8"
+          }
+        ],
+        "profissão": [
+          {
+            "sourceLine": 103,
+            "literalSha256": "3ba56c2382acbc019ea7d6e30266bbe5c5c2262d35e924354ba1a901b6c0714a"
+          }
+        ],
+        "religião": [
+          {
+            "sourceLine": 265,
+            "literalSha256": "2071bbf923e14149740bb841e99c9070110bebd828e9fbc12eb117521eba860f"
+          }
+        ],
+        "organização": [
+          {
+            "sourceLine": 106,
+            "literalSha256": "fe70b4d4f537d03d0313cbf3c758d83cc135ed825d9677b3484211936401547c"
+          },
+          {
+            "sourceLine": 107,
+            "literalSha256": "eb16a57120da8d8a46939b517f4e0ee55bfc34573de508b5e1f8d4962d245057"
+          }
+        ],
+        "títulos": [
+          {
+            "sourceLine": 22,
+            "literalSha256": "f3322d95e716af327d0a574a7316b36796755c42862acf046f165b9a4b48979a"
+          }
+        ],
+        "nome_mãe": [
+          {
+            "sourceLine": 81,
+            "literalSha256": "347e9caedb508cb59ef5ca171a52480f83c798c8f3ed25cf0e14a8a832e9a653"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Info/Futebolista",
+      "oldid": 70095373,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70095373",
+      "sourceSha256": "25df2174220fbaa5aeffa9a4a3eff35a1fdaa440986d789b62f6bebe864981b4",
+      "accents": {
+        "posicao": "posição",
+        "pe": "pé",
+        "nascimento_pais": "nascimento_país"
+      },
+      "aliases": [],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {
+        "posição": [
+          {
+            "sourceLine": 56,
+            "literalSha256": "7945e6aba221512f8c5bdfd2e43da273f6b2517b3fa4da059dac9a7cb1f9ae14"
+          },
+          {
+            "sourceLine": 75,
+            "literalSha256": "d42bf1154792ea6128108c38bc5ae0038505e5478057a10a832097a416590986"
+          },
+          {
+            "sourceLine": 77,
+            "literalSha256": "5c9770b0e36c1a12a6b08220e0dfbcfc0818ce9e483f4e14dcd41a351fc52602"
+          }
+        ],
+        "pé": [
+          {
+            "sourceLine": 46,
+            "literalSha256": "5d00bf19e16d0525ba77ee1c063c4d0e969beacd1a0bc0859acce0f7d1be9621"
+          },
+          {
+            "sourceLine": 48,
+            "literalSha256": "077d83e685fea089e6693465e9ce36060ba921ab911d9612b94c58c58bc65e30"
+          }
+        ],
+        "nascimento_país": [
+          {
+            "sourceLine": 24,
+            "literalSha256": "17fc9310a13a7277b85043360a6ec5bacefef437f14d73ac84b47d62d9816280"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Info/Ator",
+      "oldid": 72882232,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72882232",
+      "sourceSha256": "64980d263d78828e6ca072d269cf836ff63f7647c6d01cce21ac862328db4da3",
+      "accents": {
+        "educacao": "educação",
+        "residencia": "residência",
+        "ocupacao": "ocupação",
+        "nome_mae": "nome_mãe",
+        "conjuge": "cônjuge"
+      },
+      "aliases": [],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {
+        "educação": [
+          {
+            "sourceLine": 37,
+            "literalSha256": "cd8d6a5c4ee4f7bcbd3fbc8728da997e3b9fee1b89f8f45c435e2825da38b33c"
+          }
+        ],
+        "residência": [
+          {
+            "sourceLine": 40,
+            "literalSha256": "5a755d2b9c5a9b3fb1d2b2c0cf3a1364c8a2a56afac5d019205533002ab7dd00"
+          }
+        ],
+        "ocupação": [
+          {
+            "sourceLine": 43,
+            "literalSha256": "a4f5cb318dfb04942edfc06a1da923f569afba5acaf1e475e26e75bbec3f6a62"
+          }
+        ],
+        "nome_mãe": [
+          {
+            "sourceLine": 50,
+            "literalSha256": "18fcbb33dac7a8511434d11c00ddbd553e834d1e3aefdca4f29721fca3424e58"
+          }
+        ],
+        "cônjuge": [
+          {
+            "sourceLine": 54,
+            "literalSha256": "36ed3a372e6556292bdc0e6716156dd8993f29789d38d5e00cc154cb74c8154b"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Info/Político",
+      "oldid": 72931974,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72931974",
+      "sourceSha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a",
+      "accents": {
+        "religiao": "religião",
+        "profissao": "profissão",
+        "ocupacao": "ocupação",
+        "residencia": "residência",
+        "nome_mae": "nome_mãe"
+      },
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados65    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados65    = {{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Político-spouse-after",
+            "alias-Info-Político-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados75    = {{{website|{{{homepage|}}}}}}"
+            ],
+            "homepage": [
+              "| tópico58     = {{#se:{{{alma_mater|}}}{{{premio|{{{prêmio|{{{prémio|}}}}}}}}}{{{primeira-dama|}}}{{{primeiro-cavalheiro|}}}{{{cônjuge|{{{conjuge|}}}}}}{{{partido|}}}{{{religião|}}}{{{fortuna|}}}{{{profissão|}}}{{{assinatura|}}}{{{website|{{{homepage|}}}}}}|}}<!--Para que o tópico não apareça à toa-->",
+              "|   dados75    = {{{website|{{{homepage|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Político-website-after",
+            "alias-Info-Político-website-after-ref"
+          ]
+        }
+      ],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {
+        "religião": [
+          {
+            "sourceLine": 144,
+            "literalSha256": "b5d100e580671017afa777450167cfc982a1d5cb987123b37f03598b13392134"
+          },
+          {
+            "sourceLine": 166,
+            "literalSha256": "1afb59186dc7d020f575886557535581df169c838ba46a61fcf4388c169fd62f"
+          }
+        ],
+        "profissão": [
+          {
+            "sourceLine": 144,
+            "literalSha256": "b5d100e580671017afa777450167cfc982a1d5cb987123b37f03598b13392134"
+          },
+          {
+            "sourceLine": 168,
+            "literalSha256": "6243ca8dc5091aa9b68378e4ca5d821676d26f750e979091597ad2dd37832358"
+          }
+        ],
+        "ocupação": [
+          {
+            "sourceLine": 170,
+            "literalSha256": "0bdb0f1fe4d882b424cd483050d857c1515d7e5d9f8209599c4906503e540f2a"
+          }
+        ],
+        "residência": [
+          {
+            "sourceLine": 172,
+            "literalSha256": "8b9931781585de3252c895c5e6536edc50c45c8cac3b04ad7bccface3d0f2688"
+          }
+        ],
+        "nome_mãe": [
+          {
+            "sourceLine": 146,
+            "literalSha256": "742e19af96cf74dd773a2d1a27de994395a39872bd943cf8cb598f088a919ab6"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Info/Militar",
+      "oldid": 70403402,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70403402",
+      "sourceSha256": "7381e0af2c62c17aba56da2f203494349e1b7c9b8c0a16b22b463be98b201ff7",
+      "accents": {},
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "cônjuge",
+            "conjuge"
+          ],
+          "expressions": {
+            "cônjuge": [
+              "|tópico1    = {{#se: {{{nascimento_data|{{{nascimento|}}} }}}{{{morte_data|{{{falecimento|}}} }}}{{{data_morte|{{{morte_data|}}}}}}{{{nacionalidade|}}}{{{cônjuge|{{{conjuge|}}}}}}|Dados pessoais|}}",
+              "|dados7.5   ={{{cônjuge|{{{conjuge|}}}}}}"
+            ],
+            "conjuge": [
+              "|tópico1    = {{#se: {{{nascimento_data|{{{nascimento|}}} }}}{{{morte_data|{{{falecimento|}}} }}}{{{data_morte|{{{morte_data|}}}}}}{{{nacionalidade|}}}{{{cônjuge|{{{conjuge|}}}}}}|Dados pessoais|}}",
+              "|dados7.5   ={{{cônjuge|{{{conjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Militar-spouse-after",
+            "alias-Info-Militar-spouse-after-ref"
+          ]
+        }
+      ],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {}
+    },
+    {
+      "template": "Info/Modelo",
+      "oldid": 72130922,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72130922",
+      "sourceSha256": "1ebae6dea86c829117daa783d639b08baa151e559d6208cf0fd5e2766716217b",
+      "accents": {},
+      "aliases": [
+        {
+          "kind": "spouse",
+          "mode": "presence",
+          "keys": [
+            "conjuge",
+            "cônjuge"
+          ],
+          "expressions": {
+            "conjuge": [
+              "| dados22   = {{{conjuge|{{{cônjuge|}}}}}}"
+            ],
+            "cônjuge": [
+              "| dados22   = {{{conjuge|{{{cônjuge|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-spouse-after",
+            "alias-Info-Modelo-spouse-after-ref"
+          ]
+        },
+        {
+          "kind": "occupation",
+          "mode": "presence",
+          "keys": [
+            "ocupacao",
+            "ocupação"
+          ],
+          "expressions": {
+            "ocupacao": [
+              "| dados12   = {{{ocupacao|{{{ocupação|}}}}}}"
+            ],
+            "ocupação": [
+              "| dados12   = {{{ocupacao|{{{ocupação|}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-occupation-after",
+            "alias-Info-Modelo-occupation-after-ref"
+          ]
+        },
+        {
+          "kind": "website",
+          "mode": "presence",
+          "keys": [
+            "website",
+            "site",
+            "url",
+            "sítio",
+            "site_oficial",
+            "homepage"
+          ],
+          "expressions": {
+            "website": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "url": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "sítio": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "site_oficial": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ],
+            "homepage": [
+              "| tópico39  = {{#if: {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}} | Página oficial}}",
+              "| dados40   = {{{website|{{{site|{{{url|{{{sítio|{{{site_oficial|{{{homepage|}}}}}}}}}}}}}}}}}}"
+            ]
+          },
+          "parseEvidenceIds": [
+            "alias-Info-Modelo-website-after",
+            "alias-Info-Modelo-website-after-ref"
+          ]
+        }
+      ],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {}
+    },
+    {
+      "template": "Info/Magistrado",
+      "oldid": 72947166,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72947166",
+      "sourceSha256": "be2369f2c217b7b2388ef1b7a94991ff356991ec138aefd7e18bcddd24e08391",
+      "accents": {},
+      "aliases": [],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {}
+    },
+    {
+      "template": "Info/Ciclista",
+      "oldid": 70644942,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=70644942",
+      "sourceSha256": "8cb08e3a27f50ea944292e07cdfa99f482b75e8d012cb1e3ea61028b456fb534",
+      "accents": {},
+      "aliases": [],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {}
+    },
+    {
+      "template": "Info/Música/artista",
+      "oldid": 73044750,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73044750",
+      "sourceSha256": "c909cd8de97dd9619b5ba0daf412bc42bc6f7c03530360d82a27ab9391e3ced0",
+      "accents": {},
+      "aliases": [],
+      "currentSourceByteIdentical": true,
+      "displayRoleWitnesses": {}
+    }
+  ]
+}

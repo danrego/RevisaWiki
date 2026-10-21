@@ -1,0 +1,2419 @@
+{
+  "kind": "independently-preauthored-source-selected-bank-and-native-html-whole-action-endpoints",
+  "rows": [
+    {
+      "id": "independent/native-notelist-bare",
+      "source": "{{notelist}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-english-note-falls-back",
+      "source": "{{Notelist|group=note}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-portuguese-nota-accepted",
+      "source": "{{Notelist|group=nota}}",
+      "expected": "{{Referências|grupo=nota|nível=0}}",
+      "group": "nota",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-unrecognized-group-falls-back",
+      "source": "{{Notelist|group=grupo literal}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-explicit-blank-falls-back",
+      "source": "{{Notelist|group=}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-group-case-falls-back",
+      "source": "{{Notelist|group=LOWER-ALPHA}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-listanota-local-body-alias",
+      "source": "{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Referências|grupo=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-listaref-header-only-portuguese-interface",
+      "source": "{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}",
+      "expected": "{{Referências|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}",
+      "group": "grupo literal",
+      "collectors": 1,
+      "headings": 1,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-listaref-ignored-foreign-fields-stay-ignored",
+      "source": "{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}",
+      "expected": "{{Referências|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}",
+      "group": "",
+      "collectors": 1,
+      "headings": 1,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-references-fr-redirect-header-only",
+      "source": "{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "expected": "{{Referências|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-efn-preserved",
+      "source": "{{Efn|content=Fonte literal|group=note}}",
+      "expected": "{{Efn|content=Fonte literal|group=note}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-prefixed-references-header-only",
+      "source": "{{tEmPlAtE:Références |groupe=note|refs=}}",
+      "expected": "{{Referências |groupe=note|refs=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-refs-bank",
+      "source": "{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Referências|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-invalid-bank-quiet",
+      "source": "{{modèle:Références|referencias=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:Références|referencias=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-alpha-style",
+      "source": "{{modèle:Références|groupe=alpha}}",
+      "expected": "{{Referências|grupo=alpha|estilolista=lower-alpha|nível=0}}",
+      "group": "alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-standard-group-decimal-style",
+      "source": "{{modèle:Références|groupe=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-notes-decimal",
+      "source": "{{modèle:Notes|groupe=décimal}}",
+      "expected": "{{Referências|nível=0}}",
+      "group": "",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-notes-absent",
+      "source": "{{Notes}}",
+      "expected": "{{Referências|grupo=note|nível=0}}",
+      "group": "note",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-notes-explicit-blank",
+      "source": "{{Notes|group=}}",
+      "expected": "{{Referências|nível=0}}",
+      "group": "",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-notes-bank",
+      "source": "{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Referências|grupo=note|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "note",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-es-actual-bank-group",
+      "source": "{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-es-copied-french-key-quiet",
+      "source": "{{plantilla:Listaref|groupe=lower-alpha}}",
+      "expected": "{{plantilla:Listaref|groupe=lower-alpha}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-es-invalid-bank-key-quiet",
+      "source": "{{plantilla:Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{plantilla:Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fi-actual-body-and-group",
+      "source": "{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fi-invalid-group-quiet",
+      "source": "{{Viitteet|group=lower-alpha}}",
+      "expected": "{{Viitteet|group=lower-alpha}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-he-actual-body-and-group",
+      "source": "{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-he-invalid-refs-quiet",
+      "source": "{{הערות שוליים|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{הערות שוליים|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-ru-secondary-group-retains-source-decimal",
+      "source": "{{Примечания|группа=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-tr-secondary-group",
+      "source": "{{Kaynakça|grup=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-vi-group-decimal",
+      "source": "{{Tham khảo|nhóm=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-th-group-decimal",
+      "source": "{{รายการอ้างอิง|group=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-nn-group-decimal",
+      "source": "{{Referansar|group=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-nl-native-dutch-group-style",
+      "source": "{{sjabloon:References|group=kleine-letter}}",
+      "expected": "{{Referências|grupo=kleine-letter|estilolista=lower-alpha|nível=0}}",
+      "group": "kleine-letter",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-nl-english-group-decimal",
+      "source": "{{sjabloon:References|group=lower-alpha}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=decimal|nível=0}}",
+      "group": "lower-alpha",
+      "collectors": 1,
+      "headings": 0,
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-mixed-aliases-blank-priority-preserved",
+      "source": "{{Notelist|group=|grupo=nota}}",
+      "expected": "{{Notelist|group=|grupo=nota}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-mixed-body-aliases-blank-priority-preserved",
+      "source": "{{modèle:Références|références=|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:Références|références=|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-dynamic-group-preserved",
+      "source": "{{modèle:Notes|groupe={{Exemplo}}}}",
+      "expected": "{{modèle:Notes|groupe={{Exemplo}}}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-layout-preserved-pending-proof",
+      "source": "{{modèle:Références|colonnes=2}}",
+      "expected": "{{modèle:Références|colonnes=2}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-layout-preserved-pending-proof",
+      "source": "{{Notelist|2}}",
+      "expected": "{{Notelist|2}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-wrong-internal-case-no-authority",
+      "source": "{{RÉFÉRENCES|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{RÉFÉRENCES|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-wrong-internal-case-no-authority",
+      "source": "{{modèle:RÉFÉRENCES|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:RÉFÉRENCES|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-ru-blank-style-priority-preserved",
+      "source": "{{Примечания|group=lower-alpha|liststyle=}}",
+      "expected": "{{Примечания|group=lower-alpha|liststyle=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-es-blank-style-priority-preserved",
+      "source": "{{plantilla:Listaref|group=lower-alpha|estilolista=}}",
+      "expected": "{{plantilla:Listaref|group=lower-alpha|estilolista=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-th-blank-style-priority-preserved",
+      "source": "{{รายการอ้างอิง|group=lower-alpha|liststyle=}}",
+      "expected": "{{รายการอ้างอิง|group=lower-alpha|liststyle=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-blank-size-preserved",
+      "source": "{{modèle:Références|taille=}}",
+      "expected": "{{modèle:Références|taille=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-notelist-blank-width-preserved",
+      "source": "{{Notelist|colwidth=}}",
+      "expected": "{{Notelist|colwidth=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-reflist-proven-blank-style-forwarded",
+      "source": "{{Reflist|group=lower-alpha|liststyle=}}",
+      "expected": "{{Referências|grupo=lower-alpha|estilolista=|nível=0}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-unknown-empty-field-preserved",
+      "source": "{{modèle:Références|campo_desconhecido=}}",
+      "expected": "{{modèle:Références|campo_desconhecido=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-duplicate-identical-fields-preserved",
+      "source": "{{modèle:Références|refs=Fonte literal|refs=Fonte literal}}",
+      "expected": "{{modèle:Références|refs=Fonte literal|refs=Fonte literal}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-source-blank-body-hides-secondary-bank",
+      "source": "{{modèle:Références|références=|refs=<ref name=\"oculta\">Fonte mantida</ref>}}",
+      "expected": "{{modèle:Références|références=|refs=<ref name=\"oculta\">Fonte mantida</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-fr-group-control-preserved",
+      "source": "{{modèle:Références|group=grupoliteral}}",
+      "expected": "{{modèle:Références|group=grupoliteral}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-header-underscore-namespace-forwarding",
+      "source": "{{tEmPlAtE_:_références|groupe=note|refs=}}",
+      "expected": "{{Referências|groupe=note|refs=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-bank-comment-payload-retained",
+      "source": "{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Referências|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-nbsp-key-does-not-activate",
+      "source": "{{modèle:Références|groupe =lower-alpha}}",
+      "expected": "{{modèle:Références|groupe =lower-alpha}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-nbsp-group-does-not-strip",
+      "source": "{{modèle:Références|groupe=lower-alpha }}",
+      "expected": "{{modèle:Références|groupe=lower-alpha }}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-c1-identity-bank-preserved",
+      "source": "{{modèle:Références|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:Références|refs=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/foreign-wrong-key-case-preserved",
+      "source": "{{modèle:Références|Groupe=lower-alpha}}",
+      "expected": "{{modèle:Références|Groupe=lower-alpha}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "independent/native-header-control-does-not-strip",
+      "source": "{{\u000bRéférences|refs=}}",
+      "expected": "{{\u000bRéférences|refs=}}",
+      "base": "off",
+      "options": {
+        "multilingual": true,
+        "references": true
+      }
+    },
+    {
+      "id": "boundary/native-notelist-bare/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{notelist}}}}",
+      "expected": "{{Exemplo desconhecido|1={{notelist}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-bare/nowiki",
+      "source": "<nowiki>{{notelist}}</nowiki>",
+      "expected": "<nowiki>{{notelist}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-bare/fence",
+      "source": "```wikitext\n{{notelist}}\n```",
+      "expected": "```wikitext\n{{notelist}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-bare/quoted",
+      "source": "\"{{notelist}}\"",
+      "expected": "\"{{notelist}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-bare/references-off",
+      "source": "{{notelist}}",
+      "expected": "{{notelist}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-english-note-falls-back/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notelist|group=note}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notelist|group=note}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-english-note-falls-back/nowiki",
+      "source": "<nowiki>{{Notelist|group=note}}</nowiki>",
+      "expected": "<nowiki>{{Notelist|group=note}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-english-note-falls-back/fence",
+      "source": "```wikitext\n{{Notelist|group=note}}\n```",
+      "expected": "```wikitext\n{{Notelist|group=note}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-english-note-falls-back/quoted",
+      "source": "\"{{Notelist|group=note}}\"",
+      "expected": "\"{{Notelist|group=note}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-english-note-falls-back/references-off",
+      "source": "{{Notelist|group=note}}",
+      "expected": "{{Notelist|group=note}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-portuguese-nota-accepted/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notelist|group=nota}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notelist|group=nota}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-portuguese-nota-accepted/nowiki",
+      "source": "<nowiki>{{Notelist|group=nota}}</nowiki>",
+      "expected": "<nowiki>{{Notelist|group=nota}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-portuguese-nota-accepted/fence",
+      "source": "```wikitext\n{{Notelist|group=nota}}\n```",
+      "expected": "```wikitext\n{{Notelist|group=nota}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-portuguese-nota-accepted/quoted",
+      "source": "\"{{Notelist|group=nota}}\"",
+      "expected": "\"{{Notelist|group=nota}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-portuguese-nota-accepted/references-off",
+      "source": "{{Notelist|group=nota}}",
+      "expected": "{{Notelist|group=nota}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-unrecognized-group-falls-back/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notelist|group=grupo literal}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notelist|group=grupo literal}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-unrecognized-group-falls-back/nowiki",
+      "source": "<nowiki>{{Notelist|group=grupo literal}}</nowiki>",
+      "expected": "<nowiki>{{Notelist|group=grupo literal}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-unrecognized-group-falls-back/fence",
+      "source": "```wikitext\n{{Notelist|group=grupo literal}}\n```",
+      "expected": "```wikitext\n{{Notelist|group=grupo literal}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-unrecognized-group-falls-back/quoted",
+      "source": "\"{{Notelist|group=grupo literal}}\"",
+      "expected": "\"{{Notelist|group=grupo literal}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-unrecognized-group-falls-back/references-off",
+      "source": "{{Notelist|group=grupo literal}}",
+      "expected": "{{Notelist|group=grupo literal}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-explicit-blank-falls-back/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notelist|group=}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notelist|group=}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-explicit-blank-falls-back/nowiki",
+      "source": "<nowiki>{{Notelist|group=}}</nowiki>",
+      "expected": "<nowiki>{{Notelist|group=}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-explicit-blank-falls-back/fence",
+      "source": "```wikitext\n{{Notelist|group=}}\n```",
+      "expected": "```wikitext\n{{Notelist|group=}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-explicit-blank-falls-back/quoted",
+      "source": "\"{{Notelist|group=}}\"",
+      "expected": "\"{{Notelist|group=}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-explicit-blank-falls-back/references-off",
+      "source": "{{Notelist|group=}}",
+      "expected": "{{Notelist|group=}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-group-case-falls-back/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notelist|group=LOWER-ALPHA}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notelist|group=LOWER-ALPHA}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-group-case-falls-back/nowiki",
+      "source": "<nowiki>{{Notelist|group=LOWER-ALPHA}}</nowiki>",
+      "expected": "<nowiki>{{Notelist|group=LOWER-ALPHA}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-group-case-falls-back/fence",
+      "source": "```wikitext\n{{Notelist|group=LOWER-ALPHA}}\n```",
+      "expected": "```wikitext\n{{Notelist|group=LOWER-ALPHA}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-group-case-falls-back/quoted",
+      "source": "\"{{Notelist|group=LOWER-ALPHA}}\"",
+      "expected": "\"{{Notelist|group=LOWER-ALPHA}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-notelist-group-case-falls-back/references-off",
+      "source": "{{Notelist|group=LOWER-ALPHA}}",
+      "expected": "{{Notelist|group=LOWER-ALPHA}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listanota-local-body-alias/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listanota-local-body-alias/nowiki",
+      "source": "<nowiki>{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "expected": "<nowiki>{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listanota-local-body-alias/fence",
+      "source": "```wikitext\n{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "expected": "```wikitext\n{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listanota-local-body-alias/quoted",
+      "source": "\"{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "expected": "\"{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listanota-local-body-alias/references-off",
+      "source": "{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Listanota|notas=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-header-only-portuguese-interface/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-header-only-portuguese-interface/nowiki",
+      "source": "<nowiki>{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}</nowiki>",
+      "expected": "<nowiki>{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-header-only-portuguese-interface/fence",
+      "source": "```wikitext\n{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}\n```",
+      "expected": "```wikitext\n{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-header-only-portuguese-interface/quoted",
+      "source": "\"{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}\"",
+      "expected": "\"{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-header-only-portuguese-interface/references-off",
+      "source": "{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}",
+      "expected": "{{Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=grupo literal}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-ignored-foreign-fields-stay-ignored/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-ignored-foreign-fields-stay-ignored/nowiki",
+      "source": "<nowiki>{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-ignored-foreign-fields-stay-ignored/fence",
+      "source": "```wikitext\n{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-ignored-foreign-fields-stay-ignored/quoted",
+      "source": "\"{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}\"",
+      "expected": "\"{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-listaref-ignored-foreign-fields-stay-ignored/references-off",
+      "source": "{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}",
+      "expected": "{{Listaref|referencias=<ref name=\"fonte\">Fonte literal</ref>|group=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-references-fr-redirect-header-only/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-references-fr-redirect-header-only/nowiki",
+      "source": "<nowiki>{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}</nowiki>",
+      "expected": "<nowiki>{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-references-fr-redirect-header-only/fence",
+      "source": "```wikitext\n{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}\n```",
+      "expected": "```wikitext\n{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-references-fr-redirect-header-only/quoted",
+      "source": "\"{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}\"",
+      "expected": "\"{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-references-fr-redirect-header-only/references-off",
+      "source": "{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "expected": "{{Références|groupe=lower-alpha|refs=<ref name=\"fonte\">Fonte literal</ref>|nível=0}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-prefixed-references-header-only/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{tEmPlAtE:Références |groupe=note|refs=}}}}",
+      "expected": "{{Exemplo desconhecido|1={{tEmPlAtE:Références |groupe=note|refs=}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-prefixed-references-header-only/nowiki",
+      "source": "<nowiki>{{tEmPlAtE:Références |groupe=note|refs=}}</nowiki>",
+      "expected": "<nowiki>{{tEmPlAtE:Références |groupe=note|refs=}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-prefixed-references-header-only/fence",
+      "source": "```wikitext\n{{tEmPlAtE:Références |groupe=note|refs=}}\n```",
+      "expected": "```wikitext\n{{tEmPlAtE:Références |groupe=note|refs=}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-prefixed-references-header-only/quoted",
+      "source": "\"{{tEmPlAtE:Références |groupe=note|refs=}}\"",
+      "expected": "\"{{tEmPlAtE:Références |groupe=note|refs=}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-prefixed-references-header-only/references-off",
+      "source": "{{tEmPlAtE:Références |groupe=note|refs=}}",
+      "expected": "{{tEmPlAtE:Références |groupe=note|refs=}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-refs-bank/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "expected": "{{Exemplo desconhecido|1={{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-refs-bank/nowiki",
+      "source": "<nowiki>{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "expected": "<nowiki>{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-refs-bank/fence",
+      "source": "```wikitext\n{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "expected": "```wikitext\n{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-refs-bank/quoted",
+      "source": "\"{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "expected": "\"{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-refs-bank/references-off",
+      "source": "{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:Références|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-alpha-style/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{modèle:Références|groupe=alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{modèle:Références|groupe=alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-alpha-style/nowiki",
+      "source": "<nowiki>{{modèle:Références|groupe=alpha}}</nowiki>",
+      "expected": "<nowiki>{{modèle:Références|groupe=alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-alpha-style/fence",
+      "source": "```wikitext\n{{modèle:Références|groupe=alpha}}\n```",
+      "expected": "```wikitext\n{{modèle:Références|groupe=alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-alpha-style/quoted",
+      "source": "\"{{modèle:Références|groupe=alpha}}\"",
+      "expected": "\"{{modèle:Références|groupe=alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-alpha-style/references-off",
+      "source": "{{modèle:Références|groupe=alpha}}",
+      "expected": "{{modèle:Références|groupe=alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-standard-group-decimal-style/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{modèle:Références|groupe=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{modèle:Références|groupe=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-standard-group-decimal-style/nowiki",
+      "source": "<nowiki>{{modèle:Références|groupe=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{modèle:Références|groupe=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-standard-group-decimal-style/fence",
+      "source": "```wikitext\n{{modèle:Références|groupe=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{modèle:Références|groupe=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-standard-group-decimal-style/quoted",
+      "source": "\"{{modèle:Références|groupe=lower-alpha}}\"",
+      "expected": "\"{{modèle:Références|groupe=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-standard-group-decimal-style/references-off",
+      "source": "{{modèle:Références|groupe=lower-alpha}}",
+      "expected": "{{modèle:Références|groupe=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{modèle:Notes|groupe=décimal}}}}",
+      "expected": "{{Exemplo desconhecido|1={{modèle:Notes|groupe=décimal}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-decimal/nowiki",
+      "source": "<nowiki>{{modèle:Notes|groupe=décimal}}</nowiki>",
+      "expected": "<nowiki>{{modèle:Notes|groupe=décimal}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-decimal/fence",
+      "source": "```wikitext\n{{modèle:Notes|groupe=décimal}}\n```",
+      "expected": "```wikitext\n{{modèle:Notes|groupe=décimal}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-decimal/quoted",
+      "source": "\"{{modèle:Notes|groupe=décimal}}\"",
+      "expected": "\"{{modèle:Notes|groupe=décimal}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-decimal/references-off",
+      "source": "{{modèle:Notes|groupe=décimal}}",
+      "expected": "{{modèle:Notes|groupe=décimal}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-absent/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notes}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notes}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-absent/nowiki",
+      "source": "<nowiki>{{Notes}}</nowiki>",
+      "expected": "<nowiki>{{Notes}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-absent/fence",
+      "source": "```wikitext\n{{Notes}}\n```",
+      "expected": "```wikitext\n{{Notes}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-absent/quoted",
+      "source": "\"{{Notes}}\"",
+      "expected": "\"{{Notes}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-absent/references-off",
+      "source": "{{Notes}}",
+      "expected": "{{Notes}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-explicit-blank/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notes|group=}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notes|group=}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-explicit-blank/nowiki",
+      "source": "<nowiki>{{Notes|group=}}</nowiki>",
+      "expected": "<nowiki>{{Notes|group=}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-explicit-blank/fence",
+      "source": "```wikitext\n{{Notes|group=}}\n```",
+      "expected": "```wikitext\n{{Notes|group=}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-explicit-blank/quoted",
+      "source": "\"{{Notes|group=}}\"",
+      "expected": "\"{{Notes|group=}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-explicit-blank/references-off",
+      "source": "{{Notes|group=}}",
+      "expected": "{{Notes|group=}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-bank/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-bank/nowiki",
+      "source": "<nowiki>{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "expected": "<nowiki>{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-bank/fence",
+      "source": "```wikitext\n{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "expected": "```wikitext\n{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-bank/quoted",
+      "source": "\"{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "expected": "\"{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fr-notes-bank/references-off",
+      "source": "{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{Notes|références=<ref name=\"fonte\">Fonte literal</ref>}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-es-actual-bank-group/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-es-actual-bank-group/nowiki",
+      "source": "<nowiki>{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-es-actual-bank-group/fence",
+      "source": "```wikitext\n{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-es-actual-bank-group/quoted",
+      "source": "\"{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}\"",
+      "expected": "\"{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-es-actual-bank-group/references-off",
+      "source": "{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}",
+      "expected": "{{plantilla:Listaref|refs=<ref name=\"fonte\">Fonte literal</ref>|grupo=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fi-actual-body-and-group/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fi-actual-body-and-group/nowiki",
+      "source": "<nowiki>{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fi-actual-body-and-group/fence",
+      "source": "```wikitext\n{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fi-actual-body-and-group/quoted",
+      "source": "\"{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}\"",
+      "expected": "\"{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-fi-actual-body-and-group/references-off",
+      "source": "{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}",
+      "expected": "{{Viitteet|viitteet=<ref name=\"fonte\">Fonte literal</ref>|ryhmä=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-he-actual-body-and-group/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-he-actual-body-and-group/nowiki",
+      "source": "<nowiki>{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-he-actual-body-and-group/fence",
+      "source": "```wikitext\n{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-he-actual-body-and-group/quoted",
+      "source": "\"{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}\"",
+      "expected": "\"{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-he-actual-body-and-group/references-off",
+      "source": "{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}",
+      "expected": "{{הערות שוליים|הערות=<ref name=\"fonte\">Fonte literal</ref>|קבוצה=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-ru-secondary-group-retains-source-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Примечания|группа=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Примечания|группа=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-ru-secondary-group-retains-source-decimal/nowiki",
+      "source": "<nowiki>{{Примечания|группа=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Примечания|группа=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-ru-secondary-group-retains-source-decimal/fence",
+      "source": "```wikitext\n{{Примечания|группа=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Примечания|группа=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-ru-secondary-group-retains-source-decimal/quoted",
+      "source": "\"{{Примечания|группа=lower-alpha}}\"",
+      "expected": "\"{{Примечания|группа=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-ru-secondary-group-retains-source-decimal/references-off",
+      "source": "{{Примечания|группа=lower-alpha}}",
+      "expected": "{{Примечания|группа=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-tr-secondary-group/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Kaynakça|grup=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Kaynakça|grup=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-tr-secondary-group/nowiki",
+      "source": "<nowiki>{{Kaynakça|grup=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Kaynakça|grup=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-tr-secondary-group/fence",
+      "source": "```wikitext\n{{Kaynakça|grup=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Kaynakça|grup=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-tr-secondary-group/quoted",
+      "source": "\"{{Kaynakça|grup=lower-alpha}}\"",
+      "expected": "\"{{Kaynakça|grup=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-tr-secondary-group/references-off",
+      "source": "{{Kaynakça|grup=lower-alpha}}",
+      "expected": "{{Kaynakça|grup=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-vi-group-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Tham khảo|nhóm=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Tham khảo|nhóm=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-vi-group-decimal/nowiki",
+      "source": "<nowiki>{{Tham khảo|nhóm=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Tham khảo|nhóm=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-vi-group-decimal/fence",
+      "source": "```wikitext\n{{Tham khảo|nhóm=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Tham khảo|nhóm=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-vi-group-decimal/quoted",
+      "source": "\"{{Tham khảo|nhóm=lower-alpha}}\"",
+      "expected": "\"{{Tham khảo|nhóm=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-vi-group-decimal/references-off",
+      "source": "{{Tham khảo|nhóm=lower-alpha}}",
+      "expected": "{{Tham khảo|nhóm=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-th-group-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{รายการอ้างอิง|group=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{รายการอ้างอิง|group=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-th-group-decimal/nowiki",
+      "source": "<nowiki>{{รายการอ้างอิง|group=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{รายการอ้างอิง|group=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-th-group-decimal/fence",
+      "source": "```wikitext\n{{รายการอ้างอิง|group=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{รายการอ้างอิง|group=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-th-group-decimal/quoted",
+      "source": "\"{{รายการอ้างอิง|group=lower-alpha}}\"",
+      "expected": "\"{{รายการอ้างอิง|group=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-th-group-decimal/references-off",
+      "source": "{{รายการอ้างอิง|group=lower-alpha}}",
+      "expected": "{{รายการอ้างอิง|group=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nn-group-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Referansar|group=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Referansar|group=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nn-group-decimal/nowiki",
+      "source": "<nowiki>{{Referansar|group=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{Referansar|group=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nn-group-decimal/fence",
+      "source": "```wikitext\n{{Referansar|group=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{Referansar|group=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nn-group-decimal/quoted",
+      "source": "\"{{Referansar|group=lower-alpha}}\"",
+      "expected": "\"{{Referansar|group=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nn-group-decimal/references-off",
+      "source": "{{Referansar|group=lower-alpha}}",
+      "expected": "{{Referansar|group=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-native-dutch-group-style/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{sjabloon:References|group=kleine-letter}}}}",
+      "expected": "{{Exemplo desconhecido|1={{sjabloon:References|group=kleine-letter}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-native-dutch-group-style/nowiki",
+      "source": "<nowiki>{{sjabloon:References|group=kleine-letter}}</nowiki>",
+      "expected": "<nowiki>{{sjabloon:References|group=kleine-letter}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-native-dutch-group-style/fence",
+      "source": "```wikitext\n{{sjabloon:References|group=kleine-letter}}\n```",
+      "expected": "```wikitext\n{{sjabloon:References|group=kleine-letter}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-native-dutch-group-style/quoted",
+      "source": "\"{{sjabloon:References|group=kleine-letter}}\"",
+      "expected": "\"{{sjabloon:References|group=kleine-letter}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-native-dutch-group-style/references-off",
+      "source": "{{sjabloon:References|group=kleine-letter}}",
+      "expected": "{{sjabloon:References|group=kleine-letter}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-english-group-decimal/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{sjabloon:References|group=lower-alpha}}}}",
+      "expected": "{{Exemplo desconhecido|1={{sjabloon:References|group=lower-alpha}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-english-group-decimal/nowiki",
+      "source": "<nowiki>{{sjabloon:References|group=lower-alpha}}</nowiki>",
+      "expected": "<nowiki>{{sjabloon:References|group=lower-alpha}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-english-group-decimal/fence",
+      "source": "```wikitext\n{{sjabloon:References|group=lower-alpha}}\n```",
+      "expected": "```wikitext\n{{sjabloon:References|group=lower-alpha}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-english-group-decimal/quoted",
+      "source": "\"{{sjabloon:References|group=lower-alpha}}\"",
+      "expected": "\"{{sjabloon:References|group=lower-alpha}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-nl-english-group-decimal/references-off",
+      "source": "{{sjabloon:References|group=lower-alpha}}",
+      "expected": "{{sjabloon:References|group=lower-alpha}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-reflist-proven-blank-style-forwarded/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{Reflist|group=lower-alpha|liststyle=}}}}",
+      "expected": "{{Exemplo desconhecido|1={{Reflist|group=lower-alpha|liststyle=}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-reflist-proven-blank-style-forwarded/nowiki",
+      "source": "<nowiki>{{Reflist|group=lower-alpha|liststyle=}}</nowiki>",
+      "expected": "<nowiki>{{Reflist|group=lower-alpha|liststyle=}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-reflist-proven-blank-style-forwarded/fence",
+      "source": "```wikitext\n{{Reflist|group=lower-alpha|liststyle=}}\n```",
+      "expected": "```wikitext\n{{Reflist|group=lower-alpha|liststyle=}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-reflist-proven-blank-style-forwarded/quoted",
+      "source": "\"{{Reflist|group=lower-alpha|liststyle=}}\"",
+      "expected": "\"{{Reflist|group=lower-alpha|liststyle=}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-reflist-proven-blank-style-forwarded/references-off",
+      "source": "{{Reflist|group=lower-alpha|liststyle=}}",
+      "expected": "{{Reflist|group=lower-alpha|liststyle=}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-header-underscore-namespace-forwarding/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{tEmPlAtE_:_références|groupe=note|refs=}}}}",
+      "expected": "{{Exemplo desconhecido|1={{tEmPlAtE_:_références|groupe=note|refs=}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-header-underscore-namespace-forwarding/nowiki",
+      "source": "<nowiki>{{tEmPlAtE_:_références|groupe=note|refs=}}</nowiki>",
+      "expected": "<nowiki>{{tEmPlAtE_:_références|groupe=note|refs=}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-header-underscore-namespace-forwarding/fence",
+      "source": "```wikitext\n{{tEmPlAtE_:_références|groupe=note|refs=}}\n```",
+      "expected": "```wikitext\n{{tEmPlAtE_:_références|groupe=note|refs=}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-header-underscore-namespace-forwarding/quoted",
+      "source": "\"{{tEmPlAtE_:_références|groupe=note|refs=}}\"",
+      "expected": "\"{{tEmPlAtE_:_références|groupe=note|refs=}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-header-underscore-namespace-forwarding/references-off",
+      "source": "{{tEmPlAtE_:_références|groupe=note|refs=}}",
+      "expected": "{{tEmPlAtE_:_références|groupe=note|refs=}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-bank-comment-payload-retained/unknown-owner",
+      "source": "{{Exemplo desconhecido|1={{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "expected": "{{Exemplo desconhecido|1={{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-bank-comment-payload-retained/nowiki",
+      "source": "<nowiki>{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "expected": "<nowiki>{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}</nowiki>",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-bank-comment-payload-retained/fence",
+      "source": "```wikitext\n{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "expected": "```wikitext\n{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}\n```",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-bank-comment-payload-retained/quoted",
+      "source": "\"{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "expected": "\"{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}\"",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-bank-comment-payload-retained/references-off",
+      "source": "{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}",
+      "expected": "{{modèle:Références|refs=<!-- nota | literal --><ref name=\"fonte\">Fonte literal</ref>}}",
+      "options": {
+        "multilingual": true,
+        "references": false
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/selected-blank-hides-later",
+      "source": "{{Notelist|refs=|notes=<ref name=\"banco\">Fonte literal.</ref>}}",
+      "expected": "{{Notelist|refs=|notes=<ref name=\"banco\">Fonte literal.</ref>}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-child-own-group",
+      "source": "{{Notelist|refs=<ref name=\"banco\">Fonte literal.</ref><ref name=\"banco\" group=\"outro\">Outra fonte.</ref>}}",
+      "expected": "{{Referências|grupo=lower-alpha|refs=<ref name=\"banco\">Fonte literal.</ref><ref name=\"banco\" group=\"outro\">Outra fonte.</ref>|nível=0}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/foreign-child-own-group",
+      "source": "{{modèle:Références|groupe=alpha|refs=<ref name=\"banco\">Fonte literal.</ref><ref name=\"banco\" group=\"outro\">Outra fonte.</ref>}}",
+      "expected": "{{Referências|grupo=alpha|refs=<ref name=\"banco\">Fonte literal.</ref><ref name=\"banco\" group=\"outro\">Outra fonte.</ref>|estilolista=lower-alpha|nível=0}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-unknown-nonblank",
+      "source": "{{Notelist|refs=<ref name=\"banco\">Fonte literal.</ref>|outro=literal}}",
+      "expected": "{{Notelist|refs=<ref name=\"banco\">Fonte literal.</ref>|outro=literal}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-duplicate-priority",
+      "source": "{{Notelist|refs=<ref name=\"banco\">Fonte literal.</ref>|refs=}}",
+      "expected": "{{Notelist|refs=<ref name=\"banco\">Fonte literal.</ref>|refs=}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/native-spaced-prefix",
+      "source": "{{tEmPlAtE_:_Notelist|group=nota}}",
+      "expected": "{{Referências|grupo=nota|nível=0}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "off"
+    },
+    {
+      "id": "boundary/default-native",
+      "source": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\n\n{{Notelist}}\n\n{{Referências}}",
+      "expected": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\n\n{{Referências|grupo=lower-alpha|nível=0}}\n\n{{Referências}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "defaults"
+    },
+    {
+      "id": "boundary/default-fr",
+      "source": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\n\n{{modèle:Références|groupe=alpha}}\n\n{{Referências}}",
+      "expected": "Texto.<ref name=\"fonte\">Fonte literal.</ref>\n\n{{Referências|grupo=alpha|estilolista=lower-alpha|nível=0}}\n\n{{Referências}}",
+      "options": {
+        "multilingual": true,
+        "references": true
+      },
+      "base": "defaults"
+    },
+    {
+      "id": "native-html/standalone",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references />",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n{{Referências}}",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/paired",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references> </references>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n{{Referências}}",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/names-off",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references />",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n{{Referências}}",
+      "base": "html-defaults",
+      "options": {
+        "automaticParameterNames": false
+      }
+    },
+    {
+      "id": "native-html/references-off",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references />",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references />",
+      "base": "html-defaults",
+      "options": {
+        "references": false
+      }
+    },
+    {
+      "id": "native-html/unknown",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n{{Modelo desconhecido|<references />}}",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n{{Modelo desconhecido|<references />}}",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/unsupported-group",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n== Referências ==\n<references group=\"grupo literal\" />",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref><ref>Fonte literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n== Referências ==\n<references group=\"grupo literal\" />",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-6",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n\"<references />\"",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n\"<references />\"",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-7",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\nTexto \"<references />\" (exemplo).",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\nTexto \"<references />\" (exemplo).",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-8",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n''<references />''",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n''<references />''",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-9",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\nAntes <references /> depois",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\nAntes <references /> depois",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-10",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n<div>\n<references />\n</div>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n<div>\n<references />\n</div>",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-11",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n<blockquote>\n<references />\n</blockquote>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n<blockquote>\n<references />\n</blockquote>",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-12",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n<nowiki><references /></nowiki>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n<nowiki><references /></nowiki>",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-13",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n<pre>\n<references />\n</pre>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n<pre>\n<references />\n</pre>",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-14",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n<syntaxhighlight lang=\"wikitext\">\n<references />\n</syntaxhighlight>",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n<syntaxhighlight lang=\"wikitext\">\n<references />\n</syntaxhighlight>",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-15",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n```wikitext\n<references />\n```",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n```wikitext\n<references />\n```",
+      "base": "html-defaults",
+      "options": {}
+    },
+    {
+      "id": "native-html/protected-16",
+      "source": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{notelist}}\n\n <references />",
+      "expected": "Texto.<ref name=\"n\" group=\"lower-alpha\">Nota literal.</ref>\n\n== Notas ==\n{{Referências|grupo=lower-alpha|nível=0}}\n\n <references />",
+      "base": "html-defaults",
+      "options": {}
+    }
+  ]
+}

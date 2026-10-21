@@ -1,0 +1,33 @@
+{
+  "kind": "finite-native-semicolon-person-list-with-inverted-name",
+  "classification": "declared-source-bound-formatting-repair",
+  "productionRuntimeChanged": false,
+  "primarySources": [
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "sha256": "4924bb13ea17c8d105e5132b9ef06dc438a6280d5d940bbf199aeb62e2cc8099",
+      "contract": "Authors is a free-form supplied person list, separately consumed from numbered AuthorList Last/First roles."
+    },
+    {
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "sha256": "54a85c535d5788163ee690d9d502c0d3cce04b4d308f7da3f6b515c432c11e27",
+      "lines": [
+        [
+          2112,
+          2128
+        ]
+      ],
+      "contract": "The existing native free-form Authors value or the numbered list supplies displayed authors. Their HTML and COinS need not be byte-identical."
+    }
+  ],
+  "sourceConstruction": "Split only 2 to 20 semicolon-delimited supplied personal names. A whole name may have one internal comma with nonempty personal-name sides. Keep each complete supplied name, order, every other citation field, native family and reference association. No comma-based person splitting. Require the complete independently constructed target association, not a returned candidate patch.",
+  "vetoes": [
+    "More than one comma inside a person, empty surname or given-name side",
+    "Unproved, nested, institutional, numeric or et-al list",
+    "Competing person/list/display roles, including supplied blank values",
+    "Changed name bytes, order, title, date, page, URL, reference name or group"
+  ],
+  "originalRenderingClaimedEquivalent": false,
+  "tests": "independent_semicolon_authors_cases.py",
+  "wikipediaWrites": 0
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "finite-native-reference-lexical-identity",
+  "productionRuntimeChanged": false,
+  "primarySources": [
+    {
+      "url": "https://www.mediawiki.org/wiki/Help:Templates#Named_parameters",
+      "contract": "Named template arguments do not retain edge whitespace as part of the passed value. The independent lexical projection is narrower: only literal numeric Page and Volume fields of two pinned native citation families are projected."
+    },
+    {
+      "url": "https://www.mediawiki.org/wiki/Extension:Cite",
+      "contract": "Quoted reference identity attribute values are distinct from syntax whitespace before the self-closing slash. No attribute value is decoded, renamed or reordered by this projection."
+    },
+    {
+      "oldid": 73016847,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "contract": "The native Page/Pages and Volume roles are separately consumed. Competing Page aliases, duplicate supplied keys, nonliteral values and unproved fields are left raw."
+    },
+    {
+      "oldid": 72936771,
+      "url": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "contract": "Native CS1 consumes these supplied scalar fields without giving their argument edge padding a separate bibliographic identity."
+    }
+  ],
+  "anonymousNativeParseControl": {
+    "requests": 2,
+    "authenticated": false,
+    "wikipediaWrites": 0,
+    "exactHtmlEqual": true,
+    "sourceAndTargetHtmlSha256": "9690490072961d382bb7fa1e4eb310acddce3ce39e703e07c1c9366e3f5e88f4",
+    "scope": "One preauthored fictional citation with literal page and volume edge padding plus a reused quoted self-closing reference. This is a directed native control, not whole-corpus remote rendering."
+  },
+  "limitations": "Opaque note emitters remain unexpanded and byte-bound. Uncertainty is still reported as uncertainty. The projection does not normalize whole citations or ignore changes to names, groups, titles, URLs, numeric values or other source bytes."
+}

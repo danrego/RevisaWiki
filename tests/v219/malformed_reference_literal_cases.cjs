@@ -1,0 +1,19 @@
+'use strict';
+// A garbled quoted attribute is retained literally. No repaired rendering is
+// inferred from text swallowed by an unparseable reference opening tag.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'../..'),sha=x=>crypto.createHash('sha256').update(x).digest('hex'),files=process.argv.slice(2).map(x=>path.resolve(x));
+if(!files.length)files.push(...['RevisaWiki_v2_19_0.js','RevisaWiki_v2_19_0_completo.js'].map(name=>path.join(root,'dist/2.19.0',name)));
+const report={kind:'malformed-reference-attribute-literal-boundary',status:'passed',runnerSha256:sha(fs.readFileSync(__filename)),bundles:[],cases:[],checks:0,failures:[],helperInjection:false,networkRequests:0,wikipediaWrites:0};
+const eq=(a,b,m)=>{report.checks++;assert.deepEqual(a,b,m);},ok=(x,m)=>{report.checks++;assert.ok(x,m);};
+for(const file of files){const bytes=fs.readFileSync(file),a=require(file),bundle=path.basename(file),cfg={...a.defaults,namespaceNumber:0,pageTitle:'Tema fictício',contentModel:'wikitext',autoPreview:false,authorityControl:false,automaticBiographyPortals:false,automaticTopicPortals:false};report.bundles.push({bundle,sha256:sha(bytes),version:a.version});
+ for(const delimiter of ['"',"'"])for(const nested of ["[[Alvo|''Rótulo literal'']]",'{{Citar web|título=Fonte literal|data=2001-3-18|url=https://example.invalid/fonte}}','{| class="wikitable"\n| Célula literal\n|}']){
+  const payload='<ref name='+delimiter+'a>[https://example.invalid/primeira Fonte literal]</ref>\n'+nested+'\n'+delimiter+' broken>Corpo literal</ref>',source='[[Outro alvo|Outro alvo]].\n'+payload+'\nTexto final.\n{{Referências}}',row={bundle,id:'retained-'+sha(payload).slice(0,12),sourceSha256:sha(source),protectedPayloadSha256:sha(payload),evidenceKind:'actual-full-action-literal-boundary-invariants',status:'passed'};
+  try{const result=a.calculate({kind:'adjust',source,options:cfg});row.actualEndpointSha256=sha(result.text);row.appliedIds=(result.changes||[]).map(x=>x.id);ok(result.text.includes(payload),'Every source byte of the garbled reference passage remains literal');ok(result.text.includes('[[Outro alvo]].'),'An unrelated complete link before the malformed passage can still be repaired');eq(result.preservation||[],[],'Literal retention does not create a reference-binding rollback');eq(a.preservationAudit(source,result.text,cfg),[],'The full endpoint retains its original bindings');eq(a.safeComposition(source,result.text,cfg),'','The exact retained literal boundary composes');eq(a.calculate({kind:'adjust',source:result.text,options:cfg}).text,result.text,'The actual full endpoint converges in one click');
+   const inside=source.indexOf('/primeira'),insideEdit={start:inside,end:inside+9,text:'/alterada'},outsideEdit={start:0,end:'[[Outro alvo|Outro alvo]]'.length,text:'[[Outro alvo]]'};eq(a.v219StageSafeEdits(source,[insideEdit],'literal-boundary-negative',cfg),[],'An actual stage cannot write inside the malformed attribute interval');eq(a.v219StageSafeEdits(source,[outsideEdit],'literal-boundary-positive',cfg),[outsideEdit],'The same stage boundary admits an independent complete outside edit');row.stageBoundaryChecks=true;
+   for(const literal of ['Fonte literal','/primeira','name='+delimiter+'a>']){const at=source.indexOf(literal),edit={start:at,end:at+literal.length,text:'Outro valor literal'};eq(a.v219StageSafeEdits(source,[edit],'literal-boundary-mutation',cfg),[],'The actual stage boundary rejects a changed swallowed label, URL or name');}
+  }catch(error){row.status='failed';report.status='failed';report.failures.push({bundle,id:row.id,message:error.message});}report.cases.push(row);
+ }
+ eq(sha(fs.readFileSync(file)),sha(bytes),'The runtime bundle remains immutable');
+}
+report.caseCount=report.cases.length;process.stdout.write(JSON.stringify(report,null,2)+'\n');if(report.status!=='passed')process.exitCode=1;

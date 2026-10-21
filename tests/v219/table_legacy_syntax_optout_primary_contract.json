@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "public-documented-table-syntax-optout-narrow-legacy-isolated-attribute-bar",
+  "authority": [
+    {
+      "file": "docs/2.18.0/Documentacao_RevisaWiki_v2_18_0.wiki",
+      "fileSha256": "5c18531a19916f757033f157715643c98d43af3c5de394e5f75c11c6b3b56725",
+      "startLine": 880,
+      "endLine": 882,
+      "literalExcerpt": "As opções <code>referenceGraphRepairs</code>, <code>harvardAnchorRepairs</code>, <code>tableSyntaxRepairs</code>, <code>responsiveTableWrappers</code> e <code>independentRepairGroups</code> controlam, respectivamente, os vínculos de referências, os destinos Harvard, a sintaxe de tabelas, os contêineres de rolagem e os conjuntos independentes de mudanças.\n\nUse <code>false</code> para desligar uma opção. Os nomes completos e os detalhes de cada família de regras ficam na [https://github.com/danrego/RevisaWiki/blob/main/docs/2.18.0/Referencia_tecnica_RevisaWiki_v2_18_0.txt referência técnica].\n",
+      "excerptSha256": "6d1b804a6af4d9250c35e1f7cb7df7dbb74365ec90dce2defb299cdd4488b6ac"
+    },
+    {
+      "file": "docs/2.10.0/Documentacao_RevisaWiki_v2_10_0.wiki",
+      "fileSha256": "56ab2720267daebe661446b1ea9e3db7517cc906ea4e8428b888ca4f783fa7ac",
+      "startLine": 605,
+      "endLine": 607,
+      "literalExcerpt": "As opções <code>referenceGraphRepairs</code>, <code>harvardAnchorRepairs</code>, <code>tableSyntaxRepairs</code>, <code>responsiveTableWrappers</code> e <code>independentRepairGroups</code> controlam, respectivamente, os vínculos de referências, os destinos Harvard, a sintaxe de tabelas, os contêineres de rolagem e os conjuntos independentes de mudanças.\n\nUse <code>false</code> para desligar uma opção. Os nomes completos e os detalhes de cada família de regras ficam na [https://github.com/danrego/RevisaWiki/blob/main/docs/2.10.0/Referencia_tecnica_RevisaWiki_v2_10_0.txt referência técnica].\n",
+      "excerptSha256": "7d0bf8d6501cbac14984e9d249e91c3d65239b2471192ad3ee8a1582b89a2e8a"
+    }
+  ],
+  "decision": "The documented tableSyntaxRepairs=false optout now also controls only legacy repair.rule===tableSyntaxRepairs. automaticTableRepairs remains the parent. Other repairs, scopes, data and years keep their existing controls.",
+  "oldRunnerDisposition": "Four prior positive endpoints explicitly set tableSyntaxRepairs=false. Their source and options stay exact, expected becomes source and kind becomes off. Original failing receipts remain failed.",
+  "sourceGateRecipeSha256": "b0e41fd51cd148fab8aecabba974854c0521b08062a8a5c7ecdf9bb7d5f97aca",
+  "newTrueTruePositives": "tests/v219/table_legacy_syntax_gate_cases.cjs",
+  "wikipediaWrites": 0
+}

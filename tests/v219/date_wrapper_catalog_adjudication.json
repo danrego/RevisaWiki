@@ -1,0 +1,37 @@
+{
+  "kind": "new-finite-test-contract-amendment",
+  "basis": "date_wrapper_contracts.json",
+  "runners": {
+    "catalog_campaign.cjs": {
+      "previousRunnerSha256": "f36f64dbda282d7d1e0143eceadbd7ce56b23e0b7d6b86f31543ef393057f959",
+      "newRunnerSha256": "87458875801d51d319d5d54dd3bc50afdd2d523dd8fbd3705d7b14488e0d5000"
+    },
+    "small_control_cases.cjs": {
+      "previousRunnerSha256": "bb142bf0bff87c2689f8f77eff991de106d6a5b65fbee4542abc09784b61771b",
+      "newRunnerSha256": "19a2c7c50c7a74137489be4df0d28be4345fc488e5268a8c97bac1a0cf4c0f49"
+    }
+  },
+  "changedExpectations": [
+    {
+      "scope": "obsolete Birth date/Death date/Death date and age current directed rows",
+      "before": "Dni/Morte conversion",
+      "after": "preserve exact already valid native call",
+      "reason": "The old conversion adds previously absent birth/death categories and changes native hidden-date/link/age behavior."
+    },
+    {
+      "scope": "registered kind=date, birth=true, complete tuple",
+      "before": "Dni conversion",
+      "after": "quiet whole-call preservation",
+      "reason": "No source-bound principal biography or no-category semantic equivalence was proved."
+    },
+    {
+      "scope": "local Date identity in registered French name collision",
+      "before": "DataExt conversion",
+      "after": "preserve exact native Date implementation",
+      "reason": "The local already valid Date59283611 is a different native template interface, not a French-template error."
+    }
+  ],
+  "oldReceiptsRetained": true,
+  "immutableHistoricalAssertionsChanged": false,
+  "wikipediaWrites": 0
+}

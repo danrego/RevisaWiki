@@ -1,0 +1,193 @@
+{
+  "kind": "source-bound-worker-to-editor-preservation-contract",
+  "policy": [
+    "Every failed preservation obligation vetoes, without a code whitelist",
+    "Composition guard executes in Worker or staged calculation, not through main-thread reparsing",
+    "Exact raw source/candidate strings, pre-cleanup serialized options and original task context bind the verdict",
+    "No verdict, stale verdict or failed verdict cannot authorize editor writes",
+    "Approved source-only spelling and registry-proved DOI projections retain exact raw input binding",
+    "Editorial reports are separate from preservation obligations",
+    "Actual automatic-result, manual review/spelling and disambiguation consumers check before writing",
+    "Preview-isolated refreshed candidates bind their actual preimage",
+    "The UI keeps the original source with a compact status; CSS/talk/Undo retain independent explicit proofs"
+  ],
+  "runtimeSourceRecipeSha256": "b6257729d22b9da9196ce80bd0e94ff8def6bfe00085b46fff26907eb52aa3ac",
+  "initialFailureReceipts": [
+    {
+      "receipt": "ui_apply_safety_native_baseline_runtimepath_cm_Chrome.json",
+      "sha256": "42aebf800ff52ebd86dcfc5703eb139aa0270388a99695742e04a7f421e87d57",
+      "status": "failed",
+      "runtimeBindings": {
+        "core": {
+          "file": "RevisaWiki_v2_19_0.js",
+          "sha256": "b0d1208059764aa673d93cf2cb14ed68a024933074eb9c01643350d6e7994ee2",
+          "bytes": 2090326
+        },
+        "complete": {
+          "file": "RevisaWiki_v2_19_0_completo.js",
+          "sha256": "fef62d232000b04317e57991cde32f8f602f781db87d37856bd8bf03027ce4c9",
+          "bytes": 3732143
+        },
+        "data": {
+          "file": "RevisaWiki_v2_19_0_dados.js",
+          "sha256": "b6605813c1bd9c9fe0f83e47d1cc6a7a943abbf62a5c3ecba4eb042ccc5d7de7",
+          "bytes": 1654116
+        }
+      },
+      "testCount": 8,
+      "checks": 18,
+      "failures": [
+        {
+          "id": "core-apply-lost-reference-binding",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "core-apply-lost-native-reference-bank",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "core-apply-lost-source-reference-collector",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "core-apply-future-preservation-violation",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "complete-apply-lost-reference-binding",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "complete-apply-lost-native-reference-bank",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "complete-apply-lost-source-reference-collector",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        },
+        {
+          "id": "complete-apply-future-preservation-violation",
+          "message": "A failed or unbound preservation obligation leaves every source byte unchanged\n+ actual - expected\n\n+ '\"Texto sobre [[Brasil]].\"'\n- '\"Texto sobre [[Brasil|Brasil]].\"'\n                        ^\n"
+        }
+      ],
+      "ownedBrowserSessionClosed": true
+    },
+    {
+      "receipt": "ui_apply_safety_consumers_native_cm_Chrome.json",
+      "sha256": "6e0f3ecbdf9a924517b4085c925855970de2ff61917954786c21399de0191d15",
+      "status": "failed",
+      "runtimeBindings": {
+        "core": {
+          "file": "RevisaWiki_v2_19_0.js",
+          "sha256": "9670c53287b0404089e8d80c8ac58e7ffc936be0b11bbb6eb68e46e63719a80e",
+          "bytes": 2096969
+        },
+        "complete": {
+          "file": "RevisaWiki_v2_19_0_completo.js",
+          "sha256": "9899af903afd6c5fcd24a77c1ec787b8a07952ac497cb65549160d31dbc6a81a",
+          "bytes": 3738786
+        },
+        "data": {
+          "file": "RevisaWiki_v2_19_0_dados.js",
+          "sha256": "b6605813c1bd9c9fe0f83e47d1cc6a7a943abbf62a5c3ecba4eb042ccc5d7de7",
+          "bytes": 1654116
+        }
+      },
+      "testCount": 12,
+      "checks": 62,
+      "failures": [
+        {
+          "id": "core-review-positive",
+          "message": "Timeout: native parameter review choice"
+        },
+        {
+          "id": "core-review-retention-veto",
+          "message": "Timeout: native parameter review choice"
+        },
+        {
+          "id": "core-disambiguation-positive",
+          "message": "page.evaluate: SyntaxError: Unexpected identifier 'mw'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "core-disambiguation-retention-veto",
+          "message": "page.evaluate: SyntaxError: Unexpected identifier 'mw'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "complete-review-positive",
+          "message": "Timeout: native parameter review choice"
+        },
+        {
+          "id": "complete-review-retention-veto",
+          "message": "Timeout: native parameter review choice"
+        },
+        {
+          "id": "complete-disambiguation-positive",
+          "message": "page.evaluate: SyntaxError: Unexpected identifier 'mw'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "complete-disambiguation-retention-veto",
+          "message": "page.evaluate: SyntaxError: Unexpected identifier 'mw'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      ],
+      "ownedBrowserSessionClosed": true
+    },
+    {
+      "receipt": "ui_apply_safety_consumers_native_v2_cm_Chrome.json",
+      "sha256": "9f164890ecd4ddce488ba3856b70a4147b226241bb9f40a12fd1ad4ffc638f59",
+      "status": "failed",
+      "runtimeBindings": {
+        "core": {
+          "file": "RevisaWiki_v2_19_0.js",
+          "sha256": "9670c53287b0404089e8d80c8ac58e7ffc936be0b11bbb6eb68e46e63719a80e",
+          "bytes": 2096969
+        },
+        "complete": {
+          "file": "RevisaWiki_v2_19_0_completo.js",
+          "sha256": "9899af903afd6c5fcd24a77c1ec787b8a07952ac497cb65549160d31dbc6a81a",
+          "bytes": 3738786
+        },
+        "data": {
+          "file": "RevisaWiki_v2_19_0_dados.js",
+          "sha256": "b6605813c1bd9c9fe0f83e47d1cc6a7a943abbf62a5c3ecba4eb042ccc5d7de7",
+          "bytes": 1654116
+        }
+      },
+      "testCount": 12,
+      "checks": 106,
+      "failures": [
+        {
+          "id": "core-disambiguation-positive",
+          "message": "page.evaluate: SyntaxError: missing ) after argument list\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "core-disambiguation-retention-veto",
+          "message": "page.evaluate: SyntaxError: missing ) after argument list\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "complete-disambiguation-positive",
+          "message": "page.evaluate: SyntaxError: missing ) after argument list\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        },
+        {
+          "id": "complete-disambiguation-retention-veto",
+          "message": "page.evaluate: SyntaxError: missing ) after argument list\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:311:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      ],
+      "ownedBrowserSessionClosed": true
+    }
+  ],
+  "failureAdjudication": [
+    {
+      "receipt": "ui_apply_safety_native_baseline_runtimepath_cm_Chrome.json",
+      "reason": "Genuine original production boundary hole: all8 failed retention findings were ignored by the old seven-code filter."
+    },
+    {
+      "receipt": "ui_apply_safety_consumers_native_cm_Chrome.json",
+      "reason": "Four unsupported-parameter suggestions are deliberately hidden by existing review policy; four mock HTML expressions failed to parse before production dispatch. Preserved as failed fixture diagnostics."
+    },
+    {
+      "receipt": "ui_apply_safety_consumers_native_v2_cm_Chrome.json",
+      "reason": "All8 real spelling/confirmed duplicate-field controls passed. Four disambiguation selector expressions failed to parse in the test observer, corrected in distinct V3 with the same production endpoint assertions."
+    }
+  ],
+  "semanticCoverageBoundary": "The protocol tests prove failed retention/binding enforcement and specified UI endpoints. Synthetic response mutations do not claim normally occurring producer bugs or whole-script feature parity. Initial failures remain failures."
+}

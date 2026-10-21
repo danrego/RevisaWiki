@@ -1,0 +1,68 @@
+RevisaWiki 2.19.0: instalação
+Programa e dados: 2.19.0
+
+Abra INICIO.html para copiar os arquivos completos, os destinos e os resumos. O código e as versões anteriores ficam em https://github.com/danrego/RevisaWiki. Os arquivos desta versão estão em dist/2.19.0.
+
+ATUALIZAR A DISTRIBUIÇÃO
+
+1. Copie RevisaWiki_v2_19_0_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js. O arquivo contém as regras e as revisões conferidas para 2.19.0. Atualize-o junto do núcleo, mesmo que já use uma versão anterior.
+2. Copie RevisaWiki_v2_19_0.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Atualize Usuário:Daniel G Rego/RevisaWiki/Carregador.js com o conteúdo completo de Carregador_comunitario_RevisaWiki_v2_19_0.js. Esse carregador espera o programa 2.19.0 e informa loaderRevision 2.19.0.
+4. Copie Documentacao_RevisaWiki_v2_19_0.wiki para Usuário:Daniel G Rego/RevisaWiki.
+5. Se já usa Chamada_fixa_RevisaWiki_common.js no common.js, mantenha esse bloco. Se ainda tem um carregador antigo inteiro no common.js, substitua somente o bloco do RevisaWiki pela chamada fixa. Preserve os outros scripts e mantenha uma única chamada.
+6. Faça uma recarga completa e abra Editar código-fonte. O painel deve mostrar PTwiki 2.19.0. Sobre e diagnóstico também deve indicar 2.19.0.
+
+Atualize os dados, o núcleo e o carregador central nessa ordem. As duas partes do programa precisam declarar 2.19.0 e combinar com a versão esperada pelo carregador. A chamada fixa do common.js permanece idêntica. Quem já a usa mantém esse bloco nas próximas atualizações.
+
+USAR A DISTRIBUIÇÃO COMPARTILHADA
+
+Quem já usa a chamada fixa pode mantê-la no common.js. Depois que as páginas centrais forem atualizadas, basta recarregar. Em uma instalação nova, coloque Chamada_fixa_RevisaWiki_common.js no common.js. Essa chamada curta abre Usuário:Daniel G Rego/RevisaWiki/Carregador.js, que carrega as partes da distribuição. Os arquivos centrais não precisam ser copiados para a sua conta.
+
+Se houver uma instalação antiga, substitua somente o bloco do RevisaWiki. Não acrescente uma segunda chamada. Preserve os demais scripts.
+
+MANTER UMA CÓPIA PRÓPRIA
+
+1. Copie RevisaWiki_v2_19_0_dados.js para a sua página RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_19_0.js para a sua página RevisaWiki.js.
+3. Atualize a sua página RevisaWiki/Carregador.js com Carregador_common_js_RevisaWiki_v2_19_0.js. Ele usa os arquivos da conta conectada.
+4. Mantenha Chamada_fixa_RevisaWiki_copia_propria.js no common.js se já usa essa chamada. Para instalar pela primeira vez, acrescente-a preservando os outros scripts. Use apenas uma das chamadas fixas.
+
+Nas próximas versões, atualize seus dados, núcleo e carregador central, nessa ordem. Mantenha a chamada curta. Se escolher nomes diferentes para as páginas, ajuste os destinos no carregador e na chamada correspondente.
+
+RevisaWiki_v2_19_0_completo.js reúne as partes para download e testes locais. Ele ultrapassa o limite de 2 MiB por página da ptwiki. Instale o programa em duas partes.
+
+CONFERIR A INSTALAÇÃO
+
+Copie apenas o código, sem cercas de Markdown ou marcas de sintaxe. O índice não instala nem publica nada automaticamente.
+
+No editor clássico e no CodeMirror reconhecido, Ajustar código aparece em verde azulado antes de Publicar. No editor de código-fonte de 2017, use o botão do painel superior, com o mesmo verde. Desfazer ajustes fica no painel. Mostrar alterações usa o controle nativo do editor, com atalho no painel somente quando esse controle está disponível. Os botões adicionais Editar aqui foram retirados. Os links de edição da própria Wikipédia permanecem.
+
+O relatório Precisa de revisão mostra somente problemas confirmados no rascunho final e propostas que ainda correspondem ao trecho. Problemas repetidos ficam agrupados, com todos os locais e escolhas acessíveis. Avisos antigos, lacunas de catálogo e consultas opcionais incompletas não são apresentados como erros do artigo. Esse filtro não altera o código nem desliga as proteções de conteúdo.
+
+Se o painel não aparecer, confira os destinos, a cópia completa dos arquivos, a existência da página central e a presença de uma única chamada do RevisaWiki. No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R.
+
+A chamada curta calcula uma chave de cache por intervalo de cinco minutos ao abrir outra página ou recarregar. Ela não fica consultando atualizações numa página aberta e não cria edições na Wikipédia.
+
+AVISO DE TAMANHO AO EXIBIR O CÓDIGO
+
+A mensagem que cita 102400 bytes é do realce de sintaxe da página. Ela faz o visualizador mostrar o código sem colorir e não impede o salvamento nem a execução do JavaScript. Use Ver código bruto no índice para conferir o arquivo salvo. Uma recusa de publicação ou um erro de sintaxe precisa ser investigado separadamente. Não confunda esse aviso visual com o limite total de uma página.
+
+A versão 2.19.0 usa uma chave nova no carregador central para receber o programa e os dados correspondentes. A chamada fixa do common.js permanece igual.
+
+TESTES
+
+A validação reuniu 952.120 casos distintos, definidos pelo texto de entrada, pelas opções e pelo resultado esperado. Os 190 tipos ativos de alteração tiveram casos que conferem o resultado da ação completa. A rodada de fontes reais cobriu 30.468 capturas de páginas, com 30.460 conteúdos diferentes e 451.766.523 bytes de origem. Essas contagens não somam os dois arquivos do programa ou os cliques repetidos como novos artigos.
+
+A bateria dirigida concluiu 224 conjuntos de testes, com 632.814 execuções registradas e 2.284.107 verificações. Esses registros incluem repetições nos arquivos do programa e testes de auxiliares, separados dos casos que comparam a ação completa. As matrizes dos catálogos e de pessoas e assuntos têm comprovantes próprios. A leitura independente conserva os resultados ambíguos e as estruturas que dependem de expansão. Três sinais de perda, em dois pares exatos, foram esclarecidos pela renderização nativa e por verificações dos dados completos. Os registros originais desses sinais continuam intactos.
+
+Chrome, Firefox e Safari executaram 604 fluxos selecionados de edição cada um, em páginas locais com adaptadores fictícios. Os testes incluem aplicação, desfazer, edição manual, rascunhos alterados durante a consulta, opção de edição menor e proteção do texto ao atingir o limite de tempo. A demonstração passou nos três navegadores, com 47 exemplos. As consultas de teste não usam contas nem salvam edições na Wikipédia.
+
+O processamento separado mantém o prazo de 60 segundos. Textos complexos podem atingi-lo mesmo abaixo do caso extremo de aproximadamente 1,9 MB, que não foi repetido nesta rodada. Os comprovantes mantêm timeouts, recusas e comparações ambíguas em campos próprios. Os testes nativos confirmaram a conservação do rascunho, do resumo, da marca de edição menor e da possibilidade de continuar editando após o timeout. As verificações de preservação continuam ativas.
+
+A repetição adicional dos casos com timeout foi encerrada com 50 das 57 capturas concluídas. Dessas 50, 35 tiveram algum timeout. As sete sem comprovante final não contam como testes aprovados. O encerramento preservou os arquivos e os resultados registrados, sem alterar o prazo, as proteções ou a campanha original.
+
+CONSULTAS E PUBLICAÇÃO
+
+Os cálculos de ajuste e ortografia ficam no navegador. A pré-visualização envia o rascunho para processamento pela Wikipédia sem salvar uma edição. Os recursos de destinos, portais, DOI e confirmação de categorias de nascimento podem fazer as consultas públicas explicadas no manual.
+
+Ajustar código trabalha no rascunho. A publicação usa os controles do editor da Wikipédia. Confira Mostrar alterações do editor e a pré-visualização antes de publicar. Leia o texto preparado por Copiar diagnóstico antes de compartilhá-lo.

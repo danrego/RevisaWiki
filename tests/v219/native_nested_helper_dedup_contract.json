@@ -1,0 +1,118 @@
+{
+  "kind": "native-nested-helper-outer-reference-dedup-refusal",
+  "schemaVersion": 1,
+  "fictionalInputs": true,
+  "networkMethod": "GET",
+  "authenticated": false,
+  "wikipediaWrites": 0,
+  "sourceContracts": [
+    "native_helper_underscore_contract.json",
+    "native_nested_note_families_contract.json"
+  ],
+  "rows": [
+    {
+      "side": "before",
+      "source": "A.<ref>{{Refn_|Fonte literal.}}</ref> B.<ref>{{Refn_|Fonte literal.}}</ref>\n{{Referências}}",
+      "sourceSha256": "87178d309a6bb8115b37c42e2373ddcd0e76dc71a32c056db2afe9bd4ca55ff6",
+      "responseSha256": "69e58a67f3be44a2d0012ebdb131c2732dd289570166324428dfcba8e9319ed7",
+      "htmlSha256": "aa5d3e58051ef981ccf621aee9e3a21f06570ec41d9ad76c0b5ae7351b9b3e4b",
+      "orderedCalls": [
+        "cite_note-1",
+        "cite_note-2"
+      ],
+      "notes": [
+        {
+          "target": "cite_note-1",
+          "body": "↑ \n",
+          "backlinks": [
+            "cite_ref-1"
+          ],
+          "hrefs": [
+            "#cite_ref-1"
+          ]
+        },
+        {
+          "target": "cite_note-2",
+          "body": "↑ \n",
+          "backlinks": [
+            "cite_ref-2"
+          ],
+          "hrefs": [
+            "#cite_ref-2"
+          ]
+        }
+      ],
+      "method": "GET",
+      "authenticated": false,
+      "exactSourceEcho": true,
+      "networkWrites": 0,
+      "citationErrorCount": 2
+    },
+    {
+      "side": "actual-after",
+      "source": "A.<ref name=\"ref-auto-1\">{{Refn_|Fonte literal.}}</ref> B.<ref name=\"ref-auto-1\" />\n{{Referências}}",
+      "sourceSha256": "e2792105ecb6548d23ac77db9f7fd97267018eaa850e5b8ac74ecffcb6bc12db",
+      "responseSha256": "a9270e0d88ec2468d114ea39cf79ad82c2b0de937a469f4d619e6e6c3eb8f78f",
+      "htmlSha256": "df15cedffff12e5df0141380847178591ef542e02cb1b3216e52e51a8bc595ac",
+      "orderedCalls": [
+        "cite_note-ref-auto-1-1",
+        "cite_note-ref-auto-1-1"
+      ],
+      "notes": [
+        {
+          "target": "cite_note-ref-auto-1-1",
+          "body": "↑ a b \n",
+          "backlinks": [
+            "cite_ref-ref-auto-1_1-0",
+            "cite_ref-ref-auto-1_1-1"
+          ],
+          "hrefs": [
+            "#cite_ref-ref-auto-1_1-0",
+            "#cite_ref-ref-auto-1_1-1"
+          ]
+        }
+      ],
+      "method": "GET",
+      "authenticated": false,
+      "exactSourceEcho": true,
+      "networkWrites": 0,
+      "citationErrorCount": 1
+    }
+  ],
+  "decision": "Do not name and merge anonymous outer references whose bodies invoke a pinned native reference helper. Deduplication changes the number of helper expansions and is not the separately proved removal of the sole anonymous outer wrapper. Native helper identity normalization must precede the exclusion check.",
+  "observedEndpointStatus": "Rejected original CC writer endpoint, retained as a counterexample.",
+  "nativeProofBoundary": "The reduced native pair contains an existing nested-reference error. Fewer native errors after losing an expansion do not prove a valid cleanup or retain the supplied literal note body.",
+  "components": [
+    {
+      "id": "two-wrapper-complete-repair",
+      "componentSourceSha256": "84157a9b57804ac4831f7a07ee00e9f1da0f0782b791c6573b04ecea229d2229",
+      "assertionsUnchanged": true
+    },
+    {
+      "id": "nonrepair-preservation",
+      "componentSourceSha256": "d408567bf5f5c7ed3b7c2570aa966e20022eaa2c8cfba08f1989079f1671cf27",
+      "assertionsUnchanged": true
+    },
+    {
+      "id": "eight-native-families",
+      "componentSourceSha256": "6b161d07f671d6acca013103c14e119dc1b019f38fc9ab90c8bf7d2f6603d399",
+      "assertionsUnchanged": true
+    }
+  ],
+  "existingPrimaryContracts": [
+    {
+      "path": "native_helper_underscore_contract.json",
+      "sha256": "b4ad99c5d0ff2580edd193032b97a06a76a95c6042ff98fcd13b0fbd9f8480fa"
+    },
+    {
+      "path": "native_nested_note_families_contract.json",
+      "sha256": "9c620c54f00eb819fedc19d0597d1f8c022e854e8ec473869d52a3a01d36e9fb"
+    },
+    {
+      "path": "native_short_reference_prefix_contract.json",
+      "sha256": "d094b3feac2ec9e770bc4ec9f957b50d3ef15a76381a73889a5fac0321b48f6f"
+    }
+  ],
+  "publicRuntimeBoundary": "Complete adjust actions and production guard rejection only. The helper sources are not injected and the original scripts are not executed. The exact graph observations reject the old duplicate-wrapper output. The separately pinned native wrapper-removal contract authorizes only the bounded positive endpoints with a matching renderer. Efn and native collector bodies remain preserved.",
+  "metadataOnlyAdaptation": "The supplementary file retains all original assertions from its three components, combines their reports and adds source/options/endpoint/scenario bindings. Component SHA values identify the separately retained diagnostic runners."
+}

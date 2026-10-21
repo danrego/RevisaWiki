@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "suite": "gaia_peer_definition",
+  "argv": [
+    "<CORE>",
+    "<FULL>",
+    "--data=<DATA>",
+    "--output=<OUTPUT>",
+    "--execute-preauthored-controls"
+  ],
+  "expectedRows": 188,
+  "rowArrays": [
+    "rows",
+    "mutants",
+    "proofMutants",
+    "modelContexts"
+  ],
+  "fixtureFiles": [
+    "original_controls.json",
+    "additive_controls.json",
+    "opaque_self_controls.json",
+    "model_context_controls.json"
+  ],
+  "defaultRole": "source-plan-whole-action-material-optional-family-and-proof",
+  "typedCounts": {
+    "role": "source-plan-whole-action-material-optional-family-and-proof",
+    "sourceDescriptors": 59,
+    "planBundleRows": 118,
+    "wholeBundleRowsSubset": 74,
+    "materialMutationRows": 18,
+    "optionalFamilyRows": 12,
+    "proofMutationRows": 16,
+    "totalMixedBundleRows": 188,
+    "plan": 132,
+    "proof": 132,
+    "calculate": 196,
+    "firstCalculate": 98,
+    "secondCalculate": 98,
+    "retained": 30,
+    "preservationAudit": 128,
+    "safeComposition": 128,
+    "stage": 2,
+    "baseline": 12,
+    "articleCredit": 0,
+    "independentWriterCredit": 0,
+    "modelContextDescriptors": 12,
+    "modelContextBundleRows": 24,
+    "wrapper": 24,
+    "migrate": 24
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/SOURCE_INPUTS.json",
+    "<DIR>/additive_controls.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/original_controls.json",
+    "<DIR>/SUITE.json",
+    "<ROOT>/src/v2_19/gaia_wrapper_safety.js",
+    "<DIR>/opaque_self_controls.json",
+    "<DIR>/model_context_controls.json"
+  ],
+  "retainedOriginalMixedRows": 164
+}

@@ -1,0 +1,115 @@
+{
+  "kind": "native-linked-media-option-and-caption-boundary",
+  "status": "passed",
+  "method": "anonymous GET action=parse with fictional inputs, no edits",
+  "responseSha256": "038f3f53b5a3dd5cac33d302f1242bbd36030a2123f7f4c5c7dfc15653852a3a",
+  "samples": [
+    {
+      "option": "link",
+      "date": "2001-03-05",
+      "source": "[[File:Example.jpg|link=https://example.invalid/x.png|direita|miniaturadaimagem|Legenda literal.<ref>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte|data=2001-03-05}}</ref>]]\n{{Referências}}",
+      "nativeLinks": [
+        [
+          "https://example.invalid/x.png",
+          ""
+        ],
+        [
+          "#cite_note-1",
+          ""
+        ],
+        [
+          "#cite_ref-1",
+          ""
+        ],
+        [
+          "https://example.invalid/fonte",
+          "external text"
+        ]
+      ],
+      "nativeCaption": "Legenda literal.[1]",
+      "nativeReferenceCallCount": 1,
+      "passed": true
+    },
+    {
+      "option": "link",
+      "date": "5 de março de 2001",
+      "source": "[[File:Example.jpg|link=https://example.invalid/x.png|direita|miniaturadaimagem|Legenda literal.<ref>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte|data=5 de março de 2001}}</ref>]]\n{{Referências}}",
+      "nativeLinks": [
+        [
+          "https://example.invalid/x.png",
+          ""
+        ],
+        [
+          "#cite_note-2",
+          ""
+        ],
+        [
+          "#cite_ref-2",
+          ""
+        ],
+        [
+          "https://example.invalid/fonte",
+          "external text"
+        ]
+      ],
+      "nativeCaption": "Legenda literal.[1]",
+      "nativeReferenceCallCount": 1,
+      "passed": true
+    },
+    {
+      "option": "ligação",
+      "date": "2001-03-05",
+      "source": "[[File:Example.jpg|ligação=https://example.invalid/x.png|direita|miniaturadaimagem|Legenda literal.<ref>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte|data=2001-03-05}}</ref>]]\n{{Referências}}",
+      "nativeLinks": [
+        [
+          "https://example.invalid/x.png",
+          ""
+        ],
+        [
+          "#cite_note-3",
+          ""
+        ],
+        [
+          "#cite_ref-3",
+          ""
+        ],
+        [
+          "https://example.invalid/fonte",
+          "external text"
+        ]
+      ],
+      "nativeCaption": "Legenda literal.[1]",
+      "nativeReferenceCallCount": 1,
+      "passed": true
+    },
+    {
+      "option": "ligação",
+      "date": "5 de março de 2001",
+      "source": "[[File:Example.jpg|ligação=https://example.invalid/x.png|direita|miniaturadaimagem|Legenda literal.<ref>{{Citar web|título=Fonte literal|url=https://example.invalid/fonte|data=5 de março de 2001}}</ref>]]\n{{Referências}}",
+      "nativeLinks": [
+        [
+          "https://example.invalid/x.png",
+          ""
+        ],
+        [
+          "#cite_note-4",
+          ""
+        ],
+        [
+          "#cite_ref-4",
+          ""
+        ],
+        [
+          "https://example.invalid/fonte",
+          "external text"
+        ]
+      ],
+      "nativeCaption": "Legenda literal.[1]",
+      "nativeReferenceCallCount": 1,
+      "passed": true
+    }
+  ],
+  "scope": "A bare native link= or ligação= option consumes only its own URL up to the literal file-option pipe. Caption and reference remain separate. Date changes are not claimed visually identical.",
+  "wikipediaWrites": 0,
+  "mediaDownloads": 0
+}

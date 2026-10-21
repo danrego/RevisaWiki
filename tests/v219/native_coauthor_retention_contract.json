@@ -1,0 +1,87 @@
+{
+  "kind": "native-consumed-coauthor-field-preservation",
+  "networkRequestsForThisContract": 0,
+  "wikipediaWrites": 0,
+  "nativeRenderPairClaimed": false,
+  "primarySources": [
+    {
+      "oldid": 73016847,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=73016847",
+      "sha256": "4924bb13ea17c8d105e5132b9ef06dc438a6280d5d940bbf199aeb62e2cc8099",
+      "relevantLines": [
+        184,
+        242
+      ],
+      "role": "native aliases"
+    },
+    {
+      "oldid": 71860752,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=71860752",
+      "sha256": "42ae453955495114d5c6239677d90c700b3e2d270e4e454886dde368773f4609",
+      "relevantLines": [
+        101,
+        104
+      ],
+      "role": "deprecated whitelist spellings"
+    },
+    {
+      "oldid": 72936771,
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72936771",
+      "sha256": "54a85c535d5788163ee690d9d502c0d3cce04b4d308f7da3f6b515c432c11e27",
+      "relevantLines": [
+        1270,
+        1285,
+        2047,
+        2069,
+        2113,
+        2128,
+        2525,
+        2531,
+        2637,
+        2657
+      ],
+      "role": "native separate display/metadata/anchor algorithms"
+    }
+  ],
+  "decision": "Retire automatic native Coauthors-to-numbered-author activation. Preserve the consumed deprecated field and its structured-person/publication relationship. An active deprecated alias is not an empty metadata slot.",
+  "sourceWitness": {
+    "source": "[[#CITEREFExemplo2001|Trecho literal]].\n{{Citar livro|último=Exemplo|primeiro=Nome|coautores=Outra Pessoa|ano=2001|título=Fonte literal|ref=harv}}",
+    "unsafeFormerCandidate": "[[#CITEREFExemplo2001|Trecho literal]].\n{{Citar livro|último=Exemplo|primeiro=Nome|autor2=Outra Pessoa|ano=2001|título=Fonte literal|ref=harv}}",
+    "expected": "[[#CITEREFExemplo2001|Trecho literal]].\n{{Citar livro|último=Exemplo|primeiro=Nome|coautores=Outra Pessoa|ano=2001|título=Fonte literal|ref=harv}}",
+    "sourceSha256": "821a1178e5541b9479e7d59359bd1725c87f867fc80260cecca36b6ee0432127"
+  },
+  "nativeCodeFacts": {
+    "Coauthors": "A separate native display string with aliases coautor/coautores/coauthor/coauthors.",
+    "structuredAuthorSource": "Native structured a is built separately. Coauthors is appended to displayed Authors later.",
+    "COinS": "Structured a, or structured contributors c when present, provides COinS Authors. Coauthors does not provide that list.",
+    "Harvard": "CITEREF uses up to four structured contributor/author/editor Last values and the year. Coauthors is absent from that selection.",
+    "omittedReference": "Native mode cs2 defaults an unset ref to harv, so looking only for an explicit ref=harv is insufficient."
+  },
+  "guardBoundary": {
+    "binding": "Exact native family and revision, complete canonical role/value set, Coauthors and structured people separately, all publication/date/title/URL/identifier/unknown fields and unequal-alias/blank precedence.",
+    "comparisonView": "Only source-proved nonperson repairs may normalize the comparison view. People normalization is disabled.",
+    "writerBoundary": "People list/link/tail rewriting in the same coauthor-bearing native call remains quiet; other field repairs in that call and person repairs in separate native calls remain independently enabled.",
+    "foreignBoundary": "Foreign source-role migrations have separate donor contracts. This native preservation rule does not authorize or globally disable them."
+  },
+  "expectedAssertionAmendments": {
+    "citation_people_cases.cjs": "Four original coauthor-safe alias cases keep the same original source as the expected endpoint. Initial executed receipts are retained.",
+    "source_month_year_cases.cjs": "The original Month+Year composition case still repairs the date but keeps its native coautor field."
+  },
+  "countsAreSeparate": {
+    "predecessorDeclarationRowsChanged": 0,
+    "reason": "The original coauthor predecessor rows were already classified as preserved or unsafe. The additional helper positives are explicitly superseded by the native preservation contract."
+  },
+  "privateV2Supplement": {
+    "protectionOnlyCandidate": "Literal coautor/coauthor and unresolved key syntax candidates grant no author-writing authority. Actual native Coauthors role and source family are required for metadata obligations.",
+    "nativeKeyPadding": [
+      "space",
+      "HT",
+      "LF",
+      "CR",
+      "CRLF",
+      "2/4/8 blank lines"
+    ],
+    "unsupportedKeys": "Control/NBSP/DEL/C1/PUA/comment/dynamic key shapes are quiet producer refusals, not newly accepted native aliases. Exact unmapped key bytes are retained by both legacy citation reconstructions.",
+    "originalEvidenceRetained": "The v1 cheap-gate counterexample and all prior assertion failures remain immutable."
+  }
+}

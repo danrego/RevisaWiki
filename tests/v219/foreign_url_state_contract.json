@@ -1,0 +1,50 @@
+{
+  "kind": "foreign-citation-url-state-boundary",
+  "declaredBindingCount": 712,
+  "declaredSourceKeys": [
+    "offline",
+    "urlmuerta",
+    "dead-url",
+    "deadurl",
+    "deadlink",
+    "статус ссылки",
+    "ölüurl",
+    "ölü-url",
+    "bozukurl",
+    "url-durumu",
+    "urlmorto",
+    "깨진링크",
+    "죽은링크",
+    "깨진url",
+    "죽은url",
+    "url-status",
+    "url상태",
+    "trạng thái url",
+    "død-lenke",
+    "dødlenke",
+    "حالة المسار"
+  ],
+  "primarySourceFindings": [
+    {
+      "source": "https://ru.wikipedia.org/w/index.php?oldid=155333102",
+      "sha256": "818c9399ddcb8a66a1be75fec4627f705e6d2442ead0af8401d37b85fc043a3e",
+      "contract": "The literal wrapper reads url-status, urlstatus and статус ссылки with distinct dead and unfit branches. It does not read the declared deadlink, deadurl or dead-url spellings. The declared mapping cannot establish semantic equivalence."
+    },
+    {
+      "source": "https://de.wikipedia.org/w/index.php?oldid=240082716",
+      "sha256": "8a4e31955d011c6e55d17aa00fc6096ad7feef98f6f01be9449a28e668f195ce",
+      "contract": "The literal wrapper passes offline to the faculty function of a separate utility module. The wrapper alone does not prove a native CS1 boolean mapping."
+    },
+    {
+      "source": "https://es.wikipedia.org/w/index.php?oldid=149592242",
+      "sha256": "c287aba5ee53c3f8d6af5f0a4597a8e79f6403220cf12110cc24073df7df2334",
+      "contract": "The wrapper forwards its arguments to a language-specific citation module. The wrapper alone does not prove the values accepted by urlmuerta or their equivalence to the native CS1 DeadURL role."
+    }
+  ],
+  "disposition": "quiet-whole-call-refusal",
+  "reason": "A foreign state parameter may select a different native role, enum or link branch. No foreign state conversion is approved by these incomplete wrapper contracts. Missing or blank state values are retained too.",
+  "nativeException": "Exact proved local citation redirects and current native CS1 templates preserve their already accepted field/value interface. Other citation fields remain eligible when no foreign state field is present.",
+  "alertsAdded": 0,
+  "networkRequestsDuringTests": 0,
+  "wikipediaWrites": 0
+}

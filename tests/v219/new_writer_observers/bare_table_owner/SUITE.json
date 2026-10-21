@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "suite": "bare_table_owner",
+  "argv": [
+    "<CORE>",
+    "<FULL>",
+    "--data=<DATA>",
+    "--output=<OUTPUT>",
+    "--execute-preauthored-controls"
+  ],
+  "expectedRows": 402,
+  "rowArrays": [
+    "rows"
+  ],
+  "fixtureFiles": [
+    "fixtures.json",
+    "closed_generation_opening_controls.json"
+  ],
+  "defaultRole": "source-plan-whole-action-site-and-proof",
+  "typedCounts": {
+    "role": "source-plan-whole-action-site-and-proof",
+    "sourceDescriptors": 30,
+    "planBundleRows": 60,
+    "wholeSourceDescriptors": 29,
+    "wholeBundleRows": 58,
+    "siteMutationRows": 16,
+    "proofMutationRows": 16,
+    "totalMixedBundleRows": 402,
+    "calculate": 144,
+    "firstCalculate": 72,
+    "secondCalculate": 72,
+    "preservationAudit": 88,
+    "safeComposition": 88,
+    "articleCredit": 0,
+    "independentWriterCredit": 0,
+    "original150BundleRowsPreserved": 150,
+    "closedGenerationSourceDescriptors": 58,
+    "openingSourceDescriptors": 61,
+    "additionalWholeSourceDescriptors": 7
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/fixtures.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/SUITE.json",
+    "<ROOT>/src/v2_19/citation_language_safety.js",
+    "<DIR>/closed_generation_opening_controls.json",
+    "<ROOT>/scripts/build_v2190.py"
+  ]
+}

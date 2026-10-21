@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "suite": "keeper_people",
+  "argv": [
+    "<CORE>",
+    "<FULL>",
+    "--data=<DATA>",
+    "--output=<OUTPUT>",
+    "--execute-preauthored-controls"
+  ],
+  "expectedRows": 72,
+  "rowArrays": [
+    "rows"
+  ],
+  "fixtureFiles": [
+    "PREAUTHORED_PROJECTIONS.json",
+    "PREAUTHORED_WHOLE_ACTIONS.json",
+    "PREAUTHORED_GUARD_MUTANTS.json",
+    "whole_action_spacing_roles.json"
+  ],
+  "defaultRole": "source-people-projection-whole-action-and-guard-mutation",
+  "typedCounts": {
+    "role": "source-people-projection-whole-action-and-guard-mutation",
+    "sourceProjectionDescriptors": 21,
+    "projectionBundleRows": 42,
+    "wholeSourceDescriptors": 5,
+    "wholeBundleRows": 10,
+    "guardMutationDescriptors": 10,
+    "guardMutationRows": 20,
+    "totalMixedBundleRows": 72,
+    "projection": 42,
+    "calculate": 20,
+    "firstCalculate": 10,
+    "secondCalculate": 10,
+    "preservationAudit": 30,
+    "safeComposition": 30,
+    "articleCredit": 0,
+    "independentWriterCredit": 0
+  },
+  "inputs": [
+    "<DIR>/CONTRACT.json",
+    "<DIR>/ORIGIN.json",
+    "<DIR>/PREAUTHORED_GUARD_MUTANTS.json",
+    "<DIR>/PREAUTHORED_PROJECTIONS.json",
+    "<DIR>/PREAUTHORED_WHOLE_ACTIONS.json",
+    "<DIR>/observer.cjs",
+    "<DIR>/SUITE.json",
+    "<ROOT>/src/v2_19/citation_language_safety.js",
+    "<DIR>/whole_action_spacing_roles.json"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "native-url-access-validation-and-rendering-boundaries",
+  "primarySources": [
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=73016847", "contract": "UrlAccess accepts the exact keys url-access, acesso-url and acessourl. Its finite accepted enum list is subscrição, limitada, limitado, registo, registro, registration and limited."},
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=72936771", "contract": "Validation lowercases enum input, but the later renderer maps only registo/registro to registration, subscrição to subscription and limitada to limited. Every other accepted value is then cleared. Accepted validation values and rendered access icons are separate contracts."},
+    {"source": "https://pt.wikipedia.org/w/index.php?oldid=71860752", "contract": "The whitelist accepts native UrlAccess keys independently of whether a supplied enum produces a visible access icon."}
+  ],
+  "acceptedKeys": ["url-access", "acesso-url", "acessourl"],
+  "acceptedEnums": ["subscrição", "limitada", "limitado", "registo", "registro", "registration", "limited"],
+  "policy": "Preserve already accepted native argument keys and values, including accepted values ignored by the renderer. Only the independently proved invalid subscription value has a separate source-bound repair to subscrição. No broader enum equivalence is asserted.",
+  "wikipediaWrites": 0
+}

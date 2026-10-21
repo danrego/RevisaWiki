@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-person-image-extra-owner-and-caption-transfer-contract",
+  "status": "passed",
+  "primary": {
+    "method": "anonymous GET query revisions and action=parse with fictional inputs; no edits or media downloads",
+    "sources": [
+      {
+        "title": "Predefinição:Info/Ator",
+        "oldid": 72882232,
+        "source": "https://pt.wikipedia.org/w/index.php?oldid=72882232",
+        "sourceSha256": "64980d263d78828e6ca072d269cf836ff63f7647c6d01cce21ac862328db4da3",
+        "literalWitness": "| imagem         = {{#invoke:InfoboxImage|InfoboxImage|image={{{imagem|}}}|size={{{imagem_tamanho|{{{imagem-tamanho|{{{tamanho_imagem|}}}}}}}}}|sizedefault=frameless|upright={{{imagem_upright|1}}}|alt={{{alt|}}}|suppressplaceholder=yes}}"
+      },
+      {
+        "title": "Predefinição:Info/Escritor",
+        "oldid": 46988224,
+        "source": "https://pt.wikipedia.org/w/index.php?oldid=46988224",
+        "sourceSha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0",
+        "literalWitness": "#REDIRECIONAMENTO [[Predefinição:Info/Biografia]]"
+      },
+      {
+        "title": "Predefinição:Info/Jornalista",
+        "oldid": 70906611,
+        "source": "https://pt.wikipedia.org/w/index.php?oldid=70906611",
+        "sourceSha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0",
+        "literalWitness": "#REDIRECIONAMENTO [[Predefinição:Info/Biografia]]"
+      }
+    ],
+    "responses": [
+      {
+        "kind": "extra_image_owners",
+        "sha256": "f33ca1014a69c66a2b82c3f097eccbc91ee4c6dd7b31e5364ac3926e5aea5e13"
+      },
+      {
+        "kind": "embedded_caption_owners",
+        "sha256": "2a7266a51f5ab95c79559beb3d35cc088fe54ea6f31859a6cdcd47b6910e8da3"
+      }
+    ]
+  },
+  "additionalNativeFields": {
+    "Info/Ator": {
+      "image": [
+        "imagem"
+      ],
+      "size": [
+        "imagem_tamanho",
+        "imagem-tamanho",
+        "tamanho_imagem"
+      ],
+      "caption": [
+        "descrição",
+        "legenda",
+        "imagem_legenda"
+      ],
+      "captionFallback": "nome",
+      "alt": [
+        "alt"
+      ]
+    }
+  },
+  "localRedirectTargets": {
+    "Info/Escritor": "Info/Biografia",
+    "Info/Jornalista": "Info/Biografia"
+  },
+  "nativeRenderingPairs": [
+    {
+      "id": "Info/Ator",
+      "source": "{{Info/Ator|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]}}",
+      "expected": "{{Info/Ator|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Ator|imagem_legenda=Legenda literal|alt=Descrição literal",
+      "source": "{{Info/Ator|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "expected": "{{Info/Ator|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Escritor",
+      "source": "{{Info/Escritor|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Escritor|imagem_legenda=Legenda literal|alt=Descrição literal",
+      "source": "{{Info/Escritor|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Jornalista",
+      "source": "{{Info/Jornalista|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Jornalista|imagem_legenda=Legenda literal|alt=Descrição literal",
+      "source": "{{Info/Jornalista|nome=Pessoa fictícia|imagem=[[File:Example.jpg|250px]]|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal|alt=Descrição literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Biografia/",
+      "source": "{{Info/Biografia|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|250px|Legenda literal]]}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Biografia/miniaturadaimagem|",
+      "source": "{{Info/Biografia|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem|250px|Legenda literal]]}}",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Político/",
+      "source": "{{Info/Político|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|250px|Legenda literal]]}}",
+      "expected": "{{Info/Político|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Político/miniaturadaimagem|",
+      "source": "{{Info/Político|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem|250px|Legenda literal]]}}",
+      "expected": "{{Info/Político|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Música/artista/",
+      "source": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|250px|Legenda literal]]|fundo=cantor_solo}}",
+      "expected": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=Example.jpg|fundo=cantor_solo|imagem_tamanho=250px|legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4",
+      "targetSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4"
+    },
+    {
+      "id": "Info/Música/artista/miniaturadaimagem|",
+      "source": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem|250px|Legenda literal]]|fundo=cantor_solo}}",
+      "expected": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=Example.jpg|fundo=cantor_solo|imagem_tamanho=250px|legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4",
+      "targetSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4"
+    },
+    {
+      "id": "Info/Ator/",
+      "source": "{{Info/Ator|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|250px|Legenda literal]]}}",
+      "expected": "{{Info/Ator|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Ator/miniaturadaimagem|",
+      "source": "{{Info/Ator|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem|250px|Legenda literal]]}}",
+      "expected": "{{Info/Ator|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Militar/",
+      "source": "{{Info/Militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|250px|Legenda literal]]}}",
+      "expected": "{{Info/Militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    },
+    {
+      "id": "Info/Militar/miniaturadaimagem|",
+      "source": "{{Info/Militar|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem|250px|Legenda literal]]}}",
+      "expected": "{{Info/Militar|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px|imagem_legenda=Legenda literal}}",
+      "passed": true,
+      "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+      "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+    }
+  ],
+  "comparison": "Visible text, link target/class, emphasis state, image src/alt/width/height/class. Embedded literal captions retain the same native tuple after the exact filename/size/caption transformation. This does not authorize dropping unsupported options or selecting among conflicting/blank fields.",
+  "wikipediaWrites": 0,
+  "mediaDownloads": 0
+}

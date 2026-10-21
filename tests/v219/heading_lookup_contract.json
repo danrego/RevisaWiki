@@ -1,0 +1,38 @@
+{
+  "kind": "source-bound-linked-heading-remission-contract",
+  "schemaVersion": 1,
+  "sourceRules": [
+    "b.wikify.8",
+    "b.wikify.9"
+  ],
+  "nativeSources": [
+    {
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=73204357",
+      "oldid": 73204357,
+      "sourceSha256": "53f767028bbec40565d585378a7b6689003f311d701f256a33b0f71606e0c8ae",
+      "role": "Native style guidance avoids heading links and places related links at the beginning of the section."
+    },
+    {
+      "source": "https://pt.wikipedia.org/w/index.php?oldid=72102523",
+      "oldid": 72102523,
+      "sourceSha256": "7b2de3b9c37547090015980194db4720ff841794d244d793199f5777bd94eeea",
+      "role": "Native Artigo principal receives the supplied target in its first positional argument."
+    }
+  ],
+  "automaticBoundary": "One complete literal heading link, nonempty section body, no existing unrelated remission, confirmed main-namespace non-disambiguation target, target not the current article. The production task binds the result to the exact source and rejects draft changes during the query.",
+  "nativeUiRunner": "browser/heading_lookup_ui.cjs",
+  "semanticEndpoints": "three_script_semantic_endpoints.json",
+  "controls": [
+    "missing target",
+    "disambiguation",
+    "other namespace",
+    "invalid target",
+    "query failure",
+    "current-article self-target",
+    "headings option disabled",
+    "links option disabled",
+    "source changed while query pending",
+    "protected code example"
+  ],
+  "meaning": "Conditional lookup is implemented automatic functionality with a required read-only proof. It does not infer arbitrary destinations or promise parity with every predecessor regular expression."
+}

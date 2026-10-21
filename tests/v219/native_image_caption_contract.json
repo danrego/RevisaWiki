@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-image-option-infobox-caption-boundary",
+  "primary": {
+    "api": "https://pt.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=magicwords&format=json",
+    "responseSha256": "538de6faabec88cc996ca57e29551b2b91ff9c4b7f4952114dcaf768ca444efe",
+    "imageOptionGroups": [
+      {
+        "name": "img_baseline",
+        "aliases": [
+          "linhadebase",
+          "baseline"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_border",
+        "aliases": [
+          "borda",
+          "border"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_bottom",
+        "aliases": [
+          "abaixo",
+          "bottom"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_center",
+        "aliases": [
+          "centro",
+          "center",
+          "centre"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_framed",
+        "aliases": [
+          "commoldura",
+          "comborda",
+          "frame",
+          "framed",
+          "enframed"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_frameless",
+        "aliases": [
+          "semmoldura",
+          "semborda",
+          "frameless"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_left",
+        "aliases": [
+          "esquerda",
+          "left"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_link",
+        "aliases": [
+          "ligação=$1",
+          "link=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_manualthumb",
+        "aliases": [
+          "miniaturadaimagem=$1",
+          "miniatura=$1",
+          "thumbnail=$1",
+          "thumb=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_middle",
+        "aliases": [
+          "meio",
+          "middle"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_none",
+        "aliases": [
+          "nenhum",
+          "none"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_page",
+        "aliases": [
+          "página=$1",
+          "página_$1",
+          "página $1",
+          "page=$1",
+          "page $1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_right",
+        "aliases": [
+          "direita",
+          "right"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_thumbnail",
+        "aliases": [
+          "miniaturadaimagem",
+          "miniatura",
+          "thumb",
+          "thumbnail"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_top",
+        "aliases": [
+          "acima",
+          "top"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_upright",
+        "aliases": [
+          "superiordireito",
+          "superiordireito=$1",
+          "superiordireito_$1",
+          "superiordireito $1",
+          "upright",
+          "upright=$1",
+          "upright $1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_lossy",
+        "aliases": [
+          "lossy=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_alt",
+        "aliases": [
+          "alt=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_class",
+        "aliases": [
+          "class=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_lang",
+        "aliases": [
+          "lang=$1"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_sub",
+        "aliases": [
+          "sub"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_super",
+        "aliases": [
+          "super",
+          "sup"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_text_bottom",
+        "aliases": [
+          "text-bottom"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_text_top",
+        "aliases": [
+          "text-top"
+        ],
+        "case-sensitive": true
+      },
+      {
+        "name": "img_width",
+        "aliases": [
+          "$1px"
+        ],
+        "case-sensitive": true
+      }
+    ]
+  },
+  "supportedUnwrappingKinds": [
+    "img_thumbnail",
+    "img_frameless"
+  ],
+  "meaning": "Only exact native thumbnail/frameless flags may be discarded when the existing native infobox image field is unwrapped. Other recognized native image options refuse the whole unwrap instead of becoming a literal caption. Non-native case variants may remain literal caption text only under the existing complete caption grammar.",
+  "boundaries": [
+    "Native options are case-sensitive as declared by the primary source. No lowercasing or locale guesses.",
+    "Filename and namespace controls cannot turn literal source into an image.",
+    "A conflicting caption, size or image alias retains all original source data.",
+    "An unsupported alt/link/page/manual-thumbnail option is retained, not silently omitted."
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "nativeRenderProof": {
+    "api": "https://pt.wikipedia.org/w/api.php",
+    "action": "parse",
+    "method": "GET",
+    "anonymous": true,
+    "responseSha256": "25720213c997af51d9e9378f3865f532fa2df0de3b38f10266d24cd9b37fe503",
+    "comparison": "Visible text, link target/class, emphasis state, image src/alt/width/height/class. No image downloaded.",
+    "samples": [
+      {
+        "id": "miniaturadaimagem",
+        "source": "[[Imagem:Example.jpg|miniaturadaimagem|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "miniatura",
+        "source": "[[Imagem:Example.jpg|miniatura|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "thumb",
+        "source": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "thumbnail",
+        "source": "[[Imagem:Example.jpg|thumbnail|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "semmoldura",
+        "source": "[[Imagem:Example.jpg|semmoldura|50px]]",
+        "expected": "[[Imagem:Example.jpg|frameless|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "semborda",
+        "source": "[[Imagem:Example.jpg|semborda|50px]]",
+        "expected": "[[Imagem:Example.jpg|frameless|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "frameless",
+        "source": "[[Imagem:Example.jpg|frameless|50px]]",
+        "expected": "[[Imagem:Example.jpg|frameless|50px]]",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "literal-caption-Miniatura",
+        "source": "[[Imagem:Example.jpg|thumb|Miniatura|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "71990181a7956496ad4e82577644bc50c1d5eb7b7a93be6ff62e93f965c5053e",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "literal-caption-Thumbnail",
+        "source": "[[Imagem:Example.jpg|thumb|Thumbnail|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "721a914a8925c3d6c597d2dc5df7ebca706aac6fc14f70f048a59ba2c53765ab",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "literal-caption-sem moldura",
+        "source": "[[Imagem:Example.jpg|thumb|sem moldura|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "00c2148f03e69a30e04fe68d3da4dc90a430254aacecfd806df036ffc8574e43",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "literal-caption-Frameless",
+        "source": "[[Imagem:Example.jpg|thumb|Frameless|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "d08267f5535319f26588555fa4648163e97832750b38bd2e35da4b2fe80b7e36",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "literal-caption-Legenda literal",
+        "source": "[[Imagem:Example.jpg|thumb|Legenda literal|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "b83ed105a972bc98b0d095333ff7ad82ea5c7b2bdbf8c8ef9d1f77e7e089f737",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      },
+      {
+        "id": "alt-is-content",
+        "source": "[[Imagem:Example.jpg|thumb|alt=Texto alternativo|50px]]",
+        "expected": "[[Imagem:Example.jpg|thumb|50px]]",
+        "expectedEquivalence": false,
+        "passed": true,
+        "sourceSemanticsSha256": "6ed9b950b553d2d20cd78bfeb9e7bce61bab8f556627202fc9548a748154c5f5",
+        "targetSemanticsSha256": "75699f7e5eca252b8cbcf5ac3b5d32f4efc6fce8d192afc1820a2cf23326a94c"
+      }
+    ],
+    "status": "passed",
+    "wikipediaWrites": 0,
+    "imageDownloads": 0
+  },
+  "nativeInfoboxRenderProof": {
+    "api": "https://pt.wikipedia.org/w/api.php",
+    "action": "parse",
+    "method": "GET",
+    "anonymous": true,
+    "responseSha256": "6ef98510c0eb175e953c8f68d784f283ef44ec28795acd6d718e7b6f1e56ed3f",
+    "status": "passed",
+    "nativeFamilyOldids": [
+      72993800,
+      72931974,
+      73044750
+    ],
+    "samples": [
+      {
+        "id": "Info/Biografia",
+        "source": "{{Info/Biografia|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|miniaturadaimagem]]|imagem_tamanho=250px}}",
+        "expected": "{{Info/Biografia|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=250px}}",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+        "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+      },
+      {
+        "id": "Info/Político",
+        "source": "{{Info/Político|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|300px]]|imagem_tamanho=300px}}",
+        "expected": "{{Info/Político|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=300px}}",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07",
+        "targetSemanticsSha256": "a2dfeb052ee8eb0ebb359554f6f4e460b167469985b847d5c83a3798872d9c07"
+      },
+      {
+        "id": "Info/Música/artista",
+        "source": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=[[Ficheiro:Example.jpg|200px]]|imagem_tamanho=200px|fundo=pessoa_sem_performances}}",
+        "expected": "{{Info/Música/artista|nome=Pessoa fictícia|imagem=Example.jpg|imagem_tamanho=200px|fundo=pessoa_sem_performances}}",
+        "expectedEquivalence": true,
+        "passed": true,
+        "sourceSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4",
+        "targetSemanticsSha256": "c2f10115965176b381510470fd9b7dd43c9be4a6192bbf21c9a3f9da0a05bad4"
+      }
+    ],
+    "comparison": "Visible text, link targets/classes, emphasis state, image src/alt/width/height/class. Actual native template expansion with fictional values. No raw HTML nesting equality claim.",
+    "wikipediaWrites": 0,
+    "imageDownloads": 0
+  }
+}

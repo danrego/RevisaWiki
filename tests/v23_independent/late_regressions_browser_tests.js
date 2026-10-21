@@ -11,7 +11,7 @@
     test('punctuation before reference and following word in one click',()=>{
         for(const punct of ['.',',',':',';','!','?']) {
             const source='Texto'+ref+punct+'Galileu';
-            const result=run(source);ok(result.text.includes('Texto'+punct+ref+' Galileu'),'Punctuation and following space correct '+punct);stable(source,result);
+            const result=run(source);eq(result.text,source,'The supplied before style and exact literal reference/body remain unchanged '+punct);stable(source,result);
         }
         const quote='<q>Texto'+ref+'.Galileu</q>';
         ok(run(quote).text.includes(quote),'Quoted example remains byte identical');
@@ -23,7 +23,7 @@
         for(const [prefix,following] of [['٣','١٤'],['３','１４']])for(const source of [prefix+ref+'.'+following,prefix+'.'+ref+following]) {
             const result=run(source);ok(result.text.includes(source),'Unicode numeric separator remains literal');stable(source,result);
         }
-        const source='3'+ref+';14',result=run(source);ok(result.text.includes('3;'+ref+' 14'),'Semicolon separated next value still repaired');stable(source,result);
+        const source='3'+ref+';14',result=run(source);eq(result.text,source,'Semicolon is not a decimal, but preserves the supplied first reference style and body');stable(source,result);
     });
     test('bibliography and reference-bank structure retains its source fields',()=>{
         const bibliography='; Gerais\n\n* [https://example.invalid/a Primeira fonte]\n* [https://example.invalid/b?x=2 Segunda fonte]\n* [https://example.invalid/c Terceira fonte]\n\n; Específicas\n';

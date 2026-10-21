@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded-native-caption-container-contracts",
+  "status": "passed",
+  "primary": {
+    "method": "anonymous GET action=parse with fictional values; no edits or image downloads",
+    "responseSha256": "bbc48e1dd258af5b585e2609e0e108019ed5ce2f3cb10cf13252d866cd1eb210",
+    "maintenanceCategoryPairSha256": "1c4215b8b016ffefb0631cfc49c70159d676f8f068b7c7ecf0da75ed711bbf6f",
+    "maintenanceTemplate": "https://pt.wikipedia.org/w/index.php?oldid=72919072",
+    "maintenanceModule": "https://pt.wikipedia.org/w/index.php?oldid=69963697"
+  },
+  "nativeRenderingPairs": [
+    {
+      "id": "caption-table-terminal-attribute-bar",
+      "source": "[[Imagem:Example.jpg|thumb|Legenda literal.\n{|\n|- valign=top |\n|\nPrimeiro\n|\nSegundo\n|}]]",
+      "expected": "[[Imagem:Example.jpg|thumb|Legenda literal.\n{|\n|- valign=top \n|\nPrimeiro\n|\nSegundo\n|}]]",
+      "passed": true,
+      "sourceSemanticsSha256": "8c9ef5dee4a2ca5d715fb627d842bb9a129fc43c78cec7609182c5f246d28e06",
+      "targetSemanticsSha256": "8c9ef5dee4a2ca5d715fb627d842bb9a129fc43c78cec7609182c5f246d28e06",
+      "tableEventComparison": {
+        "passed": true,
+        "sourceSha256": "ff8fefc31724864b3a119ff734228d8f1f1f16ec560307a850e2ae8f32b4f8fd",
+        "targetSha256": "ff8fefc31724864b3a119ff734228d8f1f1f16ec560307a850e2ae8f32b4f8fd",
+        "boundary": "All native table start/end tags, attributes and nonblank cell text retained. No scope attributes exist in this pair."
+      }
+    },
+    {
+      "id": "native-media-header-with-line-reset-bold",
+      "source": "[[File:Example.jpg|thumb|200px|right|<center>'''Legenda literal''' de imagem (2001-2002)</center>''']]",
+      "expected": "[[Imagem:Example.jpg|thumb|200px|right|<center>'''Legenda literal''' de imagem (2001-2002)</center>''']]",
+      "passed": true,
+      "sourceSemanticsSha256": "ac9957cd88b59d7f3b24a5d62c779100ff4eaa8bfa103bed36b962c470e634ed",
+      "targetSemanticsSha256": "ac9957cd88b59d7f3b24a5d62c779100ff4eaa8bfa103bed36b962c470e634ed"
+    },
+    {
+      "id": "caption-maintenance-month-case",
+      "source": "[[Imagem:Example.jpg|thumb|Legenda literal.{{Carece de fontes|data=Janeiro de 2011}} Outra frase.]]",
+      "expected": "[[Imagem:Example.jpg|thumb|Legenda literal.{{Carece de fontes|data=janeiro de 2011}} Outra frase.]]",
+      "passed": true,
+      "sourceSemanticsSha256": "d9399d4567c32e5a56eec61fe7d35930d40f6753a92e54a526a3bc3371290ec6",
+      "targetSemanticsSha256": "d9399d4567c32e5a56eec61fe7d35930d40f6753a92e54a526a3bc3371290ec6"
+    }
+  ],
+  "maintenanceCategories": {
+    "passed": true,
+    "source": [
+      {
+        "sortkey": "",
+        "hidden": "",
+        "*": "!Artigos_que_carecem_de_notas_de_rodapé_desde_janeiro_de_2011"
+      },
+      {
+        "sortkey": "",
+        "hidden": "",
+        "*": "!Artigos_que_carecem_de_notas_de_rodapé_sem_indicação_de_tema"
+      }
+    ],
+    "target": [
+      {
+        "sortkey": "",
+        "hidden": "",
+        "*": "!Artigos_que_carecem_de_notas_de_rodapé_desde_janeiro_de_2011"
+      },
+      {
+        "sortkey": "",
+        "hidden": "",
+        "*": "!Artigos_que_carecem_de_notas_de_rodapé_sem_indicação_de_tema"
+      }
+    ]
+  },
+  "boundary": "Only the recorded single native caption-table terminal attribute bar, accepted media namespace aliases and exact Carece de fontes data month-case pair are proved. No generic caption whitespace, foreign option, arbitrary template-body or category deletion equivalence is claimed.",
+  "comparison": "Visible text, link target/class, emphasis state and image src/alt/width/height/class. Maintenance category arrays are separately compared from individual source/target parses.",
+  "wikipediaWrites": 0,
+  "mediaDownloads": 0
+}

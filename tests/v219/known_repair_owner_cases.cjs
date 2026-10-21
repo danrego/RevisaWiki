@@ -1,0 +1,28 @@
+'use strict';
+// Exact repair-owner admission follows an already source-pinned expansion.
+// Unknown options and literal examples never inherit its native contract.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'../..'),sha=x=>crypto.createHash('sha256').update(x).digest('hex'),files=process.argv.slice(2).map(x=>path.resolve(x));
+if(!files.length)files.push(...['RevisaWiki_v2_19_0.js','RevisaWiki_v2_19_0_completo.js'].map(x=>path.join(root,'dist/2.19.0',x)));
+const report={kind:'finite-source-pinned-repair-owner-admission',status:'passed',runnerSha256:sha(fs.readFileSync(__filename)),sourceOldid:60696160,bundles:[],cases:[],checks:0,failures:[],wikipediaWrites:0,networkRequests:0};
+const eq=(a,b,m)=>{report.checks++;assert.deepEqual(a,b,m);},ok=(v,m)=>{report.checks++;assert.ok(v,m);};
+let currentExecutions=[];
+function endpointBinding(source,expected,options,result){
+ const descriptor={source,options,expected};currentExecutions.push({sourceSha256:sha(source),optionsSha256:sha(JSON.stringify(options)),expectedEndpointSha256:sha(expected),actualEndpointSha256:sha(result.text),scenarioSha256:sha(JSON.stringify(descriptor)),canonicalDescriptorSha256:sha(JSON.stringify(descriptor)),appliedRuleIds:[...new Set((result.changes||[]).map(change=>change.id))]});
+}
+function caseReceipt(bundle,id,status){const executions=currentExecutions.map((value,index)=>({...value,executionIndex:index,intentSha256:sha(JSON.stringify({suite:report.kind,id}))}));return{bundle,id,status,executionScope:executions.length?'complete-action':'helper-or-guard-only',executions,...(executions.length===1?executions[0]:{})};}
+function test(bundle,id,fn){currentExecutions=[];try{fn();report.cases.push(caseReceipt(bundle,id,'passed'));}catch(error){report.status='failed';report.cases.push(caseReceipt(bundle,id,'failed'));report.failures.push({bundle,id,message:error.message});}}
+const work="The New Student's Reference Work",chapter='Tema fictício',expected='{{Citar enciclopédia|título=[[s:en:'+work+'/'+chapter+'|'+chapter+']]|enciclopédia=[[s:en:'+work+'|'+work+']]|ano=1914|editor-nome=Chandler B.|editor-sobrenome=Beach|local=Chicago|editora=F. E. Compton and Co}}';
+for(const file of files){
+ const bytes=fs.readFileSync(file),api=require(file),bundle=path.basename(file);report.bundles.push({bundle,runtimeSha256:sha(bytes),bytes:bytes.length,runtimeVersion:api.version,helperInjection:false});
+ const base={...api.defaults,namespaceNumber:0,pageTitle:'Tema fictício',contentModel:'wikitext',autoPreview:false,registryDoiCheck:false,authorityControl:false,biographyPortal:false,automaticBiographyPortals:false,automaticTopicPortals:false,referenceColumns:false,externalLinkColumns:false,endMatterColumns:false},calc=(source,extra={})=>api.calculate({kind:'adjust',source,options:{...base,...extra}}),endpoint=(source,expected,extra={})=>{const options={...base,...extra},result=api.calculate({kind:'adjust',source,options});endpointBinding(source,expected,options,result);return result;};
+ for(const head of ['Cite NSRW','cite NSRW','Cite_NSRW','Predefinição:Cite NSRW','Template:Cite NSRW']){
+  const source='{{'+head+'|wstitle='+chapter+'}}';
+  test(bundle,'accepted-'+sha(source).slice(0,12),()=>{const call=api.v214NSRWCall(source,base);ok(call.accepted,'The exact earlier bounded contract independently accepts this source');eq(call.text,expected,'The pinned wrapper defaults define the complete expected metadata');ok(api.v219KnownNativeRepairOwner(source,base),'Only the accepted source-pinned repair owner is admitted');eq(endpoint(source,expected).text,expected,'The complete production action reaches the independently fixed endpoint');eq(calc(expected).text,expected,'The complete action is stable');});
+  for(const [kind,wrap]of [['unknown-parent',x=>'{{Modelo fictício|texto='+x+'}}'],['quote',x=>'"'+x+'"'],['italic',x=>"''"+x+"''"],['nowiki',x=>'<nowiki>'+x+'</nowiki>'],['fence',x=>'Exemplo de código:\n```wikitext\n'+x+'\n```\nFim.']])test(bundle,'protected-'+kind+'-'+sha(source).slice(0,12),()=>{const literal=wrap(source);eq(endpoint(literal,literal).text,literal,'Admitting a known inner repair never authorizes changes to its literal or unknown owner');});
+ }
+ const original='{{Cite NSRW|wstitle='+chapter+'}}';
+ for(const extra of [{citations:false},{citationRepairs:false},{syntaxRepairs:false},{markup:false},{namespaceNumber:1},{sectionOnly:true}])test(bundle,'scope-'+sha(JSON.stringify(extra)).slice(0,12),()=>{eq(endpoint(original,original,extra).text,original,'The existing complete-action scope and option controls remain authoritative');});
+ for(const source of ['{{Cite NSRW}}','{{Cite NSRW|wstitle=}}','{{CITE NSRW|wstitle='+chapter+'}}','{{Cite NSRW|wstitle='+chapter+'|year=2002}}','{{Cite NSRW|wstitle='+chapter+'|wstitle='+chapter+'}}','{{Cite NSRW|wstitle='+chapter+'|short=no}}','{{Cite NSRW|wstitle={{Modelo fictício}}}}','{{Cite NSRW|wstitle=../Tema}}','{{Cite NSRW|wstitle='+chapter+'|display=}}','{{Cite NSRW|wstitle='+chapter+'|unknown=2020-01-01}}'])test(bundle,'unsupported-'+sha(source).slice(0,12),()=>{ok(!api.v214NSRWCall(source,base).accepted,'Unknown or ambiguous metadata has no accepted source contract');ok(!api.v219KnownNativeRepairOwner(source,base),'No family-wide whitelist admits the unsupported call');eq(endpoint(source,source).text,source,'The unsupported call remains byte-identical');});
+}
+report.caseCount=report.cases.length;process.stdout.write(JSON.stringify(report,null,2)+'\n');if(report.status!=='passed')process.exitCode=1;

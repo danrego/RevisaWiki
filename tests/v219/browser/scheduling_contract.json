@@ -1,0 +1,27 @@
+{
+  "kind": "native-browser-yield-scheduling-contract",
+  "source": "https://html.spec.whatwg.org/multipage/web-messaging.html#message-channels",
+  "standard": "WHATWG HTML Living Standard",
+  "reviewedSection": "9.4 Channel messaging",
+  "reviewedOn": "2026-10-17",
+  "claims": [
+    {
+      "anchor": "#message-ports",
+      "meaning": "MessagePort owns a task source. Its enabled message queue participates in the event loop, so this schedules a later task rather than chaining only promise microtasks."
+    },
+    {
+      "anchor": "#dom-messageport-postmessage",
+      "meaning": "Posting to an entangled port adds a task to the receiving port message queue."
+    },
+    {
+      "anchor": "#dom-messageport-onmessage",
+      "meaning": "Setting onmessage enables the receiving queue."
+    },
+    {
+      "anchor": "#dom-messageport-close",
+      "meaning": "Closing a port detaches and disentangles it. The standard encourages explicit closing to allow resource collection."
+    }
+  ],
+  "implementationBoundary": "A private channel can yield without reading or writing network resources. Constructor or delivery setup failure still needs a supported fallback. The standard does not promise timing, foreground status, or a universal immunity to browser throttling. Native browser execution provides the separate timing evidence.",
+  "fixtureBoundary": "Normal native MessageChannel is used directly. Separate fictional scenarios deliberately remove it or make construction throw to exercise the actual timer fallback. No operating-system focus or unrelated browser window is changed."
+}

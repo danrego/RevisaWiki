@@ -1,0 +1,182 @@
+{
+  "version": "2.19.0",
+  "kind": "current-interface-contract",
+  "scope": "Native installed browsers against an isolated localhost fixture and immutable production bundles. No live Wikipedia edit or production MediaWiki server is involved.",
+  "capabilities": [
+    {
+      "id": "load-integrity",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "duplicate-load-guard"
+      ],
+      "boundary": "The driver checks immutable release file bytes and hashes. Production-loader download failure and install-index validation are covered by separate release tests."
+    },
+    {
+      "id": "source-adapters",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "codemirror-source-contract",
+        "2017-source-contract",
+        "visual-guard",
+        "wiked-guard"
+      ],
+      "boundary": "Classic editor is real DOM. Registered CodeMirror textSelection and source2017 models are explicit fictional component contracts, not a production MediaWiki deployment."
+    },
+    {
+      "id": "adjust-and-preview",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "staged-fallback",
+        "automatic-preview-failure",
+        "automatic-preview-new-error-rollback",
+        "fallback-timer",
+        "fallback-channel-error"
+      ],
+      "boundary": "Actual production worker and staged transformations. Preview responses are deliberately fictional read-only API fixtures. Normal, unavailable and constructor-failing MessageChannel paths are distinct native execution cases. Timer fallback may be throttled by the browser and its actual duration is recorded."
+    },
+    {
+      "id": "cancel-stale-work",
+      "flows": [
+        "cancel-before-apply",
+        "source-race-preservation",
+        "draft-staleness-and-undo-guard"
+      ],
+      "boundary": "Native browser interactions and actual production transaction state."
+    },
+    {
+      "id": "review-ui",
+      "flows": [
+        "review-expanded-and-no-obsolete-groups"
+      ],
+      "boundary": "Actionable unresolved reference finding remains expanded. Removed report groups stay absent."
+    },
+    {
+      "id": "native-comparison",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo"
+      ],
+      "boundary": "Actual shortcut clicks the local native wpDiff control; submission is intercepted and never published."
+    },
+    {
+      "id": "summary",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "summary-ownership-manual-undo",
+        "preference-reload-and-summary-off",
+        "personal-preference-lock",
+        "talk-code-one-action-and-undo"
+      ],
+      "boundary": "Generated and user-owned summaries are tested separately."
+    },
+    {
+      "id": "minor-edit",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "minor-option-and-proof-vetoes"
+      ],
+      "boundary": "Positive and negative proof branches use an explicitly mocked base revision and rights response. Native policy proof is a separate source contract."
+    },
+    {
+      "id": "counters",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo"
+      ],
+      "boundary": "Three independent replacements and exact UTF-8 byte difference. Broader text counting coverage belongs to calculation tests."
+    },
+    {
+      "id": "undo",
+      "flows": [
+        "classic-worker-native-diff-count-minor-undo",
+        "summary-ownership-manual-undo",
+        "draft-staleness-and-undo-guard",
+        "minor-option-and-proof-vetoes",
+        "talk-code-one-action-and-undo"
+      ],
+      "boundary": "Exact text and script-owned field restoration, manual source and metadata preservation."
+    },
+    {
+      "id": "preferences",
+      "flows": [
+        "all-visible-option-preferences",
+        "preference-reload-and-summary-off",
+        "personal-preference-lock"
+      ],
+      "boundary": "All data-option controls are inventoried dynamically and changed through native input. Storage alone does not prove transformation semantics."
+    },
+    {
+      "id": "spelling-review",
+      "flows": [
+        "spelling-review-and-chosen-fix"
+      ],
+      "boundary": "Separate review action does not change text until explicit correction choice."
+    },
+    {
+      "id": "talk-code",
+      "flows": [
+        "talk-code-one-action-and-undo"
+      ],
+      "boundary": "One actual action creates PD and project marker, updates the agreed summary, and supports exact undo."
+    },
+    {
+      "id": "template-styles",
+      "flows": [
+        "template-and-templatestyles-contexts"
+      ],
+      "boundary": "Actual dedicated CSS interface; sanitizer response is a fictional read-only protocol fixture."
+    },
+    {
+      "id": "target-lookups",
+      "flows": [
+        "target-lookups-read-only"
+      ],
+      "boundary": "Actual control with fictional read-only query results; no external account or Wikipedia mutation."
+    },
+    {
+      "id": "namespace-model",
+      "flows": [
+        "read-view-no-extra-section-buttons",
+        "talk-code-one-action-and-undo",
+        "template-and-templatestyles-contexts",
+        "visual-guard",
+        "wiked-guard"
+      ],
+      "boundary": "Article, talk, template, stylesheet, read-only and unsupported model surfaces are exercised locally."
+    },
+    {
+      "id": "inline-editor",
+      "flows": [
+        "read-view-no-extra-section-buttons"
+      ],
+      "boundary": "Retired injected section controls are absent while the native section link and unrelated controls are preserved. Inline-editor launching is intentionally not promised."
+    },
+    {
+      "id": "copy-diagnostic",
+      "flows": [
+        "diagnostic-manual-copy-fallback"
+      ],
+      "boundary": "Manual copy fallback is shown after a deliberately refused clipboard request. No clipboard write or screenshot."
+    },
+    {
+      "id": "install-index",
+      "flows": [],
+      "boundary": "Not a capability of this browser fixture. Bind separately to the immutable release install-index tests before claiming overall release coverage."
+    }
+  ],
+  "proofGatedOptions": [
+    "autoPreview",
+    "registryDoiCheck",
+    "biographyStyleChecks",
+    "harvardAnchorRepairs",
+    "independentRepairGroups",
+    "redundantBirthCategories",
+    "historicalCitationRepairs",
+    "authorityControl",
+    "externalLinkColumns",
+    "autoMinor",
+    "shortCitationChecks",
+    "dateChecks",
+    "review",
+    "autoSummary"
+  ],
+  "proofGatedOptionsBoundary": "Preference controls and storage are tested by this fixture. Citation, authority, category, DOI, template and native rendering proof selection must additionally bind the independent calculation and primary-source evidence suites. Toggling a checkbox is not semantic proof."
+}

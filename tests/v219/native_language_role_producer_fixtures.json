@@ -1,0 +1,27 @@
+{
+  "kind": "preauthored-accepted-native-key-producer-preservation",
+  "rows": [
+    {
+      "id": "writer-keeps-idioma",
+      "source": "{{Citar web|idioma=en}}",
+      "expected": "{{Citar web|idioma=en}}"
+    },
+    {
+      "id": "writer-keeps-lingua",
+      "source": "{{Citar web|língua=en}}",
+      "expected": "{{Citar web|língua=en}}"
+    },
+    {
+      "id": "writer-keeps-unknown-raw-key-language-C1",
+      "source": "{{Citar web|title=Obra Alfa|language=en|url=https://example.invalid/fonte|url-status=live}}",
+      "expected": "{{Citar web|title=Obra Alfa|language=en|url=https://example.invalid/fonte|url-status=live}}"
+    },
+    {
+      "id": "writer-keeps-unknown-raw-key-language-DEL-tail",
+      "source": "{{Citar web|title=Obra Alfa|language=en|url=https://example.invalid/fonte|url-status=live}}",
+      "expected": "{{Citar web|title=Obra Alfa|language=en|url=https://example.invalid/fonte|url-status=live}}"
+    }
+  ],
+  "originalPortableBaseOptions": "Exact same base option expression as native_citation_language_safety_cases.cjs; no override.",
+  "changedNativeKeyWritingAuthority": false
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PREAUTHORED_UNEXECUTED",
+  "sourceId": "one-nonfinal-typo-with-separate-caption-and-size",
+  "rows": [
+    {
+      "id": "filename",
+      "mutate": {
+        "from": "Exemplo.jpg",
+        "to": "Outro.jpg"
+      },
+      "expectedFreshProof": false
+    },
+    {
+      "id": "caption",
+      "mutate": {
+        "from": "Legenda literal.",
+        "to": "Legenda alterada."
+      },
+      "expectedFreshProof": false
+    },
+    {
+      "id": "size",
+      "mutate": {
+        "from": "220px",
+        "to": "221px"
+      },
+      "expectedFreshProof": false
+    },
+    {
+      "id": "alt",
+      "mutate": {
+        "from": "Descrição literal",
+        "to": "Outra descrição"
+      },
+      "expectedFreshProof": false
+    },
+    {
+      "id": "alignment",
+      "mutate": {
+        "from": "direita",
+        "to": "esquerda"
+      },
+      "expectedFreshProof": false
+    },
+    {
+      "id": "restore-typo",
+      "mutate": {
+        "from": "miniatura|",
+        "to": "miniaturada|"
+      },
+      "expectedFreshProof": false
+    }
+  ],
+  "scope": "Specific exact SOURCE plan proof refuses extra changes; no universal guard assertion"
+}

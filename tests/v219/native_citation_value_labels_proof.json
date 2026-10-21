@@ -1,0 +1,12 @@
+{
+  "kind": "declared-native-citation-value-label-repairs",
+  "primarySources": [
+    {"oldid": 72936771, "role": "native CS1 renderer", "lines": [1571, 1589, 2310, 2317, 2331], "contract": "Edition and volume are separate supplied metadata roles. The renderer adds its own edition/volume presentation. Edition values ending in ed. or Edição receive the extra-text maintenance category. These repairs retain the supplied number and the remaining volume payload; they do not claim byte-identical original rendering."},
+    {"oldid": 73016847, "role": "native CS1 configuration", "contract": "The exact accepted Edition and Volume aliases remain distinct from publication, page, title and person roles. Competing aliases, including blank values, are not discarded or resolved by this contract."}
+  ],
+  "editionGrammar": "Exactly one native Edition role, supplied under edição or Edição, with a complete decimal number, an optional English/Portuguese ordinal suffix and one complete ed., edition or edição label. Only the supplied number becomes the target value.",
+  "volumeGrammar": "Exactly one native Volume role supplied under volume. A leading v. or vol. before a decimal digit is removed. Every following payload character remains; markup, newlines and competing native volume aliases refuse this independent projection.",
+  "classification": "source-bound declared formatting repair; original rendering is not claimed equivalent",
+  "binding": "The complete typed target citation, including title, URL, identifier, person roles, date, state fields and every other modeled field, must already exist in the actual output. A changed number or publication cannot borrow the repair.",
+  "wikipediaWrites": 0
+}
