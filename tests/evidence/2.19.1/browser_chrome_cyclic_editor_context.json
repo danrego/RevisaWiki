@@ -1,0 +1,1241 @@
+{
+  "kind": "native-cyclic-editor-context-regression",
+  "status": "passed",
+  "browser": "Chrome",
+  "cases": [
+    {
+      "id": "baseline-core-classic-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371044031643301684622' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 258
+    },
+    {
+      "id": "candidate-core-classic-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 460
+    },
+    {
+      "id": "baseline-core-classic-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371043373355931556292' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 219
+    },
+    {
+      "id": "candidate-core-classic-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 318
+    },
+    {
+      "id": "baseline-core-codemirror-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371036401849801991062' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 216
+    },
+    {
+      "id": "candidate-core-codemirror-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 430
+    },
+    {
+      "id": "baseline-core-codemirror-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371094920367047879822' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 217
+    },
+    {
+      "id": "candidate-core-codemirror-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 331
+    },
+    {
+      "id": "baseline-core-2017-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'self' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 225
+    },
+    {
+      "id": "candidate-core-2017-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 404
+    },
+    {
+      "id": "baseline-core-2017-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'self' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 206
+    },
+    {
+      "id": "candidate-core-2017-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 332
+    },
+    {
+      "id": "baseline-complete-classic-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery37103364920767688262' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 219
+    },
+    {
+      "id": "candidate-complete-classic-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 397
+    },
+    {
+      "id": "baseline-complete-classic-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery3710179816602746840412' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 201
+    },
+    {
+      "id": "candidate-complete-classic-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 312
+    },
+    {
+      "id": "baseline-complete-codemirror-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371028025260674719132' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 222
+    },
+    {
+      "id": "candidate-complete-codemirror-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 409
+    },
+    {
+      "id": "baseline-complete-codemirror-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'HTMLTextAreaElement'\n    |     property 'jQuery371096675231280449172' -> object with constructor 'Object'\n    |     property 'cyclicEditor' -> object with constructor 'Object'\n    --- property 'element' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 205
+    },
+    {
+      "id": "candidate-complete-codemirror-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 328
+    },
+    {
+      "id": "baseline-complete-2017-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'self' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 205
+    },
+    {
+      "id": "candidate-complete-2017-worker",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 394
+    },
+    {
+      "id": "baseline-complete-2017-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'self' closes the circle",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "milliseconds": 223
+    },
+    {
+      "id": "candidate-complete-2017-staged",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": "staged"
+      },
+      "milliseconds": 330
+    },
+    {
+      "id": "candidate-bottom-button-core",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 437
+    },
+    {
+      "id": "candidate-bottom-button-complete",
+      "status": "passed",
+      "before": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 0,
+        "workerResults": 0,
+        "engine": null
+      },
+      "first": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Código ajustado. Confira Mostrar alterações e a pré-visualização antes de publicar.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": "worker"
+      },
+      "second": {
+        "source": "Texto sobre [[Brasil]], [[Portugal]] e [[França]].",
+        "summary": "Ajustes de ligações com RevisaWiki.",
+        "minor": true,
+        "status": "Nenhum ajuste automático necessário. Confira os avisos e as sugestões, se houver.",
+        "checked": "true",
+        "undoDisabled": false,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "undo": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Texto anterior ao ajuste restaurado.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": "worker"
+      },
+      "milliseconds": 412
+    },
+    {
+      "id": "candidate-stale-editor-core-classic",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 297
+    },
+    {
+      "id": "candidate-stale-editor-core-codemirror",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "O texto ou o editor mudou durante a análise. Nenhum ajuste foi aplicado. Execute a revisão novamente.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 277
+    },
+    {
+      "id": "candidate-stale-editor-core-2017",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "O texto ou o editor mudou durante a análise. Nenhum ajuste foi aplicado. Execute a revisão novamente.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 291
+    },
+    {
+      "id": "candidate-stale-editor-complete-classic",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 280
+    },
+    {
+      "id": "candidate-stale-editor-complete-codemirror",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Pronto para revisar o código-fonte.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 285
+    },
+    {
+      "id": "candidate-stale-editor-complete-2017",
+      "status": "passed",
+      "held": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "Comparando os trechos alterados...",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 1,
+        "engine": null
+      },
+      "after": {
+        "source": "Texto sobre [[Brasil|Brasil]], [[Portugal|Portugal]] e [[França|França]].",
+        "summary": "",
+        "minor": false,
+        "status": "O texto ou o editor mudou durante a análise. Nenhum ajuste foi aplicado. Execute a revisão novamente.",
+        "checked": "false",
+        "undoDisabled": true,
+        "workerStarts": 1,
+        "workerResults": 2,
+        "engine": null
+      },
+      "milliseconds": 280
+    }
+  ],
+  "checks": 601,
+  "failures": [],
+  "WikipediaWrites": 0,
+  "mutatingHttpRequests": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "adaptations": [
+    "Only the production host guards accept the read-only loopback fixture.",
+    "The existing fictional MediaWiki/source adapters receive circular editor objects before the unmodified product starts.",
+    "No transformation, UI context function, safety check, Worker result or timeout is replaced.",
+    "Staleness controls hold a real Worker result and replace only the live editor identity before delivery."
+  ],
+  "candidate": {
+    "version": "2.19.1",
+    "manifestSha256": "908df9ee73160258a8617196f68ddeaeb4dbbd7479f808546601ee6430ae1486",
+    "bindings": {
+      "core": {
+        "file": "RevisaWiki_v2_19_1.js",
+        "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437",
+        "bytes": 2097147
+      },
+      "complete": {
+        "file": "RevisaWiki_v2_19_1_completo.js",
+        "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d",
+        "bytes": 4157881
+      },
+      "data": {
+        "file": "RevisaWiki_v2_19_1_dados.js",
+        "sha256": "33933af916458373eaf2aa89fbd98614c64eeebd9438f56178c6876b45795173",
+        "bytes": 1899078
+      }
+    }
+  },
+  "baseline": {
+    "version": "2.19.0",
+    "manifestSha256": "57a2787297301d31c473e99b18081d57a91b10bc09ca9f75ff4b057b7f0e5e49",
+    "bindings": {
+      "core": {
+        "file": "RevisaWiki_v2_19_0.js",
+        "sha256": "96fc59ada53c1ee45c2a81bb07f3bf0d4c076c7ba7abffabbf49d0493f4aabbc",
+        "bytes": 2096758
+      },
+      "complete": {
+        "file": "RevisaWiki_v2_19_0_completo.js",
+        "sha256": "86abeaec1a903c2941f6482698c494eafce23eeececc2e639c679d152244c101",
+        "bytes": 4157444
+      },
+      "data": {
+        "file": "RevisaWiki_v2_19_0_dados.js",
+        "sha256": "285bf854d5fff4a19952f90f9ca5ddee16cbac47b5e953d12a81b2b26bec17e9",
+        "bytes": 1899078
+      }
+    }
+  },
+  "runnerSha256": "97e85dbd7b85ba2331c4a1534f736e93336f00ce79e28773ebee43c9c596e8db",
+  "fixtureHtmlSha256": "f470e649ddb54d01f09ae45bcb4495165ffcf3355661d25cb7341227651e71f7",
+  "fixtureScriptSha256": "70fd66eff9cc8e0414a94c8a64f4349657f29070fc499dd0b34b2f5743c74013",
+  "cyclicFixtureSha256": "72b481e7a1c5f3dfdff2befedafcff06db24d46079736cd853516ce367b15ac7",
+  "browserVersion": "155.0.8059.80",
+  "blockedRequests": [],
+  "ownedSessionClosed": true,
+  "testCount": 32
+}

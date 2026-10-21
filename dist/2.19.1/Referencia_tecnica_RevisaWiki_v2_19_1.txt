@@ -1,0 +1,39 @@
+RevisaWiki 2.19.1: referência técnica
+
+A correção atribui ao objeto do editor um identificador estável guardado em WeakMap. O contexto usado para conferir o rascunho contém esse identificador, sem serializar o objeto do editor, seus elementos de interface ou referências circulares. Editores diferentes continuam recebendo identificadores diferentes. As conferências de título, revisão, seção, texto e instância do editor permanecem ativas.
+
+O motor de regras que altera o código do artigo não foi modificado nesta correção. O prazo de 60.000 milissegundos, as verificações de preservação, a restauração do rascunho e as proteções da marca de edição menor foram mantidos. Os dados e o carregador passam a declarar 2.19.1 para combinar com o núcleo. A chamada fixa já instalada no common.js continua igual.
+
+A correção passou em seis conjuntos dirigidos, com 631 execuções de casos e 1.431 verificações, e em 96 fluxos locais no Firefox, Chrome e Safari, com 1.803 verificações.
+
+REFERÊNCIA ANTERIOR, 2.19.0
+
+Os números e os resultados apresentados a seguir pertencem à validação da 2.19.0. Eles foram preservados como histórico e não contam como uma nova execução completa dos testes para 2.19.1. Timeouts, recusas e resultados ambíguos mantêm seus registros originais.
+
+RevisaWiki 2.19.0: referência técnica
+
+A distribuição usa dois arquivos de instalação, com 2.096.758 bytes no núcleo e 1.899.078 bytes nos dados. Cada um fica abaixo do limite de 2 MiB por página. O arquivo completo, com 4.157.444 bytes, reúne os dois para testes e download. A chamada fixa do common.js abre o carregador central, que confere a combinação das versões.
+
+Os sete executáveis reconstruídos são idênticos, byte por byte, aos arquivos qualificados. A instalação limpa usou Node.js 24.19.0 e npm 10.9.4, com dependências fixadas no package-lock.json. As mudanças posteriores no manifesto se limitam à documentação. Os comprovantes ligam os hashes dos arquivos executados aos hashes do pacote final.
+
+O inventário liga cada função ao trecho exato do arquivo distribuído. Os casos distintos usam hashes separados da fonte, das opções e do resultado esperado. Auxiliares isolados, inspeções do código e repetições não recebem crédito como ações completas novas. A cobertura registrada não é uma prova de todas as combinações possíveis.
+
+A leitura independente usa mwparserfromhell 0.7.2 e não importa o RevisaWiki. Ela confere vínculos e listas de referências, metadados de citações, células de tabelas, trechos protegidos, imagens e categorias. Uma expansão desconhecida conserva uma ambiguidade explícita. As conferências pela renderização da Wikipédia ficam ligadas aos hashes exatos dos dois textos, sem alterar os resultados anteriores.
+
+A marca de edição menor usa a confirmação de que o artigo completo veio da revisão publicada e recebeu apenas os ajustes do programa. A decisão não depende do tamanho da mudança. Texto ou resumo alterado à mão, edição de seção, outro domínio, desfazer e escolhas manuais mantêm suas próprias proteções.
+
+Os navegadores instalados executaram o programa e seus Workers em páginas locais. As respostas do MediaWiki usadas pelos adaptadores são fictícias e não comprovam uma instalação de extensões no site real. As provas remotas controladas também usam identificadores fictícios. Nos testes, o DOMParser real do navegador constrói os comprovantes e o motor executa as ações que os consomem.
+
+O prazo do Worker permanece em 60.000 milissegundos. Um cálculo que não termina mantém o rascunho anterior. Os registros distinguem tempo de cálculo, verificação do resultado e aplicação no editor. Um comprovante ausente ou uma resposta de outro rascunho impede a aplicação. Nenhuma verificação de preservação foi retirada.
+
+As avaliações já existentes nas marcas de projeto ficam preservadas, porque seus parâmetros não comprovam quem fez cada avaliação. Modelos ainda não registrados e falhas da implementação nativa continuam com seus limites documentados. O campo de sepultamento mantém o comportamento anterior. Os testes não eliminam parâmetros válidos para ocultar erros do módulo de origem.
+
+A validação reuniu 952.120 casos distintos, definidos pelo texto de entrada, pelas opções e pelo resultado esperado. Os 190 tipos ativos de alteração tiveram casos que conferem o resultado da ação completa. A rodada de fontes reais cobriu 30.468 capturas de páginas, com 30.460 conteúdos diferentes e 451.766.523 bytes de origem. Essas contagens não somam os dois arquivos do programa ou os cliques repetidos como novos artigos.
+
+A bateria dirigida concluiu 224 conjuntos de testes, com 632.814 execuções registradas e 2.284.107 verificações. Esses registros incluem repetições nos arquivos do programa e testes de auxiliares, separados dos casos que comparam a ação completa. As matrizes dos catálogos e de pessoas e assuntos têm comprovantes próprios. A leitura independente conserva os resultados ambíguos e as estruturas que dependem de expansão. Três sinais de perda, em dois pares exatos, foram esclarecidos pela renderização nativa e por verificações dos dados completos. Os registros originais desses sinais continuam intactos.
+
+Chrome, Firefox e Safari executaram 604 fluxos selecionados de edição cada um, em páginas locais com adaptadores fictícios. Os testes incluem aplicação, desfazer, edição manual, rascunhos alterados durante a consulta, opção de edição menor e proteção do texto ao atingir o limite de tempo. A demonstração passou nos três navegadores, com 47 exemplos. As consultas de teste não usam contas nem salvam edições na Wikipédia.
+
+O processamento separado mantém o prazo de 60 segundos. Textos complexos podem atingi-lo mesmo abaixo do caso extremo de aproximadamente 1,9 MB, que não foi repetido nesta rodada. Os comprovantes mantêm timeouts, recusas e comparações ambíguas em campos próprios. Os testes nativos confirmaram a conservação do rascunho, do resumo, da marca de edição menor e da possibilidade de continuar editando após o timeout. As verificações de preservação continuam ativas.
+
+A repetição adicional dos casos com timeout foi encerrada com 50 das 57 capturas concluídas. Dessas 50, 35 tiveram algum timeout. As sete sem comprovante final não contam como testes aprovados. O encerramento preservou os arquivos e os resultados registrados, sem alterar o prazo, as proteções ou a campanha original.

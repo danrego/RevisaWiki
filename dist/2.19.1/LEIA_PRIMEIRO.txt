@@ -1,0 +1,11 @@
+RevisaWiki 2.19.1
+
+A versão 2.19.1 corrige o erro "cyclic object value", que podia interromper Ajustar código antes da revisão. O problema ocorria ao guardar a identificação do editor e foi corrigido sem mudar as regras aplicadas ao artigo. A chamada fixa do common.js permanece igual.
+
+Abra INICIO.html. Atualize dados, programa, carregador central e documentação, nessa ordem. Se já usa a chamada fixa no common.js, mantenha esse bloco.
+
+O índice oferece cópia completa, destino, resumo, editor e download. Ele não publica páginas. Use os arquivos separados de dados e programa para respeitar o limite por página da ptwiki.
+
+Código e arquivos: https://github.com/danrego/RevisaWiki
+
+A correção passou em seis conjuntos dirigidos, com 631 execuções de casos e 1.431 verificações, e em 96 fluxos locais no Firefox, Chrome e Safari, com 1.803 verificações.

@@ -1,0 +1,3859 @@
+{
+  "kind": "editor-context-hotfix-directed-regression",
+  "version": "2.19.1",
+  "status": "passed",
+  "checks": 1431,
+  "cases": 631,
+  "suites": [
+    {
+      "file": "tests/v219/ui_context_serialization_cases.cjs",
+      "sha256": "f57c63f7f71b92904c902c54509ee40fa480041d9eff861064cc506d5cad827c",
+      "report": {
+        "kind": "cyclic-editor-context-serialization",
+        "status": "passed",
+        "runnerSha256": "f57c63f7f71b92904c902c54509ee40fa480041d9eff861064cc506d5cad827c",
+        "sources": [
+          {
+            "file": "src/v2_19/ui_context_safety.js",
+            "sha256": "6153a99cf32c357e6c824c78c91a49cf1cc55a2b19edb9e02f6ba67bff62afb6"
+          },
+          {
+            "file": "src/v2_19_1/ui_context_serialization.js",
+            "sha256": "f8d6c67505c35ef2cf45b692a777f2f14332b0af5f035f49f975edc03dd6d4f1"
+          }
+        ],
+        "targets": [
+          {
+            "name": "source-helper"
+          },
+          {
+            "name": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "name": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "cases": [
+          {
+            "target": "source-helper",
+            "id": "released-raw-DOM-serialization-reproduces-error",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "cyclic-editor-context-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "same-editor-has-stable-token",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "DOM-data-is-not-transferred",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "object-ownership-remains-raw-identity",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "replacement-textarea-invalidates-context",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "cyclic-visual-editor-model-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "serialization-never-reads-editor-getters-or-toJSON",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "serialization-never-traverses-editor-proxy",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "serialization-does-not-mutate-frozen-editor",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "function-editor-identity-supported",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "primitive-identity-types-do-not-collide",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-title-Outro tema",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-namespace-1",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-model-javascript",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-base-101",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-section-0",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "changed-section-",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "invalid-context-stays-null",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "unrelated-DOM-metadata-change-keeps-token",
+            "status": "passed"
+          },
+          {
+            "target": "source-helper",
+            "id": "transport-payload-roundtrips-without-DOM",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "released-raw-DOM-serialization-reproduces-error",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "cyclic-editor-context-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "same-editor-has-stable-token",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "DOM-data-is-not-transferred",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "object-ownership-remains-raw-identity",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "replacement-textarea-invalidates-context",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "cyclic-visual-editor-model-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "serialization-never-reads-editor-getters-or-toJSON",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "serialization-never-traverses-editor-proxy",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "serialization-does-not-mutate-frozen-editor",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "function-editor-identity-supported",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "primitive-identity-types-do-not-collide",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-title-Outro tema",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-namespace-1",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-model-javascript",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-base-101",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-section-0",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "changed-section-",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-stays-null",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "unrelated-DOM-metadata-change-keeps-token",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1.js",
+            "id": "transport-payload-roundtrips-without-DOM",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "released-raw-DOM-serialization-reproduces-error",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cyclic-editor-context-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "same-editor-has-stable-token",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "DOM-data-is-not-transferred",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "object-ownership-remains-raw-identity",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "replacement-textarea-invalidates-context",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cyclic-visual-editor-model-serializes",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "serialization-never-reads-editor-getters-or-toJSON",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "serialization-never-traverses-editor-proxy",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "serialization-does-not-mutate-frozen-editor",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "function-editor-identity-supported",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "primitive-identity-types-do-not-collide",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-title-Outro tema",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-namespace-1",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-model-javascript",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-base-101",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-section-0",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-section-",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-stays-null",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "unrelated-DOM-metadata-change-keeps-token",
+            "status": "passed"
+          },
+          {
+            "target": "RevisaWiki_v2_19_1_completo.js",
+            "id": "transport-payload-roundtrips-without-DOM",
+            "status": "passed"
+          }
+        ],
+        "checks": 63,
+        "networkRequests": 0,
+        "wikipediaWrites": 0,
+        "caseCount": 63
+      }
+    },
+    {
+      "file": "tests/v219/ui_context_safety_cases.cjs",
+      "sha256": "19df7eb3f9ba8d42e5ebb45dcefc10c37335d8b8077e42f2b0960148409e06a1",
+      "report": {
+        "kind": "UI-context-pure-predicate-boundaries",
+        "status": "passed",
+        "runnerSha256": "19df7eb3f9ba8d42e5ebb45dcefc10c37335d8b8077e42f2b0960148409e06a1",
+        "bundles": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "cases": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "same source ownership",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "snapshot frozen",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-title-Discussão:Outro tema",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-namespace-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-model-sanitized-css",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-base-124",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-section-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-section-",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "changed-editor-[object Object]",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-title",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-namespace",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-model",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-base",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-section",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "missing-editor",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-15",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-16",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-17",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-18",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-19",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-20",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-21",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-22",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-23",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-24",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-25",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-26",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-27",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-context-28",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "exact article response",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "native title underscores",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "native NFC identity",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-missing-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-invalid-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-redirect-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-ns-1",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-title-Outro tema",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-title-TEMA FICTÍCIO",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-pageid-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-pageid-77",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-response-revisions-",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-revision-41",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-revision-42",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-revision-43",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "article-revision-44",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "no title supplied",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "runtime immutable",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "same source ownership",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "snapshot frozen",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-title-Discussão:Outro tema",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-namespace-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-model-sanitized-css",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-base-124",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-section-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-section-",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "changed-editor-[object Object]",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-title",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-namespace",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-model",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-base",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-section",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "missing-editor",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-62",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-63",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-64",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-65",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-66",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-67",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-68",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-69",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-70",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-71",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-72",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-73",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-74",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-context-75",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "exact article response",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "native title underscores",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "native NFC identity",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-missing-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-invalid-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-redirect-true",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-ns-1",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-title-Outro tema",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-title-TEMA FICTÍCIO",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-pageid-0",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-pageid-77",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-response-revisions-",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-revision-88",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-revision-89",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-revision-90",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "article-revision-91",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "no title supplied",
+            "kind": "helper-only",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "runtime immutable",
+            "kind": "helper-only",
+            "status": "passed"
+          }
+        ],
+        "checks": 94,
+        "actualWholeActionExecutions": 0,
+        "networkRequests": 0,
+        "wikipediaWrites": 0,
+        "limits": [
+          "These predicates do not apply article transformations, publish, or execute DOM event handlers.",
+          "Native complete UI action races and fresh controls must pass separately."
+        ]
+      }
+    },
+    {
+      "file": "tests/v219/ui_apply_safety_protocol_cases.cjs",
+      "sha256": "6e3b717ba1fc4f3cfeeca5811e45b6bd15a5ae6180a9c4b1aca5573b52c64ba5",
+      "report": {
+        "kind": "private-worker-to-editor-preservation-contract",
+        "status": "passed",
+        "runnerSha256": "6e3b717ba1fc4f3cfeeca5811e45b6bd15a5ae6180a9c4b1aca5573b52c64ba5",
+        "bundles": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "cases": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-links",
+            "status": "passed",
+            "sourceSha256": "5c90e17eae044ba4b2bfae46e721ed14d0d7fe69838da73960ae7e90b864d2ea",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "944e45ab09381778657f36bffdcb11c6e51eb76ec45bd5dcda43629a3e8c24e0"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-plain-native-key",
+            "status": "passed",
+            "sourceSha256": "19f6e17bf9c1f83e39bf198c0db3bb393048da31b67ed104835779fb6ddb16b2",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "bb95133c5cc2ed2805a6cbcef4f21f5963fa34286303ba17feb71773f9aed8fe"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-native-date",
+            "status": "passed",
+            "sourceSha256": "bcec8f30442bf2a88e86c948b30603e84a3e3bf22b6fdb1bbb257b539ffefdfa",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "3b07c85db1b3ba37eb262880d9c5a992d1c223e3f51df28e4236355728e1558f"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-empty-named-slots",
+            "status": "passed",
+            "sourceSha256": "88459f590f4b14ead06180e229f3f748c0d3b27c00fed0374bf4e634ff232191",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "897b32ae8c1d105c98e982937d55cb2b652919dbafe8876e4c748e8ad16f987c"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-missing-default-renderer",
+            "status": "passed",
+            "sourceSha256": "eb1d1d91131f1bd822dbf74d8ef4da790945b210cad906a829c426ce16817981",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "63698d936d831562ccb92c3e2cc5def64f9f73d055a2eb1bf2cf6727f99ea1e2"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-nested-note",
+            "status": "passed",
+            "sourceSha256": "c020611b79b8ba8a8e25baa6b76212e094c09b3263f2999ba89dbd6c38663eda",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "bdda58bd9c8f3f92680dffb04f5e096088c13d62ecf25dba4b47a1841a806f46"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-automatic-spelling",
+            "status": "passed",
+            "sourceSha256": "e6e7045819c3875f0c671b71d0ea59279f2c805ba609f81d9c8eb6e76fff1318",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "e526c5c685e1f94ab856071069670d25e12d049eeb5cf4f0bec8487ecc520d43"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-adjust-accepted-alias",
+            "status": "passed",
+            "sourceSha256": "1c020c8e0ecf2142f18180d51389e3ccd60c19c28520f832b234dccb94cc0ffd",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "1c020c8e0ecf2142f18180d51389e3ccd60c19c28520f832b234dccb94cc0ffd"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "proved-doi-.",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "proved-doi-,",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "proved-doi-;",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-choice-review-choice",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-choice-disambiguation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "actual-choice-spelling-choice",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-url-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-url-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-url-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-image-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-image-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-image-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-identifier-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-identifier-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-identifier-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-protected-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-protected-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-protected-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-prose-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-prose-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-prose-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-repaired-reference-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-repaired-reference-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-repaired-reference-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-citation-metadata-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-citation-metadata-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-citation-metadata-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-category-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-category-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-category-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-citation-date-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-citation-date-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-citation-date-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-reference-bank-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-reference-bank-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-native-reference-bank-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-reference-binding-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-reference-binding-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-reference-binding-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-reference-collector-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-reference-collector-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-lost-source-reference-collector-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-future-retention-violation-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-future-retention-violation-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "all-findings-veto-future-retention-violation-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-missing-proof",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-wrong-source",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-wrong-candidate",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-wrong-context",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-failed-proof",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-missing-preservation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-nonarray-preservation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fail-closed-nonstring-target",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "options-binding-mutant",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "editorial-alerts-dont-block",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "unchanged-source-never-written",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-links",
+            "status": "passed",
+            "sourceSha256": "5c90e17eae044ba4b2bfae46e721ed14d0d7fe69838da73960ae7e90b864d2ea",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "944e45ab09381778657f36bffdcb11c6e51eb76ec45bd5dcda43629a3e8c24e0"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-plain-native-key",
+            "status": "passed",
+            "sourceSha256": "19f6e17bf9c1f83e39bf198c0db3bb393048da31b67ed104835779fb6ddb16b2",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "bb95133c5cc2ed2805a6cbcef4f21f5963fa34286303ba17feb71773f9aed8fe"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-native-date",
+            "status": "passed",
+            "sourceSha256": "bcec8f30442bf2a88e86c948b30603e84a3e3bf22b6fdb1bbb257b539ffefdfa",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "3b07c85db1b3ba37eb262880d9c5a992d1c223e3f51df28e4236355728e1558f"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-empty-named-slots",
+            "status": "passed",
+            "sourceSha256": "88459f590f4b14ead06180e229f3f748c0d3b27c00fed0374bf4e634ff232191",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "897b32ae8c1d105c98e982937d55cb2b652919dbafe8876e4c748e8ad16f987c"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-missing-default-renderer",
+            "status": "passed",
+            "sourceSha256": "eb1d1d91131f1bd822dbf74d8ef4da790945b210cad906a829c426ce16817981",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "63698d936d831562ccb92c3e2cc5def64f9f73d055a2eb1bf2cf6727f99ea1e2"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-nested-note",
+            "status": "passed",
+            "sourceSha256": "c020611b79b8ba8a8e25baa6b76212e094c09b3263f2999ba89dbd6c38663eda",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "bdda58bd9c8f3f92680dffb04f5e096088c13d62ecf25dba4b47a1841a806f46"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-automatic-spelling",
+            "status": "passed",
+            "sourceSha256": "e6e7045819c3875f0c671b71d0ea59279f2c805ba609f81d9c8eb6e76fff1318",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "e526c5c685e1f94ab856071069670d25e12d049eeb5cf4f0bec8487ecc520d43"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-adjust-accepted-alias",
+            "status": "passed",
+            "sourceSha256": "1c020c8e0ecf2142f18180d51389e3ccd60c19c28520f832b234dccb94cc0ffd",
+            "optionsSha256": "542615eef41def7d2468bd83dd41776b6f0e452278b2298bd459de29fee1aa34",
+            "actualSha256": "1c020c8e0ecf2142f18180d51389e3ccd60c19c28520f832b234dccb94cc0ffd"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "proved-doi-.",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "proved-doi-,",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "proved-doi-;",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-choice-review-choice",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-choice-disambiguation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "actual-choice-spelling-choice",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-url-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-url-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-url-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-image-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-image-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-image-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-identifier-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-identifier-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-identifier-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-protected-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-protected-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-protected-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-prose-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-prose-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-prose-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-repaired-reference-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-repaired-reference-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-repaired-reference-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-citation-metadata-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-citation-metadata-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-citation-metadata-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-encyclopedia-citation-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-category-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-category-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-category-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-citation-date-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-citation-date-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-citation-date-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-reference-bank-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-reference-bank-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-native-reference-bank-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-uncertain-reference-identity-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-reference-binding-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-reference-binding-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-reference-binding-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-reference-collector-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-reference-collector-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-lost-source-reference-collector-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-future-retention-violation-warning",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-future-retention-violation-error",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "all-findings-veto-future-retention-violation-undefined",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-missing-proof",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-wrong-source",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-wrong-candidate",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-wrong-context",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-failed-proof",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-missing-preservation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-nonarray-preservation",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fail-closed-nonstring-target",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "options-binding-mutant",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "editorial-alerts-dont-block",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "unchanged-source-never-written",
+            "status": "passed"
+          }
+        ],
+        "checks": 298,
+        "failures": [],
+        "networkRequests": 0,
+        "wikipediaWrites": 0,
+        "limits": [
+          "Direct refresh/spelling jobs assess caller-supplied replacements. They are not proof of a selected offer, trusted DOM event or real UI authorization. Fresh/stale offer and source-bound application require the separate native browser workflows."
+        ],
+        "caseCount": 140
+      }
+    },
+    {
+      "file": "tests/v219/tool_only_minor_cases.cjs",
+      "sha256": "ef60802563812817867cb194e2ceec278bc45e66f3f6f7bb321a3c70a49d07dc",
+      "report": {
+        "kind": "user-requested-tool-only-minor-marking",
+        "status": "passed",
+        "cases": [
+          {
+            "id": "scope-0-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-1",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-100",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-10000",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-100000",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-objectnull",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-undefinedundefined",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-number17",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-object{}",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-object[]",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "whole-action-links",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "whole-action-line-format",
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-0-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-1-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-2-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-false-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-false-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-false-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-false-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-true-false",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "scope-10-true-true-true-true",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-1",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-100",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-10000",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "no-size-classifier-100000",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-objectnull",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-undefinedundefined",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-number17",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-object{}",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "non-text-object[]",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "whole-action-links",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          },
+          {
+            "id": "whole-action-line-format",
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "status": "passed"
+          }
+        ],
+        "checks": 434,
+        "bundles": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "failures": [],
+        "networkRequests": 0,
+        "wikipediaWrites": 0,
+        "limits": [
+          "Minor marking is a user preference and never substitutes for preservation or composition checks. Editor ownership and manual checkbox overrides are tested separately in native browsers."
+        ],
+        "caseCount": 150
+      }
+    },
+    {
+      "file": "tests/v219/ui_presentation_cases.cjs",
+      "sha256": "d22ecb8bcdb8a92351543e9ef8f86f054a0796a539415d8f4357a618b2d2a10b",
+      "report": {
+        "kind": "read-only-presentation-job-and-report-cache-contract",
+        "status": "passed",
+        "runnerSha256": "d22ecb8bcdb8a92351543e9ef8f86f054a0796a539415d8f4357a618b2d2a10b",
+        "bundles": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "cases": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "16d42988bb73/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "e59e57ae4420/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0b87fd6986a9/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cd5c9364f7fa/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6cc5dda68648/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-job/44136fa355b3",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-job/affcf15da9e6",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-job/aacb50113074",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "invalid-job/3ae4ee9b5c04",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "audit-reports-bound",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "review-cache-text",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "review-cache-report",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "review-cache-missing-report",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "review-cache-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "runtime-immutable",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "16d42988bb73/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "e59e57ae4420/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0b87fd6986a9/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cd5c9364f7fa/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/read-only-exact-count",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/stale-before",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/stale-after",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/stale-kinds",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/stale-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/retained-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6cc5dda68648/topics-mutant",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-job/44136fa355b3",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-job/affcf15da9e6",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-job/aacb50113074",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "invalid-job/3ae4ee9b5c04",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "audit-reports-bound",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "review-cache-text",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "review-cache-report",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "review-cache-missing-report",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "review-cache-options",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "runtime-immutable",
+            "evidenceKind": "read-only-or-helper-differential",
+            "status": "passed"
+          }
+        ],
+        "checks": 90,
+        "presentationExecutions": 10,
+        "transformationExecutions": 0,
+        "networkRequests": 0,
+        "wikipediaWrites": 0,
+        "limits": [
+          "Count equivalence uses the existing exact retained-count helper, including unknown counts.",
+          "This runner executes no native DOM Undo, deadline or responsiveness scenario. Native browser tests are required separately."
+        ]
+      }
+    },
+    {
+      "file": "tests/v2191/demonstration_cases.cjs",
+      "sha256": "b7cbeed74feb3b63b52e6911fc4866bf323db978dd594eb73d7e688f74017e95",
+      "report": {
+        "kind": "demonstration-independent-endpoints-on-distributed-engines",
+        "status": "passed",
+        "fixtureSha256": "ea753cb7818237bfac2489a649d064e966433de0b03c0027f5756ec1a06f8ec3",
+        "checks": 452,
+        "cases": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "d8f4e59feb12b7484b5f",
+            "operation": "adjust",
+            "sourceSha256": "2ecbd0afc789b8adb9e68cc6ef4997b769bd20d4e6019623998151703930c4b6",
+            "expectedEndpointSha256": "6fb04942db4a1ca4e5646c0b220d901d25e048ac4f2b16425103771f750882db",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6e023c466b8ae0872f32",
+            "operation": "adjust",
+            "sourceSha256": "d7c6f645e1c218b43a7bea7fc3c824a150e58c579dcb7a9d62b7650af3a375ae",
+            "expectedEndpointSha256": "6b6daa19196912be7101846ec6bd44652591600fb1f2b8f907b9ddad8d90c89b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "cb6ca0890e106219cfaf",
+            "operation": "adjust",
+            "sourceSha256": "83830e6d64f4b624bdfea3e2ce2ff21b52301b1f6e8dacce328a41da22bbc4b2",
+            "expectedEndpointSha256": "ed8ac0d72fe213be3a223f10667631263db9ad2ca3403a5ce758ae7881be58ad",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fad6fa6b143a7c1e3654",
+            "operation": "adjust",
+            "sourceSha256": "04bb9507baeb36988bcc1632b8d94e6d37bc0df103334447a59964707ca670db",
+            "expectedEndpointSha256": "551869c5cb5a130e47f7006dcb059cb2837105f36e0fa5500a4f81de784cfd54",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "822bd3bf55feafd3de60",
+            "operation": "adjust",
+            "sourceSha256": "d840a9a32ebab4a4b8249cd63630c4c69dcea11af32391b932f68c3933061619",
+            "expectedEndpointSha256": "141e0dc6e589ab57e934c4bdefdb5cda1335cd261a04b47b1daff47c8bd83aa5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "c11d26e330825de46cac",
+            "operation": "adjust",
+            "sourceSha256": "0424b160beab4bbab5582373665b910912b1c06ce314262c5db0026881e748b4",
+            "expectedEndpointSha256": "2ec85fc93bf5a4935bdd9ed004b1eee45a1832ac25827b0023c7f87830e3c7c3",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "045b367995c404b0e140",
+            "operation": "adjust",
+            "sourceSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "expectedEndpointSha256": "77154235c93a9a5826bfd283c7745b99d27d7a9d03bccb25156f45a1d9020f02",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "341c60d025830ac9b776",
+            "operation": "adjust",
+            "sourceSha256": "5bc2bde546466b844a31f7b4633f2412740a3384df8901451c81d2818e8e1946",
+            "expectedEndpointSha256": "397f8f6bbae82cb5ba89fa9e22594d88f07ccd9409fabb1a9d576691e1e69442",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "ac39a5501567bae6e836",
+            "operation": "adjust",
+            "sourceSha256": "34ad26bac231c9d53c61ae99099519824a2a8fb3305a23c2f838360208b2514f",
+            "expectedEndpointSha256": "6911d40974689d8bbcfd75552e33f5e6a2e14f3cc79cd864a5e3d481d46e9055",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "dc5b9b2d0479057ff4bc",
+            "operation": "adjust",
+            "sourceSha256": "e029b4be884899163693d1166f61bee9da8e0574a90892bce880439b555d6432",
+            "expectedEndpointSha256": "9f00d99b5afc445fc90beaef4bb721c18970fd4cb3b2d82a3bd883ad7ca4435a",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "5bbdec77240ea168c419",
+            "operation": "adjust",
+            "sourceSha256": "8b8db6dd62dc71ad1e763be105e1c4b9161c1eeda423e0f8bd893cb33d2e7112",
+            "expectedEndpointSha256": "b56d3c5e5481577f22cb39c306e19e36c7c60744e7d9417478b881b36f3fc7cd",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "5adb01d1f00a3f520211",
+            "operation": "adjust",
+            "sourceSha256": "7d73e3d909931b01e4573d61a2d6f5c2803657d02635552b212110cfa05e14ca",
+            "expectedEndpointSha256": "dd1651997ae1fc7cfbb77b4bb1d59bd0a8532bf78572be3b6d6b042e4a4469ae",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "eb859e25869300c664d0",
+            "operation": "adjust",
+            "sourceSha256": "aee2e5366526e2e48c8b606936f0647b9b1f054408009984fec3abdd869830d0",
+            "expectedEndpointSha256": "72977336b8ef905b5e7ea52cfe32115ba3e1a4fff039ab6c1706903710d7a436",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "65470ed8364f470f698d",
+            "operation": "adjust",
+            "sourceSha256": "1ab96c05b9c4bfd286a97ae420d57f460bbb7d932f1f0d1aa4c983842c598780",
+            "expectedEndpointSha256": "79c2fe58ea535842d933e57ea944677c328334e0c0a9bf4636b3c85425025511",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "45705a2da9544e228102",
+            "operation": "adjust",
+            "sourceSha256": "f9441ce420789e50c622893417ad42807363b6736d461703d97d6a952fb1c75f",
+            "expectedEndpointSha256": "51e0f9ead747913c6cec596dc200324c1a4b8ff2826ade3722c732bb3fd164f7",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "5dd6103c4e2a713b3d21",
+            "operation": "adjust",
+            "sourceSha256": "1c7891d3f59cc11762b890d523dc5be64a5e692e3fc9b78678d6260b6dec03c5",
+            "expectedEndpointSha256": "9016230fa06d7f0872f14a5650d6576de88ce41c9d019b07cf2b98b54c86f30b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "158ea45a80ecfb14e735",
+            "operation": "adjust",
+            "sourceSha256": "4731360ba0e38664c7b87e1c134465f104c88879539d5eb77589f0e86d0d97b1",
+            "expectedEndpointSha256": "d6ac2fbcf66d396c57fb0018118d69a09ef608049e288f47cfd582f8913903df",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "061b055117988c9f22ce",
+            "operation": "adjust",
+            "sourceSha256": "8663e10cb02e0389396a83d82d89cdf6a7f29572a73d06d803ff1e17dbeedf79",
+            "expectedEndpointSha256": "e575f794fec6d1c8269bc72d1045e777dc7bcec6d35be29ff1cb9bcfdcd80f8f",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "761cad74fa8f186782a7",
+            "operation": "adjust",
+            "sourceSha256": "ec379762efff3651c0a48b606f937b45f1ec97914e808beecf8ac92f88fafdaf",
+            "expectedEndpointSha256": "b4888a49b55a92508049682b947d7618ffdaf37fc4044152aec4328e4d0f6d12",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "50e1edcac47e761bb688",
+            "operation": "adjust",
+            "sourceSha256": "08b78ece550f6dc175b0d990a36a7917659f09d8e99dc9ea279e2d49aed2dc40",
+            "expectedEndpointSha256": "52f8ee9844db690273f25b922b4cbd16a95514a6cdbe9c57d951cde9f9ecf304",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "4f95bf080ae2645e3e39",
+            "operation": "adjust",
+            "sourceSha256": "cb82b7271d42cae850cc27c526cd4c03f2057bd61bc1b78d2a2e305424159639",
+            "expectedEndpointSha256": "7e7cf30a7e1ba0932039921f834e740d2283e8b274a42fd49e893a8127d9fb82",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6a9d35267e4dfceb6840",
+            "operation": "adjust",
+            "sourceSha256": "59eab180752ccd5b7e727b91a0380b79af701c37ec66aef215410b5bd90a08c0",
+            "expectedEndpointSha256": "72b97d0ebd5e4bcf5f417bebebe63278c16bbee0c8eb272111cef1f7df9f3455",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "905a0631c9919eaa7431",
+            "operation": "adjust",
+            "sourceSha256": "a9583e5b5f3676beceab7ad7b1557834c904a85c01d9f1a777ece63d351114ec",
+            "expectedEndpointSha256": "0fefe71bf708dc0eb73d6518a167fbb41c91d00fedd37fe6cd96e664fed9e6f1",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "aa6fbf78ae41f6a7b057",
+            "operation": "adjust",
+            "sourceSha256": "82ce9a4d23c306fff957f06bf748644d6da8f8dbca3c58c08376b5e0d7d2c5ba",
+            "expectedEndpointSha256": "90006c4e03947f20b0f393c7fabbe03b7a2cd654c12b340236add5cac81d262d",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "163131029eae56c77939",
+            "operation": "adjust",
+            "sourceSha256": "77b9035a67bbab6452b54fbc3bba8ab7dd60bad82b115812c73b35181519a106",
+            "expectedEndpointSha256": "a44286f00f9a582b9f78b0e93537f6bea74c575aef20754ef0ce358747526c42",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "8c251ff41826338d4c0d",
+            "operation": "adjust",
+            "sourceSha256": "75865f71221abbc149d25e9bbe123d80c6c6841991795864206182d7c5a4674a",
+            "expectedEndpointSha256": "3186176ae40bb17a2c9968bca44e8adfbbf2715661f82cafdb7ab82e3e5b8c0b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "c85b3947cea3a1bd155b",
+            "operation": "adjust",
+            "sourceSha256": "166ca9d2ff6701dab2cfc7a1a3a4835a35006928824dfae6ba068ddfe02fe354",
+            "expectedEndpointSha256": "42854cdac2f830f6417c5442f67cf9abf452519f3675b112836978d5abaee6ea",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "8be1a2e852ce0cafec82",
+            "operation": "adjust",
+            "sourceSha256": "ab7b19abfd0049c87280dde79b452c77a57c07e169dabe448a81fdb5ec611d05",
+            "expectedEndpointSha256": "c650153e45b080b4c8eee7c0fb93becb6fbea732b6e4af77a02d1564a25fd13c",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "7d68e0b3ae2d8d034cc4",
+            "operation": "adjust",
+            "sourceSha256": "0d61002852464d253c03877b487bfaf2a2afef809f49cd45cc50cfc6bcba5bdb",
+            "expectedEndpointSha256": "e76dee028cb8602042e8f1a6cb374026baa1743ea179e0ffe727319dc847a9c9",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "527609759805262a4b6b",
+            "operation": "adjust",
+            "sourceSha256": "7cef16e26e38606846b1f985e428fe3fff9f461f4c33c157fd1fa79b5f1d5b49",
+            "expectedEndpointSha256": "7cef16e26e38606846b1f985e428fe3fff9f461f4c33c157fd1fa79b5f1d5b49",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "807200210667e500499d",
+            "operation": "adjust",
+            "sourceSha256": "38772a0680b4d9362b517f31d6860953e98c284f0b4c18b96b758bc08c3f10c6",
+            "expectedEndpointSha256": "38772a0680b4d9362b517f31d6860953e98c284f0b4c18b96b758bc08c3f10c6",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "03e5bf7681099a75b7af",
+            "operation": "adjust",
+            "sourceSha256": "bf342351b4c2e2cbc4a8a7ec8287dde23060a2d484a552e56dce83d210f24bfd",
+            "expectedEndpointSha256": "bf342351b4c2e2cbc4a8a7ec8287dde23060a2d484a552e56dce83d210f24bfd",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "0e1a86a2c322ca24d339",
+            "operation": "adjust",
+            "sourceSha256": "821a1178e5541b9479e7d59359bd1725c87f867fc80260cecca36b6ee0432127",
+            "expectedEndpointSha256": "821a1178e5541b9479e7d59359bd1725c87f867fc80260cecca36b6ee0432127",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "2bc5518692be3fbca6eb",
+            "operation": "adjust",
+            "sourceSha256": "8ad7c0d276a4bdb84a4d8be287a1354e52f6aef2e5b458d309c631f9db8c4b8e",
+            "expectedEndpointSha256": "8ad7c0d276a4bdb84a4d8be287a1354e52f6aef2e5b458d309c631f9db8c4b8e",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "28bea813c31ade849dfe",
+            "operation": "adjust",
+            "sourceSha256": "df04ee84195b3686e7618bb3260eb7a4f1618ab3b87c16a85838a85a3b450a92",
+            "expectedEndpointSha256": "df04ee84195b3686e7618bb3260eb7a4f1618ab3b87c16a85838a85a3b450a92",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "4439885fd94691c24142",
+            "operation": "adjust",
+            "sourceSha256": "6d6a9c156e5604a7ef8f85b9a2728946a00249fe0ea17bd65e30df0c4078dee9",
+            "expectedEndpointSha256": "6d6a9c156e5604a7ef8f85b9a2728946a00249fe0ea17bd65e30df0c4078dee9",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "1f891187149aa5df9405",
+            "operation": "adjust",
+            "sourceSha256": "4b091a9df2b3b3d07094b58c651fea618274b3460c10d8269f9e459d678c97c5",
+            "expectedEndpointSha256": "4b091a9df2b3b3d07094b58c651fea618274b3460c10d8269f9e459d678c97c5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "8dd2180c1f7c0be29cc2",
+            "operation": "adjust",
+            "sourceSha256": "958f2c09eb6a0fd91ec49fa8717e2de95eef46745bf6e1d52417daa98df0336b",
+            "expectedEndpointSha256": "958f2c09eb6a0fd91ec49fa8717e2de95eef46745bf6e1d52417daa98df0336b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "c7ae11cc3217006d619b",
+            "operation": "adjust",
+            "sourceSha256": "8af4629147063c5e88749d9e615d670b6bbd1186e20898732eb2e5956031f5a8",
+            "expectedEndpointSha256": "8af4629147063c5e88749d9e615d670b6bbd1186e20898732eb2e5956031f5a8",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "bfaedc1122cd36853327",
+            "operation": "adjust",
+            "sourceSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "expectedEndpointSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "7a5190eae8ea6139af62",
+            "operation": "adjust",
+            "sourceSha256": "9e3506eaf2e142136f551851be3972e75a4fd305528b6744740487f112e23ae7",
+            "expectedEndpointSha256": "9e3506eaf2e142136f551851be3972e75a4fd305528b6744740487f112e23ae7",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "6c6eb750b9a03ec403a6",
+            "operation": "adjust",
+            "sourceSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "expectedEndpointSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "903c8a3ae987be254887",
+            "operation": "adjust",
+            "sourceSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "expectedEndpointSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "fa852333e2b1a0dd58b8",
+            "operation": "adjust",
+            "sourceSha256": "14010ef1792d152076fc10720b26e3d8d97297649296e1eee566ca9686eb26d5",
+            "expectedEndpointSha256": "14010ef1792d152076fc10720b26e3d8d97297649296e1eee566ca9686eb26d5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "demo-talk-portals",
+            "operation": "talkHeader",
+            "sourceSha256": "c4437033e27d4850214536fd9ff31198a85fc52f8a141d4f338f2a19127e86b7",
+            "expectedEndpointSha256": "6c4d305b783c7d632652821a32c223937eb0ea913fb2e8d8fc454635ba9d5d08",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "demo-talk-alias",
+            "operation": "talkHeader",
+            "sourceSha256": "27dcb8eeb38f192b0e2652c17c443031166ba70939b969453dc3c31b07f5249f",
+            "expectedEndpointSha256": "27dcb8eeb38f192b0e2652c17c443031166ba70939b969453dc3c31b07f5249f",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "id": "demo-talk-human-grades",
+            "operation": "talkHeader",
+            "sourceSha256": "44937db95dc2da1ec79044a130794fa6482d0b0ab3f05598e0bb1f262e254b17",
+            "expectedEndpointSha256": "44937db95dc2da1ec79044a130794fa6482d0b0ab3f05598e0bb1f262e254b17",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "d8f4e59feb12b7484b5f",
+            "operation": "adjust",
+            "sourceSha256": "2ecbd0afc789b8adb9e68cc6ef4997b769bd20d4e6019623998151703930c4b6",
+            "expectedEndpointSha256": "6fb04942db4a1ca4e5646c0b220d901d25e048ac4f2b16425103771f750882db",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6e023c466b8ae0872f32",
+            "operation": "adjust",
+            "sourceSha256": "d7c6f645e1c218b43a7bea7fc3c824a150e58c579dcb7a9d62b7650af3a375ae",
+            "expectedEndpointSha256": "6b6daa19196912be7101846ec6bd44652591600fb1f2b8f907b9ddad8d90c89b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "cb6ca0890e106219cfaf",
+            "operation": "adjust",
+            "sourceSha256": "83830e6d64f4b624bdfea3e2ce2ff21b52301b1f6e8dacce328a41da22bbc4b2",
+            "expectedEndpointSha256": "ed8ac0d72fe213be3a223f10667631263db9ad2ca3403a5ce758ae7881be58ad",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fad6fa6b143a7c1e3654",
+            "operation": "adjust",
+            "sourceSha256": "04bb9507baeb36988bcc1632b8d94e6d37bc0df103334447a59964707ca670db",
+            "expectedEndpointSha256": "551869c5cb5a130e47f7006dcb059cb2837105f36e0fa5500a4f81de784cfd54",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "822bd3bf55feafd3de60",
+            "operation": "adjust",
+            "sourceSha256": "d840a9a32ebab4a4b8249cd63630c4c69dcea11af32391b932f68c3933061619",
+            "expectedEndpointSha256": "141e0dc6e589ab57e934c4bdefdb5cda1335cd261a04b47b1daff47c8bd83aa5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "c11d26e330825de46cac",
+            "operation": "adjust",
+            "sourceSha256": "0424b160beab4bbab5582373665b910912b1c06ce314262c5db0026881e748b4",
+            "expectedEndpointSha256": "2ec85fc93bf5a4935bdd9ed004b1eee45a1832ac25827b0023c7f87830e3c7c3",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "045b367995c404b0e140",
+            "operation": "adjust",
+            "sourceSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "expectedEndpointSha256": "77154235c93a9a5826bfd283c7745b99d27d7a9d03bccb25156f45a1d9020f02",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "341c60d025830ac9b776",
+            "operation": "adjust",
+            "sourceSha256": "5bc2bde546466b844a31f7b4633f2412740a3384df8901451c81d2818e8e1946",
+            "expectedEndpointSha256": "397f8f6bbae82cb5ba89fa9e22594d88f07ccd9409fabb1a9d576691e1e69442",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "ac39a5501567bae6e836",
+            "operation": "adjust",
+            "sourceSha256": "34ad26bac231c9d53c61ae99099519824a2a8fb3305a23c2f838360208b2514f",
+            "expectedEndpointSha256": "6911d40974689d8bbcfd75552e33f5e6a2e14f3cc79cd864a5e3d481d46e9055",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "dc5b9b2d0479057ff4bc",
+            "operation": "adjust",
+            "sourceSha256": "e029b4be884899163693d1166f61bee9da8e0574a90892bce880439b555d6432",
+            "expectedEndpointSha256": "9f00d99b5afc445fc90beaef4bb721c18970fd4cb3b2d82a3bd883ad7ca4435a",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "5bbdec77240ea168c419",
+            "operation": "adjust",
+            "sourceSha256": "8b8db6dd62dc71ad1e763be105e1c4b9161c1eeda423e0f8bd893cb33d2e7112",
+            "expectedEndpointSha256": "b56d3c5e5481577f22cb39c306e19e36c7c60744e7d9417478b881b36f3fc7cd",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "5adb01d1f00a3f520211",
+            "operation": "adjust",
+            "sourceSha256": "7d73e3d909931b01e4573d61a2d6f5c2803657d02635552b212110cfa05e14ca",
+            "expectedEndpointSha256": "dd1651997ae1fc7cfbb77b4bb1d59bd0a8532bf78572be3b6d6b042e4a4469ae",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "eb859e25869300c664d0",
+            "operation": "adjust",
+            "sourceSha256": "aee2e5366526e2e48c8b606936f0647b9b1f054408009984fec3abdd869830d0",
+            "expectedEndpointSha256": "72977336b8ef905b5e7ea52cfe32115ba3e1a4fff039ab6c1706903710d7a436",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "65470ed8364f470f698d",
+            "operation": "adjust",
+            "sourceSha256": "1ab96c05b9c4bfd286a97ae420d57f460bbb7d932f1f0d1aa4c983842c598780",
+            "expectedEndpointSha256": "79c2fe58ea535842d933e57ea944677c328334e0c0a9bf4636b3c85425025511",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "45705a2da9544e228102",
+            "operation": "adjust",
+            "sourceSha256": "f9441ce420789e50c622893417ad42807363b6736d461703d97d6a952fb1c75f",
+            "expectedEndpointSha256": "51e0f9ead747913c6cec596dc200324c1a4b8ff2826ade3722c732bb3fd164f7",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "5dd6103c4e2a713b3d21",
+            "operation": "adjust",
+            "sourceSha256": "1c7891d3f59cc11762b890d523dc5be64a5e692e3fc9b78678d6260b6dec03c5",
+            "expectedEndpointSha256": "9016230fa06d7f0872f14a5650d6576de88ce41c9d019b07cf2b98b54c86f30b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "158ea45a80ecfb14e735",
+            "operation": "adjust",
+            "sourceSha256": "4731360ba0e38664c7b87e1c134465f104c88879539d5eb77589f0e86d0d97b1",
+            "expectedEndpointSha256": "d6ac2fbcf66d396c57fb0018118d69a09ef608049e288f47cfd582f8913903df",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "061b055117988c9f22ce",
+            "operation": "adjust",
+            "sourceSha256": "8663e10cb02e0389396a83d82d89cdf6a7f29572a73d06d803ff1e17dbeedf79",
+            "expectedEndpointSha256": "e575f794fec6d1c8269bc72d1045e777dc7bcec6d35be29ff1cb9bcfdcd80f8f",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "761cad74fa8f186782a7",
+            "operation": "adjust",
+            "sourceSha256": "ec379762efff3651c0a48b606f937b45f1ec97914e808beecf8ac92f88fafdaf",
+            "expectedEndpointSha256": "b4888a49b55a92508049682b947d7618ffdaf37fc4044152aec4328e4d0f6d12",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "50e1edcac47e761bb688",
+            "operation": "adjust",
+            "sourceSha256": "08b78ece550f6dc175b0d990a36a7917659f09d8e99dc9ea279e2d49aed2dc40",
+            "expectedEndpointSha256": "52f8ee9844db690273f25b922b4cbd16a95514a6cdbe9c57d951cde9f9ecf304",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "4f95bf080ae2645e3e39",
+            "operation": "adjust",
+            "sourceSha256": "cb82b7271d42cae850cc27c526cd4c03f2057bd61bc1b78d2a2e305424159639",
+            "expectedEndpointSha256": "7e7cf30a7e1ba0932039921f834e740d2283e8b274a42fd49e893a8127d9fb82",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6a9d35267e4dfceb6840",
+            "operation": "adjust",
+            "sourceSha256": "59eab180752ccd5b7e727b91a0380b79af701c37ec66aef215410b5bd90a08c0",
+            "expectedEndpointSha256": "72b97d0ebd5e4bcf5f417bebebe63278c16bbee0c8eb272111cef1f7df9f3455",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "905a0631c9919eaa7431",
+            "operation": "adjust",
+            "sourceSha256": "a9583e5b5f3676beceab7ad7b1557834c904a85c01d9f1a777ece63d351114ec",
+            "expectedEndpointSha256": "0fefe71bf708dc0eb73d6518a167fbb41c91d00fedd37fe6cd96e664fed9e6f1",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "aa6fbf78ae41f6a7b057",
+            "operation": "adjust",
+            "sourceSha256": "82ce9a4d23c306fff957f06bf748644d6da8f8dbca3c58c08376b5e0d7d2c5ba",
+            "expectedEndpointSha256": "90006c4e03947f20b0f393c7fabbe03b7a2cd654c12b340236add5cac81d262d",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "163131029eae56c77939",
+            "operation": "adjust",
+            "sourceSha256": "77b9035a67bbab6452b54fbc3bba8ab7dd60bad82b115812c73b35181519a106",
+            "expectedEndpointSha256": "a44286f00f9a582b9f78b0e93537f6bea74c575aef20754ef0ce358747526c42",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "8c251ff41826338d4c0d",
+            "operation": "adjust",
+            "sourceSha256": "75865f71221abbc149d25e9bbe123d80c6c6841991795864206182d7c5a4674a",
+            "expectedEndpointSha256": "3186176ae40bb17a2c9968bca44e8adfbbf2715661f82cafdb7ab82e3e5b8c0b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "c85b3947cea3a1bd155b",
+            "operation": "adjust",
+            "sourceSha256": "166ca9d2ff6701dab2cfc7a1a3a4835a35006928824dfae6ba068ddfe02fe354",
+            "expectedEndpointSha256": "42854cdac2f830f6417c5442f67cf9abf452519f3675b112836978d5abaee6ea",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "8be1a2e852ce0cafec82",
+            "operation": "adjust",
+            "sourceSha256": "ab7b19abfd0049c87280dde79b452c77a57c07e169dabe448a81fdb5ec611d05",
+            "expectedEndpointSha256": "c650153e45b080b4c8eee7c0fb93becb6fbea732b6e4af77a02d1564a25fd13c",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "7d68e0b3ae2d8d034cc4",
+            "operation": "adjust",
+            "sourceSha256": "0d61002852464d253c03877b487bfaf2a2afef809f49cd45cc50cfc6bcba5bdb",
+            "expectedEndpointSha256": "e76dee028cb8602042e8f1a6cb374026baa1743ea179e0ffe727319dc847a9c9",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "527609759805262a4b6b",
+            "operation": "adjust",
+            "sourceSha256": "7cef16e26e38606846b1f985e428fe3fff9f461f4c33c157fd1fa79b5f1d5b49",
+            "expectedEndpointSha256": "7cef16e26e38606846b1f985e428fe3fff9f461f4c33c157fd1fa79b5f1d5b49",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "807200210667e500499d",
+            "operation": "adjust",
+            "sourceSha256": "38772a0680b4d9362b517f31d6860953e98c284f0b4c18b96b758bc08c3f10c6",
+            "expectedEndpointSha256": "38772a0680b4d9362b517f31d6860953e98c284f0b4c18b96b758bc08c3f10c6",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "03e5bf7681099a75b7af",
+            "operation": "adjust",
+            "sourceSha256": "bf342351b4c2e2cbc4a8a7ec8287dde23060a2d484a552e56dce83d210f24bfd",
+            "expectedEndpointSha256": "bf342351b4c2e2cbc4a8a7ec8287dde23060a2d484a552e56dce83d210f24bfd",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "0e1a86a2c322ca24d339",
+            "operation": "adjust",
+            "sourceSha256": "821a1178e5541b9479e7d59359bd1725c87f867fc80260cecca36b6ee0432127",
+            "expectedEndpointSha256": "821a1178e5541b9479e7d59359bd1725c87f867fc80260cecca36b6ee0432127",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "2bc5518692be3fbca6eb",
+            "operation": "adjust",
+            "sourceSha256": "8ad7c0d276a4bdb84a4d8be287a1354e52f6aef2e5b458d309c631f9db8c4b8e",
+            "expectedEndpointSha256": "8ad7c0d276a4bdb84a4d8be287a1354e52f6aef2e5b458d309c631f9db8c4b8e",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "28bea813c31ade849dfe",
+            "operation": "adjust",
+            "sourceSha256": "df04ee84195b3686e7618bb3260eb7a4f1618ab3b87c16a85838a85a3b450a92",
+            "expectedEndpointSha256": "df04ee84195b3686e7618bb3260eb7a4f1618ab3b87c16a85838a85a3b450a92",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "4439885fd94691c24142",
+            "operation": "adjust",
+            "sourceSha256": "6d6a9c156e5604a7ef8f85b9a2728946a00249fe0ea17bd65e30df0c4078dee9",
+            "expectedEndpointSha256": "6d6a9c156e5604a7ef8f85b9a2728946a00249fe0ea17bd65e30df0c4078dee9",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "1f891187149aa5df9405",
+            "operation": "adjust",
+            "sourceSha256": "4b091a9df2b3b3d07094b58c651fea618274b3460c10d8269f9e459d678c97c5",
+            "expectedEndpointSha256": "4b091a9df2b3b3d07094b58c651fea618274b3460c10d8269f9e459d678c97c5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "8dd2180c1f7c0be29cc2",
+            "operation": "adjust",
+            "sourceSha256": "958f2c09eb6a0fd91ec49fa8717e2de95eef46745bf6e1d52417daa98df0336b",
+            "expectedEndpointSha256": "958f2c09eb6a0fd91ec49fa8717e2de95eef46745bf6e1d52417daa98df0336b",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "c7ae11cc3217006d619b",
+            "operation": "adjust",
+            "sourceSha256": "8af4629147063c5e88749d9e615d670b6bbd1186e20898732eb2e5956031f5a8",
+            "expectedEndpointSha256": "8af4629147063c5e88749d9e615d670b6bbd1186e20898732eb2e5956031f5a8",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "bfaedc1122cd36853327",
+            "operation": "adjust",
+            "sourceSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "expectedEndpointSha256": "3376f25338892ffa17452bd0bbb41076a5110d7f033b03c921b8c1a1352f7b26",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "7a5190eae8ea6139af62",
+            "operation": "adjust",
+            "sourceSha256": "9e3506eaf2e142136f551851be3972e75a4fd305528b6744740487f112e23ae7",
+            "expectedEndpointSha256": "9e3506eaf2e142136f551851be3972e75a4fd305528b6744740487f112e23ae7",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "6c6eb750b9a03ec403a6",
+            "operation": "adjust",
+            "sourceSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "expectedEndpointSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "903c8a3ae987be254887",
+            "operation": "adjust",
+            "sourceSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "expectedEndpointSha256": "fbd8688308762967b3077ac0e5cd9a04fb3f221b3695bab47058f3a84c308586",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "fa852333e2b1a0dd58b8",
+            "operation": "adjust",
+            "sourceSha256": "14010ef1792d152076fc10720b26e3d8d97297649296e1eee566ca9686eb26d5",
+            "expectedEndpointSha256": "14010ef1792d152076fc10720b26e3d8d97297649296e1eee566ca9686eb26d5",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "demo-talk-portals",
+            "operation": "talkHeader",
+            "sourceSha256": "c4437033e27d4850214536fd9ff31198a85fc52f8a141d4f338f2a19127e86b7",
+            "expectedEndpointSha256": "6c4d305b783c7d632652821a32c223937eb0ea913fb2e8d8fc454635ba9d5d08",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "demo-talk-alias",
+            "operation": "talkHeader",
+            "sourceSha256": "27dcb8eeb38f192b0e2652c17c443031166ba70939b969453dc3c31b07f5249f",
+            "expectedEndpointSha256": "27dcb8eeb38f192b0e2652c17c443031166ba70939b969453dc3c31b07f5249f",
+            "status": "passed"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "id": "demo-talk-human-grades",
+            "operation": "talkHeader",
+            "sourceSha256": "44937db95dc2da1ec79044a130794fa6482d0b0ab3f05598e0bb1f262e254b17",
+            "expectedEndpointSha256": "44937db95dc2da1ec79044a130794fa6482d0b0ab3f05598e0bb1f262e254b17",
+            "status": "passed"
+          }
+        ],
+        "bundles": [
+          {
+            "bundle": "RevisaWiki_v2_19_1.js",
+            "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+          },
+          {
+            "bundle": "RevisaWiki_v2_19_1_completo.js",
+            "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+          }
+        ],
+        "failures": [],
+        "networkRequests": 0,
+        "wikipediaWrites": 0
+      }
+    }
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

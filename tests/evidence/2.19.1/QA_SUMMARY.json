@@ -1,0 +1,106 @@
+{
+  "version": "2.19.1",
+  "status": "validated",
+  "releaseGatesPassed": true,
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_19_1.js": {
+      "bytes": 9651,
+      "sha256": "8c1cadea7db7ebbe6c876aa7634629bb7e55e3716599f38f871e604a9f52bb09"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_19_1.js": {
+      "bytes": 9653,
+      "sha256": "a4e60bcba46afc51e6e4d2f2ce4b2919cc7b79641ab45966fee09dc290fac6ed"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_19_1.js": {
+      "bytes": 2097147,
+      "sha256": "eccf670b55c8aa94b05e84aaad84530037d63772477a5da58e6e9b3b6d2ca437"
+    },
+    "RevisaWiki_v2_19_1_completo.js": {
+      "bytes": 4157881,
+      "sha256": "0628e5fb1a29574ffb6416e432724a4b531743d52b0bc621d77e373d1edeb38d"
+    },
+    "RevisaWiki_v2_19_1_dados.js": {
+      "bytes": 1899078,
+      "sha256": "33933af916458373eaf2aa89fbd98614c64eeebd9438f56178c6876b45795173"
+    }
+  },
+  "catalogFiles": {
+    "Catalogo_autoridade_RevisaWiki_v2_19_1.json": {
+      "bytes": 11279,
+      "sha256": "c408fb22b161fdb5977ba25dd21fc4ca409d4280a3d30cd8598293e6dbc63169"
+    },
+    "Catalogo_biografias_RevisaWiki_v2_19_1.json": {
+      "bytes": 19440,
+      "sha256": "13acd61c27f784b18d88d390821f40118fb859ae878c5824bdbb92c2afff7290"
+    },
+    "Catalogo_ocupacoes_RevisaWiki_v2_19_1.json": {
+      "bytes": 62243,
+      "sha256": "d85cd8c671f8b982531b5cd62c36f125935f886ec2042a04d2db7372bb394a8b"
+    },
+    "Catalogo_ortografia_RevisaWiki_v2_19_1.json": {
+      "bytes": 1654901,
+      "sha256": "d2521f27c729602a8b51f819af7356ade3859d72b6d0496f443132d2a8a05a9b"
+    },
+    "Catalogo_portais_RevisaWiki_v2_19_1.json": {
+      "bytes": 55244,
+      "sha256": "c46761a59c0eaa524ad775beefedc5927dc3020fe8c3afac2ec79a455cc7e9c2"
+    },
+    "Catalogo_profissoes_portais_RevisaWiki_v2_19_1.json": {
+      "bytes": 255161,
+      "sha256": "9a570914aef89699f37705c7e26b3b43fde1f852602a3a8e02ff7d569d0d8897"
+    },
+    "Catalogo_ptwiki_RevisaWiki_v2_19_1.json": {
+      "bytes": 4883320,
+      "sha256": "a9583ba40068fc31440eb8323dfe0e7941e2b87e75c15ff7799f1a386aab5332"
+    },
+    "Catalogo_traducoes_RevisaWiki_v2_19_1.json": {
+      "bytes": 2401391,
+      "sha256": "9e4e062c8e9479656b20c0c6f4d45e9d4bbc9b0d7b6a77b57bea0ca4389c4497"
+    }
+  },
+  "baseRelease": "2.19.0",
+  "baseManifestSha256": "57a2787297301d31c473e99b18081d57a91b10bc09ca9f75ff4b057b7f0e5e49",
+  "articleTransformationsChanged": false,
+  "workerDeadlineMilliseconds": 60000,
+  "historicalResultsModified": false,
+  "wikipediaWrites": 0,
+  "directedRegression": {
+    "caseExecutions": 631,
+    "checks": 1431,
+    "suites": 6
+  },
+  "nativeBrowserRegression": {
+    "browsers": [
+      "Firefox",
+      "Chrome",
+      "Safari"
+    ],
+    "flows": 96,
+    "checks": 1803,
+    "baselineErrorReproductions": 36,
+    "candidatePositiveFlows": 42,
+    "staleEditorIdentityRefusals": 18
+  },
+  "docValidationSummary": "A correção passou em seis conjuntos dirigidos, com 631 execuções de casos e 1.431 verificações, e em 96 fluxos locais no Firefox, Chrome e Safari, com 1.803 verificações.",
+  "docValidationParagraphs": [
+    "Os testes reproduziram a falha da 2.19.0 em 36 fluxos. Na 2.19.1, 42 fluxos conferiram aplicação, resumo, marca de edição menor, repetição, desfazer e continuação da edição. Outros 18 confirmaram a recusa de resultados quando a instância do editor muda durante a análise. Os cenários cobrem o editor clássico, uma integração reconhecida de CodeMirror e o modo de código-fonte de 2017, com processamento separado e em etapas. Os adaptadores locais simulam o ambiente MediaWiki, sem publicar edições.",
+    "A reconstrução confere por reversão exata que o código de correção de artigos permanece igual ao da 2.19.0. Mudaram a identificação usada no transporte do editor e os números de versão. As verificações de preservação e o limite de 60 segundos não foram retirados nem aumentados.",
+    "Os 47 exemplos da demonstração foram repetidos nos dois arquivos do motor. A rodada ampla e os testes de timeout da 2.19.0 permanecem como histórico. Os casos com timeout não foram executados novamente. Uma falha inicial no bloqueio de resultados do próprio teste de navegador foi preservada no relatório e corrigida no teste, sem mudança no programa."
+  ],
+  "evidence": {
+    "BROWSER_CYCLIC_CONTEXT_CLOSURE.json": "64bfde2f836e1c65e357f9929e6840f7f59dff467c740fb053125f89838992b6",
+    "browser_chrome_cyclic_editor_context.json": "d562c200ad2c28a2742291346cd040569ba6f1864cf2c747a9edd1a5ac6588ea",
+    "browser_firefox_cyclic_editor_context.json": "1c5ba82f21d4b9c6744510f1f845235402ade58408380a2d35a3542ae379197a",
+    "browser_firefox_initial_listener_fixture_failure.json": "c6d059dd4929597bd7e4396c8b6f2f950549bf098f6148a993e1088932478de3",
+    "browser_safari_cyclic_editor_context.json": "c33f11dbaafda685c2138793d039870d8c50d44c34f623e90de3dcfc45a5b96c",
+    "directed_regression.json": "73ee95e67682b3366703aa41f69fa5b56154dd0ff06d0234ecb345664bad4372"
+  }
+}

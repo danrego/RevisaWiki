@@ -2,10 +2,20 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Versão 2.19
+## Correção 2.19.1
+
+Corrige o erro "cyclic object value" ao clicar em Ajustar código. A interface passa a guardar um identificador do editor, sem converter o objeto do editor em JSON. As regras aplicadas ao artigo, a conferência de preservação e o prazo de 60 segundos permanecem iguais.
+
+[Índice para copiar e colar](dist/2.19.1/INICIO.html) · [Pacote ZIP](dist/2.19.1/RevisaWiki_2.19.1.zip) · [Manual](docs/2.19.1/Documentacao_RevisaWiki_v2_19_1.wiki) · [Instalação](docs/2.19.1/Instalacao_RevisaWiki_v2_19_1.txt) · [Testes da correção](docs/2.19.1/Relatorio_testes_RevisaWiki_v2_19_1.txt)
+
+Atualize dados, programa, carregador central e documentação pelo índice desta versão. A chamada fixa do common.js continua igual. Depois de atualizar, recarregue sem cache.
+
+Para reconstruir e conferir esta correção, execute `python3 scripts/build_v2191.py` e `npm run test:hotfix`. A reconstrução parte dos arquivos imutáveis da 2.19.0 e confere que as únicas mudanças no programa são a identificação do editor e a versão. Os resultados amplos da 2.19.0 abaixo continuam como histórico, sem serem contados como uma nova execução nesta correção.
+
+## Recursos da versão 2.19
 
 - Marca como edição menor os ajustes feitos exclusivamente pelo programa em artigos completos, respeitando a escolha manual.
-- Oferece uma [demonstração interativa](dist/2.19.0/Demonstracao_RevisaWiki_v2_19_0.html) com exemplos e comparação do resultado.
+- Oferece uma [demonstração interativa](dist/2.19.1/Demonstracao_RevisaWiki_v2_19_1.html) com exemplos e comparação do resultado.
 - Confere as regras pelo resultado da ação completa, incluindo opções desligadas, exemplos protegidos e entradas semelhantes que precisam ficar intactas.
 - Corrige bloqueios entre a leitura do texto, as etapas de ajuste e as provas de preservação.
 - Reorganiza títulos redundantes de notas e referências, mantendo grupos, listas, definições e a posição das citações.
@@ -20,7 +30,7 @@ Os adaptadores atendem ao editor clássico, às integrações reconhecidas de Co
 
 ## Instalação
 
-[Pacote completo](dist/2.19.0/RevisaWiki_2.19.0.zip) · [Índice para copiar](dist/2.19.0/INICIO.html) · [Instruções](docs/2.19.0/Instalacao_RevisaWiki_v2_19_0.txt) · [Manual](docs/2.19.0/Documentacao_RevisaWiki_v2_19_0.wiki) · [Histórico resumido](docs/2.19.0/Notas_da_versao_RevisaWiki_v2_19_0.txt) · [Testes](docs/2.19.0/Relatorio_testes_RevisaWiki_v2_19_0.txt)
+[Pacote completo](dist/2.19.1/RevisaWiki_2.19.1.zip) · [Índice para copiar](dist/2.19.1/INICIO.html) · [Instruções](docs/2.19.1/Instalacao_RevisaWiki_v2_19_1.txt) · [Manual](docs/2.19.1/Documentacao_RevisaWiki_v2_19_1.wiki) · [Histórico resumido](docs/2.19.1/Notas_da_versao_RevisaWiki_v2_19_1.txt) · [Testes](docs/2.19.1/Relatorio_testes_RevisaWiki_v2_19_1.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -32,19 +42,18 @@ A análise em processamento separado tem limite de 60 segundos, que pode ser ati
 
 ## Código e verificações
 
-A reconstrução parte dos sete arquivos da distribuição 2.18.0, conferidos por SHA-256, e aplica os módulos de `src/v2_19`. As versões arquivadas ficam intactas.
+A reconstrução da correção parte dos sete arquivos da 2.19.0, conferidos por SHA-256, e aplica o auxiliar de `src/v2_19_1`. Uma conferência por reversão exata limita as mudanças à identificação do editor e à versão. As distribuições anteriores ficam intactas.
 
 Para reconstruir o código e executar os testes, use Python 3, Node.js 24 ou superior e npm 10 ou superior. Na pasta do repositório:
 
 ```sh
 npm ci
-python3 scripts/build_v2190.py
-npm test
-npm run test:documentation -- --output artifacts/documentation/audit_v2190.json
+python3 scripts/build_v2191.py
+npm run test:hotfix
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v219/README.md) distingue os casos dirigidos, a matriz dos catálogos, as revisões reais, o histórico e os testes de navegador. Os [resultados da versão](docs/2.19.0/Relatorio_testes_RevisaWiki_v2_19_0.txt) trazem as contagens concluídas, os hashes executados e os limites de cada prova. Artigos distintos, situações sintéticas, execuções repetidas e verificações têm denominadores próprios. Nenhum teste salva edições na Wikipédia.
+O [guia dos testes](tests/v219/README.md) distingue os casos dirigidos, a matriz dos catálogos, as revisões reais, o histórico e os testes de navegador. Os [resultados da versão](docs/2.19.1/Relatorio_testes_RevisaWiki_v2_19_1.txt) trazem as contagens concluídas, os hashes executados e os limites de cada prova. Artigos distintos, situações sintéticas, execuções repetidas e verificações têm denominadores próprios. Nenhum teste salva edições na Wikipédia.
 
 Os resultados públicos trazem totais, hashes e resumos dos testes. As capturas completas, os perfis de navegador e os arquivos temporários ficam locais. A matriz das regras inclui exemplos fictícios e trechos públicos de provas nativas, com a revisão de origem indicada. As contagens de navegador vêm das execuções registradas.
 
