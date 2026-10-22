@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "version": "2.20.0",
+  "scope": "Infocaixas, biografias, imagens, sites e portais. Provas locais separadas de consultas reais da interface.",
+  "proposalCount": 17,
+  "proposals": [
+    {
+      "proposalId": "portal-company-profiles",
+      "label": "Portais de empresas",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Empresa",
+        "Info/Empresa/Wikidata"
+      ],
+      "nativeRevisionPins": [
+        71838243,
+        60995866,
+        65747509
+      ],
+      "conditions": [
+        "Infocaixa principal única e título nativo exato.",
+        "Sem identificação alternativa preenchida.",
+        "Rodapé aceito pelo emissor de portais existente.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não inferir empresa a partir de uma menção no texto.",
+        "Rodapés sem papel confirmado permanecem intactos."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-astronomy-profiles",
+      "label": "Portais de astronomia",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Starbox begin",
+        "Starbox end"
+      ],
+      "nativeRevisionPins": [
+        64814254,
+        64814565,
+        65702628
+      ],
+      "conditions": [
+        "Uma cadeia estelar completa antes da primeira seção.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não completar cadeias truncadas nem inferir a partir de nomes parecidos."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-food-evidence",
+      "label": "Portal de alimentos",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Categoria:Méis"
+      ],
+      "nativeRevisionPins": [
+        65701278
+      ],
+      "conditions": [
+        "Categoria literal exata, fora de regiões protegidas.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto.",
+        "Categoria literal fora de chamadas, refs, exemplos, atributos HTML, ligações envolventes e marcadores de transclusão."
+      ],
+      "limits": [
+        "Não deduzir toxicologia, medicina ou outro tema a partir do alimento."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs",
+        "bio_category_owners.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-games-profiles",
+      "label": "Portais de jogos",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Jogo de cartas",
+        "Info/Jogo de tabuleiro",
+        "Info/Jogo eletrônico"
+      ],
+      "nativeRevisionPins": [
+        72592947,
+        70219964,
+        71674829,
+        65724535
+      ],
+      "conditions": [
+        "Contrato nativo da infocaixa principal confirmado.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não classificar jogos a partir de palavras soltas."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-tv-episode-profiles",
+      "label": "Portais de episódios de televisão",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Episódios de The Simpsons"
+      ],
+      "nativeRevisionPins": [
+        70297231,
+        65724310,
+        65693090
+      ],
+      "conditions": [
+        "Caixa especializada de episódio usada como caixa principal.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não classificar pessoas ou filmes como episódios."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-other-native-profiles",
+      "label": "Outros perfis temáticos nativos",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Parque de diversão",
+        "Info/Assentamento/Marrocos",
+        "Info/Unidade militar",
+        "Info/Unidade Militar",
+        "Info/Alimento",
+        "Info/Bebida",
+        "Info/Astro"
+      ],
+      "nativeRevisionPins": [
+        72545653,
+        73167661,
+        72222144,
+        72222145,
+        70222026,
+        70483898,
+        72564132
+      ],
+      "conditions": [
+        "Perfil exato, argumentos sem duplicação e sem subcaixa ativa.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não tratar aliases não confirmados como equivalentes.",
+        "Chamadas posicionais mantêm a numeração nativa."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-wikidata-bound-profiles",
+      "label": "Biografias e perfis ligados ao Wikidata",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Biografia/Wikidata",
+        "Info/Filme/Wikidata",
+        "Info",
+        "Infocaixa"
+      ],
+      "nativeRevisionPins": [
+        72589307,
+        62803917,
+        73035397,
+        68930785,
+        67101661
+      ],
+      "conditions": [
+        "Para caixas genéricas, prova da fonte e do título exatos, namespace principal, entidade com sitelink ptwiki e P31=Q5 ativo sem qualificadores.",
+        "Caixas Wikidata especializadas não podem ter identificador alternativo preenchido.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Sem prova ou com prova antiga, caixa genérica permanece intacta.",
+        "P31 de entidade diferente não confirma uma pessoa."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_ui_preflight.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-explicit-birth-country",
+      "label": "País de nascimento explícito",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Biografia",
+        "Info/Cientista",
+        "Info/Ator",
+        "Info/Político",
+        "Info/Futebolista"
+      ],
+      "nativeRevisionPins": [
+        73243370,
+        72882232,
+        72931974,
+        70095373
+      ],
+      "conditions": [
+        "País literal reconhecido no campo de nascimento.",
+        "Campos preenchidos precisam apontar ao mesmo país.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não inferir país pela cidade.",
+        "Não substituir nacionalidade nem acrescentar Brasil quando um portal estadual já o cobre."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-explicit-lead-profession",
+      "label": "Profissão explícita na abertura",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Biografia",
+        "Info/Cientista"
+      ],
+      "nativeRevisionPins": [
+        73243370,
+        55468951,
+        66560579
+      ],
+      "conditions": [
+        "Abertura afirmativa direta com profissão de engenharia ligada.",
+        "Nome da abertura corresponde ao título do artigo.",
+        "O rótulo da ligação, quando existe, também é uma profissão de engenharia da lista finita.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Menções a outra pessoa, negação e predicados diferentes não confirmam engenharia."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "portal-call-cleanup",
+      "label": "Chamadas de portal redundantes",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Portal3",
+        "Portal3/Portais"
+      ],
+      "nativeRevisionPins": [
+        71097872,
+        73240747
+      ],
+      "conditions": [
+        "Equivalência de aliases confirmada pela seleção nativa.",
+        "Chamadas adjacentes podem perder apenas a chamada cujos temas já estão na próxima.",
+        "Fronteira estrutural completa do rodapé, sem inserir ou limpar portais na cauda de um dono aberto."
+      ],
+      "limits": [
+        "Não reformatar uma chamada válida apenas por grafia ou numeração.",
+        "Parâmetros desconhecidos e temas ambíguos permanecem intactos."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_footer_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "occupation-finite-case",
+      "label": "Início de ocupações compostas",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Biografia",
+        "Info/Cientista",
+        "Info/Escritor",
+        "Info/Ator",
+        "Info/Político",
+        "Info/Música/artista"
+      ],
+      "nativeRevisionPins": [
+        73243370,
+        55468951,
+        46988224,
+        72882232,
+        72931974,
+        73044750
+      ],
+      "conditions": [
+        "Vocabulário finito, início de campo e ligação com alvo compatível.",
+        "Caixa musical precisa ter fundo de artista solo explícito."
+      ],
+      "limits": [
+        "Não converter siglas, nomes próprios ou palavras no meio da expressão.",
+        "Conflitos de campos e bandas são preservados."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs"
+      ]
+    },
+    {
+      "proposalId": "partial-personal-date-composition",
+      "label": "Mês e ano de nascimento parciais",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Dni"
+      ],
+      "nativeRevisionPins": [
+        69218531
+      ],
+      "conditions": [
+        "Mês português literal seguido de Dni com dia e mês vazios e ano válido."
+      ],
+      "limits": [
+        "Não completar dia nem trocar a indicação de idade.",
+        "Datas completas, conflitantes e dinâmicas permanecem intactas."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs"
+      ]
+    },
+    {
+      "proposalId": "infobox-native-field-contracts",
+      "label": "Campos importados com destino nativo",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Biografia",
+        "Info/Cientista",
+        "Info/Escritor",
+        "Info/Político",
+        "Info/Evento de MMA"
+      ],
+      "nativeRevisionPins": [
+        73243370,
+        55468951,
+        46988224,
+        72931974,
+        72398430
+      ],
+      "conditions": [
+        "Equivalência única do leitor e do campo de destino.",
+        "Nenhum destino equivalente preenchido."
+      ],
+      "limits": [
+        "Sem exclusão de valores desconhecidos.",
+        "Influências, estado civil e nacionalidade não recebem equivalência presumida."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs"
+      ]
+    },
+    {
+      "proposalId": "named-animal-image-fields",
+      "label": "Imagem completa em infocaixas verificadas",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Cavalo nomeado",
+        "Info/Animal",
+        "Info/Empresa",
+        "Info/Organização",
+        "Info/Sítio",
+        "Info/Website"
+      ],
+      "nativeRevisionPins": [
+        52347944,
+        70252182,
+        71838243,
+        71071937,
+        71891649,
+        49199122,
+        73035397
+      ],
+      "conditions": [
+        "Uma chamada completa de arquivo, legenda e tamanho com destinos nativos livres ou iguais.",
+        "Dimensão literal explícita na própria imagem e campos externos de tamanho compatíveis, sem ativar dimensões antes ignoradas ou defaults de outro ramo nativo."
+      ],
+      "limits": [
+        "Sem descarte de alt, link, upright ou outras opções sem destino.",
+        "Não usar animal como prova de pessoa.",
+        "Opção incorreta isolada não vira legenda.",
+        "Uma dimensão ausente, opaca, malformada ou conflitante mantém a chamada de imagem. As etapas herdadas de separação e ALT seguem o mesmo veto, com os demais ajustes independentes disponíveis."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_image_consumers.cjs"
+      ]
+    },
+    {
+      "proposalId": "image-finite-option-typos",
+      "label": "Erros finitos de opções de imagem",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Configuração de opções de imagem da ptwiki"
+      ],
+      "nativeRevisionPins": [],
+      "conditions": [
+        "semmdolura só muda com uma única opção nativa frameless/semmoldura/semborda já ativa, legenda literal final e nenhuma moldura concorrente.",
+        "widthNpx exige indicação única de1a500px, legenda literal final, nenhuma dimensão nativa concorrente, outro width ou família upright.",
+        "O contexto sintático precisa confirmar que a imagem não está dentro de um cabeçalho/atributoHTML ou exemplo opaco.",
+        "Corpos HTML e células completas continuam disponíveis sob essas mesmas condições."
+      ],
+      "limits": [
+        "Não introduzir formato sem moldura a partir de um aparente tamanho, nem mudar a legenda ativa.",
+        "Dimensões zero, enormes, concorrentes ou ausentes não autorizam adicionar um frame.",
+        "Não reaproveitar leadImageProof para uma chamada que seu leitor não aceita.",
+        "Expectativas genéricas anteriores de2.20 foram retiradas por contraprova nativa, com fontes e recibos históricos preservados."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_media_option_boundary.cjs"
+      ]
+    },
+    {
+      "proposalId": "image-foreign-option-contracts",
+      "label": "Token estrangeiro de imagem ignorado",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Configuração de opções de imagem da ptwiki"
+      ],
+      "nativeRevisionPins": [],
+      "conditions": [
+        "Token vertical anterior à legenda ativa posterior."
+      ],
+      "limits": [
+        "Nunca converter vertical em upright.",
+        "Legenda final vertical permanece intacta."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs"
+      ]
+    },
+    {
+      "proposalId": "r2-website-values-native-consumer-contracts",
+      "label": "Sites conforme o leitor nativo",
+      "status": "implemented-with-finite-guards",
+      "profiles": [
+        "Info/Empresa",
+        "Info/Organização",
+        "Info/Biografia",
+        "Info/Ator",
+        "Info/Político",
+        "Info/Futebolista",
+        "Info/Música/artista",
+        "Info/Sítio",
+        "Info/Website",
+        "Info/Aeroporto",
+        "URL"
+      ],
+      "nativeRevisionPins": [
+        71838243,
+        71071937,
+        73243370,
+        72882232,
+        72931974,
+        70095373,
+        73044750,
+        71891649,
+        49199122,
+        71844736,
+        72135033,
+        49448117
+      ],
+      "conditions": [
+        "Papel do campo confirmado por perfil.",
+        "Host sem protocolo só usa endereço oficial explícito único já presente na mesma fonte.",
+        "Argumento posicional de URL com = recebe numeração apenas sem conflitos.",
+        "A ligação oficial de prova está fora de chamadas, refs, exemplos, atributos HTML, ligações envolventes e marcadores de transclusão."
+      ],
+      "limits": [
+        "Não forçar HTTPS, eliminar rótulos ou alterar query e fragmento.",
+        "Preservar consumidores de URL crua, sentinelas, múltiplas ligações e conteúdo dinâmico.",
+        "website em citação pode ser título de publicação, não endereço."
+      ],
+      "suites": [
+        "bio_contracts.cjs",
+        "bio_generated.cjs",
+        "bio_whole_actions.cjs",
+        "bio_website_owners.cjs"
+      ]
+    }
+  ],
+  "addendum": {
+    "status": "conditional-call-migration",
+    "field": "instituições",
+    "target": "instituicao_trabalho",
+    "profile": "Info/Cientista",
+    "nativeRevisionPins": [
+      55468951,
+      73243370
+    ],
+    "conditions": [
+      "Campo científico preenchido.",
+      "Nenhum de instituicao_trabalho, instituicoes_trabalho ou local_trabalho preenchido.",
+      "Nome literal e ligações preservados."
+    ],
+    "unchanged": [
+      "influenciado",
+      "influências",
+      "influenciados",
+      "companheiro",
+      "companheira",
+      "sepultamento",
+      "enterro",
+      "enterro_local"
+    ],
+    "upstreamGaps": "Campos de influência e repasse de certas caixas dependem de correção das predefinições nativas."
+  },
+  "nativeImageConfigurationSha256": "e6b9ff41808090cc84a28dc38ea573cfe0eaaf3760860311afee41cbefd95bfc",
+  "results": {
+    "focusedAssertionsPerDistribution": 1710,
+    "generatedAssertionsPerDistribution": 3758,
+    "wholeActionCasesPerDistribution": 40,
+    "wholeActionAssertionsPerDistribution": 133,
+    "distributions": [
+      "complete",
+      "modular"
+    ],
+    "privateReplay": {
+      "fragmentCases": 642,
+      "fragmentProofOrIdempotenceFailures": 0,
+      "wholeHistoricalCases": 64,
+      "accepted": 64,
+      "integrityRefusals": 0,
+      "runtimeErrors": 0,
+      "historicalRuntimeSha256": "9822bf7f7820c0021b30979fb1601ef0eb50684cf66d8c10faddb0e2b453bd4d",
+      "finalQualifiedCandidate": "candidate_14",
+      "finalQualifiedCasesPerDistribution": 64,
+      "finalQualifiedAcceptedPerDistribution": 64,
+      "finalQualifiedIntegrityRefusalsPerDistribution": 0,
+      "finalQualifiedRuntimeErrorsPerDistribution": 0,
+      "finalQualifiedRuntimeSha256": {
+        "complete": "d9e91bbeef93eca78c76a8476470a59c6e168e41f56b58b4644c879a9518b764",
+        "modular": "9bae7554590025b956101ffb6fdfcff420f77b55b38d79babb41afc80dd4a1be"
+      },
+      "qualificationHistory": [
+        {
+          "candidate": "candidate_10",
+          "casesPerDistribution": 64,
+          "acceptedPerDistribution": 64,
+          "runtimeSha256": {
+            "complete": "ae96bdac50c9bb20130b63c6889455bf7ff5a68042152cf7716857c9ef329d12",
+            "modular": "f965da88931998442c95ba98d4d7bc8acb1e570a1ce44d5f5bce6f5064b9989a"
+          }
+        },
+        {
+          "candidate": "candidate_13",
+          "casesPerDistribution": 64,
+          "acceptedPerDistribution": 64,
+          "runtimeSha256": {
+            "complete": "95617a1945639b5555b401680a8ab8cf5013e47e3d3b428533332a46e1bf833c",
+            "modular": "30994a3fb6a97aa2e946834d29c7285affd8844c4b0c926c6bcad4d9c5e35fb2"
+          }
+        }
+      ]
+    },
+    "note": "Os recibos históricos e seus hashes permanecem separados. A qualificação funcional atual usa o candidato17 congelado nos dois artefatos, com os hashes das fontes de teste conferidos antes e depois da execução. A interface e o conjunto privado de64casos ainda identificam sua qualificação histórica no candidato14, sem afirmar repetição desses testes no candidato17. A contagem desconhecida continua sem precisão inventada.",
+    "wholeActionCampaignCasesPerDistribution": 171,
+    "wholeActionCampaignAssertionsPerDistribution": 513,
+    "uiFlowsPerBrowser": 22,
+    "uiAssertionsPerBrowser": 242,
+    "uiBrowsers": [
+      "Chrome",
+      "Firefox",
+      "Safari"
+    ],
+    "uiReceipt": "bio_ui_results_candidate14.json",
+    "candidateQualification": "bio_results_candidate17.json",
+    "wholeActionCountingCasesPerDistribution": 13,
+    "wholeActionCountingAssertionsPerDistribution": 129,
+    "totalAssertionsPerDistribution": 8041,
+    "countingSuite": "bio_counts.cjs",
+    "countingLimit": "The inherited diff presentation may keep count:null/exact:false when image extraction crosses an existing field boundary. It displays no exact number and does not add numeric precision to the edit summary.",
+    "wholeActionFooterBoundaryCasesPerDistribution": 39,
+    "wholeActionFooterBoundaryAssertionsPerDistribution": 356,
+    "wholeActionWebsiteOwnerCasesPerDistribution": 18,
+    "wholeActionWebsiteOwnerAssertionsPerDistribution": 90,
+    "wholeActionCategoryOwnerCasesPerDistribution": 16,
+    "wholeActionCategoryOwnerAssertionsPerDistribution": 80,
+    "uiQualifiedCandidate": "candidate_14",
+    "sourceQualifiedCandidate": "candidate_17",
+    "sourceQualificationHistory": [
+      {
+        "candidateQualification": "bio_results_candidate14.json",
+        "sourceQualifiedCandidate": "candidate_14",
+        "totalAssertionsPerDistribution": 6769
+      }
+    ],
+    "wholeActionComposedCitationCountCasesPerDistribution": 16,
+    "wholeActionComposedCitationCountAssertionsPerDistribution": 91,
+    "wholeActionNativeImageConsumerCasesPerDistribution": 301,
+    "wholeActionNativeImageConsumerAssertionsPerDistribution": 1181,
+    "composedCitationCountingSuite": "bio_citation_count.cjs",
+    "nativeImageConsumerSuite": "bio_image_consumers.cjs",
+    "sourceIntegrityBeforeAndAfter": true,
+    "uiPendingCandidate": "candidate_17",
+    "pendingBoundaryQualification": {
+      "candidate": "candidate_18",
+      "reason": "Retirada de migrações de frame não comprovadas, conflitos de dimensão/upright e confirmação estrita de rótulo oficial. Os resultados17 permanecem históricos.",
+      "newSuites": [
+        "bio_media_option_boundary.cjs",
+        "bio_official_label_cases.cjs"
+      ],
+      "status": "awaiting-frozen-runtime-execution"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": "2.20.0",
+  "kind": "source-bound-crosscutting-contracts",
+  "scope": "These two decisions support the other repair families. They are not two additional content-writing rules.",
+  "cards": [
+    {
+      "id": "preservation-gate-correctness",
+      "entryPoints": ["v220RepairPlan", "v220RepairProof", "preservationAudit", "safeComposition", "v220LegacyTablePrerequisitePlan"],
+      "suites": ["tests/v220/integration_cases.cjs", "tests/v220/citation_hidden_attribute_cases.cjs", "tests/v220/ui_transport_cases.cjs", "tests/v220/browser/ui_release.cjs"],
+      "conditions": ["Repair permissions are recomputed from the exact source and options.", "An inherited table prerequisite must pass both original guards before it can unlock another declared repair.", "All original preservation and composition obligations continue to inspect the declared source endpoint."],
+      "limits": ["A finite source plan does not make every arbitrary target edit safe.", "Known timeouts, safe refusals and independent ambiguous results remain separately recorded.", "No finding category is globally discarded to make an action pass."]
+    },
+    {
+      "id": "native-reader-boundary",
+      "entryPoints": ["v220CitationCall", "v220CitationDefinitionInventory", "v220BiographyPlan", "v220StructurePlan", "v220PrepareHeadingReferences", "v220PrepareHumanIdentity"],
+      "suites": ["tests/v220/citation_cases.cjs", "tests/v220/citation_heading_cases.cjs", "tests/v220/bio_contracts.cjs", "tests/v220/bio_website_owners.cjs", "tests/v220/bio_category_owners.cjs", "tests/v220/structure_native.cjs", "tests/v220/ui_transport_cases.cjs"],
+      "conditions": ["Each finite migration identifies the native field consumer and its pinned source contract.", "Unknown or ignored enclosing fields cannot supply evidence for a new website or category-based portal repair.", "A native heading proof and a human-identity proof must survive the actual Worker transport, bound to the original source."],
+      "limits": ["Similar parameter names alone do not establish equivalence.", "An offline demonstration does not perform live identity or paired native-rendering queries.", "Opaque expansion and conflicting bindings remain protected rather than guessed."]
+    }
+  ],
+  "wikipediaWrites": 0
+}

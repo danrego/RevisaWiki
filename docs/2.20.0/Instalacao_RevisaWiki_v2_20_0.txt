@@ -1,0 +1,71 @@
+RevisaWiki 2.20.0: instalação
+Programa, dados e carregador: 2.20.0
+
+Abra INICIO.html. Cada cartão permite copiar o arquivo inteiro, o destino e o resumo da edição. O índice também oferece a documentação, a demonstração e os downloads. Ele não instala nem publica nada automaticamente.
+
+Código e versões: https://github.com/danrego/RevisaWiki
+Arquivos desta versão: dist/2.20.0
+
+ATUALIZAR A DISTRIBUIÇÃO COMPARTILHADA
+
+Siga esta ordem:
+
+1. Copie RevisaWiki_v2_20_0_dados.js para Usuário:Daniel G Rego/RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_20_0.js para Usuário:Daniel G Rego/RevisaWiki.js.
+3. Copie Carregador_comunitario_RevisaWiki_v2_20_0.js para Usuário:Daniel G Rego/RevisaWiki/Carregador.js.
+4. Copie Documentacao_RevisaWiki_v2_20_0.wiki para Usuário:Daniel G Rego/RevisaWiki.
+
+Substitua o conteúdo completo dessas páginas pelos arquivos correspondentes. Programa, dados e carregador precisam ser da mesma versão. O carregador central deve esperar 2.20.0.
+
+Se já usa Chamada_fixa_RevisaWiki_common.js no common.js, mantenha esse bloco. Ele é idêntico ao da versão 2.19.1. Não é necessário trocar a chamada a cada atualização.
+
+Depois da atualização, recarregue sem cache e abra Editar código-fonte. O painel deve mostrar PTwiki 2.20.0. Confira também a versão em Sobre e diagnóstico.
+
+INSTALAR A DISTRIBUIÇÃO COMPARTILHADA PELA PRIMEIRA VEZ
+
+Acrescente o conteúdo de Chamada_fixa_RevisaWiki_common.js ao seu common.js. A chamada curta abre o carregador central e usa as páginas compartilhadas do programa e dos dados. Você não precisa copiar esses arquivos para a sua conta.
+
+Mantenha apenas uma chamada do RevisaWiki. Se usava um carregador antigo inteiro no common.js, substitua somente o bloco desse programa. Preserve os demais scripts.
+
+MANTER UMA CÓPIA PRÓPRIA
+
+1. Copie RevisaWiki_v2_20_0_dados.js para a sua página RevisaWiki/Dados.js.
+2. Copie RevisaWiki_v2_20_0.js para a sua página RevisaWiki.js.
+3. Copie Carregador_common_js_RevisaWiki_v2_20_0.js para a sua página RevisaWiki/Carregador.js. Esse carregador usa a conta conectada para encontrar os arquivos.
+4. Na primeira instalação, acrescente Chamada_fixa_RevisaWiki_copia_propria.js ao common.js. Se já usa essa chamada fixa, mantenha-a.
+
+Escolha uma das instalações. Não carregue a distribuição compartilhada e a cópia própria ao mesmo tempo. Nas atualizações, substitua seus dados, programa e carregador nessa ordem e mantenha a chamada curta. Se usar nomes diferentes para as páginas, ajuste os destinos correspondentes.
+
+USAR O ÍNDICE
+
+Os quatro cartões principais correspondem à atualização da distribuição compartilhada. A seção Primeira instalação contém a chamada curta. A seção Cópia própria oferece o carregador e a chamada destinados aos arquivos da conta conectada.
+
+Copiar conteúdo coloca o arquivo completo na área de transferência. Copiar resumo e Copiar destino copiam apenas esses campos. Ver conteúdo abre o texto para conferência ou cópia manual. Os links externos apenas abrem páginas e não salvam uma edição.
+
+O arquivo RevisaWiki_v2_20_0_completo.js reúne programa e dados para uso local e testes. Ele ultrapassa 2 MiB e não deve ser colado numa página .js da Wikipédia. Use os arquivos separados de programa e dados, que são conferidos individualmente contra esse limite.
+
+CONFERIR O FUNCIONAMENTO
+
+No editor clássico e nas integrações reconhecidas de CodeMirror, Ajustar código aparece no painel e ao lado dos controles de publicação. No editor de código-fonte de 2017, use o botão do painel superior. Os botões do programa usam o mesmo verde azulado.
+
+O ajuste fica no rascunho. Desfazer ajustes recupera o texto anterior. Mostrar alterações usa a comparação do editor quando ela está disponível. A publicação continua nos controles da Wikipédia.
+
+O limite de análise é de 60 segundos. Se esse tempo acabar, o resultado não deve substituir o rascunho e a edição pode continuar. Artigos excepcionalmente grandes podem atingir esse limite. Os detalhes e os resultados da validação estão no relatório desta versão.
+
+A demonstração funciona com exemplos fixos e o mesmo arquivo do motor distribuído. Ela inclui correções e casos que devem permanecer intactos. Os exemplos offline não fazem as consultas necessárias para confirmar todos os portais, destinos, renderizações e dados externos de um artigo real.
+
+SE O PAINEL NÃO APARECER
+
+Confira se os arquivos foram copiados por inteiro, sem cercas de Markdown, e se há apenas uma chamada do RevisaWiki no common.js. Verifique o destino e a versão das três partes da instalação.
+
+No Firefox e no Chrome para Mac, faça uma recarga completa com Command + Shift + R. No Safari, use Option + Command + R. Fechar o navegador normalmente não é necessário.
+
+A chamada curta usa uma chave de cache por intervalo de cinco minutos ao abrir ou recarregar uma página. Ela não fica consultando atualizações numa página aberta e não gera edições automáticas.
+
+A mensagem de tamanho que cita 102400 bytes pode ser emitida pelo realce de sintaxe ao exibir um arquivo grande. Use Ver código bruto para conferir o conteúdo sem esse realce. Um erro de sintaxe ou uma recusa ao salvar precisa ser investigado separadamente do limite de 2 MiB por página.
+
+CONSULTAS E PUBLICAÇÃO
+
+O cálculo das alterações ocorre no navegador. A pré-visualização pode enviar o rascunho para processamento pela Wikipédia sem salvar uma edição. A confirmação de destinos, portais, DOI, categorias e dados biográficos pode fazer consultas públicas, conforme explicado na documentação.
+
+Confira a comparação e a pré-visualização antes de publicar. Leia o texto de Copiar diagnóstico antes de compartilhá-lo. O pacote, o índice e a demonstração não publicam na Wikipédia.

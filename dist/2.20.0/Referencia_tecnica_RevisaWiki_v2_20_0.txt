@@ -1,0 +1,58 @@
+RevisaWiki 2.20.0: referência técnica
+
+Com 2.014.958 bytes no núcleo e 1.899.078 bytes nos dados, a instalação separa o programa em duas partes que ficam abaixo de 2 MiB cada uma. O arquivo completo tem 4.286.732 bytes e serve para download, demonstração e testes locais. Ele não deve ser colado numa página .js da Wikipédia.
+
+Os planos de reparo ficam ligados ao texto e às opções de origem. As verificações de preservação e composição continuam ativas antes da aplicação. Uma prova de outro texto, título ou contexto não autoriza alterar o rascunho atual. As regras novas não apagam um parâmetro apenas para suprimir um aviso.
+
+As confirmações que dependem da renderização nativa usam os textos exatos comparados. Um exemplo offline não substitui essas consultas. Campos cujo leitor nativo não oferece destino equivalente permanecem intactos, incluindo relações de influência e outros dados que não podem ser deduzidos por semelhança de nomes.
+
+Os campos nativos de sepultamento são preservados. A versão não modifica predefinições da Wikipédia para criar novos parâmetros. As propostas de mudança nas predefinições continuam separadas dos reparos locais.
+
+O prazo do processamento separado é de 60.000 milissegundos. Ao atingi-lo, o resultado não deve substituir o rascunho. O limite conhecido em fontes excepcionalmente grandes continua documentado. Os resultados históricos, recusas e timeouts mantêm seus próprios registros e não são transformados em aprovações desta versão.
+
+As novas conversões de center, font e big não foram liberadas. Testes de apresentação encontraram casos em que o CSS muda a equivalência aparente do código. As contraprovas ficam preservadas na validação.
+
+As chamadas fixas do common.js permanecem idênticas às da 2.19.1. O carregador central espera 2.20.0, e programa e dados precisam declarar essa mesma versão. A identificação do editor evita converter seus objetos em JSON e preserva a proteção contra resultados de outro rascunho.
+
+A validação do RevisaWiki 2.20.0 conferiu os resultados completos vinculados ao manifesto desta distribuição e registrou separadamente os timeouts que limitam a análise de alguns textos. A publicação também depende da conferência separada do índice, da renderização do manual e da privacidade e integridade do pacote.
+
+A campanha registrou 41.069 páginas distintas do domínio principal e concluiu as oito chamadas previstas em 41.067 delas. Entre os resultados completos, 40.901 foram aceitos, com 32.105 textos ajustados e 8.796 intactos. As 166 recusas das proteções não contam como reparos. Em 2 tentativas, uma chamada atingiu o prazo real de 60 segundos. Esses timeouts conservam seus registros de falha e ficam fora da contagem de resultados completos. As 71 fontes com timeout histórico permaneceram excluídas. As 2 chamadas registradas nas tentativas com timeout e as 38 chamadas dos trechos interrompidos ficam visíveis, sem crédito de qualificação.
+
+As campanhas de catálogos e biografias percorreram 850.009 descritores, com 846.732 combinações distintas de fonte, opções e resultado esperado. As execuções nos dois arquivos e a segunda aplicação repetem esses contratos.
+
+Nos testes dirigidos, as 24 suítes concluíram 101.932 asserções que misturam planos, provas, ações e funções auxiliares, sem formar uma contagem de artigos ou um total global de situações distintas.
+
+A regressão reúne as 223 suítes aprovadas na rodada congelada e uma derivação executada separadamente, com a falha das expectativas antigas preservada no relatório original e os 104 controles de preservação fora da contagem de reparos.
+
+Em Chrome, Firefox e Safari, os 294 fluxos locais de edição passaram por 4.401 verificações, incluindo seis esperas reais de 60 segundos. O rascunho completo, o resumo e a opção de edição menor permaneceram intactos quando o resultado não pôde ser aplicado, e foi possível continuar digitando e executar outra análise.
+
+A reconstrução em uma árvore isolada gerou os sete arquivos do programa e os oito catálogos exportados com os mesmos bytes da distribuição. As quatro dependências vieram dos endereços do lockfile e tiveram suas integridades conferidas, sem execução de npm ci.
+
+Resultados ambíguos do observador independente continuam identificados como ambíguos, e as conclusões complementares se limitam às fontes e saídas conferidas. A aprovação da entrega fica em comprovantes separados para o índice de instalação, a renderização do manual, a demonstração e a privacidade e integridade do pacote.
+
+ARQUIVOS DO PROGRAMA
+
+Carregador_common_js_RevisaWiki_v2_20_0.js: 9651 bytes
+SHA-256: 06af1894173d7f58efa40302074c4fac12cceda4d54ebf34c9724fd238fc5cc1
+
+Carregador_comunitario_RevisaWiki_v2_20_0.js: 9653 bytes
+SHA-256: adc5cd2c696edd0c9fa5fb023608cae82cffd2c6fbc145894e3e231d4951169b
+
+Chamada_fixa_RevisaWiki_common.js: 695 bytes
+SHA-256: 85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440
+
+Chamada_fixa_RevisaWiki_copia_propria.js: 743 bytes
+SHA-256: 0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0
+
+RevisaWiki_v2_20_0.js: 2014958 bytes
+SHA-256: 4b32f9e6fa2d2dbb6283e418ab18f16047bb7b7ba7dd41ac21ec568232ca99a1
+
+RevisaWiki_v2_20_0_completo.js: 4286732 bytes
+SHA-256: b195a9bb3e47a7cd15ac504a372a96b9aec5ac02ab972b5e674a3f30f643dbe4
+
+RevisaWiki_v2_20_0_dados.js: 1899078 bytes
+SHA-256: 6f6bfa069d01fe2b237c70aebffb3b85a6156a5048878db0c590a9e17eb1ac86
+
+QA_SUMMARY.json, SHA-256: efdfc48dbe06bcc1c0529ad3eab9ac1d070bdf29813982cc5050a22a98fb206d
+
+Os arquivos e os comprovantes públicos estão em https://github.com/danrego/RevisaWiki. A relação de funcionalidades descreve os limites de cada regra. Casos de auxiliares e execuções repetidas ficam separados das contagens de artigos e situações distintas. Testar a distribuição completa e a distribuição em partes não duplica o total de casos.

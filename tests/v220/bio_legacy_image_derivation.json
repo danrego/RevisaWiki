@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "kind": "versioned-test-endpoint-safety-derivation",
+  "declaredAt": "2026-10-21T19:30:00.389758+00:00",
+  "declaredBeforeNewSuiteExecution": true,
+  "runtimeChanged": false,
+  "legacyTestsChanged": false,
+  "nativeCounterproof": {
+    "receiptSha256": "7745da890a11632463bfb8e0d2db5d400fea7c9e02e8e83ea242ebe058dcbfc3",
+    "anonymousReadOnlyRequests": 2,
+    "beforeEffectivePixels": [
+      437,
+      400
+    ],
+    "afterEffectivePixels": [
+      250,
+      229
+    ],
+    "reason": "Removing an image wikilink without an explicit dimension activates the native infobox default. An ALT token alone does not preserve the effective size.",
+    "scope": "Info/Biografia native consumer; no dimension guessing or universal image-geometry claim"
+  },
+  "derivations": [
+    {
+      "sourcePath": "tests/v219/option_action_cases.cjs",
+      "sourceSha256": "e83848fcafdebd54f78a11c0e072c3f6f7eb298154b54b4f517a48a8f21c97a3",
+      "sourceBytes": 29129,
+      "derivedPath": "tests/v220/option_action_cases.cjs",
+      "derivedSha256": "849a5a58d80c4bfe00d8871201194a2f0f0d0a3a46df33985c74a918ea90d0dc",
+      "operations": [
+        {
+          "id": "versioned-default-bundles",
+          "before": "['RevisaWiki_v2_19_0.js','RevisaWiki_v2_19_0_completo.js'].map(value=>path.join(root,'dist/2.19.0',value))",
+          "after": "['RevisaWiki_v2_20_0.js','RevisaWiki_v2_20_0_completo.js'].map(value=>path.join(root,'dist/2.20.0',value))",
+          "occurrences": 1
+        },
+        {
+          "id": "withdraw-unsafe-no-dimension-endpoint",
+          "before": "add('image-fields',['automaticInfoboxImages'],bio('imagem=[[Ficheiro:Retrato fictício.jpg|alt=Uma pessoa]]'),bio('imagem=Retrato fictício.jpg|alt=Uma pessoa'),{...bioOptions,automaticInfoboxImages:true});",
+          "after": "add('image-fields',['automaticInfoboxImages'],bio('imagem=[[Ficheiro:Retrato fictício.jpg|alt=Uma pessoa]]'),bio('imagem=[[Ficheiro:Retrato fictício.jpg|alt=Uma pessoa]]'),{...bioOptions,automaticInfoboxImages:true},{semanticDisposition:'native-image-dimension-preservation'});\nadd('image-fields-explicit-dimension',['automaticInfoboxImages'],bio('imagem=[[Ficheiro:Retrato fictício.jpg|220px|alt=Uma pessoa]]'),bio('imagem=Retrato fictício.jpg|alt=Uma pessoa|imagem_tamanho=220px'),{...bioOptions,automaticInfoboxImages:true});",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation-kind-metadata",
+          "before": "kind:seed.semanticDisposition==='native-wrapper-preservation'?'preservation':'positive'",
+          "after": "kind:['native-wrapper-preservation','native-image-dimension-preservation'].includes(seed.semanticDisposition)?'preservation':'positive'",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation-option-evidence",
+          "before": "report.optionEvidence[gate][seed.semanticDisposition==='native-wrapper-preservation'?'preservationIds':'positiveIds']",
+          "after": "report.optionEvidence[gate][['native-wrapper-preservation','native-image-dimension-preservation'].includes(seed.semanticDisposition)?'preservationIds':'positiveIds']",
+          "occurrences": 1
+        }
+      ],
+      "revokedFixtureId": "image-fields",
+      "replacementPositiveId": "image-fields-explicit-dimension",
+      "originalRawReceiptSha256": "5f410970afd4c5e18a99180aac3803e5789743dd6d274cbc4d9f632de452ba23",
+      "originalRawStatus": "failed-preserved-unchanged"
+    },
+    {
+      "sourcePath": "tests/v219/biography_field_actions.cjs",
+      "sourceSha256": "df3321713e304f128794f968f59fb37ea99a003ecdd69ea1096bd92b448b32db",
+      "sourceBytes": 9542,
+      "derivedPath": "tests/v220/biography_field_actions.cjs",
+      "derivedSha256": "f266454bc21c93ced3a34583e66f3d76df37230a7be398de6a7157f806eb018f",
+      "operations": [
+        {
+          "id": "versioned-default-bundles",
+          "before": "['RevisaWiki_v2_19_0.js','RevisaWiki_v2_19_0_completo.js'].map(name=>path.join(root,'dist/2.19.0',name))",
+          "after": "['RevisaWiki_v2_20_0.js','RevisaWiki_v2_20_0_completo.js'].map(name=>path.join(root,'dist/2.20.0',name))",
+          "occurrences": 1
+        },
+        {
+          "id": "original-native-date-contract-path",
+          "before": "path.join(__dirname,'biography_date_contracts.json')",
+          "after": "path.join(__dirname,'../v219/biography_date_contracts.json')",
+          "occurrences": 1
+        },
+        {
+          "id": "withdraw-unsafe-no-dimension-endpoint",
+          "before": "add('image-without-options',page('|imagem=[[Ficheiro:Retrato fictício.jpg]]'),page('|imagem=Retrato fictício.jpg'));",
+          "after": "add('image-without-options',page('|imagem=[[Ficheiro:Retrato fictício.jpg]]'),page('|imagem=[[Ficheiro:Retrato fictício.jpg]]'));\nfixtures[fixtures.length-1].kind='preservation';\nadd('image-alt-explicit-dimension',page('|imagem=[[Ficheiro:Retrato fictício.jpg|220px|alt=Uma pessoa]]'),page('|imagem=Retrato fictício.jpg|alt=Uma pessoa|imagem_tamanho=220px'),{automaticInfoboxImages:true},['infoboxes','markup','automaticInfoboxImages']);",
+          "occurrences": 1
+        },
+        {
+          "id": "preservation-kind-metadata",
+          "before": "run(fixture,fixture.id+'-positive',fixture.source,fixture.expected,options,'positive');",
+          "after": "run(fixture,fixture.id+'-positive',fixture.source,fixture.expected,options,fixture.kind||'positive');",
+          "occurrences": 1
+        }
+      ],
+      "revokedFixtureId": "image-without-options",
+      "replacementPositiveId": "image-alt-explicit-dimension",
+      "originalRawReceiptSha256": "29ce9bf8fc029c23ea86de40482a576608a853da75ef5e7618cc77e4ed41762e",
+      "originalRawStatus": "failed-preserved-unchanged"
+    }
+  ],
+  "claim": "The withdrawn endpoints remain historical failures. New no-dimension cases are preservation controls, never automatic-repair positives. New explicit220px+ALT cases are separate positives with existing off/protected controls.",
+  "revision": 2,
+  "firstDeclarationSha256": "1a3e927c60f0cdf0573afbbc7285f151cb32898fdcf681c27de5a761baeba8a6",
+  "newPositiveFieldOrderCorrection": {
+    "writerPath": "src/v2_15_1/image_alt.js",
+    "writerSha256": "06ebad3efa7bb0a0146d54e751499864d2ef36d18a4083813a751d901bbf65bc",
+    "orderedDestinationStatement": "if(!dest(['alt'],'alt',parsed.alt)||!dest(contract.size,contract.sizeTarget,parsed.size)||!dest(contract.caption,contract.captionTarget,parsed.caption))return plan;",
+    "emission": "Destination additions are emitted in insertion order. ALT is requested before size.",
+    "oldExpectedFragment": "imagem=Retrato fictício.jpg|imagem_tamanho=220px|alt=Uma pessoa",
+    "newExpectedFragment": "imagem=Retrato fictício.jpg|alt=Uma pessoa|imagem_tamanho=220px",
+    "firstNewRunStatus": "failed-preserved",
+    "scope": "Only the two newly authored explicit-dimension positive expectations are reordered. Source, options and all exact assertions remain unchanged."
+  }
+}

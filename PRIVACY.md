@@ -22,6 +22,8 @@ Two immutable article fixtures contain reviewed public identifiers in bibliograp
 
 An immutable public stylesheet used by the layout tests contains three image-size custom properties that resemble a user namespace. They contain no account name. Their reviewed allowance binds the complete stylesheet hash and each exact declaration. Changes to the stylesheet or an additional account destination still require review.
 
+Two object-property fragments in the reviewed runtime versions can resemble wiki account destinations after whitespace formatting. Each allowance binds that version's complete runtime hash, byte count and both exact fragment hashes. A changed runtime or an added identifier does not qualify. When the same complete runtime is embedded as a JSON string, the standard JSON decoder and the hash of its decoded UTF-8 bytes confirm the exact source before that string is hidden from wiki-identity recognition. Other fields stay visible. Email, secret, local-path and private-denylist checks continue to examine the original text, and archives are still checked member by member.
+
 Current URL-grammar fixtures contain literal dummy user information in reserved documentation or test domains. Approval binds each complete source file and the exact URL hash. It does not exempt other addresses, names, domains or modified files. Separate mutation tests require those changes to be reported.
 
 Two abstract namespace labels in an immutable fictional template-collision fixture are retained because their native basenames are the tested boundary. Approval binds the complete fixture hash and each exact token. Other account names, edited fixture bytes and additional identifiers remain rejected. The fixture does not assert that either label identifies an editor.

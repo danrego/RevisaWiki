@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "pairs": [
+    [
+      "prefix",
+      "\n\nUm texto.\n",
+      "Um texto.\n"
+    ],
+    [
+      "prefix-indent",
+      " \n\n Um bloco preformatado.\n",
+      " Um bloco preformatado.\n"
+    ],
+    [
+      "description-gap",
+      "{{Descrição curta|Tema de controle}}\n\nTexto comum.\n",
+      "{{Descrição curta|Tema de controle}}\nTexto comum.\n"
+    ],
+    [
+      "spelling",
+      "As espectativas cresceram quando o filme estreiou.\n",
+      "As expectativas cresceram quando o filme estreou.\n"
+    ],
+    [
+      "markdown",
+      "O projeto usa **cabos ópticos** no leito.\n",
+      "O projeto usa '''cabos ópticos''' no leito.\n"
+    ],
+    [
+      "external-pipe",
+      "Consulte [https://example.invalid/documento.pdf|Título do documento].\n",
+      "Consulte [https://example.invalid/documento.pdf Título do documento].\n"
+    ],
+    [
+      "external-newline",
+      "Consulte [https://example.invalid/a?x=1\nTítulo do documento].\n",
+      "Consulte [https://example.invalid/a?x=1 Título do documento].\n"
+    ],
+    [
+      "external-protocol",
+      "Consulte [hhttps://example.invalid/ Página oficial].\n",
+      "Consulte [https://example.invalid/ Página oficial].\n"
+    ],
+    [
+      "template-name",
+      "{{Referências;}}\n",
+      "{{Referências}}\n"
+    ],
+    [
+      "portal-name",
+      "{{Portal 3|Empresas|Economia e negócios|Estados Unidos}}\n",
+      "{{Portal3|Empresas|Economia e negócios|Estados Unidos}}\n"
+    ],
+    [
+      "link-closer",
+      "O texto cita [[classe 100] no exemplo.\n",
+      "O texto cita [[classe 100]] no exemplo.\n"
+    ],
+    [
+      "table-scope",
+      "{| class=\"wikitable\"\n! scope=“col” | Nome\n! scope=\"col\" | Valor\n|-\n| Alfa || 1\n|}\n",
+      "{| class=\"wikitable\"\n! scope=\"col\" | Nome\n! scope=\"col\" | Valor\n|-\n| Alfa || 1\n|}\n"
+    ],
+    [
+      "table-label",
+      "{| class=\"wikitable\"\n;Como exemplo\n! Nome !! Valor\n|-\n| Alfa || 1\n|}\n",
+      ";Como exemplo\n{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| Alfa || 1\n|}\n"
+    ],
+    [
+      "table-align-redundant",
+      "{| class=\"wikitable\"\n! Nome !! Valor\n|- style=\"text-align:left;\" align=\"left\"\n| Alfa || 1\n|}\n",
+      "{| class=\"wikitable\"\n! Nome !! Valor\n|- style=\"text-align:left;\"\n| Alfa || 1\n|}\n"
+    ],
+    [
+      "table-formatting",
+      "{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| <small>Alfa\n| 1\n|}\n",
+      "{| class=\"wikitable\"\n! Nome !! Valor\n|-\n| <small>Alfa</small>\n| 1\n|}\n"
+    ],
+    [
+      "coordinate",
+      "{{Coord|1|2|3|N|4|5|6|E|display=title|type=}}\n{{Coord|1|2|3|N|4|5|6|E|display=title|type=edu}}\nTexto.\n",
+      "{{Coord|1|2|3|N|4|5|6|E|display=title|type=edu}}\nTexto.\n"
+    ],
+    [
+      "maintenance",
+      "{{Evento atual}}\n{{Evento atual|tema=manifestação}}\nTexto.\n",
+      "{{Evento atual|tema=manifestação}}\nTexto.\n"
+    ],
+    [
+      "navbox",
+      "Texto.\n\n{{{{Movimento antinuclear}}}}\n[[Categoria:Exemplo]]\n",
+      "Texto.\n\n{{Movimento antinuclear}}\n[[Categoria:Exemplo]]\n"
+    ],
+    [
+      "empty-list",
+      "== Ligações externas ==\n* [https://example.invalid/ Site]\n*\n*\n{{Portal3|Ciência}}\n",
+      "== Ligações externas ==\n* [https://example.invalid/ Site]\n{{Portal3|Ciência}}\n"
+    ],
+    [
+      "gap-inline",
+      "Um texto.<ref>Fonte.</ref>\n\n\nOutro texto.\n",
+      "Um texto.<ref>Fonte.</ref>\n\nOutro texto.\n"
+    ],
+    [
+      "gap-collector",
+      "{{Referências}}\n\n\n== Ligações externas ==\n",
+      "{{Referências}}\n\n== Ligações externas ==\n"
+    ],
+    [
+      "gap-table",
+      "{| class=\"wikitable\"\n| Alfa\n|}\n\n\nOutro texto.\n",
+      "{| class=\"wikitable\"\n| Alfa\n|}\n\nOutro texto.\n"
+    ],
+    [
+      "gap-whitespace",
+      "Um texto.\n\n\t\t\nOutro texto.\n",
+      "Um texto.\n\nOutro texto.\n"
+    ],
+    [
+      "bibliography",
+      "== Bibliografia complementar ==\n* Fonte 0\n* Fonte 1\n* Fonte 2\n* Fonte 3\n* Fonte 4\n* Fonte 5\n",
+      "== Bibliografia complementar ==\n{{Colunas-lista|2|2=\n* Fonte 0\n* Fonte 1\n* Fonte 2\n* Fonte 3\n* Fonte 4\n* Fonte 5\n}}\n"
+    ],
+    [
+      "markdown-italic",
+      "O projeto usa *Floresta Conectada* no título.\n",
+      "O projeto usa ''Floresta Conectada'' no título.\n"
+    ],
+    [
+      "markdown-list",
+      "* **Rede pública e acadêmica:** Tráfego de dados.\n",
+      "* '''Rede pública e acadêmica:''' Tráfego de dados.\n"
+    ],
+    [
+      "description-leading-composition",
+      "\n{{Descrição curta|Tema de controle}}\n\nTexto comum.\n",
+      "{{Descrição curta|Tema de controle}}\nTexto comum.\n"
+    ],
+    [
+      "ordinary-emphasis-leading",
+      " \t\n''Prosa comum em itálico.''\n",
+      "''Prosa comum em itálico.''\n"
+    ],
+    [
+      "table-redundant-row-align",
+      "{| class=\"wikitable\"\n|- style=\"text-align:left;\" align=\"left\"\n| | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|- style=\"text-align:left;\"\n| | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-redundant-row-bgcolor",
+      "{| class=\"wikitable\"\n|- style=\"background-color:red;\" bgcolor=\"red\"\n| | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|- style=\"background-color:red;\"\n| | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-redundant-cell-align",
+      "{| class=\"wikitable\"\n|-\n| style=\"text-align:left;\" align=\"left\" | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|-\n| style=\"text-align:left;\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-redundant-cell-valign",
+      "{| class=\"wikitable\"\n|-\n| style=\"vertical-align:top;\" valign=\"top\" | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|-\n| style=\"vertical-align:top;\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-redundant-cell-width",
+      "{| class=\"wikitable\"\n|-\n| style=\"width:50px;\" width=\"50\" | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|-\n| style=\"width:50px;\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-redundant-cell-bgcolor",
+      "{| class=\"wikitable\"\n|-\n| style=\"background-color:red;\" bgcolor=\"red\" | Alfa\n| Beta\n|}\n",
+      "{| class=\"wikitable\"\n|-\n| style=\"background-color:red;\" | Alfa\n| Beta\n|}\n"
+    ]
+  ],
+  "negatives": [
+    [
+      "literal-Markdown",
+      "Markdown usa **dois asteriscos** no exemplo.\n"
+    ],
+    [
+      "list-marker",
+      "** Item aninhado\n"
+    ],
+    [
+      "quote-spelling",
+      "O texto cita \"espectativas\".\n"
+    ],
+    [
+      "italic-spelling",
+      "O texto usa ''espectativas''.\n"
+    ],
+    [
+      "properlink-spelling",
+      "O texto cita [[espectativas]].\n"
+    ],
+    [
+      "url-pipe-query",
+      "[https://example.invalid/a?x=a|b Título do documento]\n"
+    ],
+    [
+      "url-pipe-oneword",
+      "[https://example.invalid/a.pdf|Comprovante]\n"
+    ],
+    [
+      "multiple-openings",
+      "O texto cita [[classe 100] e [[outra classe].\n"
+    ],
+    [
+      "font-relative",
+      "<font size=\"+1\">Texto</font>\n"
+    ],
+    [
+      "font-transparent",
+      "<font color=\"transparent\">Texto</font>\n"
+    ],
+    [
+      "font-html",
+      "<font color=\"red\"><b>Texto</b></font>\n"
+    ],
+    [
+      "center-table",
+      "<center>{| class=\"wikitable\"\n| Alfa\n|}</center>\n"
+    ],
+    [
+      "coordinate-inline",
+      "{{Coord|1|2|N|3|4|E|display=inline,title}}\n{{Coord|1|2|N|3|4|E|display=title}}\n"
+    ],
+    [
+      "coordinate-conflict",
+      "{{Coord|1|2|N|3|4|E|display=title|type=city}}\n{{Coord|1|2|N|3|4|E|display=title|type=edu}}\n"
+    ],
+    [
+      "indirection",
+      "{{{{#if:1|Primeiro|Segundo}}}}\n"
+    ],
+    [
+      "unknown-navbox",
+      "{{{{Outra navecaixa}}}}\n"
+    ],
+    [
+      "nested-list",
+      "* Item\n*\n** Filho\n"
+    ],
+    [
+      "small-later-closer",
+      "{| class=\"wikitable\"\n| <small>Alfa\n| Beta</small>\n|}\n"
+    ],
+    [
+      "bibliography-short",
+      "== Bibliografia complementar ==\n* Alfa\n* Beta\n"
+    ],
+    [
+      "substantive-fontes",
+      "== Fontes da Informação ==\nTexto substantivo.\n"
+    ],
+    [
+      "markdown-variable",
+      "Uma expressão usa x *A* y.\n"
+    ],
+    [
+      "markdown-lower-phrase",
+      "Uma expressão usa x *valor de y* z.\n"
+    ],
+    [
+      "font-size-range",
+      "<font size=\"8\">Texto</font>\n"
+    ],
+    [
+      "font-size-zero",
+      "<font size=\"0\">Texto</font>\n"
+    ],
+    [
+      "font-size-negative",
+      "<font size=\"-1\">Texto</font>\n"
+    ],
+    [
+      "markdown-exponent",
+      "x **potencia** y\n"
+    ],
+    [
+      "markdown-exponent-adjacent",
+      "x**potencia**y\n"
+    ],
+    [
+      "markdown-exponent-identifier",
+      "base **potencia** expoente\n"
+    ],
+    [
+      "markdown-exponent-assignment",
+      "resultado = base **potencia** expoente\n"
+    ],
+    [
+      "markdown-short-ambiguous",
+      "As **ideias** crescem.\n"
+    ],
+    [
+      "whole-emphasized-code-2",
+      " \t\r\n''{{Citar web|titulo=Documento um|pág=2}}\n{{Citar web|titulo=Documento dois|pág=3}}'' \t\r\n"
+    ],
+    [
+      "whole-emphasized-code-3",
+      " \t\r\n'''{{Citar web|titulo=Documento um|pág=2}}\n{{Citar web|titulo=Documento dois|pág=3}}''' \t\r\n"
+    ],
+    [
+      "whole-emphasized-code-5",
+      " \t\r\n'''''{{Citar web|titulo=Documento um|pág=2}}\n{{Citar web|titulo=Documento dois|pág=3}}''''' \t\r\n"
+    ],
+    [
+      "table-align-block-row-center-div",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"center\"\n| | <div style=\"width:40px;\">Alfa</div>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-center-thumb",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"center\"\n| | [[Ficheiro:Exemplo.svg|miniatura|Legenda]]\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-center-display-span",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"center\"\n| | <span style=\"display:block;width:40px;\">Alfa</span>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-center-list",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"center\"\n| | * Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-center-toc",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"center\"\n| | __TOC__\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-right-div",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"right\"\n| | <div style=\"width:40px;\">Alfa</div>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-right-thumb",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"right\"\n| | [[Ficheiro:Exemplo.svg|miniatura|Legenda]]\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-right-display-span",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"right\"\n| | <span style=\"display:block;width:40px;\">Alfa</span>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-right-list",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"right\"\n| | * Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-row-right-toc",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|- align=\"right\"\n| | __TOC__\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-center-div",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"center\" | <div style=\"width:40px;\">Alfa</div>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-center-thumb",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"center\" | [[Ficheiro:Exemplo.svg|miniatura|Legenda]]\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-center-display-span",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"center\" | <span style=\"display:block;width:40px;\">Alfa</span>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-center-list",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"center\" | * Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-center-toc",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"center\" | __TOC__\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-right-div",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"right\" | <div style=\"width:40px;\">Alfa</div>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-right-thumb",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"right\" | [[Ficheiro:Exemplo.svg|miniatura|Legenda]]\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-right-display-span",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"right\" | <span style=\"display:block;width:40px;\">Alfa</span>\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-right-list",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"right\" | * Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-align-block-cell-right-toc",
+      "{| class=\"wikitable\" style=\"width:100%;\"\n|-\n| align=\"right\" | __TOC__\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-row-align",
+      "{| class=\"wikitable\"\n|- align=\"left\"\n| | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-row-bgcolor",
+      "{| class=\"wikitable\"\n|- bgcolor=\"red\"\n| | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-cell-align",
+      "{| class=\"wikitable\"\n|-\n| align=\"left\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-cell-valign",
+      "{| class=\"wikitable\"\n|-\n| valign=\"top\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-cell-width",
+      "{| class=\"wikitable\"\n|-\n| width=\"50\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-cascade-cell-bgcolor",
+      "{| class=\"wikitable\"\n|-\n| bgcolor=\"red\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "table-invalid-bgcolor",
+      "{| class=\"wikitable\"\n| style=\"background-color:foo;\" bgcolor=\"foo\" | Alfa\n| Beta\n|}\n"
+    ],
+    [
+      "not-released-center",
+      "<center>Texto simples</center>\n"
+    ],
+    [
+      "not-released-big",
+      "Um <big>texto ampliado</big> simples.\n"
+    ],
+    [
+      "not-released-font",
+      "Um <font color=\"#aabbcc\" face=\"Arial\">texto colorido</font>.\n"
+    ],
+    [
+      "not-released-font-size-1",
+      "<font size=\"1\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-2",
+      "<font size=\"2\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-3",
+      "<font size=\"3\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-4",
+      "<font size=\"4\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-5",
+      "<font size=\"5\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-6",
+      "<font size=\"6\">Texto</font>\n"
+    ],
+    [
+      "not-released-font-size-7",
+      "<font size=\"7\">Texto</font>\n"
+    ]
+  ]
+}

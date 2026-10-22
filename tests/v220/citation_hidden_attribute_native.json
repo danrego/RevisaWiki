@@ -1,0 +1,32 @@
+{
+  "kind": "native-legacy-attribute-reference-boundary",
+  "status": "native-integrity-defect-confirmed",
+  "wikipediaWrites": 0,
+  "cases": [
+    {
+      "id": "legacy-ref-attribute-before",
+      "http": "200",
+      "exitCode": 0,
+      "sourceSha256": "07e2d085224b06cf0e0b316cb709b087a8da07652a63805b181f11239c5e66bc",
+      "responseSha256": "90c84adfaa6337fc24d21a4fcbad9313423393a3a31d60d1dbb96431f47569c5",
+      "warnings": [],
+      "referenceMarkers": 1,
+      "noteItems": 1,
+      "noteHtml": "<span class=\"reference-text\">Fonte.<span title=\"</ ref>\">Texto.</span>\n",
+      "source": "<ref name=\"origem\">Fonte.<span title=\"</ ref>\">Texto.</span></ref>\n\n{{Referências}}\n"
+    },
+    {
+      "id": "legacy-ref-attribute-after",
+      "http": "200",
+      "exitCode": 0,
+      "sourceSha256": "6a584ce6686d884449b72acc663871b3f826e1991ab2dab65b793d157147fa75",
+      "responseSha256": "14f6ef482c4c99e975b9766223dd098222b65640c41ed69e05235ed77a906de7",
+      "warnings": [],
+      "referenceMarkers": 1,
+      "noteItems": 1,
+      "noteHtml": "<span class=\"reference-text\">Fonte.<span title=\"</span>\n",
+      "source": "<ref name=\"origem\">Fonte.<span title=\"</ref>\">Texto.</span></ref>\n\n{{Referências}}\n"
+    }
+  ],
+  "scope": "The native parser preserves the malformed closing text inside an HTML attribute. Activating a closing ref changes the reference body. The fixed action must preserve the original source."
+}

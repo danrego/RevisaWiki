@@ -49,6 +49,25 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
   '49e61808257d9d856d5cbec3c7714a4c40b3ec4721da689dfc9a1c512f6228e3'
  }
 }
+# Two JavaScript object-property fragments resemble wiki account destinations
+# after whitespace formatting. Approval requires the entire reviewed runtime,
+# its exact byte count and both exact fragment hashes, each occurring once.
+APPROVED_RUNTIME_OBJECT_KEYS={
+ '4b32f9e6fa2d2dbb6283e418ab18f16047bb7b7ba7dd41ac21ec568232ca99a1':{
+  'bytes':2014958,
+  'tokens':{
+   '5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
+ '100f25c2950078619787b26dc474d1019f2e0badae85ce210cffa3b07a9196e1':{
+  'bytes':2009616,
+  'tokens':{
+   '5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
+}
 # Exact fictional URL-userinfo fixtures exercise URL grammar without real accounts.
 # Only reviewed complete source files and exact reserved-domain URLs qualify.
 # Reserved documentation/test domains: https://www.rfc-editor.org/rfc/rfc2606.html
@@ -68,6 +87,7 @@ IMAGE_SUFFIXES={'.png','.jpg','.jpeg','.gif','.webp','.tif','.tiff','.bmp','.hei
 
 # Privacy adaptation: only technical distribution destinations retain account names.
 TECHNICAL_SCRIPT_TITLE='User:Daniel G Rego/RevisaWiki.js'
+WIKI_USER_DESTINATION=re.compile('(?<![A-Za-z0-9_])(?:User|User[ _]talk|Usuário(?:[ _]Discussão)?|Usuária|Utilizador(?:a)?|Utilisateur(?:rice)?|Benutzer|Utente|Usuario):[^\\s\\]\\[<>|"\\\'`}{][^\\n\\]\\[<>|"\\\'`}{]{0,159}',re.I)
 def identity_findings(text,reviewed_css=frozenset()):
  from urllib.parse import unquote
  decoded=unquote(text).replace('+',' ')
@@ -77,14 +97,61 @@ def identity_findings(text,reviewed_css=frozenset()):
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
  css_property=re.compile(r'--image-size-'+r'user'+r':var\(--image-size-(?:standard|small|large)\)(?=[;}])')
  masked=css_property.sub(lambda m:' '*len(m.group())if hashlib.sha256(m.group().encode()).hexdigest()in reviewed_css else m.group(),masked)
- destination=re.compile('(?<![A-Za-z0-9_])(?:User|User[ _]talk|Usuário(?:[ _]Discussão)?|Usuária|Utilizador(?:a)?|Utilisateur(?:rice)?|Benutzer|Utente|Usuario):[^\\s\\]\\[<>|"\\\'`}{][^\\n\\]\\[<>|"\\\'`}{]{0,159}',re.I)
  fictional=re.compile(r'^(?:Teste|Test|Example|Exemplo|Fulano|Beltrano|Sicrano|Editor de teste|Conta de Teste|Nome da Conta|Anônimo|Colaborador)(?:[/ _]|$)',re.I)
  result=[]
- matches=[m for m in destination.finditer(masked)if not fictional.match(m.group().split(':',1)[1])]
+ matches=[m for m in WIKI_USER_DESTINATION.finditer(masked)if not fictional.match(m.group().split(':',1)[1])]
  if matches:result.append(('unreviewed-wiki-user-destination',len(matches),masked[:matches[0].start()].count('\n')+1))
  matches=list(re.finditer(owner_pattern,masked,re.I))
  if matches:result.append(('nontechnical-owner-identity',len(matches),masked[:matches[0].start()].count('\n')+1))
  return result
+
+def reviewed_runtime_identity_view(text,content_hash):
+ """Mask exact reviewed source only for wiki-identity recognition.
+
+ JSON strings are decoded by the standard library, never by an escape-pattern
+ parser or a supplied metadata hash. Only a string whose complete UTF-8 bytes
+ are the approved runtime qualifies. Other fields, prefixes and suffixes stay
+ visible. No email, secret, path or private-denylist reader uses this view.
+ """
+ def reviewed(value,digest):
+  record=APPROVED_RUNTIME_OBJECT_KEYS.get(digest)
+  if not record:return None
+  raw=value.encode('utf-8')
+  if len(raw)!=record['bytes']or hashlib.sha256(raw).hexdigest()!=digest:return None
+  matches=[match for match in WIKI_USER_DESTINATION.finditer(value)
+           if hashlib.sha256(match.group().encode('utf-8')).hexdigest()in record['tokens']]
+  counts=collections.Counter(hashlib.sha256(match.group().encode('utf-8')).hexdigest()for match in matches)
+  if dict(counts)!=record['tokens']:return None
+  parts=[];cursor=0
+  for match in matches:
+   parts.extend((value[cursor:match.start()],' '*len(match.group())))
+   cursor=match.end()
+  parts.append(value[cursor:])
+  return ''.join(parts)
+ direct=reviewed(text,content_hash)
+ if direct is not None:return direct
+ decoder=json.JSONDecoder();parts=[];cursor=0;copied=0
+ minimum=min(record['bytes']//4 for record in APPROVED_RUNTIME_OBJECT_KEYS.values())
+ while True:
+  start=text.find('"',cursor)
+  if start<0:break
+  try:value,end=decoder.raw_decode(text,start)
+  except (json.JSONDecodeError,ValueError):
+   cursor=start+1
+   continue
+  cursor=end
+  if not isinstance(value,str)or len(value)<minimum:continue
+  try:digest=hashlib.sha256(value.encode('utf-8')).hexdigest()
+  except UnicodeEncodeError:continue
+  if reviewed(value,digest)is None:continue
+  # Mask only this independently verified string in the identity view. Keep
+  # physical newlines so findings outside it still have their source lines.
+  literal=text[start:end]
+  parts.extend((text[copied:start],re.sub(r'[^\n]',' ',literal)))
+  copied=end
+ if not parts:return text
+ parts.append(text[copied:])
+ return ''.join(parts)
 
 def reviewed_fixture_view(text,content_hash):
  approved=APPROVED_SYNTHETIC_URL_FIXTURES.get(content_hash,frozenset())
@@ -139,7 +206,8 @@ class Scanner:
   try:text=data.decode('utf-8')
   except UnicodeDecodeError:self.fail(path,'unreviewed-binary-file');return
   content_hash=hashlib.sha256(data).hexdigest()
-  identity_view=reviewed_fixture_view(text,content_hash)
+  fixture_view=reviewed_fixture_view(text,content_hash)
+  identity_view=reviewed_runtime_identity_view(fixture_view,content_hash)
   for rule,count,line in identity_findings(identity_view,APPROVED_PUBLIC_CSS_PROPERTIES.get(content_hash,set())):self.fail(path,rule,count,line)
   # Imported citation URLs can legitimately contain home-directory-like paths.
   non_url=URL.sub(lambda m:' '*len(m[0]),text)
@@ -150,7 +218,7 @@ class Scanner:
   for literal in self.denied:
    if literal and literal in text:self.fail(path,'private-local-denylist',text.count(literal))
   reviewed_emails=APPROVED_PUBLIC_CREDIT_FILES.get(content_hash,set())|APPROVED_PUBLIC_CITATION_IDENTIFIERS.get(content_hash,set())
-  for m in EMAIL.finditer(identity_view):
+  for m in EMAIL.finditer(fixture_view):
    value=m[0]
    if value==PUBLIC_NOREPLY:continue
    digest=hashlib.sha256(value.encode()).hexdigest()

@@ -1,0 +1,404 @@
+{
+  "kind": "native-ui-release-contract-2.20.0",
+  "runner": "ui_release.cjs",
+  "runnerSha256": "284aeb8d87b03c3b63f099680ae3fae856621e3418e86e6409279a3624c44afd",
+  "status": "prepared-not-executed",
+  "browsers": [
+    "Firefox",
+    "Chrome",
+    "Safari"
+  ],
+  "flowsPerBrowser": 54,
+  "plannedTotalFlows": 162,
+  "productionDeadlineMilliseconds": 60000,
+  "controlledDeadlineFlowsPerBrowser": 2,
+  "controlledDeadlineTotalFlows": 6,
+  "realKnownTimeoutSourcesRepeated": false,
+  "originGuardOnlyProductAdaptation": true,
+  "fictionalAdapterBoundary": "Existing local MediaWiki, textSelection and source2017 adapters, with native installed browsers and the actual release executors. This does not claim a live Wikipedia server or deployment.",
+  "WikiWrites": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "cases": [
+    {
+      "id": "core-cyclic-classic-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cyclic-classic-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cyclic-codemirror-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cyclic-codemirror-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "codemirror",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cyclic-2017-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cyclic-2017-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-bottom-green-control",
+      "family": "bottom-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-stale-editor-classic",
+      "family": "stale-editor-identity",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-classic-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-classic-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-stale-editor-codemirror",
+      "family": "stale-editor-identity",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-codemirror-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-codemirror-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "codemirror",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-stale-editor-2017",
+      "family": "stale-editor-identity",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-2017-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-manual-during-2017-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-mixed-draft-classic-worker",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-mixed-draft-classic-staged",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-mixed-draft-2017-worker",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-mixed-draft-2017-staged",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cancel-worker",
+      "family": "cancellation",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-cancel-staged",
+      "family": "cancellation",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "core"
+    },
+    {
+      "id": "core-preview-failure",
+      "family": "preview-failure",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-preview-new-error",
+      "family": "preview-new-error",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-missing-preservation-proof",
+      "family": "final-proof-refusal",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-unchanged-source",
+      "family": "no-op",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "core-real-sixty-second-worker-deadline",
+      "family": "actual-production-deadline",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "core"
+    },
+    {
+      "id": "complete-cyclic-classic-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cyclic-classic-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cyclic-codemirror-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cyclic-codemirror-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "codemirror",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cyclic-2017-worker",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cyclic-2017-staged",
+      "family": "accepted-cyclic-action-repeat-undo",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-bottom-green-control",
+      "family": "bottom-action-repeat-undo",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-stale-editor-classic",
+      "family": "stale-editor-identity",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-classic-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-classic-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-stale-editor-codemirror",
+      "family": "stale-editor-identity",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-codemirror-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "codemirror",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-codemirror-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "codemirror",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-stale-editor-2017",
+      "family": "stale-editor-identity",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-2017-worker",
+      "family": "intervening-manual-edit",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-manual-during-2017-staged",
+      "family": "intervening-manual-edit",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-mixed-draft-classic-worker",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-mixed-draft-classic-staged",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-mixed-draft-2017-worker",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "2017",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-mixed-draft-2017-staged",
+      "family": "mixed-draft-minor-ownership",
+      "adapter": "2017",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cancel-worker",
+      "family": "cancellation",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-cancel-staged",
+      "family": "cancellation",
+      "adapter": "classic",
+      "engine": "staged",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-preview-failure",
+      "family": "preview-failure",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-preview-new-error",
+      "family": "preview-new-error",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-missing-preservation-proof",
+      "family": "final-proof-refusal",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-unchanged-source",
+      "family": "no-op",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    },
+    {
+      "id": "complete-real-sixty-second-worker-deadline",
+      "family": "actual-production-deadline",
+      "adapter": "classic",
+      "engine": "worker",
+      "bundle": "complete"
+    }
+  ],
+  "productionLogicReplaced": false,
+  "stopControl": "Optional private file checked only between complete flows. A running real deadline is not shortened."
+}

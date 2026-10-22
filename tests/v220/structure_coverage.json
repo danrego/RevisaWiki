@@ -1,0 +1,673 @@
+{
+  "version": "2.20.0",
+  "kind": "structure-card-coverage",
+  "scope": "finite automatic source-bound repairs",
+  "verification": "This matrix describes contracts, not a test receipt. Final results must bind the tested distribution hashes.",
+  "commonConditions": [
+    "Artigo completo em wikitexto no domínio principal.",
+    "Nenhum dono literal, transclusão dinâmica ou trecho ambíguo é atravessado.",
+    "Cada etapa tem plano vinculado ao texto e prova recalculada antes de aceitar o resultado."
+  ],
+  "networkWrites": false,
+  "cards": [
+    {
+      "id": "final-list-cleanup",
+      "title": "Linhas e itens vazios no fim da lista",
+      "entryPoints": [
+        "v220FinalEmptyItems",
+        "v220StructureGaps"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "empty-list",
+        "nested-list"
+      ],
+      "conditions": [
+        "Item vazio de nível único após item não vazio e antes de rodapé conhecido, seção final ou fim da página.",
+        "Linhas excedentes são reduzidas a uma única linha vazia."
+      ],
+      "limits": [
+        "Preserva marcadores intermediários, descendentes e listas dentro de tabelas, referências e modelos."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "legacy-table-attributes",
+      "title": "Atributos redundantes já representados por CSS",
+      "entryPoints": [
+        "v220LegacyTableAttributes"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_html.cjs"
+      ],
+      "caseIds": [
+        "table-align-redundant",
+        "table-redundant-cell-width",
+        "table-cascade-cell-align",
+        "table-cascade-cell-width",
+        "table-cascade-cell-valign",
+        "table-invalid-bgcolor"
+      ],
+      "conditions": [
+        "Wikitable literal completa com grade regular e atributos estáticos.",
+        "A mesma propriedade CSS inline precisa existir com valor finito válido exatamente igual ao atributo legado.",
+        "Apenas o atributo redundante é removido. Não cria estilo nem altera prioridade na cascata."
+      ],
+      "limits": [
+        "Não migra atributos simples para style, pois CSS nativa ou TemplateStyles pode prevalecer sobre o atributo e perder prioridade depois da migração.",
+        "Não remove cor legada se o valor CSS for inválido, mesmo quando os dois textos forem iguais.",
+        "Preserva propriedades conflitantes, captions, estilos desconhecidos, grade dinâmica e valores fora do catálogo."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "local-three-browser-equivalence",
+          "suite": "tests/v220/structure_html.cjs",
+          "dimensions": "visible text, styles, text positions, text and cell sizes"
+        }
+      ]
+    },
+    {
+      "id": "legacy-center-elements",
+      "title": "Elemento center simples",
+      "entryPoints": [],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_style_counterexamples.cjs"
+      ],
+      "caseIds": [
+        "not-released-center"
+      ],
+      "conditions": [],
+      "limits": [
+        "O seletor CSS do elemento original pode alterar seu resultado antes da troca por div ou span. A equivalência em estilos padrão não comprova equivalência na cascata completa.",
+        "O código original é preservado sem alerta. Não há API de prova configurável nem migração automática dessa família na versão2.20."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "local-browser-css-counterexample",
+          "suite": "tests/v220/structure_style_counterexamples.cjs",
+          "historicalBasicUaStudy": "Previous bounded UA equivalence results remain valid only for their recorded style context; they do not release the migration."
+        }
+      ],
+      "status": "not-released-after-visual-counterexample",
+      "automatic": false
+    },
+    {
+      "id": "legacy-font-elements",
+      "title": "Elemento font finito",
+      "entryPoints": [],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_style_counterexamples.cjs"
+      ],
+      "caseIds": [
+        "not-released-font"
+      ],
+      "conditions": [],
+      "limits": [
+        "O seletor CSS do elemento original pode alterar seu resultado antes da troca por div ou span. A equivalência em estilos padrão não comprova equivalência na cascata completa.",
+        "O código original é preservado sem alerta. Não há API de prova configurável nem migração automática dessa família na versão2.20."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "local-browser-css-counterexample",
+          "suite": "tests/v220/structure_style_counterexamples.cjs",
+          "historicalBasicUaStudy": "Previous bounded UA equivalence results remain valid only for their recorded style context; they do not release the migration."
+        }
+      ],
+      "status": "not-released-after-visual-counterexample",
+      "automatic": false
+    },
+    {
+      "id": "legacy-big-elements",
+      "title": "Elemento big simples",
+      "entryPoints": [],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_style_counterexamples.cjs"
+      ],
+      "caseIds": [
+        "not-released-big"
+      ],
+      "conditions": [],
+      "limits": [
+        "O seletor CSS do elemento original pode alterar seu resultado antes da troca por div ou span. A equivalência em estilos padrão não comprova equivalência na cascata completa.",
+        "O código original é preservado sem alerta. Não há API de prova configurável nem migração automática dessa família na versão2.20."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "local-browser-css-counterexample",
+          "suite": "tests/v220/structure_style_counterexamples.cjs",
+          "historicalBasicUaStudy": "Previous bounded UA equivalence results remain valid only for their recorded style context; they do not release the migration."
+        }
+      ],
+      "status": "not-released-after-visual-counterexample",
+      "automatic": false
+    },
+    {
+      "id": "table-attribute-quote-delimiters",
+      "title": "Aspas curvas no atributo scope",
+      "entryPoints": [
+        "v220TableQuotes"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "table-scope"
+      ],
+      "conditions": [
+        "scope contém exatamente row, col, rowgroup ou colgroup com delimitadores tipográficos completos e separador explícito.",
+        "Tabela literal completa ou célula local comprovada numa abertura wikitable inacabada."
+      ],
+      "limits": [
+        "Não completa a tabela nem infere dados, não troca aspas dentro de legendas, parâmetros ou outros atributos."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "fostered-table-intro-label",
+      "title": "Rótulo na abertura da tabela",
+      "entryPoints": [
+        "v220FosteredTableLabel"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_native.cjs"
+      ],
+      "caseIds": [
+        "table-label"
+      ],
+      "conditions": [
+        "Um único termo de definição literal imediatamente depois da abertura wikitable e antes da primeira linha.",
+        "Move os mesmos bytes imediatamente antes da tabela, com fronteira de bloco confirmada."
+      ],
+      "limits": [
+        "Não move legenda, parágrafo, conteúdo dinâmico, tabela aninhada ou rótulo com marcação ambígua."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "controlled-anonymous-native-parse",
+          "fixture": "tests/v220/structure_fostered_native.json",
+          "contract": "same ordered element/text/attribute tree, IDs, one definition term before one table; zero native warnings"
+        }
+      ]
+    },
+    {
+      "id": "cell-local-formatting-closure",
+      "title": "Formatação dentro da própria célula",
+      "entryPoints": [
+        "v220CellFormattingClosure"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs",
+        "tests/v220/structure_html.cjs"
+      ],
+      "caseIds": [
+        "table-formatting",
+        "small-later-closer"
+      ],
+      "conditions": [
+        "Uma abertura small, b ou i sem atributos no início de uma única célula literal.",
+        "Não há outro fechamento concorrente depois da célula e o fim físico é inequívoco."
+      ],
+      "limits": [
+        "Não fecha formatação que atravessa células, tabelas dinâmicas ou texto com HTML concorrente."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "local-three-browser-equivalence",
+          "suite": "tests/v220/structure_html.cjs",
+          "dimensions": "visible text, styles, text positions, text and cell sizes"
+        }
+      ]
+    },
+    {
+      "id": "external-link-pipe-delimiter",
+      "title": "Separador de ligação externa",
+      "entryPoints": [
+        "v220ExternalSyntax"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "external-pipe",
+        "url-pipe-query",
+        "url-pipe-oneword"
+      ],
+      "conditions": [
+        "URL literal de documento termina em pdf, html, htm, asp ou aspx, sem consulta ou fragmento.",
+        "Uma barra separa URL de um rótulo natural com mais de uma palavra."
+      ],
+      "limits": [
+        "Preserva pipes que podem pertencer à URL, consulta, fragmento, modelo ou rótulo ambíguo."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "external-link-newline-label",
+      "title": "Rótulo de ligação externa em nova linha",
+      "entryPoints": [
+        "v220ExternalSyntax"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "external-newline"
+      ],
+      "conditions": [
+        "Ligação completa com um único salto entre URL completa e rótulo literal.",
+        "Substitui apenas essa quebra por um espaço."
+      ],
+      "limits": [
+        "Não atravessa parâmetro, lista, tabela, quebra adicional ou proprietário dinâmico."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "external-protocol-finite-typos",
+      "title": "Erro finito de protocolo",
+      "entryPoints": [
+        "v220ExternalSyntax"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "external-protocol"
+      ],
+      "conditions": [
+        "Somente prefixo inválido hhttps:// em ligação externa completa.",
+        "Remove uma única letra excedente sem alterar host, caminho, rótulo ou demais bytes."
+      ],
+      "limits": [
+        "Não corrige protocolo arbitrário nem pesquisa destinos alternativos."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "template-name-exact-typos",
+      "title": "Grafias exatas de nomes de modelos",
+      "entryPoints": [
+        "v220TemplateTypos"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "template-name",
+        "portal-name"
+      ],
+      "conditions": [
+        "Chamada standalone literal de Referências; ou Portal 3, confirmadas ausentes no destino.",
+        "Referências; precisa estar sem argumentos. Portal 3 preserva argumentos e muda somente o nome para Portal3."
+      ],
+      "limits": [
+        "Não retira espaços ou pontuação de outros nomes e preserva modelos aninhados/exemplos."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "native-title-check",
+          "missingTitles": [
+            "Predefinição:Referências;",
+            "Predefinição:Portal 3"
+          ],
+          "existingConsumers": [
+            "Predefinição:Referências",
+            "Predefinição:Portal3"
+          ],
+          "collectorOldid": 63785697
+        }
+      ]
+    },
+    {
+      "id": "wikilink-unique-closing-boundary",
+      "title": "Fechamento único de ligação interna",
+      "entryPoints": [
+        "v220UniqueWikiLinkCloser"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "link-closer",
+        "link-closer-among-valid-links",
+        "multiple-openings"
+      ],
+      "conditions": [
+        "Uma única abertura restante na linha e fechamento simples num destino literal.",
+        "Demais ligações da linha precisam estar balanceadas."
+      ],
+      "limits": [
+        "Não corrige alvo com namespace, pipe, igualdade, abertura concorrente ou limite de palavra ambíguo."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "finite-portuguese-spelling",
+      "title": "Grafias inequívocas em prosa",
+      "entryPoints": [
+        "v220FiniteSpelling"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "spelling",
+        "quote-spelling",
+        "properlink-spelling"
+      ],
+      "conditions": [
+        "Catálogo finito de espectativas→expectativas e estreiou→estreou em minúsculas.",
+        "Somente prosa fora de nomes ligados, citações, formas em itálico e trechos técnicos."
+      ],
+      "limits": [
+        "Não faz revisão gramatical livre nem altera títulos bibliográficos, fontes, nomes próprios ou variantes válidas."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "duplicate-coordinate-displays",
+      "title": "Coordenada redundante no título",
+      "entryPoints": [
+        "v220CoordinateDuplicates"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "coordinate",
+        "coordinate-named-before-positional",
+        "coordinate-inline",
+        "coordinate-conflict"
+      ],
+      "conditions": [
+        "Duas chamadas Coord standalone usam display=title e coordenadas posicionais literalmente iguais.",
+        "A chamada posterior conserva cada parâmetro não vazio da anterior.",
+        "A numeração posicional ignora corretamente os argumentos nomeados intercalados."
+      ],
+      "limits": [
+        "Não elimina exibição inline,title, valores divergentes, argumentos duplicados ou metadados não retidos."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "duplicate-maintenance-template",
+      "title": "Aviso genérico redundante",
+      "entryPoints": [
+        "v220MaintenanceDuplicates"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "maintenance"
+      ],
+      "conditions": [
+        "Evento atual genérico sem argumentos coexiste com exatamente uma chamada temática literal.",
+        "Somente a chamada genérica é retirada."
+      ],
+      "limits": [
+        "Não funde modelos de manutenção arbitrários nem escolhe entre temas ou avaliações concorrentes."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-bibliography-heading-role-extension",
+      "title": "Bibliografia complementar",
+      "entryPoints": [
+        "v220BibliographyColumns"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "bibliography",
+        "bibliography-short"
+      ],
+      "conditions": [
+        "Título exato Bibliografia complementar e seis ou mais entradas de nível único em linhas completas.",
+        "Não existe layout próprio e o agrupamento não cria novos argumentos de modelo."
+      ],
+      "limits": [
+        "Não renomeia seção, não transforma prosa em bibliografia,não altera citações ou listas menores."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-gap-after-reference-collector",
+      "title": "Intervalo após coletor de referências",
+      "entryPoints": [
+        "v220StructureGaps"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "gap-collector"
+      ],
+      "conditions": [
+        "Coletor nativo completo standalone seguido de título ou prosa completa.",
+        "Só reduz linhas físicas vazias excedentes."
+      ],
+      "limits": [
+        "Não atravessa corpo de referências nem código dinâmico."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-inline-markdown-emphasis",
+      "title": "Ênfase de Markdown dentro da prosa",
+      "entryPoints": [
+        "v220InlineMarkdown"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "markdown",
+        "markdown-italic",
+        "literal-Markdown",
+        "markdown-variable",
+        "markdown-lower-phrase",
+        "markdown-exponent",
+        "markdown-exponent-identifier",
+        "markdown-exponent-assignment",
+        "markdown-list"
+      ],
+      "conditions": [
+        "Par duplo completo de asteriscos em prosa com contexto linguístico explícito ou marcador único de lista, fora de expressões de exponenciação.",
+        "Par simples restrito a título com duas a quatro palavras iniciadas por maiúsculas.",
+        "A conversão mantém a ênfase já delimitada, sem criar destaque subjetivo novo."
+      ],
+      "limits": [
+        "Preserva listas, variáveis isoladas, fórmulas, explicação de Markdown, citações e donos literais."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-literal-navbox-redundant-indirection",
+      "title": "Camada externa indevida numa navecaixa literal",
+      "entryPoints": [
+        "v220LiteralNavboxIndirection"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "navbox",
+        "indirection",
+        "unknown-navbox"
+      ],
+      "conditions": [
+        "Contrato finito de navecaixa cuja expansão de bloco está comprovada por par nativo.",
+        "Chamada de quatro chaves isolada no rodapé e seguida apenas de categorias."
+      ],
+      "limits": [
+        "Não remove chaves de indirection válida, funções de análise, nome calculado ou modelo fora do catálogo."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "controlled-native-parse",
+          "invalidWrapperOldid": 73261887,
+          "workingLiteralOldid": 73261889,
+          "consumer": "Predefinição:Movimento antinuclear"
+        }
+      ]
+    },
+    {
+      "id": "r2-prose-gap-after-complete-table",
+      "title": "Intervalo após tabela completa",
+      "entryPoints": [
+        "v220StructureGaps"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "gap-table"
+      ],
+      "conditions": [
+        "Fim de tabela literal completa seguido por prosa ou cabeçalho completo.",
+        "O corpo e todas as fronteiras da tabela permanecem byte a byte iguais."
+      ],
+      "limits": [
+        "Não atravessa tabela aberta, aninhada, dinâmica ou código literal."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-prose-gap-after-inline-structure",
+      "title": "Intervalos após estruturas inline completas",
+      "entryPoints": [
+        "v220StructureGaps"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "gap-inline"
+      ],
+      "conditions": [
+        "A linha vizinha tem referência completa,modelo inline de manutenção reconhecido ou math completo.",
+        "Para classificar a prosa, o proprietário é temporariamente ocultado. Os seus bytes não são alterados."
+      ],
+      "limits": [
+        "Não remove marcação dentro de notas, modelos, math, fórmulas ou estruturas incompletas."
+      ],
+      "nativeEvidence": []
+    },
+    {
+      "id": "r2-whitespace-only-blankline-variant",
+      "title": "Linhas vazias com espaços ou tabulações",
+      "entryPoints": [
+        "v220StructureGaps"
+      ],
+      "suites": [
+        "tests/v220/structure_repairs.cjs",
+        "tests/v220/structure_whole_action.cjs"
+      ],
+      "caseIds": [
+        "gap-whitespace"
+      ],
+      "conditions": [
+        "Linha física contém apenas espaços ou tabulações numa fronteira de prosa comprovada.",
+        "LF e CRLF são preservados no formato de origem."
+      ],
+      "limits": [
+        "Não apara indentação de conteúdo, bloco preformatado, código ou unidade científica."
+      ],
+      "nativeEvidence": []
+    }
+  ],
+  "addendum": {
+    "id": "absolute-leading-blank-lines",
+    "entryPoints": [
+      "v220LeadingBlankEdits"
+    ],
+    "suites": [
+      "tests/v220/structure_repairs.cjs",
+      "tests/v220/structure_whole_action.cjs",
+      "tests/v219/whole_emphasis_code_cases.cjs"
+    ],
+    "caseIds": [
+      "prefix",
+      "prefix-indent",
+      "description-gap",
+      "ordinary-emphasis-leading",
+      "whole-emphasized-code-2",
+      "whole-emphasized-code-3",
+      "whole-emphasized-code-5"
+    ],
+    "conditions": [
+      "Remove somente linhas físicas vazias no início absoluto do artigo.",
+      "Pode retirar o separador vazio logo após Descrição curta que a regra existente já removeria."
+    ],
+    "limits": [
+      "Mantém a indentação do primeiro conteúdo, exemplos nowiki/pre/código/math, discussões e demais domínios.",
+      "Não acrescenta conteúdo biográfico nem altera frases da abertura.",
+      "A guarda herdada reconhece amostras completas de código em ênfase e conserva também o whitespace exterior, sem desativar prosa comum em itálico."
+    ]
+  },
+  "legacyCitationKeyBoundaryMaintenance": {
+    "kind": "existing-reachability-and-idempotence-defect",
+    "keys": [
+      "accessadoem",
+      "Autorlink",
+      "Colecção",
+      "Editora",
+      "Título",
+      "Página",
+      "Local de publicação",
+      "Subtítulo",
+      "Edição",
+      "ano",
+      "year"
+    ],
+    "conditions": [
+      "Reaplica o validador legado específico do tipo a uma cópia aparada apenas nas bordas.",
+      "O limite do novo caminho continua a ser4096caracteres sobre o valor original.",
+      "A alteração de chave e a prova recalculada conservam integralmente os bytes do valor.",
+      "Ano ou year só passam a data com precisão de dia já aceita e sem campos concorrentes.",
+      "Citações diretas, notas literais completas e células confirmadas usam o mesmo plano de chave."
+    ],
+    "limits": [
+      "Quebras internas, conteúdo calculado, atributos, argumentos, exemplos e donos incertos não ganham aceite pelo validador de bordas.",
+      "A formatação legada de valores continua separada da prova da troca de chave.",
+      "Nenhuma rodada adicional é acrescentada."
+    ],
+    "suites": [
+      "tests/v220/structure_legacy_key_boundary.cjs",
+      "tests/v220/structure_legacy_key_family.cjs",
+      "tests/v220/structure_key_composition.cjs"
+    ],
+    "verification": "Contract matrix only; final receipts must bind exact runtime hashes."
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "version": "2.20.0",
+  "kind": "citation-card-coverage",
+  "scope": "automatic finite repairs and semantic suggestion filtering",
+  "verification": "Final results are recorded separately for the exact built bundle hashes. This matrix is not a test receipt.",
+  "networkWrites": false,
+  "cards": [
+    {
+      "id": "reference-definition-reachability",
+      "title": "Definições nativas dentro de contêineres",
+      "entryPoints": [
+        "v220CitationDefinitionInventory",
+        "v220FilterReferenceFindings"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "definition-blockquote",
+        "definition-columns-tag",
+        "definition-columns-note",
+        "definition-efn-name",
+        "definition-refn-name",
+        "definition-commander-body",
+        "group-omitted-confirmed",
+        "group-omitted-missing-default",
+        "group-omitted-missing-second",
+        "group-omitted-conflicting-definition",
+        "group-omitted-literal-example"
+      ],
+      "conditions": [
+        "Somente emissores nativos fixados e campos com encaminhamento literal comprovado.",
+        "A identidade inclui nome, grupo e conteúdo da definição.",
+        "Uma mensagem antiga sem grupo só é ocultada se todos os grupos usados pelo nome estiverem resolvidos."
+      ],
+      "limits": [
+        "Não modifica texto, nome, grupo ou conteúdo das notas.",
+        "Recusa corpo vazio, corpo exclusivamente dinâmico, chave duplicada, grupo incerto e definições conflitantes.",
+        "Não presume que qualquer argumento de predefinição seja exibido."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Colunas-lista",
+          "oldid": 69474033
+        },
+        {
+          "title": "Predefinição:Nota de rodapé",
+          "oldid": 60322761
+        },
+        {
+          "title": "Predefinição:Refn",
+          "oldid": 57056787
+        },
+        {
+          "title": "Predefinição:Nre",
+          "oldid": 68628864
+        },
+        {
+          "title": "Predefinição:Efn",
+          "oldid": 68628877
+        },
+        {
+          "title": "Predefinição:Info/Conflito militar",
+          "oldid": 72740211
+        }
+      ]
+    },
+    {
+      "id": "heading-reference-relocation",
+      "title": "Referência no fim de título de seção",
+      "entryPoints": [
+        "v220HeadingReferenceRequests",
+        "v220HeadingReferenceHtmlProof",
+        "v220CitationPlan"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_heading_cases.cjs",
+        "tests/v220/browser/citation_preflight.cjs"
+      ],
+      "caseIds": [
+        "native-html-contract-and-stale-negative-controls",
+        "native-heading-inner-citation-two-source-proofs"
+      ],
+      "conditions": [
+        "Uma referência completa ao fim de título literal.",
+        "Duas renderizações nativas completas devem preservar rótulos, IDs de referência e demais IDs.",
+        "IDs antigos ausentes no novo cabeçalho recebem spans explícitos sem colisão."
+      ],
+      "limits": [
+        "Sem prova nativa vinculada ao mesmo texto, não altera.",
+        "Não resolve títulos ambíguos, código literal ou colisão de âncoras.",
+        "Uma correção interna na citação tem prioridade e exige nova prova para mover o cabeçalho."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "controlled-native-parse",
+          "fixture": "citation_heading_native.json",
+          "operation": "exact before/candidate heading and reference IDs"
+        },
+        {
+          "kind": "controlled-native-parse",
+          "fixture": "browser/citation_overlap_native.json",
+          "operation": "five exact sources; inner key repair then fresh heading proof and final effective IDs"
+        }
+      ]
+    },
+    {
+      "id": "citation-title-literal-pipe",
+      "title": "Barra literal no título de citação",
+      "entryPoints": [
+        "v220CitationCall"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs",
+        "tests/v220/citation_glued_parameter_cases.cjs"
+      ],
+      "caseIds": [
+        "title-literal-pipe",
+        "title-no-positional-multi",
+        "title-unrelated-positional",
+        "title-missing-field-separator-not-guessed",
+        "title-single-external-url-not-joined",
+        "pipe-incomplete-parameter-0..12",
+        "legacy-missing-url-equals",
+        "legacy-missing-accessdate-equals",
+        "all-recognized-vocabulary-boundaries",
+        "glued-publicado-markup-and-quotes",
+        "title-unicode-letter-mark-continuation"
+      ],
+      "conditions": [
+        "Família CS1 nativa sem argumento posicional exibido.",
+        "Um único fragmento literal imediatamente após o único campo título.",
+        "Substitui somente a barra separadora por {{!}}, preservando todo o fragmento."
+      ],
+      "limits": [
+        "Não anexa URLs, parâmetros conhecidos, conteúdo dinâmico ou outros argumentos posicionais.",
+        "Não remove a segunda parte do título.",
+        "Recusa campos reconhecidos no catálogo nativo ou estrangeiro quando a chave termina ou é seguida por caractere que não seja letra ou marca Unicode. Não infere sinal de igual nem transfere metadados para o título."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Módulo:Citação/CS1/Configuração",
+          "oldid": 73016847
+        },
+        {
+          "title": "Módulo:Citação/CS1/Whitelist",
+          "oldid": 71860752
+        }
+      ]
+    },
+    {
+      "id": "reference-tag-finite-boundaries",
+      "title": "Limites finitos de tags de referência",
+      "entryPoints": [
+        "v220CitationRefTagEdits",
+        "v220RawReferenceAttributeBoundary",
+        "normalizeRefs"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs",
+        "tests/v220/citation_adjacent_boundary_cases.cjs",
+        "tests/v220/citation_hidden_attribute_cases.cjs",
+        "tests/v220/citation_double_open_owner_cases.cjs"
+      ],
+      "caseIds": [
+        "ref-double-opening",
+        "ref-adjacent-duplicate-closer",
+        "ref-adjacent-preserved",
+        "ref-literal-preserved",
+        "ref-nested-preserved",
+        "numeric-malformed-name-preserved",
+        "legacy-joined-ref-name",
+        "uncertain-joined-ref-group",
+        "malformed-nested-joined-owner",
+        "solitary-closer-prose",
+        "nonadjacent-space",
+        "hidden-html-opening",
+        "hidden-html-closing",
+        "three-closer-chain",
+        "property-chain-20",
+        "double-quoted-closing",
+        "single-quoted-closing",
+        "unquoted-closing",
+        "incomplete-single-quote",
+        "ordinary-attribute",
+        "encoded-marker",
+        "unrelated-safe-pass-continues"
+      ],
+      "conditions": [
+        "Abertura nomeada interrompida por <ref>, com corpo fechado único e identidade literal.",
+        "O helper novo remove apenas fechamentos literais </ref> duplicados e contíguos depois de uma nota completa e pareada, com corpo não vazio e contexto conhecido.",
+        "Toda a cadeia pertence à mesma nota e é validada de uma vez, preservando o corpo, nome, grupo e demais bytes.",
+        "A normalização legada de atributos é vetada quando um cabeçalho HTML contém marca ref-like raw, sem interromper os demais passes."
+      ],
+      "limits": [
+        "Não une notas adjacentes.",
+        "O helper novo preserva fechamentos isolados em prosa e qualquer separação por espaço, comentário ou mudança de linha.",
+        "Não escolhe fechamento para nota aberta, não altera exemplos nem apaga prosa.",
+        "Nome puramente numérico, atributos ambíguos, tags ocultas em HTML e corpo dinâmico ou desconhecido ficam literais.",
+        "Preserva o fechamento que pertence a abertura prospectiva corrigida por outra regra ou ainda incerta.",
+        "Regras herdadas podem corrigir outros formatos com seus próprios contratos. Os testes da ação completa conferem a regra efetiva, a saída exata, os vínculos e a idempotência.",
+        "O veto é conservador em cabeçalhos incompletos ou ambíguos. Valores normais e marcadores escapados continuam permitindo a normalização legítima de referências.",
+        "A abertura repetida só é reparada fora de atributos HTML, predefinições, argumentos triplos, ligações e corpos dinâmicos ou desconhecidos. Células literais completas de tabelas continuam elegíveis, os atributos não."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "native-extension",
+          "title": "Cite",
+          "operation": "complete named ref header and adjacent duplicate closing tag",
+          "limitation": "Unmatched closing tags render as literal text and are preserved unless strictly adjacent to a complete, unambiguous reference."
+        },
+        {
+          "kind": "captured-native-parse-pair",
+          "fixture": "tests/v220/citation_adjacent_native.json",
+          "checks": [
+            "same reference IDs",
+            "same reference hrefs",
+            "only duplicated literal closer removed from rendered text"
+          ]
+        },
+        {
+          "kind": "captured-native-parse-pair",
+          "fixture": "tests/v220/citation_hidden_attribute_native.json",
+          "finding": "Canonicalizing a malformed closing marker inside an HTML attribute changes the native reference body. The wrapper preserves the original source."
+        }
+      ]
+    },
+    {
+      "id": "r2-citation-note-formatting-false-positive",
+      "title": "Não converter prosa em bibliografia",
+      "entryPoints": [
+        "v220FilterCitationSuggestions"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "suggestion-semantic-filter",
+        "whole-action-note-suggestion-filter"
+      ],
+      "conditions": [
+        "Remove a oferta legada de inferir autor e título a partir de aspas em prosa.",
+        "O texto original permanece integral."
+      ],
+      "limits": [
+        "Não extrai metadados bibliográficos de nota explicativa.",
+        "Não transforma esta oferta em correção automática."
+      ],
+      "nativeEvidence": [
+        {
+          "kind": "source-preservation",
+          "operation": "suppress unproven metadata inference"
+        }
+      ]
+    },
+    {
+      "id": "r2-citation-parameter-suggestion-semantic-types",
+      "title": "Pontuação de Harvnb separada de páginas",
+      "entryPoints": [
+        "v220FilterCitationSuggestions"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "harvard-preserve-ps",
+        "suggestion-semantic-filter",
+        "whole-action-ps-semantic-filter"
+      ],
+      "conditions": [
+        "Bloqueia as alternativas p e pp oferecidas para ps em Harvnb.",
+        "Preserva o argumento ps literal."
+      ],
+      "limits": [
+        "Nenhuma migração de parâmetro apenas por semelhança de grafia.",
+        "Não converte pontuação em localizador."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Harvnb",
+          "oldid": 50774774
+        }
+      ]
+    },
+    {
+      "id": "r2-harvnb-explicit-page-parameter-migration",
+      "title": "Localizadores nativos de Harvnb",
+      "entryPoints": [
+        "v220CitationCall"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "harvard-page",
+        "harvard-pages",
+        "harvard-conflict",
+        "harvard-other-family",
+        "harvard-two-locators-preserved",
+        "property-locator-1..80"
+      ],
+      "conditions": [
+        "page para p, pages para pp, apenas na identidade nativa Harvnb.",
+        "Exige valor explícito e ausência de localizador concorrente.",
+        "Conserva autoria, ano, destino, Ref, loc e demais argumentos."
+      ],
+      "limits": [
+        "Não generaliza para Sfn ou outras famílias.",
+        "Não altera ps nem escolhe entre p e pp já fornecidos."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Harvnb",
+          "oldid": 50774774
+        }
+      ]
+    },
+    {
+      "id": "r2-tweet-native-author-composition",
+      "title": "Autoria explícita de Citar tweet",
+      "entryPoints": [
+        "v220CitationCall"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "tweet-author",
+        "tweet-preserve-existing-author",
+        "tweet-preserve-last-first",
+        "tweet-source-author-alias-conflict"
+      ],
+      "conditions": [
+        "Reúne first e last literais no campo autor da identidade Citar tweet.",
+        "Ambos os valores precisam estar presentes, sem autor ou alias concorrente.",
+        "Mantém usuário, número, texto, links, data e arquivo."
+      ],
+      "limits": [
+        "Não inventa data nem consulta autoria externa.",
+        "Não estabelece uma regra universal de ordem de nomes.",
+        "Nomes com marcação ou campos conflitantes ficam literais."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Citar tweet",
+          "oldid": 69618888
+        }
+      ]
+    },
+    {
+      "id": "r2-citation-total-pages-verified-key",
+      "title": "Extensão total de livro",
+      "entryPoints": [
+        "v220CitationCall"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "total-pages-and-locator",
+        "total-pages-conflict"
+      ],
+      "conditions": [
+        "páginas-total numérico para total-páginas somente em Citar livro.",
+        "Ausência de total-páginas e total-paginas concorrentes.",
+        "Mantém separado o localizador citado."
+      ],
+      "limits": [
+        "Não troca página citada pela extensão da obra.",
+        "Não confere o dado em catálogo externo nem interpreta expressões vagas."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Citar livro",
+          "oldid": 48159689,
+          "moduleOldid": 49448102
+        },
+        {
+          "title": "Módulo:Citação/CS1/Configuração",
+          "oldid": 73016847
+        }
+      ]
+    },
+    {
+      "id": "r2-citation-deprecated-alias-preserving-rendering",
+      "title": "Alias de ligação divulgativa",
+      "entryPoints": [
+        "v220CitationCall"
+      ],
+      "suites": [
+        "tests/v220/citation_cases.cjs",
+        "tests/v220/citation_whole_action_cases.cjs"
+      ],
+      "caseIds": [
+        "equivalent-lay-alias",
+        "lay-conflict"
+      ],
+      "conditions": [
+        "layurl para lay-url somente em Citar livro.",
+        "URL HTTP explícita e nenhum campo concorrente do mesmo papel.",
+        "Conserva o destino exato da ligação."
+      ],
+      "limits": [
+        "Não generaliza a parâmetros desconhecidos.",
+        "Não altera estado de acesso ou afirma que o documento externo foi consultado."
+      ],
+      "nativeEvidence": [
+        {
+          "title": "Predefinição:Citar livro",
+          "oldid": 48159689,
+          "moduleOldid": 49448102
+        },
+        {
+          "title": "Módulo:Citação/CS1/Configuração",
+          "oldid": 73016847
+        },
+        {
+          "title": "Módulo:Citação/CS1/Whitelist",
+          "oldid": 71860752
+        }
+      ]
+    }
+  ]
+}

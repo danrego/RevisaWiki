@@ -1,6 +1,6 @@
 {
   "name": "revisawiki",
-  "version": "2.19.1",
+  "version": "2.20.0",
   "private": true,
   "description": "Revisão de wikitexto da Wikipédia em português",
   "license": "CC-BY-SA-4.0",
@@ -12,17 +12,19 @@
     "@babel/parser": "7.28.5"
   },
   "scripts": {
-    "test": "node tests/v219/run_all.cjs",
-    "test:focused": "node tests/v219/run_all.cjs --suite=reference_collector_cases.cjs,table_structure_actions.cjs,biography_lead_sourcing_cases.cjs",
-    "test:complex": "node tests/v219/run_all.cjs",
-    "test:regression": "node tests/v219/historical_campaign.cjs",
-    "test:engine": "node tests/v219/run_all.cjs --suite=syntax_protection_cache.cjs,brace_part_cache_cases.cjs,reader_performance_cases.cjs",
-    "test:large-articles": "node tests/v219/corpus.cjs",
+    "test": "node tests/v220/legacy_run.cjs && node tests/v220/directed_run.cjs",
+    "test:directed": "node tests/v220/directed_run.cjs",
+    "test:focused": "node tests/v220/legacy_run.cjs --suite=reference_collector_cases.cjs,table_structure_actions.cjs,biography_lead_sourcing_cases.cjs",
+    "test:complex": "node tests/v220/legacy_run.cjs",
+    "test:regression": "node tests/v220/legacy_run.cjs",
+    "test:historical219": "node tests/v219/historical_campaign.cjs",
+    "test:engine": "node tests/v220/legacy_run.cjs --suite=syntax_protection_cache.cjs,brace_part_cache_cases.cjs,reader_performance_cases.cjs",
+    "test:large-articles": "node tests/v220/action_bounded_corpus.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:documentation": "python3 scripts/audit_documentation_v2190.py",
-    "build": "python3 scripts/build_v2190.py",
-    "build:index": "python3 scripts/build_index_v2190.py",
+    "test:documentation": "python3 scripts/audit_documentation_v2200.py --output artifacts/v220/documentation_audit.json",
+    "build": "python3 scripts/build_v2200.py",
+    "build:index": "python3 scripts/build_index_v2200.py",
     "test:previous2130": "node tests/v2130/run_all.cjs",
     "test:previous": "node tests/run_all.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
@@ -43,9 +45,10 @@
     "test:previous2120": "node tests/v2120/run_all.cjs",
     "test:previous2140": "node tests/v2140/run_all.cjs",
     "test:previous2170": "node tests/v217/run_all.cjs",
-    "test:catalog": "node tests/v219/catalog_campaign.cjs",
-    "test:person-topics": "node tests/v219/person_topic_campaign.cjs",
+    "test:catalog": "node tests/v220/catalog_campaign.cjs",
+    "test:person-topics": "node tests/v220/person_topic_campaign.cjs",
     "test:privacy:synthetic": "python3 tests/privacy/test_synthetic_url_fixture_approvals.py",
-    "test:hotfix": "node tests/v2191/run_all.cjs"
+    "test:hotfix": "node tests/v2191/run_all.cjs",
+    "test:build": "node tests/v220/compact_cases.cjs"
   }
 }

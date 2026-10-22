@@ -2,7 +2,20 @@
 
 Script para revisar o código-fonte da Wikipédia em português. Os ajustes ficam no rascunho, com opção de desfazer. A comparação usa Mostrar alterações do editor.
 
-## Correção 2.19.1
+## Versão 2.20
+
+- Corrige parâmetros e separadores de citações nos contextos nativos conferidos.
+- Confere a função de cada campo antes de corrigir sites, imagens e outros dados de infocaixas.
+- Acrescenta portais a partir de evidências explícitas e mantém sem alteração os campos sem equivalência confirmada.
+- Corrige casos delimitados de tabelas, ligações e espaçamento, com testes da ação completa e de entradas que precisam permanecer intactas.
+- Protege notas que atravessam atributos HTML ou outros limites incertos.
+- Mantém o prazo de 60 segundos, o rascunho integral e as verificações de preservação.
+
+[Índice para copiar e colar](dist/2.20.0/INICIO.html) · [Pacote ZIP](dist/2.20.0/RevisaWiki_2.20.0.zip) · [Manual](docs/2.20.0/Documentacao_RevisaWiki_v2_20_0.wiki) · [Instalação](docs/2.20.0/Instalacao_RevisaWiki_v2_20_0.txt) · [Funcionalidades e limites](docs/2.20.0/Funcionalidades_RevisaWiki_2_20.md) · [Testes](docs/2.20.0/Relatorio_testes_RevisaWiki_v2_20_0.txt)
+
+As 52 decisões foram analisadas. Há 49 frentes de automação, contratos ou verificações de preservação. Os três estudos de migração de `center`, `font` e `big` não foram ativados, pois as contraprovas de CSS mostraram diferenças de apresentação.
+
+## Correção anterior 2.19.1
 
 Corrige o erro "cyclic object value" ao clicar em Ajustar código. A interface passa a guardar um identificador do editor, sem converter o objeto do editor em JSON. As regras aplicadas ao artigo, a conferência de preservação e o prazo de 60 segundos permanecem iguais.
 
@@ -15,7 +28,7 @@ Para reconstruir e conferir esta correção, execute `python3 scripts/build_v219
 ## Recursos da versão 2.19
 
 - Marca como edição menor os ajustes feitos exclusivamente pelo programa em artigos completos, respeitando a escolha manual.
-- Oferece uma [demonstração interativa](dist/2.19.1/Demonstracao_RevisaWiki_v2_19_1.html) com exemplos e comparação do resultado.
+- Oferece uma [demonstração interativa](dist/2.20.0/Demonstracao_RevisaWiki_v2_20_0.html) com exemplos e comparação do resultado.
 - Confere as regras pelo resultado da ação completa, incluindo opções desligadas, exemplos protegidos e entradas semelhantes que precisam ficar intactas.
 - Corrige bloqueios entre a leitura do texto, as etapas de ajuste e as provas de preservação.
 - Reorganiza títulos redundantes de notas e referências, mantendo grupos, listas, definições e a posição das citações.
@@ -30,7 +43,7 @@ Os adaptadores atendem ao editor clássico, às integrações reconhecidas de Co
 
 ## Instalação
 
-[Pacote completo](dist/2.19.1/RevisaWiki_2.19.1.zip) · [Índice para copiar](dist/2.19.1/INICIO.html) · [Instruções](docs/2.19.1/Instalacao_RevisaWiki_v2_19_1.txt) · [Manual](docs/2.19.1/Documentacao_RevisaWiki_v2_19_1.wiki) · [Histórico resumido](docs/2.19.1/Notas_da_versao_RevisaWiki_v2_19_1.txt) · [Testes](docs/2.19.1/Relatorio_testes_RevisaWiki_v2_19_1.txt)
+[Pacote completo](dist/2.20.0/RevisaWiki_2.20.0.zip) · [Índice para copiar](dist/2.20.0/INICIO.html) · [Instruções](docs/2.20.0/Instalacao_RevisaWiki_v2_20_0.txt) · [Manual](docs/2.20.0/Documentacao_RevisaWiki_v2_20_0.wiki) · [Histórico resumido](docs/2.20.0/Notas_da_versao_RevisaWiki_v2_20_0.txt) · [Testes](docs/2.20.0/Relatorio_testes_RevisaWiki_v2_20_0.txt)
 
 Atualize dados, núcleo, carregador central e documentação, nessa ordem. Quem já usa a chamada fixa mantém o common.js como está. O arquivo completo excede o limite de uma página da Wikipédia, por isso a instalação separa dados e núcleo.
 
@@ -42,20 +55,23 @@ A análise em processamento separado tem limite de 60 segundos, que pode ser ati
 
 ## Código e verificações
 
-A reconstrução da correção parte dos sete arquivos da 2.19.0, conferidos por SHA-256, e aplica o auxiliar de `src/v2_19_1`. Uma conferência por reversão exata limita as mudanças à identificação do editor e à versão. As distribuições anteriores ficam intactas.
+A reconstrução da 2.20 parte dos sete arquivos imutáveis da 2.19.1, conferidos por SHA-256, e aplica os fragmentos de `src/v2_20`. A compactação do núcleo retira espaços e conserva a árvore sintática, os tokens, os comentários e os valores literais. As distribuições anteriores ficam intactas.
 
 Para reconstruir o código e executar os testes, use Python 3, Node.js 24 ou superior e npm 10 ou superior. Na pasta do repositório:
 
 ```sh
 npm ci
-python3 scripts/build_v2191.py
-npm run test:hotfix
+python3 scripts/build_v2200.py
+python3 scripts/export_catalogs_v2200.py
+npm test
 npm run test:privacy
 ```
 
-O [guia dos testes](tests/v219/README.md) distingue os casos dirigidos, a matriz dos catálogos, as revisões reais, o histórico e os testes de navegador. Os [resultados da versão](docs/2.19.1/Relatorio_testes_RevisaWiki_v2_19_1.txt) trazem as contagens concluídas, os hashes executados e os limites de cada prova. Artigos distintos, situações sintéticas, execuções repetidas e verificações têm denominadores próprios. Nenhum teste salva edições na Wikipédia.
+O [guia dos testes](tests/v220/README.md) distingue os casos dirigidos, a matriz dos catálogos, as revisões reais, o histórico e os testes de navegador. Os [resultados da versão](docs/2.20.0/Relatorio_testes_RevisaWiki_v2_20_0.txt) trazem as contagens concluídas, os hashes executados e os limites de cada prova. Artigos distintos, situações sintéticas, execuções repetidas e verificações têm denominadores próprios. Nenhum teste salva edições na Wikipédia.
 
 Os resultados públicos trazem totais, hashes e resumos dos testes. As capturas completas, os perfis de navegador e os arquivos temporários ficam locais. A matriz das regras inclui exemplos fictícios e trechos públicos de provas nativas, com a revisão de origem indicada. As contagens de navegador vêm das execuções registradas.
+
+Os oito arquivos `Catalogo_*.json` conservam os dados, as datas e as revisões dos instantâneos herdados. A exportação acrescenta a origem e o hash do núcleo desta distribuição. Ela não consulta novamente as predefinições nem substitui as condições adicionais dos reparos em `src/v2_20`.
 
 ## Referências de versões anteriores
 
