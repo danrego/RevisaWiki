@@ -53,6 +53,13 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
 # after whitespace formatting. Approval requires the entire reviewed runtime,
 # its exact byte count and both exact fragment hashes, each occurring once.
 APPROVED_RUNTIME_OBJECT_KEYS={
+ '19278a1b5e2b316285a15b99246d3b156230f467a9537821f88b5a5b66816890':{
+  'bytes':2089124,
+  'tokens':{
+   '5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
  '4b32f9e6fa2d2dbb6283e418ab18f16047bb7b7ba7dd41ac21ec568232ca99a1':{
   'bytes':2014958,
   'tokens':{
@@ -72,6 +79,7 @@ APPROVED_RUNTIME_OBJECT_KEYS={
 # Only reviewed complete source files and exact reserved-domain URLs qualify.
 # Reserved documentation/test domains: https://www.rfc-editor.org/rfc/rfc2606.html
 APPROVED_SYNTHETIC_URL_FIXTURES={
+ '38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51':{'410504aa598cc37372f0ff9d9c9859d1e0803df4ddf8b9c43d6556f86f070fd9'},
  '82bf0d011eeb3ed6de32526d3506a6b91bd2a1ddea460cad63622809a5b39908':{'a34610cafad11b3e4554e3093b3acb94c1764c8e77b5ca27deddc5dd59605362'},
  '5b18d685c06a5bbcd2f3e3c07188bdd7ab5194ed891b5b40d4dd435ecb946894':{'88ea6f85d62ab24778c7ef01b8859a64270ab74f74dd49933de1261f850ce07c'},
  'ea4dbbedfc166655bb5cfe6865371afc9d1c251b4050e520f1674b055e0002cb':{'da2dcf3acd0c4547e70094e71d173ecea4fa55e11f92964341b79d76094f2051'},

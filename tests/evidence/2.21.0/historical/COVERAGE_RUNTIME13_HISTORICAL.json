@@ -1,0 +1,1935 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.0",
+  "planItemCount": 144,
+  "scope": "Qualificação individual das famílias novas. A aprovação do lançamento depende dos demais testes em QA_SUMMARY.json.",
+  "runtimeManifestSha256": "16f5c9d1253c34cbd8725739302ceb19037812343fe8860f543de8d18c3e69a2",
+  "dispositions": {
+    "automacao-delimitada": 114,
+    "estudo-preservado": 26,
+    "catalogo-corrigido": 1,
+    "diagnostico-corrigido": 2,
+    "nao-suportado": 1
+  },
+  "items": [
+    {
+      "id": "INT-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Compõe os reparos sem tratar uma língua válida de outra citação como perda de dados. A conferência recalcula as provas na fonte atual e preserva trechos incompletos.",
+      "sourceModules": [
+        "src/v2_21/composition_prerequisites.js",
+        "src/v2_21/integration.js"
+      ],
+      "tests": [
+        "tests/v221/composition_prerequisites.cjs"
+      ]
+    },
+    {
+      "id": "INT-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira somente argumentos nomeados, desconhecidos e inteiramente vazios do coletor nativo conferido. Grupos, listas definidas, valores e comentários permanecem intactos.",
+      "sourceModules": [
+        "src/v2_21/composition_prerequisites.js",
+        "src/v2_21/integration.js"
+      ],
+      "tests": [
+        "tests/v221/composition_prerequisites.cjs"
+      ]
+    },
+    {
+      "id": "INT-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Coloca aspas em nomes e grupos literais de ref quando o scanner confirma seus limites e a mesma associação entre chamadas e definições. Nomes com sintaxe concorrente permanecem intactos.",
+      "sourceModules": [
+        "src/v2_21/composition_prerequisites.js",
+        "src/v2_21/integration.js"
+      ],
+      "tests": [
+        "tests/v221/composition_prerequisites.cjs"
+      ]
+    },
+    {
+      "id": "INT-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Move somente a Portal3 nova antes da categoria terminal original, conservando sua indentação e a ausência de quebra final. Exige fronteira própria de parágrafo e recusa literais envolventes.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "GEN-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira apenas a repetição literal e sem parâmetros da chamada nativa no mesmo rodapé.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "GEN-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige quatro grafias finitas de protocolo em ligação externa ou campo nativo de URL, mantendo todo o restante do endereço.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "GEN-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte a seção de faixas de álbum confirmado somente quando a sequência literal completa começa em 1 e não tem lacunas.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "GEN-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Só retira interwiki literal em fonte sem chamadas de predefinição, após confirmação vinculada ao rascunho, ao título e à revisão. Uma predefinição pode suprimir a ligação exibida. Sem prova suficiente, o código é conservado.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ]
+    },
+    {
+      "id": "GEN-05",
+      "disposition": "nao-suportado",
+      "summary": "Consultas, URLs assinadas e capturas arquivadas são conservadas. Não há remoção genérica de rastreamento.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ]
+    },
+    {
+      "id": "BIO-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Preenche o destino nativo vazio com o valor do campo importado, sem substituir valores existentes.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira apenas uma ocorrência anterior totalmente vazia da mesma chave e mantém a última ocorrência.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira duplicatas literais idênticas sem apagar comentários, referências ou valores diferentes.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Permite que três esboços conhecidos convivam com a inserção de portais já confirmados.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Confirma Astronomia por infocaixas nativas de galáxia, estrela e asteroide, sem adivinhar a identidade do objeto.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige uma opção de imagem identificada como erro, preservando itálico válido na legenda.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige um conjunto fechado de opções de miniatura e alinhamento, sem alterar palavras da legenda.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira o identificador IMDb ignorado apenas quando o mesmo tipo e número ficam numa ligação externa com argumentos inequívocos.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-09",
+      "disposition": "automacao-delimitada",
+      "summary": "Separa por uma quebra de linha a infocaixa completa da introdução em negrito que a segue imediatamente.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Aplica os contratos de data às biografias especializadas, sem inventar dia, mês, ano, idade ou lugar.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Reconhece o nome da infocaixa através de comentários completos e mantém os comentários no código.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "STR-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige colchetes duplos ao redor de URL externa completa com rótulo simples e proprietário único.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira um fechamento excedente somente fora de imagem, wikilink, tabela ou outro proprietário concorrente.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte uma única entidade separadora entre alvo e rótulo literais de wikilink.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira um parágrafo isolado formado por NBSP, sem indentação e entre dois trechos de prosa comum.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Mantém o comentário completo byte a byte e substitui os parágrafos vazios por uma separação normal entre os dois parágrafos.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira marcador vazio de lista não numerada somente entre dois itens preenchidos do primeiro nível e sem descendentes.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige quebras nativas equivalentes somente no texto direto de campos exibidos confirmados, preservando modelos internos, ref, wikilinks e atributos HTML.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira small inline completamente vazio e sem atributos, conservando os espaços de cada lado.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Acrescenta rolagem limitada à largura disponível em tabela completa com CSS adicional finito, conservando todos os bytes da tabela.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Reconhece coletor nativo que emite título, separado do título redundante somente por categorias literais e espaços.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "REF-01",
+      "disposition": "diagnostico-corrigido",
+      "summary": "Reconhece campos nativos de jogos eletrônicos e evita sugestões incorretas. Não altera o texto do artigo.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "REF-03",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva citações em trechos opacos ou incompletos. Não há deduplicação genérica que ignore o contexto.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "REF-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Insere uma aspa somente quando o nome é literal, o corpo está completo e a sintaxe inteira fica balanceada. Atributos truncados que abrangem outras linhas são preservados.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Reconcilia aspas curvas no nome apenas quando uma definição e as reutilizações literais comprovam o mesmo nome e grupo, sem colisão.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "REF-12",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva chamadas IUCN antigas quando a versão, o identificador da avaliação ou o invólucro não têm migração comprovada.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "REF-STUDY-01",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva números de artigo. Não os converte em páginas.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "REF-STUDY-02",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva URLs com rótulo dentro de um parâmetro quando não há destino comprovado para o rótulo.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "REF-STUDY-03",
+      "disposition": "estudo-preservado",
+      "summary": "Não extrai ano, volume ou página de texto livre de editora.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "IBX-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-09",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-12",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-13",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-14",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-15",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-16",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-17",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-18",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva resultado líquido, renda e patrimônio separados. A equivalência necessária para uma migração não foi confirmada.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-19",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-20",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-21",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-22",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-23",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-STUDY-01",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva propriedades químicas quando a infocaixa não possui um campo nativo correspondente.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-STUDY-02",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva dados de medicamentos sem uma linha nativa correspondente.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-STUDY-03",
+      "disposition": "estudo-preservado",
+      "summary": "Distingue um parâmetro aceito pelo verificador de um parâmetro que realmente exibe conteúdo.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBX-STUDY-04",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva identificadores e níveis taxonômicos quando a relação entre eles não está comprovada.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X01",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X03",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X04",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X05",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X06",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X08",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X09",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X10",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X11",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X12",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X13",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X14",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-X15",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira apenas campos de uma lista fechada, realmente ignorados e totalmente vazios.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST1",
+      "disposition": "catalogo-corrigido",
+      "summary": "Reconhece parâmetros nativos separados por includeonly. Preserva campos que apenas controlam uma seção e não os chama de desconhecidos.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST2",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva campos preenchidos sem destino nativo. A correção pode depender de uma mudança na própria predefinição.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST3",
+      "disposition": "estudo-preservado",
+      "summary": "Mantém separados influências, orientadores e orientados.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST4",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva mandatos fora do intervalo ou da estrutura aceita pela infocaixa.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST5",
+      "disposition": "estudo-preservado",
+      "summary": "Mantém separados título, ano e endereço de tese, formação e instituição.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST6",
+      "disposition": "estudo-preservado",
+      "summary": "Mantém separadas etnia, nacionalidade e classificações raciais.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST7",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva o campo olímpico quando sua função nativa não foi confirmada.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "BIO-ST8",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva descrições quando não há prova de que sejam legendas da imagem.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "CEX-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige autoria correspondente, índice correto e ausência de outro campo que controle a mesma ligação. Em citações de tweets, também confere qual nome de autor a predefinição realmente usa. Preserva campos concorrentes, inclusive os vazios.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige sobrenome correspondente, índices anteriores completos e ausência de outro campo que controle o mesmo nome de editor. As verificações abrangem também as conversões bibliográficas antigas.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-09",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige usuário, número e URL coerentes; mantém valores conflitantes.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte somente o valor literal livre em free, com DOI sintaticamente válido e sem campo concorrente.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-12",
+      "disposition": "automacao-delimitada",
+      "summary": "Traduz apenas os valores de acesso finitos comprovados pelo consumidor nativo, com URL válida e sem campo concorrente, inclusive vazio. A tradução é bloqueada se puder ativar uma falha do módulo de citação no vínculo para o original arquivado.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221_integrity/citation_guards.cjs"
+      ]
+    },
+    {
+      "id": "CEX-13",
+      "disposition": "automacao-delimitada",
+      "summary": "Traduz declarações literais live, ativo, ao vivo, dead e morto somente com URL original e arquivo/data correspondentes. Campos concorrentes, inclusive vazios, impedem a troca. Não infere estados de valores booleanos ambíguos.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221_integrity/citation_guards.cjs"
+      ]
+    },
+    {
+      "id": "CEX-14",
+      "disposition": "automacao-delimitada",
+      "summary": "Repõe um único separador no marcador literal deadarchiveurl= somente quando URL original, arquivo e data comprovam a divisão.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-15",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira um único @ do usuário somente quando a URL confirma exatamente esse usuário e o número do tweet.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-16",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-18",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte apenas um localizador literal de seção em em= nos modelos qualificados. Preserva loc em Citar jogo, onde o campo pode substituir outra localização, e impede a conversão indevida em local.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S01",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva passagens em aspas. Não as abrevia nem reescreve.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S02",
+      "disposition": "estudo-preservado",
+      "summary": "Não usa uma URL colocada em um campo de estado como prova do destino correto.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S03",
+      "disposition": "estudo-preservado",
+      "summary": "Não extrai campos colados ou traduzidos por semelhança sem uma divisão comprovada.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S04",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva valores booleanos cujo papel não esteja comprovado pelo consumidor nativo.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S05",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva campos de acesso a capítulo ou mapa que o módulo local não consome. Nenhum módulo da Wikipédia é alterado.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "CEX-S06",
+      "disposition": "estudo-preservado",
+      "summary": "Não retira prefixos de identificadores de forma genérica.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "STR-AD-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte alias único de seção relacionada nos níveis dois a seis, sem outra seção Ver também, proprietário concorrente ou fragmento local bruto/codificado que dependa do título.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-AD-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Reduz somente o intervalo de espaços entre uma nota formatada completa e uma navbox confirmada.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "IBH-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "IBH-09",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.",
+      "sourceModules": [
+        "src/v2_21/biography_infoboxes.js"
+      ],
+      "tests": [
+        "tests/v221/biography_cases.cjs",
+        "tests/v221/biography_whole_current.cjs",
+        "tests/v221/biography_ui_preflight.cjs",
+        "tests/v221/biography_ui_native.cjs"
+      ]
+    },
+    {
+      "id": "C3REF-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Em Citar episódio, uma data de exibição ou um intervalo já presente impede que sdata passe a substituí-lo. Os demais valores são conservados.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "C3REF-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira o sufixo ed. de ordinais literais comprovados. Duplicatas de edição só são removidas quando o produtor nativo confirma equivalência; colisões continuam intactas.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_editions.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "C3REF-EXT-TITLE",
+      "disposition": "automacao-delimitada",
+      "summary": "Repara um título dividido por separador somente com resposta retida do Crossref que confirme o mesmo DOI e exatamente o título completo. Provas de outra fonte, antigas ou ausentes não autorizam alteração.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_metadata_contract.cjs",
+        "tests/v221/citation_ui_preflight.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "LNR-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Troca o valor literal column por col somente no scope de cabeçalho completo de wikitable. th HTML continua fora do primeiro contrato.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "LNR-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira thumb ou thumbnail redundante no início da linha de galeria somente quando há uma legenda literal posterior.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "LNR-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige o segundo dois-pontos apenas após imageinfo positivo no destino e ausência/invalidade sem arquivo compartilhado na origem, com resposta vinculada ao rascunho. Normalizações da API e arquivos Commons sem página local são considerados. A farm local não tinha o arquivo e não foi usada para afirmar existência positiva.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_ui_preflight.cjs"
+      ]
+    },
+    {
+      "id": "LNR-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige duas barras finais fora de aspas em ref nomeada e autoencerrada, conservando a identidade e todas as reutilizações.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-INT-APOS",
+      "disposition": "automacao-delimitada",
+      "summary": "Impede que o writer existente mova delimitadores sobre apóstrofos ou ênfase concorrente. O caso simples e seguro continua funcionando.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "STR-COMP-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Acrescenta colunas em duas variantes válidas de título bibliográfico, mantendo o título e pelo menos seis itens simples.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "DIAG-RES-01",
+      "disposition": "diagnostico-corrigido",
+      "summary": "Evita sugestões incorretas para campos nativos de citações, Convert e referências abreviadas. Não altera o texto do artigo.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "EXT-REF-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira somente o segundo ponto ao redor de uma cadeia completa de referências em prosa comum, depois de palavra literal em minúsculas. Conserva abreviações, nomes próprios e todas as referências.",
+      "sourceModules": [
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ]
+    },
+    {
+      "id": "EXT-REF-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte id em isbn somente quando o valor inteiro é um ISBN válido e não há identificador concorrente.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "EXT-REF-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Exige uma conferência literal e os campos nativos correspondentes antes de corrigir URL ou formato. A correção de formato exige um endereço válido que já seja usado pela predefinição, ou que possa ser convertido com segurança na mesma execução.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "EXT-ST-01",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva a pontuação de legendas. Não aplica uma regra genérica de retirada de pontos. Ponto final de legenda exige decisão sobre frase, abreviação ou reticências. Os controles conservam a pontuação. Não há remoção geral.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js",
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/structure_repairs.cjs"
+      ]
+    },
+    {
+      "id": "EXT-ST-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige lengenda apenas em Citar episódio, com um único tempo literal não vazio e sem legenda concorrente. Preserva o tempo e o valor da legenda.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ]
+    },
+    {
+      "id": "EXT-ST-03",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva campos de mapas cuja formatação depende de regras próprias do módulo. Não adivinha uma migração por semelhança.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ]
+    },
+    {
+      "id": "EXT-ST-04",
+      "disposition": "estudo-preservado",
+      "summary": "Preserva o espaço antes de referências quando o contexto não comprova que sua retirada é segura. Espaço antes de ref pode ter função de estilo ou estrutura. Os controles conservam espaço, tabulação e quebra de linha. Não há regra geral aprovada.",
+      "sourceModules": [
+        "src/v2_21/citation_repairs.js",
+        "src/v2_21/structure_repairs.js"
+      ],
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/structure_repairs.cjs"
+      ]
+    }
+  ],
+  "sourceModules": {
+    "src/v2_21/composition_prerequisites.js": {
+      "bytes": 6521,
+      "sha256": "80e53cf10edc7f275251b59c7a50684d636bae198b82eef8842ed16af73bbfc3"
+    },
+    "src/v2_21/citation_repairs.js": {
+      "bytes": 66262,
+      "sha256": "8ba679477970599e46ea43c3983c0b231be575803d47e68870bb2ed8808755f2"
+    },
+    "src/v2_21/structure_repairs.js": {
+      "bytes": 43970,
+      "sha256": "888f94d1b4b0a05535406b6b7c329d07c72d17b066dcc25751c6d37911d1206b"
+    },
+    "src/v2_21/biography_infoboxes.js": {
+      "bytes": 119032,
+      "sha256": "fcbf8b68defdfc387ea5542cf50ceac37e1f6444d64e11ff69b5507ee1317bb6"
+    },
+    "src/v2_21/integration.js": {
+      "bytes": 7161,
+      "sha256": "af255f6e4b0141278d2fe851a45eaf6e723934ded491606c96d17198f88299ec"
+    },
+    "src/v2_21/ui_preflights.js": {
+      "bytes": 5262,
+      "sha256": "4a432f5878214c1bde3bd8da81550a611b079a68e8939fc1051f28039fea2eb3"
+    },
+    "src/v2_21/header.txt": {
+      "bytes": 1594,
+      "sha256": "0d0360fd02de9fb31bad2131a25fa9723ea4d28182da37b9abca166be1d92d24"
+    }
+  },
+  "wikipediaWrites": 0,
+  "previousCoverageSha256": "05cb8b8180f137f0a6613fa3416d5e8cfddc35435351f0ff895d1ea06e0c9478",
+  "additionalCaseRecord": "tests/evidence/2.21.0/COVERAGE_SUPPLEMENT.json"
+}

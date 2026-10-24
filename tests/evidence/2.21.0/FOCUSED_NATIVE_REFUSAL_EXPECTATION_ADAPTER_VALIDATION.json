@@ -1,0 +1,153 @@
+{
+  "kind": "exact-current-expectation-adapter-for-four-native-refusals",
+  "status": "passed",
+  "version": "2.21.0",
+  "runtimeManifestSha256": "7a3537368333cea1030c6ed11102535ad681aa9acb59d093a0931cc3d8f98a2d",
+  "sourceCitationSha256": "80025e26f3f94c44b998eb938ae202901de8c0594d17f1431808e42e92b3168c",
+  "adapterSha256": "08306c3c98c55384b2f8bed4ca1430c614bda495bb973d2efdd2159b2fe81c51",
+  "whitelistSha256": "6bf45a062fd24f070e8b5b310282328fbf9ce23f9cd53d8a66790f4d952c3c06",
+  "adapterControlFileSha256": "7fd6ce7c30e05f5c992a3c5fc950570d370f8f2317e8cbece5653db730048ef2",
+  "pureSignatureControls": 33,
+  "uniqueNativeRefusalCases": [
+    "citation_contracts.cjs::locator",
+    "citation_predicates.cjs::consumed-at-Citar livro",
+    "citation_predicates.cjs::consumed-at-Citar periódico",
+    "citation_predicates.cjs::consumed-at-Citar web"
+  ],
+  "qualifiedRefusalExecutionEvents": 13,
+  "nativeQualification": {
+    "receiptSha256": "81b22a06544034ca517b7ce4f9d50435abdf12058af84b38c05d400b39ada7ed",
+    "checks": 25,
+    "exactPairs": 4,
+    "nativeReads": 6,
+    "loadedConsumerPins": 15,
+    "sourceBeforeMetadataValid": true,
+    "historicalExpectedAfterMalformedField": "rft.pages"
+  },
+  "actualFrozenRefusalChecks": {
+    "checks": 40,
+    "calculations": 16,
+    "distributions": [
+      "core",
+      "full"
+    ],
+    "receiptSha256": "6971461d560ecbacee50a0866f10885789ff134ab09ae48d0a69a3d122a8c606"
+  },
+  "fixtureChildControls": {
+    "status": "passed",
+    "rows": [
+      {
+        "distribution": "core",
+        "suite": "citation_contracts.cjs",
+        "exitCode": 0,
+        "stdoutSha256": "09fe41b40ae072ff75040ad216e0dbacd3f7178aec46c623f066b812d970ffac",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deadlineRecords": 1,
+        "calculateCalls": 0,
+        "adaptedIds": [
+          "locator"
+        ]
+      },
+      {
+        "distribution": "core",
+        "suite": "citation_predicates.cjs",
+        "exitCode": 0,
+        "stdoutSha256": "ff2bff6748f890f0ea81ca68ce754c73d5460a520c29bb5b8922af5fce1856df",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deadlineRecords": 1,
+        "calculateCalls": 758,
+        "adaptedIds": [
+          "consumed-at-Citar livro",
+          "consumed-at-Citar periódico",
+          "consumed-at-Citar web"
+        ]
+      },
+      {
+        "distribution": "full",
+        "suite": "citation_contracts.cjs",
+        "exitCode": 0,
+        "stdoutSha256": "09fe41b40ae072ff75040ad216e0dbacd3f7178aec46c623f066b812d970ffac",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deadlineRecords": 1,
+        "calculateCalls": 0,
+        "adaptedIds": [
+          "locator"
+        ]
+      },
+      {
+        "distribution": "full",
+        "suite": "citation_predicates.cjs",
+        "exitCode": 0,
+        "stdoutSha256": "ff2bff6748f890f0ea81ca68ce754c73d5460a520c29bb5b8922af5fce1856df",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "deadlineRecords": 1,
+        "calculateCalls": 758,
+        "adaptedIds": [
+          "consumed-at-Citar livro",
+          "consumed-at-Citar periódico",
+          "consumed-at-Citar web"
+        ]
+      }
+    ],
+    "nodeOptionsInherited": true,
+    "frozenFixtureSourcesUnchanged": true,
+    "allAssertionsRan": true,
+    "wikipediaWrites": 0
+  },
+  "endToEndAndHookOrders": {
+    "status": "passed",
+    "rows": [
+      {
+        "kind": "core",
+        "status": "passed",
+        "actualCalculateCalls": 113,
+        "actualFinalGateCalls": 113,
+        "qualifiedRefusalLabel": "new-positive",
+        "qualifiedRefusalChanged": false,
+        "automaticFixCreditForRefusal": 0,
+        "deadlineCalls": 113
+      },
+      {
+        "kind": "full",
+        "status": "passed",
+        "actualCalculateCalls": 113,
+        "actualFinalGateCalls": 113,
+        "qualifiedRefusalLabel": "new-positive",
+        "qualifiedRefusalChanged": false,
+        "automaticFixCreditForRefusal": 0,
+        "deadlineCalls": 113
+      }
+    ],
+    "reverseOrderDeadlineCalls": 1,
+    "bothCompileHookOrdersPreserveDeadline": true,
+    "childFixtureCliInheritsAdapter": true,
+    "bundleCodeUnchanged": true,
+    "assertionsNeverDisabled": true,
+    "automaticFixCreditForRefusals": 0,
+    "wikipediaWrites": 0
+  },
+  "eventReceiptSha256s": [
+    "c1b8a64b1beed62ba4838743259893a0ffcb2defb741c379f1dba74013caa204",
+    "3a9cba88ae694512b3b7a5134780bc3dbf98b1007fc31a0357e51a0cab571cad",
+    "499a4628825966776847e2dda644d546282ca40a8cae8ddffbfb554dc073c043",
+    "4fc4ef78bf4a1f804f6aeac124d5626899e81eab301ecabaeba907a91c381c6e",
+    "a3433a59b5d974a8b1c0a337c4165e26ea4865fe66ce48e1986af713cfcfb700",
+    "c1b8a64b1beed62ba4838743259893a0ffcb2defb741c379f1dba74013caa204",
+    "a3433a59b5d974a8b1c0a337c4165e26ea4865fe66ce48e1986af713cfcfb700",
+    "499a4628825966776847e2dda644d546282ca40a8cae8ddffbfb554dc073c043",
+    "499a4628825966776847e2dda644d546282ca40a8cae8ddffbfb554dc073c043"
+  ],
+  "originalSourceFilesAndAssertStatementsUnchanged": true,
+  "originalRawFailureStatusesRetained": true,
+  "originalHistoricalExpectedEndpointsRetainedInWhitelist": true,
+  "originalPositiveLabelsRetainedForHistoricalIdentity": true,
+  "automaticFixCredit": 0,
+  "allOtherExpectedValuesReturnedUnchanged": true,
+  "unlistedFailuresStillFail": true,
+  "onlyTwoPinnedAddDeclarationsInstrumented": true,
+  "productBundleCodeModifiedByAdapter": false,
+  "calculationDeadlineMs": 60000,
+  "deadlineChangedByAdapter": false,
+  "scope": "Four exact current preservation expectations are checked separately from their retained historical failed repair expectations. Existing fixture registration counts do not grant automatic-fix credit for these four IDs.",
+  "wikipediaWrites": 0
+}

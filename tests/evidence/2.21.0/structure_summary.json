@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.0",
+  "kind": "structural-contract-qualification-summary",
+  "status": "completed-with-known-timeout-limitation",
+  "runtimeManifestSha256": "571a0e18f48c0013d51c5cf8ff65afe7b247e74b23774b3a67c854668eebac6b",
+  "sourceModule": "src/v2_21/structure_repairs.js",
+  "sourceSha256": "0827ceff9f3502273df1025aa490b7b5bda0462e10fee7215221b88bfa6b4e81",
+  "runtime": [
+    {
+      "file": "RevisaWiki_v2_21_0.js",
+      "sha256": "939de17a1131dc15bf6edd00110bb39e89f4dba3e6e135adc1944864fbbf66e4",
+      "bytes": 2083458
+    },
+    {
+      "file": "RevisaWiki_v2_21_0_completo.js",
+      "sha256": "90be48fd0bcf3296562eacfaa7d30e9a6751e03032439145952147633355957c",
+      "bytes": 4527117
+    }
+  ],
+  "scope": {
+    "planEntries": 27,
+    "boundedAutomaticRules": 24,
+    "preservedStudies": 2,
+    "unsupportedFeature": 1
+  },
+  "currentTests": {
+    "moduleChecks": 747,
+    "wholeActionCasesPerBundle": 69,
+    "wholeActionChecksPerBundle": 325,
+    "preflightChecksAcrossBothBundles": 80,
+    "independentMigrationAndStructureChecksIncludingRealChildReports": 3575,
+    "independentCalculateCallsIncludingRealChildReports": 1468,
+    "realAcceptedSourceInputs": 14,
+    "realBundleExecutions": 28,
+    "realSuccessfulBundleExecutions": 27,
+    "realTimeoutsNotRetried": 1,
+    "realCalculateCalls": 54,
+    "realChecks": 189,
+    "countScopesMayOverlap": true,
+    "independentChecksIncludeWholeActionAndRealSourceChecks": true
+  },
+  "retainedNativeControls": {
+    "receiptSha256": "3da44b6be6837c51cb7922d495e3a23f98b49896251c571b26cdee57b2d35497",
+    "assertions": 5,
+    "viewportMeasurements": 6,
+    "viewportWidths": [
+      360,
+      768,
+      1440
+    ],
+    "galleryAssetAvailableLocally": false,
+    "sourceProjectionSha256": "3c619524effa1f9058db5f96cd7784408bd5b141b23278e43033bde38495c308",
+    "unchangedStaticallyReachedFunctions": 202,
+    "newNativeBrowserExecution": false
+  },
+  "entries": [
+    {
+      "id": "GEN-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira apenas a repetição literal e sem parâmetros da chamada nativa no mesmo rodapé.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "GEN-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige quatro grafias finitas de protocolo em ligação externa ou campo nativo de URL, mantendo todo o restante do endereço.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "GEN-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte a seção de faixas de álbum confirmado somente quando a sequência literal completa começa em 1 e não tem lacunas.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "GEN-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira a ligação somente após confirmação atual vinculada ao rascunho, título e revisão, e apenas sem qualquer transclusão opaca que possa suprimir ligações de idioma.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ],
+      "conditionedOnExternalProof": true
+    },
+    {
+      "id": "GEN-05",
+      "disposition": "nao-suportado",
+      "summary": "Consultas, URLs assinadas e capturas arquivadas são conservadas. Não há remoção genérica de rastreamento.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige colchetes duplos ao redor de URL externa completa com rótulo simples e proprietário único.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira um fechamento excedente somente fora de imagem, wikilink, tabela ou outro proprietário concorrente.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte uma única entidade separadora entre alvo e rótulo literais de wikilink.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira um parágrafo isolado formado por NBSP, sem indentação e entre dois trechos de prosa comum.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-05",
+      "disposition": "automacao-delimitada",
+      "summary": "Mantém o comentário completo byte a byte e substitui os parágrafos vazios por uma separação normal entre os dois parágrafos.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-06",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira marcador vazio de lista não numerada somente entre dois itens preenchidos do primeiro nível e sem descendentes.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-07",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige quebras nativas equivalentes somente no texto direto de campos exibidos confirmados, preservando modelos internos, ref, wikilinks e atributos HTML.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-08",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira small inline completamente vazio e sem atributos, conservando os espaços de cada lado.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-10",
+      "disposition": "automacao-delimitada",
+      "summary": "Acrescenta rolagem limitada à largura disponível em tabela completa com CSS adicional finito, conservando todos os bytes da tabela.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-11",
+      "disposition": "automacao-delimitada",
+      "summary": "Reconhece coletor nativo que emite título, separado do título redundante somente por categorias literais e espaços.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-AD-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Converte alias único de seção relacionada nos níveis dois a seis, sem outra seção Ver também, proprietário concorrente ou fragmento local bruto/codificado que dependa do título.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-AD-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Reduz somente o intervalo de espaços entre uma nota formatada completa e uma navbox confirmada.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-COMP-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Acrescenta colunas em duas variantes válidas de título bibliográfico, mantendo o título e pelo menos seis itens simples.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "STR-INT-APOS",
+      "disposition": "automacao-delimitada",
+      "summary": "Impede que o writer existente mova delimitadores sobre apóstrofos ou ênfase concorrente. O caso simples e seguro continua funcionando.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "LNR-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Troca o valor literal column por col somente no scope de cabeçalho completo de wikitable. th HTML continua fora do primeiro contrato.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "LNR-02",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira thumb ou thumbnail redundante no início da linha de galeria somente quando há uma legenda literal posterior.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "LNR-03",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige o segundo dois-pontos apenas após imageinfo positivo no destino e ausência/invalidade sem arquivo compartilhado na origem, com resposta vinculada ao rascunho. Normalizações da API e arquivos Commons sem página local são considerados. A farm local não tinha o arquivo e não foi usada para afirmar existência positiva.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_ui_preflight.cjs"
+      ],
+      "conditionedOnExternalProof": true
+    },
+    {
+      "id": "LNR-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Corrige duas barras finais fora de aspas em ref nomeada e autoencerrada, conservando a identidade e todas as reutilizações.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "EXT-REF-01",
+      "disposition": "automacao-delimitada",
+      "summary": "Retira o segundo ponto apenas após final comum em minúsculas, fora da lista finita de abreviaturas e sem qualquer alteração ao corpo das referências.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "INT-04",
+      "disposition": "automacao-delimitada",
+      "summary": "Move somente a Portal3 nova antes da categoria terminal original, conservando sua indentação e a ausência de quebra final. Exige fronteira própria de parágrafo e recusa literais envolventes.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs",
+        "tests/v221/structure_candidate.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "EXT-ST-01",
+      "disposition": "estudo-preservado",
+      "summary": "Ponto final de legenda exige decisão sobre frase, abreviação ou reticências. Os controles conservam a pontuação. Não há remoção geral.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    },
+    {
+      "id": "EXT-ST-04",
+      "disposition": "estudo-preservado",
+      "summary": "Espaço antes de ref pode ter função de estilo ou estrutura. Os controles conservam espaço, tabulação e quebra de linha. Não há regra geral aprovada.",
+      "tests": [
+        "tests/v221/structure_repairs.cjs"
+      ],
+      "conditionedOnExternalProof": false
+    }
+  ],
+  "deadlineMilliseconds": 60000,
+  "historicalStatusesChanged": false,
+  "wikipediaWrites": 0,
+  "limits": [
+    "Os controles nativos e de largura foram preservados. Uma comparação de202 funções vincula os consumidores sem alteração à versão atual, sem alegar nova execução do navegador.",
+    "A imagem da galeria não existia na instalação local. Foram comparados o HTML gerado e as legendas, sem afirmar existência do arquivo.",
+    "As14 fontes reais são saídas aceitas já congeladas e foram testadas nos dois bundles. Não são28 artigos distintos.",
+    "Uma das14 fontes excedeu60.000 ms no bundle completo. O timeout permanece registrado e não foi repetido. Não houve proposta parcial nem alteração dos dados de entrada.",
+    "A regressão legada e a campanha integral de artigos possuem relatórios próprios. Este arquivo não substitui a aprovação final do lançamento.",
+    "O total das verificações independentes já inclui os testes de ação completa e das fontes reais indicados acima. Esses subtotais não devem ser somados outra vez."
+  ]
+}

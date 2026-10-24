@@ -1,0 +1,384 @@
+{
+  "kind": "source-authored-inline-settlement-formatting-endpoints",
+  "sourceAuthoredExpectedVectors": true,
+  "cases": [
+    {
+      "id": "root-standalone",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade de teste|imagem=|região=[[Região de teste|Região]]|sede=Localidade de teste}}\n\nTexto de teste.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade de teste"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "região",
+          "[[Região de teste|Região]]"
+        ],
+        [
+          "sede",
+          "Localidade de teste"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-plain",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda=Valor}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "Valor"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-padding",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda= Valor }}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "Valor"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-empty",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda=}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-wiki-link",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda=[[Destino|Rótulo]]}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "[[Destino|Rótulo]]"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-date-template",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda={{Dni|1|1|2000}}}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "{{Dni|1|1|2000}}"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-equals",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda=A = B}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "A = B"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-nested-template-link",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda={{nowrap|[[A|B]]}}}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "{{nowrap|[[A|B]]}}"
+        ]
+      ]
+    },
+    {
+      "id": "no-selector-tab",
+      "source": "{{Info/Assentamento/Marrocos|nome=Localidade|imagem=|imagem_legenda=a\tb}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos",
+      "selector": null,
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "a\tb"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-plain",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda=Valor}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "Valor"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-padding",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda= Valor }}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "Valor"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-empty",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda=}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-wiki-link",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda=[[Destino|Rótulo]]}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "[[Destino|Rótulo]]"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-date-template",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda={{Dni|1|1|2000}}}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "{{Dni|1|1|2000}}"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-equals",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda=A = B}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "A = B"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-nested-template-link",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda={{nowrap|[[A|B]]}}}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "{{nowrap|[[A|B]]}}"
+        ]
+      ]
+    },
+    {
+      "id": "com-selector-tab",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|imagem=|imagem_legenda=a\tb}}\n\nTexto.\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "imagem",
+          ""
+        ],
+        [
+          "imagem_legenda",
+          "a\tb"
+        ]
+      ]
+    },
+    {
+      "id": "crlf-selector",
+      "source": "{{Info/Assentamento/Marrocos|com|nome=Localidade|sede=[[A|B]]}}\r\n\r\nTexto.\r\n",
+      "header": "{{Info/Assentamento/Marrocos|com",
+      "selector": "com",
+      "eol": "\r\n",
+      "orderedNamedFields": [
+        [
+          "nome",
+          "Localidade"
+        ],
+        [
+          "sede",
+          "[[A|B]]"
+        ]
+      ]
+    }
+  ]
+}

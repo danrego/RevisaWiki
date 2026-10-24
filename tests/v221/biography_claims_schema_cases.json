@@ -1,0 +1,526 @@
+{
+  "kind": "independently-typed-claims-map-controls",
+  "valid": [
+    {
+      "id": "empty",
+      "claims": {},
+      "expected": true
+    },
+    {
+      "id": "empty-unrelated-array",
+      "claims": {
+        "P9999": []
+      },
+      "expected": true
+    },
+    {
+      "id": "value",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "novalue",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "novalue"
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "somevalue",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "somevalue"
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "deprecated",
+      "claims": {
+        "P31": [
+          {
+            "rank": "deprecated",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "somevalue"
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "preferred",
+      "claims": {
+        "P31": [
+          {
+            "rank": "preferred",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "qualified-referenced",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            },
+            "id": "opaque-id",
+            "type": "statement",
+            "qualifiers": {
+              "P580": [
+                {
+                  "snaktype": "somevalue",
+                  "property": "P580"
+                }
+              ]
+            },
+            "qualifiers-order": [
+              "P580"
+            ],
+            "references": [
+              {
+                "hash": "opaque",
+                "snaks": {
+                  "P248": [
+                    {
+                      "property": "P248",
+                      "snaktype": "novalue"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "unrelated-opaque-datatype",
+      "claims": {
+        "P9999": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P9999",
+              "snaktype": "value",
+              "datatype": "future-datatype",
+              "datavalue": {
+                "type": "future-value",
+                "value": {
+                  "uninterpreted": [
+                    1,
+                    "x",
+                    null
+                  ]
+                }
+              }
+            },
+            "extra": {
+              "retain": true
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "unrelated-string",
+      "claims": {
+        "P9999": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P9999",
+              "snaktype": "value",
+              "datatype": "external-id",
+              "datavalue": {
+                "type": "string",
+                "value": "opaque-id"
+              }
+            }
+          }
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "multiple-properties",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            }
+          },
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "novalue"
+            }
+          }
+        ],
+        "P9999": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P9999",
+              "snaktype": "somevalue"
+            }
+          }
+        ]
+      },
+      "expected": true
+    }
+  ],
+  "invalid": [
+    {
+      "id": "null",
+      "claims": null,
+      "expected": false
+    },
+    {
+      "id": "array",
+      "claims": [],
+      "expected": false
+    },
+    {
+      "id": "string",
+      "claims": "not-an-object",
+      "expected": false
+    },
+    {
+      "id": "empty-string",
+      "claims": "",
+      "expected": false
+    },
+    {
+      "id": "false",
+      "claims": false,
+      "expected": false
+    },
+    {
+      "id": "true",
+      "claims": true,
+      "expected": false
+    },
+    {
+      "id": "zero",
+      "claims": 0,
+      "expected": false
+    },
+    {
+      "id": "one",
+      "claims": 1,
+      "expected": false
+    },
+    {
+      "id": "number",
+      "claims": 13,
+      "expected": false
+    },
+    {
+      "id": "non-property-key",
+      "claims": {
+        "unexpected": true
+      },
+      "expected": false
+    },
+    {
+      "id": "invalid-property-case",
+      "claims": {
+        "p31": []
+      },
+      "expected": false
+    },
+    {
+      "id": "property-zero",
+      "claims": {
+        "P0": []
+      },
+      "expected": false
+    },
+    {
+      "id": "property-leading-zero",
+      "claims": {
+        "P01": []
+      },
+      "expected": false
+    },
+    {
+      "id": "property-suffix",
+      "claims": {
+        "P31x": []
+      },
+      "expected": false
+    },
+    {
+      "id": "property-string",
+      "claims": {
+        "P9999": "malformed"
+      },
+      "expected": false
+    },
+    {
+      "id": "property-null",
+      "claims": {
+        "P9999": null
+      },
+      "expected": false
+    },
+    {
+      "id": "property-object",
+      "claims": {
+        "P9999": {}
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-boolean",
+      "claims": {
+        "P9999": [
+          true
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-number",
+      "claims": {
+        "P9999": [
+          13
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-string",
+      "claims": {
+        "P9999": [
+          "x"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-null",
+      "claims": {
+        "P9999": [
+          null
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-array",
+      "claims": {
+        "P9999": [
+          []
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "statement-empty",
+      "claims": {
+        "P9999": [
+          {}
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "mainsnak-null",
+      "claims": {
+        "P9999": [
+          {
+            "mainsnak": null
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "mainsnak-array",
+      "claims": {
+        "P9999": [
+          {
+            "mainsnak": []
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "mainsnak-string",
+      "claims": {
+        "P9999": [
+          {
+            "mainsnak": "x"
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "property-mismatch",
+      "claims": {
+        "P9999": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "missing-property",
+      "claims": {
+        "P9999": [
+          {
+            "mainsnak": {
+              "snaktype": "value"
+            }
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "missing-snaktype",
+      "claims": {
+        "P9999": [
+          {
+            "mainsnak": {
+              "property": "P9999"
+            }
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "unknown-snaktype",
+      "claims": {
+        "P9999": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P9999",
+              "snaktype": "unknown"
+            }
+          }
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "valid-then-malformed",
+      "claims": {
+        "P31": [
+          {
+            "rank": "normal",
+            "mainsnak": {
+              "property": "P31",
+              "snaktype": "value",
+              "datatype": "wikibase-item",
+              "datavalue": {
+                "type": "wikibase-entityid",
+                "value": {
+                  "id": "Q5"
+                }
+              }
+            }
+          }
+        ],
+        "P9999": [
+          {}
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "prototype-key",
+      "claims": {
+        "__proto__": []
+      },
+      "expected": false
+    }
+  ]
+}

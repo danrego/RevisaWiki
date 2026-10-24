@@ -1,5 +1,7 @@
 # Testes locais nos navegadores do macOS
 
+Prepare primeiro a [dependência local dos testes](../../DEPENDENCIES.md) com `python3 scripts/setup_test_dependencies.py`, na raiz do repositório.
+
 Este teste abre um simulador local do editor. Os arquivos de produção conservam seus hashes. As cópias servidas ao navegador apenas aceitam o endereço local do teste.
 
 Use Node.js 22 ou posterior, Playwright e os navegadores instalados no macOS. Para Safari, ative a automação remota no menu Desenvolvedor. O teste encerra somente a sessão que ele próprio criou. Se o Safari recusar a sessão, o teste informa a falha e termina.

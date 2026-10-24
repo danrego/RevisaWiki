@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.0",
+  "scope": "Citações e referências",
+  "sourceModule": "src/v2_21/citation_repairs.js",
+  "sourceModuleSha256": "9b25bc66fecfe007bbb30b05bc0c5c4dad5b8c29ac2469a70fa944a0cc013278",
+  "coverageFile": "tests/v221/citation_coverage.json",
+  "coverage": {
+    "families": 46,
+    "articleTextRepairs": 30,
+    "diagnosticCorrections": 2,
+    "preservedStudies": 14
+  },
+  "focusedExecution": {
+    "coreSha256": "939de17a1131dc15bf6edd00110bb39e89f4dba3e6e135adc1944864fbbf66e4",
+    "completeSha256": "90be48fd0bcf3296562eacfaa7d30e9a6751e03032439145952147633355957c",
+    "tasks": 22,
+    "passedTasks": 22,
+    "checks": 24912,
+    "actualCalculateCalls": 4332,
+    "calculationTimeouts": 0,
+    "contextCasesPerBundle": 1065,
+    "contextChecksPerBundle": 3858,
+    "uiPreflightFixtureChecksPerBundle": 80,
+    "description": "Execuções dos dois pacotes fixados por hash. As chamadas reais de cálculo e a aceitação da guarda final são conferidas pelos testes. Casos puros de produtores de alterações são contabilizados separadamente das execuções do programa."
+  },
+  "nativeExecution": [
+    {
+      "scope": "Campos finitos de citação",
+      "pairs": 67,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Grafo de nomes de referências",
+      "pairs": 2,
+      "parseRequests": 4
+    },
+    {
+      "scope": "Duplicatas equivalentes de edição",
+      "pairs": 3,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Título confirmado por metadados retidos",
+      "pairs": 2,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Reparos legados em contextos nativos",
+      "pairs": 20,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Estados literais de URL com arquivo e data correspondentes",
+      "pairs": 10,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Endpoints nativos de acesso e aliases locais",
+      "pairs": 228,
+      "parseRequests": 1
+    }
+  ],
+  "preservationRules": [
+    "Provas são vinculadas à fonte inteira e aos limites exatos de cada alteração. A guarda final permanece obrigatória.",
+    "Recusa, erro ou timeout mantêm o rascunho original. O prazo de 60 segundos não foi ampliado.",
+    "Um coletor novo exige pelo menos uma referência literal ativa no corpo. Referências apenas em campos de infocaixa não comprovam que a lista será exibida.",
+    "Valores e campos concorrentes, inclusive destinos vazios, não são descartados para fazer uma conversão caber.",
+    "A nova regra de confirmação de título por DOI exige uma resposta retida com o mesmo DOI e o título completo exato. Os reparos literais de separadores herdados têm contratos próprios e não recebem crédito como regra nova.",
+    "A migração compara o papel e o índice de todos os aliases finitos presentes, inclusive valores vazios e dinâmicos. Índice omitido e índice 1 pertencem ao mesmo papel. Ambiguidade preserva o trecho original.",
+    "Campos de localização só mudam quando o destino nativo exibe o valor. Renomear para outro campo ignorado não conta como correção."
+  ],
+  "limits": [
+    "Os conjuntos nativos podem se sobrepor. Esses números não representam uma contagem de artigos únicos nem substituem a campanha de corpus e os testes em navegadores.",
+    "Os testes de transporte da consulta de metadados usam respostas controladas. Isso não comprova disponibilidade da rede externa.",
+    "Alguns endpoints de episódios conservam os mesmos avisos nativos de série ou de função da URL antes e depois. A normalização de acesso não apaga parâmetros nem altera o módulo para esconder esses avisos.",
+    "Estudo preservado e correção de diagnóstico não são correções automáticas de conteúdo. As 46 fichas distinguem esses casos.",
+    "Falhas e recibos das rodadas anteriores foram mantidos. Um oráculo novo só recebeu endpoints literais de reparos legados após comparação nativa independente.",
+    "A contagem de verificações é distinta da contagem de casos, chamadas de cálculo, revisões e artigos. Os testes focados e os contraexemplos independentes se sobrepõem.",
+    "A coleção nativa inclui controles que revelaram alterações indevidas em rodadas anteriores. Esses resultados permanecem guardados. Ausência de novos avisos de análise não prova preservação semântica."
+  ],
+  "publicationWrites": 0,
+  "runtimeManifestSha256": "571a0e18f48c0013d51c5cf8ff65afe7b247e74b23774b3a67c854668eebac6b",
+  "independentCounterexamples": {
+    "citationCasesPerBundle": 506,
+    "citationCasesBothBundles": 1012,
+    "actualCalculateCalls": 2024,
+    "actualFinalSafetyCalls": 2024,
+    "failures": 0,
+    "scope": "Alias concorrentes, campos vazios, índices, autores efetivos, editores e preservação de dados bibliográficos nos caminhos novos e herdados. Os casos podem reaparecer nos testes focados e não são artigos únicos."
+  }
+}

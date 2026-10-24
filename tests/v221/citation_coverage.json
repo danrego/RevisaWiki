@@ -1,0 +1,702 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.0",
+  "scope": "citation-reference-families",
+  "sourceModule": "src/v2_21/citation_repairs.js",
+  "moduleSha256": "9b25bc66fecfe007bbb30b05bc0c5c4dad5b8c29ac2469a70fa944a0cc013278",
+  "familyCount": 46,
+  "counts": {
+    "articleTextRepair": 30,
+    "diagnosticCorrection": 2,
+    "preservedStudy": 14
+  },
+  "commonGuards": [
+    "A fonte, os limites de cada alteração e a prova são recalculados. Uma prova de outra fonte não é válida.",
+    "Nas famílias novas, corpo literal, ref completa e célula de tabela nativa validada são contextos elegíveis. Donos externos desconhecidos, argumentos de outras predefinições, links, código literal e HTML não comprovado são preservados. Reparos legados com contrato nativo próprio têm testes independentes.",
+    "O resultado inteiro passa pela guarda final. Proposta recusada, erro ou timeout não substituem o rascunho."
+  ],
+  "collectorPrerequisite": {
+    "handler": "v221MissingDefaultCollectorPlan/v221MissingDefaultCollectorProof",
+    "condition": "Exige ao menos uma ref literal ativa no corpo, fora de qualquer predefinição e com renderer.valid. Referências apenas em campo ignorado, condicional ou não comprovado não autorizam um coletor novo. Coletores existentes são preservados.",
+    "tests": [
+      "tests/v221/citation_collector_prerequisite.cjs",
+      "tests/v221/citation_collector_end_to_end.cjs",
+      "tests/v221/citation_collector_scope.cjs"
+    ]
+  },
+  "rows": [
+    {
+      "id": "REF-01",
+      "title": "Reconhecer os campos próprios de Citar jogo eletrônico",
+      "status": "safeautomatic",
+      "actionKind": "diagnostic-correction",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationValidExtra/v221FilterCitationSuggestions/v221FilterCitationWarnings",
+      "fixture": "native-extra-fields/noncitation-owner-counterexamples",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Reconhece campos nativos de jogos eletrônicos e evita sugestões incorretas. Não altera o texto do artigo."
+    },
+    {
+      "id": "REF-03",
+      "title": "Conseguir deduplicar a citação íntegra apesar de outro trecho problemático",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva citações em trechos opacos ou incompletos. Não há deduplicação genérica que ignore o contexto."
+    },
+    {
+      "id": "REF-04",
+      "title": "Converter par português de nome/sobrenome em Citar tweet",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221TweetEdits",
+      "fixture": "tweet-name-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "REF-05",
+      "title": "Reparar aliases inequívocos de Citar patente",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "patent-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "REF-06",
+      "title": "Corrigir data-acesso em citações CS1",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "access-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "REF-07",
+      "title": "Fechar aspas esquecidas em name de ref",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221ReferenceNameEdits",
+      "fixture": "missing-name-quote",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Insere uma aspa somente quando o nome é literal, o corpo está completo e a sintaxe inteira fica balanceada. Atributos truncados que abrangem outras linhas são preservados."
+    },
+    {
+      "id": "REF-08",
+      "title": "Reconciliar aspas curvas no nome com reutilizações sem elas",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221ReferenceNameEdits",
+      "fixture": "curly-name-graph",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Reconcilia aspas curvas no nome apenas quando uma definição e as reutilizações literais comprovam o mesmo nome e grupo, sem colisão."
+    },
+    {
+      "id": "REF-10",
+      "title": "Retirar o rótulo ISSN de dentro do identificador",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "issn-label",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "REF-11",
+      "title": "Reconhecer ISBN válido seguido apenas de ponto editorial",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "isbn-period",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "REF-12",
+      "title": "Entender citações IUCN antigas antes de migrá-las",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva chamadas IUCN antigas quando a versão, o identificador da avaliação ou o invólucro não têm migração comprovada."
+    },
+    {
+      "id": "REF-STUDY-01",
+      "title": "número-artigo não deve virar article-number só porque a whitelist aceita",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva números de artigo. Não os converte em páginas."
+    },
+    {
+      "id": "REF-STUDY-02",
+      "title": "URL formatada com rótulo dentro de url=",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva URLs com rótulo dentro de um parâmetro quando não há destino comprovado para o rótulo."
+    },
+    {
+      "id": "REF-STUDY-03",
+      "title": "Página, volume e ano embutidos em editora/publicado",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Não extrai ano, volume ou página de texto livre de editora."
+    },
+    {
+      "id": "CEX-01",
+      "title": "Reparar número-autores sem perder et al.",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "author-count/editor-count",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-02",
+      "title": "Reparar ligações de autoria com ordem invertida",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "author-link-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Exige um autor efetivo, único no mesmo índice e nenhum alias de ligação concorrente, inclusive vazio. Índice ausente e índice 1 pertencem ao mesmo papel. No wrapper de tweets, um author vazio não comprova autor por meio de outro alias."
+    },
+    {
+      "id": "CEX-03",
+      "title": "Reparar nomes/sobrenomes de editores parcialmente traduzidos",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "editor-key-/editor-first",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Repara nome ou sobrenome apenas com um campo por papel e índice. Campos concorrentes, mesmo vazios, dinâmicos ou com valores iguais e grafias diferentes, mantêm chaves, valores e ordem nos escritores novos e herdados. Um sobrenome único pode ser reparado sem escolher entre prenomes concorrentes."
+    },
+    {
+      "id": "CEX-04",
+      "title": "Reparar ano original com chave invertida",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "original-year-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-05",
+      "title": "Corrigir erro inequívoco na chave de edição",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "edition-key",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-06",
+      "title": "Reparar grafias finitas do nome da publicação",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "periodical-key-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-07",
+      "title": "Reparar chave truncada de URL arquivada",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "archive-url",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida."
+    },
+    {
+      "id": "CEX-08",
+      "title": "Reparar dataarquivo em consumidores CS1",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "archive-date",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida."
+    },
+    {
+      "id": "CEX-09",
+      "title": "Reparar os campos de arquivo particulares de Citar tweet",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "tweet-archive",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige usuário, número e URL coerentes; mantém valores conflitantes."
+    },
+    {
+      "id": "CEX-10",
+      "title": "Corrigir chaves e valores portugueses de acesso restrito",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "url-access-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-11",
+      "title": "Corrigir livre no nível de acesso do DOI",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "doi-access",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Converte somente o valor literal livre em free, com DOI sintaticamente válido e sem campo concorrente."
+    },
+    {
+      "id": "CEX-12",
+      "title": "Restaurar indicadores de acesso que o módulo aceita mas perde",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "url-access-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Traduz apenas os valores de acesso finitos comprovados pelo consumidor nativo, com URL válida e sem campo concorrente, inclusive vazio."
+    },
+    {
+      "id": "CEX-13",
+      "title": "Conservar o estado explícito de URL ativa/inativa após tradução",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "url-state-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Traduz declarações literais live, ativo, ao vivo, dead e morto somente com URL original e arquivo/data correspondentes. Todos os aliases de estado presentes, inclusive vazios, participam da prova de unicidade. Não infere estados de valores booleanos ambíguos."
+    },
+    {
+      "id": "CEX-14",
+      "title": "Separar parâmetros de arquivo colados por falta de pipe",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationArchiveAccessEdits",
+      "fixture": "missing-pipe",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Repõe um único separador no marcador literal deadarchiveurl= somente quando URL original, arquivo e data comprovam a divisão."
+    },
+    {
+      "id": "CEX-15",
+      "title": "Corrigir arroba indevida no identificador do tweet quando a URL confirma",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221TweetEdits",
+      "fixture": "tweet-handle",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Retira um único @ do usuário somente quando a URL confirma exatamente esse usuário e o número do tweet."
+    },
+    {
+      "id": "CEX-16",
+      "title": "Reparar a tradução literal questão de issue",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "issue-",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira."
+    },
+    {
+      "id": "CEX-18",
+      "title": "Impedir que loc de seção/página vire local de publicação",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall/v221CitationMigrationSafe",
+      "fixture": "locator",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Converte apenas um localizador literal de seção em em= quando o consumidor exibe esse papel. Citar jogo eletrônico permanece intacto, pois seu módulo substitui At por cena ou nível. Impede a perda ou a conversão indevida de loc em local."
+    },
+    {
+      "id": "CEX-S01",
+      "title": "Aspas contendo uma passagem longa, em vez de opção de formatação",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva passagens em aspas. Não as abrevia nem reescreve."
+    },
+    {
+      "id": "CEX-S02",
+      "title": "URL digitada dentro de urlmorta",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Não usa uma URL colocada em um campo de estado como prova do destino correto."
+    },
+    {
+      "id": "CEX-S03",
+      "title": "Resgatar descrições e dados de infocaixa engolidos por uma citação",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Não extrai campos colados ou traduzidos por semelhança sem uma divisão comprovada."
+    },
+    {
+      "id": "CEX-S04",
+      "title": "Valores booleanos traduzidos em url-status",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva valores booleanos cujo papel não esteja comprovado pelo consumidor nativo."
+    },
+    {
+      "id": "CEX-S05",
+      "title": "Acesso de capítulo/mapa aceito e ignorado",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva campos de acesso a capítulo ou mapa que o módulo local não consome. Nenhum módulo da Wikipédia é alterado."
+    },
+    {
+      "id": "CEX-S06",
+      "title": "PMID/PMC/arXiv/OCLC com rótulos ou URLs",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Não retira prefixos de identificadores de forma genérica."
+    },
+    {
+      "id": "C3REF-01",
+      "title": "Corrigir sdata quando o campo contém a data de publicação",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "publication-date",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Exige data literal válida, consumidor nativo e ausência de outra data efetiva. Em Citar episódio, qualquer alias AirDate ou campo nativo de início/fim conserva sdata para não substituir o fallback por uma data escolhida."
+    },
+    {
+      "id": "C3REF-02",
+      "title": "Retirar ed. repetido depois de um ordinal de edição",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationEditionAliasPlan/Proof plus v221CitationEditionAllowed and v221CitationCall",
+      "fixture": "native-Edition-alias-pure-proof; citation_editions.cjs two-pass cases",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_editions.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Retira o sufixo ed. de ordinais literais comprovados. Duplicatas de edição só são removidas quando o produtor nativo confirma equivalência; colisões continuam intactas."
+    },
+    {
+      "id": "C3REF-EXT-TITLE",
+      "title": "Reunir título cortado por pipe e igual somente quando o DOI confirmar cada fragmento",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationTitleRequests/v221CitationTitleMetadataProof/v221CitationPlan",
+      "fixture": "two-retained-DOI-title-fragments",
+      "tests": [
+        "tests/v221/citation_metadata_contract.cjs",
+        "tests/v221/citation_ui_preflight.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Repara um título dividido por separador somente com resposta retida do Crossref que confirme o mesmo DOI e exatamente o título completo. Provas de outra fonte, antigas ou ausentes não autorizam alteração."
+    },
+    {
+      "id": "DIAG-RES-01",
+      "title": "Impedir sugestões de parâmetros baseadas só na semelhança do nome",
+      "status": "safeautomatic",
+      "actionKind": "diagnostic-correction",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationValidExtra/v221FilterCitationSuggestions/v221FilterCitationWarnings",
+      "fixture": "native-extra-fields/noncitation-owner-counterexamples",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Evita sugestões incorretas para campos nativos de citações, Convert e referências abreviadas. Não altera o texto do artigo."
+    },
+    {
+      "id": "EXT-REF-02",
+      "title": "Reconhecer ISBN literal completo dentro de id",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "isbn-from-id",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Converte id em isbn somente quando o valor inteiro é um ISBN válido e não há identificador concorrente."
+    },
+    {
+      "id": "EXT-REF-03",
+      "title": "Recuperar campos legados de conferência que a citação ignora",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall",
+      "fixture": "conference-url/conference-format",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs",
+        "tests/v221/citation_predicates.cjs"
+      ],
+      "condition": "Exige Citar conferência e evento explícito. O formato só migra com uma única URL nativa válida ou com uma única urlconferencia elegível para a mesma transação. URL vazia, dinâmica, inválida ou concorrente conserva os campos."
+    },
+    {
+      "id": "EXT-ST-01",
+      "title": "Conferir legendas antes de retirar o ponto final",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva a pontuação de legendas. Não aplica uma regra genérica de retirada de pontos."
+    },
+    {
+      "id": "EXT-ST-02",
+      "title": "Reconhecer a grafia legada lengenda no campo de episódio",
+      "status": "safeautomatic",
+      "actionKind": "article-text-repair",
+      "implementedArticleTextRepair": true,
+      "handler": "v221CitationCall: v221EpisodeCaptionKey",
+      "fixture": "episode-caption-key; no/emptyTime; caption collisions including empty target; wrong consumer",
+      "tests": [
+        "tests/v221/citation_contracts.cjs",
+        "tests/v221/citation_end_to_end.cjs",
+        "tests/v221/citation_contexts.cjs"
+      ],
+      "condition": "Corrige lengenda apenas em Citar episódio, com um único tempo literal não vazio e sem legenda concorrente. Preserva o tempo e o valor da legenda."
+    },
+    {
+      "id": "EXT-ST-03",
+      "title": "Separar o contrato próprio de Citar mapa do CS1 genérico",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva campos de mapas cuja formatação depende de regras próprias do módulo. Não adivinha uma migração por semelhança."
+    },
+    {
+      "id": "EXT-ST-04",
+      "title": "Conferir espaço imediatamente antes de referências",
+      "status": "preserved-qualifiedstudy",
+      "actionKind": "preserved-study",
+      "implementedArticleTextRepair": false,
+      "handler": "v221CitationPlan; v221CitationResearchInventory",
+      "fixture": "guarded-study-contexts",
+      "tests": [
+        "tests/v221/citation_contracts.cjs"
+      ],
+      "condition": "Preserva o espaço antes de referências quando o contexto não comprova que sua retirada é segura."
+    }
+  ],
+  "evidenceLimits": [
+    "Estudo preservado não significa correção automática implementada. Filtros de diagnóstico também não são correções de conteúdo.",
+    "Contratos focados, pares nativos, calculate com guarda final, corpus e navegadores são camadas diferentes de teste. Esta matriz não substitui os recibos de execução.",
+    "As rodadas anteriores, inclusive as que falharam, permanecem registradas."
+  ],
+  "predicateQualification": {
+    "test": "tests/v221/citation_predicates.cjs",
+    "scope": "Contraprovas independentes das condições aprovadas; qualificação do resultado completo depende do runtime indicado no recibo da rodada. Resultados anteriores ficam preservados."
+  }
+}

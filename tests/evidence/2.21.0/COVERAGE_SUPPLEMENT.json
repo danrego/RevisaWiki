@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.0",
+  "runtimeManifestSha256": "d9d60417425952e12971e1e4ee94cc1d747ed53ec64c058f98910cddaa382609",
+  "basePlanCards": 144,
+  "additionalCases": 2,
+  "releaseAcceptanceNotImplied": true,
+  "cases": [
+    {
+      "id": "ADD-INFO-01",
+      "kind": "bounded-layout-extension",
+      "nativeTemplate": "Info/Assentamento/Marrocos",
+      "nativeTemplateOldid": 73167661,
+      "nativeTemplateSourceSha256": "e46ca5dda20c384f7d975909f6285d24b95b361f1045b3a88f2defdac9704471",
+      "summary": "Distribui os campos da chamada compacta em linhas, preservando os argumentos nomeados e o seletor com. Outras famílias mantêm a função de alinhamento já existente.",
+      "tests": [
+        "tests/v221_integrity/inline_infobox.cjs"
+      ],
+      "checks": 294,
+      "completeCalculations": 24,
+      "positiveCasesPerDistribution": 18,
+      "negativeCasesPerDistribution": 30,
+      "optionAndScopeControlsPerDistribution": 9,
+      "nativeCases": 18,
+      "nativeViews": 9,
+      "nativeStableDependencyPages": 54,
+      "nativeWitnessSha256": "98340637d7cd92b2724a8ca990069d646502c71a138c94cd5220a3b3ab2e2925",
+      "currentIndependentReview": "pending-final-bounded-source-review",
+      "broaderPrototypeNotShipped": true
+    },
+    {
+      "id": "ADD-REF-01",
+      "kind": "existing-repair-missing-alias",
+      "parameter": "url-estado",
+      "summary": "Reconhece live no campo importado quando URL original, arquivo, data e ausência de estado concorrente confirmam a conversão. Preserva donos aninhados sem autorização existente.",
+      "tests": [
+        "tests/v221_integrity/citation_guards.cjs"
+      ],
+      "nativeIndividualCalls": 12,
+      "nativeParseRequests": 9,
+      "nativeConsumerReads": 2,
+      "wholeSourceAutomaticCalls": 11,
+      "wholeSourceConservativePreservations": 1,
+      "nativeWitnessSha256": "3a916b9ad001198ccb80aa59a1ca3091b6221b5c425a9412e411f75d58dcd392",
+      "frozenWholeSourceWitnessSha256": "b13c5a5a10bf8b87f5336fe24ef6dc4ad7dc4c371d3364477cab25d9c1b89644",
+      "currentIndependentReview": "pending-aggregate-peer-review"
+    }
+  ],
+  "focusedSuite": {
+    "tasks": 41,
+    "failed": 0,
+    "summarySha256": "1e59d3e78223c0dbc7aee2870110d6a368766be229c4b28b58479e592201b52a",
+    "runtimeManifestSha256": "d9d60417425952e12971e1e4ee94cc1d747ed53ec64c058f98910cddaa382609",
+    "evidenceRecord": "tests/evidence/2.21.0/FROZEN_RUNTIME18_PUBLIC_TEST_COMMANDS_VALIDATION.json"
+  },
+  "historicalStatusesRewritten": 0,
+  "wikipediaWrites": 0,
+  "priorFrozenRecord": {
+    "path": "tests/evidence/2.21.0/historical/COVERAGE_SUPPLEMENT_RUNTIME13_HISTORICAL.json",
+    "sha256": "a33c6370574d0a7c92f27941a232639c21dc8cf27fbe770c8163a918fa6ddcf9",
+    "historicalRecordUnchanged": true
+  },
+  "currentCompiledQualification": {
+    "focusedCommands": "tests/evidence/2.21.0/FROZEN_RUNTIME18_PUBLIC_TEST_COMMANDS_VALIDATION.json",
+    "portableIntegrity": "tests/evidence/2.21.0/FROZEN_RUNTIME18_CITATION_GUARDS_VALIDATION.json",
+    "nativeBrowser": "tests/evidence/2.21.0/CURRENT_RUNTIME18_NATIVE_BROWSER_QUALIFICATION.json",
+    "scope": "Named predicate-family coverage only. Whole-source, browser and native-render proofs retain their separate denominators and limitations."
+  }
+}

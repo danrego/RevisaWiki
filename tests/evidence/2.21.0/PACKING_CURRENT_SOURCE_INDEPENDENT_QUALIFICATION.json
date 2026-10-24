@@ -1,0 +1,47 @@
+{
+  "kind": "independent-source-bound-runtime-packing-review",
+  "status": "qualified-source-bound-packing-components",
+  "qualificationSha256": "bf3ed7fdb03e6440b9535de3c255fea36d5ca8043be6b1ceb17b29433d797909",
+  "extractorSha256": "554424b620fac688e0eff5195ed0f7e5683c38c4445f8597d42f4f49febae879",
+  "builderSha256": "479f37aea47c7a12cf223f2c860b6d93bf9011d40d69c11c36bc35fa1911b06f",
+  "methodSha256": "105107bade81565d5e8d24df00a0a97383a9a60fb20e2449e300612ba110b500",
+  "currentLiteralsTransferred": 62,
+  "baselineLiterals": 56,
+  "helperLiterals": 6,
+  "independentUnsafeLiteralControls": 15,
+  "portableTests": [
+    {
+      "test": "build_declaration_boundaries.cjs",
+      "testSha256": "580ed5b3f16377049566a142ac17c061b6e15a062356cc3fa5dc6a71732e9010",
+      "stdout": {
+        "status": "passed",
+        "cases": 29,
+        "checks": 116,
+        "networkRequests": 0,
+        "wikipediaWrites": 0
+      }
+    },
+    {
+      "test": "literal_transfer.cjs",
+      "testSha256": "c356269b0fe06c08008e2e0edd8ef1076993d2ff9987486f42b4d372f709bfb1",
+      "stdout": {
+        "status": "passed",
+        "cases": 17,
+        "checks": 80,
+        "networkRequests": 0,
+        "wikipediaWrites": 0
+      }
+    }
+  ],
+  "allCurrentSelectedValuesAndTypesRevalidated": true,
+  "allNonselectedBytesAndEnclosingExpressionsRetained": true,
+  "originalNonfiniteDefectPreservedAndGuarded": true,
+  "productCalculations": 0,
+  "nativeRequests": 0,
+  "wikipediaWrites": 0,
+  "limits": [
+    "The reviewed literal transfers belong to the exact immutable baseline and source-bound bootstrap modules.",
+    "This is not a claim that arbitrary mutable values may be shared across repeated factory invocations.",
+    "Actual final runtime bytes, size caps, source bindings and browser behavior require their separate final-build checks."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "version": "2.21.0",
+  "sourceCitationSha256": "80025e26f3f94c44b998eb938ae202901de8c0594d17f1431808e42e92b3168c",
+  "nativeQualificationReceiptSha256": "81b22a06544034ca517b7ce4f9d50435abdf12058af84b38c05d400b39ada7ed",
+  "allowedBundleSha256": [
+    "56949ccd9a7f225de17e1ab6014670e2da3d81d4f7c26d8c5ac7bb5303e03246",
+    "66e98b7e3854fb1970b6f0b3c6c750e9e140e5159bf6ac8f00c7ea0e9b09fe5b",
+    "19278a1b5e2b316285a15b99246d3b156230f467a9537821f88b5a5b66816890"
+  ],
+  "files": {
+    "citation_contracts.cjs": {
+      "sha256": "c5e4da64a51eda21cafc3d3d7fa1bb7452286cb007979259d2bffe19db8395fc",
+      "addDeclaration": "const add=(id,before,after)=>cases.push({id,before,after});",
+      "defaultAfter": false
+    },
+    "citation_predicates.cjs": {
+      "sha256": "d3353b5373a742a3dac13154c78b4971af09d01b4ccfedfe391a7728cbecd45e",
+      "addDeclaration": "const cases=[],add=(id,before,after=before)=>cases.push({id,before,after}),url='https://example.org/a',",
+      "defaultAfter": true
+    }
+  },
+  "cases": [
+    {
+      "file": "citation_contracts.cjs",
+      "id": "locator",
+      "before": "{{Citar livro|título=Obra|loc=§1}}",
+      "historicalExpectedAfter": "{{Citar livro|título=Obra|em=§1}}",
+      "sourceFixtureSha256": "c5e4da64a51eda21cafc3d3d7fa1bb7452286cb007979259d2bffe19db8395fc",
+      "beforeSha256": "255ea8bf493a5b04315f426d58d3c6f50681e1e6f77ca51de398162d1d43e08e",
+      "historicalExpectedAfterSha256": "a6b31fdee5fb63e38cee35c9fb78b5ca19cd9e211daa03046fb8f6fbb32a38da",
+      "currentExpectedAfter": "{{Citar livro|título=Obra|loc=§1}}",
+      "currentExpectedAfterSha256": "255ea8bf493a5b04315f426d58d3c6f50681e1e6f77ca51de398162d1d43e08e",
+      "automaticFixCredit": false
+    },
+    {
+      "file": "citation_predicates.cjs",
+      "id": "consumed-at-Citar livro",
+      "before": "{{Citar livro|título=Obra|loc=§2}}",
+      "historicalExpectedAfter": "{{Citar livro|título=Obra|em=§2}}",
+      "sourceFixtureSha256": "d3353b5373a742a3dac13154c78b4971af09d01b4ccfedfe391a7728cbecd45e",
+      "beforeSha256": "6b060778d1723a5b661084ffa42f825b5eeeee83f1e33e5bb69674937c1fcb66",
+      "historicalExpectedAfterSha256": "05656f0ef4c40d48f155ed27983415bf8bf2429036de6c1bb390360aad8b78c5",
+      "currentExpectedAfter": "{{Citar livro|título=Obra|loc=§2}}",
+      "currentExpectedAfterSha256": "6b060778d1723a5b661084ffa42f825b5eeeee83f1e33e5bb69674937c1fcb66",
+      "automaticFixCredit": false
+    },
+    {
+      "file": "citation_predicates.cjs",
+      "id": "consumed-at-Citar web",
+      "before": "{{Citar web|título=Obra|loc=§2}}",
+      "historicalExpectedAfter": "{{Citar web|título=Obra|em=§2}}",
+      "sourceFixtureSha256": "d3353b5373a742a3dac13154c78b4971af09d01b4ccfedfe391a7728cbecd45e",
+      "beforeSha256": "b706a331430a74184d2575a1888719f459d52b393c2d6be827401e12c0ff6abe",
+      "historicalExpectedAfterSha256": "c776c1e35e87bbdc87868cd6c7385da0c2aabfc09187501f69c30739f52b939f",
+      "currentExpectedAfter": "{{Citar web|título=Obra|loc=§2}}",
+      "currentExpectedAfterSha256": "b706a331430a74184d2575a1888719f459d52b393c2d6be827401e12c0ff6abe",
+      "automaticFixCredit": false
+    },
+    {
+      "file": "citation_predicates.cjs",
+      "id": "consumed-at-Citar periódico",
+      "before": "{{Citar periódico|título=Obra|loc=§2}}",
+      "historicalExpectedAfter": "{{Citar periódico|título=Obra|em=§2}}",
+      "sourceFixtureSha256": "d3353b5373a742a3dac13154c78b4971af09d01b4ccfedfe391a7728cbecd45e",
+      "beforeSha256": "6276e5bb50a4e2780902477c2392b30e054ff1a8e70eef8579ea86276d5b905c",
+      "historicalExpectedAfterSha256": "9683c90fb98443753cde60076cb62486d3c595575528106452cb3dc6fb339237",
+      "currentExpectedAfter": "{{Citar periódico|título=Obra|loc=§2}}",
+      "currentExpectedAfterSha256": "6276e5bb50a4e2780902477c2392b30e054ff1a8e70eef8579ea86276d5b905c",
+      "automaticFixCredit": false
+    }
+  ],
+  "automaticFixCredit": 0,
+  "scope": "Only four exact historical expectations become source-preservation expectations. Every original assertion remains active."
+}

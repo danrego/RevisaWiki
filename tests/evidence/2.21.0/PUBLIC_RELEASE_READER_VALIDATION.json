@@ -1,0 +1,171 @@
+{
+  "kind": "actual-wikimanager-public-release-reader-isolated-probe",
+  "status": "passed",
+  "scope": "Actual unmodified WikiManager prepare() consumes the actual package-builder synthetic output. Public Library._request replies are explicit mocks, never remote release evidence. Temporary Store only; shared service/data untouched.",
+  "builderSha256": "75517c01b5249fab5b14d095b3bdcd687f2706940c2635ffe6c8d9aee57f362e",
+  "actualConsumerSha256": "af021425aafe8c7eda4e1794f5bb4b0534011bac86f01b1eada1000ea4172166",
+  "syntheticManifestSha256": "34c50b4e2f73514c225a0d81c39d361cd1007e84ee740c8bb40f5bba335a2999",
+  "cases": [
+    {
+      "id": "valid",
+      "expectedAccepted": true,
+      "accepted": true,
+      "status": "passed",
+      "mockedPublicReads": 4,
+      "runtimeReceiptWritten": true,
+      "error": null
+    },
+    {
+      "id": "wrong-manifest-version",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 2,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "wrong-core-hash",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 3,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "wrong-data-hash",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 4,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "wrong-core-size",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 3,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "wrong-data-size",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 4,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "missing-manifest",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 2,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "missing-core-payload",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 3,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "missing-data-payload",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 4,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "missing-core-manifest-member",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 2,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "missing-data-manifest-member",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 3,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "draft-release",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 1,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "prerelease",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 1,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    },
+    {
+      "id": "bad-version-tag",
+      "expectedAccepted": false,
+      "accepted": false,
+      "status": "passed",
+      "mockedPublicReads": 1,
+      "runtimeReceiptWritten": false,
+      "error": {
+        "type": "RuntimeError"
+      }
+    }
+  ],
+  "checks": 66,
+  "networkRequests": 0,
+  "wikipediaWrites": 0,
+  "accountActions": 0,
+  "actualReleasePrepared": false,
+  "limitations": [
+    "All public responses and release metadata are mocked. This is reader compatibility and rejection testing, not confirmation that version2.21.0 exists remotely.",
+    "The existing public reader validates the selected release version and core/data byte/hash entries. The separate package builder and QA checks bind additional metadata and all archived files."
+  ]
+}

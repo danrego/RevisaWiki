@@ -1,5 +1,7 @@
 # Testes locais em navegadores do Mac
 
+Prepare primeiro a [dependência local dos testes](../DEPENDENCIES.md) com `python3 scripts/setup_test_dependencies.py`, na raiz do repositório.
+
 Esta pasta reúne a interface simulada, os navegadores de teste e as fontes congeladas usadas nos testes do RevisaWiki 2.5. Os testes abrem apenas um servidor local, recusam ações de escrita na API simulada e impedem o envio do formulário. Não é preciso entrar na Wikipédia.
 
 Instale Node.js, Python 3 e os navegadores que deseja testar. O controlador do Chrome usa o pacote `playwright`, que pode ser instalado com `npm install --no-save playwright`. Firefox e Chrome precisam estar na pasta Aplicativos do Mac. No Safari, ative a automação remota no menu Desenvolvedor.

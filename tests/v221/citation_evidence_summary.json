@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.0",
+  "scope": "Citações e referências",
+  "sourceModule": "src/v2_21/citation_repairs.js",
+  "sourceModuleSha256": "004c91d7e26ed3da46dfdf12a7d788dc1b28585e57bdf84fac69c1660fa6f627",
+  "coverageFile": "tests/v221/citation_coverage.json",
+  "coverage": {
+    "families": 46,
+    "articleTextRepairs": 30,
+    "diagnosticCorrections": 2,
+    "preservedStudies": 14
+  },
+  "focusedExecution": {
+    "coreSha256": "dcc5b0ed6142a0382b1414bd635e28c6a66301ea35db9d19de3783cb5970ae4a",
+    "completeSha256": "1fc1135ab5a89f7e57c5c961e04c18fa2ef6ed616ab14e3535f315618a70b9f8",
+    "actualCalculateCalls": 2336,
+    "actualFinalSafetyCalls": 2360,
+    "contextCasesPerBundle": 1065,
+    "contextChecksPerBundle": 3858,
+    "exactLegacyNativeEndpointsPerBundle": 20,
+    "uiPreflightFixtureChecksPerBundle": 80,
+    "description": "Execuções dos dois pacotes fixados por hash, com resultado integral e guarda final. Os contextos incluem referências completas e células de tabela elegíveis, além de argumentos de predefinições, código literal, HTML, atributos e rótulos de ligações que devem ser preservados."
+  },
+  "nativeExecution": [
+    {
+      "scope": "Campos finitos de citação",
+      "pairs": 67,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Grafo de nomes de referências",
+      "pairs": 2,
+      "parseRequests": 4
+    },
+    {
+      "scope": "Duplicatas equivalentes de edição",
+      "pairs": 3,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Título confirmado por metadados retidos",
+      "pairs": 2,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Reparos legados em contextos nativos",
+      "pairs": 20,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Estados literais de URL com arquivo e data correspondentes",
+      "pairs": 10,
+      "parseRequests": 1
+    },
+    {
+      "scope": "Endpoints nativos de acesso e aliases locais",
+      "pairs": 228,
+      "parseRequests": 1
+    }
+  ],
+  "preservationRules": [
+    "Provas são vinculadas à fonte inteira e aos limites exatos de cada alteração. A guarda final permanece obrigatória.",
+    "Recusa, erro ou timeout mantêm o rascunho original. O prazo de 60 segundos não foi ampliado.",
+    "Um coletor novo exige pelo menos uma referência literal ativa no corpo. Referências apenas em campos de infocaixa não comprovam que a lista será exibida.",
+    "Valores e campos concorrentes, inclusive destinos vazios, não são descartados para fazer uma conversão caber.",
+    "Um título dividido só é reparado quando uma resposta retida confirma o mesmo DOI e o título completo exato."
+  ],
+  "limits": [
+    "Os conjuntos nativos podem se sobrepor. Esses números não representam uma contagem de artigos únicos nem substituem a campanha de corpus e os testes em navegadores.",
+    "Os testes de transporte da consulta de metadados usam respostas controladas. Isso não comprova disponibilidade da rede externa.",
+    "Alguns endpoints de episódios conservam os mesmos avisos nativos de série ou de função da URL antes e depois. A normalização de acesso não apaga parâmetros nem altera o módulo para esconder esses avisos.",
+    "Estudo preservado e correção de diagnóstico não são correções automáticas de conteúdo. As 46 fichas distinguem esses casos.",
+    "Falhas e recibos das rodadas anteriores foram mantidos. Um oráculo novo só recebeu endpoints literais de reparos legados após comparação nativa independente."
+  ],
+  "publicationWrites": 0
+}
