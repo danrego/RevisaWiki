@@ -1,6 +1,6 @@
 # Testes do RevisaWiki
 
-Os comandos atuais executam a versão 2.19.0. O [guia da versão](v219/README.md) explica os casos dirigidos, as matrizes, a regressão de artigos e os navegadores. Os arquivos históricos permanecem disponíveis com a identificação dos resultados originais.
+Os comandos atuais executam a versão 2.21.0. O [guia da versão](v221/README.md) explica os contratos atuais, a regressão histórica, as revisões reais e os testes de navegador. Os arquivos históricos permanecem disponíveis com a identificação dos resultados originais.
 
 Para montar o projeto e executar os testes, use Node.js 24 ou posterior e npm 10 ou posterior. Instale as dependências de desenvolvimento fixadas no arquivo de lock antes de executar a bateria. O parser fica no `node_modules` do projeto, sem precisar de `NODE_PATH`.
 

@@ -149,14 +149,15 @@ def scan_checkout(root, batch_size=DEFAULT_BATCH_SIZE, denylist=None):
 
 def run_unit_controls():
     results = []
-    for name in ['test_publication_privacy_gate.py', 'test_checkout_privacy_batches.py']:
+    for name in ['test_publication_privacy_gate.py', 'test_checkout_privacy_batches.py',
+                 'test_current_runtime_and_userinfo_approvals.py']:
         command = [sys.executable, str(CODE_ROOT / 'tests/privacy' / name)]
         completed = subprocess.run(command, cwd=CODE_ROOT, capture_output=True, text=True)
         try:
             value = json.loads(completed.stdout)
             valid = completed.returncode == 0 and value.get('status') == 'passed'
             cases = value.get('cases')
-            valid = valid and isinstance(cases, int) and cases > 0
+            valid = valid and type(cases) is int and cases > 0
         except (ValueError, TypeError, AttributeError):
             valid, cases = False, 0
         results.append({'suite': name, 'status': 'passed' if valid else 'failed', 'cases': cases})

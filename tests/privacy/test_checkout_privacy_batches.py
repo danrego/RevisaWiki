@@ -137,6 +137,26 @@ with tempfile.TemporaryDirectory(prefix='revisawiki-privacy-tests-') as director
         check(same['status'] == 'passed' and same['trackedFiles'] == len(expected_paths), 'Configurable clean batch size covers the same checkout ' + str(size))
         check(same['coverage']['trackedPathInventorySha256'] == archive_clean['coverage']['trackedPathInventorySha256'], 'Coverage inventory does not depend on batch boundaries ' + str(size))
 
+# Default control counts must be positive JSON integers, never Booleans.
+for candidate in [True, False, 0, -1, '1', None, 1.5, 1, 18]:
+    calls = []
+    def controlled_suite(command, *args, **kwargs):
+        calls.append(command)
+        count = candidate if len(calls) == 3 else 1
+        return subprocess.CompletedProcess(command, 0,
+                                           json.dumps({'status': 'passed', 'cases': count}), '')
+    accepted = False
+    try:
+        with patch.object(gate.subprocess, 'run', side_effect=controlled_suite):
+            schema_result = gate.run_unit_controls()
+        accepted = True
+    except gate.CheckoutError as error:
+        if str(error) != 'privacy-unit-controls-failed':
+            raise
+    expected = type(candidate) is int and candidate > 0
+    check(accepted == expected, 'Default control count schema ' + str(len(results)))
+    check(len(calls) == 3, 'The current suite count is validated ' + str(len(results)))
+
 print(json.dumps({'status': 'passed', 'cases': len(results), 'failed': 0,
                   'matchedPrivateValuesIncluded': False, 'localPathsIncluded': False,
                   'networkRequests': 0, 'wikipediaWrites': 0}))
