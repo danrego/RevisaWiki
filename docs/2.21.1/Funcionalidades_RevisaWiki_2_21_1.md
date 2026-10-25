@@ -1,0 +1,153 @@
+# RevisaWiki 2.21.1: funcionalidades e limites
+
+- Acrescenta duas colunas às listas simples das seções finais somente a partir de oito itens do nível principal.
+- Conta os subitens junto do item a que pertencem, sem usá-los para atingir o mínimo.
+- Retira invólucros simples de duas colunas de listas curtas quando a estrutura permite preservar todo o conteúdo.
+- Preserva estilos próprios, tabelas, listas misturadas e estruturas sem correspondência confirmada. As regras de colunas de referências não mudam nesta atualização.
+
+As classificações abaixo são herdadas da 2.21.0, com a regra de colunas atualizada em STR-COMP-01. Isso não é uma contagem de novas execuções nem de correções em artigos.
+
+- `INT-01`: automacao-delimitada. Compõe os reparos sem tratar uma língua válida de outra citação como perda de dados. A conferência recalcula as provas na fonte atual e preserva trechos incompletos.
+- `INT-02`: automacao-delimitada. Retira somente argumentos nomeados, desconhecidos e inteiramente vazios do coletor nativo conferido. Grupos, listas definidas, valores e comentários permanecem intactos.
+- `INT-03`: automacao-delimitada. Coloca aspas em nomes e grupos literais de ref quando o scanner confirma seus limites e a mesma associação entre chamadas e definições. Nomes com sintaxe concorrente permanecem intactos.
+- `INT-04`: automacao-delimitada. Move somente a Portal3 nova antes da categoria terminal original, conservando sua indentação e a ausência de quebra final. Exige fronteira própria de parágrafo e recusa literais envolventes.
+- `GEN-01`: automacao-delimitada. Retira apenas a repetição literal e sem parâmetros da chamada nativa no mesmo rodapé.
+- `GEN-02`: automacao-delimitada. Corrige quatro grafias finitas de protocolo em ligação externa ou campo nativo de URL, mantendo todo o restante do endereço.
+- `GEN-03`: automacao-delimitada. Converte a seção de faixas de álbum confirmado somente quando a sequência literal completa começa em 1 e não tem lacunas.
+- `GEN-04`: automacao-delimitada. Só retira interwiki literal em fonte sem chamadas de predefinição, após confirmação vinculada ao rascunho, ao título e à revisão. Uma predefinição pode suprimir a ligação exibida. Sem prova suficiente, o código é conservado.
+- `GEN-05`: nao-suportado. Consultas, URLs assinadas e capturas arquivadas são conservadas. Não há remoção genérica de rastreamento.
+- `BIO-01`: automacao-delimitada. Preenche o destino nativo vazio com o valor do campo importado, sem substituir valores existentes.
+- `BIO-02`: automacao-delimitada. Retira apenas uma ocorrência anterior totalmente vazia da mesma chave e mantém a última ocorrência.
+- `BIO-03`: automacao-delimitada. Retira duplicatas literais idênticas sem apagar comentários, referências ou valores diferentes.
+- `BIO-04`: automacao-delimitada. Permite que três esboços conhecidos convivam com a inserção de portais já confirmados.
+- `BIO-05`: automacao-delimitada. Confirma Astronomia por infocaixas nativas de galáxia, estrela e asteroide, sem adivinhar a identidade do objeto.
+- `BIO-06`: automacao-delimitada. Corrige uma opção de imagem identificada como erro, preservando itálico válido na legenda.
+- `BIO-07`: automacao-delimitada. Corrige um conjunto fechado de opções de miniatura e alinhamento, sem alterar palavras da legenda.
+- `BIO-08`: automacao-delimitada. Retira o identificador IMDb ignorado apenas quando o mesmo tipo e número ficam numa ligação externa com argumentos inequívocos.
+- `BIO-09`: automacao-delimitada. Separa por uma quebra de linha a infocaixa completa da introdução em negrito que a segue imediatamente.
+- `BIO-10`: automacao-delimitada. Aplica os contratos de data às biografias especializadas, sem inventar dia, mês, ano, idade ou lugar.
+- `BIO-11`: automacao-delimitada. Reconhece o nome da infocaixa através de comentários completos e mantém os comentários no código.
+- `STR-01`: automacao-delimitada. Corrige colchetes duplos ao redor de URL externa completa com rótulo simples e proprietário único.
+- `STR-02`: automacao-delimitada. Retira um fechamento excedente somente fora de imagem, wikilink, tabela ou outro proprietário concorrente.
+- `STR-03`: automacao-delimitada. Converte uma única entidade separadora entre alvo e rótulo literais de wikilink.
+- `STR-04`: automacao-delimitada. Retira um parágrafo isolado formado por NBSP, sem indentação e entre dois trechos de prosa comum.
+- `STR-05`: automacao-delimitada. Mantém o comentário completo byte a byte e substitui os parágrafos vazios por uma separação normal entre os dois parágrafos.
+- `STR-06`: automacao-delimitada. Retira marcador vazio de lista não numerada somente entre dois itens preenchidos do primeiro nível e sem descendentes.
+- `STR-07`: automacao-delimitada. Corrige quebras nativas equivalentes somente no texto direto de campos exibidos confirmados, preservando modelos internos, ref, wikilinks e atributos HTML.
+- `STR-08`: automacao-delimitada. Retira small inline completamente vazio e sem atributos, conservando os espaços de cada lado.
+- `STR-10`: automacao-delimitada. Acrescenta rolagem limitada à largura disponível em tabela completa com CSS adicional finito, conservando todos os bytes da tabela.
+- `STR-11`: automacao-delimitada. Reconhece coletor nativo que emite título, separado do título redundante somente por categorias literais e espaços.
+- `REF-01`: diagnostico-corrigido. Reconhece campos nativos de jogos eletrônicos e evita sugestões incorretas. Não altera o texto do artigo.
+- `REF-03`: estudo-preservado. Preserva citações em trechos opacos ou incompletos. Não há deduplicação genérica que ignore o contexto.
+- `REF-04`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `REF-05`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `REF-06`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `REF-07`: automacao-delimitada. Insere uma aspa somente quando o nome é literal, o corpo está completo e a sintaxe inteira fica balanceada. Atributos truncados que abrangem outras linhas são preservados.
+- `REF-08`: automacao-delimitada. Reconcilia aspas curvas no nome apenas quando uma definição e as reutilizações literais comprovam o mesmo nome e grupo, sem colisão.
+- `REF-10`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `REF-11`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `REF-12`: estudo-preservado. Preserva chamadas IUCN antigas quando a versão, o identificador da avaliação ou o invólucro não têm migração comprovada.
+- `REF-STUDY-01`: estudo-preservado. Preserva números de artigo. Não os converte em páginas.
+- `REF-STUDY-02`: estudo-preservado. Preserva URLs com rótulo dentro de um parâmetro quando não há destino comprovado para o rótulo.
+- `REF-STUDY-03`: estudo-preservado. Não extrai ano, volume ou página de texto livre de editora.
+- `IBX-01`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-02`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-03`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-04`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-05`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-06`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-07`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-08`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-09`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-10`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-11`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-12`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-13`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-14`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-15`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-16`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-17`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-18`: estudo-preservado. Preserva resultado líquido, renda e patrimônio separados. A equivalência necessária para uma migração não foi confirmada.
+- `IBX-19`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-20`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-21`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-22`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-23`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBX-STUDY-01`: estudo-preservado. Preserva propriedades químicas quando a infocaixa não possui um campo nativo correspondente.
+- `IBX-STUDY-02`: estudo-preservado. Preserva dados de medicamentos sem uma linha nativa correspondente.
+- `IBX-STUDY-03`: estudo-preservado. Distingue um parâmetro aceito pelo verificador de um parâmetro que realmente exibe conteúdo.
+- `IBX-STUDY-04`: estudo-preservado. Preserva identificadores e níveis taxonômicos quando a relação entre eles não está comprovada.
+- `BIO-X01`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X02`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X03`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X04`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X05`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X06`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X07`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X08`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X09`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X10`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X11`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X12`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X13`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X14`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `BIO-X15`: automacao-delimitada. Retira apenas campos de uma lista fechada, realmente ignorados e totalmente vazios.
+- `BIO-ST1`: catalogo-corrigido. Reconhece parâmetros nativos separados por includeonly. Preserva campos que apenas controlam uma seção e não os chama de desconhecidos.
+- `BIO-ST2`: estudo-preservado. Preserva campos preenchidos sem destino nativo. A correção pode depender de uma mudança na própria predefinição.
+- `BIO-ST3`: estudo-preservado. Mantém separados influências, orientadores e orientados.
+- `BIO-ST4`: estudo-preservado. Preserva mandatos fora do intervalo ou da estrutura aceita pela infocaixa.
+- `BIO-ST5`: estudo-preservado. Mantém separados título, ano e endereço de tese, formação e instituição.
+- `BIO-ST6`: estudo-preservado. Mantém separadas etnia, nacionalidade e classificações raciais.
+- `BIO-ST7`: estudo-preservado. Preserva o campo olímpico quando sua função nativa não foi confirmada.
+- `BIO-ST8`: estudo-preservado. Preserva descrições quando não há prova de que sejam legendas da imagem.
+- `CEX-01`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-02`: automacao-delimitada. Exige autoria correspondente, índice correto e ausência de outro campo que controle a mesma ligação. Em citações de tweets, também confere qual nome de autor a predefinição realmente usa. Preserva campos concorrentes, inclusive os vazios.
+- `CEX-03`: automacao-delimitada. Exige sobrenome correspondente, índices anteriores completos e ausência de outro campo que controle o mesmo nome de editor. As verificações abrangem também as conversões bibliográficas antigas.
+- `CEX-04`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-05`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-06`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-07`: automacao-delimitada. Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida.
+- `CEX-08`: automacao-delimitada. Exige URL original e um endereço de arquivo cujo timestamp corresponda à data fornecida.
+- `CEX-09`: automacao-delimitada. Exige usuário, número e URL coerentes; mantém valores conflitantes.
+- `CEX-10`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-11`: automacao-delimitada. Converte somente o valor literal livre em free, com DOI sintaticamente válido e sem campo concorrente.
+- `CEX-12`: automacao-delimitada. Traduz apenas os valores de acesso finitos comprovados pelo consumidor nativo, com URL válida e sem campo concorrente, inclusive vazio. A tradução é bloqueada se puder ativar uma falha do módulo de citação no vínculo para o original arquivado.
+- `CEX-13`: automacao-delimitada. Traduz declarações literais live, ativo, ao vivo, dead e morto somente com URL original e arquivo/data correspondentes. Campos concorrentes, inclusive vazios, impedem a troca. Não infere estados de valores booleanos ambíguos.
+- `CEX-14`: automacao-delimitada. Repõe um único separador no marcador literal deadarchiveurl= somente quando URL original, arquivo e data comprovam a divisão.
+- `CEX-15`: automacao-delimitada. Retira um único @ do usuário somente quando a URL confirma exatamente esse usuário e o número do tweet.
+- `CEX-16`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Mantém os demais valores e depende da prova de preservação da fonte inteira.
+- `CEX-18`: automacao-delimitada. Converte apenas um localizador literal de seção em em= nos modelos qualificados. Preserva loc em Citar jogo, onde o campo pode substituir outra localização, e impede a conversão indevida em local.
+- `CEX-S01`: estudo-preservado. Preserva passagens em aspas. Não as abrevia nem reescreve.
+- `CEX-S02`: estudo-preservado. Não usa uma URL colocada em um campo de estado como prova do destino correto.
+- `CEX-S03`: estudo-preservado. Não extrai campos colados ou traduzidos por semelhança sem uma divisão comprovada.
+- `CEX-S04`: estudo-preservado. Preserva valores booleanos cujo papel não esteja comprovado pelo consumidor nativo.
+- `CEX-S05`: estudo-preservado. Preserva campos de acesso a capítulo ou mapa que o módulo local não consome. Nenhum módulo da Wikipédia é alterado.
+- `CEX-S06`: estudo-preservado. Não retira prefixos de identificadores de forma genérica.
+- `STR-AD-01`: automacao-delimitada. Converte alias único de seção relacionada nos níveis dois a seis, sem outra seção Ver também, proprietário concorrente ou fragmento local bruto/codificado que dependa do título.
+- `STR-AD-02`: automacao-delimitada. Reduz somente o intervalo de espaços entre uma nota formatada completa e uma navbox confirmada.
+- `IBH-01`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-02`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-03`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-04`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-05`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-06`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-07`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-08`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `IBH-09`: automacao-delimitada. Corrige somente as chaves listadas na infocaixa correspondente, preservando valores e referências. Destinos ou aliases conflitantes impedem a migração.
+- `C3REF-01`: automacao-delimitada. Exige a predefinição nativa exata, valor literal compatível e ausência de campo concorrente. Em Citar episódio, uma data de exibição ou um intervalo já presente impede que sdata passe a substituí-lo. Os demais valores são conservados.
+- `C3REF-02`: automacao-delimitada. Retira o sufixo ed. de ordinais literais comprovados. Duplicatas de edição só são removidas quando o produtor nativo confirma equivalência; colisões continuam intactas.
+- `C3REF-EXT-TITLE`: automacao-delimitada. Repara um título dividido por separador somente com resposta retida do Crossref que confirme o mesmo DOI e exatamente o título completo. Provas de outra fonte, antigas ou ausentes não autorizam alteração.
+- `LNR-01`: automacao-delimitada. Troca o valor literal column por col somente no scope de cabeçalho completo de wikitable. th HTML continua fora do primeiro contrato.
+- `LNR-02`: automacao-delimitada. Retira thumb ou thumbnail redundante no início da linha de galeria somente quando há uma legenda literal posterior.
+- `LNR-03`: automacao-delimitada. Corrige o segundo dois-pontos apenas após imageinfo positivo no destino e ausência/invalidade sem arquivo compartilhado na origem, com resposta vinculada ao rascunho. Normalizações da API e arquivos Commons sem página local são considerados. A farm local não tinha o arquivo e não foi usada para afirmar existência positiva.
+- `LNR-04`: automacao-delimitada. Corrige duas barras finais fora de aspas em ref nomeada e autoencerrada, conservando a identidade e todas as reutilizações.
+- `STR-INT-APOS`: automacao-delimitada. Impede que o writer existente mova delimitadores sobre apóstrofos ou ênfase concorrente. O caso simples e seguro continua funcionando.
+- `STR-COMP-01`: automacao-delimitada. Acrescenta duas colunas às listas simples das seções finais a partir de oito itens do nível principal. Subitens não aumentam a contagem. Invólucros simples de listas curtas só são retirados com preservação do conteúdo e da estrutura.
+- `DIAG-RES-01`: diagnostico-corrigido. Evita sugestões incorretas para campos nativos de citações, Convert e referências abreviadas. Não altera o texto do artigo.
+- `EXT-REF-01`: automacao-delimitada. Retira somente o segundo ponto ao redor de uma cadeia completa de referências em prosa comum, depois de palavra literal em minúsculas. Conserva abreviações, nomes próprios e todas as referências.
+- `EXT-REF-02`: automacao-delimitada. Converte id em isbn somente quando o valor inteiro é um ISBN válido e não há identificador concorrente.
+- `EXT-REF-03`: automacao-delimitada. Exige uma conferência literal e os campos nativos correspondentes antes de corrigir URL ou formato. A correção de formato exige um endereço válido que já seja usado pela predefinição, ou que possa ser convertido com segurança na mesma execução.
+- `EXT-ST-01`: estudo-preservado. Preserva a pontuação de legendas. Não aplica uma regra genérica de retirada de pontos. Ponto final de legenda exige decisão sobre frase, abreviação ou reticências. Os controles conservam a pontuação. Não há remoção geral.
+- `EXT-ST-02`: automacao-delimitada. Corrige lengenda apenas em Citar episódio, com um único tempo literal não vazio e sem legenda concorrente. Preserva o tempo e o valor da legenda.
+- `EXT-ST-03`: estudo-preservado. Preserva campos de mapas cuja formatação depende de regras próprias do módulo. Não adivinha uma migração por semelhança.
+- `EXT-ST-04`: estudo-preservado. Preserva o espaço antes de referências quando o contexto não comprova que sua retirada é segura. Espaço antes de ref pode ter função de estilo ou estrutura. Os controles conservam espaço, tabulação e quebra de linha. Não há regra geral aprovada.

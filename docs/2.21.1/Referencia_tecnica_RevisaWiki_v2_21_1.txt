@@ -1,0 +1,9 @@
+RevisaWiki 2.21.1
+
+Reconstrução: python3 scripts/build_v2211.py
+Manifesto: tests/expected_release_v2211.json
+Base imutável: tests/expected_release_v2210.json
+Cobertura: tests/evidence/2.21.1/COVERAGE.json
+Testes: tests/v2211/README.md
+
+A atualização parte dos sete arquivos da versão 2.21.0 e preserva o catálogo. A prova de reversão deve recuperar os arquivos de origem ao desfazer a correção delimitada e a identificação da versão. O prazo por cálculo permanece em 60.000 ms, incluindo a conferência final e a serialização. Recusas e falhas preservam o rascunho.

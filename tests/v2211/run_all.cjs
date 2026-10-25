@@ -1,0 +1,9 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'../..'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),pin=fs.readFileSync(path.join(root,'tests/expected_release_v2211.json')),manifest=JSON.parse(pin);
+for(const [name,p]of Object.entries(manifest.files)){const b=fs.readFileSync(path.join(root,'dist/2.21.1',name));assert.equal(b.length,p.bytes);assert.equal(sha(b),p.sha256);}
+const suites=[{file:'tests/v2211/columns.cjs',args:[]},{file:'tests/v2211/independent_columns.cjs',args:[]},{file:'tests/v2211/worker_snapshot.cjs',args:[]}];
+for(const suffix of['','_completo'])suites.push({file:'tests/v221_integrity/frozen_runtime_guards.cjs',args:[path.join(root,'dist/2.21.1/RevisaWiki_v2_21_1'+suffix+'.js')]});
+const rows=[];let checks=0,currentCalculations=0,baselineCalculations=0;
+for(const suite of suites){const p=cp.spawnSync(process.execPath,[path.join(root,suite.file),...suite.args],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024,timeout:180000});assert.equal(p.status,0,suite.file+'\n'+p.stderr);const a=JSON.parse(p.stdout);assert.equal(a.status,'passed');checks+=a.checks;currentCalculations+=a.actualCalculations??a.calculations??a.workerMessageCalculations??0;baselineCalculations+=a.baselineCalculations??0;rows.push({suite:suite.file,sourceSha256:sha(fs.readFileSync(path.join(root,suite.file))),checks:a.checks,currentCalculations:a.actualCalculations??a.calculations??a.workerMessageCalculations??0,baselineCalculations:a.baselineCalculations??0,resultSha256:sha(p.stdout)});}
+console.log(JSON.stringify({kind:'scoped-column-hotfix-current-command-validation',version:'2.21.1',status:'passed',runtimeManifestSha256:sha(pin),suites:rows,checks,currentCalculations,baselineCalculations,wikipediaWrites:0}));

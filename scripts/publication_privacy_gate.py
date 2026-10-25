@@ -53,6 +53,13 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
 # after whitespace formatting. Approval requires the entire reviewed runtime,
 # its exact byte count and both exact fragment hashes, each occurring once.
 APPROVED_RUNTIME_OBJECT_KEYS={
+ '7e46265ea44c5bfdcb55e2cd50b07d2b7762147ab22524f556b57977945f2dbf':{
+  'bytes':2090691,
+  'tokens':{
+   '5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
  '19278a1b5e2b316285a15b99246d3b156230f467a9537821f88b5a5b66816890':{
   'bytes':2089124,
   'tokens':{
