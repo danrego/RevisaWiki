@@ -1,0 +1,84 @@
+{
+  "kind": "protected-installation-data-qualification",
+  "version": "2.21.1",
+  "distributionRevision": "2.21.1-installation.1",
+  "status": "passed",
+  "releaseGatesPassed": true,
+  "runtimeGatesPassed": true,
+  "scope": "Data serialization and release tooling only; previous automatic logic and historical campaign outcomes preserved. Publication/privacy verification recorded separately.",
+  "runtimeManifestSha256": "fe2afc5d7db493eb1838ba5a7446576a532e75f784044762e95060c290a4a700",
+  "frozenFiles": {
+    "Carregador_common_js_RevisaWiki_v2_21_1.js": {
+      "bytes": 9651,
+      "sha256": "1a21d11e667188de5aae979492eae0afc26c0c82936b8fb290183b343b16d240"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_21_1.js": {
+      "bytes": 9653,
+      "sha256": "23a920271a2f1947192962bab7cc09d4c35fedac7d1fed1cb6b884c50066e561"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_21_1.js": {
+      "bytes": 2090691,
+      "sha256": "7e46265ea44c5bfdcb55e2cd50b07d2b7762147ab22524f556b57977945f2dbf"
+    },
+    "RevisaWiki_v2_21_1_completo.js": {
+      "bytes": 4573022,
+      "sha256": "62451a9fac60103007bad50e50dfcf3b4dd29c707fa0af06b8b650822d58d799"
+    },
+    "RevisaWiki_v2_21_1_dados.js": {
+      "bytes": 2072795,
+      "sha256": "74f8d72095f3c66734af2fcd18cfa19208c544988918ffd0280145f028148c48"
+    }
+  },
+  "sourceInputs": {
+    "src/v2_21_1/short_columns.js": {
+      "bytes": 3242,
+      "sha256": "68c0e2ab76ea5451754989ecf1ee4a42083c4166795922cd0e3872ba3d66a2b0"
+    },
+    "src/v2_21_1/patches.json": {
+      "bytes": 1098,
+      "sha256": "5a7bdef8877bf5231e60fb5bb55d9818cdd5b9e8b2c67f537d35eb067fa8ccec"
+    },
+    "scripts/build_v2211.py": {
+      "bytes": 5987,
+      "sha256": "15d6f5e0e4c224e18c694e5dd36383b40f348a76ab5c8db66cdd0ff24ab12236"
+    },
+    "scripts/wiki_safe_data.py": {
+      "bytes": 3294,
+      "sha256": "d6fdb030ed2d15a31cdcbecfe6b8c1a4c538820c775e8748af5c20be25b559f5"
+    }
+  },
+  "presaveRoundtripSha256": "dd605b9fe470987309026e0734bc9ca4fbf74c874983172378cc48d8de56774c",
+  "workerDeadlineMilliseconds": 60000,
+  "unresolvedIntegrityFailures": 0,
+  "wikipediaWrites": 0,
+  "currentCalculations": 2778,
+  "baselineCalculations": 444,
+  "checks": 12173,
+  "serializationUnitMethods": 20,
+  "presaveGateUnitMethods": 26,
+  "repeatCommandUnitMethods": 4,
+  "deliveryUnitMethods": 16,
+  "browserFlows": 12,
+  "browserChecks": 258,
+  "demonstrationPortableSha256": "09e5f19ab60b468a250a339ddf6be172a4efee918b1dfb881ea8b352ae004474",
+  "evidence": {
+    "TOOLING_TESTS.json": "c7e4bd9392e9ba566a735e64159da84abedf52a030dff91e2e1d775a944fe5ca",
+    "BROWSER_VALIDATION.json": "8bd2ef282a188ff6b771ef2c2f11b759421179e7bf21f707c1ff1b98577a8a62",
+    "CURRENT_REGRESSION.json": "d429d12c4f7f52e957b2c7bba9ed80ea26a98715232fed8f82a3359e20a945fd",
+    "PRESAVE_ROUNDTRIP.json": "dd605b9fe470987309026e0734bc9ca4fbf74c874983172378cc48d8de56774c"
+  },
+  "docValidationParagraphs": [
+    "Esta revisão executou 2.778 cálculos da distribuição corrigida e 444 comparações com a base, com 12.173 verificações. Os testes de serialização têm 20 casos, os controles da transformação pré-salvamento têm 26, o comando de repetição tem quatro e a montagem da entrega tem 16. A varredura de caracteres Unicode, os casos de chaves que se tornariam iguais após normalização e as substituições literais verificam a preservação do catálogo.",
+    "A transformação pré-salvamento nativa foi consultada pela API somente de leitura para o arquivo final de dados. A resposta conservou o código, admitindo apenas a retirada da quebra de linha terminal, e todos os valores decodificados e o hash esperado permaneceram iguais. O pacote exige um comprovante que corresponda aos arquivos atuais e à implementação da conferência.",
+    "Chrome, Firefox e Safari executaram 12 cenários locais com 258 verificações. Foram conferidos o carregamento com WebCrypto, a preservação das chaves Unicode e dos atalhos literais, os limites de sete e oito itens, os executores Worker e por etapas e a restauração do rascunho. Os adaptadores de editor e de consultas usados nesses testes são locais e fictícios.",
+    "O núcleo, o motor completo, os carregadores e as chamadas fixas do common.js conservam seus bytes anteriores. As regras automáticas, o limite de 60 segundos e os resultados históricos permanecem iguais. Os casos extremos de timeout não foram repetidos. Nenhum teste desta revisão fez edições na Wikipédia."
+  ]
+}

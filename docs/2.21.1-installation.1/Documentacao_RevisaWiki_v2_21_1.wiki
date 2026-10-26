@@ -1,0 +1,522 @@
+{{Info/Software
+| nome = RevisaWiki
+| última_versão = 2.21.1
+| plataforma = Wikipédia em português
+| linguagem = JavaScript
+| idioma = Português
+| gênero = Ferramenta de revisão de código wiki
+| licença = [[Creative Commons|CC BY-SA 4.0]]
+| repositório = [https://github.com/danrego/RevisaWiki GitHub]
+| website = [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js|Carregador de instalação]]
+}}
+O '''RevisaWiki''' reúne correções de referências, infocaixas, tabelas e sintaxe no botão '''Ajustar código''', disponível no editor de código-fonte da Wikipédia em português. As mudanças ficam no rascunho, com opção de desfazer e de conferir o resultado em '''Mostrar alterações'''. Você decide quando publicar.
+
+O programa reconhece nomes de predefinições e parâmetros copiados de outras Wikipédias, trata grafias inequívocas e organiza elementos das seções finais. As correções de campos seguem mapas montados a partir de revisões conferidas das predefinições. Informações conflitantes, exemplos de código e trechos sem correspondência confirmada permanecem intactos.
+
+== Revisão de instalação 1 ==
+
+Esta distribuição é a revisão de instalação 1 da versão 2.21.1. O arquivo de dados foi protegido para conservar seu conteúdo ao ser salvo na Wikipédia. O programa, o catálogo em execução e as regras automáticas continuam na 2.21.1.
+
+* Protege as strings do arquivo de dados contra normalização Unicode e substituições durante o salvamento na Wikipédia.
+* Exige a comparação do catálogo completo após a transformação pré-salvamento antes de montar o pacote final.
+* Conserva o catálogo decodificado, o hash esperado, o núcleo, os carregadores e as chamadas fixas da 2.21.1.
+* Identifica os arquivos e seus destinos no índice para distinguir o programa do carregador.
+
+== Novidades da 2.21.1 ==
+
+* Acrescenta duas colunas às listas simples das seções finais somente a partir de oito itens do nível principal.
+* Conta os subitens junto do item a que pertencem, sem usá-los para atingir o mínimo.
+* Retira invólucros simples de duas colunas de listas curtas quando a estrutura permite preservar todo o conteúdo.
+* Preserva estilos próprios, tabelas, listas misturadas e estruturas sem correspondência confirmada. As regras de colunas de referências não mudam nesta atualização.
+
+== Recursos da ferramenta ==
+
+* Amplia os nomes de campos reconhecidos em infocaixas, com equivalência conferida para cada predefinição.
+* Distribui em linhas os campos de infocaixas compactas de assentamentos de Marrocos, preservando a ordem e os valores.
+* Combina correções de referências, aspas e parâmetros na mesma ação, quando as verificações permitem aplicá-las juntas.
+* Corrige grafias específicas de parâmetros bibliográficos, identificadores e estados de acesso, preservando os valores e as fontes.
+* Corrige ligações, opções de imagem, atributos de tabela e espaços nos casos já conferidos.
+* Confirma dados externos antes dos ajustes que dependem de um item, arquivo ou registro bibliográfico.
+* Conserva o texto quando os limites da marcação são incertos, há campos conflitantes ou falta confirmação.
+* Mantém a chamada fixa do common.js, a opção de desfazer e o limite de 60 segundos.
+
+=== Infocaixas e biografias ===
+
+Os mapas de campos abrangem predefinições pessoais, profissionais e temáticas. Cada mapa está ligado à revisão conferida da predefinição e aos parâmetros que ela realmente recebe. A troca conserva o valor completo, incluindo referências. Um campo válido não muda apenas por preferência de grafia.
+
+Nas infocaixas de assentamentos de Marrocos que estão inteiramente em uma linha, o programa pode colocar cada campo em sua própria linha e alinhar os sinais de igual. Os nomes, a ordem e os valores dos campos são preservados. Chamadas com argumentos posicionais sem comportamento confirmado, campos repetidos ou conteúdo protegido ficam como estavam.
+
+Se houver campos concorrentes, valores calculados ou uma caixa dentro de outra, o programa mantém os campos que não puder converter com segurança. Uma largura ou legenda só é ajustada se a predefinição realmente usar o campo da imagem. Nas regras que dependem de dados externos, a confirmação precisa corresponder ao artigo, ao item e ao rascunho em análise. Uma consulta sem resposta conserva o texto.
+
+A retirada de dados redundantes exige uma correspondência inequívoca. Datas, nomes, condições de exibição e opções desligadas continuam protegidos. Os mapas novos não tornam válidos todos os campos de toda infocaixa nem transferem dados de uma pessoa para outra.
+
+=== Referências e citações ===
+
+Os reparos cobrem as grafias previstas de acesso, edição, autoria, páginas, arquivo e identificadores nas predefinições de citação conferidas. O estado de acesso à fonte é conservado ao corrigir a chave ou o valor aceito pela ptwiki. O parâmetro não é apagado apenas para retirar um aviso.
+
+O programa mantém a chamada original quando a conversão faria uma predefinição da Wikipédia falhar ou perder dados. Uma ligação simples só é transformada em citação quando o nome da página, o título da fonte e o endereço permitem conservar os dados bibliográficos. Valores que já existiam não são reescritos para contornar uma falha do módulo da Wikipédia.
+
+A leitura associa cada nome e grupo ao corpo da referência. Uma correção de aspas precisa conservar essa associação, e um atributo malformado só recebe reparo quando o resultado tem limites estruturais completos. Notas distintas não são reunidas por semelhança.
+
+As correções de nomes de predefinições e parâmetros podem ser compostas na mesma ação. Uma lista padrão ausente só entra quando a posição, o grupo e todas as referências envolvidas permitem confirmar a inserção. Listas de referências com configurações próprias, referências dentro de predefinições que o programa não consegue interpretar com segurança e código incompleto são conservados.
+
+Uma confirmação bibliográfica externa não substitui a fonte. Os reparos que a usam exigem o identificador e o título completos correspondentes ao rascunho. O programa não decide se uma publicação sustenta a afirmação do artigo.
+
+=== Ligações, imagens, tabelas e espaços ===
+
+Os reparos delimitados incluem protocolos digitados incorretamente, separadores de ligações, opções de imagens e certos atributos de cabeçalhos de tabela. Legendas, tamanhos, destinos e texto das células são conservados. O programa analisa separadamente galerias, ligações dentro de outras ligações e atributos HTML para não aplicar a mesma troca em situações diferentes.
+
+Linhas vazias excedentes e títulos alternativos de seções finais só recebem as normalizações previstas. As regras preservam fórmulas, unidades, código literal e âncoras usadas no artigo. A proteção de ênfase pode conservar uma ligação que outra ferramenta apenas reformataria, evitando alterar os limites de negrito ou itálico.
+
+== Usar e conferir ==
+
+# Abra '''Editar código-fonte''' e clique em '''Ajustar código'''.
+# Confira '''Mostrar alterações''' e a pré-visualização normal do editor.
+# Publique quando terminar sua revisão. O RevisaWiki não publica por você.
+
+No editor clássico e nas integrações reconhecidas de CodeMirror, o botão também aparece perto dos controles de publicação. Os botões superior e inferior executam a mesma ação. No modo de código-fonte do editor de 2017, use o painel superior. Depois da análise, o botão fica desativado enquanto o texto não mudar.
+
+'''Desfazer ajustes''' restaura o rascunho anterior enquanto o resultado pertence à execução atual. Uma resposta atrasada ou uma análise antiga não pode sobrescrever mudanças manuais feitas depois. Texto, resumo e marca de edição menor são conferidos com o contexto do editor.
+
+Em artigos completos, mudanças feitas exclusivamente pelo programa podem marcar '''Edição menor''', sem depender da quantidade de bytes. Uma escolha manual, um rascunho já alterado ou a edição de uma seção mantêm a decisão com você. Essa marcação pode ser desativada nas configurações.
+
+=== Outras funções ===
+
+Na discussão de um artigo, com a página inteira aberta no editor, '''Criar código''' consulta o artigo e prepara o cabeçalho com <code><nowiki>{{PD}}</nowiki></code> e as marcas de projeto reconhecidas. O resultado vai para o rascunho e pode ser desfeito, sem publicar a página.
+
+Em '''Mais ferramentas''', '''Conferir outras grafias''' apresenta sugestões de ortografia com contexto. O texto só muda quando você aceita uma substituição.
+
+Em '''Configurações''', abra '''Opções de ajuste''' para escolher '''Todos os ajustes''', '''Só referências''' ou '''Só infocaixas'''. As opções individuais permitem desligar grupos de correções e os ajustes de portais, sem editar o código do programa.
+
+== Instalação e atualização ==
+
+O [https://github.com/danrego/RevisaWiki/blob/main/dist/2.21.1-installation.1/INDICE.md índice de instalação] reúne os arquivos completos, os destinos e os resumos da edição. A instalação continua manual. Dados e programa são separados para respeitar o limite de tamanho de cada página.
+
+Quem mantém a distribuição compartilhada deve atualizar, nesta ordem:
+
+# <code>RevisaWiki_v2_21_1_dados.js</code> em [[Usuário:Daniel G Rego/RevisaWiki/Dados.js]].
+# <code>RevisaWiki_v2_21_1.js</code> em [[Usuário:Daniel G Rego/RevisaWiki.js]].
+# <code>Carregador_comunitario_RevisaWiki_v2_21_1.js</code> em [[Usuário:Daniel G Rego/RevisaWiki/Carregador.js]].
+# Este manual em [[Usuário:Daniel G Rego/RevisaWiki]].
+
+As três partes de código precisam ser da mesma versão. Substitua o conteúdo completo pelos arquivos correspondentes. O carregador central tem cerca de 10 KB e recebe somente o arquivo de carregador. O núcleo, com cerca de 2 MB, pertence à página RevisaWiki.js. Não altere o hash esperado para contornar uma falha de carregamento. Reinstale os arquivos correspondentes da revisão atual. O arquivo <code>RevisaWiki_v2_21_1_completo.js</code> serve para uso local e testes, pois excede o limite de uma página da Wikipédia.
+
+Se o realce de sintaxe mostrar um aviso sobre o limite de 102400 bytes, ele se refere à exibição do código com cores. Confira o arquivo bruto. Erros de sintaxe ou uma recusa ao salvar precisam de verificação separada.
+
+Se você já usa a chamada fixa no common.js, mantenha-a. Quem instala pela primeira vez pode acrescentar somente este bloco, preservando seus outros scripts:
+
+<syntaxhighlight lang="javascript">
+// RevisaWiki: chamada fixa para a distribuição compartilhada.
+(function () {
+    'use strict';
+    if (window.RevisaWikiBootstrapRegistered) return;
+    window.RevisaWikiBootstrapRegistered = true;
+    var page = 'User:Daniel G Rego/RevisaWiki/Carregador.js';
+    var url = '/w/index.php?title=' + encodeURIComponent(page) +
+        '&action=raw&ctype=text/javascript&rw=' + Math.floor(Date.now() / 300000);
+    mw.loader.getScript(url).then(function () {}, function () {
+        if (typeof mw.notify === 'function') {
+            mw.notify('Não foi possível abrir o carregador central do RevisaWiki. Confira a instalação e recarregue a página.', {type:'warn'});
+        }
+    });
+}());
+</syntaxhighlight>
+
+Mantenha uma única chamada do RevisaWiki. Depois da atualização, recarregue sem cache e confira '''2.21.1''' em '''Sobre e diagnóstico'''. No Firefox e Chrome para Mac, use '''Command + Shift + R'''. No Safari, use '''Option + Command + R'''. A chave de cache da chamada fixa muda ao abrir ou recarregar uma página, em intervalos de cinco minutos. Ela não gera edições nem consulta atualizações continuamente.
+
+Para manter uma cópia própria, use os arquivos de dados e programa na sua conta e o <code>Carregador_common_js_RevisaWiki_v2_21_1.js</code> no seu carregador central. Na primeira instalação, acrescente <code>Chamada_fixa_RevisaWiki_copia_propria.js</code> ao common.js. Não carregue a cópia própria e a distribuição compartilhada ao mesmo tempo.
+
+== Demonstração e limites ==
+
+A demonstração acompanha o pacote no [https://github.com/danrego/RevisaWiki GitHub]. Ela usa o mesmo motor distribuído em exemplos fictícios, funciona localmente e permite comparar o código antes e depois. Os exemplos também mostram situações que precisam ficar intactas. Não há acesso à sua conta nem publicação.
+
+Alguns ajustes dependem de consultas públicas a destinos, arquivos, registros bibliográficos ou dados de itens. Os exemplos condicionais usam dados fictícios para mostrar essas regras, sem consultar o Commons ou confirmar fatos sobre artigos reais. No uso normal do programa, a pré-visualização pode enviar o rascunho à Wikipédia para processamento, sem salvar uma edição.
+
+O cálculo dos ajustes, a conferência final e a preparação da resposta têm um limite de '''60 segundos'''. Consultas públicas e pré-visualização têm seus próprios prazos de espera. Textos excepcionalmente grandes ou complexos podem atingir o limite do cálculo. Nesse caso, o programa mantém integralmente o rascunho e os controles anteriores, permitindo continuar a edição. O limite e as verificações de preservação não foram ampliados nem retirados para obter aprovação nos testes.
+
+O programa não traduz prosa, confirma notoriedade, verifica o conteúdo de todas as fontes ou resolve conflitos editoriais. Confira sempre o resultado antes de publicar.
+
+== Validação da versão ==
+
+Esta revisão executou 2.778 cálculos da distribuição corrigida e 444 comparações com a base, com 12.173 verificações. Os testes de serialização têm 20 casos, os controles da transformação pré-salvamento têm 26, o comando de repetição tem quatro e a montagem da entrega tem 16. A varredura de caracteres Unicode, os casos de chaves que se tornariam iguais após normalização e as substituições literais verificam a preservação do catálogo.
+
+A transformação pré-salvamento nativa foi consultada pela API somente de leitura para o arquivo final de dados. A resposta conservou o código, admitindo apenas a retirada da quebra de linha terminal, e todos os valores decodificados e o hash esperado permaneceram iguais. O pacote exige um comprovante que corresponda aos arquivos atuais e à implementação da conferência.
+
+Chrome, Firefox e Safari executaram 12 cenários locais com 258 verificações. Foram conferidos o carregamento com WebCrypto, a preservação das chaves Unicode e dos atalhos literais, os limites de sete e oito itens, os executores Worker e por etapas e a restauração do rascunho. Os adaptadores de editor e de consultas usados nesses testes são locais e fictícios.
+
+O núcleo, o motor completo, os carregadores e as chamadas fixas do common.js conservam seus bytes anteriores. As regras automáticas, o limite de 60 segundos e os resultados históricos permanecem iguais. Os casos extremos de timeout não foram repetidos. Nenhum teste desta revisão fez edições na Wikipédia.
+
+== Código e licença ==
+
+O código e o histórico de versões estão no [https://github.com/danrego/RevisaWiki GitHub]. A reconstrução parte dos sete arquivos imutáveis da 2.21.0, confere seus hashes e aplica a correção delimitada desta versão. Uma prova de reversão confere que as demais mudanças se limitam à identificação da versão. A montagem também protege a escrita das strings de dados contra normalização Unicode e substituições antes do salvamento. A transformação pré-salvamento é consultada pela API somente de leitura, e o pacote final exige a igualdade de todos os valores decodificados e do hash esperado. Uma falha ou um resultado pertencente a outro arquivo impede a montagem.
+
+O código próprio usa [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0]. Os materiais de terceiros conservam suas licenças e as revisões de origem indicadas no repositório. Os registros públicos omitem caminhos locais, dados de contas e capturas de tela do computador.
+
+== Histórico das versões ==
+
+As versões aparecem da mais recente para a mais antiga. O [https://github.com/danrego/RevisaWiki/tree/main/dist arquivo de distribuições] e os [https://github.com/danrego/RevisaWiki/tree/main/tests relatórios e testes] ficam no GitHub. O histórico abaixo resume as mudanças para quem usa a ferramenta, sem misturar relatórios antigos às instruções atuais.
+
+=== 2.21.1: revisão de instalação 1 ===
+
+* Protege as strings do arquivo de dados contra normalização Unicode e substituições durante o salvamento na Wikipédia.
+* Exige a comparação do catálogo completo após a transformação pré-salvamento antes de montar o pacote final.
+* Conserva o catálogo decodificado, o hash esperado, o núcleo, os carregadores e as chamadas fixas da 2.21.1.
+* Identifica os arquivos e seus destinos no índice para distinguir o programa do carregador.
+
+=== 2.21.1 ===
+
+* Acrescenta duas colunas às listas simples das seções finais somente a partir de oito itens do nível principal.
+* Conta os subitens junto do item a que pertencem, sem usá-los para atingir o mínimo.
+* Retira invólucros simples de duas colunas de listas curtas quando a estrutura permite preservar todo o conteúdo.
+* Preserva estilos próprios, tabelas, listas misturadas e estruturas sem correspondência confirmada. As regras de colunas de referências não mudam nesta atualização.
+
+=== 2.21.0 ===
+
+* Amplia os nomes de campos reconhecidos em infocaixas, com equivalência conferida para cada predefinição.
+* Distribui em linhas os campos de infocaixas compactas de assentamentos de Marrocos, preservando a ordem e os valores.
+* Combina correções de referências, aspas e parâmetros na mesma ação, quando as verificações permitem aplicá-las juntas.
+* Corrige grafias específicas de parâmetros bibliográficos, identificadores e estados de acesso, preservando os valores e as fontes.
+* Corrige ligações, opções de imagem, atributos de tabela e espaços nos casos já conferidos.
+* Confirma dados externos antes dos ajustes que dependem de um item, arquivo ou registro bibliográfico.
+* Conserva o texto quando os limites da marcação são incertos, há campos conflitantes ou falta confirmação.
+* Mantém a chamada fixa do common.js, a opção de desfazer e o limite de 60 segundos.
+
+=== 2.20.0 ===
+
+* Amplia a leitura de definições de notas em blocos nativos e confere a movimentação de referências em títulos por pré-visualizações completas com preservação das âncoras.
+* Recompõe títulos de citação partidos por uma barra literal e trata campos específicos de páginas, autoria e ligações nas famílias nativas verificadas.
+* Acrescenta equivalências finitas de campos de infocaixa, datas parciais e sites, preservando valores concorrentes e aliases válidos.
+* Amplia os perfis de portais e exige confirmação do item ligado à página para acrescentar Biografias a uma caixa genérica.
+* Estende a separação de arquivo, tamanho e legenda a outras infocaixas com campos de destino conferidos.
+* Corrige casos finitos de atributos de tabela, formatação de célula, ligações e espaços entre estruturas completas. As conversões novas de center, font e big não foram ativadas, para preservar a apresentação.
+* Retira propostas bibliográficas que confundiam notas explicativas ou funções distintas de parâmetros.
+* Mantém o limite de 60 segundos, as provas ligadas ao rascunho e as verificações de preservação em cada ação completa.
+
+=== 2.19.1 ===
+
+* Corrige o erro "cyclic object value" que podia interromper Ajustar código ao reconhecer o editor.
+* Mantém a conferência do editor e do rascunho sem tentar converter o objeto do editor em texto JSON.
+* Conserva as regras de alteração do artigo, as verificações de preservação e o limite de 60 segundos.
+* Mantém a chamada fixa do common.js, que não precisa ser substituída nesta atualização.
+
+=== 2.19.0 ===
+
+* Marca como edição menor os ajustes feitos exclusivamente pelo programa em artigos completos, respeitando a escolha manual.
+* Acrescenta uma demonstração com exemplos, comparação do resultado e restauração do texto original.
+* Confere as regras pelo resultado completo, com casos de aplicação, preservação, opções desligadas e entradas semelhantes que devem ficar intactas.
+* Corrige bloqueios entre o reconhecimento de chamadas nativas, as etapas de ajuste e a conferência final, preservando o rascunho quando o resultado não passa pelas verificações.
+* Reorganiza hierarquias redundantes de notas e referências, preservando conteúdo, grupos, listas e bancos de definições.
+* Reutiliza definições nomeadas idênticas nos intervalos confirmados, mantendo definições conflitantes separadas.
+* Mantém a lista depois das citações que ela precisa recolher, inclusive quando há notas na bibliografia, e respeita as duas posições de Ver também previstas no Livro de estilo.
+* Preserva nomes alternativos nativos, valores de estado da URL, pontuação de legendas e marcação HTML já válidos.
+* Protege exemplos e código nas etapas de reorganização, além dos reparos locais de sintaxe.
+* Reconhece chamadas nativas conferidas de nacionalidade e classificação biológica que podiam ficar ocultas antes da adição de portais.
+* Evita que uma correção recusada de campo químico seja aplicada por outra regra de capitalização.
+* Conserva juntas as cópias idênticas de uma referência quando uma delas está em um trecho protegido.
+* Confere a função, os valores vazios e a prioridade dos campos antes de adaptar citações, infocaixas, autores, datas e dados químicos.
+* Exige contexto de origem para adaptar prefixos e opções estrangeiras de imagem, conservando legendas nativas e títulos comuns.
+* Preserva espaços de nomes com caracteres de controle, sem transformá-los em imagens ou categorias.
+* Retira a expansão automática de oito atalhos que importavam metadados sem passar pelas conferências normais do programa.
+* Mantém o contexto das referências do texto inteiro ao corrigir somente um trecho completo.
+* Vincula consultas, escolhas e restauração ao rascunho de origem, incluindo título, seção, revisão e editor.
+* Reutiliza leituras do mesmo texto, conta os ajustes de rascunhos grandes em uma etapa própria e permite desfazer sem repetir a análise.
+* Conserva na infocaixa os valores e as referências das datas e dos locais copiados para a abertura.
+
+=== 2.18.0 ===
+
+* Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.
+* Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.
+* Preserva comentários completos dentro dos valores e aceita combinações literais de estado ou acesso cuja equivalência foi conferida na implementação nativa.
+* Corrige datas literais em campos aceitos de citações, mantendo a precisão informada e conferindo o calendário. Não acrescenta um dia a uma data que só informa mês e ano.
+* Corrige nomes inválidos ou obsoletos de campos de citação e uma data completa colocada no campo de ano, após conferir os outros nomes usados para o mesmo campo.
+* Reduz linhas vazias excedentes, inclusive linhas contendo espaços ou tabulações, na prosa e nos limites finais reconhecidos.
+* Retira o espaço horizontal entre pontuação e uma referência ativa, corrige uma barra invertida em uma quebra de linha sem atributos e corrige títulos de seções finais escritos como chamadas literais sem argumentos cujos destinos foram conferidos.
+* Deixa as referências usarem a divisão responsiva nativa e retira apenas o conjunto exato de estilos fixos acrescentado por versões anteriores do programa.
+* Compara as 241 regras do código de referência que fazem substituições no texto de artigos, com casos executáveis e registro das diferenças preservadas ou ainda sem comprovação suficiente.
+
+=== 2.17.0 ===
+
+* Mostra na revisão somente problemas confirmados no texto final e escolhas que ainda podem ser aplicadas à ocorrência correta.
+* Agrupa ocorrências do mesmo problema, mantendo todos os locais e as opções de cada trecho acessíveis.
+* Retira da revisão avisos antigos, limitações de catálogo e consultas opcionais inconclusivas, sem mudar o código para ocultá-los.
+* Corrige 21 erros de acentuação de campos conferidos em quatro infocaixas pessoais, mantendo os nomes alternativos que já são aceitos.
+* Retira aliases vazios redundantes em dez famílias de campos nativos quando o valor exibido e as referências ficam iguais.
+* Corrige nome e grupo em etiquetas de referência quando uma definição ou chamada nativa confirma uma única ligação entre as ocorrências.
+* Corrige juntos de dois a quatro nomes de atributos rowspan ou colspan quando apenas uma combinação forma a tabela regular.
+* Mantém o painel existente, as proteções de conteúdo e a decisão de publicar sob controle de quem edita.
+
+=== 2.16.0 ===
+
+* Completa campos pessoais ausentes com datas e locais explicitamente referenciados na abertura, mantendo o texto de origem.
+* Separa uma data seguida do local no mesmo campo quando cada parte tem sua referência e o destino foi conferido.
+* Organiza datas completas isoladas sem acrescentar idade ou categorias de nascimento.
+* Retira uma idade manual apenas quando ela repete a idade que Dni mostra na mesma data UTC.
+* Retira uma unidade literal quando a definição conferida da caixa já acrescenta a mesma unidade.
+* Recupera quebras de linha entre itens ligados de uma lista com marcadores explícitos.
+* Retira rótulos copiados nos valores e ligações do cabeçalho para o próprio artigo, preservando o texto exibido.
+* Conclui a retirada de títulos finais vazios depois da movimentação do bloco final, sem precisar de outro clique.
+
+=== 2.15.1 ===
+
+* Move a infocaixa pessoal para antes da abertura quando a posição pode ser confirmada e retira a indentação acidental antes da caixa.
+* Destaca o nome inicial exato do assunto e retira sua ligação para o próprio artigo.
+* Organiza datas e locais já escritos na identificação inicial. Pode completá-los com campos explícitos e referenciados de uma única infocaixa pessoal.
+* Corrige caracteres invisíveis em nomes de campos e um sinal de igual de largura completa quando o campo nativo é confirmado.
+* Corrige a unidade repetida de tamanho da imagem nos campos cujo funcionamento foi conferido.
+* Separa arquivo de imagem, texto alternativo, tamanho e legenda nos campos nativos confirmados, preservando o conteúdo.
+* Conta cada operação mantida e inclui a identificação inicial no resumo quando ela muda. A inserção de dados na abertura não recebe marcação automática de edição menor.
+* Mantém os campos de sepultamento como estavam. Dados conflitantes, referências incertas e estruturas ambíguas ficam intactos.
+
+=== 2.15.0 ===
+
+* Reconhece construções válidas de chaves e nomes dinâmicos antes de procurar erros de sintaxe.
+* Confirma o nome da predefinição antes de aplicar regras de parâmetros. Nomes e aliases nativos aceitos permanecem iguais.
+* Separa definições, documentação e testes dos ajustes destinados a artigos.
+* Corrige erros mecânicos conferidos em funções, campos e chamadas de documentação, sem escolher entre valores conflitantes.
+* Confere o encaminhamento de parâmetros entre predefinições nos casos registrados, mantendo as entradas públicas e sua precedência.
+* Valida TemplateData separadamente e repara os erros de JSON e de ordenação reconhecidos.
+* Confere TemplateStyles pelo conteúdo que o sanitizador conserva, incluindo valores, seletores e regras de tela.
+* Acrescenta testes de predefinições, transclusão, falsos positivos e apresentação em telas de tamanhos diferentes.
+
+=== 2.14.0 ===
+* Adapta chamadas reconhecidas de uma enciclopédia importada para Citar enciclopédia, preservando os dados da obra e as indicações de domínio público. A conversão evita as categorias de manutenção estrangeiras geradas pelo modelo antigo.
+* Corrige alinhar e alinhar_fonte em Caixa de citação para os nomes nativos correspondentes, quando o valor e a ausência de conflitos confirmam a mudança.
+* Recupera campos importados do inglês, espanhol, francês e alemão dentro de infocaixas nativas reconhecidas de medicamentos e substâncias químicas, sem converter unidades nem alterar valores.
+* Reduz linhas vazias excedentes entre parágrafos comuns a uma linha vazia, preservando exemplos e estruturas em que o espaçamento pode ter outra função.
+* Retira a comparação própria do painel. Mostrar alterações abre o controle nativo do editor quando ele está disponível.
+* Agrupa sugestões repetidas pela mesma predefinição e pelo mesmo parâmetro, com a quantidade de ocorrências e os detalhes de cada uma.
+* Abre Precisa de revisão por padrão e respeita a escolha de recolher essa seção.
+* Guarda a descrição curta retirada em um detalhe dentro de Precisa de revisão, fora da lista principal de ajustes. Avisos genéricos de preservação e sugestões de trocar listas Vancouver válidas deixam de ocupar o relatório.
+
+=== 2.13.0 ===
+* Repõe uma aspa inicial ausente em rowspan ou colspan quando a tabela completa confirma o reparo.
+* Repara um sinal de igual ausente em rowspan ou colspan nos formatos reconhecidos.
+* Corrige erros de digitação conferidos nos nomes rowspan e colspan.
+* Retira um atributo de ordenação repetido quando os valores são idênticos.
+* Retira aspas externas de um campo que contém somente um endereço reconhecido.
+* Recupera um identificador de uma ligação externa sem rótulo para o endereço oficial correspondente.
+* Corrige nome e grupo para os atributos nativos name e group em referências com identidade local confirmada.
+* Fecha uma referência composta somente por uma citação completa, imediatamente antes da lista final correspondente.
+* Retira uma chamada ISBN colocada dentro do próprio campo isbn quando há um único identificador válido.
+* Retira um sinal de igual inicial excedente em campos conferidos de endereço, data ou identificador.
+* Corrige o fechamento malformado de uma referência quando a abertura correspondente está confirmada.
+* Corrige aspas retas e tipográficas misturadas em rowspan ou colspan.
+* Corrige erros de digitação conferidos nos nomes dos atributos nativos de ordenação.
+* Conclui cadeias reconhecidas de reparos de endereços em uma aplicação, incluindo o campo arquivo-url.
+
+=== 2.12.0 ===
+* Corrige group para grupo nas listas nativas de Referências quando o campo é único e literal.
+* Retira campos equivalentes repetidos das citações quando os valores coincidem, sem misturar funções diferentes.
+* Retira os colchetes de um campo de endereço que contém somente uma URL HTTP ou HTTPS, sem rótulo.
+* Retira atributos idênticos repetidos em listas references, conservando as definições e os grupos.
+* Permite os reparos de tabelas quando formatnum contém apenas um número literal no conteúdo de uma célula.
+* Preserva os atributos de ordenação reconhecidos enquanto aplica os demais reparos confirmados da tabela.
+* Corrige uma aspa incompatível em rowspan ou colspan quando há uma única correção e a grade completa confere.
+* Acrescenta rolagem local a tabelas reconhecidas com largura fixa de 640 a 9.999 pixels, sem alterar os dados.
+
+=== 2.11.1 ===
+* Desbloqueia reparos de referências quando há estilos literais e chamadas nativas conferidas que não acrescentam fontes.
+* Separa nomes repetidos de fontes diferentes quando todas as ocorrências têm conteúdo completo, preservando cada referência.
+* Troca blog por obra em citações nativas sem outro campo de publicação e corrige somente endereços com correspondência previamente comprovada.
+* Reúne os avisos repetidos de um mesmo conflito, mantendo separados os nomes e grupos diferentes.
+
+=== 2.11.0 ===
+* Acrescenta portais de biografias esportivas quando a infocaixa confirma a pessoa e a modalidade, com o país quando ele também está confirmado.
+* Reconhece infocaixas principais de filmes e formatos conferidos de programas de televisão, com critérios separados para notícias e entretenimento.
+* Usa os campos taxonômicos explícitos para acrescentar portais de biologia e de grupos reconhecidos.
+* Reconhece as infocaixas de vacinas, medicamentos e doenças, com critérios próprios para caixas químicas.
+* Marca como menores mais ajustes mecânicos comprovados, respeitando a revisão salva e a escolha manual do editor.
+* Conta as correções mantidas por ocorrência, com uma lista para conferência, separada dos tipos de ajuste e dos blocos do diff.
+* Refaz o contador depois das escolhas da comparação e mantém os controles de desfazer.
+* Iguala o verde dos dois botões e mostra Código conferido enquanto o texto e as opções permanecerem iguais.
+* Acrescenta miniatura a fotografias grandes e isoladas na introdução, com confirmação pública do arquivo e preservação da legenda.
+* Aplica o mínimo de dez referências por lista, com colunas que se adaptam à tela e respeito às configurações existentes.
+* Explica o aviso de tamanho do realce de sintaxe e oferece acesso direto ao código bruto para conferir a instalação.
+* Revê a redação do manual e do histórico, sem exemplos identificados de artigos ou editores.
+
+=== 2.10.0 ===
+* Corrige separadores ausentes, aspas trocadas, linhas vazias repetidas e fechamentos incompatíveis em tabelas estáticas reconhecidas.
+* Acrescenta scope aos cabeçalhos individuais de tabelas com três ou quatro níveis completos e sem associações conflitantes.
+* Reutiliza fontes idênticas definidas em references ou refs=, mantendo grupos, páginas e demais campos.
+* Separa nomes conflitantes quando cada ocorrência traz a fonte completa e não há chamadas vazias ou indiretas.
+* Corrige o espaço ausente em uma abertura refname quando a referência completa tem limites confirmados.
+* Restaura um destino Harvard ausente somente com autores e ano exatos e confirmação na pré-visualização nativa.
+* Limita a rolagem horizontal de tabelas largas nos formatos reconhecidos, sem apagar suas larguras mínimas ou alterar os dados.
+* Compartilha leituras do mesmo rascunho em um cache limitado, descartando posições quando o texto muda.
+* Permite conservar conjuntos independentes de ajustes que passaram na conferência, mantendo juntas as mudanças que dependem umas das outras.
+
+=== 2.9.0 ===
+* Reutiliza uma fonte sem nome quando todos os campos coincidem com uma referência já nomeada.
+* Retira chamadas repetidas da mesma referência no mesmo ponto do texto.
+* Retira etiquetas de referência sem atributos e sem conteúdo.
+* Corrige um único fechamento de referência repetido quando o limite está completo.
+* Retira atributos idênticos repetidos em células, linhas e legendas de tabelas completas.
+* Corrige uma aspa de fechamento repetida em rowspan ou colspan nos casos literais reconhecidos.
+* Acrescenta scope de coluna aos cabeçalhos inferiores de tabelas simples com dois níveis.
+* Extrai o identificador de um endereço oficial preenchido em pmc ou arxiv, preservando sua versão.
+
+=== 2.8.3 ===
+* Retira a categoria explícita de ano de nascimento quando uma chamada ativa e conferida de Dni já gera a mesma categoria.
+* Confirma a categoria por consulta anônima à ptwiki antes da retirada.
+* Preserva chaves de ordenação, DEFAULTSORT e os casos sem confirmação, sem novos avisos.
+* Mantém os recursos da 2.8.2 e a chamada fixa do common.js.
+
+=== 2.8.2 ===
+* Corrige trocas antigas de modelos de referência somente em casos previamente verificados e registrados no catálogo.
+* Escolhe o modelo nativo pela fonte original e recupera endereços apenas quando o vínculo com a mesma referência foi confirmado.
+* Confere o título do artigo e os dados da fonte antes de aplicar cada correção, preservando os demais valores atuais.
+* Mantém chamadas legítimas de Citation fora dos casos registrados e não consulta o histórico durante o uso.
+* Mantém os recursos da 2.8.1 e a chamada fixa do common.js.
+
+=== 2.8.1 ===
+* Mantém chamadas nativas de citar web quando falta a URL, com os dados e a data de acesso preservados.
+* Conserva os endereços de arquivo e os demais campos, sem inventar dados para completar uma fonte.
+* Adapta modelos estrangeiros de notícias com equivalência conferida para Citar jornal e preserva chamadas válidas de Citation.
+* Reforça a conferência do tipo da citação e da data de acesso, ligadas ao mesmo título e aos mesmos identificadores.
+* Mantém os recursos da 2.8.0 e a chamada fixa do common.js.
+
+=== 2.8.0 ===
+* Separa arquivo, tamanho e legenda de imagens inseridas como ligações completas em campos de infocaixas conferidas.
+* Corrige uma lista conferida de erros nos nomes dos parâmetros e repara links malformados de sites oficiais.
+* Organiza listas simples de profissões e retira negrito externo redundante de cabeçalhos que já o aplicam.
+* Impede a idade atual em datas de nascimento quando a mesma caixa informa uma data de morte completa e válida. Usa as datas existentes para calcular a idade ao morrer.
+* Formata vários casamentos separados quando cada item traz seu próprio nome, data e situação conjugal explícita.
+* Preserva campos preenchidos, nomes, referências e casos ambíguos. Mantém o botão Ajustar código e a chamada fixa do common.js.
+
+=== 2.7.3 ===
+* Formata dados explícitos de casamento com a predefinição nativa, conservando nomes, datas completas e estados civis.
+* Cobre 33 infocaixas e nomes alternativos de biografias, com campos de cônjuge conferidos.
+* Exige um perfil individual explícito nas caixas musicais e preserva parceiros de duplas esportivas.
+* Confere o calendário, as referências e os demais campos da infocaixa antes de aceitar a conversão.
+* Mantém os recursos anteriores e a chamada fixa do common.js. Dados, programa e carregador central passam para 2.7.3.
+
+=== 2.7.2 ===
+* Fecha aspas ausentes em atributos numéricos de células quando a estrutura completa confirma o ponto do reparo.
+* Corrige a leitura de aspas que atravessam o limite do itálico ou negrito, sem alterar a redação ou a formatação do artigo.
+* Depois do reparo confirmado, permite os ajustes finais e a adição dos portais que atendem aos critérios existentes.
+* Preserva chamadas válidas de predefinições que fornecem atributos e o separador da célula, como Ind e Venceu.
+* Programa, dados e carregador central na versão 2.7.2. A chamada fixa do common.js permanece igual.
+
+=== 2.7.1 ===
+* Corrige nomes químicos cuja notação fazia a infocaixa aparecer como código no artigo, nos campos IUPAC conferidos.
+* Quebra de linha de identificadores InChI literais muito longos em infocaixas genéricas, sem cortar nem modificar o identificador.
+* Preservação do nome exibido, dos dados e das referências da infocaixa. Conversões de idioma válidas, campos calculados e exemplos ficam como estão.
+* Conferência dos limites da regra, da comparação e da opção de desfazer.
+* Programa, dados e carregador central na versão 2.7.1. A chamada fixa do common.js permanece igual.
+
+=== 2.7.0 ===
+* Comparação de artigos grandes com mudanças locais separadas, sem contar um bloco extenso como se fosse uma única correção.
+* Resultado com os tipos de ajuste que permaneceram no texto. O número de blocos pertence à comparação e não é apresentado como total de correções.
+* Retirada de nomes de portais literalmente repetidos em chamadas simples de Portal3, preservando a ordem dos demais.
+* Reunião de chamadas DEFAULTSORT exatamente iguais no bloco final, com manutenção da última chamada.
+* Retirada de um campo vazio duplicado de infocaixa quando a última ocorrência do mesmo campo está preenchida.
+* Reutilização de referências nomeadas com conteúdo exatamente igual, quando todas as definições e chamadas podem ser conferidas juntas.
+* Retirada dos botões adicionais Editar aqui das seções. Ajustar código continua no editor de código-fonte.
+* Limpeza de cercas externas com os rótulos wiketext e wikitex e de marcas exatas de citação copiadas de chats, com preservação de referências e exemplos.
+* Programa, dados e carregador central na versão 2.7.0. A chamada fixa do common.js permanece igual.
+
+=== 2.6.2 ===
+* Leitura de aspas pelo contexto, com separação entre o texto de citações e ligações externas e os atributos de referências, etiquetas HTML e tabelas.
+* Correção de falsos limites de leitura que podiam marcar tabelas completas como incompletas e impedir ajustes no restante do artigo.
+* Preservação das aspas, do texto e dos dados das tabelas. As proteções para código realmente incompleto continuam disponíveis.
+* Programa, dados e carregador central na versão 2.6.2. Os catálogos continuam iguais, com a identificação do arquivo de dados atualizada. A chamada fixa no common.js permanece igual.
+
+=== 2.6.1 ===
+* O pacote 2.6.1-hotfix.1 corrige a instalação sem mudar a versão 2.6.1 do programa ou dos dados. O carregador usa sintaxe aceita pelo processamento do common.js na Wikipédia.
+* Chamada fixa no common.js, com carregador central separado. Nas próximas versões, a atualização fica nos dados, no núcleo e no carregador central.
+* Proteção de uma expressão regular para que o salvamento do JavaScript na Wikipédia não a transforme em assinatura.
+* Consultas do núcleo e dos dados recebem identificadores de versão e conteúdo para evitar arquivos antigos no cache.
+* Retirada do atalho de edição rápida junto ao título da página. Os links Editar aqui das seções foram mantidos.
+* Reconhecimento de Referência e Referencia antes da procura por uma lista ausente, com troca do nome e preservação de grupos, parâmetros e fontes definidas na lista.
+* Conversão dos nomes alternativos AP, Ap e Main para Artigo principal sem remontar ou descartar argumentos.
+* Criar código prepara e insere o cabeçalho da discussão em um clique, com PD primeiro e marcas de projeto. Usa o registro completo de marcas, aproveita os portais colados na mesma linha e consulta nomes fora do catálogo antes de converter.
+* Correção da leitura de aspas junto a etiquetas HTML que podia interromper a análise de código completo.
+* Limites de leitura ficam em Por que alguns ajustes não entraram, sem um aviso genérico sobre todo o restante do artigo.
+
+=== 2.6.0 ===
+* Edição rápida de seções na página de leitura, com o mesmo motor de ajustes, comparação e desfazer.
+* Pré-visualização visual opcional, com respostas vinculadas à versão atual do rascunho.
+* Publicação por clique deliberado, com revisão de origem e recuperação diante de conflitos ou falhas.
+* Resumo, edição menor, preferências de vigiar e saída para o editor completo.
+* Onze formas de ligações confirmadas e quatro correções de grafia, com proteção de títulos, citações e nomes.
+* Correção de falsos avisos de Harvtxt e retirada de alertas sobre formatação preservada.
+* Consultas de pré-visualização em paralelo, com prazo limitado e falhas separadas dos problemas do artigo.
+* Leitura de nacionalidade RUSn e listas literais de ocupação para confirmar portais em biografias com essas informações confirmadas.
+* Retirada de fundo vazio ou instrumentista_sem_vocal em Info/Biografia, com equivalência visual confirmada.
+* Atalhos opcionais que dependiam de páginas pessoais deixaram de ser expandidos.
+
+=== 2.5.0 ===
+* Retirada do título repetido antes da introdução quando o assunto e a posição estão confirmados.
+* Reutilização de citações iguais com parâmetros em outra ordem e retirada de chamadas e listas imediatamente repetidas.
+* Reparo de atributos idênticos repetidos e mais fechamentos trocados reconhecidos.
+* Alinhamento dos sinais de igual em infocaixas reconhecidas que já tenham um campo por linha, sem mudar os valores.
+* Ação separada para preparar PD e marcas de projeto na discussão de um artigo, com proposta antes de aplicar.
+* Manual reorganizado, com linguagem revista e relatórios técnicos separados.
+
+=== 2.4.0 ===
+* Reparos de fechamento antes dos demais ajustes, 29 erros exatos de nomes de parâmetros e ajuste do trecho completo anterior a um trecho incompleto.
+* Referências nomeadas ficam protegidas nessa passagem.
+* Os avisos são conferidos novamente depois dos reparos.
+
+=== 2.3.0 ===
+* Retirada de cópias idênticas de infocaixas e chamadas finais, consolidação de listas globais redundantes e reparos de resíduos conhecidos de copiar e colar.
+* Conservação de separadores entre dígitos e das fontes no bloco final.
+
+=== 2.2.1 ===
+* Atalho Ajustar código antes do botão Publicar, com as mesmas regras e os mesmos catálogos da 2.2.0.
+
+=== 2.2.0 ===
+* Correção da conferência de tabelas, remissões depois de títulos de seções e redução de avisos sem ação necessária.
+* Reparos de apresentação conferidos em revisões públicas.
+
+=== 2.1.1 ===
+* Separação de subtítulos anuais em tabelas reconhecidas, mantendo os registros e as referências.
+
+=== 2.1.0 ===
+* Ampliação das profissões e dos portais de biografias, confirmação própria para Mulheres e revisão da leitura de notas e das respostas de pré-visualização.
+
+=== 2.0.1 ===
+* Reparo do argumento de Colunas-lista, conversão de Cite news para Citar jornal e proteção dos separadores de tabelas junto a referências.
+
+=== 2.0.0 ===
+* Reparos confirmados de citações e tabelas, conferência automática da pré-visualização e separação entre o programa e os catálogos na instalação.
+
+=== 1.9.1 ===
+* Preservação de dni e Dni, proteção contra a adição redundante de Brasil quando há portal de estado brasileiro e uso de parâmetros posicionais em chamadas simples de Portal3.
+
+=== 1.9.0 ===
+* Grafias exatas em Ajustar código, inicial minúscula nas profissões da infocaixa, portais pela infocaixa, idade com confirmação de pessoa viva, abertura nos espaços de wikitexto e nomes neutros para referências.
+
+=== 1.8.0 ===
+* Melhoria do processamento, reutilização de referências idênticas, reparos automáticos de parâmetros, contador de bytes e marcação de edição menor para mudanças mecânicas confirmadas.
+
+=== 1.7.0 ===
+* Ampliação do catálogo, colunas de referências a partir de seis entradas, preservação de nomes alternativos válidos e conferência de citações abreviadas.
+
+=== 1.6.0 ===
+* Reorganização do painel e do relatório, comparação com linhas de contexto, resumos automáticos revistos e correções de estabilidade.
+
+=== 1.5.0 ===
+* Conferência de tabelas e datas, escolhas para desambiguações, conferência integrada, resumos específicos e diagnóstico copiável.
+* Conferência experimental de TemplateStyles.
+
+=== 1.4.0 ===
+* Ampliação da sintaxe importada, controle de autoridade e organização das seções finais.
+* A entrega de biografias com o mesmo número acrescentou Biografias em artigos com infocaixa individual reconhecida.
+
+=== 1.3.0 ===
+* Ampliação do catálogo ortográfico, propostas de possíveis palavras repetidas e lista pessoal de palavras.
+
+=== 1.2.1 ===
+* Revisão do uso de colunas nas referências e ajuste automático de colunas em listas compatíveis de Leitura adicional e Ligações externas.
+
+=== 1.2.0 ===
+* Reutilização da leitura de predefinições na pontuação das referências, processamento separado quando disponível, andamento visível e cancelamento.
+* Reorganização do painel.
+
+=== 1.1.0 ===
+* Conferência ortográfica separada, com contexto e escolhas por ocorrência.
+* As regras de código da 1.0 foram mantidas.
+
+=== 1.0.0 ===
+* Adoção do nome RevisaWiki, com as regras do Ajuste geral 2.5, comparação, escolhas por trecho, desfazer e resumo automático sem nome de usuário.

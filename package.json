@@ -12,8 +12,8 @@
     "@babel/parser": "7.28.5"
   },
   "scripts": {
-    "test": "node tests/v2211/run_all.cjs",
-    "test:directed": "node tests/v2211/run_all.cjs",
+    "test": "node tests/installation1/run_all.cjs",
+    "test:directed": "node tests/installation1/run_all.cjs",
     "test:focused": "node tests/v221/legacy_run.cjs --suite=reference_collector_cases.cjs,table_structure_actions.cjs,biography_lead_sourcing_cases.cjs",
     "test:complex": "node tests/v221/legacy_run.cjs",
     "test:regression": "node tests/v221/legacy_run.cjs",
@@ -22,12 +22,12 @@
     "test:large-articles": "node tests/v220/action_bounded_corpus.cjs",
     "test:privacy": "python3 scripts/check_privacy.py",
     "test:privacy:unit": "python3 tests/privacy/test_publication_privacy_gate.py",
-    "test:documentation": "python3 tests/v2211/delivery_tools.py",
+    "test:documentation": "python3 -m unittest discover -s tests/installation1 -p test_delivery.py",
     "test:dependencies": "python3 scripts/setup_test_dependencies.py --check",
     "setup:test-dependencies": "python3 scripts/setup_test_dependencies.py",
-    "test:integrity": "node tests/v2211/run_all.cjs",
+    "test:integrity": "node tests/installation1/run_all.cjs",
     "build": "python3 scripts/build_v2211.py",
-    "build:index": "python3 scripts/build_delivery_v2211.py",
+    "build:index": "python3 scripts/build_delivery_v2211_installation1.py",
     "test:previous2130": "node tests/v2130/run_all.cjs",
     "test:previous": "node tests/run_all.cjs",
     "test:previous261": "node tests/v261/run_all.cjs",
@@ -58,6 +58,11 @@
     "test:previous2210": "node tests/v221_integrity/run_current.cjs",
     "test:columns": "node tests/v2211/columns.cjs",
     "test:columns:independent": "node tests/v2211/independent_columns.cjs",
-    "test:privacy:2211": "python3 tests/v2211/privacy_runtime.py"
+    "test:privacy:2211": "python3 tests/v2211/privacy_runtime.py",
+    "test:previous2211": "node tests/v2211/run_all.cjs",
+    "test:serialization": "python3 -m unittest discover -s tests/installation1 -p test_serialization.py",
+    "test:presave:unit": "python3 -m unittest discover -s tests/installation1 -p test_presave_gate.py",
+    "test:presave": "python3 scripts/verify_current_presave.py",
+    "test:presave:receipt": "python3 scripts/check_wiki_presave.py --manifest tests/expected_release_v2211_installation1.json --data dist/2.21.1-installation.1/RevisaWiki_v2_21_1_dados.js --receipt tests/evidence/2.21.1-installation.1/PRESAVE_ROUNDTRIP.json --check-receipt"
   }
 }

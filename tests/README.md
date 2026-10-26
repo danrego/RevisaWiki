@@ -1,12 +1,14 @@
 # Testes do RevisaWiki
 
-Os comandos atuais executam a versão 2.21.1. O [guia da versão](v2211/README.md) explica os contratos atuais, a regressão histórica, as revisões reais e os testes de navegador. Os arquivos históricos permanecem disponíveis com a identificação dos resultados originais.
+Os comandos atuais executam a versão 2.21.1 com a instalação corrigida. O [guia da revisão](installation1/README.md) explica a serialização dos dados, a transformação pré-salvamento e as regressões. O [guia original da 2.21.1](v2211/README.md) permanece disponível com a identificação dos resultados históricos.
 
 Para montar o projeto e executar os testes, use Node.js 24 ou posterior e npm 10 ou posterior. Instale as dependências de desenvolvimento fixadas no arquivo de lock antes de executar a bateria. O parser fica no `node_modules` do projeto, sem precisar de `NODE_PATH`.
 
 ```sh
 npm ci --ignore-scripts --no-audit --no-fund
 npm test
+npm run test:presave
+npm run test:presave:receipt
 npm run test:focused
 npm run test:complex
 npm run test:documentation

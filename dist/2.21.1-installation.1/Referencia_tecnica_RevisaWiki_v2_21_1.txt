@@ -1,0 +1,11 @@
+RevisaWiki 2.21.1: revisão de instalação 1
+
+Distribuição: 2.21.1-installation.1
+Montagem dos arquivos: python3 scripts/build_v2211.py
+Repetir a transformação pré-salvamento: python3 scripts/verify_current_presave.py
+Montagem da entrega: python3 scripts/build_delivery_v2211_installation1.py
+Manifesto: tests/expected_release_v2211_installation1.json
+Validação: tests/evidence/2.21.1-installation.1/QA_SUMMARY.json
+Pré-salvamento: tests/evidence/2.21.1-installation.1/PRESAVE_ROUNDTRIP.json
+
+A representação textual das strings usa escapes JavaScript para conservar os valores durante normalização Unicode e substituições do salvamento. O objeto completo deve ser idêntico ao catálogo da distribuição original. O hash esperado permanece daac113c09d861d141090d42e332a194b33a85d5b5831602329671ffd5aad011. A transformação pré-salvamento consulta action=parse com onlypst, sem autenticação ou ação de edição. A resposta precisa pertencer aos bytes atuais e preservar os dados e o código, admitindo apenas a retirada de uma quebra de linha terminal. O pacote recusa recibos ausentes, inválidos ou referentes a outros arquivos. O núcleo, o motor completo, os carregadores e as chamadas fixas conservam seus hashes anteriores.

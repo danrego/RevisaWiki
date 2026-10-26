@@ -1,0 +1,14 @@
+RevisaWiki 2.21.1: revisão de instalação 1
+
+- Protege as strings do arquivo de dados contra normalização Unicode e substituições durante o salvamento na Wikipédia.
+- Exige a comparação do catálogo completo após a transformação pré-salvamento antes de montar o pacote final.
+- Conserva o catálogo decodificado, o hash esperado, o núcleo, os carregadores e as chamadas fixas da 2.21.1.
+- Identifica os arquivos e seus destinos no índice para distinguir o programa do carregador.
+
+Esta revisão executou 2.778 cálculos da distribuição corrigida e 444 comparações com a base, com 12.173 verificações. Os testes de serialização têm 20 casos, os controles da transformação pré-salvamento têm 26, o comando de repetição tem quatro e a montagem da entrega tem 16. A varredura de caracteres Unicode, os casos de chaves que se tornariam iguais após normalização e as substituições literais verificam a preservação do catálogo.
+
+A transformação pré-salvamento nativa foi consultada pela API somente de leitura para o arquivo final de dados. A resposta conservou o código, admitindo apenas a retirada da quebra de linha terminal, e todos os valores decodificados e o hash esperado permaneceram iguais. O pacote exige um comprovante que corresponda aos arquivos atuais e à implementação da conferência.
+
+Chrome, Firefox e Safari executaram 12 cenários locais com 258 verificações. Foram conferidos o carregamento com WebCrypto, a preservação das chaves Unicode e dos atalhos literais, os limites de sete e oito itens, os executores Worker e por etapas e a restauração do rascunho. Os adaptadores de editor e de consultas usados nesses testes são locais e fictícios.
+
+O núcleo, o motor completo, os carregadores e as chamadas fixas do common.js conservam seus bytes anteriores. As regras automáticas, o limite de 60 segundos e os resultados históricos permanecem iguais. Os casos extremos de timeout não foram repetidos. Nenhum teste desta revisão fez edições na Wikipédia.

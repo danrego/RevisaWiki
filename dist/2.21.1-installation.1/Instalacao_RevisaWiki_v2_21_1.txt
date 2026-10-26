@@ -1,0 +1,22 @@
+RevisaWiki 2.21.1: revisão de instalação 1
+
+Código e versões: https://github.com/danrego/RevisaWiki
+Índice com arquivos, destinos e resumos: dist/2.21.1-installation.1/INDICE.md
+
+Atualize os arquivos completos da distribuição compartilhada, nesta ordem:
+1. RevisaWiki_v2_21_1_dados.js → Usuário:Daniel G Rego/RevisaWiki/Dados.js
+2. RevisaWiki_v2_21_1.js → Usuário:Daniel G Rego/RevisaWiki.js
+3. Carregador_comunitario_RevisaWiki_v2_21_1.js → Usuário:Daniel G Rego/RevisaWiki/Carregador.js
+4. Documentacao_RevisaWiki_v2_21_1.wiki → Usuário:Daniel G Rego/RevisaWiki
+
+O carregador central tem cerca de 10 KB. O núcleo, com cerca de 2 MB, pertence à página RevisaWiki.js. Não cole o núcleo no destino do carregador. Os dados protegidos conservam o catálogo e o hash original. Se o hash do núcleo foi alterado para contornar o aviso, substitua o núcleo pelo arquivo completo deste pacote.
+
+A chamada fixa no common.js permanece igual. Na primeira instalação, acrescente Chamada_fixa_RevisaWiki_common.js preservando os demais scripts. Mantenha apenas uma chamada.
+
+Depois de salvar, recarregue sem cache. Firefox e Chrome no Mac: Command + Shift + R. Safari: Option + Command + R. A versão exibida continua 2.21.1. Não é necessário fechar o navegador.
+
+Cada parte instalável foi conferida contra o limite de 2.097.152 bytes. O arquivo completo ultrapassa esse limite e serve somente para uso local e testes. O aviso de 102400 bytes do realce de sintaxe se refere à exibição com cores, não à integridade do catálogo.
+
+Para uma cópia própria, instale dados e programa na sua conta e use Carregador_common_js_RevisaWiki_v2_21_1.js no seu carregador central. Na primeira instalação, use Chamada_fixa_RevisaWiki_copia_propria.js no common.js. Escolha apenas uma instalação.
+
+Os arquivos não publicam na Wikipédia. A edição e a instalação permanecem manuais. O limite de análise de 60 segundos e a preservação do rascunho continuam iguais.
