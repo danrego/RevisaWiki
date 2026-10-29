@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.2",
+  "kind": "origin-bound-file-recovery-safety-validation",
+  "status": "passed",
+  "scope": "Safety-only correction to imported file target recovery, with actual native browser interfaces, synthetic local API/editor adapters and one cached-native-proof full historical source. No full production MediaWiki deployment claim.",
+  "runtime": {
+    "coreSha256": "1e3edc53f8da4fe4b50225d7d911b4d6d5d6727bc927cf053fb9184b61edf128",
+    "completeSha256": "30e64e602ce7380be64fc1d777f0623799e12b3b51fea93b9f0887684ee413ca",
+    "dataSha256": "e83c099ac76bafc550309300ef561c9759f8396cc4d4885374d600b11f2c3da5",
+    "manifestSha256": "f8b6b408d35ad7edc9399882f22cbaf404c8e5a828e7e2775869032daacf3a05",
+    "browserHarnessSha256": "f9fba09f5c970ab5f8004478134504056ec5875b83f6e575f2ca79b73baab361"
+  },
+  "policy": {
+    "samePtWiki": "Native File/Ficheiro/Arquivo targets may use usable local or shared imageinfo evidence.",
+    "commons": "Only File targets with shared repository evidence and a matching native canonical basename, comparing underscores as spaces and NFC Unicode. Different redirected names and local shadows remain unchanged.",
+    "otherWikis": "A matching filename on ptwiki does not prove the identity of a file on another wiki. These calls remain unchanged without external identity proof.",
+    "unprovenInput": "Preserved silently without deleting the image, caption or options."
+  },
+  "syntheticUnits": {
+    "uniqueCases": 367,
+    "bundleExecutions": 2,
+    "assertionsPerBundle": 1164,
+    "status": "passed"
+  },
+  "nativeBrowserUi": {
+    "cases": 162,
+    "assertions": 2529,
+    "browsers": [
+      {
+        "name": "Chrome",
+        "version": "155.0.8059.85",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "8e6a1ba584b7f33a4e2caa549810eddd555a24efe8903b4e85823a65fcd0a578"
+      },
+      {
+        "name": "Firefox",
+        "version": "159.0",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "015d411aa33cc25b2dd154954c2dee7cc55e10a7141fbdff184d1e28cf07c346"
+      },
+      {
+        "name": "Safari",
+        "version": "27.0.1",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "c3975bf7cd6732fa905af66db1b9cc8340e6812bc305b46b7f70557d84dea098"
+      }
+    ],
+    "positiveControls": [
+      "ptwiki local",
+      "ptwiki shared",
+      "ptwiki redirected native target",
+      "Commons shared exact canonical title",
+      "NFC filename equivalence in the structural suite"
+    ],
+    "negativeControls": [
+      "Commons local shadow",
+      "Commons redirect to a different basename",
+      "Missing canonical title in the structural suite",
+      "Foreign-wiki same filename despite usable shared/local availability",
+      "Missing or unusable imageinfo",
+      "Stale source, changed target and wrong original-source binding"
+    ],
+    "allSessionsClosed": true
+  },
+  "historicalRealSourceReconciliation": {
+    "previousFullSourceBatch": 18,
+    "sourceBoundProofSourcesInThatBatch": 1,
+    "affectedFullSourcesReexecuted": 1,
+    "affectedGateAccepted": true,
+    "affectedElapsedMilliseconds": 588.2029170000001,
+    "cachedNativeResponseReused": true,
+    "newNativeRequests": 0,
+    "exactExpectedCandidateDelta": "The previous foreign-wiki image URL is preserved. Every other candidate byte matches the preceding run.",
+    "other17NotReplayedInThisComponent": true,
+    "unprovenFilenameOnlyConversionNoLongerExpected": true,
+    "privateReceiptSha256": "044f9ddb517ded72912cb014335093eb78428c7ce522166580bf2bfdeabe35b3",
+    "privateDeltaReceiptSha256": "dfcfec395fec3a5d6d98bd9b6c45d791540eb1d547bfa3c0bff842208fdb9b54",
+    "harnessSetupFailurePreserved": "The first private Node adapter called a nonexported helper before calculation. It was corrected to reuse the source hash already returned by the unchanged file-request API."
+  },
+  "deadlineLineage": {
+    "deadlineMilliseconds": 60000,
+    "realWatchdogRepeated": false,
+    "previousRealWatchdogElapsedMilliseconds": 60085,
+    "unchangedUiFunctions": [
+      {
+        "name": "createWorker",
+        "sourceSha256": "0800d309c7d4c3abab3ad968ca05168b1312fd3dd3d3d2ca8be4a92fe057cf56"
+      },
+      {
+        "name": "computeLocal",
+        "sourceSha256": "16d46336c2fd3b0c18ab3f9ec131a17d935cc7b7a26faf2a0d280d42ed30df66"
+      },
+      {
+        "name": "cancelLocalAnalysis",
+        "sourceSha256": "ab5cf140897bc8ba28af63714645a5f4f8b193ba59db5352c493c1939ddd7ea6"
+      },
+      {
+        "name": "finishLocalAnalysis",
+        "sourceSha256": "891f556a67704965672408167752361fc16ac675d3990b6c3147b8e997630a35"
+      },
+      {
+        "name": "syncMinorResult",
+        "sourceSha256": "5d541677fb4528526964990a31f8a92cb1db792398beb2897ab53321ef92dfda"
+      }
+    ],
+    "byteIdentityProved": true,
+    "privateLineageReceiptSha256": "93985396ef95cb56fb3cb9ca883dc1be653de2f0b63089c95dfe73a10b4183f1",
+    "knownTimeoutSourcesReplayed": 0
+  },
+  "portableDemonstration": {
+    "htmlSha256": "4a691057a2032903a2713fb290e226e95e0602ab2399bc54ea9abda20ff0b1c0",
+    "embeddedEngineSha256": "30e64e602ce7380be64fc1d777f0623799e12b3b51fea93b9f0887684ee413ca",
+    "menuExamples": 109,
+    "allMenuItemsReachable": true,
+    "executedExamples": [
+      "2212-isbn-equivalent-pair",
+      "2212-portal-stub"
+    ],
+    "assertions": 23,
+    "status": "passed",
+    "independentExpectedEndpointsMatched": true,
+    "externalRequests": 0,
+    "privateReceiptSha256": "44fd4b99b09908a630b0f640eb4059abd76c599f10129274432a1d036a9b6cd3"
+  },
+  "historicalResults": {
+    "previousSnapshotsAndResultsPreserved": true,
+    "earlierFilenameOnlyPositiveExpectationsNotOverwritten": true,
+    "precedingBrowserSummaryRetained": true,
+    "precedingLargeSourceHarnessFailureRetained": true
+  },
+  "fullCorpusQualification": "The rolling final corpus is a separate validation owned by the release coordinator. This component does not claim its completion.",
+  "wikipediaWrites": 0,
+  "networkMutations": 0,
+  "clipboardWrites": 0,
+  "screenshots": 0
+}

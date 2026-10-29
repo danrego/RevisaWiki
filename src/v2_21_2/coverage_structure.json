@@ -1,0 +1,167 @@
+{
+  "version": "2.21.2",
+  "owner": "structure",
+  "scope": "Bounded imported templates, infobox fields and reference syntax",
+  "implementation": "src/v2_21_2/structure.js",
+  "test": "tests/v2212/structure.cjs",
+  "syntheticValidation": {
+    "cases": 345,
+    "assertions": 1084,
+    "status": "passed",
+    "wholeReleaseValidation": "pending root integration"
+  },
+  "coverage": [
+    {
+      "id": "IMP-01",
+      "status": "implemented",
+      "rule": "v2212ImportedSourceMarker",
+      "limits": "Only cn/Cn with one unambiguous maintenance month/year field; Chinese forms and CN remain unchanged."
+    },
+    {
+      "id": "IMP-02",
+      "status": "implemented",
+      "rule": "v2212ClarificationReason",
+      "limits": "Reason is complete literal text, positional parameter 1 absent, other fields retained."
+    },
+    {
+      "id": "IMP-03",
+      "status": "implemented",
+      "rule": "v2212ForeignFileTarget",
+      "limits": "Only native ptwiki File/Ficheiro/Arquivo URLs with current imageinfo, or Commons File URLs with shared repository and the same canonical basename. Foreign wiki origins, local shadows, renamed Commons targets and incomplete proofs remain unchanged."
+    },
+    {
+      "id": "IMP-04",
+      "status": "implemented",
+      "rule": "v2212HybridExternalLink",
+      "limits": "Two identical HTTP(S) URLs and complete simple existing label; no nested syntax or URL parentheses."
+    },
+    {
+      "id": "IMP-05",
+      "status": "implemented",
+      "rule": "v2212InfoboxReferenceLink",
+      "limits": "Only a complete literal ref owned by one confirmed native infobox; URL and attributes retained."
+    },
+    {
+      "id": "IMP-06",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "widht to largura only in Imagem múltipla, with literal dimension and no competing width/largura."
+    },
+    {
+      "id": "IMP-07",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "nomecompleto to nome_completo only in Info/Artista, without target field."
+    },
+    {
+      "id": "IMP-08",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "tamanho_logo to logo_tamanho only in Info/Hotel; preserves supplied size."
+    },
+    {
+      "id": "IMP-09",
+      "status": "conditional",
+      "limits": "Inactive. Native museum caption contract exists, but the observed historical case has no populated image; no eligible real positive was demonstrated."
+    },
+    {
+      "id": "IMP-10",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "imagem_legenda to legenda and campo to area only in Info/Disciplina, with no competing target."
+    },
+    {
+      "id": "IMP-11",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "ano_evento_posterio to ano_evento_posterior only in Info/Estado extinto2; no change to year or other event."
+    },
+    {
+      "id": "IMP-12",
+      "status": "implemented",
+      "rule": "v2212NativeBoxKey",
+      "limits": "ATC_sufixo to sufixo_ATC only in Info/Droga; all code characters retained."
+    },
+    {
+      "id": "R3-GRAPH-01",
+      "status": "implemented",
+      "rule": "v2212ReferenceNameQuotes",
+      "limits": "One complete definition and matching reuse with mistaken doubled apostrophe delimiters; no existing same-name call or dynamic helper collision."
+    },
+    {
+      "id": "R3-GRAPH-02",
+      "status": "implemented",
+      "rule": "v2212NestedReference",
+      "limits": "Only a balanced anonymous outer note, optional literal group, and complete direct inner refs. Body and group are copied verbatim into native Refn; named/follow/details/dir outer forms remain unchanged."
+    },
+    {
+      "id": "R3-GRAPH-03",
+      "status": "implemented",
+      "rule": "v2212ReferenceMissingQuote",
+      "limits": "Single missing closing quote in a simple literal name before a complete known citation body; owner is validated after that one-byte repair."
+    },
+    {
+      "id": "R3-GRAPH-04",
+      "status": "conditional",
+      "limits": "Inactive. The prior source demonstrates a native conflict but does not establish why the strict graph refuses the whole article. Ref region means collector interval, not introduction versus section. Unknown generated calls must not be bypassed."
+    },
+    {
+      "id": "R3-GRAPH-C01",
+      "status": "conditional",
+      "limits": "Inactive. Mapping the imported Harvard helper does not supply its missing local bibliographic work or destination."
+    },
+    {
+      "id": "R3-GRAPH-C02",
+      "status": "conditional",
+      "limits": "Inactive. Legacy manual note templates are valid; complete native before/after preservation of a proposed migration was not established."
+    },
+    {
+      "id": "ROOT-R2-01",
+      "status": "conditional",
+      "limits": "Inactive. The compound external-link/Wayback prerequisite still requires native preservation evidence for the original malformed construction."
+    }
+  ],
+  "integration": {
+    "exports": [
+      "v2212StructurePlan",
+      "v2212StructureProof",
+      "v2212StructurePrerequisitePlan",
+      "v2212StructurePrerequisiteProof",
+      "v2212StructureFileRequests"
+    ],
+    "prerequisiteOrder": "Before inherited syntax isolation and prefix selection, with its freshly rederived proof composed into all final preservation guards.",
+    "normalOrder": "Inside the source-bound repair plan, before inherited generic cleanup; final guards remain enabled.",
+    "externalFileProof": {
+      "setting": "v2212VerifiedFiles",
+      "requiredFields": [
+        "sourceHash",
+        "target",
+        "fileName",
+        "available",
+        "repository",
+        "method",
+        "responseSha256"
+      ],
+      "constraints": "Exact original target and decoded filename, available=true, repository local/shared, method=imageinfo, SHA-256 receipt. Bind to current source hash, or to cfg.v2212OriginalDraftHash verified by the root adjust entry against job.source."
+    }
+  },
+  "safety": {
+    "publicFixtures": "synthetic only",
+    "preservesSourceSnapshots": true,
+    "productDistWrittenByAgent": false,
+    "wikipediaWrites": 0,
+    "githubUploads": 0
+  },
+  "runtimeImageValidation": {
+    "coreSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+    "browsers": [
+      "Chrome",
+      "Firefox",
+      "Safari"
+    ],
+    "casesPerBrowser": 44,
+    "checksPerBrowser": 671,
+    "status": "passed",
+    "wikipediaWrites": 0
+  }
+}

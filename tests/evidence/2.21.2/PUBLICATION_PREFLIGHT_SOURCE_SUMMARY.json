@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.2",
+  "kind": "bounded-publication-source-preflight",
+  "status": "passed",
+  "scope": "Exactly the intended changed or new public files present at this source snapshot. This is not the final package, ZIP, Git tree or complete publication approval.",
+  "runtimeManifestSha256": "f8b6b408d35ad7edc9399882f22cbaf404c8e5a828e7e2775869032daacf3a05",
+  "scanner": {
+    "file": "scripts/publication_privacy_gate.py",
+    "sha256": "fd9e94864a6faaf1f8ce11a42514988e3faa1fc97867ba2842a423d548f12c66",
+    "unmodifiedAcrossBothAttempts": true,
+    "extraPrivateEditorIdentifierDenylistUsed": true,
+    "generalExceptionsAdded": false
+  },
+  "frozenSnapshot": {
+    "files": 101,
+    "bytes": 15589335,
+    "allowlistSha256": "d68f0f3b836f0a5acb141e5948539ca8e6a673fb3d60e060f1af6dcc82c2f173",
+    "privatePinsSha256": "b15e2508cda5f7fba0520bb8e19cb9d77e4eb33bd16efa298b00de42e6bc0c0a",
+    "method": "Independent copied bytes with explicit relative-path allowlist and SHA-256 pins. No hard links or Git staging.",
+    "excludedUnrelatedPreexistingFiles": 4,
+    "sourceFilesChangedDuringScan": 0,
+    "sourceFilesMissingDuringScan": 0,
+    "newEligiblePathsAppearingDuringScan": 0
+  },
+  "scan": {
+    "inspectedMembers": 101,
+    "archivesInspected": 0,
+    "inspectedBytes": 15589335,
+    "findingCount": 0,
+    "matchedPrivateValuesIncluded": false,
+    "privateReceiptSha256": "2afdc14c27cec2ee47194a351e9faa465ac9d5485c0fd282093792c916dbbcb0"
+  },
+  "preservedFirstAttempt": {
+    "status": "failed",
+    "findingCount": 2,
+    "affectedFiles": 1,
+    "privateReceiptSha256": "a9cf12426b38ba0abc46c5e1e9283a3d3b563f1b57889a4ff362e4609094a5a8",
+    "resolution": "The package builder now declares a complete approved technical destination rather than an isolated account prefix. No privacy rule was weakened."
+  },
+  "destinationEquivalence": {
+    "entries": 7,
+    "allLabelsFilesDestinationsAndSummariesEqual": true,
+    "oldBuilderSha256": "abcb045e11836541874ce8f50ea872455a727c64122dcbbe66e7d55e25bc64e8",
+    "newBuilderSha256": "f7cc1b9b25cc2af4ec7e1dd0ac67110ddc5c339557f2373afa2c16c5a3b4e64d",
+    "method": "Whitelist-only static interpretation of literal strings and concatenations, without executing the builder."
+  },
+  "priorTrackedScan": {
+    "file": "tests/evidence/2.21.2/PRIVACY_TRACKED_SUMMARY.json",
+    "sha256": "04f2dcf95be55a0889771b7b8f9e923d68eaee32f877fdf20423a84dbe1610c6",
+    "status": "historical-only",
+    "notRerunHere": true,
+    "notReusedAsApprovalForNewFiles": true
+  },
+  "stillRequiredBeforePublication": [
+    "Freeze and verify the complete final publication tree.",
+    "Scan every new or changed file after this snapshot, including completed QA, documentation, index and package metadata.",
+    "Scan the final release ZIP and verify its exact member payloads."
+  ],
+  "summarySafetyCheckedSeparately": true,
+  "publicProductOrDocumentationEditsByThisPreflight": 0,
+  "gitStagingActions": 0,
+  "githubActions": 0,
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

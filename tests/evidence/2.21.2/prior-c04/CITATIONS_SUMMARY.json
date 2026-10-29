@@ -1,0 +1,80 @@
+{
+  "version": "2.21.2",
+  "scope": "Citation repair validation",
+  "runtimeSha256": {
+    "core": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+    "complete": "84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330"
+  },
+  "suites": [
+    {
+      "distribution": "core",
+      "suite": "citations.cjs",
+      "runtimeSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+      "testSha256": "9f63821d3394d59cae33b930d6550719bb9faba573f67276bf7ad4d2686453a4",
+      "passed": true,
+      "checks": 2911
+    },
+    {
+      "distribution": "core",
+      "suite": "citations_full.cjs",
+      "runtimeSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+      "testSha256": "75ac7402adda5e3fb94c22d2999cd34c57ce52abcad0bf867fd2bac2c1ef4828",
+      "passed": true,
+      "checks": 18
+    },
+    {
+      "distribution": "core",
+      "suite": "citations_language.cjs",
+      "runtimeSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+      "testSha256": "696ebae553f95ba8cd2a920deffd76b82b195d8526733bc2825b93db73b489b6",
+      "passed": true,
+      "checks": 29
+    },
+    {
+      "distribution": "complete",
+      "suite": "citations.cjs",
+      "runtimeSha256": "84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330",
+      "testSha256": "9f63821d3394d59cae33b930d6550719bb9faba573f67276bf7ad4d2686453a4",
+      "passed": true,
+      "checks": 2911
+    },
+    {
+      "distribution": "complete",
+      "suite": "citations_full.cjs",
+      "runtimeSha256": "84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330",
+      "testSha256": "75ac7402adda5e3fb94c22d2999cd34c57ce52abcad0bf867fd2bac2c1ef4828",
+      "passed": true,
+      "checks": 18
+    },
+    {
+      "distribution": "complete",
+      "suite": "citations_language.cjs",
+      "runtimeSha256": "84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330",
+      "testSha256": "696ebae553f95ba8cd2a920deffd76b82b195d8526733bc2825b93db73b489b6",
+      "passed": true,
+      "checks": 29
+    }
+  ],
+  "realSourceParity": {
+    "sourceRevisions": 25,
+    "executions": 50,
+    "coreAccepted": 25,
+    "completeAccepted": 25,
+    "candidateAndEffectiveBytesEqual": true,
+    "changesEqual": true,
+    "timeouts": 0,
+    "deadlineMilliseconds": 60000
+  },
+  "receiptSha256": {
+    "suiteReceipt": "e2cec3ac533dd5804d3ee15af6c3a8f0c5a657f3637c8447abeceaaeccf54171",
+    "distributionParityReceipt": "8ddeebd15f509006bc1c0f1a8dc2976200807914de197a96a1a4f4e26570626d",
+    "coreRealSourceReceipt": "4005f39b345ac761ac2e03a2293d6deafce92f65c18f7840d21ccfbc70e87b12",
+    "completeRealSourceReceipt": "b1d3869f686776354a1c7d179d367fd01ba9bda4bb31eedfb9c6df369b0756b9"
+  },
+  "limitations": [
+    "The real-source parity run tests local calculation and the actual editor acceptance gate. It does not establish factual support, native rendering or browser behavior.",
+    "Conditional repairs remain inactive where the required semantic proof is absent."
+  ],
+  "historicalResultsPreserved": true,
+  "wikipediaWrites": 0
+}

@@ -53,6 +53,22 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
 # after whitespace formatting. Approval requires the entire reviewed runtime,
 # its exact byte count and both exact fragment hashes, each occurring once.
 APPROVED_RUNTIME_OBJECT_KEYS={
+ '1e3edc53f8da4fe4b50225d7d911b4d6d5d6727bc927cf053fb9184b61edf128':{
+  'bytes':2095518,
+  'tokens':{'5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1},
+ },
+ '30e64e602ce7380be64fc1d777f0623799e12b3b51fea93b9f0887684ee413ca':{
+  'bytes':4200052,
+  'tokens':{'5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1},
+ },
+ 'c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8':{
+  'bytes':2094895,
+  'tokens':{'5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1},
+ },
+ '84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330':{
+  'bytes':4199368,
+  'tokens':{'5d778bfd027ea19e7c596776176c61cde30417e6c5f545dc66fb327827c5470e': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1},
+ },
  '7e46265ea44c5bfdcb55e2cd50b07d2b7762147ab22524f556b57977945f2dbf':{
   'bytes':2090691,
   'tokens':{

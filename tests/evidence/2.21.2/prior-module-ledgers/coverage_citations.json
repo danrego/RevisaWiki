@@ -1,0 +1,137 @@
+{
+  "version": "2.21.2",
+  "family": "citations",
+  "plan": "v2212CitationPlan",
+  "proof": "v2212CitationProof",
+  "source": "src/v2_21_2/citations.js",
+  "tests": "tests/v2212/citations.cjs",
+  "implementationScope": "Bounded native citation repairs. No external facts, identifier digits, source attribution or unsupported field is invented or deleted.",
+  "ids": [
+    {
+      "id": "R2-REF-01",
+      "status": "implemented",
+      "limit": "Missing first separator only before one explicit URL in an active literal Cite web call. Historical examples in HTML comments are deliberately untouched."
+    },
+    {
+      "id": "R2-REF-02",
+      "status": "implemented",
+      "limit": "Only an explicit Fecha prefix followed by a complete calendar-valid named-month date; dates feature flags retained."
+    },
+    {
+      "id": "R2-REF-03",
+      "status": "implemented",
+      "limit": "Identical same-key values only, with all duplicates equal; includes complete literal refs in known native infoboxes. Comments and conflicting last-value semantics are preserved."
+    },
+    {
+      "id": "R2-REF-04",
+      "status": "implemented",
+      "limit": "Finite obsolete fields Título/publicado por/conferência-url. Conference URL uses accepted conference-url, because the proposed Portuguese-looking alternative is not whitelisted. Protected quotations are untouched."
+    },
+    {
+      "id": "R2-REF-05",
+      "status": "implemented",
+      "limit": "Verified legacy music-notes helper only: year/Format/publisher restore existing values. No global reversal of Portuguese field names."
+    },
+    {
+      "id": "R2-REF-06",
+      "status": "implemented",
+      "limit": "Bare upper-alpha collector or one complete named reference bank. Preserves group, bank bytes and labels; no custom widths/columns or embedded collectors."
+    },
+    {
+      "id": "PAR-R3-01",
+      "status": "implemented",
+      "limit": "Invalid access-key spelling with already-valid native enum; URL and archive-state safety required, literal enum retained."
+    },
+    {
+      "id": "PAR-R3-02",
+      "status": "implemented",
+      "limit": "Reuse existing date-key guards inside one complete literal ref owned by a known infobox or image. No arbitrary nested strings."
+    },
+    {
+      "id": "PAR-R3-03",
+      "status": "implemented",
+      "limit": "Reuse existing archive-pair/URL-state guards inside that same narrow native-reference ownership path."
+    },
+    {
+      "id": "PAR-R3-04",
+      "status": "implemented",
+      "limit": "Existing issue alias repair becomes reachable in a literal infobox footnote; edition, page and all values remain distinct."
+    },
+    {
+      "id": "PAR-R3-05",
+      "status": "conditional",
+      "limit": "Ordinary refs covered by the inherited uncertainty/quotation quarantine stay unchanged. No global bypass to force an original-year repair."
+    },
+    {
+      "id": "PAR-R3-06",
+      "status": "implemented",
+      "limit": "Finite compound paragraph locator only, in a full native citation, without another locator. Short-citation loc remains valid and untouched. Inherited uncertain contexts remain protected."
+    },
+    {
+      "id": "PAR-R3-07",
+      "status": "conditional",
+      "limit": "Article identifiers are not converted to pages. An opaque-locator interface or native support still requires a complete semantic contract."
+    },
+    {
+      "id": "PAR-R3-08",
+      "status": "implemented",
+      "limit": "At least two explicit Italian interface fields, native web target, all filled fields preservable, valid literal dates and matching archive target/date. Other interfaces are not guessed."
+    },
+    {
+      "id": "PAR-R3-09",
+      "status": "implemented",
+      "limit": "Anonymous external link becomes URL only when its label repeats the existing original title exactly after whitespace normalization."
+    },
+    {
+      "id": "PAR-R3-10",
+      "status": "implemented",
+      "limit": "Whole anonymous arxiv helper with the proved gr-qc archive and seven-digit ID, no competing ID. The same eprint target is retained."
+    },
+    {
+      "id": "R3-VAL-01",
+      "status": "implemented",
+      "limit": "One terminal dot on an otherwise valid ISBN; no check digit is recomputed."
+    },
+    {
+      "id": "R3-VAL-02",
+      "status": "implemented",
+      "limit": "Only identical valid ISBN repetitions inside one value; keeps the first literal spelling."
+    },
+    {
+      "id": "R3-VAL-03",
+      "status": "implemented",
+      "limit": "Exactly equivalent valid ISBN-10/978 ISBN-13 pair, no existing id. Both literal numbers and links remain; primary ISBN is structured COinS, secondary stays in an ISBN id helper."
+    },
+    {
+      "id": "R3-VAL-04",
+      "status": "implemented",
+      "limit": "Only U+200E at an ASCII HTTP URL boundary; no internal controls or non-ASCII URL changes. Complete literal refs in balanced native tables may use this repair without rewriting table tokens."
+    },
+    {
+      "id": "R3-VAL-05",
+      "status": "implemented",
+      "limit": "Missing archive date only, exact 8/14-digit Wayback capture and exactly matching source URL. All date aliases checked; publication/access dates and URL state remain unchanged."
+    },
+    {
+      "id": "R3-VAL-06",
+      "status": "conditional",
+      "limit": "Malformed scheme remains unchanged without independently proved intended destination."
+    },
+    {
+      "id": "REF3-LOCAL-01",
+      "status": "implemented",
+      "limit": "Only a unique literal original title from compatible native web citations with the exact same specific URL and no conflicting metadata."
+    },
+    {
+      "id": "REF3-LUA-01",
+      "status": "implemented",
+      "limit": "Pinned defective native CS1 dependency only; key-only vautores/veditores compatibility mapping, destination absent and all names preserved. Updated module contracts disable it."
+    }
+  ],
+  "controls": [
+    "No new implementation of already-working editor-name, display-author, original-year, publication-date, page-total or PMC-prefix normalizations.",
+    "No bioRxiv addition here: that candidate is prior50 coverage, outside the 76-choice implementation scope.",
+    "No removal of meaningful values merely to eliminate a diagnostic.",
+    "Protected comments, nowiki, quotations, code, unknown wrappers, conflicting values and the known extreme timeout remain preserved."
+  ]
+}

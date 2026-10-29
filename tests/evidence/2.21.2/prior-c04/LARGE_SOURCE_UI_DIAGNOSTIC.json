@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.2",
+  "kind": "additional-native-browser-large-source-observations",
+  "status": "observed-product-behaviors-accepted-with-recorded-harness-failure",
+  "originalAttemptStatus": "failed",
+  "originalAttemptStatusPreserved": true,
+  "privateDiagnosticSha256": "5d058bebf28be46d34a2124c57b999945a98e6a81eabf2a274eea22e1815ec55",
+  "runtime": {
+    "coreSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+    "completeSha256": "84b7b74d7b1b09bb6de39aaf231f3bc0c92698eaa315ad75bca4e3d3b9496330"
+  },
+  "browser": {
+    "name": "Chrome",
+    "version": "155.0.8059.85"
+  },
+  "completeRealSources": 2,
+  "sources": [
+    {
+      "sourceBytes": 471994,
+      "changed": false,
+      "tables": 0,
+      "refTags": 991,
+      "gate": "unchanged",
+      "clickToImageinfoMilliseconds": 299.80000001192093,
+      "clickToWorkerMilliseconds": 522.1000000238419,
+      "maximumHeartbeatGapMilliseconds": 322.5,
+      "completeOutcomeElapsedMilliseconds": 21265.5,
+      "heartbeatTicks": 1025,
+      "mathFormulaCount": 0,
+      "summary": "",
+      "minor": false,
+      "undoBehavior": "correctly unavailable for unchanged result",
+      "strict24PortalPreflight": true
+    },
+    {
+      "sourceBytes": 170152,
+      "changed": true,
+      "tables": 37,
+      "refTags": 90,
+      "gate": "locally-verified",
+      "clickToImageinfoMilliseconds": 152.69999998807907,
+      "clickToWorkerMilliseconds": 199.5999999642372,
+      "maximumHeartbeatGapMilliseconds": 344.69999998807907,
+      "completeOutcomeElapsedMilliseconds": 10343,
+      "heartbeatTicks": 494,
+      "mathFormulaCount": 0,
+      "summary": "Minúcias",
+      "minor": true,
+      "undoBehavior": "complete source restored in passed browser test",
+      "strict24PortalPreflight": true
+    }
+  ],
+  "cancellation": {
+    "completeSourcePreserved": true,
+    "summaryPreserved": true,
+    "minorChoicePreserved": true,
+    "furtherEditingVerified": true,
+    "maximumHeartbeatGapMilliseconds": 369.10000002384186,
+    "workerStarts": 0
+  },
+  "harnessFailure": {
+    "reason": "The supplemental private adapter unconditionally clicked Undo after an unchanged result. The product correctly hid and disabled that operation, so the browser click command expired after30seconds.",
+    "productCalculationTimeout": false,
+    "runtimeIntegrityFailure": false,
+    "originalFailureNotReclassifiedAsPass": true,
+    "correctedAdapterCompiledOnly": true,
+    "sourcesNotReplayedToHideFailure": true
+  },
+  "limits": [
+    "Browser UI and Worker were real; editor and API were synthetic local adapters. No full production MediaWiki deployment claim.",
+    "The larger source was already unchanged in the accepted campaign result. The other source received corrections and its complete original was restored with Undo.",
+    "These two sources contained no formula payload, so they add no formula coverage.",
+    "Subsecond main-thread tasks were observed and retained in the diagnostic."
+  ],
+  "deadlineMilliseconds": 60000,
+  "knownTimeoutSourcesReplayed": 0,
+  "wikipediaWrites": 0,
+  "networkMutations": 0,
+  "clipboardWrites": 0,
+  "screenshots": 0
+}

@@ -1,0 +1,91 @@
+{
+  "version": "2.21.2",
+  "runtimeManifestSha256": "f8b6b408d35ad7edc9399882f22cbaf404c8e5a828e7e2775869032daacf3a05",
+  "coreSha256": "1e3edc53f8da4fe4b50225d7d911b4d6d5d6727bc927cf053fb9184b61edf128",
+  "completeSha256": "30e64e602ce7380be64fc1d777f0623799e12b3b51fea93b9f0887684ee413ca",
+  "wikipediaWrites": 0,
+  "status": "passed",
+  "scope": "Final native Chrome, Firefox and Safari local UI tests with synthetic MediaWiki/API adapters. No claim of a production wiki installation.",
+  "sourceReceipt": "ORIGIN_SAFETY_SUMMARY.json",
+  "sourceReceiptSha256": "d23d00d28b8c2fca285635120eca4b5df192f103a49005a8d2d3469504741755",
+  "nativeBrowserUi": {
+    "cases": 162,
+    "assertions": 2529,
+    "browsers": [
+      {
+        "name": "Chrome",
+        "version": "155.0.8059.85",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "8e6a1ba584b7f33a4e2caa549810eddd555a24efe8903b4e85823a65fcd0a578"
+      },
+      {
+        "name": "Firefox",
+        "version": "159.0",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "015d411aa33cc25b2dd154954c2dee7cc55e10a7141fbdff184d1e28cf07c346"
+      },
+      {
+        "name": "Safari",
+        "version": "27.0.1",
+        "cases": 54,
+        "assertions": 843,
+        "status": "passed",
+        "ownedSessionClosed": true,
+        "privateReceiptSha256": "c3975bf7cd6732fa905af66db1b9cc8340e6812bc305b46b7f70557d84dea098"
+      }
+    ],
+    "positiveControls": [
+      "ptwiki local",
+      "ptwiki shared",
+      "ptwiki redirected native target",
+      "Commons shared exact canonical title",
+      "NFC filename equivalence in the structural suite"
+    ],
+    "negativeControls": [
+      "Commons local shadow",
+      "Commons redirect to a different basename",
+      "Missing canonical title in the structural suite",
+      "Foreign-wiki same filename despite usable shared/local availability",
+      "Missing or unusable imageinfo",
+      "Stale source, changed target and wrong original-source binding"
+    ],
+    "allSessionsClosed": true
+  },
+  "deadlineLineage": {
+    "deadlineMilliseconds": 60000,
+    "realWatchdogRepeated": false,
+    "previousRealWatchdogElapsedMilliseconds": 60085,
+    "unchangedUiFunctions": [
+      {
+        "name": "createWorker",
+        "sourceSha256": "0800d309c7d4c3abab3ad968ca05168b1312fd3dd3d3d2ca8be4a92fe057cf56"
+      },
+      {
+        "name": "computeLocal",
+        "sourceSha256": "16d46336c2fd3b0c18ab3f9ec131a17d935cc7b7a26faf2a0d280d42ed30df66"
+      },
+      {
+        "name": "cancelLocalAnalysis",
+        "sourceSha256": "ab5cf140897bc8ba28af63714645a5f4f8b193ba59db5352c493c1939ddd7ea6"
+      },
+      {
+        "name": "finishLocalAnalysis",
+        "sourceSha256": "891f556a67704965672408167752361fc16ac675d3990b6c3147b8e997630a35"
+      },
+      {
+        "name": "syncMinorResult",
+        "sourceSha256": "5d541677fb4528526964990a31f8a92cb1db792398beb2897ab53321ef92dfda"
+      }
+    ],
+    "byteIdentityProved": true,
+    "privateLineageReceiptSha256": "93985396ef95cb56fb3cb9ca883dc1be653de2f0b63089c95dfe73a10b4183f1",
+    "knownTimeoutSourcesReplayed": 0
+  },
+  "priorResultsUnchanged": true
+}

@@ -1,0 +1,67 @@
+{
+  "version": "2.21.2",
+  "reviewScope": "Completed prior frozen campaign, reviewed without rerunning articles",
+  "runtimeSha256": "c04f761c65393b220dfeafc350e55f7a7a5f3fa3a19525e17a2a6645b6f2d8e8",
+  "campaign": {
+    "totalSnapshots": 5551,
+    "firstPassCalculated": 5532,
+    "accepted": 5500,
+    "acceptedChanged": 3888,
+    "refused": 32,
+    "changedCandidatesIncludingRefused": 3920,
+    "timeouts": 18,
+    "knownExtremeExcludedWithoutRetry": 1,
+    "deadlineMilliseconds": 60000,
+    "mathLiteralChanges": 0,
+    "nonIdempotence": 0,
+    "exceptions": 0
+  },
+  "refusalReview": {
+    "exactBaselineCandidateMatches": 28,
+    "boundedNewDeltasWithExactBaselineReconstruction": 4,
+    "baselineAlreadyRefused": 32,
+    "newAcceptanceRefusals": 0,
+    "newGuardCodeCases": 0,
+    "sameGuardCodeSets": 31,
+    "guardCodeSubsetOfBaseline": 1,
+    "currentFindingCounts": {
+      "lost-reference-binding": 16,
+      "lost-native-citation-language": 16,
+      "lost-citation-metadata": 2,
+      "lost-repaired-reference": 2
+    },
+    "newContentReferenceOrTableDefectsDemonstratedByThisReview": 0,
+    "legacyRefusalsRemainUnresolved": 32
+  },
+  "timeoutReview": {
+    "sourceSnapshotPreservationRecorded": 18,
+    "priorSourceMatchedReceiptObjectsVerified": 52,
+    "priorRequestInputKeysVerified": 52,
+    "runtimeHashFailures": 0,
+    "historicalClassifications": {
+      "prior-completion-only-performance-change-not-isolated": 11,
+      "prior-timeout-evidence": 1,
+      "mixed-historical-completion-and-timeout": 6
+    },
+    "exactCurrentBaselineSameOptionCompletionControlsFound": 0,
+    "timeoutsRetriedDuringReview": 0,
+    "performanceRegressionSpecificallyIsolatedToThisRelease": false
+  },
+  "receiptSha256": {
+    "campaignRecords": "0f8938e7331097465477065363e002fafb2ae1a6634e620968b45e9b18ed8ad7",
+    "campaignSummary": "ac550e124861e83fefa82cf2665a2f880ae41a7db65da10d89d8ff8adf167f7d",
+    "privateRefusalReview": "c17cd05d354fb3d7805fc9bb4f7a0dd6516a0feea2a9ba28e5613d4ba961717c",
+    "privateBoundedDeltaProof": "210dc67f1396c607f12fd1c2dec165608f95c9dd9dc8272966d8bb24865bfc37",
+    "privateTimeoutReview": "9789b6ca098f01aeabc36fd5a1b7f062f746b6e97bed3cce53cae2af285ba251"
+  },
+  "limitations": [
+    "A baseline refusal is retained as a refusal; equality with its candidate does not establish that the candidate is correct.",
+    "Timeouts and the excluded extreme case are not counted as passed calculations. Earlier completions do not isolate a performance regression to this release when exact baseline options and conditions differ.",
+    "This review inspected stored local results. Browser draft preservation, native rendering and factual support require separate evidence."
+  ],
+  "historicalStatusesUnchanged": true,
+  "newArticleCalculationsDuringReview": 0,
+  "runtimeChangesDuringReview": 0,
+  "networkRequestsDuringReview": 0,
+  "wikipediaWrites": 0
+}

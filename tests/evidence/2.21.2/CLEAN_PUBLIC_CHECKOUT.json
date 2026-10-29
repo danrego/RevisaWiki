@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.2",
+  "kind": "clean-public-code-reproduction",
+  "status": "passed",
+  "scope": "A private isolated copy of the explicit public file inventory, with the declared installed parser dependency reused. This is source and public-test reproducibility, not a newly installed dependency environment or final-package approval.",
+  "sourceSnapshot": {
+    "trackedFileCount": 7611,
+    "intendedChangedOrNewPathCount": 102,
+    "additionalNewFileCount": 98,
+    "totalFiles": 7709,
+    "totalBytes": 1055830372,
+    "sourcePinsSha256": "ac6687c168a15a1996c159a633eb6edcb944ee9e98b8b5cf8f852313832b3b9d",
+    "copyMechanism": "APFS clonefile, independent copy-on-write files",
+    "clonedFiles": 7709,
+    "fallbackCopies": 0,
+    "independentInodesVerified": true,
+    "hardlinksUsed": false,
+    "gitMetadataCopied": false,
+    "authenticationFilesCopied": false,
+    "dependencyDirectoryCopied": false,
+    "excludedPreexistingUntrackedFiles": 4,
+    "allFourExcludedFilesRemainAbsent": true
+  },
+  "dependencyReuse": {
+    "developmentDependency": "@babel/parser",
+    "declaredAndObservedVersion": "7.28.5",
+    "packageMetadataSha256": "06e89556fea2851b071797c63c0565725ba8b889014a07ac6ad62dbde52157de",
+    "moduleEntrySha256": "4fad5d076afb8c346159a06bb942d6e14c6167d590082b7c3bdebd4c108af201",
+    "dependencySearchMechanism": "NODE_PATH restricted to the already installed declared development dependency tree",
+    "nodeVersion": "v24.22.1",
+    "pythonVersion": "3.14.4",
+    "sourceAndFixturesReadOnlyFromPublicSnapshot": true,
+    "privateCorpusOrUserCacheImports": false,
+    "dependencyInstallOrNetworkFetchPerformed": false
+  },
+  "deterministicRebuild": {
+    "status": "passed",
+    "runtimeFilesCompared": 7,
+    "allRuntimeBytesIdentical": true,
+    "manifestBytesIdentical": true,
+    "runtimeManifestSha256": "f8b6b408d35ad7edc9399882f22cbaf404c8e5a828e7e2775869032daacf3a05",
+    "runtimeFilesByRole": {
+      "core": {
+        "bytes": 2095518,
+        "sha256": "1e3edc53f8da4fe4b50225d7d911b4d6d5d6727bc927cf053fb9184b61edf128"
+      },
+      "data": {
+        "bytes": 2076392,
+        "sha256": "e83c099ac76bafc550309300ef561c9759f8396cc4d4885374d600b11f2c3da5"
+      },
+      "localCompleteBundle": {
+        "bytes": 4200052,
+        "sha256": "30e64e602ce7380be64fc1d777f0623799e12b3b51fea93b9f0887684ee413ca"
+      },
+      "sharedLoader": {
+        "bytes": 9653,
+        "sha256": "26cb38867d277c087a51da905d19e4acb6143c7c75d9d8cbda77eb4410530317"
+      },
+      "ownCopyLoader": {
+        "bytes": 9651,
+        "sha256": "34ca41611c441d6649cfef4bc235d9ade38d71fbaed371be972a10dceb3df06f"
+      },
+      "sharedFixedCall": {
+        "bytes": 695,
+        "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+      },
+      "ownCopyFixedCall": {
+        "bytes": 743,
+        "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+      }
+    },
+    "sourceCheckoutRuntimeUnchanged": true
+  },
+  "publicSuiteReproduction": {
+    "status": "passed",
+    "focusedSuiteExecutions": 19,
+    "inheritedSuiteExecutions": 34,
+    "totalSuiteExecutions": 53,
+    "failedSuiteExecutions": 0,
+    "calculationTimeouts": 0,
+    "deadlineMilliseconds": 60000,
+    "networkAttempts": 0,
+    "countingQualification": "These repeat the existing public suites. They add no new unique articles, corpus cases or native-browser coverage."
+  },
+  "evidencePins": {
+    "privateOrchestrationSummarySha256": "8da2d992df529821a3610a40ae619f430eb523264e1bebdb2d4fa65d2e79b9d4",
+    "focusedSummarySha256": "b25174793a4bf2872b7d9438240b6f6fb0efa604e08e171292d0c5483c72d42c",
+    "inheritedSummarySha256": "81eb0865eae7f4e992743dd279e868ff0503819b9a7b0de4951bd879d6ed8d49",
+    "publicInventorySha256": "d0e20194445fa3a9ba1fc197567d23455cbf11a6abb79a372feaead4d668c95d"
+  },
+  "knownLimitations": [
+    "Installed Node, Python and the declared parser dependency were reused. No package-manager reinstall is claimed.",
+    "Final QA aggregation, documentation results, copy-paste index and release archive remain separate coordinator gates.",
+    "No real browser, full article corpus or known extreme-timeout source was rerun in this reproduction."
+  ],
+  "wikipediaWrites": 0,
+  "githubActions": 0,
+  "gitStagingActions": 0,
+  "networkRequests": 0,
+  "browserSessions": 0,
+  "originalProductOrDocumentationFilesModified": 0
+}
