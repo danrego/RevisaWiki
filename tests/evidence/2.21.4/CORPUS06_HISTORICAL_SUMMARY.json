@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.4",
+  "candidate": "06",
+  "suite": "independent-stored-source-corpus-review",
+  "status": "historical-candidate-validated-locally",
+  "runtimeSha256": "adb82f67cd9c49648de7ad973e39a33595e7fdb333d04e725bd7143f743b3644",
+  "runtimeManifestSha256": "0985eb233ec831de9228f3daeaad40e7b788576cd0ffaa818c558fa1c5448f35",
+  "sets": [
+    {
+      "set": "biographies",
+      "recordCount": 506,
+      "selectedCount": 506,
+      "statusCounts": {
+        "calculated": 506
+      },
+      "changed": 403,
+      "unchanged": 103,
+      "idempotenceChecked": 403,
+      "recoveries": 0,
+      "inventorySha256": "b959342e8a1d265250dbc91b9bc4aa8408f391c271985ecd210c6e7bac8539df",
+      "recordsSha256": "07a13733af3fce14958ca6cec1f7a597af50247cc822cf2cb99bde68682a0e1b",
+      "summarySha256": "c63cea8e992f63faf25e30aed5ab53f3e409a2c564dcacc2f91c2b6b0e6f43ba",
+      "verifiedPrivateTupleSetSha256": "987dc36efe02851c3e3477392efc03adbea5a0ffcb6ce32fa9d50306c5fb0570"
+    },
+    {
+      "set": "mixed",
+      "recordCount": 250,
+      "selectedCount": 250,
+      "statusCounts": {
+        "calculated": 248,
+        "calculation-timeout": 2
+      },
+      "changed": 220,
+      "unchanged": 28,
+      "idempotenceChecked": 220,
+      "recoveries": 1,
+      "inventorySha256": "7c48074d68b5b60cf3449abca063988c24d3b141308f7e4ce85ed5f49cb3164d",
+      "recordsSha256": "a2fb6d37a512dcc768781432882ed55044f1137c6dc65c1c09e9ac2682d36fa7",
+      "summarySha256": "cb515143594c0339558dd4dc36908b60460d9b28605530a73e6e2a5a1585c926",
+      "verifiedPrivateTupleSetSha256": "c062c60e7817ee86b4085753bb2ae654ec10a455fba647701f635a7fa4f7488c"
+    }
+  ],
+  "totals": {
+    "selectedPages": 756,
+    "firstApplicationAttempts": 756,
+    "firstApplicationsCompleted": 754,
+    "changed": 623,
+    "unchanged": 131,
+    "changedOutputsWithCompletedSecondApplication": 623,
+    "nonIdempotent": 0,
+    "rejectedCalculatedOutputs": 0,
+    "sourceOrCandidateHashMismatches": 0,
+    "changedCompleteMathChemistryTags": 0,
+    "firstApplicationTimeouts": 2
+  },
+  "independentVerification": [
+    "Every completed record bound to the selected revision and immutable source object",
+    "Compressed storage hash and uncompressed full-source hash checked independently",
+    "Archived candidate bytes match the recorded hash",
+    "Composition proof contains the exact original source, candidate and effective options",
+    "Recovery requested/effective option snapshots match the archived request",
+    "All623changed outputs have an accepted second application with the same hash",
+    "All506biography outputs also match the exact preceding release campaign records and per-record hashes",
+    "Complete math, chem and ce tags retained byte-for-byte in all completed cases",
+    "Both timed-out inputs retain their immutable original hashes, report no applied candidate and are excluded from subsequent runs"
+  ],
+  "recoveryReview": {
+    "exactSourceCases": 1,
+    "completeDiffReviewed": true,
+    "scope": "One mathematical article retained independent spelling, historical-century syntax, table header scope and footer-order changes while refusing the citation family. Mathematical tag bytes were unchanged. This is a source transformation check, not factual verification or a universal adjustment-count guarantee."
+  },
+  "limits": [
+    "This receipt preserves candidate06 history. It does not certify a later candidate or the final release package.",
+    "Timeouts are limitations, not passing calculations. They were not repeated or replaced with new articles.",
+    "The local stored-source campaigns disable network preview and external identifier lookups. Native rendering, account workflow and browser behavior are separate evidence.",
+    "Hash, guard metadata and idempotence validation do not establish universal factual or visual correctness.",
+    "Source objects, article names, user information and raw result bodies remain private."
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

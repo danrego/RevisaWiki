@@ -1,0 +1,41 @@
+RevisaWiki 2.21.4: referência técnica
+
+Recuperação do resultado
+
+A execução começa com o rascunho original e as opções selecionadas. Se a combinação falhar nas verificações, o programa pode reexecutar grupos menores, desligando opções e recalculando a partir da mesma fonte. Uma saída recusada nunca se torna a entrada da próxima tentativa. As preferências salvas do usuário não são alteradas.
+
+O resultado recuperado precisa conservar o vínculo com a fonte, o contexto de edição e as opções efetivamente usadas. As verificações finais continuam ativas, mesmo quando o escritor de uma família está desligado. A recuperação não garante que toda correção possível seja aproveitada: pode preservar uma família inteira para manter o resultado verificável.
+
+O cálculo e suas tentativas compartilham um prazo de 60 segundos. A conferência nativa conserva os próprios limites e não aceita uma saída antes recusada apenas porque uma consulta posterior ficou indisponível.
+
+Preservação de conteúdo
+
+Os controles adicionais comparam nomes literais únicos nos campos de identidade previstos e o conteúdo literal de células em posições correspondentes. Permitem diferenças de espaços e reparos estruturais já comprovados. Não criam equivalências gerais para ligações, nomes complexos, legendas de tabela ou estruturas cuja correspondência não possa ser confirmada. As verificações anteriores continuam cobrindo seus respectivos contextos.
+
+Uma mudança de parâmetro ignorado para um campo lido por uma infocaixa pode ativar uma etiqueta ref. Nos casos previstos, a comparação exige um coletor seguinte e do mesmo grupo. Alterar um nome de campo não pode tornar a referência visível sem essa conferência.
+
+A comparação de referências nomeadas com comentários pode reproduzir os planos finitos de data e do cabeçalho de um alias nativo. O comentário e os outros argumentos bibliográficos permanecem iguais; não há autorização genérica para substituir a fonte.
+
+Interface e publicação
+
+Ajustar código aplica o resultado confirmado ao editor e mostra sua contagem e diferença em bytes. Não produz um painel de avisos, escolhas manuais, recuperação de descrição curta ou motivos de recusa. Mantém Opções de ajuste, Desfazer e o atalho nativo para Mostrar alterações. Cancelamento e falhas operacionais têm mensagens curtas e distintas de um resultado sem mudanças.
+
+Minúcias não substitui um resumo manual. A marca de edição menor respeita a opção desligada e as escolhas manuais. Desfazer não sobrescreve texto editado depois. A publicação continua manual.
+
+Compatibilidade biográfica mantida
+
+Os campos biográficos seguem a Info/Biografia nativa, revisão 73315036. Aceitar o nome de um parâmetro, ler seu valor e exibir uma linha são verificações distintas. A documentação da predefinição pode estar atrasada em relação ao código.
+
+Os nomes alternativos de cada campo seguem a ordem do primeiro valor não vazio. A conversão precisa manter essa escolha. Em especial, localnasc não pode virar um campo de prioridade maior e trocar o lugar já exibido. As mesmas proteções cobrem profissão, largura e legenda, inclusive nos caminhos de tradução.
+
+Batismo, gênero literário, instituição, local de trabalho e os dados de sepultamento conservam seus papéis. Não se acrescentam fatos, valores pessoais ou unidades para preencher campos disponíveis.
+
+A incorporação depende da interface da filha. Info/Biografia recebe módulo, módulo2 até módulo6, sem módulo1. Seu título_incorporado só se aplica quando essa chamada é filha e não deve repetir um cabeçalho já emitido. A presença de um módulo no modelo externo não confere suporte à filha. Os campos úteis precisam continuar visíveis, dentro de uma única estrutura de infocaixa.
+
+As rotinas retomadas conservam os limites anteriores. A chamada direta de Info/Biografia pode perder fundo somente quando o valor está vazio ou é literalmente instrumentista_sem_vocal, sem repetição do campo. A unidade pxpx só perde o segundo px em um tamanho literal entre 10 e 500, num campo aceito e sem alias concorrente, marcação extra ou configuração incompatível.
+
+Ficha de persona, revisão 50341076, continua sendo um redirecionamento local válido. A composição com nombre→nome exige um nome literal único, sem outro campo de nome e sem alteração dos demais argumentos. Chamadas com nomes ligados, referências, duplicatas ou conflitos permanecem intactas. Outras correções do artigo podem continuar.
+
+Os controles de referências, imagens, tabelas, fórmulas e rascunho permanecem ativos. Os comprovantes ficam ligados à fonte e aos arquivos exatos. Núcleo e dados correspondem ao manifesto, e o motor completo se destina ao uso local e aos testes.
+
+O relatório da versão registra os resultados e seus limites. O prazo permanece em 60 segundos. Nenhum teste publica edições na Wikipédia.

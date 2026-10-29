@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "release": "2.21.4",
+  "kind": "independent-legacy-qualification-review",
+  "status": "passed",
+  "scope": "Read-only review of both completed qualification receipts plus five fail-closed coordinator controls. This review did not repeat article or fixture calculations.",
+  "runtimeManifestSha256": "611ee7e18cdcdb5106991fa4098693de19efc7eec133ea96b0cb0bf77da23218",
+  "qualificationSourceSha256": "2cfb2ddf369beb0ac9d5eeb11c1933a81a8bc943692f2cedc98782a601f5c448",
+  "explicitFixtureManifestSha256": "9f057dcdeaeeeb7c3a1aabb1a74394749993296fc3533452fe0e85fa5426a721",
+  "legacyRunnerSha256": "7d3c963a0ff4d65005ed6f4d90455536c689025712a69e377551240c0e46ef1b",
+  "oldTestSha256": "d6457dbcbbab9446becf2faec09bc8157e58ccd9564c25f49eb49ca53afc6ac7",
+  "fixtureDefinitionSha256": "38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51",
+  "oldHarnessSha256": "2f37fa8cd5598cc1fca61fbcdff061773440dd6a0ac5230652ed1f2779117293",
+  "baselineVersion": "2.21.3",
+  "baselineCompleteSha256": "0daf261c3a10b5e79ee41e0e23128c58efd207cd9608d0ecaf8f1766c4e60601",
+  "distinctQualifiedFixtureIds": 395,
+  "distributions": [
+    {
+      "distribution": "core",
+      "runtimeSha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72",
+      "rawReportSha256": "783eb998b1e0e97a89b146916afc37288b1325d25939aac69e2479e70d753ca9",
+      "rawStatus": "failed",
+      "rawCases": 4009,
+      "rawFailures": 395,
+      "otherRawAcceptedCases": 3614,
+      "qualificationStatus": "passed-with-qualified-legacy-protocol-difference",
+      "qualificationReceiptSha256": "d042353e31b685f5faf6db42c12eb6d6cccefa150e5ff997bdd47040ec5452fb",
+      "currentReceiptSha256": "35bd0383a8cb9990f0d25d9e6625483f86bbc70f60b860b4bb4958297c57f7c9",
+      "baselineReceiptSha256": "273158c9659a8c748f69c120c54711e41c4f78d352e0fcd8aa1f5bcc249af001",
+      "currentUnchangedSourceBoundCases": 395,
+      "baselineRejectedSameInputs": 395,
+      "creditedAutomaticChanges": 0
+    },
+    {
+      "distribution": "complete",
+      "runtimeSha256": "4819ba030455344529bf81ee9de317e4b39aa3e0af00ed56ab88f71e99c51596",
+      "rawReportSha256": "281b692dc9a407a73342027c8ce06ae7b1c5c60e4257323e100602368ab1198a",
+      "rawStatus": "failed",
+      "rawCases": 4009,
+      "rawFailures": 395,
+      "otherRawAcceptedCases": 3614,
+      "qualificationStatus": "passed-with-qualified-legacy-protocol-difference",
+      "qualificationReceiptSha256": "f4b5c6cc59acee8519bafa8a165614a92bf7dc0a5a8136d934c6c0eb1ffe651c",
+      "currentReceiptSha256": "2fb8114a705f238883a5be10a6fdf7e89f11392ecd60242996e670603546ef83",
+      "baselineReceiptSha256": "273158c9659a8c748f69c120c54711e41c4f78d352e0fcd8aa1f5bcc249af001",
+      "currentUnchangedSourceBoundCases": 395,
+      "baselineRejectedSameInputs": 395,
+      "creditedAutomaticChanges": 0
+    }
+  ],
+  "rawLegacyGroupStatuses": {
+    "passed": 32,
+    "failed": 2
+  },
+  "separateQualifiedLegacyGroups": 2,
+  "legacySummarySha256": "b14865392e40f5246407fa6f6584edf8c6e3c1a6037ade26a52dda29b6bbfa35",
+  "negativeCoordinatorControls": [
+    {
+      "case": "wrong-runtime",
+      "rejectedBeforeWorker": true
+    },
+    {
+      "case": "unlisted-failure",
+      "rejectedBeforeWorker": true
+    },
+    {
+      "case": "changed-failure-text",
+      "rejectedBeforeWorker": true
+    },
+    {
+      "case": "additional-failure",
+      "rejectedBeforeWorker": true
+    },
+    {
+      "case": "other-case-not-accepted",
+      "rejectedBeforeWorker": true
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "These are synthetic fixtures, not 4009 articles or 790 distinct qualified cases.",
+    "Both raw failed statuses and complete raw reports remain intact. The separate qualification does not rewrite them as passed.",
+    "Only the exact 395 source/options/proposed-field fixtures are qualified. Their current result is an unchanged draft with zero credited automatic corrections.",
+    "The isolated prior release refused the same whole proposals. This is not an exception for an automatic correction previously accepted by that release.",
+    "The remaining 3614 raw cases per distribution satisfy the unchanged inherited test.",
+    "Raw reports are outputs of a hash-pinned local generator, not an authenticated external input format. This review separately checked their complete unique case-ID sets."
+  ],
+  "wikipediaWrites": 0,
+  "networkRequests": 0,
+  "runtimeChanges": 0
+}

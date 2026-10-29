@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.4",
+  "candidate": "07",
+  "suite": "independent-adjustment-recovery-final07",
+  "status": "passed",
+  "manifestSha256": "611ee7e18cdcdb5106991fa4098693de19efc7eec133ea96b0cb0bf77da23218",
+  "validatedExecutionSummarySha256": "de84a3f06f71fb8a82cd6ba870efc201bc0784768f34b6d50b89a4463113aa5a",
+  "method": "Independent reconciliation of the already completed main-runner executions, exact stdout/stderr hashes and current test/runtime pins. No duplicate calculations were dispatched by this audit.",
+  "distributions": [
+    {
+      "distribution": "core",
+      "runtimeSha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72",
+      "suites": [
+        {
+          "test": "tests/v2214/independent_recovery_contract.cjs",
+          "testSha256": "9b1776e8b61394775d8727c89414ae85d5ae0c235af4deaddb4b8580920bd812",
+          "stdoutSha256": "608442829cfc4cec58370489ff3d3eabcd13607d0526f9fdbdf1cf9a4683df2e",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 435,
+          "articleCalculations": 0,
+          "status": "passed"
+        },
+        {
+          "test": "tests/v2214/worker_recovery_binding.cjs",
+          "testSha256": "43792c67a94de4475d577635b04c0c8cbb5cb2ccdbbdb9892a6adb1ed682b63e",
+          "stdoutSha256": "8735ea46cae8789937c35b8d65772c2d297fbf4dbd75b8043a832b3db6723e6e",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 53,
+          "workerCalculations": 6,
+          "status": "passed"
+        },
+        {
+          "test": "tests/v2214/native_recovery_contract.cjs",
+          "testSha256": "450b3de2994523895b9517f2efc132b5a55185099b589543488cd9cb31bcaa87",
+          "stdoutSha256": "333c50694ad5489f46612d37419ac7cb83b9484ad94dc4e5faf82eb2c8e82500",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 116,
+          "localCalculations": 16,
+          "cases": 4,
+          "nativeParseResponsesAreSynthetic": true,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "distribution": "complete",
+      "runtimeSha256": "4819ba030455344529bf81ee9de317e4b39aa3e0af00ed56ab88f71e99c51596",
+      "suites": [
+        {
+          "test": "tests/v2214/independent_recovery_contract.cjs",
+          "testSha256": "9b1776e8b61394775d8727c89414ae85d5ae0c235af4deaddb4b8580920bd812",
+          "stdoutSha256": "84056a07db97d8447656bfc0f7246852b6b046bfb571e7cb746746b8f1bca6ad",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 435,
+          "articleCalculations": 0,
+          "status": "passed"
+        },
+        {
+          "test": "tests/v2214/worker_recovery_binding.cjs",
+          "testSha256": "43792c67a94de4475d577635b04c0c8cbb5cb2ccdbbdb9892a6adb1ed682b63e",
+          "stdoutSha256": "5d0058a472546f3ee76a1065dfd90af59ecfdd0eeda2528236de779753132775",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 53,
+          "workerCalculations": 6,
+          "status": "passed"
+        },
+        {
+          "test": "tests/v2214/native_recovery_contract.cjs",
+          "testSha256": "450b3de2994523895b9517f2efc132b5a55185099b589543488cd9cb31bcaa87",
+          "stdoutSha256": "d1f0fc60516ac4deea7a9b4227a6effd04f098688d5d8934b5afea8c4a80d883",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "checks": 116,
+          "localCalculations": 16,
+          "cases": 4,
+          "nativeParseResponsesAreSynthetic": true,
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "checks": 1208,
+    "metadataContractChecks": 870,
+    "serializedWorkerMessages": 12,
+    "directLocalAPICalculationsForVerifier": 32,
+    "networkRequests": 0,
+    "wikipediaWrites": 0
+  },
+  "deadlineSourceLineage": {
+    "receipt": "SHARED_DEADLINE_LINEAGE07.json",
+    "sha256": "ecb8252e2f3c25021e5ee2ba95675f778865654f7bf298d56ef7685a3d9aa78b",
+    "exactFunctionComparisons": 28
+  },
+  "limits": [
+    "The same fixtures run against two distributions are not distinct real articles.",
+    "Controlled native parse decisions test verifier behavior; they are not native MediaWiki rendering evidence.",
+    "Worker messages and local API calculations are reported in their own units. The main runner generic calculations field is not used for these custom counters.",
+    "The real-browser watchdog remains historical candidate04 evidence, qualified by exact function lineage. It was not repeated.",
+    "Candidate06 receipts remain historical and unchanged. This receipt does not approve the complete release package."
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

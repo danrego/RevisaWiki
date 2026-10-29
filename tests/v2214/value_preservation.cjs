@@ -1,0 +1,42 @@
+'use strict';
+const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),crypto=require('node:crypto');
+const core=process.env.REVISAWIKI_CURRENT_CORE||path.resolve(__dirname,'../../dist/2.21.4/RevisaWiki_v2_21_4.js'),api=require(core),sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+const cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Pessoa de teste',autoPreview:false,registryDoiCheck:false,v216CalendarUTC:'2026-10-29'};
+let checks=0,calculations=0;const failures=[],rows=[],eq=(a,b,label)=>{checks++;try{assert.deepEqual(a,b,label);}catch(e){failures.push({label,actual:a,expected:b});}};
+const check=(before,after,code,label)=>{const found=api.v2214LiteralValueAudit(before,after,cfg);eq(found.some(f=>f.code===code),true,label);rows.push({kind:'mutation',label,findings:found.map(f=>f.code)});};
+const same=(before,after,label)=>{eq(api.v2214LiteralValueAudit(before,after,cfg),[],label);rows.push({kind:'control',label});};
+for(const name of ['Biografia','Cientista','Escritor','Político','Ator','Música/artista'])for(const layout of ['inline','vertical']){
+ const box=layout==='inline'?'{{Info/'+name+'|nome=Pessoa de teste|ocupação=Físico}}':'{{Info/'+name+'\n|nome=Pessoa de teste\n|ocupação=Físico\n}}';
+ check(box,box.replace('nome=Pessoa de teste','nome=Outra pessoa'),'changed-literal-infobox-identity','An existing identity stays exact: '+name+' '+layout);
+ same(box,box.replace('ocupação=Físico','ocupação=físico'),'Occupation normalization is outside this identity guard: '+name+' '+layout);
+ same(box,box.replace('nome=Pessoa de teste','nome=  Pessoa de teste  '),'Outer identity whitespace is not content: '+name+' '+layout);
+}
+const box='{{Info/Biografia|nome=Pessoa de teste|name=Outra entrada|website=https://https://example.org/perfil}}';
+check(box,box.replace('nome=Pessoa de teste','nome=Outra entrada'),'changed-literal-infobox-identity','A competing imported key cannot replace the native identity');
+check(box,box.replace('nome=Pessoa de teste','nome=[[Outro alvo|Pessoa de teste]]'),'changed-literal-infobox-identity','Adding an unproved identity target is not accepted as plain equivalence');
+same('{{Info/Biografia|nome=|ocupação=Físico}}','{{Info/Biografia|nome=Pessoa de teste|ocupação=Físico}}','An originally blank identity is outside this narrow observer');
+same('<nowiki>'+box+'</nowiki>','<nowiki>'+box.replace('nome=Pessoa de teste','nome=Outra pessoa')+'</nowiki>','Literal examples are not native identity owners');
+same('{{Info/Biografia|nome_completo=Nome de teste|nome=Pessoa}}','{{Info/Biografia|nome_completo=Outro nome|nome=Pessoa}}','A distinct full-name field is not guessed to be the displayed name');
+const table=cells=>'{| class="wikitable"\n! Cabeçalho A !! Cabeçalho B\n|-\n| '+cells.join(' || ')+'\n|}';
+for(const [before,after,label]of [['3','8','number'],['−3','3','minus sign'],['10 m','10 km','unit'],['2020','2021','year'],['Pessoa de teste','Outra pessoa','word'],['A','[[B|A]]','unproved target']])check(table([before,'Preservado']),table([after,'Preservado']),'changed-literal-table-value','A cell keeps its literal '+label);
+check(table(['A','B']),table(['B','A']),'changed-literal-table-value','The same multiset in another cell order is not equivalent');
+same(table(['A','B']),table([' A  ','B']),'Whitespace-only layout preserves the values');
+same(table(['A','B']),table(['A','B']).replace('! Cabeçalho A','! scope="col" | Cabeçalho A'),'Adding a native header scope preserves the values');
+same(table(['A','B']),table(['A','B']).replace('class="wikitable"','class="wikitable sortable" style="width:100%"'),'Table attributes are handled by existing independent contracts');
+same('<syntaxhighlight lang="wikitext">'+table(['A','B'])+'</syntaxhighlight>','<syntaxhighlight lang="wikitext">'+table(['C','B'])+'</syntaxhighlight>','Code examples do not become native tables');
+const nested='{| class="wikitable"\n! A\n|-\n|\n{| class="wikitable"\n! B\n|-\n| Interior preservado\n|}\n|}';
+check(nested,nested.replace('Interior preservado','Interior alterado'),'changed-literal-table-value','A nested native table retains its own literal values');
+const irregular='{| class="wikitable"\n! A !! B\n|-\n| Valor preservado\n|}';
+check(irregular,irregular.replace('Valor preservado','Valor alterado'),'changed-literal-table-value','Irregular grids still expose comparable literal cells');
+const owners='{{Info/Biografia|nome=Pessoa A}}\n{{Info/Biografia|nome=Pessoa B}}';
+check(owners,'{{Info/Biografia|nome=Pessoa B}}\n{{Info/Biografia|nome=Pessoa A}}','changed-literal-infobox-identity','Two owners with the same profile cannot exchange their identities');
+const missingSeparator='{| class="wikitable"\n| colspan="2" Cabeçalho\n|-\n| Alfa || Beta\n|}\n',repairedSeparator='{| class="wikitable"\n| colspan="2" | Cabeçalho\n|-\n| Alfa || Beta\n|}\n';
+same(missingSeparator,repairedSeparator,'The independently proved existing missing-separator repair preserves the cell label');
+check(missingSeparator,repairedSeparator.replace('Cabeçalho','Outro cabeçalho'),'changed-literal-table-value','A proved syntax repair does not authorize changing the header value');
+check(missingSeparator,repairedSeparator.replace('Alfa','Outro valor'),'changed-literal-table-value','A proved syntax repair does not authorize changing another cell');
+const separatorResult=api.calculate({kind:'adjust',source:missingSeparator,originalSource:missingSeparator,options:cfg});calculations++;
+eq(separatorResult.text,repairedSeparator,'The inherited demonstrated separator repair still reaches the final editor candidate');
+eq(api.v219AutomaticResultSafety(missingSeparator,separatorResult).accepted,true,'The inherited separator repair retains the full automatic gate');
+const positiveSources=[box+'\n\nTexto de teste.\n',table(['A','B']),table(['3','−3'])+'\n{{referências}}\n','{{Descrição curta|Programa}}\n'+table(['A','B'])];
+for(const source of positiveSources){const result=api.calculate({kind:'adjust',source,originalSource:source,options:cfg});calculations++;eq(api.v219AutomaticResultSafety(source,result).accepted,true,'Legitimate existing corrections retain the complete gate');const second=api.calculate({kind:'adjust',source:result.text,originalSource:result.text,options:cfg});calculations++;eq(second.text,result.text,'Existing safe results remain idempotent');}
+const receipt={suite:'literal-value-preservation-2.21.4',runtimeSha256:sha(fs.readFileSync(core)),checks,calculations,failures,rows};if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt));assert.equal(failures.length,0,'Identity and cell values remain bound to their original owner');

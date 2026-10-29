@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "release": "2.21.4",
+  "suite": "independent-adjustment-recovery-final06",
+  "manifestSha256": "0985eb233ec831de9228f3daeaad40e7b788576cd0ffaa818c558fa1c5448f35",
+  "dataSha256": "783cd49fa89f35e8e889bee69f9ee0294b4ebc2b990aea9fc70ce1b72f53e4b9",
+  "sourceHelperSha256": "805f139431db3354553cfa268c9098b4a4ae159cf33de6a526ee1fae815535f4",
+  "distributions": [
+    {
+      "distribution": "core",
+      "runtimeSha256": "adb82f67cd9c49648de7ad973e39a33595e7fdb333d04e725bd7143f743b3644",
+      "suites": [
+        {
+          "test": "tests/v2214/independent_recovery_contract.cjs",
+          "testSha256": "9b1776e8b61394775d8727c89414ae85d5ae0c235af4deaddb4b8580920bd812",
+          "receiptSha256": "ebfe34b18127dde8487078b0fe8d4c25df5dd2bfe577b371cd9c9b38d20bae25",
+          "checks": 435,
+          "status": "passed",
+          "articleCalculations": 0,
+          "networkRequests": 0,
+          "wikipediaWrites": 0
+        },
+        {
+          "test": "tests/v2214/worker_recovery_binding.cjs",
+          "testSha256": "43792c67a94de4475d577635b04c0c8cbb5cb2ccdbbdb9892a6adb1ed682b63e",
+          "receiptSha256": "99f6e76aace06755c6ea99e8903cb1705c529125a54940adaf3e20f821e9aaf1",
+          "checks": 53,
+          "status": "passed",
+          "workerCalculations": 6,
+          "networkRequests": 0,
+          "wikipediaWrites": 0
+        },
+        {
+          "test": "tests/v2214/native_recovery_contract.cjs",
+          "testSha256": "450b3de2994523895b9517f2efc132b5a55185099b589543488cd9cb31bcaa87",
+          "receiptSha256": "c649eea1691f9860e4695865d45e972835715277d57472afa16b30db1aa6aea4",
+          "checks": 116,
+          "status": "passed",
+          "localCalculations": 16,
+          "cases": 4,
+          "networkRequests": 0,
+          "wikipediaWrites": 0,
+          "nativeParseResponsesAreSynthetic": true
+        }
+      ],
+      "checks": 604
+    },
+    {
+      "distribution": "complete",
+      "runtimeSha256": "9a891e4b1a4761ca492b364bad721e67de83e8c3cbc25df2b3e23a6d4e63f527",
+      "suites": [
+        {
+          "test": "tests/v2214/independent_recovery_contract.cjs",
+          "testSha256": "9b1776e8b61394775d8727c89414ae85d5ae0c235af4deaddb4b8580920bd812",
+          "receiptSha256": "90650024e0f8ee60d0534a21b9f9bf4da3d68c54d1d4e5ea8b55523d22d1b8fc",
+          "checks": 435,
+          "status": "passed",
+          "articleCalculations": 0,
+          "networkRequests": 0,
+          "wikipediaWrites": 0
+        },
+        {
+          "test": "tests/v2214/worker_recovery_binding.cjs",
+          "testSha256": "43792c67a94de4475d577635b04c0c8cbb5cb2ccdbbdb9892a6adb1ed682b63e",
+          "receiptSha256": "a349e16def801692897e42af0967075c78e913d43d8bff724583a710add0e804",
+          "checks": 53,
+          "status": "passed",
+          "workerCalculations": 6,
+          "networkRequests": 0,
+          "wikipediaWrites": 0
+        },
+        {
+          "test": "tests/v2214/native_recovery_contract.cjs",
+          "testSha256": "450b3de2994523895b9517f2efc132b5a55185099b589543488cd9cb31bcaa87",
+          "receiptSha256": "36fab18e48e0d18bdf4dbef0ba0e86bb50834f3b68d0657dbe1d140e4fd548db",
+          "checks": 116,
+          "status": "passed",
+          "localCalculations": 16,
+          "cases": 4,
+          "networkRequests": 0,
+          "wikipediaWrites": 0,
+          "nativeParseResponsesAreSynthetic": true
+        }
+      ],
+      "checks": 604
+    }
+  ],
+  "totals": {
+    "checks": 1208,
+    "metadataContractChecks": 870,
+    "serializedWorkerMessages": 12,
+    "directLocalAPICalculationsForVerifier": 32,
+    "networkRequests": 0,
+    "wikipediaWrites": 0
+  },
+  "coverage": [
+    "Original full draft used for every attempted subset",
+    "Requested and effective options bound independently; true-to-false restrictions only",
+    "Stale and altered source, options, context, result and recovery certificate refused",
+    "Actual Worker bootstrap and message handler with a private writer exception injection",
+    "Native-verifier control flow with controlled parse outcomes",
+    "Before-refusal unavailability retains existing locally safe behavior without claiming a native check",
+    "After-refusal unparsed candidates are never promoted",
+    "An already native-confirmed best result survives a later unavailable response or the shared deadline",
+    "Independent later groups remain eligible after a local writer exception"
+  ],
+  "deadlineSourceLineage": {
+    "receipt": "SHARED_DEADLINE_LINEAGE.json",
+    "sha256": "c9875487d502b6417dac6fcd7015822f756543635ec90b6394528bf89fd0756d",
+    "exactFunctionComparisons": 28,
+    "scope": "Both distributions, candidate04 to candidate06. Source lineage is not a new real-time watchdog execution."
+  },
+  "limits": [
+    "The same fixtures run against two distributions are not counted as distinct real articles.",
+    "Controlled native decisions are synthetic verifier tests, not MediaWiki rendering evidence. Real browser tests are reported separately.",
+    "The two recovery loops have at most seven candidates each. The total of fifteen logical candidates does not count inherited transport-to-staged retries after arbitrary Worker crashes.",
+    "Historical candidate04 results and failed setup attempts are retained separately. This receipt does not reclassify earlier attempts or approve the entire release package."
+  ],
+  "status": "passed"
+}

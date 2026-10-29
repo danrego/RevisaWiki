@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.4",
+  "candidate": "07",
+  "suite": "final-frozen-stored-source-corpus",
+  "status": "passed",
+  "qualification": "Transformation regression passed for754registered input contexts representing752distinct text bodies. Two cached source-label conflicts are excluded from independent-article coverage.",
+  "runtimeManifestSha256": "611ee7e18cdcdb5106991fa4098693de19efc7eec133ea96b0cb0bf77da23218",
+  "coreSha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72",
+  "sets": [
+    {
+      "set": "biographies",
+      "recordCount": 506,
+      "selectedCount": 506,
+      "statusCounts": {
+        "calculated": 506
+      },
+      "changed": 403,
+      "unchanged": 103,
+      "idempotenceChecked": 403,
+      "recoveries": 0,
+      "differentCandidatesFrom06": 0,
+      "inventorySha256": "2292e29b968828f903e24eb82a35e3cd769212ebcaa338402981ae70864b426c",
+      "recordsSha256": "319bb7af7dd50542022c011af80b0f7abb0ed8d63e46719df3308bb1ff25b446",
+      "summarySha256": "e6ec50133647221835f55471beb769d5ac3a0a191ed9de7c0af0718da1631c04",
+      "completed": true,
+      "acceptedTransformations": 506,
+      "timeouts": 0,
+      "runtimeIntegrityFailures": 0,
+      "distinctSourceBodies": 504,
+      "sourceLabelIdentityConflicts": 2,
+      "largeInputEntriesAtLeast100KiB": 38,
+      "minimumSourceBytes": 600,
+      "maximumSourceBytes": 311868,
+      "verifiedPrivateTupleSetSha256": "c4d75177371e9ba35eca8e7c678d83bd608459ebd935651cbe643951c76660d2"
+    },
+    {
+      "set": "mixed",
+      "recordCount": 248,
+      "selectedCount": 248,
+      "statusCounts": {
+        "calculated": 248
+      },
+      "changed": 220,
+      "unchanged": 28,
+      "idempotenceChecked": 220,
+      "recoveries": 1,
+      "differentCandidatesFrom06": 0,
+      "inventorySha256": "1d7586d6c825e1ab0715b0bc47a4f4902437c3da4a74b2c042e99359045a2f49",
+      "recordsSha256": "a464232c25969a3ebc7424a0da83aa072925dbd80035e34d0a0cd75cd0334c61",
+      "summarySha256": "fd24d053c64bb53b04e365cd1cfad556ea89074b3cb45a4c85071851d51227cc",
+      "completed": true,
+      "acceptedTransformations": 248,
+      "timeouts": 0,
+      "runtimeIntegrityFailures": 0,
+      "distinctSourceBodies": 248,
+      "sourceLabelIdentityConflicts": 0,
+      "largeInputEntriesAtLeast100KiB": 89,
+      "minimumSourceBytes": 5241,
+      "maximumSourceBytes": 289687,
+      "verifiedPrivateTupleSetSha256": "6731cbb8ce10a9954e118e90941fdd8c492e754c859e2fb2b7bd9d47ed46ae06"
+    }
+  ],
+  "totals": {
+    "registeredInputEntries": 754,
+    "registeredPageIds": 754,
+    "distinctSourceBodies": 752,
+    "independentUniqueContentCases": 752,
+    "firstApplicationAttempts": 754,
+    "completed": 754,
+    "acceptedTransformations": 754,
+    "changedInputContexts": 623,
+    "unchangedInputContexts": 131,
+    "completedSecondApplicationChecksOnChangedOutputs": 623,
+    "nonIdempotent": 0,
+    "timeouts": 0,
+    "runtimeIntegrityFailures": 0,
+    "differentCandidatesFrom06": 0,
+    "recoveryCases": 1,
+    "largeInputEntriesAtLeast100KiB": 127
+  },
+  "corpusQualification": {
+    "status": "qualified",
+    "biographyEntries": 506,
+    "distinctBiographyTextBodies": 504,
+    "mixedEntries": 248,
+    "distinctMixedTextBodies": 248,
+    "extraRepeatedBodyContexts": 2,
+    "cacheSourceIdentityConflicts": 2,
+    "independentArticleCoverageExcludedContexts": 2,
+    "method": "One identical cached biography body appears under three registered topic/revision labels. Two labels conflict with the body. All three transformations remain tested contexts, while the body is counted once for distinct-content coverage.",
+    "historicalDataChanged": false,
+    "replacementInputsAdded": 0,
+    "nativeRefetchesPerformed": 0,
+    "cacheRepairPerformed": false,
+    "followup": "Source-capture provenance requires a separate cache investigation. It is not a reproduced runtime incorrect write.",
+    "privateIdentityEvidenceSha256": "b72e5db70471699d450b71be1356f2f3066a1857d693b78420efcfd3b81a0659"
+  },
+  "baselineComparison": {
+    "candidate06": "Every07result was compared with the exact06source, options and candidate. All754outputs are byte-identical.",
+    "biographiesBaseline3": {
+      "registeredContexts": 506,
+      "distinctTextBodies": 504,
+      "method": "Indirect exact lineage:07to06 and06to the preceding release campaign. Original full sources, options, result bodies and per-record hashes were read. The baseline3engine was not rerun in07.",
+      "directBaselineEngineExecutionsIn07": 0,
+      "matchedContexts": 506
+    }
+  },
+  "noRepeatPolicy": {
+    "priorKnownImmutableTimeoutSourceHashes": 38,
+    "priorKnownTimeoutRevisionIds": 39,
+    "additionalCandidate06TimeoutInputsExcluded": 2,
+    "allKnownTimeoutSourceHashesChecked": 40,
+    "allKnownTimeoutRevisionIdsChecked": 41,
+    "knownTimedOutInputsRerun": 0,
+    "originalMixedSelectionCandidateExclusions": 20,
+    "unitClarification": "The20original exclusions are candidate pages/sources during mixed selection, not the number of unique timeout hashes in all historical ledgers.",
+    "differentPreviouslyPassingRevisionPolicy": "A different immutable source that had already passed was retained; this does not repeat the older timed-out input.",
+    "deadlineMilliseconds": 60000,
+    "historical06TimeoutStatusesChanged": 0,
+    "boundaryEvidenceSha256": "5f092d6633d097c9bf7fd18f8d6512ec57fad8d9baa18240fb1e2b80156a5c18"
+  },
+  "independentVerification": [
+    "Compressed source-storage hashes and uncompressed complete-source hashes",
+    "Exact archived candidate hashes and full source/candidate composition-proof binding",
+    "Requested/effective recovery option snapshots",
+    "Fresh result-log metadata reconciled with both completed summaries",
+    "All623changed contexts have an accepted second action with identical result hash",
+    "Complete math, chem and ce tags are byte-identical in every completed source/result pair",
+    "Exact candidate06 comparison for all754contexts and baseline3biography lineage for506contexts",
+    "Every historical timeout source/revision checked against both final selections",
+    "Duplicate-source content was measured and the two conflicting cached labels excluded from independent article coverage"
+  ],
+  "scope": [
+    "These are local stored-source regression campaigns with automatic preview and online identifier lookup disabled. No new factual-source audit or live capture is claimed.",
+    "Native rendering, browser workflow and the historical real watchdog are separate release receipts.",
+    "Hash, existing guard metadata, formula-tag and idempotence checks are not a universal semantic or visual correctness guarantee.",
+    "Historical candidates reuse corpus inputs and are not counted as new unique articles.",
+    "Candidate06history, both timeout records and failed attempts remain intact; no failed input was replaced or relabeled as passing. The present cache qualification does not rewrite old receipts or source objects."
+  ],
+  "networkRequests": 0,
+  "wikipediaWrites": 0
+}

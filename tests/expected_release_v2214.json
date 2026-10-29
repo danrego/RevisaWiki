@@ -1,0 +1,357 @@
+{
+  "version": "2.21.4",
+  "distributionRevision": "2.21.4",
+  "baseVersion": "2.21.3",
+  "baseManifestSha256": "3ada89844472967d8d1f7ed925d58a649ae6d7ebde3f3fbf79c029ca9d909f0f",
+  "basePackedCatalogSha256": "093907618d9cf9e448a7aa4e5a3454070ee605f331463c53b7fa459b038637b5",
+  "packedCatalogSha256": "093907618d9cf9e448a7aa4e5a3454070ee605f331463c53b7fa459b038637b5",
+  "files": {
+    "Carregador_common_js_RevisaWiki_v2_21_4.js": {
+      "bytes": 9651,
+      "sha256": "0d7054c907cca0a7dbad0c1d459995dc0399dd99870800980eedef2e68e08c2a"
+    },
+    "Carregador_comunitario_RevisaWiki_v2_21_4.js": {
+      "bytes": 9653,
+      "sha256": "231a2cba861caa3d6c78c1469b6e051d98777709f5c251d107598ed48b2d70bf"
+    },
+    "Chamada_fixa_RevisaWiki_common.js": {
+      "bytes": 695,
+      "sha256": "85f0b87fb6d3c775ab0d909cae14bb274a7c4fb436cd156d8cca2c6212107440"
+    },
+    "Chamada_fixa_RevisaWiki_copia_propria.js": {
+      "bytes": 743,
+      "sha256": "0daec02d20c86a2e2801797b8d8d3aa0edb0043d028e31d512c01dcca5ea40b0"
+    },
+    "RevisaWiki_v2_21_4.js": {
+      "bytes": 2095257,
+      "sha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72"
+    },
+    "RevisaWiki_v2_21_4_completo.js": {
+      "bytes": 4180852,
+      "sha256": "4819ba030455344529bf81ee9de317e4b39aa3e0af00ed56ab88f71e99c51596"
+    },
+    "RevisaWiki_v2_21_4_dados.js": {
+      "bytes": 2093756,
+      "sha256": "783cd49fa89f35e8e889bee69f9ee0294b4ebc2b990aea9fc70ce1b72f53e4b9"
+    }
+  },
+  "sourceInputs": {
+    "src/v2_21_4/automatic_ui.js": {
+      "bytes": 21722,
+      "sha256": "0010856d1f6bb3e1fe7ed0e604a5e06ad0267c5cc057b4241379f83ee7f3d123"
+    },
+    "src/v2_21_4/independent_adjustments.js": {
+      "bytes": 29607,
+      "sha256": "805f139431db3354553cfa268c9098b4a4ae159cf33de6a526ee1fae815535f4"
+    },
+    "src/v2_21_4/reference_preservation.js": {
+      "bytes": 4400,
+      "sha256": "77a2fada23d546509473fde5b8bf496b8e047af6bb735eee71b468520af2cbf5"
+    },
+    "src/v2_21_4/value_preservation.js": {
+      "bytes": 4088,
+      "sha256": "68f7d28740e62c64296322e6e0b5063cbce05410bc733412692546cbd6c177cf"
+    },
+    "src/v2_21_4/header.txt": {
+      "bytes": 533,
+      "sha256": "2902995e3ac8af86326f7b71c5a0fc115da2759aa32ab1ddd2bfe4473379511d"
+    },
+    "scripts/build_v2214.py": {
+      "bytes": 6653,
+      "sha256": "7fc404b05c7ea821d1af20639bdd418779d390cf1e0cd75144d2ec5ebb09f62a"
+    },
+    "scripts/v2214_patch.cjs": {
+      "bytes": 5141,
+      "sha256": "4634bdba73d0ae871bdba33e84c281e01c8a74347553de6a74a8cfd1d7cbdc47"
+    },
+    "scripts/v2212_compact.cjs": {
+      "bytes": 2982,
+      "sha256": "9b751ac4ad749798319d3d52d5c06ece19c142b1aba13d9acf3f6186add4ff53"
+    },
+    "scripts/wiki_safe_data.py": {
+      "bytes": 3294,
+      "sha256": "d6fdb030ed2d15a31cdcbecfe6b8c1a4c538820c775e8748af5c20be25b559f5"
+    }
+  },
+  "patch": {
+    "method": "Exact AST ranges, explicit helpers and unused retired UI declarations only",
+    "sourceSha256": "bbcc181804b068f5948a03ce3a298c2499b57fcfc598946768b96e865dba30b2",
+    "helperSha256": "464f6ff065522f51f752942bc47b872e47034ab6ccfae6ee3283121386ffa906",
+    "changes": [
+      {
+        "kind": "new-helper",
+        "name": "v2214OperationalMessage",
+        "sha256": "477d6ca99bdf38be7a2f55da425807af5929c7728e29f89718ce1a89d92b7764"
+      },
+      {
+        "kind": "function",
+        "name": "showReport",
+        "beforeSha256": "afe624de02e1488c69dad918de16900622efe07a7a4e19169b14be68097933a5",
+        "afterSha256": "ae1d3d58efba7a711ec069038d83e463096326d26a75c1786cd87ca1ac2ddf98"
+      },
+      {
+        "kind": "function",
+        "name": "renderIssues",
+        "beforeSha256": "4ba12cd6381531df943275e39fd86495f12d0407f5a30727e448f286dd638845",
+        "afterSha256": "cd81152aac64d2968733877901625cff8aa2a05e3bbf955ab1924eb536fbf444"
+      },
+      {
+        "kind": "function",
+        "name": "updateAppliedResult",
+        "beforeSha256": "b4a9b0f6bfe2dbf0b07bf3332396d5c0637692f067db28838358ef8b61e45ee9",
+        "afterSha256": "8c1e37ce1bdfa5a3e1cc17798af67db740412c0014dd3725e8eed3e9a1db83b5"
+      },
+      {
+        "kind": "function",
+        "name": "run",
+        "beforeSha256": "ae10f7fac0cf0385c6db6c0e8dc40f9b9cc1d6a8df481bd754dd8a2aa2ba2b1d",
+        "afterSha256": "f068de4d750acb0345e60a892b03652d10a9084cc4e4621535efb0c0ed25b82c"
+      },
+      {
+        "kind": "function",
+        "name": "undo",
+        "beforeSha256": "f208b36ea761fbc5bb356eab04500108753d34966f345e05e0ab49a7a01859a8",
+        "afterSha256": "e6be6d4c96c72a394b3bea3799a9d5732e48e480efd548226bb9bf6b5d0542ec"
+      },
+      {
+        "kind": "function",
+        "name": "queueAppliedPresentation",
+        "beforeSha256": "741e0a1073639a83ddb78ea7ae157e0e422ad207695c609b439c413e50f4ea2c",
+        "afterSha256": "ff3f6f09d9a4f68e6fb670ad73c8831c15a2af98786b17f8caaa1084c5869634"
+      },
+      {
+        "kind": "function",
+        "name": "settingsPanel",
+        "beforeSha256": "8b68c3b70a00da727552e1cb13b348829734195a3829ae219bd3fa8d2e65ef6d",
+        "afterSha256": "09c28d04002c8914905a780f7361f4df0dda38aa4b68a49368edbde69f5924e2"
+      },
+      {
+        "kind": "function",
+        "name": "mount",
+        "beforeSha256": "0788d747ce01faa5175120b0c90edf9b5fa1e6193c02a03540066026533ab5c0",
+        "afterSha256": "1365f9fd607519d49809398136af0311e8bcd570bf108dae5ad8d29b78d5d742"
+      },
+      {
+        "kind": "function",
+        "name": "checkStyles",
+        "beforeSha256": "f5d8c120e4a5ce1236fab54623de19e2570a81ffc6493b9d89333801a9c476a4",
+        "afterSha256": "395f4b6c2c02372540587afdebe28865b5b06b295380931ddfe0a5475c787a49"
+      },
+      {
+        "kind": "function",
+        "name": "mountStyles",
+        "beforeSha256": "dec0f1f99cef81ffad6985ee083ad8b534cb1fbfe3cf46848dcec0bea938741f",
+        "afterSha256": "5efdfd6dd7c59b0807a0eedb9989dfa44b36a1e8fb1d8a366a6d1eb37be693b2"
+      },
+      {
+        "kind": "function",
+        "name": "undoStyle",
+        "beforeSha256": "baff450004b06f7a4296ff8a952bdc3f58c8dd47b49756268a45267eb4da5d71",
+        "afterSha256": "7574c16b87a889c98d9293037d7e2729ca23a256a1bf4bff2abf2c53afdfcd95"
+      },
+      {
+        "kind": "function",
+        "name": "cancelCheck",
+        "beforeSha256": "6b7f7339cc8a950f2e953571414f38fb5070f7790ca0540726db5b97bc59d05c",
+        "afterSha256": "285860b623c8217ad08e8552a933938b5a45b7b9f6901718a60ae1bed66dc60f"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214RecoveryOptions",
+        "sha256": "24bd0467f257a399a5ab3e94304125799d76455f5e98126ad76985eca12bbb11"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214RecoveryCertificate",
+        "sha256": "78cb3438a50b8359818683397f60aa1bb9a29a56b4be6d89c873528ae57dc24c"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214EffectiveResultOptions",
+        "sha256": "b984da6ccad4d33f333a9abf6b78ec136c9367ab2f348ae58392b657b4f53159"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214DeadlineError",
+        "sha256": "6bbaca87b7f8fe5f5f5a5f6e4305b4550f779ea5031b45aa3c9e9b68afc52eee"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214Remaining",
+        "sha256": "69cbe27eb9490dd6ae5cff50b12f5b30f5d2788cb64dcb44648db70b45ea0ea2"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214RecoveryJobAllowed",
+        "sha256": "29c2a6d980485bc76c1090888dbfd2423ae034486bf8321cca35efb3010c26a3"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214PreservedResult",
+        "sha256": "6b6e65e8afeea4a606a2ec8cf39de8b8fb94d30cacf59daa8f9c77255acb1a4c"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214RecoverLocalAdjustment",
+        "sha256": "11fec2b6277a1eafc64fb704ef2f932b5db1036f862fb16011fe6af93e0ad8a6"
+      },
+      {
+        "kind": "function",
+        "name": "calculationSteps",
+        "beforeSha256": "42ba9d21a802fbcd94631ed214047dfd207b8e02d2ea509b56ed547234b60920",
+        "afterSha256": "454e3d6a846baf6bc608b9f97fece28df697804c4a8b67c9a2542fb84f7bb81f"
+      },
+      {
+        "kind": "function",
+        "name": "v219BindLocalResultSafety",
+        "beforeSha256": "5796e593416fc712050c1c9cb0e6cc1e17d548b63837e5e59d6fe0df3386ace1",
+        "afterSha256": "9d0b6faac5ecd38dfe8c2a341e99d07e8a010da8bedacc1df7f3323e397f2262"
+      },
+      {
+        "kind": "function",
+        "name": "computeLocal",
+        "beforeSha256": "16d46336c2fd3b0c18ab3f9ec131a17d935cc7b7a26faf2a0d280d42ed30df66",
+        "afterSha256": "e2d994ced2a4e016d75178d490c94ee036124226c71705b77c0ca4aa6081e259"
+      },
+      {
+        "kind": "function",
+        "name": "verifyAutomaticResult",
+        "beforeSha256": "854f0a8ebbc188d4a70fbee4e94713bb2f1e9b8a4689c817f128000fb26389c0",
+        "afterSha256": "8b644a89028beda2ffa16e5572eda9af0133c3564402230332831cb755ec2174"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214ReferenceActivationIndex",
+        "sha256": "c72fdf5489b1f8149d9e296577f6a1b64c0216c1a500fa9989ee438631d60a20"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214ReferenceActivationAudit",
+        "sha256": "03fac60bb0a0c524d3017b06a8ff00f1b93798544e5af754f10aab04324c7db6"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214ReferenceCitationPlan",
+        "sha256": "e7dd143b1993ae23c8385aee57fcb41567bc6d82e3630c678ca2d61418dc5521"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214ReferenceCitationProof",
+        "sha256": "d9e0bfd733fd3a19a6870211227ce2968d86745d56067d6b5deda4bd5fe2d7d2"
+      },
+      {
+        "kind": "function",
+        "name": "v219NamedReferenceRetention",
+        "beforeSha256": "baefc6cfe0b721cd6f283c620f959cddce75dd530b1ff20c46891b14041ef929",
+        "afterSha256": "55016842dfd8650bd9135f52ffb7d4e2cd5285ba3c1a38f830b10f698ad80493"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214PlainIdentityValue",
+        "sha256": "e9fcd7cf1c7a1493a291a44cb26c46944103ceffebee5d1b104bcb32cf31c674"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214InfoboxIdentityRead",
+        "sha256": "7d3cd410f001d709b711d3e8a063d0b2fe2bafaa0c5cefd79c175aa08a4a6a5c"
+      },
+      {
+        "kind": "new-helper",
+        "name": "v2214LiteralValueAudit",
+        "sha256": "5f232bc905b9d0149722a27cb18bed096e8b909fff1e235180f64ffe6bf69fe8"
+      },
+      {
+        "kind": "function",
+        "name": "preservationAudit",
+        "beforeSha256": "86ef69a24b41275a2d6d4f99cdf77e0baaaad1b4744b2124268eeca689d8c6e7",
+        "afterSha256": "ce0bbce843ede4762ec61346d2be861c15aa75264283befb1873ea0b9c806f7e"
+      }
+    ],
+    "exportsAdded": [
+      "v2214OperationalMessage",
+      "v2214RecoveryOptions",
+      "v2214RecoveryCertificate",
+      "v2214EffectiveResultOptions",
+      "v2214DeadlineError",
+      "v2214Remaining",
+      "v2214RecoveryJobAllowed",
+      "v2214PreservedResult",
+      "v2214RecoverLocalAdjustment",
+      "v2214ReferenceActivationIndex",
+      "v2214ReferenceActivationAudit",
+      "v2214ReferenceCitationPlan",
+      "v2214ReferenceCitationProof",
+      "v2214PlainIdentityValue",
+      "v2214InfoboxIdentityRead",
+      "v2214LiteralValueAudit"
+    ],
+    "retiredUnreferencedUI": [
+      {
+        "name": "sectionNotice",
+        "sha256": "5b3ca66ea9dd26bf7ed528b00ed14cc6d59f19a0d926c56a3171bdb27a82e5ea"
+      },
+      {
+        "name": "renderIssues",
+        "sha256": "cd81152aac64d2968733877901625cff8aa2a05e3bbf955ab1924eb536fbf444"
+      },
+      {
+        "name": "goToFinding",
+        "sha256": "5b7df1b62daf4f793441841a7fd03a58f89c86ba0044fcda69398f029d9f549b"
+      },
+      {
+        "name": "setIssues",
+        "sha256": "767faeb40525c836442e9d0184f3c60580c31f70d25ebe902de558758321ffec"
+      },
+      {
+        "name": "locateFinding",
+        "sha256": "699bcf1b43904f553fc5b97f17c4fe3ad8ef6705047a6f46219d629e9b2c3874"
+      },
+      {
+        "name": "locateTarget",
+        "sha256": "49e3736d33cfd097eb7d6dd94ea50b33443e3e617d8980486fa6d0760ccaf680"
+      },
+      {
+        "name": "suggestionKey",
+        "sha256": "51832c4d6d3c15d6aae5905b1783e5c6849985b0b523bd1d4781f688b92ecc47"
+      },
+      {
+        "name": "snippet",
+        "sha256": "ae80bfb7dc7d09fed8cfc9175fe73f2344100e3ce0bbc03a3de641011dbaca7a"
+      },
+      {
+        "name": "v214SyncReviewGroups",
+        "sha256": "e84cc1caf5975a89b3cbc4882534360deb29091f5936ee00e68682434f60d53a"
+      }
+    ],
+    "retainedReferencedUI": []
+  },
+  "compactSourceProof": {
+    "method": "Remove only non-license comments and token-preserving whitespace; executable AST, token spelling and all license comments remain equal",
+    "sourceSha256": "610c45277e217fa3f18672936095ea6774be77fff6f2c4c6f78ed6598327f42c",
+    "outputSha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72",
+    "sourceBytes": 2099740,
+    "outputBytes": 2095257,
+    "removedExplanatoryComments": 5,
+    "retainedLicenseComments": 1,
+    "executableASTSha256": "508c3654e5c05cef3159144fc31e4069a7359c4e75b4878ff4d11b0a39acadac",
+    "executableTokensSha256": "b269cff2008028e9416bebca4b86dfa300716297a43d6aa43f531c46c4a8e01a",
+    "whitespaceProof": {
+      "method": "Token-preserving whitespace formatting; identical normalized program including parentheses, literal token bytes and all source comments; no compression or renaming",
+      "sourceBytes": 2099445,
+      "outputBytes": 2095257,
+      "sourceSha256": "4832478fbdce42487921fb175e7df1bb397012eeb0faef3491b2fc0203a89338",
+      "outputSha256": "95fe7a3dfbac3af6dfe8d4fea214eaaebabf5731068a1ddbc197551440f97b72",
+      "normalizedProgramSha256": "508c3654e5c05cef3159144fc31e4069a7359c4e75b4878ff4d11b0a39acadac",
+      "literalTokensSha256": "7272562ede5c6402b72050b172f8104329bdffb4168a92a7a30761a97eef367d",
+      "commentCount": 1,
+      "parserVersion": "7.28.5"
+    }
+  },
+  "limits": {
+    "perInstallableFileBytesExclusive": 2097152,
+    "calculationDeadlineMilliseconds": 60000,
+    "endMatterRootItemMinimum": 8,
+    "referenceMinimum": 10
+  },
+  "wikipediaWrites": 0
+}
