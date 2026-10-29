@@ -1,0 +1,16 @@
+RevisaWiki 2.21.3
+
+- Atualiza a compatibilidade com os campos atuais da Info/Biografia e seus redirecionamentos já existentes.
+- Preserva o valor nativo quando nomes alternativos concorrem, com atenção a nascimento, profissão, largura e legenda.
+- Distingue batismo de nascimento, gênero literário de dados pessoais, instituição de local de trabalho e os campos de sepultamento.
+- Reconhece caixas filhas compatíveis sem tratá-las como outra pessoa na introdução. Conserva caixas especializadas e a sequência módulo, módulo2 até módulo6.
+- Retoma a remoção de fundo somente vazio ou com o valor literal instrumentista_sem_vocal na chamada direta de Info/Biografia.
+- Retoma a correção de tamanhos como 180pxpx para 180px, sem campos concorrentes ou marcação adicional.
+- Atualiza o destino local de Ficha de persona. A conversão conjunta de nombre para nome exige um valor literal único, sem conflito e sem mudanças nos demais argumentos.
+- Mantém correções independentes quando uma chamada precisa ficar intacta.
+
+Chrome, Firefox e Safari passaram pelos mesmos 70 casos locais, com 210 casos e 3.321 verificações no total. O relatório de testes explica o escopo, os arquivos e os limites.
+
+Continuam os mínimos de oito itens principais para colunas nas listas simples finais e dez referências para a regra própria de referências. O prazo permanece em 60 segundos, com preservação integral do rascunho. Casos extremos conhecidos não são repetidos para forçar aprovação.
+
+Núcleo e Dados.js continuam separados. A chamada fixa do common.js não muda e a instalação na Wikipédia é manual.

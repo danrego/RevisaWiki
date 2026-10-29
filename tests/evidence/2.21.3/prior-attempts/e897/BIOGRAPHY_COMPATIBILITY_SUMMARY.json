@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.3",
+  "kind": "native-biography-compatibility-synthetic-tests",
+  "nativeBiographyRevision": 73315036,
+  "nativeBiographySha256": "f38c0061df3e75de6e89d18d889a924da7c0ae4f316d6bd85580e76f0d0f36be",
+  "totals": {
+    "assertionsAcrossBothDistributions": 7456,
+    "completeCalculationsAcrossBothDistributions": 2478,
+    "initialFixtureExecutionsPerDistribution": 621,
+    "idempotenceExecutionsPerDistribution": 618,
+    "failedAssertions": 0
+  },
+  "coverage": [
+    "Every newly consumed biography parameter, populated and empty",
+    "Source-bound birthplace alias preservation",
+    "Native child/embed first-nonempty scope",
+    "Known module slots and true child calls only",
+    "Parent date/lead/reference retention without borrowing child facts",
+    "Conflicting ALT and unproved class activation declined",
+    "Current native aliases do not receive stale ignored-field warnings",
+    "Full preservation checks and repeated-action idempotence"
+  ],
+  "limitations": [
+    "These are synthetic engine tests, not browser or rendered HTML tests. Native render comparisons are reported separately.",
+    "Historical unrecognized person-family aliases remain conservative; no new global person, gender or portal inference is enabled.",
+    "Unknown, missing, dynamic or false child flags are preserved and do not certify embedding."
+  ],
+  "historicalTestArtifactsPreserved": true,
+  "preexistingUntrackedTestHashesUnchanged": true,
+  "wikipediaWrites": 0,
+  "distributions": [
+    {
+      "distribution": "core",
+      "file": "RevisaWiki_v2_21_3.js",
+      "sha256": "e89719d443e991f9f78be585fb2420aac700d7cad35b09722f8f61d7a540c79c",
+      "suites": [
+        {
+          "suite": "biography-compatibility-2.21.3",
+          "testFile": "tests/v2213/compatibility.cjs",
+          "testSha256": "ccaae13118ec5aa73f9d3b46d2d8523c2413b8ce51e9c7d8d30092585693d70f",
+          "receiptSha256": "6dbd1401e7c6881e03fd0d58e4fe49b9ac1065a3bf07dbbca21e87f4a91be615",
+          "assertions": 1500,
+          "initialFixtureExecutions": 102,
+          "idempotenceExecutions": 99,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-image-compatibility-2.21.3",
+          "testFile": "tests/v2213/images.cjs",
+          "testSha256": "0e78c7472389691f537fd713662c4f2453843880be0452c093e4ad49baaa846a",
+          "receiptSha256": "ee2c3a78b5f0a7c8833cbaafca919a009b2890b02d9ac023045d395eae381579",
+          "assertions": 549,
+          "initialFixtureExecutions": 135,
+          "idempotenceExecutions": 135,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-native-scope-2.21.3",
+          "testFile": "tests/v2213/scope.cjs",
+          "testSha256": "7ff2232b84719666169140e63c46520bb85666527817da32fd67596f63d87f25",
+          "receiptSha256": "ad759595d5cfd16a42baf1b55958362c12d11a330c75984ac39d8cfad7e03c64",
+          "assertions": 23,
+          "initialFixtureExecutions": 0,
+          "idempotenceExecutions": 0,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-all-new-native-fields-2.21.3",
+          "testFile": "tests/v2213/native_fields.cjs",
+          "testSha256": "cac64f59dbc63dcdcd8987c47568646f7428c24fba7d0b09dede7aa35fe2d0d1",
+          "receiptSha256": "e87740733181d50c5d0d88f457faeac53ab567c7461761671039650f98043737",
+          "assertions": 1440,
+          "initialFixtureExecutions": 360,
+          "idempotenceExecutions": 360,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-parent-lead-scope-2.21.3",
+          "testFile": "tests/v2213/lead.cjs",
+          "testSha256": "57cd691a398b4a2428f37087834407690ac629b11f1d7ff06ba37063f58e033d",
+          "receiptSha256": "cc5d89453077001bb03c6fa15f1db332ab9d66277f4ea9f82cf8a55c59766818",
+          "assertions": 216,
+          "initialFixtureExecutions": 24,
+          "idempotenceExecutions": 24,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "distribution": "complete",
+      "file": "RevisaWiki_v2_21_3_completo.js",
+      "sha256": "7714eda720bc74329ee619772907a3927ffd09663d705ada9a01fc4b7df95bf8",
+      "suites": [
+        {
+          "suite": "biography-compatibility-2.21.3",
+          "testFile": "tests/v2213/compatibility.cjs",
+          "testSha256": "ccaae13118ec5aa73f9d3b46d2d8523c2413b8ce51e9c7d8d30092585693d70f",
+          "receiptSha256": "b1e2748e45daac18a6117629bcbb1fecd6ca5ba6db4e5773bd2fd6dcd7c8a57d",
+          "assertions": 1500,
+          "initialFixtureExecutions": 102,
+          "idempotenceExecutions": 99,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-image-compatibility-2.21.3",
+          "testFile": "tests/v2213/images.cjs",
+          "testSha256": "0e78c7472389691f537fd713662c4f2453843880be0452c093e4ad49baaa846a",
+          "receiptSha256": "cca417567f1f25c1e526f26ff7fba8ec4cfc805b4155563056ce711b23b00240",
+          "assertions": 549,
+          "initialFixtureExecutions": 135,
+          "idempotenceExecutions": 135,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-native-scope-2.21.3",
+          "testFile": "tests/v2213/scope.cjs",
+          "testSha256": "7ff2232b84719666169140e63c46520bb85666527817da32fd67596f63d87f25",
+          "receiptSha256": "b1af6cb79a496fb89d965987be922fcc830c66c4e35b5e6fadbd00ee3fc13441",
+          "assertions": 23,
+          "initialFixtureExecutions": 0,
+          "idempotenceExecutions": 0,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-all-new-native-fields-2.21.3",
+          "testFile": "tests/v2213/native_fields.cjs",
+          "testSha256": "cac64f59dbc63dcdcd8987c47568646f7428c24fba7d0b09dede7aa35fe2d0d1",
+          "receiptSha256": "c60a29358e4672ca152d71c5c55411278ae28bfadd3383508b0f5912152f3510",
+          "assertions": 1440,
+          "initialFixtureExecutions": 360,
+          "idempotenceExecutions": 360,
+          "status": "passed"
+        },
+        {
+          "suite": "biography-parent-lead-scope-2.21.3",
+          "testFile": "tests/v2213/lead.cjs",
+          "testSha256": "57cd691a398b4a2428f37087834407690ac629b11f1d7ff06ba37063f58e033d",
+          "receiptSha256": "3d72640df4b1e37c09746e8f58a364935c98fc6a046b3bd70431ae71608adcf1",
+          "assertions": 216,
+          "initialFixtureExecutions": 24,
+          "idempotenceExecutions": 24,
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "counting": "Both distributions run the same scenarios. Idempotence runs and duplicated runs across distributions are additional executions, not additional unique cases. Overlapping inputs across suites are not counted as unique articles or unique cases."
+}
