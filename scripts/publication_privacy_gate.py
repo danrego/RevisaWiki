@@ -103,6 +103,20 @@ APPROVED_RUNTIME_OBJECT_KEYS={
    'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
   },
  },
+ '0e5d0f2377293ebbd863bed4a04762851ee409fae567ec1ffc5adb6e660fa92f':{
+  'bytes':1793859,
+  'tokens':{
+   '91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
+ 'd436af7d43c9db533073d085df7ea05037c30d03c497c316278de20c887a4f57':{
+  'bytes':3880399,
+  'tokens':{
+   '91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d':1,
+   'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b':1,
+  },
+ },
 }
 # Exact fictional URL-userinfo fixtures exercise URL grammar without real accounts.
 # Only reviewed complete source files and exact reserved-domain URLs qualify.
