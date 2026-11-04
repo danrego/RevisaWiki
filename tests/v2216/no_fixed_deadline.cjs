@@ -1,0 +1,12 @@
+'use strict';
+// This source audit concerns the production coordinator, not test-runner caps
+// or individual network timeouts. The actual >60s Worker UI case is separate.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),parser=require('@babel/parser'),crypto=require('node:crypto'),file=process.env.REVISAWIKI_CURRENT_CORE||path.resolve(__dirname,'../../dist/2.21.6/RevisaWiki_v2_21_6.js'),source=fs.readFileSync(file,'utf8'),functions=new Map();let checks=0;const ok=(x,m)=>{checks++;assert.ok(x,m);};
+function walk(n,fn){if(!n||typeof n!=='object')return;fn(n);for(const[k,v]of Object.entries(n)){if(['loc','start','end'].includes(k))continue;if(Array.isArray(v))v.forEach(x=>walk(x,fn));else if(v&&typeof v==='object')walk(v,fn);}}walk(parser.parse(source),n=>{if(n.type==='FunctionDeclaration'&&n.id)functions.set(n.id.name,n);});
+for(const name of ['beginLocalAnalysis','computeLocal','v2214Remaining','v2214RecoverLocalAdjustment'])ok(functions.has(name),'Production function remains concrete: '+name);
+let checksRemaining=false,unbounded=false;walk(functions.get('v2214Remaining'),n=>{if(n.type==='CallExpression'&&n.callee.type==='MemberExpression'&&n.callee.property.name==='guard')checksRemaining=true;if(n.type==='ReturnStatement'&&n.argument?.name==='Infinity')unbounded=true;});ok(checksRemaining&&unbounded,'No global deadline is substituted for the draft/context guard');
+let timer=false;walk(functions.get('computeLocal'),n=>{if(n.type==='CallExpression'&&n.callee.type==='MemberExpression'&&n.callee.property.name==='setTimeout')timer=true;});ok(!timer,'The actual Worker job has no global analysis timer');
+let deadlines=[];walk(functions.get('beginLocalAnalysis'),n=>{if(n.type==='ObjectProperty'&&(n.key.name||n.key.value)==='v2214Deadline')deadlines.push(n);});ok(!deadlines.length,'New tasks receive no fixed analysis deadline');
+let sixty=0;walk(parser.parse(source),n=>{if(n.type==='NumericLiteral'&&n.value===60000)sixty++;});ok(sixty===0,'No production60-second cap remains');
+for(const name of ['v2215ProgressIndicator','beginLocalAnalysis','v219BindLocalResultSafety','v219AutomaticResultSafety'])ok(functions.has(name),'Progress, source ownership and result guards remain present');
+console.log(JSON.stringify({suite:'unbounded-coordinator-with-source-guards-2.21.6',checks,runtimeSha256:crypto.createHash('sha256').update(source).digest('hex'),actualTimedBrowserCaseSeparate:true,wikipediaWrites:0}));

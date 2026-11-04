@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.6",
+  "status": "passed",
+  "runtimeManifestSha256": "de5da4750f5385d6de7ef400cb2ad75bd5ebaabce520af1cae3f25bb6624a1f0",
+  "runtimeFiles": {
+    "core": {
+      "file": "RevisaWiki_v2_21_6.js",
+      "sha256": "c5083ff46e783bb2cc22f7bdbdb2f3cb26808e1574aeae07a89743d05e24e814",
+      "bytes": 1848392
+    },
+    "complete": {
+      "file": "RevisaWiki_v2_21_6_completo.js",
+      "sha256": "3aa2940e9776e5f52ba9a82d1d707accca202f095850898cd787a1b000ee669d",
+      "bytes": 3934932
+    },
+    "data": {
+      "file": "RevisaWiki_v2_21_6_dados.js",
+      "sha256": "d3f50f2c3379865b1b38b85c26b958f39196c702fa4a506c893a5f4348fd0d20",
+      "bytes": 2093756
+    }
+  },
+  "browser": "Chrome",
+  "browserVersion": "156.0.8078.80",
+  "scope": "Exact frozen release in installed Chrome. An actual completed production Worker result is held for a real interval in the synthetic loopback transport; the production clock, Worker, writer and guards are unmodified. This is not a live Wikipedia editor test or a claim that the calculation itself consumed the whole interval.",
+  "testCount": 1,
+  "checks": 43,
+  "caseResults": [
+    {
+      "id": "actual-worker-result-after-previous-60-second-boundary",
+      "status": "passed",
+      "milliseconds": 62874
+    }
+  ],
+  "subcases": [
+    {
+      "id": "actual-interval-result-commit",
+      "status": "passed",
+      "elapsedMilliseconds": 61842
+    },
+    {
+      "id": "interval-result-undo",
+      "status": "passed"
+    },
+    {
+      "id": "cancelled-real-result-source-guard",
+      "status": "passed"
+    },
+    {
+      "id": "manually-edited-draft-source-guard",
+      "status": "passed"
+    }
+  ],
+  "actualPendingResultMilliseconds": 61842,
+  "configuredFixtureHoldMilliseconds": 61500,
+  "productionClockAndCodeUnmodified": true,
+  "completeDraftPreservedWhileWaiting": true,
+  "verifiedCandidateAppliedAfterInterval": true,
+  "manualSummaryPreserved": true,
+  "automaticMinorApplied": true,
+  "undoRestoresCompleteOriginalDraftAndMinorFlag": true,
+  "cancellationAndStaleResultSourceGuardsPassed": true,
+  "fixedAnalysisDeadline": false,
+  "freshCurrentBundleExecution": true,
+  "earlierTimedReceiptsRetainedUnchanged": true,
+  "fullPrivateReportSha256": "c0a92e6b8cab0b9169916728f0b5e34cc08156e49a824f9053cd2812c52930c7",
+  "runnerSha256": "de6dfe84fde4e65ffc869e9fa2ba6b4e298ce3b48ce7b5e4b47cc0fa7edb49c0",
+  "baseRunnerSha256": "265c422326bdbe71933000c6d3facb486ff4edf450cf0a6c4f14feed4660f74e",
+  "originalHarnessSha256": "3c75daf9220153fe499f94cb915db48a76db843adc57cf4bdfcb260b53088421",
+  "adaptedFixtureScriptSha256": "b5a59228d13ec552df2e0defb9d402d7c99f9d756229fc222469eca4da2ac5da",
+  "adaptedScriptHashes": {
+    "core": "cc793eae8b6789604bbb60b8ccac293183825ee18afce1f3cc242cf74eae0643",
+    "complete": "e5fe00bb87cf6b922d4f544b8a517ba25c4382aff440514d09a24142ddf1bf6c",
+    "data": "d3f50f2c3379865b1b38b85c26b958f39196c702fa4a506c893a5f4348fd0d20"
+  },
+  "ownedBrowserSessionClosed": true,
+  "browserRuntimeErrors": [],
+  "wikipediaWrites": 0,
+  "networkMutations": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0
+}

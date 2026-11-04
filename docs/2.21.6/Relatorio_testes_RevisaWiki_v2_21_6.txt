@@ -1,0 +1,28 @@
+RevisaWiki 2.21.6 - testes e limites
+
+Os arquivos distribuídos foram congelados por tamanho e SHA-256. A validação final confere esses mesmos arquivos e suas fontes. Núcleo e distribuição completa têm verificações separadas.
+
+* Contratos dirigidos: 36 grupos e 13084 verificações, com casos positivos, falsos positivos, preservação e composição de ajustes.
+* Regressão herdada: 16 grupos funcionais, 14 de biografias e 34 de referências, tabelas e estrutura. A suíte ampla mantém 4.009 casos sintéticos por distribuição. As falhas de expectativas antigas continuam registradas como falhas brutas. Diferenças de protocolo, preferência de parâmetros e formatação têm provas finitas separadas, sem modificar testes históricos.
+* Corpus local: 1.154 contextos na fila, 1.150 análises completas nesta rodada, com 1.133 contextos comuns e 17 rascunhos históricos. Quatro casos extremos históricos não foram repetidos e não contam como aprovados. Esses contextos executados correspondem a 1.048 corpos distintos. A fila completa tem 1.052 corpos, incluindo os quatro casos históricos não repetidos. Contextos não equivalem a títulos únicos. O corpus reutiliza somente dados locais, sem novas solicitações à Wikimedia.
+* Referências: nenhuma nova chamada ativa ficou sem definição nos 1.150 contextos. A conferência cobre nomes, grupos e reutilizações, inclusive referências ativas em marcação de citação. Fórmulas, alvos de imagens, legendas, valores das células e os rascunhos originais têm verificações separadas.
+* Navegadores: 192 casos e 3168 verificações no Chrome, Firefox e Safari do Mac. Foram conferidos processamento, cancelamento, preservação do rascunho, desfazer e correções independentes. As sessões de teste foram encerradas.
+* Análise sem corte global de 60 segundos. Em um teste adicional no Chrome, um resultado real do Worker ficou em trânsito por 61842 milissegundos, com o relógio e o programa distribuído inalterados. O rascunho foi preservado enquanto aguardava e o resultado completo foi aplicado. Desfazer, cancelamento e proteção contra resultado atrasado também passaram. Esse intervalo mede a espera pela resposta, não o tempo de cálculo da transformação. Limites locais de consultas externas e dos processos de teste são separados do processamento no editor.
+* Pré-salvamento: seis arquivos instaláveis passaram pelo pré-processamento nativo anônimo. Dados.js manteve sua estrutura decodificada e o catálogo. A diferença permitida é a quebra final de linha. Não houve troca de hash para esconder incompatibilidade.
+* Documentação: 146 funcionalidades com exemplos e condições, 38 exemplos documentais executáveis e 3.204 verificações do inventário. Manual, renderização nativa e pré-salvamento têm certificados próprios. A demonstração offline contém 135 situações. Seis dessas situações também foram conferidas no Chrome.
+* Entrega: 22 testes das ferramentas. Privacidade: 71 testes, controles sintéticos adicionais e inspeção dos novos arquivos e dos membros do ZIP antes do envio.
+* Reconstrução: os sete arquivos de execução e o manifesto foram reproduzidos de fontes isoladas, sem reutilizar saídas ignoradas de compilações anteriores. O pacote final também é reconstruído e comparado byte a byte.
+
+Observações preservadas
+
+O corpus mantém uma limitação anterior de idempotência: uma segunda passagem altera apenas o alinhamento de espaços antes de sinais de igualdade em uma infocaixa. O resultado bruto continua não idempotente e não conta como aprovação plena desse critério.
+
+As diferenças brutas dos comparadores de referências e de quatro métricas de tabelas ficam nos recibos originais. Provas separadas restringem as qualificações à normalização já permitida, a uma chamada anônima literalmente idêntica e adjacente e à remoção de linhas finais vazias de tabela. Essas qualificações não autorizam perder definições, células ou conteúdo.
+
+Uma operação sem prova suficiente é omitida localmente. Programas aninhados que possam alterar ordenação ou categorias permanecem na mesma ordem. Avaliações humanas, parâmetros conflitantes, grupos de notas distintos e estruturas funcionais são preservados. Outros ajustes independentes podem continuar.
+
+Quando a quantidade exata de ajustes não puder ser confirmada, o painel informa que houve ajustes sem estimar um número. A diferença em bytes continua disponível.
+
+Tentativas anteriores, falhas encontradas durante a preparação, interrupções de teste e resultados históricos foram preservados com seus hashes e estados originais. Os recibos distinguem análises completas, testes sintéticos, execuções de navegador, certificados reaproveitados e casos não executados.
+
+Os testes e a montagem não fizeram edições na Wikipédia. A instalação e a publicação de páginas permanecem manuais.

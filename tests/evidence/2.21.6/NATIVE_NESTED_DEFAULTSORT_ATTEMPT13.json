@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.6",
+  "status": "failed",
+  "runtimeManifestSha256": "2c3d93eba8e2fc62c30cd7c183523c9d0af086a8a015ddf06fdcb2effbc10b10",
+  "coreSha256": "f96bdb5dfbe6f727df343eca5b472ebcbf9e7f088ba10663b657b38423c2ea23",
+  "layoutHelperSha256": "74f2e3c8925f16aa5aec84b89e0945a125a9171e7910d66865d80058d88faf50",
+  "engine": "Local native MediaWiki",
+  "scope": "Two synthetic native before/after parses reproduce a global defaultsort change when an explicit top-level sort call is moved across an active nested sort call. Raw category sort-key maps alone do not detect the global metadata change.",
+  "pairedCases": 2,
+  "parseOutputs": 4,
+  "classification": "reproduced-content-metadata-integrity-defect",
+  "productionChanges": 0,
+  "wikipediaWrites": 0,
+  "cases": [
+    {
+      "id": "nested-sort-evaluation-1",
+      "status": "failed",
+      "beforeDefaultSort": "B",
+      "afterDefaultSort": "A",
+      "categoryMembershipAndLocalKeysPreserved": true,
+      "nativeParseWarningCount": 0,
+      "inputs": {
+        "before": {
+          "sha256": "ef9736c096859379b1c1129e15ec92a2d6fa7efcbb0f3359aadb346c1e210cfa",
+          "fullNativeResponseSha256": "9bf1e6df5bccfb1985fff86567cfc857571c94ef8a45cfa245f3b313e692730c"
+        },
+        "after": {
+          "sha256": "583dbb75b1c21af94f0b70e71fec2b00a36ff4a417fb1ea3c6b41c5267ec88bf",
+          "fullNativeResponseSha256": "db160147210866030cd5486be8dc8d63fc782b48c39420228b03a32244edcf46"
+        }
+      }
+    },
+    {
+      "id": "nested-sort-evaluation-2",
+      "status": "failed",
+      "beforeDefaultSort": "B",
+      "afterDefaultSort": "A",
+      "categoryMembershipAndLocalKeysPreserved": true,
+      "nativeParseWarningCount": 0,
+      "inputs": {
+        "before": {
+          "sha256": "d9834bdf9636cb681813f573fa9fb20620e64c40f85b2fe6c535976505ac7a55",
+          "fullNativeResponseSha256": "fd1cccd173a5ba278666c25575e0393fa9bc0367a4e228380474bfd3704b598a"
+        },
+        "after": {
+          "sha256": "27071e750df19fbde223c8f97cbbf7c561915da397d4b5160bf00a900a4c317d",
+          "fullNativeResponseSha256": "395b0a386b01539970370192ff19c7f73fa3a2899721e9ba9d555e4c2220cbbc"
+        }
+      }
+    }
+  ]
+}

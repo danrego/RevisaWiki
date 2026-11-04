@@ -1,0 +1,8 @@
+'use strict';
+const assert=require('node:assert/strict'),api=require('./layout_helpers.cjs')(),cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Exemplo',autoPreview:false,registryDoiCheck:false};let checks=0;const rows=[];
+for(const owner of ['Descrição curta','Short description','Sem interwiki'])for(const inner of ['{{DEFAULTSORT:B}}','{{NM|1980||B}}','{{NF|1980||B}}','{{Unknown program}}','<poem>{{DEFAULTSORT:B}}</poem>']){
+ const source='{{'+owner+'|'+inner+'}}\nTexto sobre [[Brasil|Brasil]].\n[[Categoria:Um]]',r=api.calculate({kind:'adjust',source,originalSource:source,options:cfg});
+ assert(api.v219AutomaticResultSafety(source,r).accepted);assert.deepEqual(r.preservation,[]);assert(r.text.includes('{{'+owner+'|'+inner+'}}'));assert(r.text.includes('Texto sobre [[Brasil]].'));const again=api.calculate({kind:'adjust',source:r.text,originalSource:r.text,options:cfg});assert.equal(again.text,r.text);checks+=5;rows.push({id:'obsolete-'+owner+'-'+rows.length,source,text:r.text});
+}
+for(const owner of ['Descrição curta','Short description','Sem interwiki'])for(const text of ['Texto simples.','Texto {{PAGENAME}}']){const source='{{'+owner+'|'+text+'}}\nTexto sobre [[Brasil|Brasil]].',r=api.calculate({kind:'adjust',source,originalSource:source,options:cfg});assert(!r.text.includes('{{'+owner));assert(r.text.includes('Texto sobre [[Brasil]].'));assert(api.v219AutomaticResultSafety(source,r).accepted);checks+=3;}
+console.log(JSON.stringify({suite:'obsolete-owner-full-writer-2.21.6',checks,passed:true}));if(process.env.REVISAWIKI_OBSOLETE_NATIVE_INPUTS)require('fs').writeFileSync(process.env.REVISAWIKI_OBSOLETE_NATIVE_INPUTS,JSON.stringify(rows,null,2)+'\n');

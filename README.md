@@ -2,23 +2,23 @@
 
 O RevisaWiki reúne correções de referências, infocaixas, tabelas e sintaxe no botão **Ajustar código**, no editor de código-fonte da Wikipédia em português. As mudanças ficam no rascunho, com opção de desfazer. Use **Mostrar alterações** e a pré-visualização para conferir o resultado antes de publicar.
 
-## Versão 2.21.5
+## Versão 2.21.6
 
-A atualização amplia as correções de referências, parâmetros e cabeçalhos de discussão. Um indicador de atividade acompanha a análise, e um resultado completo já verificado pode ser aproveitado se uma etapa posterior atingir o prazo.
+A versão reúne as correções de notas, referências, listas finais e metadados de discussão no mesmo botão. O [catálogo completo](docs/2.21.6/Funcionalidades_RevisaWiki_2_21_6.md) apresenta 146 funcionalidades, com exemplos e as condições de cada ajuste.
 
-- Usa `{{Referências}}` nas chamadas equivalentes e reúne notas e referências quando a estrutura permite.
-- Normaliza um único grupo de notas conferido, preservando grupos distintos e bancos de fontes.
-- Converte parâmetros ingleses para os correspondentes portugueses confirmados, inclusive alternativas aceitas. O modelo da citação, a precedência e os valores continuam sendo conferidos.
-- Reúne os cabeçalhos equivalentes em `{{PD}}` no topo da discussão, preservando conversas, comentários e argumentos configurados.
-- Corrige opções de imagem, nomes de portais e espaços desnecessários em trechos reconhecidos.
-- Confere as cópias de referências com o mesmo nome em conjunto, para impedir que uma alteração parcial gere definições diferentes.
-- Mantém a contagem das correções aplicadas, a diferença em bytes, **Mostrar alterações** e **Desfazer**. O painel não apresenta avisos de revisão nem motivos de recusa.
+- Isola as listas de referências, normaliza chamadas equivalentes e reúne notas e referências quando há um único conjunto compatível.
+- Corrige pontuação e chamadas adjacentes duplicadas de referências, preservando definições e reutilizações separadas.
+- Transfere a data fornecida de uma ligação inativa para a citação em casos confirmados, mantendo endereços e arquivos.
+- Usa técnicas do módulo NomeRefAuto para gerar nomes descritivos, reservando identidades existentes e preservando famílias ambíguas.
+- Retira colunas de listas curtas e usa duas colunas a partir de oito itens nas seções finais. Referências têm o mínimo separado de dez entradas.
+- Organiza metadados finais, caixas de projetos irmãos e cabeçalhos de discussão. Reconhece o controle de autoridade indireto de modelos compostos.
+- Mantém o indicador de atividade e o cancelamento, sem prazo fixo para a análise. Um ajuste não confirmado é omitido e os demais continuam sendo conferidos.
 
-O resumo padrão continua **Minúcias**, com marcação de edição menor quando os ajustes são aplicados, respeitando as escolhas manuais.
+O resumo padrão é **Minúcias**. A marcação de edição menor respeita as escolhas manuais. O painel informa somente os resultados aplicados, com a diferença em bytes, **Mostrar alterações** e **Desfazer**.
 
-[Índice para copiar e colar](dist/2.21.5/INDICE.md) · [Pacote ZIP](dist/2.21.5/RevisaWiki_2.21.5.zip) · [Manual](docs/2.21.5/Documentacao_RevisaWiki_v2_21_5.wiki) · [Instalação](docs/2.21.5/Instalacao_RevisaWiki_v2_21_5.txt)
+[Índice para copiar e colar](dist/2.21.6/INDICE.md) · [Pacote ZIP](dist/2.21.6/RevisaWiki_2.21.6.zip) · [Manual](docs/2.21.6/Documentacao_RevisaWiki_v2_21_6.wiki) · [Instalação](docs/2.21.6/Instalacao_RevisaWiki_v2_21_6.txt)
 
-Os dados continuam protegidos contra mudanças durante o salvamento na Wikipédia. O pacote exige o teste de pré-salvamento dos arquivos finais. A chamada fixa do common.js permanece igual.
+Os dados continuam protegidos contra mudanças durante o salvamento na Wikipédia. A chamada fixa do common.js permanece igual.
 
 ## Instalação
 
@@ -26,17 +26,17 @@ Para usar a distribuição compartilhada, acrescente uma vez a chamada fixa do �
 
 Quem mantém a distribuição atualiza **dados, programa, carregador central e documentação**, nessa ordem, pelos arquivos completos do índice. As partes precisam corresponder à mesma versão.
 
-Dados e programa são separados para respeitar o limite de tamanho de cada página. O arquivo `RevisaWiki_v2_21_5_completo.js` excede esse limite e serve para uso local e testes. Não instale a distribuição compartilhada e uma cópia própria ao mesmo tempo.
+Dados e programa são separados para respeitar o limite de tamanho de cada página. O arquivo `RevisaWiki_v2_21_6_completo.js` excede esse limite e serve para uso local e testes. Não instale a distribuição compartilhada e uma cópia própria ao mesmo tempo.
 
-A instalação na Wikipédia permanece manual. O RevisaWiki não publica páginas. Os 60 segundos são um limite do próprio RevisaWiki. Se uma etapa posterior atingir esse prazo, o programa pode aplicar um candidato completo já verificado para o mesmo rascunho. Sem esse candidato, o rascunho, o resumo e os controles anteriores são preservados, e a edição pode continuar.
+A instalação na Wikipédia permanece manual. O RevisaWiki não publica páginas. A análise continua até terminar ou ser cancelada. O editor só recebe um resultado completo e verificado para o mesmo rascunho. Alterar o texto durante o processamento invalida o resultado anterior, preservando a edição mais recente.
 
 ## Demonstração
 
-[Baixe a demonstração](dist/2.21.5/Demonstracao_RevisaWiki_v2_21_5.html) e abra o arquivo no navegador. O GitHub mostra o código de arquivos HTML. A demonstração funciona offline, usa o mesmo motor distribuído e apresenta 121 exemplos fictícios, incluindo situações que precisam permanecer intactas. Consultas externas não são simuladas como fatos sobre artigos reais.
+[Baixe a demonstração](dist/2.21.6/Demonstracao_RevisaWiki_v2_21_6.html) e abra o arquivo no navegador. O GitHub mostra o código de arquivos HTML. A demonstração funciona offline, usa o mesmo motor distribuído e apresenta 135 exemplos fictícios, incluindo situações que precisam permanecer intactas. Consultas externas não são simuladas como fatos sobre artigos reais.
 
 ## Código e testes
 
-A reconstrução parte dos sete arquivos imutáveis da 2.21.4 e dos módulos de `src/v2_21_5`. O catálogo e os contratos nativos anteriores permanecem no pacote. O construtor substitui trechos identificados da sintaxe e preserva os contratos anteriores. A preparação do código reduz nomes locais, sem compactar algoritmos nem retirar verificações, e protege as strings contra mudanças no pré-salvamento.
+A reconstrução verifica os arquivos imutáveis da 2.21.5 e recompõe sua base a partir da 2.21.4, antes de incorporar os módulos de `src/v2_21_6`. O catálogo e os contratos nativos anteriores permanecem no pacote. O construtor substitui trechos identificados da sintaxe e preserva os contratos anteriores. A preparação do código reduz nomes locais, sem compactar algoritmos nem retirar verificações, e protege as strings contra mudanças no pré-salvamento.
 
 Com Python 3, Node.js 24 ou superior e npm 10 ou superior:
 
@@ -53,13 +53,15 @@ npm run test:privacy
 
 `npm test` executa os contratos atuais nos dois arquivos distribuídos e confere a interface carregada da fonte. `test:biography` repete os grupos herdados de biografias. Os contratos anteriores de referências, tabelas e fontes ficam em `test:regression`. As execuções de grupos, os cálculos e os artigos únicos são contados separadamente. A pré-gravação e o pacote têm testes próprios. Os arquivos e resultados antigos mantêm seus estados originais.
 
-O [relatório da versão](tests/evidence/2.21.5/QA_SUMMARY.json) separa fontes reais congeladas, controles sintéticos, testes da interface, limites e exemplos da demonstração. O [quadro dos 76 itens](tests/v2212/coverage_all.json) conserva o registro da 2.21.2, com os limites de suas automações. Os comprovantes novos identificam o pacote atual e não reclassificam resultados históricos.
+O [relatório da versão](tests/evidence/2.21.6/QA_SUMMARY.json) separa fontes reais congeladas, controles sintéticos, testes da interface, limites e exemplos da demonstração. O [quadro dos 76 itens](tests/v2212/coverage_all.json) conserva o registro da 2.21.2, com os limites de suas automações. Os comprovantes novos identificam o pacote atual e não reclassificam resultados históricos.
 
-`test:presave:receipt` confere o comprovante já incluído. Uma nova consulta usa `scripts/check_wiki_presave_v2215.py` com um caminho de recibo ainda inexistente; a API é consultada em modo de leitura, sem autenticação nem edições. A montagem recusa uma resposta alterada, uma falha de acesso ou um comprovante de outros arquivos. Os dados e o programa precisam pertencer ao mesmo pacote.
+`test:presave:receipt` confere o comprovante já incluído. Uma nova consulta usa `scripts/check_wiki_presave_v2216.py` com um caminho de recibo ainda inexistente; a API é consultada em modo de leitura, sem autenticação nem edições. A montagem recusa uma resposta alterada, uma falha de acesso ou um comprovante de outros arquivos. Os dados e o programa precisam pertencer ao mesmo pacote.
 
-Nenhum teste publica edições na Wikipédia. Os testes de navegador usam o programa real em páginas locais, com editores e respostas de consultas fictícios. A campanha de revisões reais usa fontes congeladas e mantém recusas, erros e timeouts separados dos resultados aceitos. Os 60 segundos e a preservação do rascunho continuam obrigatórios.
+Nenhum teste publica edições na Wikipédia. Os testes de navegador usam o programa real em páginas locais, com editores e respostas de consultas fictícios. A campanha de revisões reais usa fontes congeladas e mantém recusas, erros e timeouts separados dos resultados aceitos. A preservação do rascunho continua obrigatória. Limites externos dos testes e prazos de consultas individuais são registrados separadamente do processamento local, que não tem corte fixo de tempo.
 
 ## Versões anteriores
+
+- [2.21.5](dist/2.21.5/INDICE.md): referências, parâmetros, cabeçalhos de discussão e resultados independentes verificados.
 
 - [2.21.4](dist/2.21.4/INDICE.md): recuperação de correções independentes e painel com os resultados aplicados.
 
@@ -72,7 +74,7 @@ Nenhum teste publica edições na Wikipédia. Os testes de navegador usam o prog
 - [2.21.0](docs/2.21.0/Notas_da_versao_RevisaWiki_v2_21_0.txt): campos de infocaixas, referências e sintaxe.
 - [2.20.0](docs/2.20.0/Notas_da_versao_RevisaWiki_v2_20_0.txt): parâmetros, infocaixas, referências, portais e fronteiras de preservação.
 - [2.19.1](docs/2.19.1/Notas_da_versao_RevisaWiki_v2_19_1.txt): correção da identificação do editor e do erro de objeto cíclico.
-- [Histórico completo](docs/2.21.5/Documentacao_RevisaWiki_v2_21_5.wiki): notas das versões em ordem da mais recente para a mais antiga.
+- [Histórico completo](docs/2.21.6/Documentacao_RevisaWiki_v2_21_6.wiki): notas das versões em ordem da mais recente para a mais antiga.
 
 ## Privacidade e licença
 

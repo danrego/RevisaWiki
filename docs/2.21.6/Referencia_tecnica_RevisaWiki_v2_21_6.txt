@@ -1,0 +1,67 @@
+RevisaWiki 2.21.6: referência técnica
+
+Execução
+
+Não há um prazo global de 60 segundos para a análise. O processamento em Worker e as etapas de trabalho continuam separados da aplicação no editor. Consultas externas conservam prazos próprios. Cancelamento, mudança do texto, mudança do contexto e troca de opções invalidam o resultado anterior.
+
+Um candidato só pode chegar ao editor se estiver completo, verificado e vinculado ao rascunho que iniciou a execução. Em uma falha operacional posterior, um candidato anterior verificado só pode ser aproveitado se o texto e o contexto ainda coincidirem. Cancelar ou editar depois impede esse aproveitamento. Nenhuma saída interrompida é aplicada.
+
+Planos independentes
+
+As regras produzem operações delimitadas, com prova ligada à fonte. Uma operação sem equivalência não torna elegíveis estruturas desconhecidas ou regiões opacas. Uma recusa local não deve suprimir automaticamente reparos independentes em outras regiões. A composição final continua conferindo palavras, referências, grupos, valores de infocaixa, células, fórmulas e unidades.
+
+O resultado de interface contém somente alterações mantidas e a diferença em bytes. Um total numérico só aparece quando a contagem exata está confirmada. Sem essa confirmação, a interface informa que os ajustes foram aplicados, sem atribuir um total estimado. Não exibe propostas recusadas nem remete a um relatório inexistente. Mostrar alterações usa o editor normal. Desfazer respeita o vínculo com o rascunho, sem sobrescrever trabalho manual posterior.
+
+Referências
+
+A forma preferida é Referências, ou Notas e referências quando os coletores são compatíveis. A equivalência depende de grupos, bancos, argumentos, títulos, escopo e destino das definições. Não se impõe um único coletor a listas legitimamente diferentes.
+
+As referências anônimas só são reunidas quando seu conteúdo e atributos correspondem. Chamadas adjacentes iguais podem perder uma cópia, enquanto definições e chamadas separadas permanecem. A pontuação usa os sinais já presentes, sem inventar pontuação ou alterar o corpo das fontes.
+
+Ligação inativa só migra para datali com associação única a uma citação web ou de jornal, URL principal inequívoca e uma data de calendário reconhecida já existente. Endereços e datas de arquivo, atributos de acesso e valores conflitantes permanecem. Um aviso não é apagado apenas para esconder um problema.
+
+NomeRefAuto
+
+A nomeação é calculada localmente com campos conferidos do leitor CS1. A prioridade usa colaborador, autor, editor, periódico, enciclopédia, título, título do livro e domínio da URL. Pode aproveitar até quatro nomes e o ano de publicação. Não utiliza o ano de acesso como ano da obra.
+
+O nome é limpo para um atributo literal e recebe sufixo numérico para evitar colisões. As famílias automáticas reconhecidas incluem :0 e sequências equivalentes, ref-auto-N e o prefixo automático antigo. A definição e todas as reutilizações da mesma família são atualizadas juntas. Nomes descritivos existentes, fontes conflitantes e produtores dinâmicos não são renomeados por aproximação. Argumentos literais de outras chamadas reservam possíveis identidades, e a ocorrência do nome antigo nesses argumentos conserva a família inteira. A comparação de nomes ocupados considera NFC sem reescrever nomes existentes. Anos conflitantes ou intervalos sem um ano único mantêm a alternativa neutra.
+
+A integração usa técnicas do módulo nativo, sem afirmar equivalência byte a byte em toda construção possível de Lua. Não insere predefinições dentro de name e não exige consultas de rede por fonte ou mudanças na configuração comunitária do editor visual. Metadados fora do contrato conservam a nomeação neutra existente.
+
+Infocaixas e catálogos
+
+O catálogo distingue accepted, patterns, aliases, renames, ignored e partial. Reconhecer uma chave não significa que ela possa substituir qualquer outra. O leitor da predefinição determina o significado, a precedência e a exibição de cada campo. Valores vazios e preenchidos podem ter efeitos diferentes.
+
+Chaves bibliográficas inglesas recebem nomes portugueses somente quando o destino mantém função e prioridade. Os índices dos autores ficam preservados. Os campos vauthors e veditors podem permanecer em inglês quando o módulo nativo depende dessas chaves para a lista Vancouver.
+
+As regras de nascimento, morte, profissão, imagem, site e incorporação exigem o modelo e o campo conferidos. Um valor de batismo não se torna nascimento. Caixa filha não fornece dados de outra pessoa para a introdução. Dados copiados entre abertura e infocaixa conservam suas referências. Os campos de sepultamento seguem os contratos nativos, sem reinterpretar seu significado.
+
+Predefinições obsoletas
+
+A retirada de Descrição curta conserva a chamada inteira quando seus argumentos contêm programas internos que possam alterar categorias, ordenação ou outros metadados. Uma chamada ou função desconhecida não é presumida sem efeito. A recusa fica limitada à remoção sem equivalência demonstrada, e os reparos independentes continuam elegíveis.
+
+Rodapé
+
+Listas finais simples usam duas colunas a partir de oito itens principais por seção ou subseção. Subitens não aumentam o mínimo. Referências têm seu próprio mínimo de dez entradas. Uma configuração com função real não é descartada para encurtar a marcação.
+
+Os blocos de colunas manuais elegíveis são unidos na ordem dos campos, sem somar seções diferentes. Invólucros genéricos só são retirados quando são equilibrados, contêm a chamada nativa prevista e não fornecem uma função adicional necessária. O programa não remove contêineres indiscriminadamente.
+
+DEFAULTSORT pode ir para antes das categorias consecutivas somente quando sua ordem de avaliação permanece equivalente. A conferência alcança as chamadas internas, funções parser e extensões desconhecidas, sem presumir que um programa desconhecido seja neutro para a ordenação. Os modelos literais de metadados e colunas expressamente conferidos têm tratamento próprio, mas suas chamadas internas continuam sendo examinadas. Um movimento que mudaria essa ordem é omitido apenas naquela etapa. A retirada independente de linhas vazias entre categorias simples continua elegível.
+
+Identificadores de autoridade repetidos só são consolidados com equivalência efetiva, inclusive nos modelos compostos conferidos. Cópias literais idênticas e adjacentes de NM ou NF podem manter a última chamada. Cópias separadas por outra chamada de ordenação ou programa desconhecido conservam sua ordem. Anos, ordenação e outras funções não são descartados para remover uma caixa.
+
+Discussões
+
+A identidade de PD usa os aliases nativos conferidos. Chamadas compatíveis podem ser reunidas, mas argumentos conflitantes e exemplos de código são preservados. Marca de projeto conserva todos os projetos e avaliações humanas compatíveis. A remoção de uma avaliação ou data automática exige localizar a revisão que introduziu o valor, confirmar que essa mesma edição recebeu a marca bot e que a conta pertence ao grupo bot. A prova fica ligada à revisão, ao texto, à chamada e ao valor exato. Uma associação atual ao grupo bot, uma nota ou uma data, sozinhas, não autorizam remover a avaliação. Quando o histórico ou as mudanças recentes não fornecem a prova, os campos permanecem.
+
+Traduzido conserva idioma, título, revisão, data e outros campos já presentes ao adaptar a ordem e os nomes nativos. Não cria atribuição de tradução ausente.
+
+Distribuição e evidência
+
+Núcleo, catálogo e carregadores pertencem à mesma distribuição. A versão e o hash continuam sendo conferidos. O pré-salvamento precisa preservar o catálogo decodificado, sem alterar o hash esperado para acomodar uma diferença.
+
+O catálogo documental reproduz os nomes e campos reconhecidos pelo pacote. Ele não é um arquivo adicional de instalação e não torna ativas propostas condicionais ou regras sem prova suficiente. A lista de funcionalidades distingue exemplos de código, trechos e condições de comportamento.
+
+Resultados históricos, timeouts, tentativas de recuperação e limitações permanecem com seus estados originais. O caso extremo de aproximadamente 1,9 MB continua sendo uma limitação histórica de desempenho. A ausência do corte global não reclassifica esse resultado.
+
+Código e versões: https://github.com/danrego/RevisaWiki

@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "version": "2.21.6",
+  "status": "passed",
+  "runtimeManifestSha256": "eb15184e15adc96f08b307111323211eaf35323008745bbe250edac6b335be35",
+  "coreSha256": "14450e6edba919d8fe22f69054ca01cc4c20bee608d20c762164896ebeac5091",
+  "layoutHelperSha256": "74f2e3c8925f16aa5aec84b89e0945a125a9171e7910d66865d80058d88faf50",
+  "engine": "Local native MediaWiki",
+  "scope": "Three read-only synthetic before/after parse pairs compare actual category sort-key maps and the final defaultsort page property, including composite native metadata. Category display order is not asserted.",
+  "pairedCases": 3,
+  "parseOutputs": 6,
+  "checks": 9,
+  "productionChanges": 0,
+  "wikipediaWrites": 0,
+  "results": [
+    {
+      "id": "sort-evaluation-1",
+      "status": "passed",
+      "checks": {
+        "categorySortkeyMapPreserved": true,
+        "finalDefaultSortPreserved": true,
+        "noParseWarnings": true
+      },
+      "before": {
+        "inputSha256": "3be86aa2f698ed4656a01b52677d10ac84c69d430eb1681c922e236ad12651ec",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "feaf975e3b2892d6be9aba4176eafdea22bb00b6d2fd5b20fc5ed52072caa85c"
+      },
+      "after": {
+        "inputSha256": "39baf862e8b87f8e948be5c0c759a049be97c95b2208ac6a30ce6adf7e196785",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "40b77ca8f1d024dafe44239b7ee636c79049b64feb39c18f67a3eea2847d92eb"
+      }
+    },
+    {
+      "id": "sort-evaluation-2",
+      "status": "passed",
+      "checks": {
+        "categorySortkeyMapPreserved": true,
+        "finalDefaultSortPreserved": true,
+        "noParseWarnings": true
+      },
+      "before": {
+        "inputSha256": "22ad35bb2934c0c4c8950c8d2d606efb6d2c51cf574e4724b687f76ea5142aca",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Nascidos_em_1900"
+          },
+          {
+            "sortkey": "",
+            "category": "Mortos_em_1980"
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "fe49ef80b0312f9d386c19034394cbaaadd1232bd41035361df1cd164e2bc72a"
+      },
+      "after": {
+        "inputSha256": "45f4acd0188cc45938586c824e48d08018df4cd713fdb268b007e3a364fe6cba",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Nascidos_em_1900"
+          },
+          {
+            "sortkey": "",
+            "category": "Mortos_em_1980"
+          },
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "b88ceaa1226a161bcad07c022048d7cfd81490d5d8fa6f3aa03cf46b48f32171"
+      }
+    },
+    {
+      "id": "sort-evaluation-3",
+      "status": "passed",
+      "checks": {
+        "categorySortkeyMapPreserved": true,
+        "finalDefaultSortPreserved": true,
+        "noParseWarnings": true
+      },
+      "before": {
+        "inputSha256": "e649cfee8ecca5e38a3a2754bfda2d775325edaad385de6e4fafe652d1c7ebf3",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Nascidos_em_1900"
+          },
+          {
+            "sortkey": "",
+            "category": "Mortos_em_1980"
+          },
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "2cce961be8b4cc19c75613abe2d0787f37ea73dc5519b7c8f0a248dca17bfea0"
+      },
+      "after": {
+        "inputSha256": "0a8d99c29598af1428b1ec7760fe55f5af2a1fee9f80c66b418d70ddffc8ed3c",
+        "categorySortKeys": [
+          {
+            "sortkey": "",
+            "category": "Nascidos_em_1900"
+          },
+          {
+            "sortkey": "",
+            "category": "Mortos_em_1980"
+          },
+          {
+            "sortkey": "",
+            "category": "Exemplo",
+            "missing": true
+          },
+          {
+            "sortkey": "",
+            "category": "Outra",
+            "missing": true
+          }
+        ],
+        "defaultSort": "B",
+        "fullNativeResponseSha256": "70003c57f89b547c79b3b1507ed64923a1657c1914c56aff7bff3cb6fef12fb1"
+      }
+    }
+  ]
+}
