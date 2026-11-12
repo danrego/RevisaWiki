@@ -1,0 +1,35 @@
+RevisaWiki 2.21.7: instalação e atualização
+
+Código e versões: https://github.com/danrego/RevisaWiki
+Arquivos e destinos: dist/2.21.7/INDICE.md
+
+Atualize os arquivos completos da distribuição compartilhada nesta ordem:
+
+1. RevisaWiki_v2_21_7_dados.js
+   Destino: Usuário:Daniel G Rego/RevisaWiki/Dados.js
+2. RevisaWiki_v2_21_7.js
+   Destino: Usuário:Daniel G Rego/RevisaWiki.js
+3. Carregador_comunitario_RevisaWiki_v2_21_7.js
+   Destino: Usuário:Daniel G Rego/RevisaWiki/Carregador.js
+4. Documentacao_RevisaWiki_v2_21_7.wiki
+   Destino: Usuário:Daniel G Rego/RevisaWiki
+
+Use arquivos da mesma distribuição. O carregador recebe somente o arquivo de carregador, e núcleo e dados ficam em páginas separadas. O arquivo completo é destinado a uso local e testes, sem substituir os arquivos instaláveis.
+
+A chamada fixa no common.js permanece igual. Na primeira instalação, acrescente Chamada_fixa_RevisaWiki_common.js, sem apagar os demais scripts, e mantenha uma única chamada. Quem já instalou essa chamada não precisa trocá-la a cada atualização do programa compartilhado.
+
+Para uma cópia própria, instale dados e programa em suas respectivas páginas e use Carregador_common_js_RevisaWiki_v2_21_7.js no carregador central. Na primeira instalação, acrescente Chamada_fixa_RevisaWiki_copia_propria.js ao common.js. Escolha apenas uma das duas instalações.
+
+Depois de atualizar, recarregue sem cache e confira a versão exibida. No Mac, use Command + Shift + R no Firefox ou Chrome, ou Option + Command + R no Safari. Não é preciso fechar o navegador.
+
+Se houver incompatibilidade entre dados e programa, confira os destinos e substitua os arquivos completos da mesma distribuição. Não altere o hash para contornar o aviso. O pacote conserva a conferência após o pré-salvamento e a verificação do conteúdo carregado.
+
+O aviso de 102400 bytes do realce de sintaxe diz respeito à exibição com cores. É diferente de uma recusa ao salvar, de um erro de JavaScript ou do limite de tamanho de página. Consulte o arquivo bruto para confirmar o conteúdo.
+
+Para usar, abra Editar código-fonte e clique em Ajustar código. As correções ficam no rascunho, com a diferença em bytes e o número de ajustes quando a contagem exata foi confirmada. Confira Mostrar alterações e use Desfazer ajustes se necessário. A publicação é manual.
+
+A 2.21.7 não tem o corte global de 60 segundos. Você pode cancelar a análise, e consultas externas conservam seus prazos próprios. Uma resposta antiga não pode substituir alterações manuais posteriores. O programa aplica somente resultados completos e verificados.
+
+O manual reúne 170 entradas de funcionalidades, comportamentos e preservação, com exemplos e condições. Os arquivos Funcionalidades_RevisaWiki_2_21_7.md, Modelos_e_campos_RevisaWiki_2_21_7.md e Catalogo_modelos_e_regras_2_21_7.json ficam no GitHub para consulta. O catálogo completo não é um arquivo adicional de instalação na Wikipédia.
+
+Este pacote não publica páginas nem gera edições periódicas. Sua publicação no GitHub não significa instalação na Wikipédia.

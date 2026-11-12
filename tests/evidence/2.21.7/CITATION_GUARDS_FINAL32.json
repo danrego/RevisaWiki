@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "candidate": 32,
+  "runtimeManifestSha256": "c755827dd6a100e827821907221c9686129e16fb7962c8d30c319292e7655874",
+  "kind": "final-frozen-independent-citation-guard-verification",
+  "version": "2.21.7",
+  "runtimeFiles": {
+    "RevisaWiki_v2_21_7.js": {
+      "sha256": "675e88458812262cea2f105c1a0562b9e252193d6c1f83c341282f16faf955d5",
+      "bytes": 2019156
+    },
+    "RevisaWiki_v2_21_7_completo.js": {
+      "sha256": "8d0339a299278986abceeb13203d63d45c32337f5dbcacaf88c46e2f67bd5215",
+      "bytes": 4105696
+    }
+  },
+  "sourceTests": [
+    {
+      "file": "tests/v221_integrity/archive_access_guard.cjs",
+      "sha256": "79256961f1c1d5c3a5a44dd500d142f800ea69e9b869d582fa684b3b796ea2a6",
+      "unchanged": true,
+      "rawStatus": "failed"
+    },
+    {
+      "file": "tests/v221_integrity/bare_reference_metadata_guard.cjs",
+      "sha256": "8a4ef389f19dd9ac9a655443114f3f80c441ce8187abbd34fd9fa401bc8a1243",
+      "unchanged": true,
+      "rawStatus": "passed"
+    },
+    {
+      "file": "tests/v221_integrity/coins_unicode_domain.cjs",
+      "sha256": "58bd099d78043a401709b0619bf6cb2b4bfe616ea3ab5ff7de1a269ec1a448d0",
+      "unchanged": true,
+      "rawStatus": "passed"
+    },
+    {
+      "file": "tests/v221_integrity/url_estado_archive_guard.cjs",
+      "sha256": "20acf6f73bf3abb50b8420e23a18d52cc35091ce2d41677c13129b0b397041ff",
+      "unchanged": true,
+      "rawStatus": "passed"
+    }
+  ],
+  "adapter": {
+    "sha256": "87050a7136f530169e9b55e42a3abba64c765f40a427d789a5a4de7be22599ab",
+    "bytes": 3131,
+    "role": "Current branch binds the actual frozen runtime; only test API exports are exposed. Historical-runtime reproduction remains separate.",
+    "behavioralEnginePatches": 0,
+    "namedTransformationAndSafetyBodiesUnchanged": true,
+    "originalAssertionsOrExpectedValuesRewritten": 0
+  },
+  "rawArchiveGuard": {
+    "status": "failed-original-context-free-assertion-retained",
+    "reason": "A newly active metadata emitter requires source page context. The old direct helper assertion omits that context. The actual writer and action supply it.",
+    "oldStatusRewritten": false
+  },
+  "contextualArchiveDiagnostic": {
+    "status": "passed",
+    "testProgramSha256": "7eedff7e72a18e51aa2b4cc269ded78069c2d19e350a7f089a8f7fd03b59e7b6",
+    "diagnosticBindingSha256": "1f3671a4801af30bbb5710f61a5852fc06d62d356358de54d77c37c76fd2316e",
+    "soleInvocationAmendment": {
+      "before": "api.v221CitationMigrationSafe(raw,next)",
+      "after": "api.v221CitationMigrationSafe(raw,next,cfg)"
+    },
+    "checks": 3676,
+    "matrixCasesBothDistributions": 1200,
+    "actualCalculateCalls": 20,
+    "oldRuntimeTriggerReproducedSeparately": true
+  },
+  "otherGuards": [
+    {
+      "name": "bare_reference_metadata_guard",
+      "status": "passed",
+      "assertions": 776,
+      "actualCalculateCalls": 156
+    },
+    {
+      "name": "coins_unicode_domain",
+      "status": "passed",
+      "assertions": 2224128,
+      "actualCalculateCalls": 0
+    },
+    {
+      "name": "url_estado_archive_guard",
+      "status": "passed",
+      "assertions": 412,
+      "actualCalculateCalls": 20
+    }
+  ],
+  "isolatedContextControls": {
+    "status": "passed",
+    "assertions": 22,
+    "actualCalculateCalls": 4,
+    "bothActualDistributions": true,
+    "unsafePageContextPreserved": true,
+    "archiveURLAndDateExact": true,
+    "realActionIdempotent": true
+  },
+  "executionCounts": {
+    "articleCaptures": 0,
+    "actualCalculateCalls": 200,
+    "unicodeScalarAssertions": 2224128,
+    "distinctUnicodeScalars": 1112064,
+    "unicodeCountsAreNotArticlesOrCalculateCalls": true,
+    "otherFunctionalAssertions": 4886
+  },
+  "bindingReceipts": {
+    "archive_access_guard.bindings.json": {
+      "sha256": "361cbf2fb7d9a20549aac1eec42cddd2c2750ae2fb7180dd18a72e3a898c4a8e",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 1
+    },
+    "bare_reference_metadata_guard.bindings.json": {
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "coins_unicode_domain.bindings.json": {
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "contextual.bindings.json": {
+      "sha256": "db0d23d0b250f90948f2af802367a1800835eb7c56176a4102bc51b194703528",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "isolated.bindings.json": {
+      "sha256": "889fd508265c594cce716fbdaf642a01c8b6ef923116eb86752a049327f95f38",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "url_estado_archive_guard.bindings.json": {
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    }
+  },
+  "unresolvedCurrentCitationIntegrityFindings": 0,
+  "productCodeChanges": 0,
+  "originalUntrackedTestsModified": false,
+  "previousResultsReclassified": false,
+  "wikipediaWrites": 0,
+  "rawAndDriverInputPins": {
+    "artifacts/v2217-reference-dev/archive_contextual_diagnostic_private.cjs": {
+      "bytes": 1162,
+      "sha256": "7eedff7e72a18e51aa2b4cc269ded78069c2d19e350a7f089a8f7fd03b59e7b6"
+    },
+    "artifacts/v2217-reference-dev/final_archive_context_controls_private.cjs": {
+      "bytes": 2853,
+      "sha256": "9bb87975515abc35a760e55c6f9a0dd42f204438e9a315708956501f8f256e2b"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/ADAPTER_FROZEN.cjs": {
+      "bytes": 3131,
+      "sha256": "87050a7136f530169e9b55e42a3abba64c765f40a427d789a5a4de7be22599ab"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/CONTEXTUAL_DIAGNOSTIC_BINDING.json": {
+      "bytes": 526,
+      "sha256": "1f3671a4801af30bbb5710f61a5852fc06d62d356358de54d77c37c76fd2316e"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/CONTEXTUAL_DIAGNOSTIC_FROZEN.cjs": {
+      "bytes": 1162,
+      "sha256": "7eedff7e72a18e51aa2b4cc269ded78069c2d19e350a7f089a8f7fd03b59e7b6"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/DRIVER.parent.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/DRIVER.parent.stdout": {
+      "bytes": 1401,
+      "sha256": "5654437b9bc091d4a112f16806cb9bfcd831518f7735ce99f8b080f834e724c3"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/ISOLATED_CONTEXT_CONTROLS.json": {
+      "bytes": 1074,
+      "sha256": "c5f6c25ff392b6c865ef5a90edca13a19cf0b8bff9a8deb3f37a6b14ef89a0a8"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/RESULT.json": {
+      "bytes": 2804,
+      "sha256": "59d6c07d533f71d4d3714f5d24c2ba34e61356e199a2309c29c91fcf34c1b79c"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/archive_access_guard.bindings.json": {
+      "bytes": 663,
+      "sha256": "361cbf2fb7d9a20549aac1eec42cddd2c2750ae2fb7180dd18a72e3a898c4a8e"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/archive_access_guard.stderr": {
+      "bytes": 1310,
+      "sha256": "6af394aa395f6dc48e71701fbc9b3f0e70af89f4e8531e45be67e4ef806dc3c7"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/archive_access_guard.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/bare_reference_metadata_guard.bindings.json": {
+      "bytes": 928,
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/bare_reference_metadata_guard.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/bare_reference_metadata_guard.stdout": {
+      "bytes": 505,
+      "sha256": "cd92c32e4dd9f8ffd2656b24d12ccb339af69a8bd586e1663c878f2fb583577f"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/coins_unicode_domain.bindings.json": {
+      "bytes": 928,
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/coins_unicode_domain.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/coins_unicode_domain.stdout": {
+      "bytes": 446,
+      "sha256": "86b6eda1b0b25641d83dd7a2e525c54b5958174c729fd0f31f420284039a0651"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/contextual.bindings.json": {
+      "bytes": 928,
+      "sha256": "db0d23d0b250f90948f2af802367a1800835eb7c56176a4102bc51b194703528"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/contextual.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/contextual.stdout": {
+      "bytes": 389,
+      "sha256": "0fc6cbf39b06844c27bb60272eea820fdab78698ec9b5b264c7c1f156f711c1f"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/isolated.bindings.json": {
+      "bytes": 585,
+      "sha256": "889fd508265c594cce716fbdaf642a01c8b6ef923116eb86752a049327f95f38"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/isolated.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/isolated.stdout": {
+      "bytes": 53,
+      "sha256": "d487ce138f02715db55a45cc1882b7fff6b42ba0fac8805741ec79dbd8475085"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/url_estado_archive_guard.bindings.json": {
+      "bytes": 928,
+      "sha256": "5004678248b43873932b531c82a0dc22473fa4c0c5ab3f2d604b3eca7f9c983b"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/url_estado_archive_guard.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2217-reference-dev/independent-guards-candidate32-attempt1/url_estado_archive_guard.stdout": {
+      "bytes": 362,
+      "sha256": "2524503dc3b03653c2c853040ecc938dfb7624c62fe487190f38a3daaf27772b"
+    },
+    "artifacts/v2217-reference-dev/independent_guard_preload.cjs": {
+      "bytes": 3131,
+      "sha256": "87050a7136f530169e9b55e42a3abba64c765f40a427d789a5a4de7be22599ab"
+    }
+  },
+  "historicalCandidate28StatusesUnchanged": true,
+  "historicalCandidate30StatusesUnchanged": true,
+  "actualCurrent32Executions": true
+}

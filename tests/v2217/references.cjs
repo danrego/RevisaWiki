@@ -1,0 +1,61 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'../..'),file=process.env.REVISAWIKI_CURRENT_CORE||path.join(root,'dist/2.21.7/RevisaWiki_v2_21_7.js'),api=require(file),sha=v=>crypto.createHash('sha256').update(v).digest('hex');
+assert.equal(typeof api.v2217ReferencePlan,'function');
+const cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Tema fictício',sectionOnly:false,autoPreview:false,registryDoiCheck:false},rows=[];let checks=0;
+const same=(a,b,message)=>{checks++;assert.equal(a,b,message);};
+function test(id,source,expected,options={}){
+ const settings={...cfg,...options},plan=api.v2217ReferencePlan(source,settings);same(plan.text,expected,id);
+ same(api.v2217ReferenceProof(source,plan.text,plan,settings),true,id+' proof');
+ same(api.v2217ReferencePlan(plan.text,settings).text,plan.text,id+' idempotence');
+ same(api.v2217ReferenceProjection(source,settings),plan.text,id+' projection');
+ const bad={...plan,sourceHash:'tampered'};same(api.v2217ReferenceProof(source,plan.text,bad,settings),false,id+' source binding');
+ rows.push({id,sourceSha256:sha(source),outputSha256:sha(plan.text),changed:source!==plan.text,edits:plan.edits.length,count:plan.edits.reduce((n,e)=>n+(e.count??1),0)});
+}
+test('redundant-heading-chain','== Referências ==\n\n===Notas===\n\n{{Referências}}\n','{{Referências}}\n');
+test('plain-reflist','== Referências ==\n{{Reflist}}\n','{{Referências}}\n');
+test('empty-citations-subheading','== Referências ==\n=== Citações ===\n{{Reflist}}\n\n=== Obras citadas ===\n* Obra.\n','{{Referências}}\n\n=== Obras citadas ===\n* Obra.\n');
+test('width-kept-parent-heading','== Referências ==\n=== Citações ===\n{{Reflist|30em}}\n\n=== Obras citadas ===\n* Obra.\n','== Referências ==\n{{Reflist|30em}}\n\n=== Obras citadas ===\n* Obra.\n');
+test('bank-without-width','== Referências ==\n{{Reflist|refs=<ref name="a">Fonte.</ref>}}\n','{{Referências|refs=<ref name="a">Fonte.</ref>}}\n');
+test('citation-owned-by-native-bank','{{Reflist|refs=<ref name="a">{{Citation|titulo=Obra|publicado=Editora|ano=2005}}</ref>}}','{{Referências|refs=<ref name="a">{{Citar livro|titulo=Obra|publicado=Editora|ano=2005|ref=harv}}</ref>}}');
+test('unknown-bank-owner-preserved','{{Unknown|refs=<ref name="a">{{Citation|titulo=Obra|publicado=Editora|ano=2005}}</ref>}}','{{Unknown|refs=<ref name="a">{{Citation|titulo=Obra|publicado=Editora|ano=2005}}</ref>}}');
+test('native-notefoot-plain','Texto<ref group="nota">Nota.</ref>\n{{NoteFoot}}','Texto<ref group="nota">Nota.</ref>\n{{Notas}}');
+test('native-notefoot-opaque-producer','{{UnknownNoteProducer}}\nTexto<ref group="nota">Nota.</ref>\n{{NoteFoot}}','{{UnknownNoteProducer}}\nTexto<ref group="nota">Nota.</ref>\n{{NoteFoot}}');
+for(const raw of ['{{Reflist|2|refs=<ref name="a">Fonte.</ref>}}','{{Reflist|30em|refs=<ref name="a">Fonte.</ref>}}','{{Reflist|colwidth=40em}}','{{Reflist|estilo=custom}}','{{Reflist|group=a|grupo=b}}'])test('custom-collector-preserved-'+rows.length,raw,raw);
+test('prose-in-heading-not-removed','== Referências ==\nTexto explicativo.\n{{Reflist}}','== Referências ==\nTexto explicativo.\n{{Referências|nível=0}}');
+test('real-notes-heading-preserved','Texto<ref group="nota">Nota.</ref>\n== Notas ==\nTexto explicativo.\n{{Notas}}\n\n{{Referências}}','Texto<ref group="nota">Nota.</ref>\n== Notas ==\nTexto explicativo.\n{{Notas}}\n\n{{Referências}}');
+for(const key of ['nível','nivel','3'])for(const value of ['0','3','{{Nível}}']){const raw='== Referências ==\n{{Referências|'+key+'='+value+'}}\n';test('explicit-heading-level-preserved-'+key+'-'+value,raw,raw);}
+test('suppressed-group-heading-preserved','Texto<ref group="a">Fonte.</ref>\n== Referências ==\n{{Referências|grupo=a|nível=0}}','Texto<ref group="a">Fonte.</ref>\n== Referências ==\n{{Referências|grupo=a|nível=0}}');
+test('suppressed-notes-heading-preserved','Texto<ref group="nota">Nota.</ref>\n== Notas ==\n{{Notas|nível=0}}','Texto<ref group="nota">Nota.</ref>\n== Notas ==\n{{Notas|nível=0}}');
+test('suppressed-combined-heading-preserved','== Notas e referências ==\n{{Notas e referências|nível=0}}','== Notas e referências ==\n{{Notas e referências|nível=0}}');
+test('heading-option-off','== Referências ==\n{{Reflist}}','== Referências ==\n{{Referências|nível=0}}',{headings:false});
+for(const head of ['REFLIST','refereencias'])test('bare-collector-case-'+head,'{{'+head+'}}','{{Referências}}');
+test('unverified-case-retained','{{REFERÊNCIAS}}','{{REFERÊNCIAS}}');
+test('unverified-combined-spelling-retained','{{Notas e referencias}}','{{Notas e referencias}}');
+test('literal-protected','<nowiki>== Referências ==\n{{Reflist}}</nowiki>','<nowiki>== Referências ==\n{{Reflist}}</nowiki>');
+const bible=[['Titus','Tito'],['1 Timothy','I Timóteo'],['Ephesians','Efésios'],['Luke','Lucas'],['Mark','Marcos'],['Matthew','Mateus'],['Judges','Juízes'],['2 Kings','II Reis'],['Acts','Atos'],['Genesis','Gênesis'],['Galatians','Gálatas'],['1 Corinthians','I Coríntios'],['John','João'],['Romans','Romanos'],['2 Corinthians','II Coríntios'],['1 Thessalonians','I Tessalonicenses'],['1 Peter','I Pedro']];
+for(const [en,pt]of bible){test('bible-single-'+en,'{{Bibleverse|'+en+'|2:1}}','{{Citar bíblia|livro='+pt+'|capítulo=2|verso=1}}');test('bible-range-'+en,'{{bibleverse|'+en+'|2:1–7}}','{{Citar bíblia|livro='+pt+'|capítulo=2|verso=1|verso_final=7}}');}
+test('bible-named-book','{{Bibleverse|livro=1 Timoteo|capítulo=3|verso=1|verso_final=7|citação=}}','{{Bibleverse|livro=I Timóteo|capítulo=3|verso=1|verso_final=7|citação=}}');
+test('bible-empty-position','{{bibleverse||livro=1 Timóteo|capítulo=5|verso=11|citação=|verso_final=15}}','{{bibleverse||livro=I Timóteo|capítulo=5|verso=11|citação=|verso_final=15}}');
+for(const raw of ['{{Bibleverse|John|3:16|NIV}}','{{Bibleverse|John|3:16–4:2}}','{{Bibleverse|John|3–4}}','{{Bibleverse|John|3:9–2}}','{{Bibleverse|John|0:2}}','{{Bibleverse|livro=João|capítulo=3|verso=16}}','{{Bibleverse|livro=1 Timoteo|verso=1}}','{{Bibleverse|Other|2:1}}'])test('bible-negative-'+rows.length,raw,raw);
+test('typed-book-header','{{Citation|titulo=Obra|publicado=Editora|ano=2005}}','{{Citar livro|titulo=Obra|publicado=Editora|ano=2005|ref=harv}}');
+test('typed-newspaper-header','{{citation|titulo=Artigo|jornal=Jornal fictício|ano=2005}}','{{Citar jornal|titulo=Artigo|jornal=Jornal fictício|ano=2005|ref=harv}}');
+test('typed-journal-header','{{Citation|título=Artigo|periódico=Revista fictícia|volume=2}}','{{Citar periódico|título=Artigo|periódico=Revista fictícia|volume=2|ref=harv}}');
+test('typed-magazine-header','{{Citation|título=Artigo|revista=Revista fictícia}}','{{Citar revista|título=Artigo|revista=Revista fictícia|ref=harv}}');
+test('typed-hostname-web','{{Citation|título=Documento|obra=example.org|url=https://example.org/texto}}','{{Citar web|título=Documento|obra=example.org|url=https://example.org/texto|ref=harv}}');
+test('preserve-harvard-id','{{Citation|titulo=Obra|ano=2005|publicado=Editora|ref=obra}}','{{Citar livro|titulo=Obra|ano=2005|publicado=Editora|ref=obra}}');
+test('cs1-explicit-mode','{{Citation|titulo=Obra|ano=2005|publicado=Editora|modo=cs1}}','{{Citar livro|titulo=Obra|ano=2005|publicado=Editora|modo=cs1}}');
+for(const raw of ['{{Citation|titulo=Documento|url=https://example.org/texto}}','{{Citation|titulo=Artigo|obra=Publicação ambígua}}','{{Citation|titulo=Artigo|periódico=A|jornal=B}}','{{Citation|titulo=Obra|publicado=Editora|unknown=nonempty}}','{{Citation|titulo=Obra|publicado=Editora|ref=}}','{{Citation|titulo=Obra|publicado=Editora|modo=custom}}'])test('typed-negative-'+rows.length,raw,raw);
+for(const [from,to]of [['1st','1.ª'],['2nd','2.ª'],['3rd','3.ª'],['4th','4.ª'],['11th','11.ª'],['12th','12.ª'],['13th','13.ª'],['21st','21.ª'],['102nd','102.ª']])test('edition-'+from,'{{Citar livro|titulo=Obra|edição='+from+'}}','{{Citar livro|titulo=Obra|edição='+to+'}}');
+for(const raw of ['{{Citar livro|titulo=Obra|edição=11st}}','{{Citar livro|titulo=Obra|edição=2nd|edition=3rd}}','{{Citar livro|titulo=2nd edition}}'])test('edition-negative-'+rows.length,raw,raw);
+const base='{{Citar livro|ultimo=Exemplo|titulo=Obra|ano=2001|publicado=Editora|isbn=9780306406157',full=base+'}}';
+test('same-named-definition','A<ref name="Exemplo">'+full+'</ref> B<ref name="Exemplo">'+full+'</ref>\n{{Referências}}','A<ref name="Exemplo">'+full+'</ref> B<ref name="Exemplo" />\n{{Referências}}');
+test('complementary-metadata','A<ref name="obra">'+base+'|autorlink=Pessoa Exemplo}}</ref> B<ref name="obra">'+base+'|língua=en}}</ref> C<ref name="obra"/>\n{{Referências}}','A<ref name="obra">'+base+'|autorlink=Pessoa Exemplo|língua=en}}</ref> B<ref name="obra" /> C<ref name="obra"/>\n{{Referências}}');
+for(const [left,right]of [['|páginas=n.p.','|língua=en'],['|páginas=12','|páginas=13'],['|língua=pt','|língua=en'],['|edição=2.ª','|língua=en'],['|url=https://example.org/a','|língua=en']]){const raw='A<ref name="obra">'+base+left+'}}</ref> B<ref name="obra">'+base+right+'}}</ref>\n{{Referências}}';test('different-source-or-locator-'+rows.length,raw,raw);}
+test('missing-reference-retained','A<ref name="missing"/>\n{{Referências}}','A<ref name="missing"/>\n{{Referências}}');
+test('separate-groups-retained','A<ref name="a" group="x">Fonte.</ref> B<ref name="a" group="y">Fonte.</ref>','A<ref name="a" group="x">Fonte.</ref> B<ref name="a" group="y">Fonte.</ref>');
+test('separate-renderers-retained','A<ref name="a">Fonte.</ref>\n{{Referências}}\nB<ref name="a">Fonte.</ref>\n{{Referências}}','A<ref name="a">Fonte.</ref>\n{{Referências}}\nB<ref name="a">Fonte.</ref>\n{{Referências}}');
+for(const options of [{references:false},{namespaceNumber:1},{sectionOnly:true},{pageRedirect:true},{contentModel:'javascript'}])test('context-negative-'+rows.length,'{{Bibleverse|John|3:16}}','{{Bibleverse|John|3:16}}',options);
+const report={scope:'v2217 directed reference contracts; public examples synthetic',bundle:path.basename(file),bundleSha256:sha(fs.readFileSync(file)),checks,cases:rows.length,results:rows,wikipediaWrites:0};
+if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({checks,cases:rows.length,bundle:report.bundle}));

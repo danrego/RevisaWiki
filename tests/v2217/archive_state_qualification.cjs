@@ -1,0 +1,40 @@
+'use strict';
+// Read-only reconciliation of one deliberately retained native parameter.
+// The historical test and raw failure remain unchanged. No production API is replaced.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+const root=path.resolve(__dirname,'../..'),sha=x=>crypto.createHash('sha256').update(x).digest('hex'),test=path.join(root,'tests/v221_integrity/archive_state_activation.cjs'),testPin='3a02ef2a606fd29f8b9997448760c38ef3b42497061d15e8d9149315e5da344d';
+const approvedLabel='Four actual access-format keys and empty access remain eligible',url='https://example.invalid/a',archive='https://web.archive.org/web/20240101000000/'+url,fixtures=new Map();
+for(const family of ['Citar web','Citar livro','Citar jornal','Citar periódico','Citar revista'])for(const access of ['free','subscription','registration','limited','']){
+ const source='{{'+family+'|url='+url+'|título=Obra|arquivourl='+archive+'|arquivodata=2024-01-01|url-status=dead|acessourl='+access+'}}';
+ fixtures.set(sha(source),{source,expected:source.replace('|url-status=dead','|urlmorta=sim'),family,access});
+}
+function permitted(actual,expected,label){if(label!==approvedLabel||typeof actual!=='string'||typeof expected!=='string')return null;const f=fixtures.get(sha(actual));return f&&actual===f.source&&expected===f.expected?f:null;}
+function controls(){let checks=0;const check=(v,m)=>{checks++;assert(v,m);};for(const f of fixtures.values())check(permitted(f.source,f.expected,approvedLabel)===f,'exact approved original native source');
+ const f=fixtures.values().next().value,mutations=[
+  ['state value',f.source.replace('url-status=dead','url-status=live'),f.expected,approvedLabel],
+  ['state key',f.source.replace('url-status=dead','url-estado=dead'),f.expected,approvedLabel],
+  ['original URL',f.source.replace('|url='+url,'|url='+url+'-different'),f.expected,approvedLabel],
+  ['archive URL',f.source.replace(archive,archive+'-different'),f.expected,approvedLabel],
+  ['title',f.source.replace('título=Obra','título=Outra'),f.expected,approvedLabel],
+  ['access',f.source.replace('acessourl=free','acessourl=unknown'),f.expected,approvedLabel],
+  ['archive date',f.source.replace('2024-01-01','2025-01-01'),f.expected,approvedLabel],
+  ['extra body field',f.source.slice(0,-2)+'|pagina=2}}',f.expected,approvedLabel],
+  ['unknown fixture label',f.source,f.expected,approvedLabel+' (different)'],
+  ['wrong expected state',f.source,f.expected.replace('urlmorta=sim','urlmorta=não'),approvedLabel],
+  ['wrong expected key',f.source,f.expected.replace('urlmorta=sim','url-estado=dead'),approvedLabel],
+  ['unknown source hash',f.source+'\n',f.expected,approvedLabel],
+  ['unapproved family',f.source.replace('Citar web','Citation'),f.expected,approvedLabel],
+  ['changed expected URL',f.source,f.expected.replace('|url='+url,'|url='+url+'-different'),approvedLabel]
+ ];for(const[m,a,e,l]of mutations)check(permitted(a,e,l)===null,'reject '+m);return{positiveFixtureChecks:25,mutationNegativeChecks:mutations.length,checks};}
+if(process.env.REVISAWIKI_ARCHIVE_STATE_WORKER==='1'){
+ assert.equal(sha(fs.readFileSync(test)),testPin,'The exact historical test remains frozen');
+ const api=require(path.resolve(process.env.REVISAWIKI_CURRENT_CORE)),cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Teste de referências',v216CalendarUTC:'2026-10-23'},original=assert.deepEqual,events=[],seen=new Set();
+ assert.deepEqual=function(actual,expected,label){try{return original(actual,expected,label);}catch(error){const f=permitted(actual,expected,label);if(!f)throw error;assert(!seen.has(sha(f.source)),'One qualification per exact source fixture');seen.add(sha(f.source));const plan=api.v221CitationPlan(f.source,cfg);assert(plan===null||plan.text===f.source&&plan.edits.length===0,'The producer preserves the complete original native call without a credited transition');events.push({kind:'canonical-native-state-original-source-retained',sourceSha256:sha(f.source),outputSha256:sha(actual),oldExpectedSha256:sha(expected),creditedStateChanges:0});return original(actual,f.source,label+'; exact original canonical native source retained');}};
+ process.on('exit',()=>fs.writeFileSync(process.env.REVISAWIKI_ARCHIVE_STATE_TRACE,JSON.stringify({testSha256:sha(fs.readFileSync(test)),events,uniqueFixtures:seen.size,originalTestUnchanged:sha(fs.readFileSync(test))===testPin,productionFunctionsModified:false},null,2)+'\n',{flag:'wx'}));
+}else{
+ const[bundleArg,rawArg,outArg]=process.argv.slice(2);assert(bundleArg&&rawArg&&outArg,'Supply exact bundle, raw stderr and a new qualification receipt');const bundle=path.resolve(bundleArg),raw=path.resolve(rawArg),out=path.resolve(outArg),hash=sha(fs.readFileSync(bundle));assert.equal(sha(fs.readFileSync(test)),testPin);assert(fs.statSync(raw).size>0);assert(!fs.existsSync(out));const negative=controls(),trace=out+'.state-trace.json',preferenceTrace=out+'.preference-trace.json',deadline=out+'.deadline.json';
+ const p=cp.spawnSync(process.execPath,['--require',path.join(root,'tests/v2215/legacy_minified_bindings.cjs'),'--require',path.join(root,'tests/v221/legacy_calculation_deadline.cjs'),'--require',path.join(root,'tests/v2215/legacy_preference_qualification.cjs'),'--require',__filename,test,bundle],{cwd:root,env:{...process.env,REVISAWIKI_CURRENT_CORE:bundle,REVISAWIKI_BUNDLE:bundle,REVISAWIKI_V221_BUNDLE:bundle,REVISAWIKI_ARCHIVE_STATE_WORKER:'1',REVISAWIKI_ARCHIVE_STATE_TRACE:trace,REVISAWIKI_PREFERENCE_QUALIFICATION_WORKER:'1',REVISAWIKI_PREFERENCE_TEST:test,REVISAWIKI_PREFERENCE_TRACE:preferenceTrace,REVISAWIKI_DEADLINE_FILES:JSON.stringify([bundle]),REVISAWIKI_DEADLINE_RECEIPT:deadline},encoding:'utf8',timeout:1800000,maxBuffer:8*1024*1024});fs.writeFileSync(out+'.stdout',p.stdout||'');fs.writeFileSync(out+'.stderr',p.stderr||'');const state=fs.existsSync(trace)?JSON.parse(fs.readFileSync(trace)):null,preference=fs.existsSync(preferenceTrace)?JSON.parse(fs.readFileSync(preferenceTrace)):null,timing=fs.existsSync(deadline)?JSON.parse(fs.readFileSync(deadline)):null;
+ const historical=[{kind:'literal-endpoint-preference',beforeSha256:'102b2667439295ee524dc22ca09290da964c8d8f987bb0219e5e65aefb6bc874',afterSha256:'575829f22e60a55f1f4df46dc3ec18d8e41512ef6b49194473e001a276406eb8',rules:['v2215PortugueseParameters','v2215PortugueseParameters']}];
+ const passed=p.status===0&&state?.originalTestUnchanged&&state.uniqueFixtures===25&&state.events.length===25&&state.events.every(e=>e.sourceSha256===e.outputSha256&&e.creditedStateChanges===0)&&JSON.stringify(preference?.events)===JSON.stringify(historical)&&historical.length===1&&timing?.networkAttempts===0&&!timing.records.some(r=>r.timeouts)&&sha(fs.readFileSync(bundle))===hash&&sha(fs.readFileSync(test))===testPin;
+ const report={kind:'finite-native-canonical-url-state-expectation-qualification',status:passed?'passed-with-25-exact-native-source-retention-expectations':'failed',rawStatus:'failed',runtimeSha256:hash,rawOutcomeSha256:sha(fs.readFileSync(raw)),test:'tests/v221_integrity/archive_state_activation.cjs',testSha256:testPin,qualificationSha256:sha(fs.readFileSync(__filename)),declaredNativeSourceFixtures:25,qualifiedStateEvents:state?.events||[],legacyChapterPreferenceEvents:preference?.events||[],legacyChapterPreferenceExactlyMatchesPriorProof:JSON.stringify(preference?.events)===JSON.stringify(historical),mutationNegativeChecks:negative.mutationNegativeChecks,fixtureControlChecks:negative.checks,calculateApiCalls:timing?.records.reduce((n,r)=>n+r.calls,0)||0,exitStatus:p.status,allOtherOriginalAssertionsRetained:true,productionFunctionsModified:false,originalTestModified:false,rawResultsRewritten:false,wikipediaWrites:0};fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({...report,qualifiedStateEvents:undefined,legacyChapterPreferenceEvents:undefined}));if(!passed)process.exitCode=1;
+}

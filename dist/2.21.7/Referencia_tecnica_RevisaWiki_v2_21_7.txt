@@ -1,0 +1,105 @@
+RevisaWiki 2.21.7: referência técnica
+
+Execução
+
+Não há um prazo global de 60 segundos para a análise. O processamento em Worker e as etapas de trabalho continuam separados da aplicação no editor. Consultas externas conservam prazos próprios. Cancelamento, mudança do texto, mudança do contexto e troca de opções invalidam o resultado anterior.
+
+Um candidato só pode chegar ao editor se estiver completo, verificado e vinculado ao rascunho que iniciou a execução. Em uma falha operacional posterior, um candidato anterior verificado só pode ser aproveitado se o texto e o contexto ainda coincidirem. Cancelar ou editar depois impede esse aproveitamento. Nenhuma saída interrompida é aplicada.
+
+Planos independentes
+
+As regras produzem operações delimitadas, com prova ligada à fonte. Uma operação sem equivalência não torna elegíveis estruturas desconhecidas ou regiões opacas. Uma recusa local não deve suprimir automaticamente reparos independentes em outras regiões. A composição final continua conferindo palavras, referências, grupos, valores de infocaixa, células, fórmulas e unidades.
+
+O resultado de interface contém somente alterações mantidas e a diferença em bytes. Um total numérico só aparece quando a contagem exata está confirmada. Sem essa confirmação, a interface informa que os ajustes foram aplicados, sem atribuir um total estimado. Não exibe propostas recusadas nem remete a um relatório inexistente. Mostrar alterações usa o editor normal. Desfazer respeita o vínculo com o rascunho, sem sobrescrever trabalho manual posterior.
+
+Referências
+
+A forma preferida é Referências, ou Notas e referências quando os coletores são compatíveis. A equivalência depende de grupos, bancos, argumentos, títulos, escopo e destino das definições. Não se impõe um único coletor a listas legitimamente diferentes.
+
+As referências anônimas só são reunidas quando seu conteúdo e atributos correspondem. Chamadas adjacentes iguais podem perder uma cópia, enquanto definições e chamadas separadas permanecem. A pontuação usa os sinais já presentes, sem inventar pontuação ou alterar o corpo das fontes.
+
+Ligação inativa só migra para datali com associação única a uma citação web ou de jornal, URL principal inequívoca e uma data de calendário reconhecida já existente. Endereços e datas de arquivo, atributos de acesso e valores conflitantes permanecem. Um aviso não é apagado apenas para esconder um problema.
+
+NomeRefAuto
+
+A nomeação é calculada localmente com campos conferidos do leitor CS1. A prioridade usa colaborador, autor, editor, periódico, enciclopédia, título, título do livro e domínio da URL. Pode aproveitar até quatro nomes e o ano de publicação. Não utiliza o ano de acesso como ano da obra.
+
+O nome é limpo para um atributo literal e recebe sufixo numérico para evitar colisões. As famílias automáticas reconhecidas incluem :0 e sequências equivalentes, ref-auto-N e o prefixo automático antigo. A definição e todas as reutilizações da mesma família são atualizadas juntas. Nomes descritivos existentes, fontes conflitantes e produtores dinâmicos não são renomeados por aproximação. Argumentos literais de outras chamadas reservam possíveis identidades, e a ocorrência do nome antigo nesses argumentos conserva a família inteira. A comparação de nomes ocupados considera NFC sem reescrever nomes existentes. Anos conflitantes ou intervalos sem um ano único mantêm a alternativa neutra.
+
+A integração usa técnicas do módulo nativo, sem afirmar equivalência byte a byte em toda construção possível de Lua. Não insere predefinições dentro de name e não exige consultas de rede por fonte ou mudanças na configuração comunitária do editor visual. Metadados fora do contrato conservam a nomeação neutra existente.
+
+Infocaixas e catálogos
+
+O catálogo distingue accepted, patterns, aliases, renames, ignored e partial. Reconhecer uma chave não significa que ela possa substituir qualquer outra. O leitor da predefinição determina o significado, a precedência e a exibição de cada campo. Valores vazios e preenchidos podem ter efeitos diferentes.
+
+Chaves bibliográficas inglesas recebem nomes portugueses somente quando o destino mantém função e prioridade. Os índices dos autores ficam preservados. Os campos vauthors e veditors podem permanecer em inglês quando o módulo nativo depende dessas chaves para a lista Vancouver. Os estados já nativos url-status=live e url-status=dead são conservados, preservando a função dos endereços original e arquivado sem uma troca pelo parâmetro legado urlmorta.
+
+As regras de nascimento, morte, profissão, imagem, site e incorporação exigem o modelo e o campo conferidos. Um valor de batismo não se torna nascimento. Caixa filha não fornece dados de outra pessoa para a introdução. Dados copiados entre abertura e infocaixa conservam suas referências. Os campos de sepultamento seguem os contratos nativos, sem reinterpretar seu significado.
+
+Predefinições obsoletas
+
+A retirada de Descrição curta conserva a chamada inteira quando seus argumentos contêm programas internos que possam alterar categorias, ordenação ou outros metadados. Uma chamada ou função desconhecida não é presumida sem efeito. A recusa fica limitada à remoção sem equivalência demonstrada, e os reparos independentes continuam elegíveis.
+
+Rodapé
+
+Listas finais simples usam duas colunas a partir de oito itens principais por seção ou subseção. Subitens não aumentam o mínimo. Referências têm seu próprio mínimo de dez entradas. Uma configuração com função real não é descartada para encurtar a marcação.
+
+Os blocos de colunas manuais elegíveis são unidos na ordem dos campos, sem somar seções diferentes. Invólucros genéricos só são retirados quando são equilibrados, contêm a chamada nativa prevista e não fornecem uma função adicional necessária. O programa não remove contêineres indiscriminadamente.
+
+DEFAULTSORT pode ir para antes das categorias consecutivas somente quando sua ordem de avaliação permanece equivalente. A conferência alcança as chamadas internas, funções parser e extensões desconhecidas, sem presumir que um programa desconhecido seja neutro para a ordenação. Os modelos literais de metadados e colunas expressamente conferidos têm tratamento próprio, mas suas chamadas internas continuam sendo examinadas. Um movimento que mudaria essa ordem é omitido apenas naquela etapa. A retirada independente de linhas vazias entre categorias simples continua elegível.
+
+Identificadores de autoridade repetidos só são consolidados com equivalência efetiva, inclusive nos modelos compostos conferidos. Cópias literais idênticas e adjacentes de NM ou NF podem manter a última chamada. Cópias separadas por outra chamada de ordenação ou programa desconhecido conservam sua ordem. Anos, ordenação e outras funções não são descartados para remover uma caixa.
+
+Discussões
+
+A identidade de PD usa os aliases nativos conferidos. Chamadas compatíveis podem ser reunidas, preservando argumentos conflitantes, comentários e exemplos. A presença de bot na Marca de projeto neutraliza a avaliação geral e retira bot e rev, sem consultar o histórico. As importâncias e os demais parâmetros permanecem. Sem bot, avaliação e rev são preservados.
+
+Traduzido conserva idioma, título, revisão, data e outros campos já presentes ao adaptar a ordem e os nomes nativos. Não cria atribuição de tradução ausente.
+
+Distribuição e evidência
+
+Núcleo, catálogo e carregadores pertencem à mesma distribuição. A versão e o hash continuam sendo conferidos. O pré-salvamento precisa preservar o catálogo decodificado, sem alterar o hash esperado para acomodar uma diferença.
+
+O catálogo documental reproduz os nomes e campos reconhecidos pelo pacote. Ele não é um arquivo adicional de instalação e não torna ativas propostas condicionais ou regras sem prova suficiente. A lista de funcionalidades distingue exemplos de código, trechos e condições de comportamento.
+
+Resultados históricos, timeouts, tentativas de recuperação e limitações permanecem com seus estados originais. O caso extremo de aproximadamente 1,9 MB continua sendo uma limitação histórica de desempenho. A ausência do corte global não reclassifica esse resultado.
+
+Código e versões: https://github.com/danrego/RevisaWiki
+
+Complementos da 2.21.7
+
+Marca de projeto
+
+A presença de um parâmetro nomeado bot em uma chamada principal de Marca de projeto basta para a neutralização da avaliação geral. Bot e rev são removidos, mesmo se bot estiver vazio. As importâncias dos projetos e os demais parâmetros permanecem. Sem bot, a avaliação e rev são preservados. Não há consulta ao histórico ou à conta que escreveu a avaliação.
+
+A ordem do cabeçalho reconhecido é PD, atribuições Traduzido distintas, Marca de projeto consolidada, avisos de fusão compatíveis e conversa. Comentários, campos e atribuições diferentes são conservados. Auxiliares de frase, exemplos e chamadas dentro da conversa não são tratados como cabeçalho.
+
+Infocaixas, identidade e países
+
+A formatação de argumentos nomeados é separada da conversão semântica. Ela preserva argumentos posicionais, espaços não ASCII, campos desconhecidos e filhos em seu próprio contexto. Reconhecimento, formatação, tradução de campos e escolha de portais têm regras independentes. Um nome aceito pelo catálogo não prova que o consumidor exiba o valor.
+
+As migrações de cabeçalho e campos são atômicas. Conflitos ou campos preenchidos sem consumidor correspondente preservam o conjunto. A troca de um adaptador pessoal não elimina hlist, cidadanias, educação, nome de nascimento, referências ou folhas de estilo válidas. A conversão manual de infocaixa só reconhece um padrão restrito de tabela completa; tabelas genéricas não são migradas.
+
+Ani é preservado. Birth date and age só recebe uma forma nativa equivalente quando data, idade e categorização correspondem. Contextos de falecimento não podem ganhar Pessoas vivas. A forma nativa com Dni suprimido e Morte pode manter a idade ao falecer quando as duas datas completas são explícitas.
+
+As identidades de país usam 197 destinos de países e territórios com portal nativo verificado e aliases multilíngues. Gentílicos só entram nos campos de nacionalidade ou cidadania. Uma abreviatura ambígua de estado, nome de cidade ou ocorrência incidental não constitui país. A tabela histórica de nacionalidades não pode restabelecer um alias que o resolvedor classificou como ambíguo.
+
+Fontes e consumidores de referências
+
+As conversões de Citation distinguem o tipo de publicação e preservam o destino Harvard implícito por ref=harv quando necessário. NoteFoot sem configuração própria só é convertido quando as notas e os produtores observados comprovam o grupo nativo compatível. Uma interface própria de largura, colunas ou banco pode exigir preservar o coletor original, mesmo se seu nome for inglês.
+
+As definições nomeadas equivalentes podem ser reunidas sem mover seus pontos de citação. A união de metadados complementares de livros exige título, ano, editora, ISBN válido e autoria iguais. Localizadores conflitantes ou diferenças na identidade da obra impedem a união. Livro, capítulo e intervalos bíblicos só usam os padrões conferidos. Versões e intervalos sem equivalente comprovado permanecem.
+
+Leitura estrutural e fonte
+
+Pares nativos de tabela e sucessão são reconhecidos sem reescrever seu conteúdo. Um fechamento HTML isolado pode ser ignorado na sombra de leitura para permitir ajustes independentes; seus bytes não são apagados da fonte. Reparos de delimitadores dependem de nomes e contextos conhecidos. Fórmulas, exemplos protegidos e chamadas desconhecidas não recebem substituição global.
+
+Modelos independentes de bloco e incorporações de imagens podem receber linhas próprias. Auxiliares em frases, campos, referências, tabelas, listas, galerias e ícones conservam o contexto funcional. Um componente de cor ou de linha não é uma infocaixa principal.
+
+Licenças e provas
+
+O aviso de terceiros inclui os dados Unicode CLDR e suas condições de uso. Os comprovantes de release distinguem as execuções atuais dos registros históricos. A lista completa de funcionalidades inclui comportamentos e preservação, além de transformações. Os exemplos exatos executáveis não são usados como prova de todos os exemplos ilustrativos.
+
+Coletores sob títulos manuais
+
+Quando um coletor sem título próprio está em uma seção cujo título será mantido, a conversão usa nível=0, inclusive quando há prosa entre o título e a lista. A regra é compartilhada pelos produtores de coletores, pelas chamadas Reflist com número de colunas e pela inserção de uma lista ausente. Títulos wiki e HTML, texto, grupos e bancos de definições permanecem. A união de notas e referências depende de uma cadeia de operações comprovada na fonte original, sem aceitar níveis fornecidos pelo editor como se fossem controles gerados pelo programa. Os caminhos conferidos para títulos canônicos vazios continuam disponíveis quando preservam a hierarquia da seção.

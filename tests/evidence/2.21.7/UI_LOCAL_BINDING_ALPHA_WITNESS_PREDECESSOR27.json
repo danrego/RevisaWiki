@@ -1,0 +1,1412 @@
+{
+  "schema": "revisawiki-ui-local-binding-alpha-review-v1",
+  "status": "awaiting-root-independent-review-before-reuse-approval",
+  "candidate": 27,
+  "reuseReceiptSha256": "cf298c5803412d5a79b8bf610e86c7dc01af380168fe3be58647072e912df56a",
+  "manifestSha256": "99e17b7265ba16888ee389c89763faa7d42cd8c80de6dd79c40121a42c332d52",
+  "rows": [
+    {
+      "bundle": "core",
+      "predecessor": 22,
+      "currentCandidate": 27,
+      "currentSha256": "16d00adf55a18898ba5810d18b6052674d9cdf7fda8c3ef37fd98b9200b78bd1",
+      "previousSha256": "c0d1e610346ca7c04882c3baf083c2fc29d7b6713046ecd304643d60aa902f1a",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "complete",
+      "predecessor": 22,
+      "currentCandidate": 27,
+      "currentSha256": "427d9bddbfcca339aa04a5730ee7ab77e931a08e9b9d539076ad75f49d01dfea",
+      "previousSha256": "f47ab0d6652384313b3ea00f805345f87f6c84fd2a34c1e84e99e37444620379",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "core",
+      "predecessor": 23,
+      "currentCandidate": 27,
+      "currentSha256": "16d00adf55a18898ba5810d18b6052674d9cdf7fda8c3ef37fd98b9200b78bd1",
+      "previousSha256": "be4459dcfaf67979cc3b7844aa61b78671c402fa9ce362c710faa41d34a0656a",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "complete",
+      "predecessor": 23,
+      "currentCandidate": 27,
+      "currentSha256": "427d9bddbfcca339aa04a5730ee7ab77e931a08e9b9d539076ad75f49d01dfea",
+      "previousSha256": "669f17e438c100f01fd10c5f684f51bc004f6d32a4677e28836bc8960b79074f",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "core",
+      "predecessor": 24,
+      "currentCandidate": 27,
+      "currentSha256": "16d00adf55a18898ba5810d18b6052674d9cdf7fda8c3ef37fd98b9200b78bd1",
+      "previousSha256": "7f45dde66cdde7ceeb1761feb3f99b4d64eb36f9a125b3da05902b252f805db6",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "complete",
+      "predecessor": 24,
+      "currentCandidate": 27,
+      "currentSha256": "427d9bddbfcca339aa04a5730ee7ab77e931a08e9b9d539076ad75f49d01dfea",
+      "previousSha256": "df0a99dd925ee51b1ff206805fb9f007386879dbae7221f4b50f62e98cc3e03c",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "core",
+      "predecessor": 25,
+      "currentCandidate": 27,
+      "currentSha256": "16d00adf55a18898ba5810d18b6052674d9cdf7fda8c3ef37fd98b9200b78bd1",
+      "previousSha256": "63decbbe1347a815a6827ceb9f1dfe86bf41bfff29a19d0e9c7b1b77aff105ab",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "complete",
+      "predecessor": 25,
+      "currentCandidate": 27,
+      "currentSha256": "427d9bddbfcca339aa04a5730ee7ab77e931a08e9b9d539076ad75f49d01dfea",
+      "previousSha256": "0d729d42418db60a7d64aa00feef47983665c316731aa469e435a1fe84f7a8a8",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "core",
+      "predecessor": 26,
+      "currentCandidate": 27,
+      "currentSha256": "16d00adf55a18898ba5810d18b6052674d9cdf7fda8c3ef37fd98b9200b78bd1",
+      "previousSha256": "7a3e44656212ed9d64ab7d16d5fbb524cddfccef8ed1c79f6c5490fc34e8af9f",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    },
+    {
+      "bundle": "complete",
+      "predecessor": 26,
+      "currentCandidate": 27,
+      "currentSha256": "427d9bddbfcca339aa04a5730ee7ab77e931a08e9b9d539076ad75f49d01dfea",
+      "previousSha256": "d0dbee3aa1f84afab19a8b1c1b88e1ff71ad9c8bd141dfa35c35353669c6430a",
+      "entireUIByteIdentical": false,
+      "elevenFunctionsByteIdentical": true,
+      "bijection": [
+        {
+          "initializer": null,
+          "previousName": "ka",
+          "currentName": "Ca",
+          "previousDeclarationRelativeStart": 2419,
+          "currentDeclarationRelativeStart": 2419
+        },
+        {
+          "initializer": "RevisaWiki.preferences.v1.2",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "previousDeclarationRelativeStart": 11371,
+          "currentDeclarationRelativeStart": 11371
+        }
+      ],
+      "allDeclarationsAndUses": [
+        {
+          "relativeStart": 2419,
+          "relativeEnd": 2421,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11371,
+          "relativeEnd": 11373,
+          "nodeType": "Identifier",
+          "parentType": "VariableDeclarator",
+          "parentKey": "id",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 11958,
+          "relativeEnd": 11960,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 15360,
+          "relativeEnd": 15362,
+          "nodeType": "Identifier",
+          "parentType": "CallExpression",
+          "parentKey": "arguments",
+          "previousName": "Ca",
+          "currentName": "ka",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        },
+        {
+          "relativeStart": 58675,
+          "relativeEnd": 58677,
+          "nodeType": "Identifier",
+          "parentType": "OptionalCallExpression",
+          "parentKey": "arguments",
+          "previousName": "ka",
+          "currentName": "Ca",
+          "scope": "two direct const declarations in RevisaWikiBoot.body; ALL same-name identifiers enumerated across the entire parsed program, no shadow/free-name occurrences"
+        }
+      ],
+      "exactUIRelativeNodePositionsAndASTPaths": true,
+      "unrelatedLiteralStatementAndFreeBindingChanges": false,
+      "verifiedByteReconstructionWitness": {
+        "bytes": 59310,
+        "sha256": "149f0ec2c0feeed70fb36a97dc82e2e0379bf8212868d66156a18dae5ce1510f",
+        "byteIdentical": false,
+        "normalizedSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "priorSha256": "f6785211c5450a04c5ea65c83c7f29eeecb7fe9edfc56220ae036cf6a5e531d0",
+        "onlyTwoVerifiedLocalBindingRenames": true,
+        "changedIdentifierTokens": [
+          {
+            "relativeStart": 58675,
+            "from": "Ca",
+            "to": "ka"
+          },
+          {
+            "relativeStart": 15360,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11958,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 11371,
+            "from": "ka",
+            "to": "Ca"
+          },
+          {
+            "relativeStart": 2419,
+            "from": "Ca",
+            "to": "ka"
+          }
+        ],
+        "localBindingSemantics": [
+          {
+            "role": "nullable inline-load context",
+            "from": "ka",
+            "to": "Ca",
+            "initializer": "null",
+            "bindingScope": "RevisaWikiBoot body"
+          },
+          {
+            "role": "preferences storage key",
+            "from": "Ca",
+            "to": "ka",
+            "initializer": "RevisaWiki.preferences.v1.2",
+            "bindingScope": "RevisaWikiBoot body"
+          }
+        ]
+      },
+      "directEvalOrFunctionConstructorInUI": 0,
+      "renamedBindingNameStringConsumers": 0,
+      "knownSerialization": {
+        "expression": "RevisaWikiBoot.toString()",
+        "purpose": "Unchanged createWorker serializes the actual full Boot function into executable Worker code. It does not extract, compare or branch on either renamed binding name.",
+        "createWorkerBodyByteIdentical": true,
+        "otherToStringCalls": "Both operate on URLSearchParams objects; neither receives or inspects the renamed binding names.",
+        "limitation": "Serialized whole-engine text changes with legitimate producer fixes and local minifier names. This is not a claim that generated Worker source bytes or the full engine semantics are unchanged."
+      }
+    }
+  ],
+  "counts": {
+    "bundlePairs": 10,
+    "localBindingsPerPair": 2,
+    "allIdentifierDeclarationsAndUsesPerPair": 5,
+    "byteIdenticalControllerFunctionsPerPair": 11
+  },
+  "limitations": [
+    "Whole UI byteIdentical=false is explicit; this is a new alpha-equivalence argument, not byte-exact region reuse.",
+    "No current giant-input execution/completion or transformed-content preservation is inferred.",
+    "Candidate22 historical giant Chrome run remains incomplete; only its already completed draft-control assertions may be considered after independent review."
+  ],
+  "networkRequests": 0,
+  "wikiWrites": 0
+}

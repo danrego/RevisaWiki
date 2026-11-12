@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "kind": "final-frozen-independent-citation-guard-verification",
+  "version": "2.21.7",
+  "runtimeFiles": {
+    "RevisaWiki_v2_21_7.js": {
+      "sha256": "678771321cfa8b547c1a55a598d5553959809f730d9683c7ea22ba9a80fcea62",
+      "bytes": 2006761
+    },
+    "RevisaWiki_v2_21_7_completo.js": {
+      "sha256": "cbeb232955cf732b14eb283d2764764fa2c39bc20c1de3b1a0ada34e021e9c37",
+      "bytes": 4093301
+    }
+  },
+  "sourceTests": [
+    {
+      "file": "tests/v221_integrity/archive_access_guard.cjs",
+      "sha256": "79256961f1c1d5c3a5a44dd500d142f800ea69e9b869d582fa684b3b796ea2a6",
+      "unchanged": true,
+      "rawStatus": "failed"
+    },
+    {
+      "file": "tests/v221_integrity/bare_reference_metadata_guard.cjs",
+      "sha256": "8a4ef389f19dd9ac9a655443114f3f80c441ce8187abbd34fd9fa401bc8a1243",
+      "unchanged": true,
+      "rawStatus": "passed"
+    },
+    {
+      "file": "tests/v221_integrity/coins_unicode_domain.cjs",
+      "sha256": "58bd099d78043a401709b0619bf6cb2b4bfe616ea3ab5ff7de1a269ec1a448d0",
+      "unchanged": true,
+      "rawStatus": "passed"
+    },
+    {
+      "file": "tests/v221_integrity/url_estado_archive_guard.cjs",
+      "sha256": "20acf6f73bf3abb50b8420e23a18d52cc35091ce2d41677c13129b0b397041ff",
+      "unchanged": true,
+      "rawStatus": "passed"
+    }
+  ],
+  "adapter": {
+    "sha256": "87050a7136f530169e9b55e42a3abba64c765f40a427d789a5a4de7be22599ab",
+    "bytes": 3131,
+    "role": "Current branch binds the actual frozen runtime; only test API exports are exposed. Historical-runtime reproduction remains separate.",
+    "behavioralEnginePatches": 0,
+    "namedTransformationAndSafetyBodiesUnchanged": true,
+    "originalAssertionsOrExpectedValuesRewritten": 0
+  },
+  "rawArchiveGuard": {
+    "status": "failed-original-context-free-assertion-retained",
+    "reason": "A newly active metadata emitter requires source page context. The old direct helper assertion omits that context. The actual writer and action supply it.",
+    "oldStatusRewritten": false
+  },
+  "contextualArchiveDiagnostic": {
+    "status": "passed",
+    "testProgramSha256": "7eedff7e72a18e51aa2b4cc269ded78069c2d19e350a7f089a8f7fd03b59e7b6",
+    "diagnosticBindingSha256": "1f3671a4801af30bbb5710f61a5852fc06d62d356358de54d77c37c76fd2316e",
+    "soleInvocationAmendment": {
+      "before": "api.v221CitationMigrationSafe(raw,next)",
+      "after": "api.v221CitationMigrationSafe(raw,next,cfg)"
+    },
+    "checks": 3676,
+    "matrixCasesBothDistributions": 1200,
+    "actualCalculateCalls": 20,
+    "oldRuntimeTriggerReproducedSeparately": true
+  },
+  "otherGuards": [
+    {
+      "name": "bare_reference_metadata_guard",
+      "status": "passed",
+      "assertions": 776,
+      "actualCalculateCalls": 156
+    },
+    {
+      "name": "coins_unicode_domain",
+      "status": "passed",
+      "assertions": 2224128,
+      "actualCalculateCalls": 0
+    },
+    {
+      "name": "url_estado_archive_guard",
+      "status": "passed",
+      "assertions": 412,
+      "actualCalculateCalls": 20
+    }
+  ],
+  "isolatedContextControls": {
+    "status": "passed",
+    "assertions": 22,
+    "actualCalculateCalls": 4,
+    "bothActualDistributions": true,
+    "unsafePageContextPreserved": true,
+    "archiveURLAndDateExact": true,
+    "realActionIdempotent": true
+  },
+  "executionCounts": {
+    "articleCaptures": 0,
+    "actualCalculateCalls": 200,
+    "unicodeScalarAssertions": 2224128,
+    "distinctUnicodeScalars": 1112064,
+    "unicodeCountsAreNotArticlesOrCalculateCalls": true,
+    "otherFunctionalAssertions": 4886
+  },
+  "bindingReceipts": {
+    "archive_access_guard.bindings.json": {
+      "sha256": "bd89ada75f77fc63df14c0b5cce68dbaad761c3992747f58ec9097007b8ef0f0",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 1
+    },
+    "bare_reference_metadata_guard.bindings.json": {
+      "sha256": "0b404abd6c605802f325cbded0d887c79a2a107c501a3ece2c94ed2cfee9430d",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "coins_unicode_domain.bindings.json": {
+      "sha256": "0b404abd6c605802f325cbded0d887c79a2a107c501a3ece2c94ed2cfee9430d",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "contextual.bindings.json": {
+      "sha256": "e87c9a947fa19d429b0a4f8815e4aca696e48cd4cdbd26d8f65dbe157608256f",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "isolated.bindings.json": {
+      "sha256": "ca538e48af850ce55eef9561bb899e0ed79cedb0a84044d2e88a0db2b3c0f131",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    },
+    "url_estado_archive_guard.bindings.json": {
+      "sha256": "0b404abd6c605802f325cbded0d887c79a2a107c501a3ece2c94ed2cfee9430d",
+      "transformationsAndSafetyFunctionsUnchanged": true,
+      "currentDistributions": 2
+    }
+  },
+  "unresolvedCurrentCitationIntegrityFindings": 0,
+  "productCodeChanges": 0,
+  "originalUntrackedTestsModified": false,
+  "previousResultsReclassified": false,
+  "wikipediaWrites": 0
+}

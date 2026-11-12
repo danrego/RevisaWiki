@@ -1,0 +1,370 @@
+{
+  "schema": "revisawiki-native-heading-browser-fixtures-v1",
+  "version": "2.21.7",
+  "nativeContractAuditSha256": "be2f5c6bf41450ebd25cffa920364c1e4ddbfe71d7b9b80a61ef15bc7a2c784b",
+  "nativeClosureCalculationReceiptSha256": "914be4f280de654e736d4267eb72034fa20e944cf35915ece298152794f54680",
+  "rows": [
+    {
+      "id": "material26-prose",
+      "source": "Texto.<ref>Fonte de exemplo.</ref>\n\n== Referências ==\nTexto explicativo.\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte de exemplo.</ref>\n\n== Referências ==\nTexto explicativo.\n{{Referências|nível=0}}\n",
+      "sourceSha256": "7e87a72a6cec83370f3c5509a99a561ad5c2d6b466272dc2635e03e8f15c1bac",
+      "expectedSha256": "c984a8171d889583a9e2bd38556fbfeb37c2dfce664f580368faa5b35dda7195",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "material26-h3",
+      "source": "Texto.<ref>Fonte de exemplo.</ref>\n\n== Obras ==\n=== Referências ===\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte de exemplo.</ref>\n\n== Obras ==\n{{Referências|nível=3}}\n",
+      "sourceSha256": "37ae002f0b2302be9325ec57d7bd4575082323a6a3c0abef83d08411398a0b52",
+      "expectedSha256": "a62882750c33a58817e94ba58290e0721df256eb8347572f3c987cb765b3ced1",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Obras",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Obras"
+          ]
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "material26-missing",
+      "source": "Texto.<ref>Fonte.</ref>\n\n== Referências ==\nTexto explicativo.\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n== Referências ==\nTexto explicativo.\n\n{{Referências|nível=0}}\n\n",
+      "sourceSha256": "f9aa0eac204e85d265922cde77d78d83d6a18a8ce672610b31ad2fcfc1991986",
+      "expectedSha256": "209d5329326bdb9fe40708788a239d0e6669ec89f5e0b97466795d16c5ca2f70",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "material26-implicit",
+      "source": "Texto.<ref>Fonte um.</ref>\n\n{{Referências}}\n\nOutro texto.<ref>Fonte dois.</ref>\n\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte um.</ref>\n\n{{Referências}}\n\nOutro texto.<ref>Fonte dois.</ref>\n\n{{Referências|nível=0}}\n",
+      "sourceSha256": "e835d97c74fc3eb1b393d3d37a3686d69af0e1505314fe7e70b9dc02f63f39be",
+      "expectedSha256": "31e6cca31bd44835cb6484f5306b0a4039656009693363ca3083548034ed3f85",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "material26-html",
+      "source": "Texto.<ref>Fonte de exemplo.</ref>\n\n<h3>Referências</h3>\nTexto explicativo.\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte de exemplo.</ref>\n\n<h3>Referências</h3>\nTexto explicativo.\n{{Referências|nível=0}}\n",
+      "sourceSha256": "bd6cacac2edb864fa71c9e4578eb62e5d6abca0dd6e34b4adc5df8ba1a692642",
+      "expectedSha256": "ce2a01deb386a81daa6a3d9964e836c28d0a5174ae11a53fe6f2cfbb82d84d84",
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "working-descending-sibling",
+      "source": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n=== Referências ===\n== Citações ==\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n=== Referências ===\n== Citações ==\n{{Referências|nível=0}}\n",
+      "sourceSha256": "0eca4839eef3e9a8ef7fba5469c3a1ecd2a371dedf80c05c3299a2b70e7a1dc6",
+      "expectedSha256": "a8653b5eba58477792b5fe40d0143914baa16b84f60e1459914c7ab519afd158",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Obras",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Obras"
+          ]
+        },
+        {
+          "level": 2,
+          "title": "Citações",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "working-jumped-sibling",
+      "source": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n===== Referências =====\n=== Citações ===\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n===== Referências =====\n=== Citações ===\n{{Referências|nível=0}}\n",
+      "sourceSha256": "0ff00086fb28625e16b473efff9f066acfb215bc4f71ef8ab71b65414adc6420",
+      "expectedSha256": "bfa52d3422fa92b9081db070452385679e6ef612362ff80e8e1ad5f9d8baa4bc",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Obras",
+          "parent": []
+        },
+        {
+          "level": 5,
+          "title": "Referências",
+          "parent": [
+            "Obras"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Citações",
+          "parent": [
+            "Obras"
+          ]
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "working-completed-div-html-heading",
+      "source": "<div><h3>Fontes</h3></div>\nTexto.<ref>Fonte.</ref>\n{{Reflist}}\n",
+      "expected": "<div><h3>Fontes</h3></div>\nTexto.<ref>Fonte.</ref>\n{{Referências|nível=0}}\n",
+      "sourceSha256": "33ac11f13a17593be7957a1127b65793a0627e845506acc0a7dcd98d7c8648ec",
+      "expectedSha256": "39eea6cbc3d581aacbe610658027a765fb447cca798c8604c8dce55b6967ec71",
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Fontes",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "positive-root-numeric",
+      "source": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas}}\n{{Reflist|2}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas e referências}}\n",
+      "sourceSha256": "57f5114c568984731dd2d6edda87306e52ebf3f8413493b90a831caf48950dfb",
+      "expectedSha256": "1e2b34975b44fd325eaa601c7c8dadee5cb7549b4a4ca4ae4876bc595f68724d",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "positive-custom-group-h2",
+      "source": "Texto.<ref group=\"x\">Nota.</ref><ref>Fonte.</ref>\n== Notas ==\n{{Reflist|group=x}}\n{{Reflist}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas e referências}}\n",
+      "sourceSha256": "8365235da8b723ad98d0ff8cc84992c868ac003cfa2853eec5dcf73fd2378a24",
+      "expectedSha256": "1e2b34975b44fd325eaa601c7c8dadee5cb7549b4a4ca4ae4876bc595f68724d",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "negative-caller-level",
+      "source": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas|nível=0}}\n{{Reflist|2}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas|nível=0}}\n{{Referências}}\n",
+      "sourceSha256": "102ec0861e529b54da40e99f1fff39ff5b0078bbb0a48f03ea8277032027071e",
+      "expectedSha256": "04774afb51529dd0e812e5d34ee954f28d4eb4e089cdc9649789cb0740775998",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "negative-prose",
+      "source": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n== Notas ==\nProsa preservada.\n{{Notas}}\n{{Reflist|2}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n== Notas ==\nProsa preservada.\n{{Notas}}\n{{Referências|nível=0}}\n",
+      "sourceSha256": "d1208df9a9dddd9529b02d0611533f399eb7c2222ca28e1e81a75399f8f6a2b3",
+      "expectedSha256": "ade668e7712ebbe29c0119fffb9550b56e407ea6360cc1b354825aa6b4e72301",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "negative-h3",
+      "source": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n=== Notas ===\n{{Notas}}\n{{Reflist|2}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas|nível=3}}\n{{Referências|nível=0}}\n",
+      "sourceSha256": "0bd052b7f32db535f7d48871a964529cd2d77e999d84557c6035a1ad00028919",
+      "expectedSha256": "a3f7b5b3deb0d586f7c297c7045ce36c62676310cd73273a911b49d14aac035e",
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "negative-h6",
+      "source": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n====== Notas ======\n{{Notas}}\n{{Reflist|2}}\n",
+      "expected": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n====== Notas ======\n{{Notas}}\n{{Referências|nível=0}}\n",
+      "sourceSha256": "dbedf49b9ee1a477c4f15c22bb6cfe989d01f5c7392046d4ca8922dc33687a88",
+      "expectedSha256": "b7881f089cd8b70e2bb1db5e33fdaa68521db96eaffba596bdf044d62c2bc6d6",
+      "expectedOutline": [
+        {
+          "level": 6,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Separate frozen27 core+complete endpoint calculation, paired native preview handled by separate agent; outline expected independently authored from complete native source contracts."
+    },
+    {
+      "id": "same-level-sibling",
+      "source": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n=== Referências ===\n=== Citações ===\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n=== Referências ===\n=== Citações ===\n{{Referências|nível=0}}\n",
+      "sourceSha256": "ab4932469b32bd55d8b829a50c880274390bc3433645f0b710e71ac46db45635",
+      "expectedSha256": "0d1103bc10f6cee6fd97b2464abb70dbc30b683a346c060152a5b222f8785aa2",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Obras",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Obras"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Citações",
+          "parent": [
+            "Obras"
+          ]
+        }
+      ],
+      "contractOrigin": "Independently verified bounded chain/container fixture, expected exact endpoint and outline authored from native source contracts."
+    },
+    {
+      "id": "closed-section-quote",
+      "source": "<section title=\"x > y\"><div><h3 id=\"a\" title=\"a > b\">Fontes</h3></div></section>\nTexto.<ref>Fonte.</ref>\n{{Reflist}}\n",
+      "expected": "<section title=\"x > y\"><div><h3 id=\"a\" title=\"a > b\">Fontes</h3></div></section>\nTexto.<ref>Fonte.</ref>\n{{Referências|nível=0}}\n",
+      "sourceSha256": "d16b13afb67e5e741eb4ee64d0ba18830a5d11567d715716a4607fbe18f6acba",
+      "expectedSha256": "b3e4c258633488a9de8ea883cfc67ec781304a245b9c4b0ab42033981b6c79dd",
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Fontes",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Independently verified bounded chain/container fixture, expected exact endpoint and outline authored from native source contracts."
+    },
+    {
+      "id": "approved-increasing-chain",
+      "source": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n=== Referências ===\n==== Citações ====\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n== Obras ==\n{{Referências|nível=3}}\n",
+      "sourceSha256": "b9622f45b45b6e6c1067de0a8bc7340bb608f8a7d9165a45acff5e1a4b51e8c6",
+      "expectedSha256": "9e05ced847c18c8b34a5eb17902490d440572a6b12e2793651805e4822b2982a",
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Obras",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Obras"
+          ]
+        }
+      ],
+      "contractOrigin": "Independently verified bounded chain/container fixture, expected exact endpoint and outline authored from native source contracts."
+    },
+    {
+      "id": "h6-reference-owner",
+      "source": "Texto.<ref>Fonte.</ref>\n\n====== Referências ======\n{{Reflist}}\n",
+      "expected": "Texto.<ref>Fonte.</ref>\n\n====== Referências ======\n{{Referências|nível=0}}\n",
+      "sourceSha256": "97d70498eab1362ef053b9834cdb4dd7a3241fa0b2a926e5c8288faa9d797c05",
+      "expectedSha256": "90ec29e91443eb12b9c172506220988b2f0ed46ce63cb1e8dbaf1a0c814e02ce",
+      "expectedOutline": [
+        {
+          "level": 6,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "contractOrigin": "Independently verified bounded chain/container fixture, expected exact endpoint and outline authored from native source contracts."
+    }
+  ]
+}

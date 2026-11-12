@@ -1,0 +1,282 @@
+{
+  "kind": "actual-native-browser-worker-citation-state-regression",
+  "version": "2.21.7",
+  "candidate": 24,
+  "status": "passed",
+  "runtimeManifestSha256": "08507cbaf9f14eace1fcc9a0078b7e40989fea9bb47cae86f95b32427a366708",
+  "runner": {
+    "file": "tests/v2217/browser_citation_state.cjs",
+    "bytes": 6053,
+    "sha256": "2bdf07868bbffbcf94bc68bb9e32b3b5c934466590b212689d7db628dab0cdb8"
+  },
+  "runtimeBindings": {
+    "core": {
+      "file": "RevisaWiki_v2_21_7.js",
+      "sha256": "7f45dde66cdde7ceeb1761feb3f99b4d64eb36f9a125b3da05902b252f805db6",
+      "bytes": 1991706
+    },
+    "complete": {
+      "file": "RevisaWiki_v2_21_7_completo.js",
+      "sha256": "df0a99dd925ee51b1ff206805fb9f007386879dbae7221f4b50f62e98cc3e03c",
+      "bytes": 4078246
+    },
+    "data": {
+      "file": "RevisaWiki_v2_21_7_dados.js",
+      "sha256": "21db16de71c209e7a60cf62d5df7a90eccc2779af19a70e5c21f748197d04628",
+      "bytes": 2093756
+    }
+  },
+  "rows": [
+    {
+      "browser": "Chrome",
+      "version": "156.0.8078.80",
+      "cases": 8,
+      "checks": 203,
+      "status": "passed",
+      "observations": [
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        }
+      ],
+      "privateReceiptSha256": "34ef11e6e9faa7614806242f32afecc411d745e11bd190b39c75b6b1c379e1e2",
+      "ownedSessionClosed": true
+    },
+    {
+      "browser": "Firefox",
+      "version": "159.0.1",
+      "cases": 8,
+      "checks": 203,
+      "status": "passed",
+      "observations": [
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        }
+      ],
+      "privateReceiptSha256": "e6741d5fe9eb6087aa90a6f3d418cf1a4fcfbdd6170bb98f76884276347b0260",
+      "ownedSessionClosed": true
+    },
+    {
+      "browser": "Safari",
+      "version": "27.2",
+      "cases": 8,
+      "checks": 203,
+      "status": "passed",
+      "observations": [
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "core",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "live",
+          "sourceSha256": "1cf43dd56f47de67531422cc6c02f9cda38476a702f8a7f0706075701ad15671",
+          "outputSha256": "e8d00f6248b626d50a778ad598d4328900cc25258b666f96bf07bb68635f56e9",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "live",
+          "target": "não",
+          "sourceSha256": "60c4d45cd1e8b5771d1c1ba2c2bc4b7fdf8f249201cd60bbb45114073e765f55",
+          "outputSha256": "5cbae9feae2485f63df2a64a22b2d9d1c624d5a7f6aeb1c39f5032d4b57b2bcf",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "native-cs1",
+          "state": "dead",
+          "sourceSha256": "b4767c86b2dc9e407425fe17c73e252d27f13b2a05853555f5def57d90a5a228",
+          "outputSha256": "bc3b043c31775aa011b2edd540b157adad8a50c8cbfe38452f4ba4498971d456",
+          "actualWorker": true
+        },
+        {
+          "bundle": "complete",
+          "consumer": "specialized-tweet",
+          "state": "dead",
+          "target": "sim",
+          "sourceSha256": "ab77150ec6ef27883ac0e8db64100613027981c2f33bbd45d3e39b616875fc5e",
+          "outputSha256": "5deb7ae088a26968d48c3391fd93400f184485e222c7f332cb2224235d73e952",
+          "actualWorker": true
+        }
+      ],
+      "privateReceiptSha256": "7955ea12b8ae6b7a54e34b03d332dd11c0f010f5e16556649491ceaab1b41671",
+      "ownedSessionClosed": true
+    }
+  ],
+  "executedCases": 24,
+  "checks": 609,
+  "scope": [
+    "Both core and complete bundles execute actual production Workers and write only accepted preservation-approved endpoints.",
+    "The tested native CS1 journal calls retain exact live/dead url-status values while English citation parameters migrate independently.",
+    "The specialized tweet consumer converts its unsupported modern role to the retained native urlmorta=não/sim role; original/archive URLs and synthetic message identity remain exact.",
+    "Automatic summary, minor flag, silent interface and exact full-source undo pass in each case.",
+    "This directly covers the two consumer classes in installed Chrome, Firefox and Safari; separate directed tests cover the broader native consumer catalogue."
+  ],
+  "wikipediaWrites": 0,
+  "networkMutations": 0,
+  "screenshots": 0,
+  "clipboardWrites": 0,
+  "historicalResultsPreserved": true
+}

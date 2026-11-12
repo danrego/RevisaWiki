@@ -1,0 +1,526 @@
+{
+  "schema": "revisawiki-native-note-owner-worker-fixtures-v1",
+  "version": "2.21.7",
+  "nativeNoteContracts": {
+    "Refn": 57056787,
+    "Nre": 68628864,
+    "Efn": 68628877
+  },
+  "expectedOutlineBasis": "Full pinned native note and collector sources; literal exact helpers, bodies,groups and complete source endpoints preserved. Unknown or generated note owners do not certify the merge.",
+  "rows": [
+    {
+      "id": "eligible-Nre",
+      "source": "Frase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{Nre|Nota fictícia.}}",
+      "merge": true,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "0933f0fe4887e20b95ebf3365298bc4a0725ed13fc831f3efca57fd82c703843",
+      "expectedSha256": "8ce001b8809c5197f3476464970ae30d9eb9b978059cc40da6b024e30959b087"
+    },
+    {
+      "id": "eligible-nre",
+      "source": "Frase{{nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{nre|Nota fictícia.}}",
+      "merge": true,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "66198044ad6c8a330246bab8b7f5ae6efc37c8b7ebd2fd6e855dc57dd13de871",
+      "expectedSha256": "23ac7eff82e50cc9534f064bb1caae6b6da7c5e4d9fa2999697ba3037ad4dd79"
+    },
+    {
+      "id": "eligible-Efn",
+      "source": "Frase{{Efn|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Efn|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{Efn|Nota fictícia.}}",
+      "merge": true,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628877,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "f10bfaf15cad4b37e0bd4f4af097aa984491fde49e1e015c3d6b9916bcf22ed2",
+      "expectedSha256": "cf434af88da9afa87c6de210b477e222788e3d4d307cbad46fa747015b7d7186"
+    },
+    {
+      "id": "eligible-efn",
+      "source": "Frase{{efn|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{efn|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{efn|Nota fictícia.}}",
+      "merge": true,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628877,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "abe7a35e91613efccc1181c488b47efeba36044312928facca4f0b88a72d92a2",
+      "expectedSha256": "186e67c6ba01864a136659f3d2a6172b47541e4b8e7499b30fbbe4cb521123ba"
+    },
+    {
+      "id": "eligible-Refn",
+      "source": "Frase{{Refn|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Refn|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{Refn|Nota fictícia.|group=nota}}",
+      "merge": true,
+      "expectedNoteGroup": "nota",
+      "nativeOldid": 57056787,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "08509efd36accbe16f501252d399a635aedd020aa6b84673843ca98c26d12d42",
+      "expectedSha256": "3c82d83266f5957f657e3cca88c8fd4b97ada377a09da3f4858a93920771a7fb"
+    },
+    {
+      "id": "eligible-refn",
+      "source": "Frase{{refn|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{refn|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "helper": "{{refn|Nota fictícia.|group=nota}}",
+      "merge": true,
+      "expectedNoteGroup": "nota",
+      "nativeOldid": 57056787,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas e referências",
+          "parent": []
+        },
+        {
+          "level": 3,
+          "title": "Notas",
+          "parent": [
+            "Notas e referências"
+          ]
+        },
+        {
+          "level": 3,
+          "title": "Referências",
+          "parent": [
+            "Notas e referências"
+          ]
+        }
+      ],
+      "sourceSha256": "1b21f72604e5221c5b22b561962369a27dd6caf4672c5ca841ee8e3a085d061d",
+      "expectedSha256": "e0912593933978e5a81ece3edbcec8c988878e3eac963ca40c821b61cf5967f1"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-0",
+      "source": "Frase{{NRE|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{NRE|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{NRE|Nota fictícia.}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "4bcfbeca0e111da9eb543d4c63d4bfd8553c52a678223d235044ac97f78a9402",
+      "expectedSha256": "4bcfbeca0e111da9eb543d4c63d4bfd8553c52a678223d235044ac97f78a9402"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-1",
+      "source": "Frase{{Nre|Nota fictícia.|campo=preservar}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|Nota fictícia.|campo=preservar}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.|campo=preservar}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "35e326e2e7f504efd102c36edcc491b5a8769f10631e8df54ca5f346690c0d44",
+      "expectedSha256": "35e326e2e7f504efd102c36edcc491b5a8769f10631e8df54ca5f346690c0d44"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-2",
+      "source": "Frase{{Nre|{{Modelo desconhecido}}}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|{{Modelo desconhecido}}}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|{{Modelo desconhecido}}}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "1d7a81b06071c44065fd96b5a70e7205fec366a36b0a15a4a224f9eb668337dc",
+      "expectedSha256": "1d7a81b06071c44065fd96b5a70e7205fec366a36b0a15a4a224f9eb668337dc"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-3",
+      "source": "Frase{{Nre|<span>Nota fictícia.</span>}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|<span>Nota fictícia.</span>}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|<span>Nota fictícia.</span>}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "57eea0111957a628d353a9bb80cc27b5b1ddca14099b6b9387c1af4a31dc023d",
+      "expectedSha256": "57eea0111957a628d353a9bb80cc27b5b1ddca14099b6b9387c1af4a31dc023d"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-4",
+      "source": "Frase{{Nre|Nota fictícia.|name=a|name=b}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|Nota fictícia.|name=a|name=b}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.|name=a|name=b}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "b659845a0bd81fb7c2429e8e7bc9439700c392cc138e6e2dd964541a3f6830de",
+      "expectedSha256": "b659845a0bd81fb7c2429e8e7bc9439700c392cc138e6e2dd964541a3f6830de"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-5",
+      "source": "Frase{{Nre|Nota fictícia.|group=nota|grupo=lower-alpha}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|Nota fictícia.|group=nota|grupo=lower-alpha}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.|group=nota|grupo=lower-alpha}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "d37f6b0453bdd38e74dc0c5356ebfeb2b0d23f06a0aa11de8c8eb37010f2cd4a",
+      "expectedSha256": "d37f6b0453bdd38e74dc0c5356ebfeb2b0d23f06a0aa11de8c8eb37010f2cd4a"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-6",
+      "source": "Frase{{Modelo desconhecido|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Modelo desconhecido|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Modelo desconhecido|Nota fictícia.}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "ed0330709c1996809debac3d91ac06e1136ee4eee0a7021b6130747cee5dd33e",
+      "expectedSha256": "ed0330709c1996809debac3d91ac06e1136ee4eee0a7021b6130747cee5dd33e"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-7",
+      "source": "Frase{{Modelo desconhecido|nota={{Nre|Nota fictícia.}}}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Modelo desconhecido|nota={{Nre|Nota fictícia.}}}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Modelo desconhecido|nota={{Nre|Nota fictícia.}}}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "82410bd20a62df6902ad66c2a33127ed35bbc2d4adddf5dcf868900d33e11c9a",
+      "expectedSha256": "82410bd20a62df6902ad66c2a33127ed35bbc2d4adddf5dcf868900d33e11c9a"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-8",
+      "source": "Frase{{Sfn|Autor fictício|2001}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Sfn|Autor fictício|2001}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Sfn|Autor fictício|2001}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "55f60717e8d0b092f7f26c8256d26c1a6cd791ea85bd47702a6a0940a6f5cb5a",
+      "expectedSha256": "55f60717e8d0b092f7f26c8256d26c1a6cd791ea85bd47702a6a0940a6f5cb5a"
+    },
+    {
+      "id": "unknown-ineligible-dynamic-generated-9",
+      "source": "Frase{{#tag:ref|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{#tag:ref|Nota fictícia.|group=nota}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{#tag:ref|Nota fictícia.|group=nota}}",
+      "merge": false,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "814adf123a63bf95d379cf767bc62417a8f4a8199d338c2707405848c7cf953d",
+      "expectedSha256": "814adf123a63bf95d379cf767bc62417a8f4a8199d338c2707405848c7cf953d"
+    },
+    {
+      "id": "retained-h2",
+      "source": "== Fontes ==\nProsa preservada.\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "== Fontes ==\nProsa preservada.\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.}}",
+      "merge": false,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 2,
+          "title": "Fontes",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "85c50f8642c9a10faba8965ea17abab28d795d91e409f34518bb63d46022e8c2",
+      "expectedSha256": "85c50f8642c9a10faba8965ea17abab28d795d91e409f34518bb63d46022e8c2"
+    },
+    {
+      "id": "retained-h3",
+      "source": "=== Fontes ===\nProsa preservada.\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "=== Fontes ===\nProsa preservada.\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.}}",
+      "merge": false,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Fontes",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "9235f56838cd72fa56e2a6f7872154e949df517e5cab815b9077f96f2b0cf947",
+      "expectedSha256": "9235f56838cd72fa56e2a6f7872154e949df517e5cab815b9077f96f2b0cf947"
+    },
+    {
+      "id": "retained-h6",
+      "source": "====== Fontes ======\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "====== Fontes ======\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.}}",
+      "merge": false,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 6,
+          "title": "Fontes",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "7e0b0855378b993be4aa2380b2b84dfa540f84058f5d5acb00e6ce82650e1e46",
+      "expectedSha256": "7e0b0855378b993be4aa2380b2b84dfa540f84058f5d5acb00e6ce82650e1e46"
+    },
+    {
+      "id": "retained-html",
+      "source": "<h3 id=\"fontes\">Fontes</h3>\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "<h3 id=\"fontes\">Fontes</h3>\nFrase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "helper": "{{Nre|Nota fictícia.}}",
+      "merge": false,
+      "expectedNoteGroup": "lower-alpha",
+      "nativeOldid": 68628864,
+      "expectedOutline": [
+        {
+          "level": 3,
+          "title": "Fontes",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Notas",
+          "parent": []
+        },
+        {
+          "level": 2,
+          "title": "Referências",
+          "parent": []
+        }
+      ],
+      "sourceSha256": "a081cc26bf5b802099e0962e3b8bf69b4f0816d69502649ba50e51e81f81a7ce",
+      "expectedSha256": "a081cc26bf5b802099e0962e3b8bf69b4f0816d69502649ba50e51e81f81a7ce"
+    }
+  ]
+}
