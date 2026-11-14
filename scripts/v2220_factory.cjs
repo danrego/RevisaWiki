@@ -1,0 +1,18 @@
+"use strict";
+const fs=require('node:fs'),assert=require('node:assert/strict'),parser=require('@babel/parser'),terser=require('terser'),crypto=require('node:crypto');
+const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+function walk(n,fn){if(!n||typeof n!=='object')return;fn(n);for(const[k,v]of Object.entries(n)){if(['loc','start','end','extra'].includes(k))continue;if(Array.isArray(v))v.forEach(x=>walk(x,fn));else if(v&&typeof v==='object')walk(v,fn);}}
+async function build(source,helpers){
+ const ast=parser.parse(source),boots=[],apis=[];walk(ast,n=>{if(n.type==='FunctionExpression'&&n.id?.name==='RevisaWikiBoot')boots.push(n);if(n.type==='VariableDeclarator'&&n.id?.name==='api')apis.push(n);});assert.equal(boots.length,1);assert.equal(apis.length,1);const boot=boots[0],api=apis[0];
+ const visible=new Set(boot.params.map(p=>p.name));for(const n of boot.body.body){if(n.type==='FunctionDeclaration')visible.add(n.id.name);if(n.type==='VariableDeclaration')for(const d of n.declarations)if(d.id.type==='Identifier')visible.add(d.id.name);}
+ const tree=parser.parse(helpers);assert(tree.program.body.every(n=>['FunctionDeclaration','VariableDeclaration'].includes(n.type)));const names=tree.program.body.filter(n=>n.type==='FunctionDeclaration').map(n=>n.id.name);assert.equal(names.length,new Set(names).size);assert(names.every(n=>n.startsWith('v222')),'Namespaced helper declaration required');
+ const declarations='const V222_CATALOG=deps.V222_CATALOG;\n'+helpers+'\nconst V222_MODULE_FUNCTIONS={'+names.join(',')+'};\nreturn V222_MODULE_FUNCTIONS;';
+ const probe=await terser.minify('function RevisaWikiRulesFactory(deps){'+declarations+'}',{compress:false,mangle:false,format:{ast:true,code:false}});probe.ast.figure_out_scope();
+ const globals=[...probe.ast.globals.keys()],native=new Set(['Array','Object','Number','String','Boolean','RegExp','Map','Set','WeakMap','WeakSet','Math','JSON','Infinity','NaN','undefined','Error','TypeError','RangeError','URL','URLSearchParams','Uint8Array','TextEncoder','TextDecoder','Intl','BigInt','Date','Promise','Symbol','performance','console','globalThis','window','document','unescape','decodeURIComponent','encodeURIComponent','parseInt','parseFloat','isFinite','isNaN','structuredClone','setTimeout','clearTimeout']);
+ const dependencies=globals.filter(n=>!native.has(n)&&n!=='deps');const unknown=dependencies.filter(n=>!visible.has(n));assert.deepEqual(unknown,[],'Unknown lexical dependencies');
+ const factory='function RevisaWikiRulesFactory(deps){const {'+dependencies.join(',')+'}=deps;\n'+declarations+'}';
+ const at=source.lastIndexOf('const api',api.start);assert(at>=0);const bridge='const v222Module=root.RevisaWikiRulesV222.factory({V222_CATALOG:root.RevisaWikiCatalogV222.data,'+dependencies.join(',')+'});const {'+names.join(',')+'}=v222Module;\n';
+ const edits=[{start:at,end:at,text:bridge},{start:api.init.start+1,end:api.init.start+1,text:names.join(',')+','}];let code=source;for(const e of edits.sort((a,b)=>b.start-a.start))code=code.slice(0,e.start)+e.text+code.slice(e.end);parser.parse(code);return{code,factory,receipt:{baselineSha256:sha(source),helperSha256:sha(helpers),factorySha256:sha(factory),dependencies,names,bridgeBytes:Buffer.byteLength(bridge)}};
+}
+if(require.main===module){const[input,helpers,output,factory,receipt]=process.argv.slice(2);build(fs.readFileSync(input,'utf8'),fs.readFileSync(helpers,'utf8')).then(r=>{fs.writeFileSync(output,r.code);fs.writeFileSync(factory,r.factory);fs.writeFileSync(receipt,JSON.stringify(r.receipt,null,2)+'\n');}).catch(e=>{console.error(e);process.exitCode=1;});}
+module.exports={build};

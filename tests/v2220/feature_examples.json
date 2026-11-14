@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "version": "2.22.0",
+  "purpose": "Exemplos fictícios executáveis, com preferências atualizadas e fontes anteriores conservadas.",
+  "examples": [
+    {
+      "id": "doc-ref-isolation",
+      "featureIds": [
+        "REF-01"
+      ],
+      "source": "Frase.<ref>Fonte fictícia.</ref>{{Referências}}",
+      "expected": "Frase.<ref>Fonte fictícia.</ref>\n\n{{Referências}}",
+      "entryPoint": "v2216ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-adjacent-reuse",
+      "featureIds": [
+        "REF-07"
+      ],
+      "source": "A.<ref name=\"fonte\">Fonte fictícia.</ref>\nB.<ref name=\"fonte\" /><ref name=\"fonte\" />",
+      "expected": "A.<ref name=\"fonte\">Fonte fictícia.</ref>\nB.<ref name=\"fonte\" />",
+      "entryPoint": "v2216ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-punctuation-reuse",
+      "featureIds": [
+        "REF-05"
+      ],
+      "source": "A.<ref name=\"fonte\">Fonte fictícia.</ref>\nUma frase<ref name=\"fonte\" />.",
+      "expected": "A.<ref name=\"fonte\">Fonte fictícia.</ref>\nUma frase.<ref name=\"fonte\" />",
+      "entryPoint": "v2216ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-punctuation-chain",
+      "featureIds": [
+        "REF-05"
+      ],
+      "source": "A.<ref name=\"alfa\">Fonte Alfa.</ref><ref name=\"beta\">Fonte Beta.</ref>\nFrase<ref name=\"alfa\" /><ref name=\"beta\" />.",
+      "expected": "A.<ref name=\"alfa\">Fonte Alfa.</ref><ref name=\"beta\">Fonte Beta.</ref>\nFrase.<ref name=\"alfa\" /><ref name=\"beta\" />",
+      "entryPoint": "v2216ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-native-collector",
+      "featureIds": [
+        "REF-04"
+      ],
+      "source": "Frase.<ref>Fonte fictícia.</ref>\n== Referências ==\n<references/>",
+      "expected": "Frase.<ref>Fonte fictícia.</ref>\n{{Referências}}",
+      "entryPoint": "v2215ReferenceCollectorPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-combined-notes",
+      "featureIds": [
+        "REF-03"
+      ],
+      "source": "Frase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "expected": "Frase{{Nre|Nota fictícia.}}.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "entryPoint": "v2215ReferenceCollectorPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-group-note",
+      "featureIds": [
+        "REF-09"
+      ],
+      "source": "Frase<ref group=\"note\">Nota fictícia.</ref>.<ref>Fonte fictícia.</ref>\n== Notas ==\n<references group=\"note\"/>\n\n<references/>",
+      "expected": "Frase<ref group=\"nota\">Nota fictícia.</ref>.<ref>Fonte fictícia.</ref>\n{{Notas e referências}}",
+      "entryPoint": "v2217ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-descriptive-name",
+      "featureIds": [
+        "REF-18"
+      ],
+      "source": "A.<ref name=\":0\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> B.<ref name=\":0\" />",
+      "expected": "A.<ref name=\"Exemplo2001-1\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> B.<ref name=\"Exemplo2001-1\" />",
+      "entryPoint": "v2216AutonamePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-existing-name-kept",
+      "featureIds": [
+        "REF-18"
+      ],
+      "source": "A.<ref name=\"nome-descritivo\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> B.<ref name=\"nome-descritivo\" />",
+      "expected": "A.<ref name=\"nome-descritivo\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> B.<ref name=\"nome-descritivo\" />",
+      "entryPoint": "v2216AutonamePlan",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-access-year-not-publication",
+      "featureIds": [
+        "REF-18"
+      ],
+      "source": "A.<ref name=\":0\">{{citar web|titulo=Documento fictício|acessodata=2026-11-01}}</ref>",
+      "expected": "A.<ref name=\"Documento_fictício-1\">{{citar web|titulo=Documento fictício|acessodata=2026-11-01}}</ref>",
+      "entryPoint": "v2216AutonamePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-date",
+      "featureIds": [
+        "CIT-09"
+      ],
+      "source": "Frase.<ref>{{citar web|titulo=Documento fictício|data=April 3, 2020}}</ref>\n{{Referências}}",
+      "expected": "Frase.<ref>{{citar web|titulo=Documento fictício|data=3 de abril de 2020}}</ref>\n\n{{Referências}}",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-isbn",
+      "featureIds": [
+        "CIT-14"
+      ],
+      "source": "Frase.<ref>{{citar livro|titulo=Obra fictícia|isbn=9780306406157.}}</ref>\n{{Referências}}",
+      "expected": "Frase.<ref>{{citar livro|titulo=Obra fictícia|isbn=9780306406157}}</ref>\n\n{{Referências}}",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-fields-english",
+      "featureIds": [
+        "CIT-02"
+      ],
+      "source": "Frase.<ref>{{citar web|url=https://example.invalid/|title=Documento fictício|access-date=November 1, 2026}}</ref>\n{{Referências}}",
+      "expected": "Frase.<ref>{{citar web|url=https://example.invalid/|título=Documento fictício|acessodata=1 de novembro de 2026}}</ref>\n\n{{Referências}}",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-image",
+      "featureIds": [
+        "IMG-01"
+      ],
+      "source": "[[Image:Exemplo.jpg|thumb|220px|Uma paisagem.]]",
+      "expected": "[[Ficheiro:Exemplo.jpg|miniatura|220px|Uma paisagem.]]",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-miniaturada",
+      "featureIds": [
+        "IMG-02"
+      ],
+      "source": "[[Imagem:Exemplo.jpg|miniaturada|220px|Uma paisagem.]]",
+      "expected": "[[Imagem:Exemplo.jpg|miniatura|220px|Uma paisagem.]]",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-caption-word-preserved",
+      "featureIds": [
+        "IMG-02"
+      ],
+      "source": "[[Imagem:Exemplo.jpg|miniatura|Legenda com miniaturada dentro do texto.]]",
+      "expected": "[[Imagem:Exemplo.jpg|miniatura|Legenda com miniaturada dentro do texto.]]",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-links",
+      "featureIds": [
+        "LNK-01"
+      ],
+      "source": "Consulte [[Ecossistema|Ecossistema]].",
+      "expected": "Consulte [[Ecossistema]].",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-flexion",
+      "featureIds": [
+        "LNK-02"
+      ],
+      "source": "Os [[ecossistema|ecossistemas]] foram citados.",
+      "expected": "Os [[ecossistema]]s foram citados.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-blank-lines",
+      "featureIds": [
+        "SYN-05"
+      ],
+      "source": "Parágrafo inicial.\n\n \t\nParágrafo seguinte.",
+      "expected": "Parágrafo inicial.\n\nParágrafo seguinte.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-prefix",
+      "featureIds": [
+        "SYN-06"
+      ],
+      "source": "\n\nTexto fictício.",
+      "expected": "Texto fictício.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-short-description",
+      "featureIds": [
+        "SYN-10"
+      ],
+      "source": "{{Descrição curta|Um tema fictício}}\n\nTexto fictício.",
+      "expected": "Texto fictício.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-spelling",
+      "featureIds": [
+        "SYN-09"
+      ],
+      "source": "As espectativas cresceram quando o filme estreiou.",
+      "expected": "As expectativas cresceram quando o filme estreou.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-protected-spelling",
+      "featureIds": [
+        "SYN-09"
+      ],
+      "source": "A citação diz \"espectativas\" e usa ''estreiou''.",
+      "expected": "A citação diz \"espectativas\" e usa ''estreiou''.",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-infobox-newline",
+      "featureIds": [
+        "BIO-04"
+      ],
+      "source": "{{Info/Biografia/Wikidata}}'''Pessoa fictícia''' foi pesquisadora.",
+      "expected": "{{Info/Biografia/Wikidata}}\n'''Pessoa fictícia''' foi pesquisadora.",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-quality",
+      "featureIds": [
+        "QUAL-01"
+      ],
+      "source": "{{Artigo bom}}\n{{Artigo bom}}\nTexto fictício.",
+      "expected": "{{Artigo bom}}\nTexto fictício.",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-quality-conflict",
+      "featureIds": [
+        "QUAL-01"
+      ],
+      "source": "{{Artigo bom|tema=tema A}}\n{{Artigo bom|tema=tema B}}\nTexto fictício.",
+      "expected": "{{Artigo bom|tema=tema A}}\n{{Artigo bom|tema=tema B}}\nTexto fictício.",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-native-wrapper",
+      "featureIds": [
+        "LAY-02"
+      ],
+      "source": "<div style=\"float:right;clear:right;max-width:100%;overflow-x:auto\" tabindex=\"0\" role=\"region\" aria-label=\"Informações de Exemplo\">\n{{Info/Biografia|nome=Pessoa fictícia}}\n</div>",
+      "expected": "{{Info/Biografia|nome=Pessoa fictícia}}",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-footer-wrapper",
+      "featureIds": [
+        "LAY-01"
+      ],
+      "source": "<div style=\"max-width:100%;overflow-x:auto\" tabindex=\"0\" role=\"region\" aria-label=\"Navegação: Exemplo\">\n{{Portal3|Ciência}}\n</div>",
+      "expected": "{{Portal3|Ciência}}",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-functional-wrapper",
+      "featureIds": [
+        "LAY-02"
+      ],
+      "source": "<div class=\"painel-especial\">\n{{Info/Biografia|nome=Pessoa fictícia}}\n<p>Conteúdo adicional.</p>\n</div>",
+      "expected": "<div class=\"painel-especial\">\n{{Info/Biografia|nome=Pessoa fictícia}}\n<p>Conteúdo adicional.</p>\n</div>",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-columns-short",
+      "featureIds": [
+        "COL-02"
+      ],
+      "source": "== Bibliografia ==\n{{Colunas-lista|2|2=\n* Uma obra\n}}",
+      "expected": "== Bibliografia ==\n* Uma obra",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-columns-eight",
+      "featureIds": [
+        "COL-01"
+      ],
+      "source": "== Ligações externas ==\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7\n* Item 8",
+      "expected": "== Ligações externas ==\n{{Colunas-lista|2|2=\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7\n* Item 8\n}}",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-columns-seven-preserved",
+      "featureIds": [
+        "COL-01"
+      ],
+      "source": "== Ligações externas ==\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7",
+      "expected": "== Ligações externas ==\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc-manual-columns",
+      "featureIds": [
+        "COL-03"
+      ],
+      "source": "== Ligações externas ==\n{{Colunas|col1=\n* [https://example.invalid/a Item A]\n|col2=\n* [https://example.invalid/b Item B]\n}}",
+      "expected": "== Ligações externas ==\n* [https://example.invalid/a Item A]\n* [https://example.invalid/b Item B]",
+      "entryPoint": "v2216LayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc-pd",
+      "featureIds": [
+        "TALK-01"
+      ],
+      "source": "{{pd}}\n{{Página de discussão}}\n== Conversa ==\nTexto fictício.",
+      "expected": "{{PD}}\n== Conversa ==\nTexto fictício.",
+      "entryPoint": "v2216TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "discussionPage": true
+      },
+      "kind": "positive"
+    },
+    {
+      "id": "doc-projects",
+      "featureIds": [
+        "TALK-02"
+      ],
+      "source": "{{PD}}\n{{Marca de projeto|?|Ciência|?}}\n{{Marca de projeto|?|Tecnologia|?}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Ciência|?|Tecnologia|?}}\n",
+      "entryPoint": "v2216TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "discussionPage": true
+      },
+      "kind": "positive"
+    },
+    {
+      "id": "doc-translation",
+      "featureIds": [
+        "TALK-04"
+      ],
+      "source": "{{PD}}\n{{Traduzido|en|Tema fictício|oldid=12345|data=1 de novembro de 2026}}",
+      "expected": "{{PD}}\n{{Traduzido|página=Tema fictício|cód_idioma=en|oldid=12345|data=1 de novembro de 2026}}",
+      "entryPoint": "v2216TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "discussionPage": true
+      },
+      "kind": "positive"
+    },
+    {
+      "id": "doc-human-assessment",
+      "featureIds": [
+        "TALK-03"
+      ],
+      "source": "{{PD}}\n{{Marca de projeto|3|Ciência|2|rev=20261104}}",
+      "expected": "{{PD}}\n{{Marca de projeto|3|Ciência|2|rev=20261104}}",
+      "entryPoint": "v2216TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "discussionPage": true
+      },
+      "kind": "negative"
+    },
+    {
+      "id": "doc-nowiki",
+      "featureIds": [
+        "SAFE-04"
+      ],
+      "source": "<nowiki>{{Reflist}}</nowiki>",
+      "expected": "<nowiki>{{Reflist}}</nowiki>",
+      "entryPoint": "calculate",
+      "options": {},
+      "kind": "negative"
+    },
+    {
+      "id": "doc2217-ref-21",
+      "featureIds": [
+        "REF-21"
+      ],
+      "source": "== Referências ==\n===Notas===\n{{Referências}}",
+      "expected": "{{Referências}}",
+      "entryPoint": "v2217ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-ref-23",
+      "featureIds": [
+        "REF-23"
+      ],
+      "source": "A.<ref name=\"a\">Fonte.</ref>\nB.<ref name=\"a\">Fonte.</ref>",
+      "expected": "A.<ref name=\"a\">Fonte.</ref>\nB.<ref name=\"a\" />",
+      "entryPoint": "v2217ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-cit-21",
+      "featureIds": [
+        "CIT-21"
+      ],
+      "source": "{{Citation|titulo=Obra|publicado=Editora|ano=2005}}",
+      "expected": "{{Citar livro|titulo=Obra|publicado=Editora|ano=2005|ref=harv}}",
+      "entryPoint": "v2217ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-cit-23",
+      "featureIds": [
+        "CIT-23"
+      ],
+      "source": "{{Bibleverse|Titus|2:1–3}}",
+      "expected": "{{Citar bíblia|livro=Tito|capítulo=2|verso=1|verso_final=3}}",
+      "entryPoint": "v2217ReferencePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-img-05",
+      "featureIds": [
+        "IMG-05"
+      ],
+      "source": "Texto.\n[[Ficheiro:Example.jpg]] [[Ficheiro:Example2.jpg]]Outro texto.\n",
+      "expected": "Texto.\n\n[[Ficheiro:Example.jpg]]\n[[Ficheiro:Example2.jpg]]\n\nOutro texto.\n",
+      "entryPoint": "v2217SourceLayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-tab-10",
+      "featureIds": [
+        "TAB-10"
+      ],
+      "source": "{| class=\"wikitable\"\n|-\n|{{Td fmtn|1}}\n|}",
+      "expected": "{| class=\"wikitable\"\n|-\n{{Td fmtn|1}}\n|}",
+      "entryPoint": "v2217StructurePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-tab-11",
+      "featureIds": [
+        "TAB-11"
+      ],
+      "source": "{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Democratic Party (United States)|votes=12,345|percentage=4.5}}",
+      "expected": "{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Partido Democrata (Estados Unidos)|votes=12,345|percentage=4.5}}",
+      "entryPoint": "v2217StructurePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-syn-13",
+      "featureIds": [
+        "SYN-13"
+      ],
+      "source": "{{Em construção}}{{Evento atual|Este artigo}}\nTexto.",
+      "expected": "{{Em construção}}\n{{Evento atual|Este artigo}}\nTexto.",
+      "entryPoint": "v2217SourceLayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-syn-14",
+      "featureIds": [
+        "SYN-14"
+      ],
+      "source": "<noinclude>\n </noinclude>\n\nTexto.",
+      "expected": "Texto.",
+      "entryPoint": "v2217SourceLayoutPlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-tpl-04",
+      "featureIds": [
+        "TPL-04"
+      ],
+      "source": "{{S-bef|before=Pessoa Exemplo}}\n{{S-inc|recent}}",
+      "expected": "{{S-bef|antes=Pessoa Exemplo}}\n{{S-inc|recente}}",
+      "entryPoint": "v2217StructurePlan",
+      "options": {},
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-talk-07",
+      "featureIds": [
+        "TALK-07"
+      ],
+      "source": "{{Marca de projeto|?|Ciência|?}}\n{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}\n{{PD}}",
+      "expected": "{{PD}}\n{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}\n{{Marca de projeto|?|Ciência|?}}\n",
+      "entryPoint": "v2217TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "pageTitle": "Discussão:Exemplo",
+        "discussionPage": true
+      },
+      "kind": "positive"
+    },
+    {
+      "id": "doc2217-bot-marker",
+      "featureIds": [
+        "TALK-03"
+      ],
+      "source": "{{PD}}\n{{Marca de projeto|1|Ciência|3|bot=?/20131103|rev=20140530}}",
+      "expected": "{{PD}}\n{{Marca de projeto|?|Ciência|3}}",
+      "entryPoint": "v2217TalkPlan",
+      "options": {
+        "namespaceNumber": 1,
+        "pageTitle": "Discussão:Exemplo",
+        "discussionPage": true
+      },
+      "kind": "positive"
+    }
+  ]
+}

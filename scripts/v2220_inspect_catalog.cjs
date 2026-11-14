@@ -1,0 +1,7 @@
+'use strict';
+// Read static literals without executing the supplied JavaScript.
+const fs=require('node:fs'),p=require('@babel/parser'),assert=require('node:assert/strict');
+function read(n){if(n.type==='StringLiteral'||n.type==='NumericLiteral'||n.type==='BooleanLiteral')return n.value;if(n.type==='NullLiteral')return null;if(n.type==='UnaryExpression'&&n.operator==='-'&&n.argument.type==='NumericLiteral')return -n.argument.value;if(n.type==='ArrayExpression'){assert(n.elements.every(Boolean));return n.elements.map(read);}if(n.type==='ObjectExpression'){const v=Object.create(null);for(const e of n.properties){assert(e.type==='ObjectProperty'&&!e.computed&&!e.method&&!e.shorthand);const key=e.key.type==='Identifier'?e.key.name:e.key.value;assert(typeof key==='string'||typeof key==='number');assert(!Object.hasOwn(v,key));v[key]=read(e.value);}return v;}throw Error('The catalogue contains a nonliteral expression');}
+const source=fs.readFileSync(process.argv[2],'utf8'),ast=p.parse(source),found=[];
+function walk(n){if(!n||typeof n!=='object')return;if(n.type==='VariableDeclarator'&&n.init?.type==='ObjectExpression'&&n.init.properties.some(x=>(x.key.name||x.key.value)==='version')&&n.init.properties.some(x=>(x.key.name||x.key.value)==='data'))found.push(n.init);for(const[k,v]of Object.entries(n)){if(['loc','start','end','extra'].includes(k))continue;if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object')walk(v);}}
+walk(ast);assert.equal(found.length,1);process.stdout.write(JSON.stringify(read(found[0])));

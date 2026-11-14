@@ -1,0 +1,3149 @@
+{
+  "schemaVersion": 3,
+  "version": "2.22.0",
+  "purpose": "Inventário completo de contratos, comportamentos e condições; exemplos fictícios ou conceituais, não substituições incondicionais.",
+  "verification": "QA de runtime, corpus, prévias e navegadores fica em relatório separado. Preservar 170 IDs não transforma evidência antiga em teste da nova versão.",
+  "features": [
+    {
+      "id": "REF-01",
+      "family": "Referências e notas",
+      "title": "Lista de referências em linha própria",
+      "description": "Separa o coletor do parágrafo, sem mudar o texto ou as fontes.",
+      "before": "Texto.<ref>Fonte.</ref>{{Referências}}",
+      "after": "Texto.<ref>Fonte.</ref>\n\n{{Referências}}",
+      "condition": "A alteração exige uma ocorrência completa, reconhecida e sem conflito.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2216ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-02",
+      "family": "Referências e notas",
+      "title": "Coletores repetidos",
+      "description": "Retira uma cópia equivalente do mesmo coletor.",
+      "before": "Texto.<ref>Fonte.</ref>\n{{Referências}}\n{{Referências}}",
+      "after": "Texto.<ref>Fonte.</ref>\n{{Referências}}",
+      "condition": "Listas com grupos, definições internas ou funções diferentes não são cópias intercambiáveis.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-03",
+      "family": "Referências e notas",
+      "title": "Notas e referências juntas",
+      "description": "Reúne coletores compatíveis, inclusive ordem invertida e o bloco simples de quatro chamadas.",
+      "before": "Texto{{Nre|Uma explicação.}}.<ref>Uma fonte.</ref>\n{{Notas}}\n\n{{Referências}}",
+      "after": "Texto{{Nre|Uma explicação.}}.<ref>Uma fonte.</ref>\n{{Notas e referências}}",
+      "condition": "Inventário literal de grupos e produtores, sem perda de definições, conteúdo ou títulos personalizados. Larguras efetivas permanecem; largura de coletor posterior comprovadamente vazio não obriga conservar uma lista redundante.",
+      "type": "transformation",
+      "optionKeys": [
+        "references",
+        "unifiedNotesReferences"
+      ],
+      "entryPoints": [
+        "v222ReferenceCollectorsPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "Texto<ref>Fonte.</ref>\n{{Notas}}",
+          "after": "Texto<ref>Fonte.</ref>\n\n{{Referências}}",
+          "condition": "Quando Notas é o único coletor simples e há fonte padrão real antes dele, restaura diretamente o coletor padrão. Inventário fechado, sem argumentos, banco, outro grupo ou título personalizado.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "Texto<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n{{Notas}}",
+          "after": "Texto<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n\n{{Notas e referências}}",
+          "condition": "Mesma prova do coletor único, conservando nota/lower-alpha e as fontes. Outros grupos ou produtores posteriores ficam retidos.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "Texto.\n== Notas ==\n{{Notas}}",
+          "after": "Texto.\n",
+          "condition": "Notas isolada sem argumentos, nenhuma chamada ref/helper e inventário completo de produtores conhecidos. Título personalizado e prosa permanecem; desconhecidos retêm a chamada.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "Texto<ref group=\"lower-alpha\">Nota.</ref><ref>Fonte.</ref>\n{{Notas}}\n{{Notelist|30em}}\n\n{{Referências}}\n{{Reflist|30em}}",
+          "after": "Texto<ref group=\"lower-alpha\">Nota.</ref><ref>Fonte.</ref>\n\n{{Notas e referências}}",
+          "condition": "Os grupos já foram recolhidos pelos primeiros coletores; as listas com largura são posteriores e redundantes. Sem definições internas ou novos produtores entre elas.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "Texto<ref group=\"lower-alpha\">Nota.</ref><ref>Fonte.</ref>\n== Notas ==\n<div class=\"references\"><references group=lower-alpha/></div>\n\n== Referência ==\n<references />",
+          "after": "Texto<ref group=\"lower-alpha\">Nota.</ref><ref>Fonte.</ref>\n\n{{Notas e referências}}",
+          "condition": "Somente div com a classe references, sem outros atributos, id, estilo, conteúdo extra ou definições. Grupos e chamadas conservados. Ligações a âncoras impedem a convergência quando não há prova para mantê-las.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "REF-04",
+      "family": "Referências e notas",
+      "title": "Formato nativo da lista",
+      "description": "Converte coletores equivalentes e retira um título que passaria a ser repetido.",
+      "before": "Texto.<ref>Fonte.</ref>\n== Referências ==\n<references/>",
+      "after": "Texto.<ref>Fonte.</ref>\n{{Referências}}",
+      "condition": "Somente contratos equivalentes. Título manual personalizado, conteúdo e proprietário da seção permanecem; o coletor usa nível=0 quando necessário. Larguras explícitas da lista efetiva permanecem sem prova de equivalência de apresentação. Grupos, estilos, bancos e opções conflitantes não são descartados.",
+      "type": "transformation",
+      "optionKeys": [
+        "references",
+        "automaticReferenceCollectorHeadings"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "== Fontes ==\n{{Reflist|2}}",
+          "after": "== Fontes ==\n{{Referências|nível=0}}",
+          "condition": "Conserva o título personalizado sem criar outro cabeçalho Referências.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "== Referências ==\n{{Reflist|30em}}",
+          "after": "== Referências ==\n{{Reflist|30em}}",
+          "condition": "Largura efetiva explícita conservada; a orientação geral de migração não prova apresentação idêntica neste caso.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "REF-05",
+      "family": "Referências e notas",
+      "title": "Pontuação junto às referências",
+      "description": "Põe a pontuação existente antes de uma chamada ou sequência de chamadas, nos contextos sem ambiguidade.",
+      "before": "Uma frase<ref name=\"fonte\" />.",
+      "after": "Uma frase.<ref name=\"fonte\" />",
+      "condition": "Não cria sinais, não muda o corpo das fontes e preserva casos ambíguos com aspas, abreviaturas ou reticências.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "Texto. {{sfn|Autor|2020}}",
+          "after": "Texto.{{sfn|Autor|2020}}",
+          "condition": "Só espaço horizontal após pontuação e antes de sfn reconhecida. Não consome nova linha.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "REF-06",
+      "family": "Referências e notas",
+      "title": "Fontes anônimas idênticas",
+      "description": "Transforma repetições da mesma fonte em uma definição nomeada e reutilizações.",
+      "before": "A.<ref>{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}</ref>\nB.<ref>{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}</ref>",
+      "after": "A.<ref name=\"Exemplo2001-1\">{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}</ref>\nB.<ref name=\"Exemplo2001-1\" />",
+      "condition": "O nome ilustrado depende dos campos presentes e da disponibilidade. Nomes ocupados recebem desambiguação, e definições divergentes não são fundidas. Nomes possíveis presentes como argumentos literais de outras chamadas ficam reservados, inclusive na forma NFC, para que uma definição nova não capture uma identidade existente.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticIdenticalReferences"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "A<ref> Fonte. </ref> B<ref>Fonte.</ref>",
+          "after": "A<ref name=\"ref-auto-1\"> Fonte. </ref> B<ref name=\"ref-auto-1\" />",
+          "condition": "Mesmo grupo e região; corpo simples com diferença apenas em espaços externos sem significado. Conserva o corpo da primeira definição e evita nomes ocupados.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "REF-07",
+      "family": "Referências e notas",
+      "title": "Reutilizações adjacentes iguais",
+      "description": "Retira a segunda chamada consecutiva da mesma fonte.",
+      "before": "Texto.<ref name=\"a\" /><ref name=\"a\" />",
+      "after": "Texto.<ref name=\"a\" />",
+      "condition": "Definições e reutilizações em pontos diferentes do texto ficam intactas.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-08",
+      "family": "Referências e notas",
+      "title": "Aviso de ligação inativa no campo próprio",
+      "description": "Leva a data existente do aviso ao campo datali da citação.",
+      "before": "<ref>{{citar web|url=https://example.invalid/|titulo=Documento}}{{Ligação inativa|data=novembro de 2026}}</ref>",
+      "after": "<ref>{{citar web|url=https://example.invalid/|titulo=Documento|datali=novembro de 2026}}</ref>",
+      "condition": "Exige uma data de calendário reconhecida já informada, uma única citação web ou de jornal associada e URL principal inequívoca. Não inventa datas, remove arquivos ou sobrescreve campos divergentes.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-09",
+      "family": "Referências e notas",
+      "title": "Grupo único de notas explicativas",
+      "description": "Adapta um grupo importado quando todos os seus produtores e coletores têm a mesma função.",
+      "before": "Texto<ref group=\"note\">Explicação.</ref>.<ref>Fonte.</ref>\n== Notas ==\n<references group=\"note\"/>\n\n<references/>",
+      "after": "Texto<ref group=\"nota\">Explicação.</ref>.<ref>Fonte.</ref>\n{{Notas e referências}}",
+      "condition": "Se houver outro grupo específico, numeração própria ou produção indireta não conferida, a identidade dos grupos permanece.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-10",
+      "family": "Referências e notas",
+      "title": "Coletor que falta para notas",
+      "description": "Acrescenta a lista de notas reconhecidas quando as chamadas existem e falta o coletor.",
+      "before": "Texto{{Nre|Explicação.}}.<ref>Fonte.</ref>\n{{Referências}}",
+      "after": "Texto{{Nre|Explicação.}}.<ref>Fonte.</ref>\n{{Notas e referências}}",
+      "condition": "Exige confirmar o tipo de nota e o lugar em que suas definições podem ser recolhidas.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-11",
+      "family": "Referências e notas",
+      "title": "Referência definida na primeira chamada",
+      "description": "Leva uma definição única para sua primeira reutilização, mantendo as chamadas seguintes.",
+      "before": "A.<ref name=\"a\" />\nB.<ref name=\"a\">Fonte.</ref>",
+      "after": "A.<ref name=\"a\">Fonte.</ref>\nB.<ref name=\"a\" />",
+      "condition": "Exige a mesma identidade, grupo e conteúdo, sem produção dinâmica ou cópia protegida.",
+      "type": "transformation",
+      "optionKeys": [
+        "moveNamedRefs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-12",
+      "family": "Referências e notas",
+      "title": "Nomes numéricos inválidos",
+      "description": "Substitui nomes exclusivamente numéricos e todas as suas chamadas por um nome válido.",
+      "before": "A.<ref name=\"123\">Fonte.</ref> B.<ref name=\"123\" />",
+      "after": "A.<ref name=\"ref-123\">Fonte.</ref> B.<ref name=\"ref-123\" />",
+      "condition": "O nome ilustrado pode receber outro sufixo se já existir. Não altera nomes não numéricos por semelhança. Um nome numérico, por si só, não demonstra ausência de definição; retirar uma reutilização exige outro inventário completo.",
+      "type": "illustrative",
+      "optionKeys": [
+        "numericRefNames"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-13",
+      "family": "Referências e notas",
+      "title": "Aspas quebradas no nome da fonte",
+      "description": "Corrige duplicação inequívoca do delimitador do nome.",
+      "before": "Uma referência com delimitador de nome duplicado e família de chamadas conferida.",
+      "after": "A mesma família com o delimitador corrigido, conservando definição e reutilizações.",
+      "condition": "A correção precisa preservar o vínculo de todas as chamadas.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-14",
+      "family": "Referências e notas",
+      "title": "Sintaxe local das etiquetas ref",
+      "description": "Repara grafias ou fechamentos finitos em limites confirmados.",
+      "before": "Uma etiqueta ref com erro exato de sintaxe e limites inequívocos.",
+      "after": "A mesma etiqueta com sintaxe válida, sem mudar o conteúdo da fonte.",
+      "condition": "Não fecha uma referência a partir de uma suposição sobre onde termina a fonte.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-15",
+      "family": "Referências e notas",
+      "title": "Referências com ligação simples",
+      "description": "Adapta uma referência que contém somente um endereço ou uma ligação simples quando há dados suficientes.",
+      "before": "<ref>[https://example.invalid/ Documento fictício]</ref>",
+      "after": "<ref>{{citar web|url=https://example.invalid/|titulo=Documento fictício}}</ref>",
+      "condition": "Não inventa autoria, data, editora ou data de acesso.",
+      "type": "illustrative",
+      "optionKeys": [
+        "bareReferences"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-16",
+      "family": "Referências e notas",
+      "title": "Notas com referência interna",
+      "description": "Usa um invólucro nativo nos casos em que uma nota precisa conter outra referência.",
+      "before": "<ref group=\"nota\">Explicação.<ref>Fonte da explicação.</ref></ref>",
+      "after": "{{Refn|1=Explicação.<ref>Fonte da explicação.</ref>|group=nota}}",
+      "condition": "A transformação exige conferir o coletor, os atributos e a ligação com o grupo.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-17",
+      "family": "Referências e notas",
+      "title": "Citações abreviadas e bibliografia",
+      "description": "Corrige destinos e campos de citações abreviadas nos contratos previstos.",
+      "before": "{{harvnb|Exemplo|2001|loc=capítulo 2|pp=10–12}}",
+      "after": "{{harvnb|Exemplo|2001|loc=capítulo 2|pp=10–12}}",
+      "condition": "Uma chamada válida permanece. Só há reparo quando o destino ou parâmetro pode ser comprovado, sem inventar uma obra.",
+      "type": "preservation",
+      "optionKeys": [
+        "harvardAnchorRepairs",
+        "shortCitationChecks"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-18",
+      "family": "Referências e notas",
+      "title": "Nomes descritivos de referências",
+      "description": "Substitui famílias automáticas reconhecidas por nomes derivados dos metadados da própria fonte, com as técnicas de NomeRefAuto.",
+      "before": "<ref name=\":0\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> Texto.<ref name=\":0\" />",
+      "after": "<ref name=\"Exemplo2001-1\">{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}</ref> Texto.<ref name=\"Exemplo2001-1\" />",
+      "condition": "Prioridade: colaborador, autor, editor, periódico, enciclopédia, título, título do livro e domínio da URL. Usa até quatro nomes e o ano de publicação, nunca o ano de acesso. Conserva nomes descritivos existentes e atualiza a família inteira, com um sufixo numérico para evitar colisões. Não insere predefinições no atributo name nem faz uma consulta externa por referência. Argumentos literais de outras chamadas reservam identidades possíveis. Se uma chamada puder consumir o nome antigo, a família fica intacta. A comparação de nomes ocupados também considera NFC, sem reescrever os nomes existentes. Anos conflitantes ou intervalos sem um ano único mantêm a alternativa neutra.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-19",
+      "family": "Referências e notas",
+      "title": "Nomes automáticos antigos",
+      "description": "Retira a identificação antiga do programa dos nomes de fontes e atualiza as chamadas.",
+      "before": "A.<ref name=\"RevisaWiki-auto-7\">Fonte.</ref> B.<ref name=\"RevisaWiki-auto-7\" />",
+      "after": "A.<ref name=\"ref-auto-7\">Fonte.</ref> B.<ref name=\"ref-auto-7\" />",
+      "condition": "Pode usar um nome derivado da fonte quando há metadados reconhecidos. Na ausência deles, conserva a nomeação neutra e evita colisões.",
+      "type": "illustrative",
+      "optionKeys": [
+        "neutralReferenceNames"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-20",
+      "family": "Referências e notas",
+      "title": "Mesma definição em toda a página",
+      "description": "Aplica reparos de uma definição nomeada junto das cópias que dependem dela.",
+      "before": "Duas referências com o mesmo nome e corpos diferentes.",
+      "after": "Os dois corpos continuam distintos, sem declarar fontes diferentes como iguais.",
+      "condition": "Quando há prova suficiente, nomes conflitantes recebem desambiguação e chamadas relacionadas são conservadas. Uma cópia protegida impede alterações incompatíveis nas demais.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-21",
+      "family": "Referências e notas",
+      "title": "Cabeçalhos vazios que repetem o coletor",
+      "description": "Retira uma cadeia vazia de títulos que apenas anuncia a mesma lista.",
+      "before": "== Referências ==\n===Notas===\n{{Referências}}",
+      "after": "{{Referências}}",
+      "condition": "Os títulos precisam estar junto de seu coletor. Texto de notas, bibliografia e conteúdo entre títulos permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-22",
+      "family": "Referências e notas",
+      "title": "Rodapé de notas importado",
+      "description": "Adapta um coletor de notas estrangeiro quando todas as notas daquele grupo podem ser conferidas.",
+      "before": "Texto<ref group=\"nota\">Nota.</ref>\n{{NoteFoot}}",
+      "after": "Texto<ref group=\"nota\">Nota.</ref>\n{{Notas}}",
+      "condition": "Exige um grupo único observado, sem produtores opacos ou listas com funções diferentes. Não mistura grupos de propósito distinto.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-23",
+      "family": "Referências e notas",
+      "title": "Definições nomeadas repetidas em pontos separados",
+      "description": "Mantém uma definição e usa chamadas no lugar de cópias idênticas da mesma fonte.",
+      "before": "A.<ref name=\"a\">Fonte.</ref>\nB.<ref name=\"a\">Fonte.</ref>",
+      "after": "A.<ref name=\"a\">Fonte.</ref>\nB.<ref name=\"a\" />",
+      "condition": "Nome, grupo, atributos e corpo precisam ser equivalentes. A posição de cada chamada é preservada. Fontes com corpos diferentes não são declaradas iguais.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-24",
+      "family": "Referências e notas",
+      "title": "Metadados complementares da mesma obra",
+      "description": "Reúne dados bibliográficos complementares em referências comprovadamente da mesma obra.",
+      "before": "Duas referências com título, ano, editora, ISBN válido e autoria iguais, uma delas com idioma ou ligação adicional.",
+      "after": "Uma definição com os dados complementares e as mesmas chamadas nos pontos de citação.",
+      "condition": "A união é restrita a livros com identidade exata. Páginas, capítulos, edições ou outros localizadores conflitantes impedem a união.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-01",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Predefinições bibliográficas em português",
+      "description": "Adapta nomes estrangeiros aos modelos nativos com função equivalente.",
+      "before": "{{cite web|url=https://example.invalid/|title=Documento|access-date=November 1, 2026}}",
+      "after": "{{Citar web|url=https://example.invalid/|título=Documento|acessodata=1 de novembro de 2026}}",
+      "condition": "O nome exato e a capitalização da saída seguem o mapa conferido. Não transforma indistintamente toda Citation em Citar web. Um argumento opaco vizinho não impede reparos conhecidos e independentes; seu conteúdo permanece.",
+      "type": "illustrative",
+      "optionKeys": [
+        "citations",
+        "multilingual"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-02",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Chaves inglesas também aceitas",
+      "description": "Prefere os nomes portugueses conferidos, mesmo quando o alias inglês continua funcionando.",
+      "before": "{{citar web|url=https://example.invalid/|title=Documento|access-date=November 1, 2026}}",
+      "after": "{{citar web|url=https://example.invalid/|título=Documento|acessodata=1 de novembro de 2026}}",
+      "condition": "O destino deve ter a mesma função e prioridade. vauthors e veditors podem permanecer em inglês quando a versão nativa precisa dessas chaves. Os campos nativos url-status=live e url-status=dead são preservados para manter a função dos endereços original e arquivado. Em citações compatíveis, website corresponde a obra e publisher a publicado. Mesmo nome no veículo e na entidade não prova erro ou redundância; URL e aparência do nome não comprovam inversão.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-03",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Autores numerados",
+      "description": "Conserva os índices ao adaptar sobrenome, prenome e ligação de autores.",
+      "before": "{{citar livro|last1=Exemplo|first1=Ana|last2=Modelo|first2=Bruno|title=Obra}}",
+      "after": "{{citar livro|ultimo1=Exemplo|primeiro1=Ana|ultimo2=Modelo|primeiro2=Bruno|título=Obra}}",
+      "condition": "Só usa campos reconhecidos pela família bibliográfica.",
+      "type": "illustrative",
+      "optionKeys": [
+        "authors"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-04",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Campos repetidos idênticos",
+      "description": "Consolida um parâmetro repetido com o mesmo valor.",
+      "before": "{{citar web|url=https://example.invalid/|titulo=Documento|titulo=Documento}}",
+      "after": "{{citar web|url=https://example.invalid/|titulo=Documento}}",
+      "condition": "Valores divergentes ou com prioridades diferentes permanecem.",
+      "type": "transformation",
+      "optionKeys": [
+        "automaticParameterDuplicates"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-05",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Parâmetros inválidos vazios",
+      "description": "Retira um campo vazio que o modelo conhecido não utiliza.",
+      "before": "Um campo vazio comprovadamente inexistente em um modelo cujo catálogo está completo.",
+      "after": "A mesma chamada sem o campo vazio.",
+      "condition": "Não apaga campos preenchidos para eliminar um aviso. Catálogos parciais não autorizam exclusão genérica.",
+      "type": "behavior",
+      "optionKeys": [
+        "automaticEmptyParameters"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-06",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Erros exatos no nome dos campos",
+      "description": "Corrige uma chave com correspondência única no modelo.",
+      "before": "{{citar web|url=https://example.invalid/|títutlo=Documento}}",
+      "after": "{{citar web|url=https://example.invalid/|titulo=Documento}}",
+      "condition": "Usa mapas finitos e o leitor nativo, sem substituir palavras por aproximação livre.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticParameterNames",
+        "automaticCitationKeyRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Citar livro|url_seção=https://example.invalid/capitulo}}",
+          "after": "{{Citar livro|capítulourl=https://example.invalid/capitulo}}",
+          "condition": "Modelo e papel nativo comprovados; sem inventar capitulo-url ou sobrescrever alvo conflitante.",
+          "type": "guarded-example"
+        },
+        {
+          "before": "{{Citar web|status-url=dead}}",
+          "after": "{{Citar web|urlmorta=sim}}",
+          "condition": "Caso finito status-url=dead. Não é substituição geral de url-status ou nomes parecidos.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "CIT-07",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Barra literal no título",
+      "description": "Recupera um trecho de título partido por uma barra vertical quando os limites são inequívocos.",
+      "before": "{{citar web|url=https://example.invalid/|titulo=Documento | ciência aplicada |data=2024}}",
+      "after": "{{citar web|url=https://example.invalid/|titulo=Documento {{!}} ciência aplicada |data=2024}}",
+      "condition": "Um argumento que também pode ser um parâmetro ou campo separado não é absorvido por suposição.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-08",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Campo caderno e localizadores",
+      "description": "Migra um campo de caderno somente para o campo nativo que mantém sua função.",
+      "before": "|caderno=Ciência",
+      "after": "|departamento=Ciência",
+      "condition": "Exige jornal e domínio concordantes, caderno previsto e campo de destino aceito. Não migra um caderno de publicação desconhecida nem trata capítulo, página, seção e número de artigo como sinônimos.",
+      "type": "illustrative",
+      "optionKeys": [
+        "citationRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Citar livro|páginas=pág. 12–14}}",
+          "after": "{{Citar livro|páginas=12–14}}",
+          "condition": "Rótulo inequívoco e localizador numérico ou romano aceito; intervalo e outros localizadores permanecem.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "CIT-09",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Datas bibliográficas literais",
+      "description": "Normaliza datas completas ou parciais reconhecidas e mantém sua precisão.",
+      "before": "{{citar web|titulo=Documento|data=April 3, 2020}}",
+      "after": "{{citar web|titulo=Documento|data=3 de abril de 2020}}",
+      "condition": "Datas impossíveis ou numéricas ambíguas permanecem. O campo de embargo pode exigir ISO.",
+      "type": "illustrative",
+      "optionKeys": [
+        "dates",
+        "automaticCitationDateValues"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-10",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Acesso e assinatura",
+      "description": "Adapta a chave e os valores de acesso reconhecidos sem remover a informação de assinatura.",
+      "before": "{{citar web|titulo=Documento|url=https://example.invalid/|url-access=subscription}}",
+      "after": "{{citar web|titulo=Documento|url=https://example.invalid/|acessourl=subscrição}}",
+      "condition": "A equivalência depende dos valores aceitos pelo modelo nativo. Um valor não reconhecido não é apagado.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-11",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Endereços e datas de arquivo",
+      "description": "Adapta campos de arquivamento, preservando os endereços e a data informada.",
+      "before": "{{citar web|title=Documento|archive-url=https://example.invalid/arquivo|archive-date=April 3, 2020}}",
+      "after": "{{citar web|título=Documento|arquivourl=https://example.invalid/arquivo|arquivodata=3 de abril de 2020}}",
+      "condition": "Não substitui uma data de arquivo por uma data de publicação.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Citar web|arquivodata=https://example.invalid/arquivo|arquivourl=2020-04-03}}",
+          "after": "{{Citar web|arquivodata=2020-04-03|arquivourl=https://example.invalid/arquivo}}",
+          "condition": "Par complementar na mesma citação, com valores preservados e sem conflito. Não inventa datas.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "CIT-12",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Data de captura já escrita na URL",
+      "description": "Aproveita um carimbo Wayback completo e válido quando o endereço original corresponde.",
+      "before": "{{citar web|url=https://example.invalid/a|titulo=Documento|arquivourl=https://web.archive.org/web/20200403000000/https://example.invalid/a}}",
+      "after": "{{citar web|url=https://example.invalid/a|titulo=Documento|arquivourl=https://web.archive.org/web/20200403000000/https://example.invalid/a|arquivodata=2020-04-03}}",
+      "condition": "Sem carimbo completo, correspondência de endereço e ausência de conflito, nenhuma data é preenchida.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-13",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "DOI com pontuação excedente",
+      "description": "Retira pontuação final apenas quando o identificador correto é confirmado.",
+      "before": "|doi=10.0000/exemplo.",
+      "after": "|doi=10.0000/exemplo",
+      "condition": "O exemplo representa o campo. Exige confirmação do identificador, não elimina pontuação válida de DOI.",
+      "type": "illustrative",
+      "optionKeys": [
+        "identifierUrlRepairs",
+        "registryDoiCheck"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-14",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "ISBN e repetições",
+      "description": "Retira um ponto final ou uma repetição quando resta um ISBN válido.",
+      "before": "|isbn=9780306406157.",
+      "after": "|isbn=9780306406157",
+      "condition": "Pares válidos de ISBN-10 e ISBN-13 e números diferentes não são eliminados.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "[[ISBN]] [[Special:BookSources/9780306406157|978-0-306-40615-7]]",
+          "after": "{{ISBN|978-0-306-40615-7}}",
+          "condition": "Mesmo número nas duas ligações e dígito verificador válido; mantém a grafia exibida.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "CIT-15",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Identificadores em ligações",
+      "description": "Reconhece as formas previstas de DOI, PMID, PMC, arXiv e identificadores bibliográficos sem alterar seus valores.",
+      "before": "|doi=https://doi.org/10.0000/exemplo",
+      "after": "|doi=10.0000/exemplo",
+      "condition": "Só normaliza uma forma literal cuja equivalência é confirmada.",
+      "type": "illustrative",
+      "optionKeys": [
+        "identifierUrlRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-16",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Campo título recuperável localmente",
+      "description": "Recupera um título ausente de outra citação compatível da mesma fonte na página.",
+      "before": "{{citar web|url=https://example.invalid/a}}",
+      "after": "{{citar web|url=https://example.invalid/a|titulo=Documento fictício}}",
+      "condition": "Exige uma ocorrência local inequívoca com esse título e os mesmos campos de identidade. Não cria o título a partir do endereço.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-17",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Lista Vancouver e falha Lua",
+      "description": "Usa a chave que o módulo nativo realmente lê para listas Vancouver.",
+      "before": "{{citar periódico|vautores=Exemplo A|titulo=Artigo}}",
+      "after": "{{citar periódico|vauthors=Exemplo A|titulo=Artigo}}",
+      "condition": "A exceção em inglês evita a falha conferida do módulo. Não troca autoria por inferência.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-18",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Limites perdidos entre campos",
+      "description": "Recupera separadores e rótulos de campo colados nos casos finitos previstos.",
+      "before": "{{citar web url=https://example.invalid/|titulo=Documento}}",
+      "after": "{{citar web|url=https://example.invalid/|titulo=Documento}}",
+      "condition": "Só há reparo quando modelo, chave e limites são únicos.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-19",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Formatação compacta de citações",
+      "description": "Coloca citações reconhecidas em uma linha sem juntar conteúdo que depende de quebras.",
+      "before": "{{citar web\n|url=https://example.invalid/\n|titulo=Documento\n}}",
+      "after": "{{citar web|url=https://example.invalid/|titulo=Documento}}",
+      "condition": "Protege listas, comentários, código e valores em que a quebra tem função.",
+      "type": "illustrative",
+      "optionKeys": [
+        "singleLineCitations"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-20",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Obras históricas e modelos importados",
+      "description": "Migra as famílias históricas conferidas sem manter categorias técnicas inglesas indevidas.",
+      "before": "Uma citação histórica importada com obra, verbete e ano completos.",
+      "after": "Uma citação nativa equivalente, com os mesmos dados bibliográficos.",
+      "condition": "A família e os campos precisam constar do catálogo. Não é uma remoção geral de categorias desconhecidas.",
+      "type": "behavior",
+      "optionKeys": [
+        "historicalCitationRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-21",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Citation com consumidor português confirmado",
+      "description": "Converte a chamada genérica para o modelo nativo do tipo de publicação identificado.",
+      "before": "{{Citation|titulo=Obra|publicado=Editora|ano=2005}}",
+      "after": "{{Citar livro|titulo=Obra|publicado=Editora|ano=2005|ref=harv}}",
+      "condition": "Exige dados suficientes para distinguir livro, web, jornal, periódico ou revista, sem perder a função de campos. Mantém as âncoras Harvard implícitas por ref=harv quando necessário.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-22",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Edição bibliográfica em português",
+      "description": "Adapta ordinais estrangeiros reconhecidos ao valor português.",
+      "before": "|edição=2nd",
+      "after": "|edição=2.ª",
+      "condition": "O número e o sufixo precisam formar um ordinal válido no campo de edição de uma citação reconhecida. Texto livre e combinações inválidas permanecem.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-23",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Referências bíblicas com intervalos preservados",
+      "description": "Adapta livros e intervalos de versículos previstos para Citar bíblia.",
+      "before": "{{Bibleverse|Titus|2:1–3}}",
+      "after": "{{Citar bíblia|livro=Tito|capítulo=2|verso=1|verso_final=3}}",
+      "condition": "O mapeamento é finito e conserva os dois extremos no mesmo capítulo. Versões sem equivalente, intervalos entre capítulos e chamadas ambíguas permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "CIT-24",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Destinos bibliográficos com identidade confirmada",
+      "description": "Corrige um destino importado de autor, editor ou obra quando o equivalente português foi conferido.",
+      "before": "Ligação bibliográfica com homônimo cujo destino e identidade já foram comprovados.",
+      "after": "A mesma ligação com o destino canônico conferido.",
+      "condition": "Somente destinos finitos de identidade confirmada. Não escolhe homônimos pelo nome nem inventa identidade para o exemplo.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217ReferencePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-01",
+      "family": "Infocaixas e biografias",
+      "title": "Campos de infocaixas conforme cada modelo",
+      "description": "Adapta chaves estrangeiras ou traduzidas incorretamente ao nome aceito pela caixa específica.",
+      "before": "{{Info/Biografia|birth_place=Cidade fictícia}}",
+      "after": "{{Info/Biografia|local_nascimento=Cidade fictícia}}",
+      "condition": "O mesmo campo inglês pode ter destinos diferentes em caixas diferentes. Nenhum valor preenchido é descartado para silenciar um aviso.",
+      "type": "illustrative",
+      "optionKeys": [
+        "infoboxes",
+        "automaticBiographyFields",
+        "automaticParameterNames"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-02",
+      "family": "Infocaixas e biografias",
+      "title": "Prioridade dos nomes alternativos",
+      "description": "Preserva o valor que a caixa nativa efetivamente escolhe.",
+      "before": "{{Info/Biografia|ocupação=pesquisadora|ocupações=}}",
+      "after": "{{Info/Biografia|ocupação=pesquisadora}}",
+      "condition": "Campos conflitantes ou alternativas com função diferente não são fundidos.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-03",
+      "family": "Infocaixas e biografias",
+      "title": "Infocaixa antes da introdução",
+      "description": "Move uma única caixa principal que ficou depois da abertura para o começo do artigo.",
+      "before": "'''Pessoa fictícia''' foi pesquisadora.\n{{Info/Biografia|nome=Pessoa fictícia}}",
+      "after": "{{Info/Biografia|nome=Pessoa fictícia}}\n'''Pessoa fictícia''' foi pesquisadora.",
+      "condition": "Não reorganiza uma caixa que pertence a outra pessoa, outra seção ou a uma sequência de caixas com função distinta.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticInfoboxOrder"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-04",
+      "family": "Infocaixas e biografias",
+      "title": "Linha própria depois da infocaixa",
+      "description": "Separa uma caixa fechada do texto da abertura.",
+      "before": "{{Info/Biografia/Wikidata}}'''Pessoa fictícia''' foi pesquisadora.",
+      "after": "{{Info/Biografia/Wikidata}}\n'''Pessoa fictícia''' foi pesquisadora.",
+      "condition": "Não altera o conteúdo da caixa ou da frase.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-05",
+      "family": "Infocaixas e biografias",
+      "title": "Infocaixa legível em linhas",
+      "description": "Distribui os campos nomeados de infocaixas reconhecidas em linhas e mantém sua ordem, inclusive em caixas filhas elegíveis.",
+      "before": "{{Info/Assentamento/Marrocos|com|nome=Local fictício|população_total=1000}}",
+      "after": "{{Info/Assentamento/Marrocos|com\n|nome=Local fictício\n|população_total=1000\n}}",
+      "condition": "Exige uma chamada completa e campos literais legíveis. Preserva parâmetros posicionais, nomes dinâmicos, valores e espaços com significado. O reconhecimento de uma caixa não autoriza traduzir todos os seus campos.",
+      "type": "illustrative",
+      "optionKeys": [
+        "templateReadableFormatting"
+      ],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-06",
+      "family": "Infocaixas e biografias",
+      "title": "Alinhamento e espaço depois do igual",
+      "description": "Alinha os campos nos modelos previstos e retira o espaço horizontal depois de = em argumentos reconhecidos.",
+      "before": "|nome                  = Pessoa fictícia",
+      "after": "|nome                  =Pessoa fictícia",
+      "condition": "Retira somente espaços ASCII de formatação em argumentos nomeados reconhecidos. Espaços inseparáveis e outros espaços que fazem parte do valor são mantidos.",
+      "type": "transformation",
+      "optionKeys": [
+        "automaticFieldSyntax"
+      ],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-07",
+      "family": "Infocaixas e biografias",
+      "title": "Cabeçalho sem negrito redundante",
+      "description": "Retira negrito do nome quando a caixa já o aplica.",
+      "before": "{{Info/Biografia|nome='''Pessoa fictícia'''}}",
+      "after": "{{Info/Biografia|nome=Pessoa fictícia}}",
+      "condition": "Só alcança o campo de cabeçalho conferido, não o nome em negrito da introdução.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-08",
+      "family": "Infocaixas e biografias",
+      "title": "Profissões comuns com inicial minúscula",
+      "description": "Corrige a capitalização em campos de profissão reconhecidos.",
+      "before": "|ocupação=Jornalista",
+      "after": "|ocupação=jornalista",
+      "condition": "Nomes próprios, títulos, siglas, citações e valores ambíguos são preservados.",
+      "type": "illustrative",
+      "optionKeys": [
+        "occupationCase"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-09",
+      "family": "Infocaixas e biografias",
+      "title": "Flexão de profissões confirmada",
+      "description": "Corrige formas comuns incompatíveis com a identidade feminina ou masculina explicitamente confirmada.",
+      "before": "|ocupação=jornalista e redator",
+      "after": "|ocupação=jornalista e redatora",
+      "condition": "O exemplo exige identidade feminina confirmada e profissão prevista no mapa. Não deduz gênero só pelo nome.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-10",
+      "family": "Infocaixas e biografias",
+      "title": "Listas de ocupações e campos",
+      "description": "Organiza listas simples que foram coladas em um campo.",
+      "before": "|ocupação=ator, cantor",
+      "after": "|ocupação=ator<br />cantor",
+      "condition": "Exige uma lista de termos reconhecidos, sem transformar uma frase explicativa.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-11",
+      "family": "Infocaixas e biografias",
+      "title": "Datas de nascimento e morte",
+      "description": "Adapta formatos literais e predefinições estrangeiras de data ao campo nativo.",
+      "before": "|nascimento_data=1900-01-02",
+      "after": "|nascimento_data={{DataExt|2|1|1900}}",
+      "condition": "Conserva precisão, calendário, referências e incertezas. Não inventa dia ou mês. Ani e grafias válidas de dni/Dni não mudam por preferência de estilo; uma conversão de data também precisa preservar idade e efeitos de categorização.",
+      "type": "illustrative",
+      "optionKeys": [
+        "birthDates"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-12",
+      "family": "Infocaixas e biografias",
+      "title": "Idade de pessoa viva",
+      "description": "Retira a supressão de idade quando a condição de pessoa viva está confirmada.",
+      "before": "{{Dni|2|1|1990|si}}",
+      "after": "{{Dni|2|1|1990}}",
+      "condition": "Não altera uma pessoa morta ou de estado vital incerto. Não muda dni para Dni apenas por capitalização.",
+      "type": "transformation",
+      "optionKeys": [
+        "livingBirthAge"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-13",
+      "family": "Infocaixas e biografias",
+      "title": "Nascimento e morte na abertura",
+      "description": "Leva dados já presentes e referenciados da infocaixa à abertura quando falta a apresentação biográfica.",
+      "before": "'''Pessoa fictícia''' foi pesquisadora.",
+      "after": "'''Pessoa fictícia''' ({{DataExt|2|1|1900}}<ref>Fonte da data.</ref>) foi pesquisadora.",
+      "condition": "O exemplo exige a data e a mesma referência na caixa principal. Sem fonte, com conflito ou caixa filha de outra pessoa, o dado não é copiado.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticBiographyLead"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-14",
+      "family": "Infocaixas e biografias",
+      "title": "Dados da abertura em campos separados",
+      "description": "Separa data e local que foram unidos em um campo e aproveita dados inequívocos da abertura.",
+      "before": "|nascimento_data={{DataExt|2|1|1900}}, [[Cidade fictícia]]",
+      "after": "|nascimento_data={{DataExt|2|1|1900}}\n|nascimento_local=[[Cidade fictícia]]",
+      "condition": "Preserva as referências de cada componente e não substitui um campo preenchido divergente.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticBiographyFields"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-15",
+      "family": "Infocaixas e biografias",
+      "title": "Categoria de nascimento redundante",
+      "description": "Retira a categoria anual escrita à mão quando a chamada de data já a produz.",
+      "before": "{{Dni|2|1|1900|si}}\n[[Categoria:Nascidos em 1900]]",
+      "after": "{{Dni|2|1|1900|si}}",
+      "condition": "Exige confirmar a categorização nativa no mesmo contexto e preservar chave de ordenação ou diferença funcional.",
+      "type": "illustrative",
+      "optionKeys": [
+        "redundantBirthCategories"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-16",
+      "family": "Infocaixas e biografias",
+      "title": "Casamento com datas e estado civil",
+      "description": "Usa Casamento para formatos literais completos previstos, sem alterar nome, datas ou motivo do término.",
+      "before": "|cônjuge=Pessoa Exemplo (casamento em 2000; divórcio em 2010)",
+      "after": "|cônjuge={{casamento|Pessoa Exemplo|2000|2010|fim=divórcio}}",
+      "condition": "Só converte as formas e os campos conferidos. Relações incertas, datas ambíguas ou múltiplas pessoas sem limites ficam como estão.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-17",
+      "family": "Infocaixas e biografias",
+      "title": "Site oficial conforme o leitor da caixa",
+      "description": "Corrige sintaxe de endereço, protocolo repetido e apresentação conforme o campo nativo.",
+      "before": "|website=[[https://example.invalid/|Sítio oficial]]",
+      "after": "|site=[https://example.invalid/ Sítio oficial]",
+      "condition": "Algumas caixas esperam uma URL pura, outras aceitam ligação rotulada. A regra respeita o leitor, sem trocar o domínio. As preferências conferidas por modelo são exatas: website/homepage→site em Info/Empresa e website→sítio em Info/Assentamento, sem aliases concorrentes. Não há website→obra em infocaixas.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-18",
+      "family": "Infocaixas e biografias",
+      "title": "Arquivo, tamanho e legenda em campos próprios",
+      "description": "Separa uma imagem completa colocada no campo que espera o nome do arquivo.",
+      "before": "|imagem=[[Ficheiro:Retrato fictício.jpg|220px|Retrato em 2000]]",
+      "after": "|imagem=Retrato fictício.jpg\n|imagem_tamanho=220px\n|imagem_legenda=Retrato em 2000",
+      "condition": "Exige campos de destino conferidos e ausência de legenda ou tamanho concorrente.",
+      "type": "illustrative",
+      "optionKeys": [
+        "automaticInfoboxImages"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-19",
+      "family": "Infocaixas e biografias",
+      "title": "Texto alternativo da imagem",
+      "description": "Conserva e, quando possível, separa alt para o campo nativo equivalente.",
+      "before": "|imagem=[[Ficheiro:Retrato fictício.jpg|220px|alt=Retrato frontal]]",
+      "after": "|imagem=Retrato fictício.jpg\n|alt=Retrato frontal\n|imagem_tamanho=220px",
+      "condition": "Não redige uma descrição visual nova nem a infere do arquivo.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-20",
+      "family": "Infocaixas e biografias",
+      "title": "Tamanho de imagem com unidade repetida",
+      "description": "Corrige unidades repetidas em campos confirmados.",
+      "before": "|imagem_tamanho=220pxpx",
+      "after": "|imagem_tamanho=220px",
+      "condition": "Não impõe uma largura universal nem altera um valor válido só por preferência.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-21",
+      "family": "Infocaixas e biografias",
+      "title": "Campos de unidades nativas",
+      "description": "Retira uma unidade repetida quando a caixa a acrescenta por conta própria.",
+      "before": "{{Info/Piloto de automóvel|altura=1,80 m}}",
+      "after": "{{Info/Piloto de automóvel|altura=1,80}}",
+      "condition": "A unidade deve ser confirmada para o campo, sem converter o valor numérico.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-22",
+      "family": "Infocaixas e biografias",
+      "title": "Caixas incorporadas",
+      "description": "Reconhece módulos internos compatíveis e mantém os dados de cada caixa.",
+      "before": "{{Info/Biografia|nome=Pessoa fictícia|módulo={{Info/Cientista|incorporar=sim}}}}",
+      "after": "{{Info/Biografia|nome=Pessoa fictícia|módulo={{Info/Cientista|incorporar=sim}}}}",
+      "condition": "A caixa filha precisa aceitar incorporação. A Info/Biografia usa módulo e módulo2 a módulo6, sem criar módulo1. Os campos da filha podem ser separados em linhas sem extrair a filha de seu campo.",
+      "type": "preservation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-23",
+      "family": "Infocaixas e biografias",
+      "title": "Caixas principais repetidas",
+      "description": "Retira uma cópia de infocaixa comprovadamente redundante.",
+      "before": "{{Info/Biografia|nome=Pessoa fictícia}}\n{{Info/Biografia|nome=Pessoa fictícia}}",
+      "after": "{{Info/Biografia|nome=Pessoa fictícia}}",
+      "condition": "Não escolhe entre caixas com fatos diferentes nem remove caixas de assuntos diferentes.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-24",
+      "family": "Infocaixas e biografias",
+      "title": "Campos com significado próprio",
+      "description": "Mantém campos cuja migração mudaria o fato descrito.",
+      "before": "|batismo=2 de janeiro de 1900\n|instituições=Instituição fictícia",
+      "after": "|batismo=2 de janeiro de 1900\n|instituições=Instituição fictícia",
+      "condition": "Batismo não vira nascimento. Instituição, empregador, gênero literário, influência e sepultamento dependem do contrato de cada modelo.",
+      "type": "preservation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-25",
+      "family": "Infocaixas e biografias",
+      "title": "Cabeçalho e campos estrangeiros migrados juntos",
+      "description": "Migra uma infocaixa estrangeira ou parcialmente traduzida como uma unidade, com seus campos equivalentes.",
+      "before": "{{Infobox person|birth_name=Pessoa Exemplo Completa|education=[[Universidade Exemplo]]|citizenship={{hlist|[[United Kingdom]]|[[Italy]]}}}}",
+      "after": "Uma chamada Info/Biografia com nome_nascimento, educação e cidadania, mantendo os dois membros de hlist e seus destinos portugueses confirmados.",
+      "condition": "Cada campo precisa ter consumidor nativo verificado. Campos desconhecidos preenchidos ou aliases concorrentes impedem essa migração conjunta. Auxiliares válidos, folhas de estilo e ligações de instituições permanecem.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Infobox person|name=Pessoa fictícia|image_size=300px}}",
+          "after": "{{Info/Biografia|nome=Pessoa fictícia|imagem_tamanho=300px}}",
+          "condition": "Ilustra a migração conjunta: image_size já não bloqueia sozinho a adaptação; os outros campos e o contrato da caixa continuam necessários.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "BIO-26",
+      "family": "Infocaixas e biografias",
+      "title": "Grupos étnicos com todos os dados visíveis",
+      "description": "Usa uma infocaixa genérica nos formatos estrangeiros certificados em que uma caixa específica deixaria campos sem exibição.",
+      "before": "{{Infobox ethnic group|grupo=Grupo Exemplo|image=|população=20,074|regiões=[[Região Exemplo]]}}",
+      "after": "Uma Infocaixa com Grupo Exemplo no cabeçalho e linhas próprias de População e Regiões, conservando 20,074 e a ligação.",
+      "condition": "A forma precisa corresponder ao padrão conferido, com imagem vazia e sem campos adicionais desconhecidos. Não interpreta separadores numéricos nem descarta regiões.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-27",
+      "family": "Infocaixas e biografias",
+      "title": "Infocaixa manual com estrutura certificada",
+      "description": "Adapta um padrão restrito de tabela manual para Infocaixa, mantendo os dados apresentados.",
+      "before": "Uma tabela infobox vcard com cabeçalho, âncora e pares simples de rótulo e dado.",
+      "after": "A mesma informação em Infocaixa, com âncora, rótulos, dados e ligações preservados.",
+      "condition": "Não converte qualquer tabela ou HTML parecido com uma caixa. Atributos, mesclagens, tabelas internas ou linhas fora do padrão impedem a conversão.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "BIO-28",
+      "family": "Infocaixas e biografias",
+      "title": "Ani e efeitos da data preservados",
+      "description": "Mantém uma chamada Ani válida quando a troca alteraria idade, categorias ou outro efeito do modelo.",
+      "before": "{{Info/Biografia|data_nascimento={{Ani|1972|5|24}}}}",
+      "after": "A chamada Ani permanece no campo, mesmo se a formatação externa da infocaixa mudar.",
+      "condition": "Uma semelhança visual não prova equivalência. As formas nativas de datas de pessoas falecidas também precisam conservar o estado vital e a idade ao falecer.",
+      "type": "preservation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217InfoboxPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-01",
+      "family": "Portais e controle de autoridade",
+      "title": "Biografias confirmadas",
+      "description": "Acrescenta Biografias quando há uma pessoa e um perfil confirmado, inclusive caixas Wikidata.",
+      "before": "{{Portal3|Política}}",
+      "after": "{{Portal3|Política|Biografias}}",
+      "condition": "Usa as famílias individuais verificadas e os aliases cadastrados, inclusive Info/Titular de cargo e caixas Wikidata elegíveis. Uma caixa genérica ou um título parecido não bastam. O reconhecimento da pessoa não depende de migrar todos os campos da caixa.",
+      "type": "illustrative",
+      "optionKeys": [
+        "biographyPortal"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-02",
+      "family": "Portais e controle de autoridade",
+      "title": "País sem duplicar o estado",
+      "description": "Acrescenta o país apenas quando o dado é explícito e não há um portal regional que o torne redundante.",
+      "before": "{{Portal3|Biografias|Goiás}}",
+      "after": "{{Portal3|Biografias|Goiás}}",
+      "condition": "Usa campos explícitos de cidadania, nacionalidade ou nascimento conforme a infocaixa. Países homônimos e abreviaturas ambíguas de estados não são inferidos. Um portal regional reconhecido pode tornar o país redundante.",
+      "type": "preservation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-03",
+      "family": "Portais e controle de autoridade",
+      "title": "Mulheres",
+      "description": "Acrescenta o portal nos perfis em que a identidade está confirmada.",
+      "before": "{{Portal3|Biografias}}",
+      "after": "{{Portal3|Biografias|Mulheres}}",
+      "condition": "Não deduz a identidade pelo prenome ou por uma palavra isolada.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-04",
+      "family": "Portais e controle de autoridade",
+      "title": "Profissão e esporte",
+      "description": "Acrescenta os portais previstos por profissão, área de trabalho ou modalidade explicitamente indicada.",
+      "before": "Uma pessoa com caixa individual de futebolista, modalidade e país confirmados.",
+      "after": "Portal3 com Biografias, Esportes, Futebol e o país elegível, além dos portais já existentes.",
+      "condition": "Preserva portais mais específicos e não classifica uma banda como uma pessoa.",
+      "type": "behavior",
+      "optionKeys": [
+        "automaticBiographyPortals"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-05",
+      "family": "Portais e controle de autoridade",
+      "title": "Artes e ciências",
+      "description": "Reconhece os perfis conferidos de artistas, músicos, escritores, militares e cientistas.",
+      "before": "Uma caixa principal de cientista com disciplina confirmada.",
+      "after": "Acrescenta somente os portais previstos para essa disciplina e Biografias.",
+      "condition": "Profissão, gênero artístico e instituição não são tratados como a mesma evidência.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-06",
+      "family": "Portais e controle de autoridade",
+      "title": "Filmes, séries e obras musicais",
+      "description": "Usa os modelos próprios de obras para reconhecer Cinema, Televisão e Música.",
+      "before": "Um artigo com uma caixa nativa de álbum ou episódio de televisão.",
+      "after": "Acrescenta os portais temáticos correspondentes, sem Biografias para a obra.",
+      "condition": "Requer caixa e perfil nativos, não apenas palavras no título.",
+      "type": "behavior",
+      "optionKeys": [
+        "automaticTopicPortals"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-07",
+      "family": "Portais e controle de autoridade",
+      "title": "Biologia e saúde",
+      "description": "Usa perfis de taxonomia, medicamentos, doenças e demais caixas conferidas.",
+      "before": "Uma caixa taxonômica de animal com classe confirmada.",
+      "after": "Acrescenta os portais compatíveis, como Animais e a classe prevista no mapa.",
+      "condition": "Não identifica classe biológica, indicação clínica ou especialidade pela aparência do nome.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-08",
+      "family": "Portais e controle de autoridade",
+      "title": "Demais assuntos",
+      "description": "Reconhece livros, universidades, jornais, revistas científicas, municípios, rios, ilhas, conflitos, software, empresas, clubes, estádios, automóveis, moedas, partidos, eventos meteorológicos, cerveja e veículos espaciais nos perfis cadastrados.",
+      "before": "Uma caixa nativa de rio ou software sem Portal3.",
+      "after": "Acrescenta o portal específico previsto e conserva os já presentes.",
+      "condition": "O catálogo de perfis indica exatamente os modelos e condições ativados.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-09",
+      "family": "Portais e controle de autoridade",
+      "title": "Esboço com assunto confirmado",
+      "description": "Aproveita combinações conferidas de esboço e categoria para um portal temático.",
+      "before": "Um artigo sem infocaixa, com esboço temático e categoria concordantes.",
+      "after": "Acrescenta somente o portal que essa combinação confirma.",
+      "condition": "Um esboço genérico ou uma categoria isolada não autorizam classificação livre.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-10",
+      "family": "Portais e controle de autoridade",
+      "title": "Nomes de portais importados",
+      "description": "Troca nomes estrangeiros ou erros previstos por destinos portugueses existentes.",
+      "before": "{{Portal3|Biography|Football}}",
+      "after": "{{Portal3|Biografias|Futebol}}",
+      "condition": "Não traduz nomes ambíguos nem inventa portais inexistentes.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-11",
+      "family": "Portais e controle de autoridade",
+      "title": "Posições e repetições em Portal3",
+      "description": "Reúne portais equivalentes e normaliza posições reconhecidas sem criar 5= desnecessário.",
+      "before": "{{Portal3|Biografias|Futebol|3=Brasil}}",
+      "after": "{{Portal3|Biografias|Futebol|Brasil}}",
+      "condition": "Preserva opções nomeadas e a ordem válida. Não ultrapassa a capacidade confirmada de Portal3.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-12",
+      "family": "Portais e controle de autoridade",
+      "title": "Posição do portal no rodapé",
+      "description": "Move uma chamada isolada fora de lugar para o rodapé confirmado.",
+      "before": "Texto.\n{{Portal3|Ciência}}\n== Referências ==\n<references/>",
+      "after": "Texto.\n{{Referências}}\n\n{{Portal3|Ciência}}",
+      "condition": "Não atravessa uma estrutura desconhecida, bloco protegido ou limite de seção sem prova.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-13",
+      "family": "Portais e controle de autoridade",
+      "title": "Autoridade com algo para exibir",
+      "description": "Acrescenta o controle apenas após confirmar identificadores que a chamada mostrará.",
+      "before": "Rodapé de artigo com identificadores de autoridade confirmados no item correspondente.",
+      "after": "{{Controle de autoridade}}\n{{Portal3|Biografias}}",
+      "condition": "A presença de um item do Wikidata não basta. Sem identificadores exibíveis, não acrescenta uma caixa vazia.",
+      "type": "behavior",
+      "optionKeys": [
+        "authorityControl"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-04",
+      "family": "Portais e controle de autoridade",
+      "title": "Uma chamada efetiva de autoridade",
+      "description": "Evita caixas duplicadas, inclusive por chamadas indiretas conferidas.",
+      "before": "{{Controle de autoridade}}\n{{Authority control}}\n{{Portal3|Biografias}}",
+      "after": "{{Controle de autoridade}}\n{{Portal3|Biografias}}",
+      "condition": "NM e NF só são considerados quando sua expansão realmente fornece a mesma caixa. Seus anos e chave de ordenação ficam preservados. Cópias literais idênticas e adjacentes podem manter a última chamada. Uma chamada de ordenação ou um programa desconhecido entre as cópias impede tratá-las como duplicação simples. A mudança de posição também conserva a ordem de avaliação.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Controlo de autoria|VIAF=00123}}",
+          "after": "{{Controle de autoridade|VIAF=00123}}",
+          "condition": "Alias exato, com identificadores, zeros e opções preservados. NM/NF conservam seus efeitos próprios.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "POR-14",
+      "family": "Portais e controle de autoridade",
+      "title": "Biografia reconhecida sem depender da tradução inteira",
+      "description": "Permite que as regras biográficas atuem nas famílias pessoais e aliases verificados, ainda que outros campos estrangeiros precisem permanecer.",
+      "before": "Uma Info/Titular de cargo individual reconhecida, sem Portal3.",
+      "after": "O rodapé recebe Biografias e outros temas que os campos explícitos confirmarem.",
+      "condition": "As famílias são classificadas pelo modelo e sua identidade. Empresa, unidade militar, grupo étnico, animal e personagem não viram pessoa por terem campos parecidos.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217PortalPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-15",
+      "family": "Portais e controle de autoridade",
+      "title": "Países em vários idiomas e escritas",
+      "description": "Reconhece nomes portugueses, estrangeiros, endônimos, códigos e variantes conferidas para portais de países e territórios existentes.",
+      "before": "Uma pessoa com cidadania=日本 em campo reconhecido, sem portal do país.",
+      "after": "O rodapé pode receber Japão, além de Biografias e dos temas já existentes.",
+      "condition": "O mapa contém 197 destinos de países e territórios, não 197 países soberanos. Gentílicos são lidos em nacionalidade ou cidadania. Cidades, estados, abreviaturas postais e nomes ambíguos não bastam. Erros de uma letra só são aceitos no campo apropriado quando o destino é único.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217PortalPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "POR-16",
+      "family": "Portais e controle de autoridade",
+      "title": "País e guerra de uma unidade militar",
+      "description": "Acrescenta o país da unidade e um conflito explicitamente indicado nos campos pertinentes.",
+      "before": "{{Info/Unidade Militar|nome=Unidade Exemplo|país=Austrália|guerras/batalhas=[[Segunda Guerra Mundial]]}}",
+      "after": "A unidade conserva seus dados e recebe Portal3 com Guerra, Austrália e Segunda Guerra Mundial.",
+      "condition": "O país deve estar no campo da unidade e o conflito no campo de guerras ou batalhas. Datas de atividade e países mencionados em legendas ou campanhas não servem como prova. Não acrescenta Biografias à unidade.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217PortalPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "IMG-01",
+      "family": "Imagens e ligações",
+      "title": "Espaços de nomes e opções de imagem",
+      "description": "Adapta Image e thumb no contexto de uma imagem reconhecida.",
+      "before": "[[Image:Exemplo.jpg|thumb|220px|Uma paisagem.]]",
+      "after": "[[Ficheiro:Exemplo.jpg|miniatura|220px|Uma paisagem.]]",
+      "condition": "Conserva arquivo, largura, legenda, alt e destino. File/Image locais podem usar Ficheiro. Ficheiro/Imagem/Arquivo portugueses válidos permanecem. Opções mudam apenas no consumidor verificado; galerias e texto livre não herdam tradução genérica.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "IMG-02",
+      "family": "Imagens e ligações",
+      "title": "Miniaturada e erros previstos",
+      "description": "Corrige opções digitadas incorretamente quando não são parte da legenda.",
+      "before": "[[Imagem:Exemplo.jpg|miniaturada|220px|Uma paisagem.]]",
+      "after": "[[Imagem:Exemplo.jpg|miniatura|220px|Uma paisagem.]]",
+      "condition": "Um termo dentro da legenda não é tratado como opção.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "IMG-03",
+      "family": "Imagens e ligações",
+      "title": "Arquivo importado como endereço",
+      "description": "Reconhece endereços de página de arquivo nos campos conferidos.",
+      "before": "|imagem=https://commons.wikimedia.org/wiki/File:Exemplo.jpg",
+      "after": "|imagem=Exemplo.jpg",
+      "condition": "Exige confirmar o mesmo arquivo e o formato esperado pelo campo.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "IMG-04",
+      "family": "Imagens e ligações",
+      "title": "Tamanhos e sintaxe de opção",
+      "description": "Repara unidades duplicadas e delimitadores previstos sem impor um tamanho a todas as imagens.",
+      "before": "[[Imagem:Exemplo.jpg|miniatura|220pxpx|Legenda]]",
+      "after": "[[Imagem:Exemplo.jpg|miniatura|220px|Legenda]]",
+      "condition": "Mantém opções funcionais e tamanhos válidos.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "[[Ficheiro:Exemplo.svg|３００px|Legenda ３００]]",
+          "after": "[[Ficheiro:Exemplo.svg|300px|Legenda ３００]]",
+          "condition": "Somente a dimensão reconhecida muda; nome, legenda e demais dígitos permanecem.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "LNK-01",
+      "family": "Imagens e ligações",
+      "title": "Ligações internas sem pipe redundante",
+      "description": "Simplifica uma ligação cujo rótulo é igual ao destino.",
+      "before": "[[Ecossistema|Ecossistema]]",
+      "after": "[[Ecossistema]]",
+      "condition": "Não retira rótulos com capitalização, flexão ou sentido diferente.",
+      "type": "transformation",
+      "optionKeys": [
+        "links"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LNK-02",
+      "family": "Imagens e ligações",
+      "title": "Flexão simples fora da ligação",
+      "description": "Põe uma terminação simples depois do link quando a leitura e o destino não mudam.",
+      "before": "[[ecossistema|ecossistemas]]",
+      "after": "[[ecossistema]]s",
+      "condition": "Depende do padrão confirmado. Não aplica um algoritmo livre de flexão.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LNK-03",
+      "family": "Imagens e ligações",
+      "title": "Fechamento único de ligação",
+      "description": "Recupera um colchete faltante quando o limite é único.",
+      "before": "Consulte [[Tema fictício] neste exemplo.",
+      "after": "Consulte [[Tema fictício]] neste exemplo.",
+      "condition": "Várias aberturas ou limites concorrentes impedem a correção.",
+      "type": "illustrative",
+      "optionKeys": [
+        "syntaxRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LNK-04",
+      "family": "Imagens e ligações",
+      "title": "Ligações externas com sintaxe interna",
+      "description": "Corrige a marcação inequívoca de um endereço externo.",
+      "before": "[[https://example.invalid/|Sítio oficial]]",
+      "after": "[https://example.invalid/ Sítio oficial]",
+      "condition": "Uma barra que pertence à consulta da URL não é separador de rótulo.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LNK-05",
+      "family": "Imagens e ligações",
+      "title": "Rótulo externo partido",
+      "description": "Substitui uma quebra indevida por espaço quando endereço e rótulo estão completos.",
+      "before": "[https://example.invalid/\nDocumento fictício]",
+      "after": "[https://example.invalid/ Documento fictício]",
+      "condition": "Não funde uma lista ou uma URL com limites incertos.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LNK-06",
+      "family": "Imagens e ligações",
+      "title": "Protocolos e ampersands previstos",
+      "description": "Corrige repetições e codificação duplicada em padrões literais.",
+      "before": "https://https://example.invalid/",
+      "after": "https://example.invalid/",
+      "condition": "Não reescreve caminhos, parâmetros ou protocolos desconhecidos.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "[https://https://example.invalid/a?id=2#sec Rótulo]",
+          "after": "[https://example.invalid/a?id=2#sec Rótulo]",
+          "condition": "Protocolo igual repetido; preserva rótulo, consulta e fragmento, sem reinterpretar URLs aninhadas ou de arquivo.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "LNK-07",
+      "family": "Imagens e ligações",
+      "title": "Título de seção com ligação",
+      "description": "Retira a ligação do título e usa uma remissão principal quando essa equivalência está confirmada.",
+      "before": "== [[Tema fictício]] ==",
+      "after": "== Tema fictício ==\n{{Artigo principal|Tema fictício}}",
+      "condition": "Exige destino existente, não ambíguo e diferente do próprio artigo, com equivalência confirmada. Não duplica remissão já presente, nem presume que todo link misturado no título seja o assunto principal.",
+      "type": "illustrative",
+      "optionKeys": [
+        "headings"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "IMG-05",
+      "family": "Imagens e ligações",
+      "title": "Uma imagem por linha",
+      "description": "Separa incorporações de imagem no corpo e mantém uma linha vazia entre o conjunto e a prosa.",
+      "before": "Texto.\n[[Ficheiro:Example.jpg]] [[Ficheiro:Example2.jpg]]Outro texto.\n",
+      "after": "Texto.\n\n[[Ficheiro:Example.jpg]]\n[[Ficheiro:Example2.jpg]]\n\nOutro texto.\n",
+      "condition": "Não insere linha vazia entre imagens consecutivas. Preserva opções, legendas e imagens funcionais em galerias, tabelas, campos, listas e ícones em linha. Uma imagem ligada a referência ou auxiliar adjacente conserva o contexto.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217SourceLayoutPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-01",
+      "family": "Tabelas e sintaxe",
+      "title": "Aberturas e fechamentos de tabelas",
+      "description": "Corrige erros finitos nos delimitadores quando cada tabela e cada célula continuam identificáveis.",
+      "before": "Uma tabela completa com um delimitador digitado incorretamente e fechamento único.",
+      "after": "A mesma tabela com o delimitador correto e as mesmas células.",
+      "condition": "Não fecha uma tabela arbitrariamente no fim do artigo nem corta células para caber na tela.",
+      "type": "behavior",
+      "optionKeys": [
+        "tableSyntaxRepairs",
+        "automaticTableRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-02",
+      "family": "Tabelas e sintaxe",
+      "title": "Aspas dos atributos",
+      "description": "Troca aspas tipográficas por delimitadores válidos de atributo.",
+      "before": "! scope=“col” | Nome",
+      "after": "! scope=\"col\" | Nome",
+      "condition": "Conserva o texto das células e as strings em que as aspas são conteúdo.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-03",
+      "family": "Tabelas e sintaxe",
+      "title": "Cabeçalhos simples acessíveis",
+      "description": "Acrescenta scope aos cabeçalhos elegíveis.",
+      "before": "! Nome !! Valor",
+      "after": "! scope=\"col\" | Nome !! scope=\"col\" | Valor",
+      "condition": "Exige uma grade simples e papel de cabeçalho inequívoco. Tabelas complexas não recebem suposições de alcance.",
+      "type": "illustrative",
+      "optionKeys": [
+        "tableAccessibility"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-04",
+      "family": "Tabelas e sintaxe",
+      "title": "Atributos antigos equivalentes",
+      "description": "Retira um atributo redundante quando o CSS existente já fornece exatamente o mesmo valor.",
+      "before": "|- style=\"text-align:left;\" align=\"left\"",
+      "after": "|- style=\"text-align:left;\"",
+      "condition": "Conflitos de valores e regras com apresentação não equivalente permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-05",
+      "family": "Tabelas e sintaxe",
+      "title": "Formatação esquecida dentro da célula",
+      "description": "Fecha marcação local quando o limite da célula prova onde deve terminar.",
+      "before": "| <small>Alfa\n| Beta",
+      "after": "| <small>Alfa</small>\n| Beta",
+      "condition": "Se o fechamento posterior for intencional ou o limite for incerto, preserva a marcação.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-06",
+      "family": "Tabelas e sintaxe",
+      "title": "Texto deslocado pelo leitor de tabelas",
+      "description": "Tira de dentro da abertura uma legenda de lista que já seria exibida antes da tabela.",
+      "before": "{| class=\"wikitable\"\n;Explicação\n! Nome\n| Alfa\n|}",
+      "after": ";Explicação\n{| class=\"wikitable\"\n! Nome\n| Alfa\n|}",
+      "condition": "Exige confirmação do resultado nativo, sem mover texto de uma célula legítima.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-07",
+      "family": "Tabelas e sintaxe",
+      "title": "Mesclagens e atributos com erro finito",
+      "description": "Corrige atributos previstos de linha e coluna sem alterar a grade lógica.",
+      "before": "Uma célula com grafia incorreta inequívoca de um atributo conhecido.",
+      "after": "A mesma célula com atributo aceito, conservando conteúdo e extensão.",
+      "condition": "A grade antes e depois precisa corresponder. Não reorganiza dados para forçar uma comparação.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-08",
+      "family": "Tabelas e sintaxe",
+      "title": "Tabelas largas e apresentação responsiva",
+      "description": "Trata estilos e contenção nos perfis de tabela confirmados, sem aplicar invólucros genéricos ao artigo.",
+      "before": "Uma tabela com configuração de largura comprovadamente defeituosa e perfil suportado.",
+      "after": "A mesma tabela com apresentação corrigida, conservando fórmulas, unidades e células.",
+      "condition": "Largura grande não basta para autorizar mudança. Infocaixas, navecaixas e portais continuam usando suas chamadas nativas.",
+      "type": "behavior",
+      "optionKeys": [
+        "responsiveTableWrappers"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-01",
+      "family": "Tabelas e sintaxe",
+      "title": "Chaves e colchetes em limites únicos",
+      "description": "Repara trocas previstas de fechamentos quando há uma única estrutura reconhecida.",
+      "before": "Uma chamada conhecida com fechamento trocado e limites inequívocos.",
+      "after": "A mesma chamada com fechamento correspondente.",
+      "condition": "O reparo usa nomes e estruturas conhecidas e precisa de limites inequívocos. Não substitui chaves, colchetes ou parênteses globalmente e preserva fórmulas, ligações, código e exemplos.",
+      "type": "behavior",
+      "optionKeys": [
+        "syntaxRepairs"
+      ],
+      "entryPoints": [
+        "v2217DelimiterPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-02",
+      "family": "Tabelas e sintaxe",
+      "title": "Trecho completo anterior a marcação incerta",
+      "description": "Aplica correções locais independentes em trechos verificáveis.",
+      "before": "Uma ligação simples com erro antes de um bloco incompleto independente.",
+      "after": "A ligação corrigida e o bloco incompleto preservado.",
+      "condition": "Trechos independentes continuam elegíveis mesmo se outro ponto contiver marcação incerta. Um fechamento HTML isolado pode ser ignorado apenas na leitura estrutural, mantendo os bytes originais do texto.",
+      "type": "behavior",
+      "optionKeys": [
+        "partialSyntaxRecovery",
+        "independentRepairGroups"
+      ],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-03",
+      "family": "Tabelas e sintaxe",
+      "title": "Resíduos de cópia de chat",
+      "description": "Retira cercas Markdown que envolvem somente o artigo completo e marcas técnicas conhecidas de cópia.",
+      "before": "```wikitext\n'''Vila Aurora''' é uma povoação.\n\n== Geografia ==\nTexto da seção.\n{{Referências}}\n```",
+      "after": "'''Vila Aurora''' é uma povoação.\n\n== Geografia ==\nTexto da seção.\n{{Referências}}",
+      "condition": "Exige abertura de artigo, seção e elementos de estrutura confirmados. Exemplos de código, citações literais e artigos sobre a própria marcação ficam intactos.",
+      "type": "illustrative",
+      "optionKeys": [
+        "translationResidues"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-04",
+      "family": "Tabelas e sintaxe",
+      "title": "Negrito e itálico Markdown",
+      "description": "Converte ênfase inequívoca para a marcação wiki.",
+      "before": "O termo **rede óptica** aparece no texto.",
+      "after": "O termo '''rede óptica''' aparece no texto.",
+      "condition": "Não modifica listas aninhadas, fórmulas, código ou exemplos sobre a marcação.",
+      "type": "transformation",
+      "optionKeys": [
+        "markup"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-05",
+      "family": "Tabelas e sintaxe",
+      "title": "Múltiplas linhas vazias",
+      "description": "Reduz espaçamento redundante em trechos de prosa e entre estruturas completas.",
+      "before": "Primeiro parágrafo.\n\n \t\nSegundo parágrafo.",
+      "after": "Primeiro parágrafo.\n\nSegundo parágrafo.",
+      "condition": "Protege poemas, blocos preformatados, código, listas e contextos em que a quebra tem função.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-06",
+      "family": "Tabelas e sintaxe",
+      "title": "Começo sem linhas vazias",
+      "description": "Retira linhas vazias do começo do artigo, inclusive após remover Descrição curta.",
+      "before": "\n\nTexto do artigo.",
+      "after": "Texto do artigo.",
+      "condition": "Retira apenas linhas iniciais sem conteúdo em artigos. Não remove indentação funcional nem conteúdo de exemplos protegidos.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-07",
+      "family": "Tabelas e sintaxe",
+      "title": "Título redundante na abertura",
+      "description": "Retira o título inicial que apenas repete o título da página.",
+      "before": "== Tema fictício ==\nTexto da introdução.",
+      "after": "Texto da introdução.",
+      "condition": "Exige correspondência com a página e abertura normal, sem apagar uma seção legítima.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-08",
+      "family": "Tabelas e sintaxe",
+      "title": "Lista com itens vazios no final",
+      "description": "Retira marcadores vazios que não têm subitens ou outra função.",
+      "before": "* Primeiro item\n*\n*",
+      "after": "* Primeiro item",
+      "condition": "Um marcador com filhos ou efeito de estrutura permanece.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-09",
+      "family": "Tabelas e sintaxe",
+      "title": "Erros ortográficos exatos",
+      "description": "Corrige grafias previstas por uma lista finita, sem reescrever frases.",
+      "before": "As espectativas cresceram quando o filme estreiou.",
+      "after": "As expectativas cresceram quando o filme estreou.",
+      "condition": "Protege nomes próprios, links, títulos bibliográficos, citações, itálico, parênteses e exemplos nos contextos previstos.",
+      "type": "transformation",
+      "optionKeys": [
+        "automaticSpelling"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-10",
+      "family": "Tabelas e sintaxe",
+      "title": "Descrição curta e modelos obsoletos",
+      "description": "Retira Descrição curta do artigo e trata os modelos obsoletos com ação expressa no catálogo.",
+      "before": "{{Descrição curta|Um tema fictício}}\n\nTexto do artigo.",
+      "after": "Texto do artigo.",
+      "condition": "Uma chamada interna que possa definir categorias, ordenação ou outros metadados impede a remoção da predefinição inteira. Programas ou chamadas internas sem equivalência confirmada ficam preservados, sem impedir ajustes independentes. Um modelo desconhecido não é considerado obsoleto só por não constar do catálogo.",
+      "type": "transformation",
+      "optionKeys": [
+        "shortDescriptions",
+        "obsoleteTemplates"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-11",
+      "family": "Tabelas e sintaxe",
+      "title": "Categorias e palavras mágicas importadas",
+      "description": "Adapta as palavras mágicas e os prefixos previstos, conservando seus argumentos.",
+      "before": "{{DEFAULTSORT:Exemplo, Tema}}",
+      "after": "{{DEFAULTSORT:Exemplo, Tema}}",
+      "condition": "Uma chamada nativa válida permanece. Só há adaptação com alias ou palavra mágica de origem confirmada. Palavras mágicas exigem o mesmo ID nativo ativo e a forma de chamada correta. Operandos, valores e efeitos permanecem. A preferência de ordenação é ORDENAÇÃOPADRÃO. PAGESINNAMESPACE/PAGESINNS ficam retidos sem consumidor ativo comprovado; prefixos de homônimos não transformam modelos em comandos.",
+      "type": "preservation",
+      "optionKeys": [
+        "multilingual"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-12",
+      "family": "Tabelas e sintaxe",
+      "title": "Coordenadas duplicadas",
+      "description": "Retira uma chamada de título redundante sem perder a mais completa.",
+      "before": "{{Coord|1|2|N|3|4|E|display=title}}\n{{Coord|1|2|N|3|4|E|display=title|type=city}}",
+      "after": "{{Coord|1|2|N|3|4|E|display=title|type=city}}",
+      "condition": "Coordenadas, opções ou funções conflitantes permanecem.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-09",
+      "family": "Tabelas e sintaxe",
+      "title": "Tabelas abertas por predefinição nativa",
+      "description": "Reconhece pares conferidos que abrem uma tabela por predefinição e a fecham com marcação literal ou um auxiliar nativo.",
+      "before": "{{Começa caixa}}\n{{S-inc|recente}}\n|}",
+      "after": "O bloco continua intacto e ajustes independentes depois dele podem ser aplicados.",
+      "condition": "A leitura depende do par nativo conhecido. Não inventa uma abertura para um fechamento avulso nem reescreve qualquer produtor de tabela.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-10",
+      "family": "Tabelas e sintaxe",
+      "title": "Célula já produzida pela predefinição",
+      "description": "Retira um separador de célula redundante antes de um produtor nativo conferido.",
+      "before": "{| class=\"wikitable\"\n|-\n|{{Td fmtn|1}}\n|}",
+      "after": "{| class=\"wikitable\"\n|-\n{{Td fmtn|1}}\n|}",
+      "condition": "Exige tabela literal reconhecida e Td fmtn com um único número literal. Atributos concorrentes, valores dinâmicos e outros produtores permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TAB-11",
+      "family": "Tabelas e sintaxe",
+      "title": "Partido no consumidor eleitoral correto",
+      "description": "Usa o nome português previsto no campo de partido de modelos eleitorais conferidos.",
+      "before": "{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Democratic Party (United States)|votes=12,345|percentage=4.5}}",
+      "after": "{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Partido Democrata (Estados Unidos)|votes=12,345|percentage=4.5}}",
+      "condition": "O mapeamento é específico do consumidor e do valor. Preserva candidato, votos, porcentagem e cores. Não traduz party em uma predefinição desconhecida.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-13",
+      "family": "Tabelas e sintaxe",
+      "title": "Modelos de bloco em linhas próprias",
+      "description": "Separa chamadas independentes coladas para facilitar a leitura do código.",
+      "before": "{{Em construção}}{{Evento atual|Este artigo}}\nTexto.",
+      "after": "{{Em construção}}\n{{Evento atual|Este artigo}}\nTexto.",
+      "condition": "Usa os papéis de bloco reconhecidos. Datas, idiomas e outros auxiliares de frase continuam em linha; valores de campos, referências, tabelas e exemplos protegidos conservam seu contexto.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217SourceLayoutPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SYN-14",
+      "family": "Tabelas e sintaxe",
+      "title": "Noinclude vazio sem função no artigo",
+      "description": "Retira um par vazio de noinclude no artigo e as linhas iniciais sem conteúdo que sobrarem.",
+      "before": "<noinclude>\n </noinclude>\n\nTexto.",
+      "after": "Texto.",
+      "condition": "O bloco só pode conter espaços. Controles de inclusão com conteúdo, definições de predefinição e exemplos protegidos permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217SourceLayoutPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "COL-01",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Duas colunas a partir de oito itens",
+      "description": "Usa Colunas-lista em listas simples de Ligações externas, Bibliografia ou Leitura adicional.",
+      "before": "== Ligações externas ==\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7\n* Item 8",
+      "after": "== Ligações externas ==\n{{Colunas-lista|2|2=\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n* Item 5\n* Item 6\n* Item 7\n* Item 8\n}}",
+      "condition": "Conta itens principais por seção ou subseção. Subitens não aumentam o total, e listas separadas não são somadas.",
+      "type": "transformation",
+      "optionKeys": [
+        "endMatterColumns",
+        "externalLinkColumns"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "COL-02",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Lista curta sem colunas",
+      "description": "Retira um invólucro simples de duas colunas quando há menos de oito itens.",
+      "before": "== Bibliografia ==\n{{Colunas-lista|2|2=\n* Uma obra\n}}",
+      "after": "== Bibliografia ==\n* Uma obra",
+      "condition": "Preserva estilos e configurações com função própria, tabelas ou estruturas sem equivalência.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "COL-03",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Colunas manuais sem col1 e col2",
+      "description": "Transforma blocos simples de colunas manuais em uma lista contínua.",
+      "before": "{{Colunas|col1=\n* [https://example.invalid/a Item A]\n|col2=\n* [https://example.invalid/b Item B]\n}}",
+      "after": "* [https://example.invalid/a Item A]\n* [https://example.invalid/b Item B]",
+      "condition": "Exige itens simples de ligações ou citações bibliográficas reconhecidas e preserva a sequência e os subitens. Comparações, listas com títulos ou funções diferentes e estilos próprios permanecem. Usa duas colunas apenas se a lista completa atingir oito itens, sem somar seções diferentes.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "COL-04",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Colunas de referências com mínimo próprio",
+      "description": "Usa duas colunas quando há ao menos dez entradas elegíveis.",
+      "before": "{{Referências}} com dez referências distintas.",
+      "after": "Lista de referências em duas colunas, com as mesmas fontes.",
+      "condition": "Não conta chamadas repetidas da mesma entrada como fontes novas. Configurações técnicas próprias podem permanecer.",
+      "type": "behavior",
+      "optionKeys": [
+        "referenceColumns"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-01",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Ordem das seções e do rodapé",
+      "description": "Organiza blocos finais reconhecidos, respeitando suas dependências.",
+      "before": "Categoria ou navecaixa inserida entre o título de Referências e seu coletor.",
+      "after": "Coletor junto da seção e elementos de rodapé na posição correspondente.",
+      "condition": "Ver também pode ocupar as posições nativas permitidas. Uma lista precisa vir depois das chamadas que deve recolher. A reorganização conserva a ordem de avaliação das chamadas que podem definir a ordenação das categorias, inclusive dentro de outras predefinições ou extensões. Um movimento sem essa prova é omitido, enquanto os reparos independentes continuam.",
+      "type": "behavior",
+      "optionKeys": [
+        "endMatter",
+        "endSectionOrder",
+        "endTemplateOrder"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-02",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Chave de ordenação antes das categorias",
+      "description": "Move DEFAULTSORT para antes do conjunto de categorias.",
+      "before": "[[Categoria:Temas fictícios]]\n{{DEFAULTSORT:Tema fictício}}",
+      "after": "{{DEFAULTSORT:Tema fictício}}\n[[Categoria:Temas fictícios]]",
+      "condition": "Exige conservar a ordem de avaliação de DEFAULTSORT, NM, NF e outras chamadas que podem definir a ordenação. Uma predefinição ou extensão desconhecida não é presumida neutra, e chamadas internas também são conferidas. Quando mover a chave pode mudar a ordenação efetiva, ela permanece no lugar, sem impedir outros reparos.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-03",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Categorias consecutivas",
+      "description": "Retira linhas vazias entre categorias adjacentes.",
+      "before": "[[Categoria:Temas fictícios]]\n\n[[Categoria:Exemplos]]",
+      "after": "[[Categoria:Temas fictícios]]\n[[Categoria:Exemplos]]",
+      "condition": "Não apaga texto ou predefinições que estejam entre as categorias. A retirada de espaços entre categorias simples continua elegível quando não é possível mover DEFAULTSORT com segurança.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "{{Esboço-livro}}[[Categoria:Alfa]][[Categoria:Beta]]",
+          "after": "{{Esboço-livro}}\n[[Categoria:Alfa]]\n[[Categoria:Beta]]",
+          "condition": "Separa limites conservando nomes, ordem e chaves. O layout geral pode manter uma linha em branco antes do bloco; não entre categorias consecutivas.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "LAY-01",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Navecaixas e portais sem div redundante",
+      "description": "Retira um invólucro genérico de rolagem quando a chamada nativa já fornece o bloco.",
+      "before": "<div style=\"max-width:100%;overflow-x:auto\" tabindex=\"0\" role=\"region\" aria-label=\"Navegação: Exemplo\">\n{{Portal3|Ciência}}\n</div>",
+      "after": "{{Portal3|Ciência}}",
+      "condition": "Só remove um contêiner equilibrado e demonstravelmente redundante. Contenção funcional permanece.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "LAY-02",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Infocaixa sem div redundante",
+      "description": "Retira o invólucro genérico de flutuação e rolagem em volta de uma caixa elegível.",
+      "before": "<div style=\"float:right;clear:right;max-width:100%;overflow-x:auto\" tabindex=\"0\" role=\"region\" aria-label=\"Informações de Exemplo\">\n{{Info/Biografia|nome=Pessoa fictícia}}\n</div>",
+      "after": "{{Info/Biografia|nome=Pessoa fictícia}}",
+      "condition": "Não remove recipientes que controlam conteúdo adicional, alinhamento especial ou apresentação necessária.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-05",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Projetos irmãos abaixo de Ver também",
+      "description": "Posiciona as caixas de projetos irmãos elegíveis após o título Ver também.",
+      "before": "== Ver também ==\n* [[Tema fictício]]\n\n== Ligações externas ==\n{{Commonscat|Example}}\n* Ligação externa",
+      "after": "== Ver também ==\n{{Commonscat|Example}}\n* [[Tema fictício]]\n\n== Ligações externas ==\n* Ligação externa",
+      "condition": "A posição depende de uma seção Ver também válida e da preservação da ordem de avaliação das demais chamadas. Uma caixa não atravessa uma chamada que possa mudar a ordenação sem equivalência confirmada. Não cria itens de Ver também ou conteúdo novo para justificar a caixa.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "== Ver também ==\n* Item anterior.\n{{Correlatos|título=<h2>Outra seção</h2>|commonscat=Example}}",
+          "after": "== Ver também ==\n* Item anterior.\n{{Correlatos|título=<h2>Outra seção</h2>|commonscat=Example}}",
+          "condition": "HTML, títulos ou modelos dinâmicos podem alterar a estrutura. Nesses casos, a caixa mantém sua posição e os ajustes independentes continuam possíveis.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "FOOT-06",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Ligação de projeto irmão em caixa",
+      "description": "Converte as formas em linha previstas para a caixa correspondente.",
+      "before": "{{Commonscat-inline|Example}}",
+      "after": "{{Commonscat|Example}}",
+      "condition": "As formas em linha conferidas são Commonscat, Commons, Wikiquote, Wikisource, Wikcionário e Wikivoyage. Exige par nativo equivalente, alvo e rótulo preservados. Não converte qualquer ligação interprojeto em caixa.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "QUAL-01",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Indicador de qualidade duplicado",
+      "description": "Mantém uma chamada válida do mesmo indicador de artigo bom ou destacado.",
+      "before": "{{Artigo bom}}\n{{Artigo bom}}\nTexto fictício.",
+      "after": "{{Artigo bom}}\nTexto fictício.",
+      "condition": "Não promove, rebaixa ou escolhe entre estatutos conflitantes. Parâmetros com função diferente permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "FOOT-07",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Nomes das seções finais",
+      "description": "Adapta títulos estrangeiros e variantes previstos para o nome português.",
+      "before": "== See also ==",
+      "after": "== Ver também ==",
+      "condition": "Exige uma correspondência explícita. Um título apenas parecido não é reescrito por inferência.",
+      "type": "transformation",
+      "optionKeys": [
+        "headings"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7",
+      "additionalExamples": [
+        {
+          "before": "== {{Veja também}} ==",
+          "after": "== Ver também ==",
+          "condition": "Somente chamada inteira sem argumentos. Links externos prefere Ligações externas pelo mesmo contrato; coletores não viram simples texto de seção.",
+          "type": "guarded-example"
+        }
+      ]
+    },
+    {
+      "id": "FOOT-08",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Sucessão preservada como bloco do rodapé",
+      "description": "Reconhece o conjunto completo de sucessão ao organizar portais e outros elementos finais.",
+      "before": "Uma caixa nativa de sucessão completa antes das categorias.",
+      "after": "A sucessão permanece inteira, com os portais na posição elegível do rodapé.",
+      "condition": "A abertura e o fechamento precisam corresponder aos auxiliares nativos conhecidos. O reconhecimento do bloco não altera os dados dos cargos.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-01",
+      "family": "Discussões e predefinições",
+      "title": "Um PD no início",
+      "description": "Reúne chamadas equivalentes conferidas e põe PD na primeira linha.",
+      "before": "{{pd}}\n{{Página de discussão}}\n== Uma conversa ==\nTexto.",
+      "after": "{{PD}}\n== Uma conversa ==\nTexto.",
+      "condition": "Preserva argumentos configurados. Configurações conflitantes e exemplos literais não são descartados.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-02",
+      "family": "Discussões e predefinições",
+      "title": "Uma Marca de projeto com todos os projetos",
+      "description": "Reúne os projetos e suas avaliações compatíveis em uma chamada.",
+      "before": "{{Marca de projeto|?|Ciência|?}}\n{{Marca de projeto|?|Tecnologia|?}}",
+      "after": "{{Marca de projeto|?|Ciência|?|Tecnologia|?}}",
+      "condition": "Preserva parâmetros adicionais e avaliações humanas. Conflitos entre avaliações não são resolvidos por adivinhação.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-03",
+      "family": "Discussões e predefinições",
+      "title": "Avaliação automática marcada por bot",
+      "description": "Quando a Marca de projeto contém o parâmetro bot, retira bot e rev e usa ? na avaliação geral.",
+      "before": "{{PD}}\n{{Marca de projeto|1|Ciência|3|bot=?/20131103|rev=20140530}}",
+      "after": "{{PD}}\n{{Marca de projeto|?|Ciência|3}}",
+      "condition": "A presença do parâmetro nomeado bot é o sinal usado nesta regra. As importâncias dos projetos e os demais campos são preservados. Sem bot, a avaliação e rev permanecem, sem consulta ao histórico.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217TalkPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-04",
+      "family": "Discussões e predefinições",
+      "title": "Traduzido no formato nativo",
+      "description": "Adapta os campos e a ordem da chamada de tradução conforme a predefinição portuguesa.",
+      "before": "{{Traduzido|en|Tema fictício|oldid=12345|data=1 de novembro de 2026}}",
+      "after": "{{Traduzido|página=Tema fictício|cód_idioma=en|oldid=12345|data=1 de novembro de 2026}}",
+      "condition": "Não inventa revisão, data ou origem de tradução.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-05",
+      "family": "Discussões e predefinições",
+      "title": "Criar código a partir dos portais",
+      "description": "Lê os portais do artigo e prepara PD e Marca de projeto no rascunho da discussão.",
+      "before": "Discussão sem cabeçalho de projeto e artigo com Física, Tecnologia e Ciência.",
+      "after": "{{PD}}\n{{Marca de projeto|?|Física|?|Tecnologia|?|Ciência|?}}",
+      "condition": "Requer discussão inteira de artigo e consulta bem-sucedida. Não publica a página.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-06",
+      "family": "Discussões e predefinições",
+      "title": "Variantes de portal coladas na discussão",
+      "description": "Converte os portais reconhecidos para a estrutura de projetos em discussão.",
+      "before": "Portal da física Portal da tecnologia Portal da ciência",
+      "after": "{{PD}}\n{{Marca de projeto|?|Física|?|Tecnologia|?|Ciência|?}}",
+      "condition": "Abrange os portais aceitos no mapa, não apenas esses exemplos. Texto de conversa e exemplos protegidos ficam intactos.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TPL-01",
+      "family": "Discussões e predefinições",
+      "title": "Definições de predefinição",
+      "description": "Aplica os reparos finitos previstos a includeonly, noinclude e chamadas conhecidas.",
+      "before": "Uma definição com delimitador incorreto inequívoco em um bloco de inclusão.",
+      "after": "A mesma definição com limites de inclusão preservados e sintaxe corrigida.",
+      "condition": "Parâmetros triplos, funções parser, Lua e exemplos não são tratados como prosa de artigo.",
+      "type": "behavior",
+      "optionKeys": [
+        "templateDefinitionRepairs"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TPL-02",
+      "family": "Discussões e predefinições",
+      "title": "Navecaixa com chamada duplicada de chaves",
+      "description": "Retira um nível redundante nas navecaixas literais expressamente reconhecidas.",
+      "before": "{{{{Navecaixa reconhecida}}}}",
+      "after": "{{Navecaixa reconhecida}}",
+      "condition": "O nome deve estar no mapa. Indireção dinâmica ou uma predefinição desconhecida permanece.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TPL-03",
+      "family": "Discussões e predefinições",
+      "title": "TemplateStyles",
+      "description": "Ajusta CSS pelo fluxo próprio, conferido pelo sanitizador nativo.",
+      "before": "Uma declaração CSS com um erro exato e reparo aceito pelo sanitizador.",
+      "after": "A declaração corrigida, com as demais regras preservadas.",
+      "condition": "Não converte propriedades rejeitadas para valores aleatórios nem altera o CSS geral de outra página.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TPL-04",
+      "family": "Discussões e predefinições",
+      "title": "Campos de sucessão com nomes nativos",
+      "description": "Adapta argumentos importados nos auxiliares de sucessão conferidos.",
+      "before": "{{S-bef|before=Pessoa Exemplo}}\n{{S-inc|recent}}",
+      "after": "{{S-bef|antes=Pessoa Exemplo}}\n{{S-inc|recente}}",
+      "condition": "Before e suas posições numeradas só mudam quando não há parâmetro português concorrente. Recent precisa ser o único argumento posicional previsto. Reason e reason2 não são tratados como erros.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v2217StructurePlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "TALK-07",
+      "family": "Discussões e predefinições",
+      "title": "Avisos no topo da discussão",
+      "description": "Organiza o cabeçalho antes das conversas, preservando atribuições e avisos distintos.",
+      "before": "{{OKA}}\n{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}\n{{Marca de projeto|3|Ciência|2|rev=20260101}}\n{{PD}}",
+      "after": "{{PD}}\n{{Marca de projeto|3|Ciência|2|rev=20260101}}\n{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}\n{{OKA}}",
+      "condition": "Ordem atual: PD, Marca de projeto, Traduzido e OKA, uma chamada por linha. Outros avisos vêm depois. O novo ordenador não atravessa comentários, assinaturas, prosa ou avisos desconhecidos. Avaliações humanas, importâncias e atribuição permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222TalkFooterPlan"
+      ],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "introducedOrExpanded": "2.21.7",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-01",
+      "family": "Uso, segurança e distribuição",
+      "title": "Um botão para ajustar",
+      "description": "Executa as correções escolhidas no rascunho aberto.",
+      "before": "Rascunho ainda não analisado.",
+      "after": "Correções confirmadas no mesmo rascunho.",
+      "condition": "O botão superior e o botão junto de Publicar executam a mesma ação. Publicação continua manual.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-02",
+      "family": "Uso, segurança e distribuição",
+      "title": "Contagem do que foi aplicado",
+      "description": "Mostra os ajustes aplicados e a diferença em bytes. O número de ajustes aparece somente quando a contagem exata está confirmada.",
+      "before": "Texto com várias correções independentes.",
+      "after": "Número de ajustes e bytes quando a contagem é exata. Sem contagem confirmada, mensagem de ajustes aplicados e acesso à comparação.",
+      "condition": "Quando a contagem exata não pode ser confirmada, informa que houve ajustes sem estimar um total. Não inclui propostas descartadas. Um bloco da comparação não é necessariamente um único ajuste.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-03",
+      "family": "Uso, segurança e distribuição",
+      "title": "Mostrar alterações e desfazer",
+      "description": "Usa a comparação do editor e permite restaurar o rascunho anterior.",
+      "before": "Rascunho ajustado.",
+      "after": "Rascunho anterior restaurado por Desfazer ajustes.",
+      "condition": "Uma alteração manual posterior impede restaurar uma versão que sobrescreveria esse trabalho.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-04",
+      "family": "Uso, segurança e distribuição",
+      "title": "Evitar análise repetida sem mudanças",
+      "description": "Reconhece o texto já conferido e atualiza o estado dos botões.",
+      "before": "Mesmo texto e mesmas opções depois da análise.",
+      "after": "Botão indica o estado conferido.",
+      "condition": "Uma edição ou mudança nas opções permite nova análise.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-05",
+      "family": "Uso, segurança e distribuição",
+      "title": "Resumo Minúcias e edição menor",
+      "description": "Preenche o resumo padrão e marca os ajustes automáticos como edição menor.",
+      "before": "Resumo vazio e aplicação automática confirmada.",
+      "after": "Resumo: Minúcias. Edição menor marcada.",
+      "condition": "Preserva resumo e escolha manuais, além da opção desligada. Não depende do tamanho da diferença. Nas discussões, Criar código mantém seu resumo próprio de PD e Marca de projeto e também marca a alteração automática como menor, respeitando a escolha manual.",
+      "type": "behavior",
+      "optionKeys": [
+        "autoSummary",
+        "autoMinor"
+      ],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-06",
+      "family": "Uso, segurança e distribuição",
+      "title": "Opções por família",
+      "description": "Permite escolher Todos os ajustes, Só referências ou Só infocaixas e desligar grupos específicos.",
+      "before": "Opção de uma família desligada.",
+      "after": "Essa família fica sem alteração; as demais continuam elegíveis.",
+      "condition": "Uma opção técnica de segurança não pode ser removida para forçar uma correção.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-07",
+      "family": "Uso, segurança e distribuição",
+      "title": "Andamento e cancelamento",
+      "description": "Mostra atividade e permite cancelar sem alterar o rascunho.",
+      "before": "Análise em andamento.",
+      "after": "Cancelamento encerra a aplicação e mantém o texto aberto.",
+      "condition": "O indicador respeita a preferência de menos movimento. Não apresenta uma porcentagem inventada.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "UI-08",
+      "family": "Uso, segurança e distribuição",
+      "title": "Sem corte global de 60 segundos",
+      "description": "Permite que a análise continue além de um minuto enquanto trabalha.",
+      "before": "Análise com mais de 60 segundos.",
+      "after": "A execução continua, podendo ser cancelada.",
+      "condition": "Consultas externas mantêm limites próprios. Cancelamento, mudança de contexto e alteração manual impedem respostas antigas de sobrescrever o rascunho.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SAFE-01",
+      "family": "Uso, segurança e distribuição",
+      "title": "Uma falha local não cancela tudo",
+      "description": "Mantém correções independentes que passaram pela preservação.",
+      "before": "Campo não elegível na infocaixa e erro de referência independente no corpo.",
+      "after": "Campo preservado e referência corrigida.",
+      "condition": "Uma chamada ausente de referências pode ser preparada antes das etapas que dependem dela, sem impedir portais elegíveis. Trechos não comprovados permanecem e não cancelam ajustes independentes que passaram pela preservação.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SAFE-02",
+      "family": "Uso, segurança e distribuição",
+      "title": "Preservação de conteúdo e referências",
+      "description": "Compara texto, campos, grupos, referências, células, fórmulas, unidades e destinos para impedir perdas na transformação.",
+      "before": "Um plano eliminaria parte de uma fonte ou uma célula.",
+      "after": "Esse plano não é aplicado.",
+      "condition": "As verificações são de preservação do código e dos dados. Não verificam a veracidade das afirmações, a qualidade das fontes ou a notoriedade do tema.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SAFE-03",
+      "family": "Uso, segurança e distribuição",
+      "title": "Resultado vinculado ao rascunho",
+      "description": "Evita que uma resposta atrasada substitua texto escrito depois.",
+      "before": "A análise começou, mas o texto foi editado manualmente.",
+      "after": "A resposta antiga não sobrescreve o novo texto.",
+      "condition": "Também confere página, revisão, seção, editor e opções.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "SAFE-04",
+      "family": "Uso, segurança e distribuição",
+      "title": "Contextos e regiões protegidas",
+      "description": "Distingue artigo, rascunho, discussão, predefinição e CSS.",
+      "before": "<nowiki>{{Reflist}}</nowiki>",
+      "after": "<nowiki>{{Reflist}}</nowiki>",
+      "condition": "Código, citações de marcação, comentários e trechos de exemplo não recebem as mesmas regras da prosa.",
+      "type": "preservation",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "DIST-01",
+      "family": "Uso, segurança e distribuição",
+      "title": "Carregador fixo",
+      "description": "Mantém a chamada de instalação no common.js entre as atualizações.",
+      "before": "Chamada fixa já instalada corretamente.",
+      "after": "A mesma chamada depois de atualizar núcleo, dados e carregador compartilhado.",
+      "condition": "Não exige substituir o common.js inteiro nem apagar outros scripts.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "DIST-02",
+      "family": "Uso, segurança e distribuição",
+      "title": "Dados conferidos após o salvamento",
+      "description": "Confere a versão e o conteúdo do catálogo antes de iniciar.",
+      "before": "Dados e núcleo de distribuições diferentes ou texto transformado no pré-salvamento.",
+      "after": "O pacote incompatível não é iniciado.",
+      "condition": "Não altera o hash para mascarar a diferença. Arquivos da mesma distribuição e destinos corretos resolvem a instalação.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "DIST-03",
+      "family": "Uso, segurança e distribuição",
+      "title": "Sem edições automáticas na Wikipédia",
+      "description": "As correções ficam no editor até a ação de publicação da pessoa.",
+      "before": "Ajustar código ou Criar código concluído.",
+      "after": "Rascunho aberto, sem publicação automática.",
+      "condition": "A pré-visualização pode enviar o rascunho para processamento sem salvar uma edição. Não há edições periódicas.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [],
+      "verification": "Descrição de contrato; evidências de regressão da distribuição são registradas separadamente.",
+      "baselineVersion": "2.21.7"
+    },
+    {
+      "id": "REF-25",
+      "family": "Referências e notas",
+      "title": "Atributos nativos de referência",
+      "description": "Adapta nome/grupo para name/group em etiquetas ref literais.",
+      "before": "A<ref nome=\"a\" grupo=\"nota\">Fonte.</ref> B<ref nome=\"a\" grupo=\"nota\"/>",
+      "after": "A<ref name=\"a\" group=\"nota\">Fonte.</ref> B<ref name=\"a\" group=\"nota\"/>",
+      "condition": "Definição e reutilizações coerentes; sem colisões ou atributos desconhecidos. Conserva corpo e grupo.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222ReferenceAttributesPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "REF-26",
+      "family": "Referências e notas",
+      "title": "Operadores finitos nos atributos",
+      "description": "Repara dois operadores incorretos em atributos conhecidos.",
+      "before": "A<ref name:\"a\">Fonte.</ref> B<ref name==\"a\"/>",
+      "after": "A<ref name=\"a\">Fonte.</ref> B<ref name=\"a\"/>",
+      "condition": "Somente : e == na estrutura comprovada. Exemplos citados, nomes dinâmicos e conflitos permanecem.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222ReferenceAttributesPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "REF-27",
+      "family": "Referências e notas",
+      "title": "Reutilização sem definição comprovada",
+      "description": "Retira só uma chamada cuja falta de definição foi confirmada.",
+      "before": "Texto<ref name=\"ausente\"/> continua.",
+      "after": "Texto continua.",
+      "condition": "Página completa, nome/grupo, definições posteriores, bancos e helpers conferidos. Produtor opaco retém a chamada sem bloquear outros ajustes; nome numérico não prova ausência.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222ReferenceOrphansPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "CIT-25",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Resíduos acidentais no título simples",
+      "description": "Troca quebra acidental por espaço e retira U+200B acidental no contexto confirmado.",
+      "before": "{{Citar web|título=Parte\nseguinte}}",
+      "after": "{{Citar web|título=Parte seguinte}}",
+      "condition": "Títulos latinos simples; marcação, URLs, múltiplos parágrafos e separadores de outras escritas ficam. Sem limpeza global de invisíveis.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222CitationsPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "CIT-26",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Campos conhecidos junto de um campo opaco",
+      "description": "Completa reparos independentes conservando o argumento desconhecido.",
+      "before": "{{Ouvrage|titre=Obra|année=2024|champinconnu=valor}}",
+      "after": "{{Citar livro|título=Obra|ano=2024|champinconnu=valor}}",
+      "condition": "Exemplo ilustrativo. Só campos com papel comprovado mudam; valores opacos e conflitos permanecem.",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222CitationsPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "CIT-27",
+      "family": "Parâmetros e conteúdo das citações",
+      "title": "Prefixo PMC sem o teto antigo",
+      "description": "Normaliza o prefixo literal mantendo todos os dígitos.",
+      "before": "{{Citar periódico|pmc=PMC10730720}}",
+      "after": "{{Citar periódico|pmc=10730720}}",
+      "condition": "Normalização do código; não prova existência ou correção bibliográfica do identificador.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222CitationsPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "IMG-06",
+      "family": "Imagens e ligações",
+      "title": "Bandeira decorativa para nome ligado",
+      "description": "Substitui formas exatas de país nos campos civis habilitados.",
+      "before": "Na Info/Biografia: |nacionalidade={{BRA}}",
+      "after": "Na Info/Biografia: |nacionalidade=[[Brasil]]",
+      "condition": "Piloto: nacionalidade/cidadania em Info/Biografia; nacionalidade em Info/Político e Info/Ator. 1928 formas/195 entradas não são todas as variantes. Preserva contextos militares, esportivos, navais, históricos, geográficos ou disputados. Flag|BRA mantém BRA em [[Brasil|BRA]].",
+      "type": "illustrative",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222FlagPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-15",
+      "family": "Tabelas e sintaxe",
+      "title": "Espaços horizontais em prosa",
+      "description": "Ajusta espaços antes de vírgula/ponto e dentro de parênteses simples.",
+      "before": "Uma frase , outra ( palavra ).",
+      "after": "Uma frase, outra (palavra).",
+      "condition": "Só prosa delimitada; números, fórmulas, títulos, citações, código, URLs, links, modelos e parágrafos ficam.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222ReferenceProseSpacingPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-16",
+      "family": "Tabelas e sintaxe",
+      "title": "BR entre itens comuns",
+      "description": "Retira BR final antes do próximo item comum do mesmo nível.",
+      "before": "* Alfa<br>\n* Beta",
+      "after": "* Alfa\n* Beta",
+      "condition": "Não atravessa sublistas, prefixos de definição, modelos, tabelas, versos ou exemplos.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureListBreaksPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-17",
+      "family": "Tabelas e sintaxe",
+      "title": "Fechamento small inequívoco",
+      "description": "Repara a forma autocontida usada como fechamento.",
+      "before": "<small>Texto<small/>",
+      "after": "<small>Texto</small>",
+      "condition": "Uma abertura correspondente, fechamento sem atributos e nenhum small posterior ambíguo. Atributos da abertura ficam.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureHtmlClosuresPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-18",
+      "family": "Tabelas e sintaxe",
+      "title": "Título HTML literal para sintaxe wiki",
+      "description": "Padroniza H2–H6 simples e únicos.",
+      "before": "<h2>Seção simples</h2>",
+      "after": "== Seção simples ==",
+      "condition": "Sem atributos, marcação ou proprietário protegido; título único. Pares nativos conservaram nível, texto, IDs e sumário. Invólucro e metadados de edição da seção mudam; não é HTML idêntico.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureHtmlHeadingsPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-19",
+      "family": "Tabelas e sintaxe",
+      "title": "Prefixo de predefinição conhecida",
+      "description": "Retira namespace literal de citações/infocaixas nativas exatas.",
+      "before": "{{Predefinição:Citar livro|título=Obra}}",
+      "after": "{{Citar livro|título=Obra}}",
+      "condition": "Modelo, argumentos, capitalização e espaços restantes conservados. Homônimos de palavras mágicas, nomes calculados e modelos desconhecidos mantêm o prefixo.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureTemplatePrefixPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "SYN-20",
+      "family": "Tabelas e sintaxe",
+      "title": "Lacunas entre itens simples",
+      "description": "Retira linhas vazias entre itens simples da lista não numerada.",
+      "before": "* item1\n\n* item2",
+      "after": "* item1\n* item2",
+      "condition": "Só itens * simples, sem sublistas, modelos, citações, tabelas ou continuação de parágrafo. Listas numeradas conservam suas separações.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureBlankListGapsPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "LNK-08",
+      "family": "Imagens e ligações",
+      "title": "Destino UTF-8 com rótulo conservado",
+      "description": "Decodifica escapes não ASCII do destino sem alterar o rótulo.",
+      "before": "[[Hist%C3%B3ria#Idade_M%C3%A9dia|Idade Média]]",
+      "after": "[[História#Idade_Média|Idade Média]]",
+      "condition": "Só destino de artigo, rótulo explícito não vazio e UTF-8 válido. Preserva fragmento/rótulo. Não altera unpiped, arquivo, categoria, interwiki, ASCII codificado ou delimitador reservado. Quatro pares nativos tiveram HTML igual.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructurePercentLinksPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "TAB-12",
+      "family": "Tabelas e sintaxe",
+      "title": "Atributos indevidos no fechamento de tabela",
+      "description": "Retira atributos de fechamento cujo par está comprovado.",
+      "before": "<table><tr><td>Texto</td class=\"copiado\"></tr></table>",
+      "after": "<table><tr><td>Texto</td></tr></table>",
+      "condition": "Abertura e pilha inequívocas; conserva atributos das aberturas, células, conteúdo e referências.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureHtmlClosuresPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "TPL-05",
+      "family": "Discussões e predefinições",
+      "title": "Título no ramo próprio de YouTube",
+      "description": "Usa titulo no vídeo comum que lê esse campo.",
+      "before": "{{YouTube|abcdefghijk|título=Exemplo}}",
+      "after": "{{YouTube|abcdefghijk|titulo=Exemplo}}",
+      "condition": "ID comum de vídeo, sem canal/playlist ou título concorrente. Outros ramos não mudam por semelhança.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222StructureYouTubePlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "FOOT-09",
+      "family": "Seções finais, colunas e projetos irmãos",
+      "title": "Taxonbar e autoridade no rodapé",
+      "description": "Posiciona Taxonbar/autoridade após navegações e antes de portais.",
+      "before": "Taxonbar, navegação e Portal3 num rodapé reconhecido.",
+      "after": "Navegação, Taxonbar e Portal3, conservando os dados.",
+      "condition": "Taxonbar é distinto de Controle de autoridade. Sem cruzar prosa/chamadas opacas ou mudar efeitos de NM/NF.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222TalkFooterPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "TALK-08",
+      "family": "Discussões e predefinições",
+      "title": "Sentinela x no primeiro campo",
+      "description": "Troca só x ou \"x\" literais por ?.",
+      "before": "{{Marca de projeto|\"x\"|Mulheres|3}}",
+      "after": "{{Marca de projeto|?|Mulheres|3}}",
+      "condition": "3 continua importância; ? mantém a estimativa automática. Não presume bot. Notas humanas, rev e ausência de bot ficam; campos concorrentes/dinâmicos são retidos.",
+      "type": "transformation",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222TalkFooterPlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "POR-17",
+      "family": "Portais e controle de autoridade",
+      "title": "Portais por categorias exatas",
+      "description": "Reúne portais compatíveis a partir da categoria real do assunto.",
+      "before": "Artigo sobre futebol com [[Categoria:Futebol]], sem portal final.",
+      "after": "Mesmo artigo com {{Portal3|Futebol|Esportes}} e a categoria preservada.",
+      "condition": "8337 categorias/540 destinos, não palavras soltas. Biografias exige categoria humana individual; equipes, organizações, listas e personagens não viram pessoas. Ambiguidade ou redirecionamento insuficiente retém o candidato.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222InferencePlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    },
+    {
+      "id": "CAT-01",
+      "family": "Portais e controle de autoridade",
+      "title": "Categorias com prova referenciada",
+      "description": "Acrescenta categoria existente com todos os critérios ancorados ao rascunho.",
+      "before": "Artigo sem categorias temáticas, com tópico e fonte comprovados no perfil habilitado.",
+      "after": "Mesmo artigo com a categoria existente específica permitida.",
+      "condition": "Exige ausência de qualquer categoria nativa reconhecida, incluindo as geradas por modelos. 10359 contratos/9913 destinos/43 perfis; só 171 contratos de 9 perfis possuem produtor P19/P31 materializado. Os demais, inclusive livros/filmes/esportes, ficam condicionais. A informação citada, a entidade e o tipo de categoria precisam coincidir com uma declaração referenciada do Wikidata que use o mesmo endereço de fonte. Essa comparação não inclui a leitura automática do corpo externo da referência. Não inverte o mapa de portais.",
+      "type": "behavior",
+      "optionKeys": [],
+      "entryPoints": [
+        "v222InferencePlan"
+      ],
+      "introducedOrExpanded": "2.22.0",
+      "verification": "Contrato guardado; exemplos e resultados da distribuição são evidências separadas."
+    }
+  ],
+  "counts": {
+    "features": 190,
+    "retainedBaselineIds": 170,
+    "newDocumentationEntries": 20,
+    "families": {
+      "Referências e notas": 27,
+      "Parâmetros e conteúdo das citações": 27,
+      "Infocaixas e biografias": 28,
+      "Portais e controle de autoridade": 19,
+      "Imagens e ligações": 14,
+      "Tabelas e sintaxe": 32,
+      "Seções finais, colunas e projetos irmãos": 15,
+      "Discussões e predefinições": 13,
+      "Uso, segurança e distribuição": 15
+    }
+  },
+  "releaseScope": {
+    "heldOrConditional": [
+      "Remoção genérica de rastreadores em hosts não comprovados, URLs assinadas, opacas ou arquivadas.",
+      "Retirada de cite sem prova de apresentação dispensável; mudança genérica de artigos gramaticais ou aspas dos rótulos.",
+      "Retirar imdb_id sem prova de que o mesmo ID, com zeros, esteja efetivamente exibido noutro consumidor.",
+      "sous-titre→subtítulo, Ani→Dni ou campos de instituições, influência, sepultamento e unidades por semelhança.",
+      "Apagar DISPLAYTITLE funcional, comando isolado de sumário válido, campo opaco ou a cauda inteira de URL.",
+      "Headings com atributos/marcação ou duplicados, percentuais sem rótulo explícito e delimitadores codificados.",
+      "Categorizar todos os destinos só por existirem no catálogo ou completar dimensões de artigo já categorizado.",
+      "Retirar Notas isolada sem inventário fechado e prova de ausência; reordenação genérica de coletores que precisam continuar separados.",
+      "Retirar switches de sumário duplicados sem prova do mesmo ID ativo e contexto de inclusão."
+    ],
+    "evidenceCategoryProducer": {
+      "cataloguedProfiles": 43,
+      "producerContracts": 171,
+      "producerProfiles": 9,
+      "allOthersConditional": true
+    },
+    "finalQaStatus": "see-separate-validation-report"
+  },
+  "documentationSources": [
+    {
+      "path": "docs/2.21.7/Funcionalidades_RevisaWiki_2_21_7.json",
+      "sha256": "351b6b2aff2c792f1d4f7830a65723de8e8ed3f24ff16fb009496db76049bb6a"
+    },
+    {
+      "path": "src/v2_22/citations.js",
+      "sha256": "c0f52358e471bfe3ca662c72537380bb3d5fb2ce40386976db5f7bd1dfe6989f",
+      "bytes": 18709
+    },
+    {
+      "path": "src/v2_22/native_syntax.js",
+      "sha256": "2f91f0ea0878947869a59602940b1363a7e7c68c5923e3364ce90bec5dea1767",
+      "bytes": 6360
+    },
+    {
+      "path": "src/v2_22/infoboxes.js",
+      "sha256": "130b74199b3a9852f493cfe38ed2e915dbb2a282a42f396be239ce3191dd21e4",
+      "bytes": 4082
+    },
+    {
+      "path": "src/v2_22/references.js",
+      "sha256": "8c2940736d436bc34d313df676e9367c4d2027039eeaa818d0e27e8616930d23",
+      "bytes": 37821
+    },
+    {
+      "path": "src/v2_22/talk_footer.js",
+      "sha256": "868dbca8ff7cec73a5fb8b79dc4b9bd26aeb73f1ece966c33621712157cd9a57",
+      "bytes": 13526
+    },
+    {
+      "path": "src/v2_22/structure.js",
+      "sha256": "bf97d896a832bf6b39901ab217d28aabf2bbab0e55d1e400d1ea0e053a5d9033",
+      "bytes": 22749
+    },
+    {
+      "path": "src/v2_22/inference.js",
+      "sha256": "d3066ccea27fd628986fb2b7beffeaad33916144364e1114a30d288e2770595d",
+      "bytes": 19870
+    }
+  ]
+}

@@ -1,0 +1,3711 @@
+{
+  "schema": "revisawiki-public-plan-coverage-v1",
+  "version": "2.22.0",
+  "trackingEntries": 408,
+  "documentedBehaviors": 190,
+  "retainedBaselineIds": 170,
+  "trackingEntriesAreFeatureCount": false,
+  "unresolvedIntegrityDefects": 0,
+  "integrityStatus": "known-release-change-defects-closed",
+  "integrityScope": "Defeitos conhecidos nas mudanças examinadas; não é certificação semântica universal de todos os textos.",
+  "purpose": "408 registros de rastreabilidade para 190 comportamentos documentados, com os 170 identificadores anteriores preservados. Não são 408 funcionalidades.",
+  "countingNotes": [
+    "Uma linha pode ser um limite, uma decisão, um perfil, um controle ou um identificador anterior.",
+    "Associações de catálogo e condições diferentes não equivalem a categorias adicionais inseridas em um artigo.",
+    "implemented-conditional significa disponível somente nas condições declaradas; held permanece fora da implementação; preserved conserva um requisito ou resultado anterior.",
+    "O fechamento dos testes da distribuição fica no relatório próprio; este índice não certifica fatos nem semântica ilimitada."
+  ],
+  "counts": {
+    "trackingEntries": 408,
+    "documentedBehaviors": 190,
+    "retainedBaselineIds": 170,
+    "byStatus": {
+      "implemented-conditional": 100,
+      "held": 55,
+      "preserved": 253
+    },
+    "byRecordKind": {
+      "candidato-ou-preferência": 46,
+      "retido-ou-rejeitado": 13,
+      "controle-já-observado": 18,
+      "limite-transversal": 14,
+      "grupo-de-contratos-de-sintaxe": 17,
+      "precedência-ou-esclarecimento": 11,
+      "contrato-de-inferência": 38,
+      "perfil-de-evidência": 43,
+      "precedência-de-catálogo": 6,
+      "acordo-a-preservar": 32,
+      "base-publicada-a-revalidar": 170
+    }
+  },
+  "pins": {
+    "planningRegistrySha256": "8127f12fd391b19ad3a03f51eed4f5503130985b39585c098cbcc750a9e5d3f1",
+    "privateTraceSha256": "b83e366ba3a29d68c65e2aa682e435f2210a714a75ff0da2c4ffdb9a43e3b473",
+    "featureInventorySha256": "0caaea1043b27e935ea2a5bb47ea15ef3bedfe9387cfa0b994d419414a0d9508",
+    "documentationManualSha256": "a4cbdf1b8bcad6dfaee6fbf4c0abd16b43a105df8dc9c8c596d5cc42daaa4683",
+    "runtimeManifestSha256": "6ad4db0c74affbd1cb5e42aa659d5ac21497c7d2294f9805f07d79aa7a2406dc"
+  },
+  "records": [
+    {
+      "id": "BASE-C01",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-25"
+      ],
+      "rationale": "Título simples; demais escritas e marcação permanecem."
+    },
+    {
+      "id": "BASE-C02",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-25"
+      ],
+      "rationale": "U+200B acidental latino; não é limpeza global."
+    },
+    {
+      "id": "BASE-C03",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "FOOT-07"
+      ],
+      "rationale": "Somente Veja também/Links externos inteiros, sem argumentos."
+    },
+    {
+      "id": "BASE-C04",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-16"
+      ],
+      "rationale": "Mesmo nível simples; não atravessa sublista."
+    },
+    {
+      "id": "BASE-C05",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-06"
+      ],
+      "rationale": "Espaço externo ASCII, grupo/região iguais, corpo da primeira definição conservado."
+    },
+    {
+      "id": "BASE-C06",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-19"
+      ],
+      "rationale": "Namespace só de CS1/infocaixa local reconhecida."
+    },
+    {
+      "id": "BASE-C07",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "Inventário fechado e contrato antigo atômico preservados."
+    },
+    {
+      "id": "BASE-C08",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "Retira Notas vazia com conferência completa das chamadas que podem gerar notas. Quando Notas simples é o único coletor e há uma fonte padrão real antes dele, escolhe Referências ou Notas e referências conforme os grupos. Argumentos, títulos próprios e fontes posteriores exigem outra prova."
+    },
+    {
+      "id": "BASE-C09",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "FOOT-05"
+      ],
+      "rationale": "Move caixas literais ao início de Ver também apenas numa seção sem HTML estrutural, títulos dinâmicos ou modelos opacos. Um conjunto dependente incerto mantém sua posição; outros ajustes continuam possíveis."
+    },
+    {
+      "id": "BASE-C10",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "Convergência restrita e reparo do coletor padrão ausente quando Notas simples é o único coletor; títulos/args/bancos/produtores posteriores/opacos retêm."
+    },
+    {
+      "id": "BASE-C11",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "A combinação está disponível quando as listas são compatíveis. A reordenação de listas que precisam continuar separadas permanece retida."
+    },
+    {
+      "id": "BASE-C12",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "TALK-07"
+      ],
+      "rationale": "PD, Marca, Traduzido, OKA, uma por linha, sem cruzar mensagem."
+    },
+    {
+      "id": "BASE-C13",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "TPL-05"
+      ],
+      "rationale": "Só vídeo YouTube comum, sem modalidade concorrente."
+    },
+    {
+      "id": "BASE-C14",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-14"
+      ],
+      "rationale": "Número igual e checksum válido."
+    },
+    {
+      "id": "BASE-C15",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "LNK-06"
+      ],
+      "rationale": "Protocolo idêntico duplicado em papel literal de URL."
+    },
+    {
+      "id": "BASE-C16",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-15"
+      ],
+      "rationale": "Pontuação e parênteses em prosa simples delimitada."
+    },
+    {
+      "id": "BASE-C17",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-05"
+      ],
+      "rationale": "sfn literal após pontuação; somente lacuna horizontal."
+    },
+    {
+      "id": "BASE-C18",
+      "recordKind": "candidato-ou-preferência",
+      "status": "held",
+      "featureIds": [
+        "LNK-06"
+      ],
+      "rationale": "Retido: não há remoção genérica nem contrato finito de rastreadores habilitado."
+    },
+    {
+      "id": "BASE-C19",
+      "recordKind": "candidato-ou-preferência",
+      "status": "held",
+      "featureIds": [
+        "LAY-01"
+      ],
+      "rationale": "Retido: cite pode ter efeito de apresentação; não há remoção sem prova."
+    },
+    {
+      "id": "BASE-C20",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-11"
+      ],
+      "rationale": "Par complementar URL/data na mesma citação, sem conflito."
+    },
+    {
+      "id": "BASE-C21",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-06"
+      ],
+      "rationale": "url_seção→capítulourl no consumidor próprio."
+    },
+    {
+      "id": "BASE-C22",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-06"
+      ],
+      "rationale": "Somente status-url=dead para urlmorta=sim no modelo compatível, conservando valores e campos concorrentes. A confirmação da ação completa inclui estados combinados, preservação e idempotência."
+    },
+    {
+      "id": "BASE-C23",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-02"
+      ],
+      "rationale": "Quatro formas finitas; não é tradução geral de valores."
+    },
+    {
+      "id": "BASE-C24",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-08"
+      ],
+      "rationale": "Localizador numérico/romano aceito."
+    },
+    {
+      "id": "BASE-C25",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "BIO-25"
+      ],
+      "rationale": "Migração estrangeira conjunta, incluindo contexto de morte; não alias global."
+    },
+    {
+      "id": "BASE-C26",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-27"
+      ],
+      "rationale": "PMC preserva todos os dígitos sem o teto antigo."
+    },
+    {
+      "id": "BASE-C27",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "FOOT-03"
+      ],
+      "rationale": "Cada categoria real em sua linha; ordem e chaves intactas."
+    },
+    {
+      "id": "BASE-C28",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-17"
+      ],
+      "rationale": "small autocontido inequívoco com abertura correspondente."
+    },
+    {
+      "id": "BASE-C29",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-20"
+      ],
+      "rationale": "Lista * simples inteira; listas numeradas/sublistas permanecem."
+    },
+    {
+      "id": "BASE-C30",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-18"
+      ],
+      "rationale": "H2–H6 únicos incluindo produtores nativos, literais sem atributos."
+    },
+    {
+      "id": "BASE-C31",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "LNK-08"
+      ],
+      "rationale": "Só links com rótulo explícito, UTF-8 não ASCII válido e destino de artigo."
+    },
+    {
+      "id": "BASE-C32",
+      "recordKind": "candidato-ou-preferência",
+      "status": "held",
+      "featureIds": [
+        "LNK-02"
+      ],
+      "rationale": "Retido: preferência de rótulo sem equivalência de apresentação confirmada."
+    },
+    {
+      "id": "BASE-C33",
+      "recordKind": "candidato-ou-preferência",
+      "status": "held",
+      "featureIds": [
+        "LNK-02"
+      ],
+      "rationale": "Retido: aspas podem alterar sentido/apresentação; não genérico."
+    },
+    {
+      "id": "BASE-C34",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-01"
+      ],
+      "rationale": "24 pares nativos em contexto de imagem comprovado; ampliação genérica a galerias retida."
+    },
+    {
+      "id": "BASE-C35",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-25"
+      ],
+      "rationale": "name/group nativos; conflitos familiares retidos."
+    },
+    {
+      "id": "BASE-C36",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-26"
+      ],
+      "rationale": "Operadores literais : e ==, sem exemplo citado."
+    },
+    {
+      "id": "BASE-C37",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-26"
+      ],
+      "rationale": "Campo conhecido independente corrigido junto de opaco; inclusive Ouvrage/année."
+    },
+    {
+      "id": "BASE-C38",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-03"
+      ],
+      "rationale": "Autoria/edição por papel comprovado, valores e numeração íntegros."
+    },
+    {
+      "id": "BASE-C39",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-02"
+      ],
+      "rationale": "obra/site versus publicado/entidade são papéis distintos; sem adivinhar inversão."
+    },
+    {
+      "id": "BASE-C40",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "BIO-01"
+      ],
+      "rationale": "Alias estrangeiro ignorado só com contraparte nativa byte-idêntica em Info/Biografia."
+    },
+    {
+      "id": "BASE-C41",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-04"
+      ],
+      "rationale": "Só dígitos da dimensão reconhecida, legenda/nome intactos."
+    },
+    {
+      "id": "BASE-C42",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "TAB-12"
+      ],
+      "rationale": "Atributos no fechamento HTML só com par e pilha inequívocos."
+    },
+    {
+      "id": "BASE-C43",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-09"
+      ],
+      "rationale": "fecha→data por contrato de citação e colisões preservadas."
+    },
+    {
+      "id": "BASE-C44",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-01"
+      ],
+      "rationale": "Uma linha em branco ao redor de coletor simples independente; nível=0/opções opacas conservados."
+    },
+    {
+      "id": "BASE-C45",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "FOOT-09"
+      ],
+      "rationale": "Navegação→Taxonbar/autoridade→portal; NM/NF não são aliases simples."
+    },
+    {
+      "id": "BASE-C46",
+      "recordKind": "candidato-ou-preferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-27"
+      ],
+      "rationale": "Página completa, inventário de produtores e ausência real da definição."
+    },
+    {
+      "id": "BASE-H01",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Controles C1 permanecem sem regra de decodificação Windows-1252."
+    },
+    {
+      "id": "BASE-H02",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Não retirar Anexo do destino."
+    },
+    {
+      "id": "BASE-H03",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "sous-titre não equivale ao campo local provado."
+    },
+    {
+      "id": "BASE-H04",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Unidade/espaço de dimensão sem normalização genérica."
+    },
+    {
+      "id": "BASE-H05",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Não retirar namespace interno do valor da imagem."
+    },
+    {
+      "id": "BASE-H06",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Ani tem efeitos de idade/categorias próprios."
+    },
+    {
+      "id": "BASE-H07",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Dois-pontos pode pertencer ao título."
+    },
+    {
+      "id": "BASE-H08",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "BR de legenda pode ser intencional."
+    },
+    {
+      "id": "BASE-H09",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Ausência de chave em mapa parcial não prova invalidade."
+    },
+    {
+      "id": "BASE-H10",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Modelo inexistente não tem consumidor provado."
+    },
+    {
+      "id": "BASE-H11",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Ficheiro/Imagem/Arquivo portugueses válidos ficam."
+    },
+    {
+      "id": "BASE-H12",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "url-status não é status-url=dead."
+    },
+    {
+      "id": "BASE-H13",
+      "recordKind": "retido-ou-rejeitado",
+      "status": "held",
+      "featureIds": [],
+      "rationale": "Consulta/fragmento de URL têm semântica própria."
+    },
+    {
+      "id": "BASE-W01",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W02",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W03",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W04",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W05",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W06",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W07",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W08",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W09",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W10",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W11",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W12",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W13",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W14",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W15",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W16",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W17",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-W18",
+      "recordKind": "controle-já-observado",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Controle que já estava coberto pela base. Não conta uma novidade nem transforma um resultado histórico em validação atual."
+    },
+    {
+      "id": "BASE-G01",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G02",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G03",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G04",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G05",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G06",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G07",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G08",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G09",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G10",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G11",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G12",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G13",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "BASE-G14",
+      "recordKind": "limite-transversal",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Limite de preservação e de uso da evidência mantido. Versões, resultados históricos e escopos de publicação ficam separados."
+    },
+    {
+      "id": "SYN-CITE-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-01",
+        "CIT-02",
+        "CIT-26"
+      ],
+      "rationale": "Aliases por consumidor; conhecidos independentes ao lado de opacos."
+    },
+    {
+      "id": "SYN-CITE-02",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CIT-02"
+      ],
+      "rationale": "website→obra e publisher→publicado em citações; sem adivinhar swap/redundância."
+    },
+    {
+      "id": "SYN-SORT-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-11"
+      ],
+      "rationale": "Mesmo ID nativo ativo; preferência ORDENAÇÃOPADRÃO."
+    },
+    {
+      "id": "SYN-MAGIC-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-11"
+      ],
+      "rationale": "119 formas elegíveis dos121 registros; PAGESINNAMESPACE/PAGESINNS retidos."
+    },
+    {
+      "id": "SYN-IMAGE-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-01"
+      ],
+      "rationale": "24 pares no consumidor próprio, PT válido preservado."
+    },
+    {
+      "id": "SYN-NS-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-01",
+        "SYN-19"
+      ],
+      "rationale": "25 pares de namespace e prefixo local reconhecido; sem confundir homônimo."
+    },
+    {
+      "id": "SYN-INFOBOX-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "BIO-01",
+        "BIO-17",
+        "BIO-25"
+      ],
+      "rationale": "Três preferências finitas conferidas site/sítio; demais dependem do modelo; sem nova extensão de burial/instituições."
+    },
+    {
+      "id": "SYN-REFHEAD-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03",
+        "REF-04",
+        "REF-21"
+      ],
+      "rationale": "Título manual customizado/nível/parágrafo preservados; largura efetiva mantida."
+    },
+    {
+      "id": "SYN-REFCOL-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "Quatro coletores e COL-HTML-01 apenas com inventário fechado."
+    },
+    {
+      "id": "SYN-REFCOL-02",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "REF-04"
+      ],
+      "rationale": "30em efetivo não é descartado nem copiado para campo ignorado."
+    },
+    {
+      "id": "SYN-AUTH-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "FOOT-04",
+        "FOOT-09"
+      ],
+      "rationale": "Controlo de autoria→Controle de autoridade; NM/NF preservados."
+    },
+    {
+      "id": "SYN-FILM-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "held",
+      "featureIds": [
+        "BIO-24"
+      ],
+      "rationale": "imdb_id não se remove sem prova do mesmo ID efetivamente exibido; P345 isolado insuficiente."
+    },
+    {
+      "id": "SYN-LIST-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-08"
+      ],
+      "rationale": "Marcador * vazio só após galeria encerrada, sem subitens dependentes."
+    },
+    {
+      "id": "SYN-TALK-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "TALK-08"
+      ],
+      "rationale": "x ou \"x\" primeiro campo→?; importância e ausência de bot ficam; ? permite estimativa."
+    },
+    {
+      "id": "SYN-TOC-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-11"
+      ],
+      "rationale": "Localiza as formas nativas dos comandos e conserva seus efeitos. A remoção nova de comandos de sumário repetidos continua fora desta implementação."
+    },
+    {
+      "id": "SYN-TITLE-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SYN-11"
+      ],
+      "rationale": "EXIBETÍTULO conserva o valor inteiro, formatação, argumentos e ordem."
+    },
+    {
+      "id": "SYN-INTEGRATION-01",
+      "recordKind": "grupo-de-contratos-de-sintaxe",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "SAFE-01",
+        "SAFE-02",
+        "SAFE-03"
+      ],
+      "rationale": "Stages independentes; provas locais e guards globais permanecem, sem avisos novos."
+    },
+    {
+      "id": "SYN-SUP-01",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-02",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-03",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-04",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-05",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-06",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-07",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-08",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-09",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-10",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "SYN-SUP-11",
+      "recordKind": "precedência-ou-esclarecimento",
+      "status": "preserved",
+      "featureIds": [],
+      "rationale": "Esclarecimento atual preservado. A interpretação anterior superada não é usada como regra de transformação."
+    },
+    {
+      "id": "PORTAL-common-1",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-2",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-3",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-4",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-5",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-6",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-7",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-common-8",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "A relação entre portais subnacionais e nacionais usa somente a hierarquia já conferida; não presume uma hierarquia geográfica mundial."
+    },
+    {
+      "id": "PORTAL-common-9",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-human-individual-category-1",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-human-individual-category-2",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-human-individual-category-3",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-human-individual-category-4",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-topic-or-organization-category-1",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-topic-or-organization-category-2",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-FOOTER",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "PORTAL-PREFERRED-NEW",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "Usa o argumento preferido conferido para cada destino novo, sem alterar a identidade do portal."
+    },
+    {
+      "id": "CATEGORY-required",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "CATEGORY-condition",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "CATEGORY-phaseTwoPartialCategorization",
+      "recordKind": "contrato-de-inferência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Escopo mantido fora da automação atual. Exige comprovação própria antes de qualquer ampliação."
+    },
+    {
+      "id": "CATEGORY-perCandidateChecks",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "CATEGORY-noWholesalePortalMapInversion",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "CATEGORY-noSensitivePersonalClassificationInInitialPhase",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "CATEGORY-candidateFailureMustNotBlockIndependentAdjustments",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-1",
+      "recordKind": "contrato-de-inferência",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição de preservação mantida; não conta uma transformação independente."
+    },
+    {
+      "id": "FLAG-2",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-3",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-4",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-5",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-6",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-7",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-8",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-9",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-10",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-11",
+      "recordKind": "contrato-de-inferência",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição de preservação mantida; não conta uma transformação independente."
+    },
+    {
+      "id": "FLAG-PILOT",
+      "recordKind": "contrato-de-inferência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Condição aplicada apenas no conjunto finito conferido. Mantém identidade do assunto, grupos, destinos e rótulos; não generaliza para novos sujeitos ou formas por semelhança."
+    },
+    {
+      "id": "FLAG-ICON-ONLY",
+      "recordKind": "contrato-de-inferência",
+      "status": "held",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Escopo mantido fora da automação atual. Exige comprovação própria antes de qualquer ampliação."
+    },
+    {
+      "id": "FLAG-OUTSIDE-ROSTER",
+      "recordKind": "contrato-de-inferência",
+      "status": "held",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "Escopo mantido fora da automação atual. Exige comprovação própria antes de qualquer ampliação."
+    },
+    {
+      "id": "CAT-PROFILE:bio-female-profession-v1",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:bio-female-national-profession-v1",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:bio-national-profession-v1",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:bio-profession-v1",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:bio-exact-birthplace-v1",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:book.work-form-or-genre",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:book.original-first-publication-year",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:book.literal-authorship",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:book.original-language",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:book.literal-authorship-and-novel-form",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.work-form-or-format",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.explicit-adaptation-basis",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.explicit-genre",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.original-production-country",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.production-country-and-original-first-release-year",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.original-first-release-year",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.explicit-genre-and-original-production-country",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:film.original-language",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-TOPIC",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-EVENT-PARTICIPANT",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-COMPETITION-TOPIC",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-EQUIPMENT-VENUE",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ATHLETE-NATIONAL",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-EVENT-MEDALLIST",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ENTITY-COUNTRY",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ENTITY-LOCALITY",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ENTITY-FOUNDATION-YEAR",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ENTITY-DISCIPLINE",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-ATHLETE-CLUB",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-EXPLICIT-TITLE",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:SPORT-COACH-NATIONAL",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:astronomical-object",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:geological-object",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:inorganic-chemical-class",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:mathematical-object",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:biomolecular-object",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:scientific-instrument",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:chemical-element-class",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:physical-particle-class",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:chemical-structural-class",
+      "recordKind": "perfil-de-evidência",
+      "status": "implemented-conditional",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil com leitura automática disponível para um subconjunto finito. Compara informação citada no artigo com declaração referenciada do Wikidata usando o mesmo endereço de fonte, conferindo entidade e tipo de categoria. Não lê o corpo externo da referência e exige ausência de qualquer categoria nativa reconhecida."
+    },
+    {
+      "id": "CAT-PROFILE:chemical-constituent",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:taxonomic-rank-and-clade",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "CAT-PROFILE:species-original-description-year",
+      "recordKind": "perfil-de-evidência",
+      "status": "held",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "Perfil catalogado, com critérios definidos, mas sem leitura automática comprovada nesta distribuição. Não produz categorias por simples existência no mapa."
+    },
+    {
+      "id": "INF-PRE-1",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "INF-PRE-2",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "POR-17"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "INF-PRE-3",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "INF-PRE-4",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "CAT-01"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "INF-PRE-5",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "INF-PRE-6",
+      "recordKind": "precedência-de-catálogo",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-06"
+      ],
+      "rationale": "A versão final conferida dos dados governa o comportamento; comparações anteriores permanecem como histórico separado."
+    },
+    {
+      "id": "KEEP-01",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-01"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-02",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-01"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-03",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-02"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-04",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-05"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-05",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-05"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-06",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-01",
+        "UI-03"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-07",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-02"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-08",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-01",
+        "UI-04",
+        "UI-07"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-09",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-08",
+        "SAFE-03"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-10",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-03",
+        "REF-04"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-11",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-06",
+        "REF-27"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-12",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-18"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-13",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-01",
+        "BIO-25"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-14",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-11",
+        "BIO-13",
+        "BIO-16"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-15",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-05",
+        "SYN-13"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-16",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-05",
+        "BIO-06"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-17",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-01",
+        "BIO-25",
+        "SYN-11"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-18",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-11",
+        "POR-12"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-19",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-01",
+        "TALK-02",
+        "TALK-07"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-20",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-03",
+        "TALK-08"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-21",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-04",
+        "TALK-07"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-22",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "COL-01",
+        "COL-04"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-23",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-01",
+        "FOOT-02",
+        "FOOT-03",
+        "FOOT-09"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-24",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-05",
+        "FOOT-06"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-25",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "LAY-01",
+        "LAY-02"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-26",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "QUAL-01"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-27",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-09",
+        "SYN-15"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-28",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-01",
+        "DIST-02"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-29",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-03"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-30",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-06"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-31",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-02"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "KEEP-32",
+      "recordKind": "acordo-a-preservar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-01",
+        "SAFE-02",
+        "SAFE-03"
+      ],
+      "rationale": "Requisito de funcionamento, preservação ou documentação mantido. As verificações da distribuição e a publicação ficam em etapas próprias."
+    },
+    {
+      "id": "REGRESS:REF-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-12",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-12"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-13",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-13"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-14",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-14"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-15",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-15"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-16",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-16"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-17",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-17"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-18",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-18"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-19",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-19"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-20",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-20"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-21",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-21"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-22",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-22"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-23",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-23"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:REF-24",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "REF-24"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-12",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-12"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-13",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-13"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-14",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-14"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-15",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-15"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-16",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-16"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-17",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-17"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-18",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-18"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-19",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-19"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-20",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-20"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-21",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-21"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-22",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-22"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-23",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-23"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:CIT-24",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "CIT-24"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-12",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-12"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-13",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-13"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-14",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-14"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-15",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-15"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-16",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-16"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-17",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-17"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-18",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-18"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-19",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-19"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-20",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-20"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-21",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-21"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-22",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-22"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-23",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-23"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-24",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-24"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-25",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-25"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-26",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-26"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-27",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-27"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:BIO-28",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "BIO-28"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-12",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-12"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-13",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-13"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-14",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-14"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-15",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-15"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:POR-16",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "POR-16"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:IMG-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:IMG-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:IMG-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:IMG-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LNK-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LNK-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:IMG-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "IMG-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-12",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-12"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-09",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-09"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-10",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-10"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TAB-11",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TAB-11"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-13",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-13"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SYN-14",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SYN-14"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:COL-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "COL-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:COL-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "COL-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:COL-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "COL-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:COL-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "COL-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LAY-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LAY-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:LAY-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "LAY-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:QUAL-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "QUAL-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:FOOT-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "FOOT-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TPL-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TPL-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TPL-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TPL-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TPL-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TPL-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TPL-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TPL-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:TALK-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "TALK-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-05",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-05"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-06",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-06"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-07",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-07"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:UI-08",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "UI-08"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SAFE-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SAFE-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SAFE-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:SAFE-04",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "SAFE-04"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:DIST-01",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-01"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:DIST-02",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-02"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    },
+    {
+      "id": "REGRESS:DIST-03",
+      "recordKind": "base-publicada-a-revalidar",
+      "status": "preserved",
+      "featureIds": [
+        "DIST-03"
+      ],
+      "rationale": "Identificador anterior preservado no inventário. Esta linha não conta uma função nova nem substitui a regressão descrita no relatório da distribuição."
+    }
+  ],
+  "currentVerification": {
+    "state": "reviewed-evidence-closed-with-documented-limits",
+    "globalFinalQAClaim": false,
+    "fullCorpusStatus": "closed-with-documented-limits",
+    "publicationState": "private-staging-copy",
+    "sourcePlanSha256": "78a2194a2c8963525cc31fa41a367cfc51382ffe45468336521fcd4e21aecad9",
+    "trackingRecordsAndDecisionsPreserved": true,
+    "focusedReceipt": {
+      "file": "FOCUSED_REFERENCES_FOOTER_STRUCTURE.json",
+      "sha256": "40f9e6f71a8ae21b9e657bc567d2d08bbb5e58ed444bf10009ad6bf2b203082c",
+      "status": "passed-directed-scope",
+      "executionOrigin": "selected-from-shared-directed-controller",
+      "newExecutionsPerformedForThisReceipt": 0
+    },
+    "knownIntegrityClosureScope": [
+      "As verificações focadas no runtime atual preservam o vínculo entre referências e fontes, inclusive nomes gerados por reparos comprovados.",
+      "Uma nova divisão de definições nomeadas originalmente idênticas permanece impedida. O caso real corrigido conservou a família original e os demais ajustes independentes.",
+      "O corpus congelado foi encerrado com 1.918 capturas aprovadas, uma inconclusiva por limite externo e nenhuma falha de integridade. Os limites e as tentativas anteriores permanecem nos comprovantes."
+    ],
+    "historicalEvidenceRetained": true,
+    "featureDocumentationSourcePinsCurrent": true,
+    "manualNativeProofContentUnchanged": true,
+    "directedReceipt": {
+      "file": "DIRECTED_QA.json",
+      "sha256": "c1a1f988750bb839ab334af9a81033922de42b67f5707a4d2e505ef18b8361a4",
+      "status": "passed",
+      "groups": 127,
+      "checks": 269929,
+      "reportedCases": 3876,
+      "executionOrigin": "shared-directed-controller",
+      "newExecutionsPerformedForThisPlan": 0,
+      "provenanceRole": "public-repository-evidence"
+    },
+    "evidenceClosureStatus": "closed-for-the-frozen-release-scope",
+    "globalFinalQAClaimScope": "Este plano registra cobertura e proveniência do conjunto examinado. Não declara validade universal das regras nem certificação factual ou visual de qualquer texto.",
+    "rawDirectedControllerReceipt": {
+      "sha256": "b9d9aa09ca07e2b3fcdb6fc65adf559f8cd989d9d9fd0f73a4a7b6a5d72fdce9",
+      "provenanceRole": "private-shared-controller-source",
+      "relationship": "Fonte bruta do recibo público DIRECTED_QA.json; não é o hash desse arquivo público.",
+      "newExecutionsPerformedForThisPlan": 0
+    },
+    "corpusReceipt": {
+      "file": "CORPUS_QA.json",
+      "sha256": "f3e2bdb1e4b0999dc471fd6a69ec949b67006e5263e5a4d2f5db27959bc8f0df",
+      "status": "passed-with-documented-limits",
+      "selectedCaptures": 1919,
+      "completedCaptures": 1919,
+      "passedCaptures": 1918,
+      "currentRuntimeExternalCaps": 1,
+      "failedCaptures": 0,
+      "remainingCaptures": 0,
+      "unresolvedIntegrityDefects": 0,
+      "priorInconclusiveCapturesHeldWithoutRetry": 81,
+      "allInconclusiveRowsInOriginalCohort": 82,
+      "inconclusiveCapturesCreditedAsPassed": false
+    },
+    "finalTestReport": {
+      "file": "docs/2.22.0/Relatorio_testes_RevisaWiki_v2_22_0.txt",
+      "sha256": "71e3c1cb237b82f5a47d6ae577c54c79c1f6b24d808a7f2456967c41832941fc",
+      "detailedEvidenceLocation": "tests/evidence/2.22.0 no repositório",
+      "packagedEvidenceSummaryFile": "QA_SUMMARY.json"
+    }
+  }
+}

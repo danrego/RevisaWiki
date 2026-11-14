@@ -53,6 +53,13 @@ APPROVED_PUBLIC_CSS_PROPERTIES={
 # after whitespace formatting. Approval requires the entire reviewed runtime,
 # its exact byte count and both exact fragment hashes, each occurring once.
 APPROVED_RUNTIME_OBJECT_KEYS={
+ 'a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8':{'bytes': 2049261, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132':{'bytes': 6200018, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '79eb4abeb089501c90050de76345414e3aa8dd68a2d2b8367bacac91e19775db':{'bytes': 2049037, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '238c42288367a96055994735f1429f32858d790e67884907e51d1851bd544071':{'bytes': 6198812, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '4a52eab186dfffaf8e8d1236637c890b8dd1a8c5967da8f3871ffd81b31bf1a6':{'bytes': 2046442, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ 'f147cd3164f85ddf4bfb8bcad5d34ebcdc7f59ce35efc8d13b1f1bdf9dd248aa':{'bytes': 6180092, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+
  '7bd7766c0f75f75e5c03112cb885dde67ec8c1966102380f6755b5b10e1c3f10':{'bytes': 2025914, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
  '33c6083fd1c6b373a8e27116f2b1f4218a3b851e56c8e365d1646b1c2b0fe94e':{'bytes': 4112454, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
  '4d878d299cfe446d2b97dfb4e1850fa6d30657d6d3ce8110901faefea2fcf3f6':{'bytes': 2022822, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
@@ -193,7 +200,7 @@ def identity_findings(text,reviewed_css=frozenset()):
  decoded=unquote(text).replace('+',' ')
  owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
  owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
- technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
+ technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador|Catalogo|Regras)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
  css_property=re.compile(r'--image-size-'+r'user'+r':var\(--image-size-(?:standard|small|large)\)(?=[;}])')
  masked=css_property.sub(lambda m:' '*len(m.group())if hashlib.sha256(m.group().encode()).hexdigest()in reviewed_css else m.group(),masked)

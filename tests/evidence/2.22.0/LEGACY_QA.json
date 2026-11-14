@@ -1,0 +1,882 @@
+{
+  "schemaVersion": 1,
+  "version": "2.22.0",
+  "distributionRevision": "2.22.0",
+  "kind": "finite-legacy-contract-adjudication",
+  "status": "passed-with-precisely-qualified-historical-contracts",
+  "runtimeManifestSha256": "6ad4db0c74affbd1cb5e42aa659d5ac21497c7d2294f9805f07d79aa7a2406dc",
+  "rawSummaryPrivateEvidenceSha256": "efb786178462749f52761e67281d1251278cfefc92cf35225fbef9b13fc9d72f",
+  "adjudicatedSummaryPrivateEvidenceSha256": "449cfe0c717f52aad446545f1b0ecac1e8ead8b195674ef78e5ac52008af5557",
+  "rawStatus": "failed",
+  "rawTasks": 34,
+  "rawPassedTasks": 26,
+  "rawFailedTasksRetained": 8,
+  "qualifiedRawFailedTasks": 8,
+  "unqualifiedRawFailedTasks": 0,
+  "rawTaskCalculateCalls": 15824,
+  "rawTaskChecksReported": 57326,
+  "qualificationChecks": 41584,
+  "qualificationCurrentCalculateCalls": 2154,
+  "qualificationHistoricalBaselineCalculateCalls": 790,
+  "uniqueFiniteBiographyContractCases": 397,
+  "biographyUnchangedSafeRefusalsPerBundle": 395,
+  "biographyUnchangedSafeRefusalAutomaticCorrectionCredit": 0,
+  "biographyExactVerticalPreferencesPerBundle": 2,
+  "runtimeFiles": {
+    "RevisaWiki_v2_22_0.js": {
+      "bytes": 2049261,
+      "sha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8"
+    },
+    "RevisaWiki_v2_22_0_dados.js": {
+      "bytes": 2093756,
+      "sha256": "4402701796e53016ff08e329f40c82314f4b80e05f566aa2a2cde8b106f010d2"
+    },
+    "RevisaWiki_v2_22_0_catalogo.js": {
+      "bytes": 1940882,
+      "sha256": "ec5676040c662f15085405f8d8f35445e18113f7c0b6a756787a9dc98ec771e2"
+    },
+    "RevisaWiki_v2_22_0_regras.js": {
+      "bytes": 124524,
+      "sha256": "3800ba2dabdfb033905c161aa88afaf54c7dee1efee7f8db21325d2e1af919d9"
+    },
+    "RevisaWiki_v2_22_0_completo.js": {
+      "bytes": 6200018,
+      "sha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132"
+    }
+  },
+  "sourcePins": {
+    "src/v2_22/category_producer.js": {
+      "bytes": 19224,
+      "sha256": "95a28a34f3f7c4ef940f3628a0bff9d69d6a9ec66c59a88d8113008a3393fc9d"
+    },
+    "src/v2_22/citations.js": {
+      "bytes": 18709,
+      "sha256": "c0f52358e471bfe3ca662c72537380bb3d5fb2ce40386976db5f7bd1dfe6989f"
+    },
+    "src/v2_22/framework.js": {
+      "bytes": 9751,
+      "sha256": "7f6dc2c7329781f3cee05e36f10704be4fbd6b41dde5763484ccb5e5f2a8f00e"
+    },
+    "src/v2_22/inference.js": {
+      "bytes": 19870,
+      "sha256": "d3066ccea27fd628986fb2b7beffeaad33916144364e1114a30d288e2770595d"
+    },
+    "src/v2_22/infoboxes.js": {
+      "bytes": 4082,
+      "sha256": "130b74199b3a9852f493cfe38ed2e915dbb2a282a42f396be239ce3191dd21e4"
+    },
+    "src/v2_22/native_syntax.js": {
+      "bytes": 6360,
+      "sha256": "2f91f0ea0878947869a59602940b1363a7e7c68c5923e3364ce90bec5dea1767"
+    },
+    "src/v2_22/references.js": {
+      "bytes": 37821,
+      "sha256": "8c2940736d436bc34d313df676e9367c4d2027039eeaa818d0e27e8616930d23"
+    },
+    "src/v2_22/structure.js": {
+      "bytes": 22749,
+      "sha256": "bf97d896a832bf6b39901ab217d28aabf2bbab0e55d1e400d1ea0e053a5d9033"
+    },
+    "src/v2_22/talk_footer.js": {
+      "bytes": 13526,
+      "sha256": "868dbca8ff7cec73a5fb8b79dc4b9bd26aeb73f1ece966c33621712157cd9a57"
+    },
+    "src/v2_22/inference_data.json": {
+      "bytes": 1890789,
+      "sha256": "e0541b39dc317a23bc376a014a347f3c6737610cb0edccbffa31a41d2143c434"
+    },
+    "src/v2_22/syntax_data.json": {
+      "bytes": 30474,
+      "sha256": "dd68002e170fe188acce2f58052bf4170d005a36ce78c1275aeffa36554ba360"
+    },
+    "src/v2_22/header.txt": {
+      "bytes": 342,
+      "sha256": "7d15883b9d280895f18a600880bc3006f43ef11a4832572839591df282a122ac"
+    },
+    "src/v2_22/bootstrap.txt": {
+      "bytes": 2873,
+      "sha256": "4ebc97c69afadbc88e8e68c380125b6b9d9432c05d1b6142019b06b1661d726f"
+    },
+    "src/v2_22/complete_bootstrap.txt": {
+      "bytes": 1338,
+      "sha256": "391ceb0f38be7978c8c95ab6c4c065e4ce7030f1588b236c20c17ab7980f362a"
+    },
+    "scripts/build_v2220.py": {
+      "bytes": 11759,
+      "sha256": "850a4b98def4d6f680faec8be48f49e121650c98a6dd235f77619754b6dbb836"
+    },
+    "scripts/v2220_factory.cjs": {
+      "bytes": 3643,
+      "sha256": "7c633542515252dc4efc0316084bf54640fa5a8bae408d108dceca83808c1dcc"
+    },
+    "scripts/v2220_integration.cjs": {
+      "bytes": 7372,
+      "sha256": "075e82fe7fe88ab49bd82db695bb4ada91c22829aa599bd270ed4919d4defddb"
+    },
+    "scripts/v2220_compat.cjs": {
+      "bytes": 9835,
+      "sha256": "973e8f4fbb089c1cb745d485e4e99431dcdafdb4e02c6960391cbb605345013a"
+    },
+    "scripts/v2220_runtime.cjs": {
+      "bytes": 2788,
+      "sha256": "a56f523ea2508f21bc08a2e511a8b3263087556dc47053ff89d5b1f42b2982af"
+    },
+    "scripts/v2215_compact.cjs": {
+      "bytes": 4883,
+      "sha256": "23f488c93d32fa309087d6443f611371ff55ecc671ef75e9fa951311532d9b38"
+    },
+    "scripts/wiki_safe_data.py": {
+      "bytes": 3294,
+      "sha256": "d6fdb030ed2d15a31cdcbecfe6b8c1a4c538820c775e8748af5c20be25b559f5"
+    },
+    "scripts/check_wiki_presave_v2220.py": {
+      "bytes": 13476,
+      "sha256": "004de15bdff5b466b2c601b52a206990b843abfda1e1866a1e430f97cfbd9dc5"
+    },
+    "scripts/check_runtime_presave_v2220.py": {
+      "bytes": 5055,
+      "sha256": "ad4114bcafda5775ebbae735dda1561ae7897d645467c2da55e1770ed4a2a1a0"
+    },
+    "scripts/v2220_inspect_catalog.cjs": {
+      "bytes": 1539,
+      "sha256": "5272af555e2bdd816808afe98522d1a98d942bfdd30bacf5446de1baf9e56a6e"
+    },
+    "package.json": {
+      "bytes": 4890,
+      "sha256": "c3475456e64068283e9d01a96ccd91973b84f2c18dd849abcbc0563c01056909"
+    },
+    "package-lock.json": {
+      "bytes": 6770,
+      "sha256": "92aba2ec0d7a0ec8627373b8e4f7797f4a954b240a73aef13a73c7b47a5e3c23"
+    },
+    "tests/v221/citation_writer_guards.cjs": {
+      "bytes": 4487,
+      "sha256": "fe6639341970518da701817afdf199b7608fa5cfd109271b617ed73bf2a506b5"
+    },
+    "tests/v2215/legacy_preference_qualification.cjs": {
+      "bytes": 6797,
+      "sha256": "53d8b48530762c3db2d0efbe53c059f46490687d97f40f4adbb5dd351a070184"
+    },
+    "tests/v221/citation_editions.cjs": {
+      "bytes": 3548,
+      "sha256": "a53d7bb3b1af681407e8c2eaa3153b2debe3f9f68f18a5e51f8ca8162bebd5f0"
+    },
+    "tests/v221/citation_collector_prerequisite.cjs": {
+      "bytes": 6776,
+      "sha256": "75adcad469a790334132f36c54d9cdaa2647fcd752ca5877a6d82ea3a5acc7ea"
+    },
+    "tests/v221/citation_collector_end_to_end.cjs": {
+      "bytes": 3242,
+      "sha256": "7a79d9e4630ad42f5120dd16dfd1809f21976f7ca2588a832251b6f003c5a072"
+    },
+    "tests/v221/citation_collector_scope.cjs": {
+      "bytes": 3892,
+      "sha256": "a7c5a6756422c5d807dcf4d6119b9ed0afc5f7bfca2d656d90093fc61e390987"
+    },
+    "tests/v2220/infobox_legacy_collector_scope_qualification.cjs": {
+      "bytes": 4991,
+      "sha256": "e168401c6e20128af7900148c7358decd051f2e6141a051885e766ab58524b5c"
+    },
+    "tests/v221/citation_ui_preflight.cjs": {
+      "bytes": 4657,
+      "sha256": "67f1e942e914db0990f2a6020afd1159c202205426e73c18c0da349cc9e5ff8b"
+    },
+    "tests/v221/biography_cases.cjs": {
+      "bytes": 23987,
+      "sha256": "38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51"
+    },
+    "tests/v221/biography_whole_current.cjs": {
+      "bytes": 8368,
+      "sha256": "d6457dbcbbab9446becf2faec09bc8157e58ccd9564c25f49eb49ca53afc6ac7"
+    },
+    "tests/v2220/biography_legacy_qualification.cjs": {
+      "bytes": 16198,
+      "sha256": "84896b0a9dafc5aa2ea36af08632aa94ea8e8911841a7869842e84dbae3e723e"
+    },
+    "tests/v2216/biography_legacy_format_qualification.cjs": {
+      "bytes": 9971,
+      "sha256": "5d9dab8ab7161dd86f037dded38f8891d3ea4f464399f6b1fb1f1d6268fed76e"
+    },
+    "tests/v2214/biography_legacy_qualification.cjs": {
+      "bytes": 12055,
+      "sha256": "2cfb2ddf369beb0ac9d5eeb11c1933a81a8bc943692f2cedc98782a601f5c448"
+    },
+    "tests/v2214/biography_legacy_safe_refusal_cases.json": {
+      "bytes": 260456,
+      "sha256": "9f057dcdeaeeeb7c3a1aabb1a74394749993296fc3533452fe0e85fa5426a721"
+    },
+    "tests/v221/biography_harness.cjs": {
+      "bytes": 1863,
+      "sha256": "2f37fa8cd5598cc1fca61fbcdff061773440dd6a0ac5230652ed1f2779117293"
+    },
+    "tests/v221/biography_ui_preflight.cjs": {
+      "bytes": 7029,
+      "sha256": "811d76ae7ce69deab34c7f04a996ce6d89462b2f2c069bdace4f4a74914daec6"
+    },
+    "tests/v221/structure_ui_preflight.cjs": {
+      "bytes": 3259,
+      "sha256": "37d59a0b3624d490d8a4e62f50feaf3917d518b2364c07dc8d8fd77521178f12"
+    },
+    "tests/v221_integrity/frozen_runtime_guards.cjs": {
+      "bytes": 6599,
+      "sha256": "7e5b3031e197480bd9abdcef6a362fe79bab3e4a742673dbf04c09a682b13c51"
+    },
+    "tests/v221_integrity/literal_transfer.cjs": {
+      "bytes": 5737,
+      "sha256": "2aade9678019c120476b1233f76d2b998296cb873ad3b41ba059b8ad05017054"
+    },
+    "tests/v221_integrity/archive_state_activation.cjs": {
+      "bytes": 10238,
+      "sha256": "3a02ef2a606fd29f8b9997448760c38ef3b42497061d15e8d9149315e5da344d"
+    },
+    "tests/v2220/citation_archive_state_qualification.cjs": {
+      "bytes": 6834,
+      "sha256": "f3c65ae298cc2e75d5981291ebbcfc2fa4dc9907fbf90553adc5fce04934a9ae"
+    },
+    "tests/v221_integrity/worker_condition_snapshot.cjs": {
+      "bytes": 7572,
+      "sha256": "302b533bd70b2f6fd496c6efec9306e76c1e9c70cb916d7a959ee8fd64fc5262"
+    },
+    "tests/v221_integrity/inline_infobox.cjs": {
+      "bytes": 8005,
+      "sha256": "84db3eeccb356b31aa2ba888b6ab7a894c2550dd6be64a2f4af8cf0cb3b62f5f"
+    },
+    "tests/v221_integrity/native_refusal_adapter_controls.cjs": {
+      "bytes": 1955,
+      "sha256": "7fd6ce7c30e05f5c992a3c5fc950570d370f8f2317e8cbece5653db730048ef2"
+    },
+    "tests/v221_integrity/run_current_controls.cjs": {
+      "bytes": 2391,
+      "sha256": "749bc6b85aa9ac2084836ee39aa6f2a21ea89efaf672d89da4edd5e1c0b800e5"
+    }
+  },
+  "futureRunner": {
+    "file": "tests/v2220/legacy_regression.cjs",
+    "sha256": "7a84ee40a3f2493b82abb74e71a6332dcec2619f55eb9c4d0673aefd4db12ab9",
+    "previousRunnerSha256": "a93005dbee701557418bfb5409ce7c09e2670f9735bf1c3532250d81ccf80d2b",
+    "original34TaskRawControllerWasNotRepeated": false,
+    "unknownOrUnqualifiedFailureStillFailsCI": true,
+    "rawTaskStatusesRemainLiteral": true,
+    "rawControllerExecutedForThisRuntime": true
+  },
+  "tasks": [
+    {
+      "file": "tests/v221/citation_writer_guards.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "fe6639341970518da701817afdf199b7608fa5cfd109271b617ed73bf2a506b5",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 207,
+      "calculationCalls": 167,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "fe0e0f5ab2e9ac49f8d23c948aa27d787b601dcf321499cc4cea7c04078d5d13",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "declared-literal-citation-key-preferences",
+        "status": "passed-with-qualified-preference-expectations",
+        "checks": 381,
+        "currentCalculateCalls": 254,
+        "historicalBaselineCalculateCalls": 0,
+        "cases": 127,
+        "qualifiedLiteralEndpoints": 87,
+        "qualifier": "tests/v2215/legacy_preference_qualification.cjs",
+        "qualifierSha256": "53d8b48530762c3db2d0efbe53c059f46490687d97f40f4adbb5dd351a070184",
+        "privateEvidenceSha256": "01929321f01a6a8b1fa3113ca543b2eda97f6dfedf7e1e57aa7507766ea4cd7e",
+        "runtimeSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221/citation_editions.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "a53d7bb3b1af681407e8c2eaa3153b2debe3f9f68f18a5e51f8ca8162bebd5f0",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 0,
+      "calculationCalls": 18,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "22311d4ebfc4c83073cff102167be43562d460d8182f06c1daeef46a8fab13c2",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_prerequisite.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "75adcad469a790334132f36c54d9cdaa2647fcd752ca5877a6d82ea3a5acc7ea",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 155,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "75c9f4276dfe966ca597b81667dd2765981864a4a33513583852904ad7870bc5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_end_to_end.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "7a79d9e4630ad42f5120dd16dfd1809f21976f7ca2588a832251b6f003c5a072",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 0,
+      "calculationCalls": 8,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e2aa08e4528b06a86df7dc2a28bff38df82f846cb0bed9b4fc2f4648f5991d82",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_scope.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "a7c5a6756422c5d807dcf4d6119b9ed0afc5f7bfca2d656d90093fc61e390987",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 0,
+      "calculationCalls": 10,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "4cec07dbbd3396bf471df98d0ffde606c9abfcfa1dcba119ea6126b60a1c7222",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "three-exact-infobox-layout-only-cases",
+        "status": "qualified-layout-only-with-original-raw-failures-retained",
+        "checks": 39,
+        "currentCalculateCalls": 3,
+        "historicalBaselineCalculateCalls": 0,
+        "cases": 3,
+        "qualifier": "tests/v2220/infobox_legacy_collector_scope_qualification.cjs",
+        "qualifierSha256": "e168401c6e20128af7900148c7358decd051f2e6141a051885e766ab58524b5c",
+        "privateEvidenceSha256": "f1f1fc8dfa22996fdccf03cc4876752b0e8b6d546a34e4e0af5cb81504dcb1fb",
+        "runtimeSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221/citation_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "67f1e942e914db0990f2a6020afd1159c202205426e73c18c0da349cc9e5ff8b",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 80,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "fcd8e62ba7bfc910ce1df6b1497b8668ab5bfa1e3e96f2595665c6effb1d0f83",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/biography_cases.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 13765,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "09f5f6292f54523cd7e50e5111769f917fb3229f2b62167b775769676c7b7ad5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/biography_whole_current.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "d6457dbcbbab9446becf2faec09bc8157e58ccd9564c25f49eb49ca53afc6ac7",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 12546,
+      "calculationCalls": 7621,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "2c1e6817294f79c4dcc3147255e05527a5403fc9b5a10f198d5cf5a1032b7050",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "finite-biography-protocol-and-two-vertical-endpoints",
+        "status": "passed-with-qualified-inherited-protocol-and-format-expectations",
+        "checks": 18365,
+        "currentCalculateCalls": 794,
+        "historicalBaselineCalculateCalls": 395,
+        "qualifiedCases": 397,
+        "unchangedSafeRefusalCases": 395,
+        "unchangedSafeRefusalAutomaticCorrectionCredit": 0,
+        "exactAuthorizedVerticalEndpoints": 2,
+        "otherUnchangedRawAcceptedFixtures": 3612,
+        "completeFieldPhotoReferenceOutsideProseAndStageProofChecksRetained": true,
+        "qualifier": "tests/v2220/biography_legacy_qualification.cjs",
+        "qualifierSha256": "84896b0a9dafc5aa2ea36af08632aa94ea8e8911841a7869842e84dbae3e723e",
+        "privateEvidenceSha256": "b3b63b98e3b1c6091114848bf7f49088ddd12eb71f5fab689d93f31c6d0ab65a",
+        "runtimeSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+        "rawFailureStatusRewritten": false,
+        "historicalBaselineRuntime": {
+          "file": "dist/2.21.3/RevisaWiki_v2_21_3_completo.js",
+          "bytes": 4181132,
+          "sha256": "0daf261c3a10b5e79ee41e0e23128c58efd207cd9608d0ecaf8f1766c4e60601"
+        },
+        "currentWorkerPrivateEvidenceSha256": "fa96ac0f0351226da97bacd075233bcd15cf10ea8bf674c074df93c9d17f6d87",
+        "historicalWorkerPrivateEvidenceSha256": "273158c9659a8c748f69c120c54711e41c4f78d352e0fcd8aa1f5bcc249af001"
+      }
+    },
+    {
+      "file": "tests/v221/biography_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "811d76ae7ce69deab34c7f04a996ce6d89462b2f2c069bdace4f4a74914daec6",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 225,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e14140d54b97c21b9008de72698fc8f2e691f05fd20903c14299733f12d84811",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/structure_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "37d59a0b3624d490d8a4e62f50feaf3917d518b2364c07dc8d8fd77521178f12",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 40,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "776e7cdbe05e2dd6ddb24e1788be551c0d0d429eb30e6f01070fcc8b33e5d269",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/frozen_runtime_guards.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "7e5b3031e197480bd9abdcef6a362fe79bab3e4a742673dbf04c09a682b13c51",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 1016,
+      "calculationCalls": 88,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e4b87a80200b6cd97d7e5f9d3168764e18179b71a91421a555790d6d4b0b08eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/literal_transfer.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "2aade9678019c120476b1233f76d2b998296cb873ad3b41ba059b8ad05017054",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 145,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "1505fc1bb1f62625cdbf54d9d5e32a7dea57bc37f27c547a2cc1fdef0d1f453a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/archive_state_activation.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "3a02ef2a606fd29f8b9997448760c38ef3b42497061d15e8d9149315e5da344d",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 0,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "1881e0d3bb9c7e3eff57aa709993a52e445589769d0f95d46b86991863b8fd77",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "native-url-status-and-one-exact-existing-chapter-key-endpoint",
+        "status": "passed-exact-native-status-and-chapter-preferences",
+        "checks": 2007,
+        "currentCalculateCalls": 26,
+        "historicalBaselineCalculateCalls": 0,
+        "nativeStatusExpectations": 25,
+        "exactChapterExpectation": 1,
+        "allOtherActivationAndConsumerAssertionsRetained": true,
+        "qualifier": "tests/v2220/citation_archive_state_qualification.cjs",
+        "qualifierSha256": "f3c65ae298cc2e75d5981291ebbcfc2fa4dc9907fbf90553adc5fce04934a9ae",
+        "privateEvidenceSha256": "eea2860f65c73231c00a0d0d625fd6dc95e9b80fb1cc72d7fbc92f2a5a1ad835",
+        "runtimeSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221_integrity/worker_condition_snapshot.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "302b533bd70b2f6fd496c6efec9306e76c1e9c70cb916d7a959ee8fd64fc5262",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 73,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "7de1d5ea51911de995dc7bab715412829f3cdcae2756a81ed3f408e69320b1f8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/inline_infobox.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "84db3eeccb356b31aa2ba888b6ab7a894c2550dd6be64a2f4af8cf0cb3b62f5f",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 300,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "9543164fc0eae580cbfa23792ceefca7906f47553b2bf8fc3f0dbaf9c80fd9c4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/native_refusal_adapter_controls.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "7fd6ce7c30e05f5c992a3c5fc950570d370f8f2317e8cbece5653db730048ef2",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 33,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e121eacd8e1be723b8468f4d40399431e6d2d25b742eb49f7e1b2e724c204b94",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/run_current_controls.cjs",
+      "bundle": "RevisaWiki_v2_22_0.js",
+      "bundleSha256": "a39e457feb3374bbe5ec7cbab57be70b47d75f7121d290f76d209c7debfa64f8",
+      "testSha256": "749bc6b85aa9ac2084836ee39aa6f2a21ea89efaf672d89da4edd5e1c0b800e5",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 78,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "a3a2c990faa998fdebfd5710d533a0e6db1328e154c896c98e95dc78c59b3f7c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_writer_guards.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "fe6639341970518da701817afdf199b7608fa5cfd109271b617ed73bf2a506b5",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 207,
+      "calculationCalls": 167,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "2763a92ce25811ac1bde627dc63a950e7e94e73a5c49a23e5221e525b418cc96",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "declared-literal-citation-key-preferences",
+        "status": "passed-with-qualified-preference-expectations",
+        "checks": 381,
+        "currentCalculateCalls": 254,
+        "historicalBaselineCalculateCalls": 0,
+        "cases": 127,
+        "qualifiedLiteralEndpoints": 87,
+        "qualifier": "tests/v2215/legacy_preference_qualification.cjs",
+        "qualifierSha256": "53d8b48530762c3db2d0efbe53c059f46490687d97f40f4adbb5dd351a070184",
+        "privateEvidenceSha256": "a5b947e3beb339e64a64570667f815cf038e6fabf853507017ed8db18ba515db",
+        "runtimeSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221/citation_editions.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "a53d7bb3b1af681407e8c2eaa3153b2debe3f9f68f18a5e51f8ca8162bebd5f0",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 0,
+      "calculationCalls": 18,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "cafb9bef16d16c0fffc121878cf67fac585abd6d298aad5a3b536b6d9478836c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_prerequisite.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "75adcad469a790334132f36c54d9cdaa2647fcd752ca5877a6d82ea3a5acc7ea",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 155,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "75c9f4276dfe966ca597b81667dd2765981864a4a33513583852904ad7870bc5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_end_to_end.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "7a79d9e4630ad42f5120dd16dfd1809f21976f7ca2588a832251b6f003c5a072",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 0,
+      "calculationCalls": 8,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "5b4c4c1b3b3ccabce4db4d03edeb0dc9fae612d93986d8db79577904a2731e30",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/citation_collector_scope.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "a7c5a6756422c5d807dcf4d6119b9ed0afc5f7bfca2d656d90093fc61e390987",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 0,
+      "calculationCalls": 10,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "95d16f75f31a94b6d73b03d39214944a2b590e8260e1ca016656e229aa0e85bf",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "three-exact-infobox-layout-only-cases",
+        "status": "qualified-layout-only-with-original-raw-failures-retained",
+        "checks": 39,
+        "currentCalculateCalls": 3,
+        "historicalBaselineCalculateCalls": 0,
+        "cases": 3,
+        "qualifier": "tests/v2220/infobox_legacy_collector_scope_qualification.cjs",
+        "qualifierSha256": "e168401c6e20128af7900148c7358decd051f2e6141a051885e766ab58524b5c",
+        "privateEvidenceSha256": "c89eec596c42ac4720c1059e61496983a6a1213ebe0cda8de19f3c72d1624c9d",
+        "runtimeSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221/citation_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "67f1e942e914db0990f2a6020afd1159c202205426e73c18c0da349cc9e5ff8b",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 80,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "fcd8e62ba7bfc910ce1df6b1497b8668ab5bfa1e3e96f2595665c6effb1d0f83",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/biography_cases.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 13765,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "09f5f6292f54523cd7e50e5111769f917fb3229f2b62167b775769676c7b7ad5",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/biography_whole_current.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "d6457dbcbbab9446becf2faec09bc8157e58ccd9564c25f49eb49ca53afc6ac7",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 12546,
+      "calculationCalls": 7621,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "2c1e6817294f79c4dcc3147255e05527a5403fc9b5a10f198d5cf5a1032b7050",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "finite-biography-protocol-and-two-vertical-endpoints",
+        "status": "passed-with-qualified-inherited-protocol-and-format-expectations",
+        "checks": 18365,
+        "currentCalculateCalls": 794,
+        "historicalBaselineCalculateCalls": 395,
+        "qualifiedCases": 397,
+        "unchangedSafeRefusalCases": 395,
+        "unchangedSafeRefusalAutomaticCorrectionCredit": 0,
+        "exactAuthorizedVerticalEndpoints": 2,
+        "otherUnchangedRawAcceptedFixtures": 3612,
+        "completeFieldPhotoReferenceOutsideProseAndStageProofChecksRetained": true,
+        "qualifier": "tests/v2220/biography_legacy_qualification.cjs",
+        "qualifierSha256": "84896b0a9dafc5aa2ea36af08632aa94ea8e8911841a7869842e84dbae3e723e",
+        "privateEvidenceSha256": "791035cbf847cba64b6fbb99da961e15368fa522e94d4b42a9c9fbcf7052ed21",
+        "runtimeSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+        "rawFailureStatusRewritten": false,
+        "historicalBaselineRuntime": {
+          "file": "dist/2.21.3/RevisaWiki_v2_21_3_completo.js",
+          "bytes": 4181132,
+          "sha256": "0daf261c3a10b5e79ee41e0e23128c58efd207cd9608d0ecaf8f1766c4e60601"
+        },
+        "currentWorkerPrivateEvidenceSha256": "2c5607422529f4b9bba5dc3de726daeca339af2d3ae87580959a1b146a88fa3d",
+        "historicalWorkerPrivateEvidenceSha256": "273158c9659a8c748f69c120c54711e41c4f78d352e0fcd8aa1f5bcc249af001"
+      }
+    },
+    {
+      "file": "tests/v221/biography_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "811d76ae7ce69deab34c7f04a996ce6d89462b2f2c069bdace4f4a74914daec6",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 225,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e14140d54b97c21b9008de72698fc8f2e691f05fd20903c14299733f12d84811",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221/structure_ui_preflight.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "37d59a0b3624d490d8a4e62f50feaf3917d518b2364c07dc8d8fd77521178f12",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 40,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "776e7cdbe05e2dd6ddb24e1788be551c0d0d429eb30e6f01070fcc8b33e5d269",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/frozen_runtime_guards.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "7e5b3031e197480bd9abdcef6a362fe79bab3e4a742673dbf04c09a682b13c51",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 1016,
+      "calculationCalls": 88,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "265f72210f091027f44f1bf5890170a30ca423b569cd749135a5df3f2d1176ea",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/literal_transfer.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "2aade9678019c120476b1233f76d2b998296cb873ad3b41ba059b8ad05017054",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 145,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "1505fc1bb1f62625cdbf54d9d5e32a7dea57bc37f27c547a2cc1fdef0d1f453a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/archive_state_activation.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "3a02ef2a606fd29f8b9997448760c38ef3b42497061d15e8d9149315e5da344d",
+      "status": "failed",
+      "exitCode": 1,
+      "checks": 0,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "1881e0d3bb9c7e3eff57aa709993a52e445589769d0f95d46b86991863b8fd77",
+      "rawStatusPreserved": true,
+      "finiteQualification": {
+        "family": "native-url-status-and-one-exact-existing-chapter-key-endpoint",
+        "status": "passed-exact-native-status-and-chapter-preferences",
+        "checks": 2007,
+        "currentCalculateCalls": 26,
+        "historicalBaselineCalculateCalls": 0,
+        "nativeStatusExpectations": 25,
+        "exactChapterExpectation": 1,
+        "allOtherActivationAndConsumerAssertionsRetained": true,
+        "qualifier": "tests/v2220/citation_archive_state_qualification.cjs",
+        "qualifierSha256": "f3c65ae298cc2e75d5981291ebbcfc2fa4dc9907fbf90553adc5fce04934a9ae",
+        "privateEvidenceSha256": "90f107d01cd89ef84317541a9ce50f69a237dfd14ff13aee4d42e9b87aa38cdc",
+        "runtimeSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+        "rawFailureStatusRewritten": false
+      }
+    },
+    {
+      "file": "tests/v221_integrity/worker_condition_snapshot.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "302b533bd70b2f6fd496c6efec9306e76c1e9c70cb916d7a959ee8fd64fc5262",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 73,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "7de1d5ea51911de995dc7bab715412829f3cdcae2756a81ed3f408e69320b1f8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/inline_infobox.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "84db3eeccb356b31aa2ba888b6ab7a894c2550dd6be64a2f4af8cf0cb3b62f5f",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 300,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "9543164fc0eae580cbfa23792ceefca7906f47553b2bf8fc3f0dbaf9c80fd9c4",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/native_refusal_adapter_controls.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "7fd6ce7c30e05f5c992a3c5fc950570d370f8f2317e8cbece5653db730048ef2",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 33,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "e121eacd8e1be723b8468f4d40399431e6d2d25b742eb49f7e1b2e724c204b94",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    },
+    {
+      "file": "tests/v221_integrity/run_current_controls.cjs",
+      "bundle": "RevisaWiki_v2_22_0_completo.js",
+      "bundleSha256": "9c0b6fe3d4121548c5d82003d026d4e0b61c1f22cf15495d76d7a77e39c79132",
+      "testSha256": "749bc6b85aa9ac2084836ee39aa6f2a21ea89efaf672d89da4edd5e1c0b800e5",
+      "status": "passed",
+      "exitCode": 0,
+      "checks": 78,
+      "calculationCalls": 0,
+      "calculationTimeouts": 0,
+      "stdoutSha256": "a3a2c990faa998fdebfd5710d533a0e6db1328e154c896c98e95dc78c59b3f7c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rawStatusPreserved": true
+    }
+  ],
+  "historicalTestsAndRawReportsModified": false,
+  "runtimeOrPreservationChecksChanged": false,
+  "publicPersonalInformationIncluded": false,
+  "wikipediaWrites": 0,
+  "publicationPerformed": false,
+  "previousPublicLegacyEvidenceSha256": "53061f6b0ff6148e8da8fc28d51b6ecaaa836459fbfdcd08643a31b562f145c4",
+  "historicalStatusesModified": false,
+  "currentRuntimeRawAndQualificationCompleted": true
+}

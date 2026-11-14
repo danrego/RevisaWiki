@@ -1,0 +1,2433 @@
+# Modelos e campos do RevisaWiki 2.22.0
+
+O [catálogo JSON](Catalogo_modelos_e_regras_2_22_0.json) contém os campos completos de cada entrada. Este índice permite localizar os nomes. Uma entrada confirma reconhecimento e pode ter catálogo parcial; a conversão continua dependendo da função e da prioridade do campo.
+
+
+## Dados adicionais da 2.22.0
+
+O JSON conserva o catálogo nativo anterior e acrescenta `v222Extensions`: contratos finitos de sintaxe, referências, Correlatos e os mapas compactos de inferência. Pares de alias são limitados pelo mesmo consumidor e forma de chamada; campos concorrentes não são sobrescritos. Os nomes website/homepage só preferem site em Info/Empresa e website só prefere sítio em Info/Assentamento nesse contrato.
+
+- 8337 categorias e 540 destinos canônicos de portais.
+- 10359 contratos de categorias, 9913 destinos e 43 perfis; só 171 contratos de 9 perfis têm produtor referenciado P19/P31 materializado. Os demais continuam condicionais.
+- 1928 chamadas exatas de país em 195 entradas, restritas aos quatro pares de campos civis. Variantes, ícones e entidades políticas distintas não são inferidos.
+
+Correlatos possui 26 nomes de campos declarados no corpo conferido; neste contrato, só formas literais comprovadas deixam de ser um proprietário de seção desconhecido. A caixa e seus argumentos permanecem. Isso não autoriza tradução ou descarte de campos.
+
+Os antigos 197 destinos de países/territórios do leitor biográfico e as 195 entradas do mapa de bandeiras têm propósitos diferentes. As linhas do catálogo não contam modelos únicos, funcionalidades novas ou artigos testados. Identificadores e parâmetros mantêm o contrato nativo; o mapa não substitui fonte ou prova do assunto principal.
+
+## Abrangência desta distribuição
+
+- 1651 entradas de infocaixas, incluindo nomes alternativos.
+- 196 entradas de predefinições auxiliares.
+- 340 perfis de sintaxe estrangeira, incluindo aliases.
+- 33 entradas com tratamento explícito de obsolescência.
+- 673 chaves bibliográficas reconhecidas, incluindo alternativas.
+- 2537 pares de grafia automática previstos.
+
+Essas quantidades são entradas de catálogo, não modelos únicos, testes executados ou correções garantidas.
+
+## Reconhecimento e formatação na 2.22.0
+
+A formatação de campos é separada da conversão de nomes. Ela trata argumentos nomeados de caixas reconhecidas, incluindo caixas filhas no contexto correto. Campos desconhecidos preenchidos, argumentos posicionais e espaços com significado são preservados.
+
+Os 183 nomes de famílias humanas e aliases de identidade verificada ampliam o reconhecimento biográfico; os perfis condicionais mantêm seus critérios. O conjunto não significa 183 conversões integrais de parâmetros. Um componente de cor ou de linha não é uma caixa principal.
+
+O catálogo JSON inclui os destinos e aliases multilíngues de 197 portais de países e territórios. A leitura depende do campo: gentílicos pertencem a nacionalidade ou cidadania, e abreviaturas ambíguas de estados não determinam país. Os dados CLDR conservam seu aviso de licença Unicode.
+
+Datas válidas em Ani permanecem. Uma troca para Dni precisa preservar a idade e as categorias, além do dia, mês e ano.
+
+## Como ler os campos
+
+- `accepted`: nomes aceitos pelo leitor conferido.
+- `patterns`: campos com nomes dinâmicos previstos.
+- `aliases`: equivalências declaradas, sujeitas à função e à prioridade.
+- `renames`: renomeações expressas do perfil.
+- `ignored`: campos que não são consumidos pelo leitor conferido.
+- `partial`: a lista não cobre necessariamente todos os campos.
+- `oldid` e `source`: revisão pública usada no contrato. A revisão não afirma que todo leitor de toda Wikipédia continue igual.
+
+## Perfis de datas pessoais
+
+- `info/actor`: nascimento `data_nascimento`, `nascimento_data`; morte `data_falecimento`, `morte_data`.
+- `info/artista marcial`: nascimento `data de nascimento`, `nascimento_data`; morte `data de morte`, `morte_data`.
+- `info/artista musical`: nascimento `nascimento`, `nascimento_data`; morte `falecimento`, `morte`, `morte_data`.
+- `info/ator`: nascimento `data_nascimento`, `nascimento_data`; morte `data_falecimento`, `morte_data`.
+- `info/atriz`: nascimento `data_nascimento`, `nascimento_data`; morte `data_falecimento`, `morte_data`.
+- `info/autor`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/biografia`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/cantor`: nascimento `nascimento`, `nascimento_data`; morte `falecimento`, `morte`, `morte_data`.
+- `info/ciclista`: nascimento `data_nascimento`, `datadenascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/cientista`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/combatente militar`: nascimento `nascimento`, `nascimento_data`; morte `data_morte`, `falecimento`, `morte_data`.
+- `info/comediante`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/criminoso`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/dublador`: nascimento `data_nascimento`, `nascimento_data`; morte `data_falecimento`, `morte_data`.
+- `info/escritor`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/gastrônomo`: nascimento `nascimento`; morte `morte`.
+- `info/jornalista`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/lutador de wrestling profissional`: nascimento `data de nascimento`, `nascimento_data`; morte `morte_data`.
+- `info/magistrado`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/militar`: nascimento `nascimento`, `nascimento_data`; morte `data_morte`, `falecimento`, `morte_data`.
+- `info/modelo`: nascimento `data_nascimento`, `nasceu`, `nascimento`, `nascimento_data`; morte `data_falecimento`, `data_morte`, `faleceu`, `falecimento`, `morte_data`.
+- `info/motorista da f1`: nascimento `nascimento_data`; morte `morte_data`.
+- `info/música/artista`: nascimento `nascimento`, `nascimento_data`; morte `falecimento`, `morte`, `morte_data`.
+- `info/músico`: nascimento `nascimento`, `nascimento_data`; morte `falecimento`, `morte`, `morte_data`.
+- `info/personalidade`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/piloto de automóvel`: nascimento `nascimento`, `nascimento_data`; morte `falecimento`, `morte_data`.
+- `info/político`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/senador do império do brasil`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/titular de cargo`: nascimento `data_nascimento`, `nascimento_data`; morte `data_morte`, `morte_data`.
+- `info/wrestler`: nascimento `data de nascimento`, `nascimento_data`; morte `morte_data`.
+
+## Perfis de casamento
+
+- `info/actor`: `cônjuge`.
+- `info/artista marcial`: `cônjuge`.
+- `info/artista musical`: `cônjuge`.
+- `info/astronauta`: `conjuge`, `cônjuge`.
+- `info/ator`: `cônjuge`.
+- `info/atriz`: `cônjuge`.
+- `info/autor`: `conjuge`, `cônjuge`.
+- `info/biografia`: `conjuge`, `cônjuge`.
+- `info/cantor`: `cônjuge`.
+- `info/ciclista`: `cônjuge`.
+- `info/cientista`: `conjuge`, `cônjuge`.
+- `info/combatente militar`: `conjuge`, `cônjuge`.
+- `info/comediante`: `cônjuge`.
+- `info/criminoso`: `cônjuge`.
+- `info/dublador`: `cônjuge`.
+- `info/escritor`: `conjuge`, `cônjuge`.
+- `info/gastrônomo`: `cônjuge`.
+- `info/jornalista`: `conjuge`, `cônjuge`.
+- `info/lutador de wrestling profissional`: `conjuge`, `cônjuge`, `spouse`.
+- `info/magistrado`: `conjuge`, `cônjuge`.
+- `info/militar`: `conjuge`, `cônjuge`.
+- `info/modelo`: `conjuge`, `cônjuge`.
+- `info/motociclista`: `conjuge`, `cônjuge`.
+- `info/motorista da f1`: `cônjuge`.
+- `info/música/artista`: `cônjuge`.
+- `info/músico`: `cônjuge`.
+- `info/personalidade`: `conjuge`, `cônjuge`.
+- `info/piloto de automóvel`: `cônjuge`.
+- `info/piloto de corrida`: `cônjuge`.
+- `info/político`: `conjuge`, `cônjuge`.
+- `info/senador do império do brasil`: `conjuge`, `cônjuge`.
+- `info/titular de cargo`: `conjuge`, `cônjuge`.
+- `info/wrestler`: `conjuge`, `cônjuge`, `spouse`.
+
+## Infocaixas
+
+- `info`
+- `info/abertura` (catálogo parcial)
+- `info/aborto por país`
+- `info/acadêmico`
+- `info/acelerador de partículas` (catálogo parcial)
+- `info/acidente aéreo` (catálogo parcial)
+- `info/acidente ferroviário` (catálogo parcial)
+- `info/acidente geográfico` (catálogo parcial)
+- `info/acidente geográfico de vênus` (catálogo parcial)
+- `info/actor` (catálogo parcial)
+- `info/adesão à ue` (catálogo parcial)
+- `info/adesão à união europeia` (catálogo parcial)
+- `info/aeronave`
+- `info/aeroporto` (catálogo parcial)
+- `info/aeroporto2` (catálogo parcial)
+- `info/afeganistão nos jogos olímpicos`
+- `info/afi`
+- `info/aglomerado`
+- `info/agência de polícia` (catálogo parcial)
+- `info/agência do governo` (catálogo parcial)
+- `info/album` (catálogo parcial)
+- `info/aldeia de portugal`
+- `info/algoritmo`
+- `info/aliança de linha aérea` (catálogo parcial)
+- `info/alimento` (catálogo parcial)
+- `info/aluvião` (catálogo parcial)
+- `info/anatomia` (catálogo parcial)
+- `info/angola nos jogos olímpicos da juventude`
+- `info/animal` (catálogo parcial)
+- `info/animanga`
+- `info/animangá`
+- `info/ano em desporto de combate` (catálogo parcial)
+- `info/antiga monarquia` (catálogo parcial)
+- `info/antigas freguesias de portugal`
+- `info/antigo egito`
+- `info/antigos concelhos de portugal`
+- `info/análises de jogos eletrônicos`
+- `info/aquarismo`
+- `info/aquisição` (catálogo parcial)
+- `info/arcebispo da igreja católica` (catálogo parcial)
+- `info/arma` (catálogo parcial)
+- `info/arma de fogo` (catálogo parcial)
+- `info/arquidiocese` (catálogo parcial)
+- `info/arquieparquia`
+- `info/arquipélago`
+- `info/arquiteto`
+- `info/arrondissement do haiti`
+- `info/arrondissements da frança`
+- `info/arte marcial`
+- `info/artefato` (catálogo parcial)
+- `info/artefato ficcional`
+- `info/artefato fictício` (catálogo parcial)
+- `info/artes marciais`
+- `info/artista`
+- `info/artista bd` (catálogo parcial)
+- `info/artista de banda desenhada`
+- `info/artista de histórias em quadrinhos` (catálogo parcial)
+- `info/artista marcial` (catálogo parcial)
+- `info/artista musical` (catálogo parcial)
+- `info/artista plástico`
+- `info/artéria`
+- `info/arábia saudita nos jogos olímpicos`
+- `info/assentamento` (catálogo parcial)
+- `info/assentamento/albânia`
+- `info/assentamento/argentina`
+- `info/assentamento/austrália`
+- `info/assentamento/brasil`
+- `info/assentamento/grécia`
+- `info/assentamento/guiné`
+- `info/assentamento/haiti`
+- `info/assentamento/marrocos`
+- `info/assentamento/portugal`
+- `info/assentamento/portugal/antiga freguesia`
+- `info/assentamento/índia`
+- `info/associação` (catálogo parcial)
+- `info/asteroide` (catálogo parcial)
+- `info/astro` (catálogo parcial)
+- `info/astronauta` (catálogo parcial)
+- `info/atentado` (catálogo parcial)
+- `info/atleta` (catálogo parcial)
+- `info/atmosfera`
+- `info/ator` (catálogo parcial)
+- `info/ator pornográfico` (catálogo parcial)
+- `info/atp challenger tournament` (catálogo parcial)
+- `info/atração turística`
+- `info/atriz` (catálogo parcial)
+- `info/atriz pornográfica` (catálogo parcial)
+- `info/auto-estrada` (catálogo parcial)
+- `info/auto-estrada de portugal`
+- `info/auto-estrada run`
+- `info/autoestrada de portugal`
+- `info/autoestrada run`
+- `info/automóvel` (catálogo parcial)
+- `info/autor` (catálogo parcial)
+- `info/autódromo`
+- `info/auxmapa`
+- `info/avião civil`
+- `info/avião militar`
+- `info/bairro` (catálogo parcial)
+- `info/bairro ctba`
+- `info/bairro de curitiba`
+- `info/bairro de madrid`
+- `info/bairro de são paulo` (catálogo parcial)
+- `info/bairro do brasil`
+- `info/bairro do brasil 2`
+- `info/bairro do brasil 3`
+- `info/bairro do brasil 4`
+- `info/bairro do rio de janeiro` (catálogo parcial)
+- `info/bairro dos eua` (catálogo parcial)
+- `info/bairros cariocas`
+- `info/banco central` (catálogo parcial)
+- `info/banda` (catálogo parcial)
+- `info/banda desenhada`
+- `info/banda desenhada asiática`
+- `info/banda desenhada/doc`
+- `info/bandeira`
+- `info/bangladesh nos jogos olímpicos`
+- `info/baralho`
+- `info/barragem` (catálogo parcial)
+- `info/barém nos jogos olímpicos`
+- `info/batalha` (catálogo parcial)
+- `info/baía` (catálogo parcial)
+- `info/bd asiática`
+- `info/beatles`
+- `info/bebida` (catálogo parcial)
+- `info/beisebolista`
+- `info/benito mussolini`
+- `info/beyoncé`
+- `info/bibliografia de autor`
+- `info/biblioteca` (catálogo parcial)
+- `info/bio adulto` (catálogo parcial)
+- `info/biografia` (catálogo parcial)
+- `info/biografia/lua` (catálogo parcial)
+- `info/biografia2` (catálogo parcial)
+- `info/bioma`
+- `info/biota` (catálogo parcial)
+- `info/birmânia nos jogos olímpicos`
+- `info/bispo da igreja católica` (catálogo parcial)
+- `info/blindado`
+- `info/bloco de programação` (catálogo parcial)
+- `info/boi-bumbá` (catálogo parcial)
+- `info/bolsa de valores` (catálogo parcial)
+- `info/bornéu do norte nos jogos olímpicos`
+- `info/borough dos eua` (catálogo parcial)
+- `info/bot`
+- `info/botânica` (catálogo parcial)
+- `info/boxeador`
+- `info/brasão`
+- `info/brasão de armas`
+- `info/brinquedo` (catálogo parcial)
+- `info/brinquedos` (catálogo parcial)
+- `info/brunei nos jogos olímpicos`
+- `info/butão nos jogos olímpicos`
+- `info/cabo`
+- `info/cachoeira` (catálogo parcial)
+- `info/camboja nos jogos olímpicos`
+- `info/campaignbox campanha de bornéu (1945)`
+- `info/campaignbox mar do norte 1914–1918` (catálogo parcial)
+- `info/campaignbox mar mediterrâneo, 1914–1918`
+- `info/campanha política` (catálogo parcial)
+- `info/campeonato autoesportivo`
+- `info/campeonato de andebol`
+- `info/campeonato de artes marciais`
+- `info/campeonato de corridas a motor`
+- `info/campeonato de críquete`
+- `info/campeonato de esporte a motor`
+- `info/campeonato de esporte eletrônico`
+- `info/campeonato de esports`
+- `info/campeonato de futebol` (catálogo parcial)
+- `info/campeonato de futebol americano`
+- `info/campeonato de handebol`
+- `info/campeonato de natação` (catálogo parcial)
+- `info/campeonato de tênis`
+- `info/campeonato de voleibol`
+- `info/campeonato de voleibol 2`
+- `info/campeonato de wrestling`
+- `info/campeonato de wrestling profissional` (catálogo parcial)
+- `info/campeonato estadual de voleibol`
+- `info/campeonato nacional de voleibol`
+- `info/campeonato nacional de voleibol 2`
+- `info/campeonatos de atletismo`
+- `info/campo de concentração`
+- `info/canal` (catálogo parcial)
+- `info/canal de televisão` (catálogo parcial)
+- `info/canal do youtube` (catálogo parcial)
+- `info/candidatura cidade dos jogos olímpicos`
+- `info/candidatura jogos olímpicos`
+- `info/cantatas de bach`
+- `info/cantor` (catálogo parcial)
+- `info/cantão da suíça` (catálogo parcial)
+- `info/cantão do equador`
+- `info/canção` (catálogo parcial)
+- `info/captador de guitarra`
+- `info/caratê`
+- `info/cardeal` (catálogo parcial)
+- `info/cargo político` (catálogo parcial)
+- `info/carnaval`
+- `info/carnaval2`
+- `info/carne bovina`
+- `info/carreira ciclista`
+- `info/carruagem`
+- `info/casa de eventos` (catálogo parcial)
+- `info/casa real`
+- `info/caso criminal` (catálogo parcial)
+- `info/caso judicial` (catálogo parcial)
+- `info/castelo`
+- `info/castelo de portugal`
+- `info/castelo-br`
+- `info/castro`
+- `info/catar nos jogos olímpicos`
+- `info/catarina, a grande`
+- `info/católico` (catálogo parcial)
+- `info/cavalo` (catálogo parcial)
+- `info/cavalo nomeado`
+- `info/caverna` (catálogo parcial)
+- `info/cazaquistão nos jogos olímpicos`
+- `info/ceilão nos jogos olímpicos`
+- `info/celebridades da internet` (catálogo parcial)
+- `info/celular` (catálogo parcial)
+- `info/cemitério` (catálogo parcial)
+- `info/censo` (catálogo parcial)
+- `info/central` (catálogo parcial)
+- `info/cerveja`
+- `info/chile`
+- `info/chile nos jogos olímpicos`
+- `info/china nos jogos olímpicos`
+- `info/chinês` (catálogo parcial)
+- `info/chuva de meteoros`
+- `info/chá`
+- `info/ciclista` (catálogo parcial)
+- `info/ciclones tropicais por ano`
+- `info/cidade`
+- `info/cidade 1`
+- `info/cidade da albânia`
+- `info/cidade da alemanha`
+- `info/cidade da argentina`
+- `info/cidade da austrália`
+- `info/cidade da autoridade palestina` (catálogo parcial)
+- `info/cidade da colômbia`
+- `info/cidade da geórgia`
+- `info/cidade da irlanda`
+- `info/cidade da papua-nova guiné`
+- `info/cidade da polônia`
+- `info/cidade da rússia`
+- `info/cidade da ucrânia`
+- `info/cidade da venezuela`
+- `info/cidade da áustria`
+- `info/cidade da índia`
+- `info/cidade das ilhas faroés`
+- `info/cidade de israel 2`
+- `info/cidade do canadá`
+- `info/cidade do japão`
+- `info/cidade do líbano`
+- `info/cidade do méxico`
+- `info/cidade do paraguai`
+- `info/cidade do país de gales`
+- `info/cidade do peru`
+- `info/cidade do reino unido`
+- `info/cidade do uruguai`
+- `info/cientista` (catálogo parcial)
+- `info/cinemática`
+- `info/circuito da f1`
+- `info/civil air patrol wing` (catálogo parcial)
+- `info/ciências`
+- `info/classe de astronave`
+- `info/classe de navio` (catálogo parcial)
+- `info/clero`
+- `info/clube`
+- `info/clube de andebol`
+- `info/clube de basquetebol`
+- `info/clube de futebol` (catálogo parcial)
+- `info/clube de futebol americano`
+- `info/clube de futsal`
+- `info/clube de hóquei em campo e sala`
+- `info/clube de hóquei em patins`
+- `info/clube de polo aquático`
+- `info/clube de voleibol`
+- `info/clube desportivo`
+- `info/clubes navais dos açores`
+- `info/clã japonês`
+- `info/clérigo anglicano`
+- `info/clérigo anglicano-luterano` (catálogo parcial)
+- `info/colhidas`
+- `info/colina de roma`
+- `info/colunas`
+- `info/colégio do brasil` (catálogo parcial)
+- `info/colégio militar do brasil` (catálogo parcial)
+- `info/colégio técnico do brasil` (catálogo parcial)
+- `info/comando militar do brasil` (catálogo parcial)
+- `info/comarca`
+- `info/comarca da espanha`
+- `info/combatente militar` (catálogo parcial)
+- `info/comediante` (catálogo parcial)
+- `info/cometa` (catálogo parcial)
+- `info/comida pronta` (catálogo parcial)
+- `info/comissão parlamentar` (catálogo parcial)
+- `info/companhia aérea` (catálogo parcial)
+- `info/companhia aérea 2` (catálogo parcial)
+- `info/competidor de survivor`
+- `info/competição da fiba`
+- `info/competição de basquete` (catálogo parcial)
+- `info/competição de ciclismo`
+- `info/competição de esports`
+- `info/competição de futebol`
+- `info/competição de patinação artística no gelo`
+- `info/competição de reality show` (catálogo parcial)
+- `info/competição de wrestling` (catálogo parcial)
+- `info/competição de wrestling profissional` (catálogo parcial)
+- `info/competição de xadrez`
+- `info/competição desportiva`
+- `info/competição esportiva`
+- `info/componente eletrônico`
+- `info/composição` (catálogo parcial)
+- `info/computador` (catálogo parcial)
+- `info/comuna da frança`
+- `info/comuna da itália`
+- `info/comuna da noruega`
+- `info/comuna da polónia`
+- `info/comuna da polônia`
+- `info/comuna da romênia`
+- `info/comuna da suíça` (catálogo parcial)
+- `info/comuna de angola`
+- `info/comuna do chile`
+- `info/comuna do haiti`
+- `info/comuna do luxemburgo`
+- `info/comuna dos países baixos` (catálogo parcial)
+- `info/comunidade autónoma da espanha` (catálogo parcial)
+- `info/concelho cv`
+- `info/concerto` (catálogo parcial)
+- `info/concurso de beleza`
+- `info/concurso literário`
+- `info/concurso musical` (catálogo parcial)
+- `info/concílio ecuménico` (catálogo parcial)
+- `info/condado 1`
+- `info/condado da dinamarca`
+- `info/condado da estônia`
+- `info/condado da inglaterra`
+- `info/condado da irlanda`
+- `info/condado da libéria`
+- `info/condado da polónia`
+- `info/condado da romênia`
+- `info/condado da suécia`
+- `info/condado dos estados unidos` (catálogo parcial)
+- `info/condado dos eua` (catálogo parcial)
+- `info/condado república da china`
+- `info/condado urbano da hungria` (catálogo parcial)
+- `info/condecoração`
+- `info/condecorações`
+- `info/conector` (catálogo parcial)
+- `info/conflito civil` (catálogo parcial)
+- `info/conflito militar` (catálogo parcial)
+- `info/conquistas de pilotos`
+- `info/conquistas de pilotos na fórmula 1`
+- `info/consistório`
+- `info/console` (catálogo parcial)
+- `info/constelação`
+- `info/constituição` (catálogo parcial)
+- `info/conto popular`
+- `info/contracepção` (catálogo parcial)
+- `info/convenção política nacional` (catálogo parcial)
+- `info/coord`
+- `info/coordstr`
+- `info/coordx`
+- `info/copa do mundo de rugby` (catálogo parcial)
+- `info/cor` (catálogo parcial)
+- `info/cordilheira`
+- `info/coreia do norte nos jogos olímpicos`
+- `info/coreia do sul nos jogos olímpicos`
+- `info/coroa` (catálogo parcial)
+- `info/corpo de água` (catálogo parcial)
+- `info/corrida automobilística` (catálogo parcial)
+- `info/corrida de f1` (catálogo parcial)
+- `info/corrida de rua` (catálogo parcial)
+- `info/corrida irl`
+- `info/corrida stock car brasil` (catálogo parcial)
+- `info/country olympics`
+- `info/country pan`
+- `info/country paralympics`
+- `info/country parapan`
+- `info/crater data`
+- `info/cratera` (catálogo parcial)
+- `info/cratera de marte` (catálogo parcial)
+- `info/cratera de marte2`
+- `info/cratera de mercúrio`
+- `info/criatura paranormal`
+- `info/crime`
+- `info/criminoso` (catálogo parcial)
+- `info/criptomoeda` (catálogo parcial)
+- `info/cronologia ciclone tropical`
+- `info/cronologia geológica` (catálogo parcial)
+- `info/cultivar`
+- `info/câmera` (catálogo parcial)
+- `info/câmera digital` (catálogo parcial)
+- `info/câmera fotográfica` (catálogo parcial)
+- `info/cédula`
+- `info/cérebro`
+- `info/círculo eleitoral`
+- `info/código`
+- `info/cúria romana`
+- `info/d. joão vi`
+- `info/d. pedro i`
+- `info/d. pedro ii`
+- `info/dados`
+- `info/debate`
+- `info/demografia`
+- `info/demografia de país` (catálogo parcial)
+- `info/denominações cristãs`
+- `info/departamento da argentina`
+- `info/departamento da colômbia`
+- `info/departamento da frança`
+- `info/departamento da guatemala`
+- `info/departamento da nicarágua`
+- `info/departamento da república do congo`
+- `info/departamento do benim`
+- `info/departamento do haiti`
+- `info/departamento do níger`
+- `info/departamento do senegal`
+- `info/descendentes`
+- `info/desfile`
+- `info/desporto` (catálogo parcial)
+- `info/desporto olímpico` (catálogo parcial)
+- `info/desporto olímpico feminino`
+- `info/desporto olímpico misto`
+- `info/dia a dia de grand slam de tênis`
+- `info/dicastério da igreja católica`
+- `info/dinastia`
+- `info/diocese` (catálogo parcial)
+- `info/diocese anglicana`
+- `info/direitos lgbt` (catálogo parcial)
+- `info/diretoria do exército brasileiro`
+- `info/disciplina`
+- `info/discografia de artista` (catálogo parcial)
+- `info/dispositivo` (catálogo parcial)
+- `info/distribuição de linux`
+- `info/distribuições de probabilidade` (catálogo parcial)
+- `info/distrito 1`
+- `info/distrito congressional dos estados unidos`
+- `info/distrito da alemanha`
+- `info/distrito da chéquia`
+- `info/distrito da eslováquia`
+- `info/distrito da república checa`
+- `info/distrito da síria`
+- `info/distrito da tailândia`
+- `info/distrito da zâmbia`
+- `info/distrito da áustria`
+- `info/distrito de estocolmo`
+- `info/distrito de hong kong`
+- `info/distrito de porto seguro`
+- `info/distrito de portugal`
+- `info/distrito de são paulo`
+- `info/distrito de teresópolis`
+- `info/distrito de timor-leste`
+- `info/distrito do brasil`
+- `info/distrito do camboja`
+- `info/distrito do malawi`
+- `info/distrito do peru`
+- `info/distrito do suriname`
+- `info/distrito do timor leste`
+- `info/distrito do vietname`
+- `info/distrito dos países baixos`
+- `info/distritos de santa maria`
+- `info/distro`
+- `info/divindade` (catálogo parcial)
+- `info/divisão das ilhas fiji`
+- `info/divisão de bangladesh`
+- `info/divisão de gâmbia`
+- `info/divisão do camboja`
+- `info/divisão do exército brasileiro` (catálogo parcial)
+- `info/divisão do paquistão`
+- `info/divisão regional do brasil`
+- `info/divisões do camboja`
+- `info/documento` (catálogo parcial)
+- `info/documento de identificação` (catálogo parcial)
+- `info/documento presidencial dos eua`
+- `info/doença` (catálogo parcial)
+- `info/domínio de topo` (catálogo parcial)
+- `info/draft da wwe`
+- `info/droga`
+- `info/dublador` (catálogo parcial)
+- `info/economia` (catálogo parcial)
+- `info/ecorregião` (catálogo parcial)
+- `info/edifício` (catálogo parcial)
+- `info/edifício religioso`
+- `info/edifício religioso pt`
+- `info/editor`
+- `info/editora` (catálogo parcial)
+- `info/edição cblol`
+- `info/edição de campeonato automobilístico`
+- `info/edição de copa davis`
+- `info/edição de grand slam de tênis`
+- `info/edição de torneio de tênis por equipes`
+- `info/edição de torneio de tênis por equipes 2`
+- `info/edição de torneio tênis por equipes`
+- `info/educação país` (catálogo parcial)
+- `info/eei`
+- `info/efeméride` (catálogo parcial)
+- `info/eleição`
+- `info/eleição brasileira` (catálogo parcial)
+- `info/eleição estadual americana` (catálogo parcial)
+- `info/eleição estadual americana para o senado` (catálogo parcial)
+- `info/eleição estadual brasileira`
+- `info/eleição estadual nos estados unidos` (catálogo parcial)
+- `info/eleição estadual para o senado nos estados unidos` (catálogo parcial)
+- `info/eleição municipal americana` (catálogo parcial)
+- `info/eleição municipal brasileira`
+- `info/eleição municipal dos estados unidos` (catálogo parcial)
+- `info/eleição papal`
+- `info/eleição para a camara dos deputados do brasil`
+- `info/eleição parlamentar` (catálogo parcial)
+- `info/eleição parlamentar brasileira para o senado`
+- `info/eleição parlamentar da alemanha` (catálogo parcial)
+- `info/eleição parlamentar da espanha` (catálogo parcial)
+- `info/eleição parlamentar da itália` (catálogo parcial)
+- `info/eleição parlamentar do brasil`
+- `info/eleição parlamentar do reino unido` (catálogo parcial)
+- `info/eleição presidencial` (catálogo parcial)
+- `info/eleição presidencial americana` (catálogo parcial)
+- `info/eleição presidencial dos estados unidos` (catálogo parcial)
+- `info/eleição presidencial nos estados unidos em 2024`
+- `info/eleição2` (catálogo parcial)
+- `info/eleição2.css`
+- `info/eleições no brasil` (catálogo parcial)
+- `info/eleições nos estados unidos` (catálogo parcial)
+- `info/elemento` (catálogo parcial)
+- `info/embriologia` (catálogo parcial)
+- `info/emirados árabes unidos nos jogos olímpicos`
+- `info/emissora de rádio` (catálogo parcial)
+- `info/emissora de televisão` (catálogo parcial)
+- `info/empresa` (catálogo parcial)
+- `info/empresa-en`
+- `info/empresa2` (catálogo parcial)
+- `info/empresas fictícias`
+- `info/empresário`
+- `info/enchente` (catálogo parcial)
+- `info/encíclica`
+- `info/entidade`
+- `info/entidade empresarial`
+- `info/entidade espiritual` (catálogo parcial)
+- `info/entidades carnavalescas`
+- `info/enxadrista` (catálogo parcial)
+- `info/enzima` (catálogo parcial)
+- `info/eparquia`
+- `info/epidemia` (catálogo parcial)
+- `info/episódio de doctor who`
+- `info/episódio de série` (catálogo parcial)
+- `info/episódios de os simpsons` (catálogo parcial)
+- `info/episódios de the simpsons` (catálogo parcial)
+- `info/equipa ciclista` (catálogo parcial)
+- `info/equipa de ciclismo` (catálogo parcial)
+- `info/equipas da taça davis`
+- `info/equipas da taça fed`
+- `info/equipe cbfa`
+- `info/equipe da nhl`
+- `info/equipe de automobilismo`
+- `info/equipe de esporte eletrônico`
+- `info/equipe de esports`
+- `info/equipe de f1`
+- `info/equipe de rugby`
+- `info/equipe de wrestling profissional`
+- `info/equipes de copa davis`
+- `info/equipes de fed cup`
+- `info/era histórica` (catálogo parcial)
+- `info/erupção` (catálogo parcial)
+- `info/esc entry`
+- `info/escala ferromodelismo`
+- `info/escala musical` (catálogo parcial)
+- `info/escola` (catálogo parcial)
+- `info/escola de samba`
+- `info/escola do brasil` (catálogo parcial)
+- `info/escola técnica` (catálogo parcial)
+- `info/escola técnica do brasil` (catálogo parcial)
+- `info/escrita e transliteração` (catálogo parcial)
+- `info/escritor` (catálogo parcial)
+- `info/escultura` (catálogo parcial)
+- `info/escutismo católico`
+- `info/esgrimista`
+- `info/espaço topológico`
+- `info/especialidade médica` (catálogo parcial)
+- `info/esporte` (catálogo parcial)
+- `info/esporte por país` (catálogo parcial)
+- `info/esporte/atleta` (catálogo parcial)
+- `info/esportes de tiro`
+- `info/espécie`
+- `info/espécie de pokémon` (catálogo parcial)
+- `info/espécie fictícia`
+- `info/esquiadores alpinos` (catálogo parcial)
+- `info/estado da alemanha`
+- `info/estado da nigéria`
+- `info/estado da áustria`
+- `info/estado da índia`
+- `info/estado do brasil` (catálogo parcial)
+- `info/estado do sudão`
+- `info/estado dos eua` (catálogo parcial)
+- `info/estado eua` (catálogo parcial)
+- `info/estado extinto`
+- `info/estado extinto2`
+- `info/estado/eua` (catálogo parcial)
+- `info/estados da venezuela`
+- `info/estação` (catálogo parcial)
+- `info/estação 2` (catálogo parcial)
+- `info/estação de londres`
+- `info/estação de madrid` (catálogo parcial)
+- `info/estação metro do porto`
+- `info/estação refer` (catálogo parcial)
+- `info/estação supervia` (catálogo parcial)
+- `info/estação temperada`
+- `info/estilo arquitetônico`
+- `info/estilos` (catálogo parcial)
+- `info/estilos imperiais`
+- `info/estilos imperiais e reais`
+- `info/estrada` (catálogo parcial)
+- `info/estrela`
+- `info/estrela esboco`
+- `info/estrutura alta` (catálogo parcial)
+- `info/estrutura de dados`
+- `info/estrutura em grande escala` (catálogo parcial)
+- `info/estádio` (catálogo parcial)
+- `info/estúdio de banda desenhada` (catálogo parcial)
+- `info/estúdio de quadrinhos` (catálogo parcial)
+- `info/eurovisão`
+- `info/evento` (catálogo parcial)
+- `info/evento atletismo`
+- `info/evento da nfl` (catálogo parcial)
+- `info/evento de esports` (catálogo parcial)
+- `info/evento de mma`
+- `info/evento de wrestling` (catálogo parcial)
+- `info/evento de wrestling profissional` (catálogo parcial)
+- `info/evento dos jogos europeus`
+- `info/evento ginástica` (catálogo parcial)
+- `info/evento histórico` (catálogo parcial)
+- `info/evento jogos asiáticos` (catálogo parcial)
+- `info/evento jogos europeus` (catálogo parcial)
+- `info/evento meteorológico`
+- `info/evento multiesportivo` (catálogo parcial)
+- `info/evento multiesportivo/competição`
+- `info/evento mundial atletismo` (catálogo parcial)
+- `info/evento mundial fina` (catálogo parcial)
+- `info/evento musical`
+- `info/evento olímpico`
+- `info/evento olímpico de ginástica` (catálogo parcial)
+- `info/evento olímpicojuv`
+- `info/evento pan-americano` (catálogo parcial)
+- `info/evento paralímpico`
+- `info/evento patinação artística`
+- `info/evento sul-americano`
+- `info/evento tecnológico`
+- `info/evento universíada` (catálogo parcial)
+- `info/evento único` (catálogo parcial)
+- `info/exemplos para testes`
+- `info/exemplos para testes2` (catálogo parcial)
+- `info/exemplos para testes3` (catálogo parcial)
+- `info/expansão de magic: the gathering`
+- `info/exposição mundial` (catálogo parcial)
+- `info/exército` (catálogo parcial)
+- `info/faculdade` (catálogo parcial)
+- `info/facção de conflito` (catálogo parcial)
+- `info/faixa de frequências`
+- `info/família` (catálogo parcial)
+- `info/família de proteínas` (catálogo parcial)
+- `info/família linguística` (catálogo parcial)
+- `info/faraó`
+- `info/farol` (catálogo parcial)
+- `info/favela do brasil`
+- `info/fed. das índias ocidentais`
+- `info/fed. das índias ocidentais no`
+- `info/fed. das índias ocidentais nos jogos olímpicos`
+- `info/federação desportiva`
+- `info/federação esportiva`
+- `info/federação estadual de rugby`
+- `info/federação nacional de futebol`
+- `info/federação nacional de rugby`
+- `info/fenômeno` (catálogo parcial)
+- `info/fenômeno meteorológico`
+- `info/ferramentas` (catálogo parcial)
+- `info/ferrovia`
+- `info/ferroviapt`
+- `info/festival de cinema`
+- `info/festival de filmes`
+- `info/festival de música`
+- `info/festival mpb`
+- `info/filipinas nos jogos olímpicos`
+- `info/filme` (catálogo parcial)
+- `info/filme adulto` (catálogo parcial)
+- `info/filmografia de artista`
+- `info/filtro de edições` (catálogo parcial)
+- `info/filósofo` (catálogo parcial)
+- `info/fisiculturista`
+- `info/fluminense football club`
+- `info/foguete`
+- `info/folclore`
+- `info/folclore do rochao`
+- `info/fonte` (catálogo parcial)
+- `info/forma de tratamento` (catálogo parcial)
+- `info/formas de tratamento da realeza espanhola` (catálogo parcial)
+- `info/formato de arquivo` (catálogo parcial)
+- `info/formato de ficheiro` (catálogo parcial)
+- `info/fortificação-br`
+- `info/força aérea` (catálogo parcial)
+- `info/forças armadas` (catálogo parcial)
+- `info/fragrância`
+- `info/franquia de media` (catálogo parcial)
+- `info/franquia de mídia` (catálogo parcial)
+- `info/frederico, o grande`
+- `info/freguesia`
+- `info/freguesia de londres`
+- `info/freguesia de portugal`
+- `info/fronteira` (catálogo parcial)
+- `info/furacão` (catálogo parcial)
+- `info/furacão atual` (catálogo parcial)
+- `info/furacão pequeno`
+- `info/futebol` (catálogo parcial)
+- `info/futebol/seleção`
+- `info/futebolista`
+- `info/fábrica` (catálogo parcial)
+- `info/fóssil`
+- `info/galáxia` (catálogo parcial)
+- `info/gamer`
+- `info/gamer (jogador profissional)`
+- `info/gastrônomo`
+- `info/gene` (catálogo parcial)
+- `info/genérico`
+- `info/geolocalização astronómica` (catálogo parcial)
+- `info/ginásio de esportes` (catálogo parcial)
+- `info/glaciar`
+- `info/glifo fenício` (catálogo parcial)
+- `info/glifo semítico` (catálogo parcial)
+- `info/globos de ouro portugal`
+- `info/globos de ouro portugal principal`
+- `info/golfista` (catálogo parcial)
+- `info/governadorate da síria`
+- `info/governo` (catálogo parcial)
+- `info/governo europeu` (catálogo parcial)
+- `info/governo executivo` (catálogo parcial)
+- `info/governo presidencial` (catálogo parcial)
+- `info/governo/europeu` (catálogo parcial)
+- `info/goísta`
+- `info/gp motogp` (catálogo parcial)
+- `info/gp2 asia round report`
+- `info/gpu`
+- `info/grafo` (catálogo parcial)
+- `info/grandeza física`
+- `info/graphic novel`
+- `info/greve`
+- `info/grupo de folclore`
+- `info/grupo de montanhista` (catálogo parcial)
+- `info/grupo parafilético`
+- `info/grupo religioso`
+- `info/grupo étnico` (catálogo parcial)
+- `info/grã-bretanha nos jo`
+- `info/grã-bretanha nos jogos olímpicos`
+- `info/guerra`
+- `info/guitarra`
+- `info/gênero musical` (catálogo parcial)
+- `info/halacá` (catálogo parcial)
+- `info/halftime show`
+- `info/handebol/campeonato/edição`
+- `info/handebol/seleção`
+- `info/hardware` (catálogo parcial)
+- `info/helicóptero`
+- `info/hidrografia da madeira`
+- `info/hieróglifo` (catálogo parcial)
+- `info/hillary clinton`
+- `info/hino` (catálogo parcial)
+- `info/hino nacional` (catálogo parcial)
+- `info/história dos estúdios disney`
+- `info/hollywood cartoon` (catálogo parcial)
+- `info/homicidio`
+- `info/hong kong nos jogos olímpicos`
+- `info/hospital` (catálogo parcial)
+- `info/hotel`
+- `info/híbrido` (catálogo parcial)
+- `info/idade do bronze`
+- `info/idade do ferro`
+- `info/identificador` (catálogo parcial)
+- `info/ideologia` (catálogo parcial)
+- `info/ifs`
+- `info/igreja` (catálogo parcial)
+- `info/igreja anglicana`
+- `info/igreja católica` (catálogo parcial)
+- `info/igreja deus é amor`
+- `info/igreja luterana`
+- `info/igreja ortodoxa`
+- `info/igreja presbiteriana`
+- `info/ilha` (catálogo parcial)
+- `info/ilha de cabo verde`
+- `info/img-escalar`
+- `info/impeachment` (catálogo parcial)
+- `info/império bizantino`
+- `info/império romano`
+- `info/incêndio florestal` (catálogo parcial)
+- `info/indonésia nos jogos olímpicos`
+- `info/infobox court case` (catálogo parcial)
+- `info/instagrammer` (catálogo parcial)
+- `info/instalação militar` (catálogo parcial)
+- `info/instalações de golfe` (catálogo parcial)
+- `info/instituição educacional de pesquisa` (catálogo parcial)
+- `info/instituição europeia`
+- `info/instituição governamental`
+- `info/instituição religiosa`
+- `info/instrumento` (catálogo parcial)
+- `info/interstate`
+- `info/intervenção médica`
+- `info/inundação` (catálogo parcial)
+- `info/ipa`
+- `info/iraque nos jogos olímpicos`
+- `info/irc network` (catálogo parcial)
+- `info/irã nos jogos olímpicos`
+- `info/israel nos jogos olímpicos`
+- `info/isótopo`
+- `info/item de vestuário` (catálogo parcial)
+- `info/itinerários de portugal` (catálogo parcial)
+- `info/iêmen do sul nos jogos olímpicos`
+- `info/iêmen nos jogos olímpicos`
+- `info/jair bolsonaro`
+- `info/jamboree`
+- `info/japão nos jogos olímpicos`
+- `info/joe biden`
+- `info/jogador de basquete`
+- `info/jogador de esporte eletrônico`
+- `info/jogador de hóquei em patins`
+- `info/jogador de hóquei no gelo`
+- `info/jogador de pôquer` (catálogo parcial)
+- `info/jogador de rugby`
+- `info/jogador de snooker`
+- `info/jogador de voleibol`
+- `info/jogadornflativo` (catálogo parcial)
+- `info/jogo` (catálogo parcial)
+- `info/jogo de cartas`
+- `info/jogo de tabuleiro` (catálogo parcial)
+- `info/jogo electrónico` (catálogo parcial)
+- `info/jogo eletrónico` (catálogo parcial)
+- `info/jogo eletrônico` (catálogo parcial)
+- `info/jogosdetabuleiro` (catálogo parcial)
+- `info/jordânia nos jogos olímpicos`
+- `info/jornada mundial da juventude`
+- `info/jornal` (catálogo parcial)
+- `info/jornalista` (catálogo parcial)
+- `info/josef stalin`
+- `info/jurisdição da índia`
+- `info/kana`
+- `info/kuwait nos jogos olímpicos`
+- `info/kwai`
+- `info/lago`
+- `info/lang`
+- `info/laos nos jogos olímpicos`
+- `info/lcfa`
+- `info/le mans drivers`
+- `info/legislatura` (catálogo parcial)
+- `info/legislatura dos açores` (catálogo parcial)
+- `info/legislatura histórica` (catálogo parcial)
+- `info/legislação` (catálogo parcial)
+- `info/legislação da ue`
+- `info/legislação do império do brasil` (catálogo parcial)
+- `info/legislação dos eua`
+- `info/legislação europeia`
+- `info/lei` (catálogo parcial)
+- `info/lema`
+- `info/lenin`
+- `info/letra`
+- `info/letra semítica` (catálogo parcial)
+- `info/letra semítico` (catálogo parcial)
+- `info/letra2`
+- `info/licença de software` (catálogo parcial)
+- `info/liga esportiva` (catálogo parcial)
+- `info/linguagem de computador` (catálogo parcial)
+- `info/linguagem de programação` (catálogo parcial)
+- `info/linha`
+- `info/linha ferroviária` (catálogo parcial)
+- `info/lista de artista` (catálogo parcial)
+- `info/lista de designações` (catálogo parcial)
+- `info/lista de desporto`
+- `info/lista de prémios` (catálogo parcial)
+- `info/lista de prêmios` (catálogo parcial)
+- `info/livro` (catálogo parcial)
+- `info/local de encontro` (catálogo parcial)
+- `info/local fictício` (catálogo parcial)
+- `info/localidade` (catálogo parcial)
+- `info/localidade da argélia`
+- `info/localidade da chéquia`
+- `info/localidade da inglaterra`
+- `info/localidade da madeira`
+- `info/localidade da república checa`
+- `info/localidade da sérvia`
+- `info/localidade da turquia`
+- `info/localidade de angola`
+- `info/localidade de moçambique`
+- `info/localidade do vietnã`
+- `info/localidade dos estados unidos` (catálogo parcial)
+- `info/localidade dos eua` (catálogo parcial)
+- `info/locomotiva`
+- `info/loteria` (catálogo parcial)
+- `info/lugar australiano` (catálogo parcial)
+- `info/lugar em portugal`
+- `info/lugar fictício` (catálogo parcial)
+- `info/lugares da galiza`
+- `info/luiz inácio lula da silva`
+- `info/lutador de wrestling profissional` (catálogo parcial)
+- `info/luís xiv`
+- `info/líbano nos jogos olímpicos`
+- `info/língua`
+- `info/língua2`
+- `info/línguas de país` (catálogo parcial)
+- `info/macintosh` (catálogo parcial)
+- `info/magistrado` (catálogo parcial)
+- `info/malaia nos jogos olímpicos`
+- `info/maldivas nos jogos olímpicos`
+- `info/malásia nos jogos olímpicos`
+- `info/manuscrito` (catálogo parcial)
+- `info/manuscrito do novo testamento` (catálogo parcial)
+- `info/mapa dinâmico`
+- `info/mapa interativo` (catálogo parcial)
+- `info/marca` (catálogo parcial)
+- `info/marcha popular de lisboa`
+- `info/mare lunar`
+- `info/maria antonieta`
+- `info/maria leopoldina`
+- `info/maría mercedes`
+- `info/mecanismo`
+- `info/medalha`
+- `info/medalhas` (catálogo parcial)
+- `info/membros do gabinete` (catálogo parcial)
+- `info/memorial`
+- `info/memorial militar`
+- `info/mercado cinematográfico` (catálogo parcial)
+- `info/mesorregião`
+- `info/meteorito` (catálogo parcial)
+- `info/mianmar nos jogos olímpicos`
+- `info/michelle bolsonaro`
+- `info/microrregião`
+- `info/militar` (catálogo parcial)
+- `info/mina` (catálogo parcial)
+- `info/mineral` (catálogo parcial)
+- `info/ministério`
+- `info/missão` (catálogo parcial)
+- `info/missão diplomática`
+- `info/missão onu`
+- `info/mitologia filipina`
+- `info/mlb`
+- `info/mobiliário` (catálogo parcial)
+- `info/modelo` (catálogo parcial)
+- `info/modelo de guitarra`
+- `info/moeda` (catálogo parcial)
+- `info/moeda metálica`
+- `info/monarca` (catálogo parcial)
+- `info/monarquia` (catálogo parcial)
+- `info/monarquias` (catálogo parcial)
+- `info/mongólia nos jogos olímpicos`
+- `info/monsenhor da igreja católica`
+- `info/montanha` (catálogo parcial)
+- `info/montanha-russa` (catálogo parcial)
+- `info/montanha2` (catálogo parcial)
+- `info/monumento` (catálogo parcial)
+- `info/monumento da roma antiga`
+- `info/monumento de portugal`
+- `info/monumento de roma`
+- `info/motocicleta` (catálogo parcial)
+- `info/motociclista` (catálogo parcial)
+- `info/motoclube` (catálogo parcial)
+- `info/motogp` (catálogo parcial)
+- `info/motor` (catálogo parcial)
+- `info/motor de avião`
+- `info/motor de foguete` (catálogo parcial)
+- `info/motorista da f1`
+- `info/motorista da motogp`
+- `info/movimento artístico` (catálogo parcial)
+- `info/mulher` (catálogo parcial)
+- `info/município da bélgica`
+- `info/município da venezuela`
+- `info/município da áfrica do sul`
+- `info/município da áustria`
+- `info/município de angola`
+- `info/município de cabo verde`
+- `info/município de liechtenstein`
+- `info/município de montenegro`
+- `info/município de moçambique`
+- `info/município de portugal`
+- `info/município de portugal-ra`
+- `info/município de timor-leste`
+- `info/município do brasil`
+- `info/município do méxico`
+- `info/município-freguesia de portugal`
+- `info/munição`
+- `info/museu`
+- `info/musical` (catálogo parcial)
+- `info/máquina` (catálogo parcial)
+- `info/médico` (catálogo parcial)
+- `info/mês`
+- `info/mês2` (catálogo parcial)
+- `info/mídia` (catálogo parcial)
+- `info/móvel` (catálogo parcial)
+- `info/músculo` (catálogo parcial)
+- `info/música`
+- `info/música esc`
+- `info/música fec`
+- `info/música jesc`
+- `info/música por país` (catálogo parcial)
+- `info/música/artista` (catálogo parcial)
+- `info/música/artista/beatles`
+- `info/músico` (catálogo parcial)
+- `info/nadador`
+- `info/napoleão bonaparte`
+- `info/nave espacial` (catálogo parcial)
+- `info/nave fictícia`
+- `info/navegador web` (catálogo parcial)
+- `info/navio` (catálogo parcial)
+- `info/navio 2` (catálogo parcial)
+- `info/nba team`
+- `info/nebulosa`
+- `info/neo química arena`
+- `info/nepal nos jogos olímpicos`
+- `info/nervo`
+- `info/ngc`
+- `info/nhl team`
+- `info/nobre` (catálogo parcial)
+- `info/nobreza` (catálogo parcial)
+- `info/noc` (catálogo parcial)
+- `info/nome` (catálogo parcial)
+- `info/nome coreano` (catálogo parcial)
+- `info/nossa senhora`
+- `info/npc` (catálogo parcial)
+- `info/nrhp` (catálogo parcial)
+- `info/nuvem`
+- `info/nvidiagpu`
+- `info/não-diocese`
+- `info/nó` (catálogo parcial)
+- `info/número`
+- `info/obelisco`
+- `info/objeto` (catálogo parcial)
+- `info/objeto astronômico` (catálogo parcial)
+- `info/objeto fictício` (catálogo parcial)
+- `info/objeto/wikidata` (catálogo parcial)
+- `info/obra` (catálogo parcial)
+- `info/obra de arte` (catálogo parcial)
+- `info/observatório` (catálogo parcial)
+- `info/oceano` (catálogo parcial)
+- `info/ocupação` (catálogo parcial)
+- `info/odinani`
+- `info/olimpíada científica de matemática`
+- `info/olimpíada de matemática`
+- `info/olympics afeganistão`
+- `info/olympics arábia saudita`
+- `info/olympics atletas olímpicos individuais`
+- `info/olympics bahrein`
+- `info/olympics bangladesh`
+- `info/olympics bangladexe`
+- `info/olympics barém`
+- `info/olympics birmânia`
+- `info/olympics bornéu do norte`
+- `info/olympics brunei`
+- `info/olympics butão`
+- `info/olympics camboja`
+- `info/olympics catar`
+- `info/olympics cazaquistão`
+- `info/olympics ceilão`
+- `info/olympics china`
+- `info/olympics coreia`
+- `info/olympics coreia do norte`
+- `info/olympics coreia do sul`
+- `info/olympics emirados árabes unidos`
+- `info/olympics filipinas`
+- `info/olympics hong kong`
+- `info/olympics indonésia`
+- `info/olympics iraque`
+- `info/olympics irã`
+- `info/olympics israel`
+- `info/olympics iêmen`
+- `info/olympics iêmen do norte`
+- `info/olympics iêmen do sul`
+- `info/olympics japão`
+- `info/olympics jordânia`
+- `info/olympics kuwait`
+- `info/olympics laos`
+- `info/olympics líbano`
+- `info/olympics malaia`
+- `info/olympics maldivas`
+- `info/olympics malásia`
+- `info/olympics mianmar`
+- `info/olympics mongólia`
+- `info/olympics nepal`
+- `info/olympics omã`
+- `info/olympics papua-nova guiné`
+- `info/olympics paquistão`
+- `info/olympics participantes olímpicos independentes`
+- `info/olympics quirguistão`
+- `info/olympics república da china`
+- `info/olympics singapura`
+- `info/olympics sri lanka`
+- `info/olympics síria`
+- `info/olympics tadjiquistão`
+- `info/olympics tailândia`
+- `info/olympics taipé chinês`
+- `info/olympics tajiquistão`
+- `info/olympics timor-leste`
+- `info/olympics turcomenistão`
+- `info/olympics uzbequistão`
+- `info/olympics vietnã`
+- `info/olympics índia`
+- `info/omã nos jogos olímpicos`
+- `info/onda de tornados`
+- `info/onu`
+- `info/operação militar` (catálogo parcial)
+- `info/organismo governamental`
+- `info/organização` (catálogo parcial)
+- `info/organização criminosa` (catálogo parcial)
+- `info/organização escoteira`
+- `info/organização escuteira católica`
+- `info/organização fictícia` (catálogo parcial)
+- `info/organização geopolítica` (catálogo parcial)
+- `info/organização governamental`
+- `info/organização militante` (catálogo parcial)
+- `info/organização religiosa da igreja católica` (catálogo parcial)
+- `info/organização/wikidata` (catálogo parcial)
+- `info/organização2` (catálogo parcial)
+- `info/orgão governamental`
+- `info/orquestra` (catálogo parcial)
+- `info/osso`
+- `info/padre da igreja católica` (catálogo parcial)
+- `info/papa` (catálogo parcial)
+- `info/papa-copta`
+- `info/papado` (catálogo parcial)
+- `info/papua-nova guiné nos jogos olímpicos`
+- `info/paquistão nos jogos olímpicos`
+- `info/paralympics maurício`
+- `info/paralympics turcomenistão`
+- `info/parlamento` (catálogo parcial)
+- `info/parque` (catálogo parcial)
+- `info/parque de diversão` (catálogo parcial)
+- `info/participação anual no esc`
+- `info/participação anual no esc especial`
+- `info/partida de futebol` (catálogo parcial)
+- `info/partida de voleibol`
+- `info/partido político` (catálogo parcial)
+- `info/partido político do brasil` (catálogo parcial)
+- `info/partidos políticos` (catálogo parcial)
+- `info/partícula`
+- `info/paróquia`
+- `info/paróquia da jamaica`
+- `info/paróquia de andorra`
+- `info/paróquia de barbados`
+- `info/paróquia do brasil`
+- `info/passo de montanha`
+- `info/patente militar` (catálogo parcial)
+- `info/patologia` (catálogo parcial)
+- `info/patriarca oriental` (catálogo parcial)
+- `info/patriarcado`
+- `info/patriarcado histórico`
+- `info/património cultural imaterial da humanidade` (catálogo parcial)
+- `info/património mundial` (catálogo parcial)
+- `info/patrimônio cultural imaterial`
+- `info/patrimônio histórico` (catálogo parcial)
+- `info/país` (catálogo parcial)
+- `info/país da eurovisão`
+- `info/país da ásiavisão`
+- `info/país em jogos` (catálogo parcial)
+- `info/país fictício`
+- `info/país no mundial`
+- `info/país nos jogos olímpicos`
+- `info/país odesur`
+- `info/país/educação` (catálogo parcial)
+- `info/país2`
+- `info/países no mundial`
+- `info/pelourinho`
+- `info/pelé`
+- `info/península`
+- `info/periferia da grécia`
+- `info/personagem` (catálogo parcial)
+- `info/personagem animangá`
+- `info/personagem da bíblia`
+- `info/personagem de cvg`
+- `info/personagem de jogos eletrônicos`
+- `info/personagem do livro de mórmon`
+- `info/personagem fictícia` (catálogo parcial)
+- `info/personagem fictícia/rodapé`
+- `info/personagem fictício` (catálogo parcial)
+- `info/personalidade`
+- `info/personalidade de mídia social` (catálogo parcial)
+- `info/personalidades da internet` (catálogo parcial)
+- `info/persondata`
+- `info/período geológico`
+- `info/período político` (catálogo parcial)
+- `info/peça` (catálogo parcial)
+- `info/peça de roupa`
+- `info/peça de teatro` (catálogo parcial)
+- `info/peça teatral` (catálogo parcial)
+- `info/piercing` (catálogo parcial)
+- `info/piloto de automóvel`
+- `info/piloto de corrida`
+- `info/piloto do wrc`
+- `info/pimentas` (catálogo parcial)
+- `info/pintura` (catálogo parcial)
+- `info/pirata` (catálogo parcial)
+- `info/pirâmide` (catálogo parcial)
+- `info/placa tectônica` (catálogo parcial)
+- `info/planeta` (catálogo parcial)
+- `info/planeta extrassolar` (catálogo parcial)
+- `info/planeta fictício` (catálogo parcial)
+- `info/planetóide` (catálogo parcial)
+- `info/podcast` (catálogo parcial)
+- `info/poliedro`
+- `info/poliedros`
+- `info/polígono` (catálogo parcial)
+- `info/político` (catálogo parcial)
+- `info/ponte` (catálogo parcial)
+- `info/porto` (catálogo parcial)
+- `info/portugal nos jogos olímpicos da juventude`
+- `info/pousadapc`
+- `info/povoação de portugal`
+- `info/povos ibéricos pré-romanos`
+- `info/praia` (catálogo parcial)
+- `info/praça de toiros`
+- `info/prefeitura do japão` (catálogo parcial)
+- `info/prelado da igreja católica` (catálogo parcial)
+- `info/prelado da igreja ortodoxa síria` (catálogo parcial)
+- `info/prelado de igreja oriental` (catálogo parcial)
+- `info/prelazia`
+- `info/pretendente` (catálogo parcial)
+- `info/princesa de joinville`
+- `info/prisão` (catálogo parcial)
+- `info/processador` (catálogo parcial)
+- `info/processo de impeachment` (catálogo parcial)
+- `info/processo de impeachment de carlos moisés e daniela reinehr`
+- `info/processo de impeachment de dilma rousseff`
+- `info/processo de impeachment de wilson witzel`
+- `info/processo judicial`
+- `info/produto botânico` (catálogo parcial)
+- `info/profissão` (catálogo parcial)
+- `info/programa de rádio` (catálogo parcial)
+- `info/programa espacial`
+- `info/programas de rádio` (catálogo parcial)
+- `info/projeto` (catálogo parcial)
+- `info/protesto` (catálogo parcial)
+- `info/proteína` (catálogo parcial)
+- `info/proteína não humana` (catálogo parcial)
+- `info/protocolo` (catálogo parcial)
+- `info/protocolo de rede` (catálogo parcial)
+- `info/prova` (catálogo parcial)
+- `info/prova de rally`
+- `info/província da bolívia`
+- `info/província da bélgica`
+- `info/província da china`
+- `info/província da espanha`
+- `info/província da guiné equatorial`
+- `info/província da itália`
+- `info/província da república dominicana`
+- `info/província da síria`
+- `info/província da tailândia`
+- `info/província das ilhas fiji`
+- `info/província de burkina faso`
+- `info/província de burquina fasso`
+- `info/província de cuba`
+- `info/província de madagáscar`
+- `info/província de zâmbia`
+- `info/província do afeganistão`
+- `info/província do burundi`
+- `info/província do chile`
+- `info/província do equador`
+- `info/província do gabão`
+- `info/província do japão`
+- `info/província do laos`
+- `info/província do peru`
+- `info/província do vietnã`
+- `info/província do zimbabwe`
+- `info/província dos camarões`
+- `info/província romana`
+- `info/prédio` (catálogo parcial)
+- `info/prémio` (catálogo parcial)
+- `info/prémios` (catálogo parcial)
+- `info/prêmio` (catálogo parcial)
+- `info/prêmios` (catálogo parcial)
+- `info/prêmios de artista` (catálogo parcial)
+- `info/prêmios e indicações`
+- `info/publicidade` (catálogo parcial)
+- `info/página da internet` (catálogo parcial)
+- `info/quasar` (catálogo parcial)
+- `info/queda de água`
+- `info/queda de água2` (catálogo parcial)
+- `info/queijo` (catálogo parcial)
+- `info/quirguistão nos jogos olímpicos`
+- `info/química`
+- `info/radar` (catálogo parcial)
+- `info/rally raid`
+- `info/rampa`
+- `info/raça canina` (catálogo parcial)
+- `info/raça de cão` (catálogo parcial)
+- `info/raça de gato` (catálogo parcial)
+- `info/reator nuclear` (catálogo parcial)
+- `info/rede de televisão` (catálogo parcial)
+- `info/referendo` (catálogo parcial)
+- `info/refrigerante` (catálogo parcial)
+- `info/região`
+- `info/região administrativa do df-br`
+- `info/região da alemanha`
+- `info/região da colômbia`
+- `info/região da eritreia`
+- `info/região da eslováquia`
+- `info/região da finlândia`
+- `info/região da frança`
+- `info/região da grécia`
+- `info/região da guiana`
+- `info/região da guiné`
+- `info/região da guiné-bissau`
+- `info/região da inglaterra` (catálogo parcial)
+- `info/região da itália`
+- `info/região da mauritânia`
+- `info/região da namíbia`
+- `info/região da nova zelândia`
+- `info/região da república tcheca`
+- `info/região da somalilândia`
+- `info/região da somália`
+- `info/região da tailândia`
+- `info/região da tanzânia`
+- `info/região da ucrânia`
+- `info/região de burkina faso`
+- `info/região de burquina fasso`
+- `info/região de gana`
+- `info/região de jundiai`
+- `info/região do brasil`
+- `info/região do chade`
+- `info/região do chile`
+- `info/região do gana`
+- `info/região do malawi`
+- `info/região do mali`
+- `info/região do marrocos`
+- `info/região do peru`
+- `info/região do senegal`
+- `info/região do togo`
+- `info/região do vietnã`
+- `info/região dos camarões`
+- `info/região metropolitana`
+- `info/região metropolitana do brasil`
+- `info/região não-oficial de são paulo` (catálogo parcial)
+- `info/regiões militares do exército brasileiro` (catálogo parcial)
+- `info/relações bilaterais`
+- `info/relações bilaterais2`
+- `info/relevo` (catálogo parcial)
+- `info/religião` (catálogo parcial)
+- `info/religião na roma antiga`
+- `info/república da china nos jogos olímpicos`
+- `info/república romana`
+- `info/resolução da onu`
+- `info/restaurante` (catálogo parcial)
+- `info/resultados de wrestling profissional`
+- `info/reunião de cúpula` (catálogo parcial)
+- `info/revezamento da tocha olímpica` (catálogo parcial)
+- `info/revista` (catálogo parcial)
+- `info/revista científica` (catálogo parcial)
+- `info/revista em quadrinhos`
+- `info/revolucionário`
+- `info/rio` (catálogo parcial)
+- `info/rivalidade esportiva`
+- `info/robô`
+- `info/rocha` (catálogo parcial)
+- `info/rodapé`
+- `info/rodovia brasil` (catálogo parcial)
+- `info/ronda f2 fia`
+- `info/ronda gp2`
+- `info/ronda superleague fórmula`
+- `info/ronda superleague fórmula 02`
+- `info/roupa`
+- `info/rua` (catálogo parcial)
+- `info/rua-avenida do brasil` (catálogo parcial)
+- `info/sacerdote` (catálogo parcial)
+- `info/sala de cinema`
+- `info/santo` (catálogo parcial)
+- `info/santos` (catálogo parcial)
+- `info/satélite` (catálogo parcial)
+- `info/script de usuário`
+- `info/selecção`
+- `info/seleção brasileira de futebol`
+- `info/seleção de handebol`
+- `info/seleção de voleibol`
+- `info/seleção esportiva` (catálogo parcial)
+- `info/selo` (catálogo parcial)
+- `info/selo postal` (catálogo parcial)
+- `info/selosraros` (catálogo parcial)
+- `info/sem fins lucrativos`
+- `info/senado nigéria` (catálogo parcial)
+- `info/senador do império do brasil` (catálogo parcial)
+- `info/serial killer`
+- `info/serviço ferroviário` (catálogo parcial)
+- `info/serviço online de jogos eletrônicos` (catálogo parcial)
+- `info/serviços do governo de macau`
+- `info/sessão de filmes`
+- `info/shopping` (catálogo parcial)
+- `info/signo zodiacal`
+- `info/singapura nos jogos olímpicos`
+- `info/single` (catálogo parcial)
+- `info/sismo` (catálogo parcial)
+- `info/sistema de arquivos`
+- `info/sistema de escrita` (catálogo parcial)
+- `info/sistema operacional` (catálogo parcial)
+- `info/sistema planetário`
+- `info/sistema político` (catálogo parcial)
+- `info/sistema rodoviário`
+- `info/site` (catálogo parcial)
+- `info/so` (catálogo parcial)
+- `info/sobrenome` (catálogo parcial)
+- `info/software` (catálogo parcial)
+- `info/sport club corinthians paulista`
+- `info/sri lanka nos jogos olímpicos`
+- `info/streamer` (catálogo parcial)
+- `info/subdivisão da moldávia`
+- `info/subdivisão da nigéria` (catálogo parcial)
+- `info/subdivisão das bermudas`
+- `info/subdivisão extinta`
+- `info/subdivisões`
+- `info/subdivisões da escócia`
+- `info/subdivisões da letônia`
+- `info/subdivisões do país de gales`
+- `info/subprefeitura de são paulo` (catálogo parcial)
+- `info/sui juris`
+- `info/supercomics`
+- `info/supernova`
+- `info/sura`
+- `info/surfista` (catálogo parcial)
+- `info/survivor`
+- `info/sábio chinês` (catálogo parcial)
+- `info/sé titular`
+- `info/série de jogos eletrônicos` (catálogo parcial)
+- `info/série de ppv de wrestling profissional` (catálogo parcial)
+- `info/série de televisão` (catálogo parcial)
+- `info/série de videogame` (catálogo parcial)
+- `info/série literária` (catálogo parcial)
+- `info/símbolo` (catálogo parcial)
+- `info/síria nos jogos olímpicos`
+- `info/sítio` (catálogo parcial)
+- `info/sítio arqueológico` (catálogo parcial)
+- `info/sítio arqueológico2` (catálogo parcial)
+- `info/sítio do patrimônio mundial` (catálogo parcial)
+- `info/tailândia nos jogos olímpicos`
+- `info/taipé chinês nos jogos olímpicos`
+- `info/tajiquistão nos jogos olímpicos`
+- `info/taxonomia`
+- `info/tecnologia`
+- `info/telemóvel` (catálogo parcial)
+- `info/telescópio` (catálogo parcial)
+- `info/televisão` (catálogo parcial)
+- `info/tempestade` (catálogo parcial)
+- `info/tempestade inverno` (catálogo parcial)
+- `info/tempestade severa`
+- `info/templo anglicano`
+- `info/templo católico`
+- `info/templosud`
+- `info/temporada` (catálogo parcial)
+- `info/temporada de automobilismo`
+- `info/temporada de equipa ciclista` (catálogo parcial)
+- `info/temporada de esports`
+- `info/temporada de série` (catálogo parcial)
+- `info/temporada de talk show`
+- `info/temporada de tênis profissional`
+- `info/temporada furacões`
+- `info/temporada local de tornados` (catálogo parcial)
+- `info/temporada nfl` (catálogo parcial)
+- `info/tenista` (catálogo parcial)
+- `info/teoria dos nós` (catálogo parcial)
+- `info/termo budista`
+- `info/terra indígena`
+- `info/território geográfico`
+- `info/teste nuclear` (catálogo parcial)
+- `info/testes2` (catálogo parcial)
+- `info/texto religioso` (catálogo parcial)
+- `info/teólogo cristão` (catálogo parcial)
+- `info/tiktoker` (catálogo parcial)
+- `info/time`
+- `info/time (e-sports)`
+- `info/time2`
+- `info/time2 ultimojogador`
+- `info/time3`
+- `info/time4`
+- `info/time5`
+- `info/timequiribáti`
+- `info/timor-leste nos jogos olímpicos`
+- `info/tintura heráldica`
+- `info/tipo de subdivisão`
+- `info/titular de cargo`
+- `info/titulatura real egípcia`
+- `info/tonalidade` (catálogo parcial)
+- `info/top`
+- `info/topo`
+- `info/toponímia de grande porto`
+- `info/toponímia de são paulo` (catálogo parcial)
+- `info/toponímia do brasil` (catálogo parcial)
+- `info/toponímia do porto`
+- `info/toponímiagrandeporto`
+- `info/torcida organizada`
+- `info/tornado ano` (catálogo parcial)
+- `info/torneio de curling`
+- `info/torneio de esporte eletrônico`
+- `info/torneio de esports`
+- `info/torneio de futebol` (catálogo parcial)
+- `info/torneio de futebol americano`
+- `info/torneio de golfe`
+- `info/torneio de hóquei`
+- `info/torneio de rugby`
+- `info/torneio de snooker`
+- `info/torneio de ténis`
+- `info/torneio de tênis`
+- `info/torneio esportivo`
+- `info/torre` (catálogo parcial)
+- `info/tour de france`
+- `info/townland da irlanda`
+- `info/tradução da bíblia` (catálogo parcial)
+- `info/transição presidencial` (catálogo parcial)
+- `info/transporte público` (catálogo parcial)
+- `info/tratado` (catálogo parcial)
+- `info/treinador` (catálogo parcial)
+- `info/treinador de basquete` (catálogo parcial)
+- `info/treinador de basquete2` (catálogo parcial)
+- `info/treinador de basquetebol` (catálogo parcial)
+- `info/treinador de futebol` (catálogo parcial)
+- `info/treinador de natação`
+- `info/trem` (catálogo parcial)
+- `info/triatleta`
+- `info/trilho` (catálogo parcial)
+- `info/trono de kyoshu`
+- `info/tumba real egípcia`
+- `info/tuna` (catálogo parcial)
+- `info/turcomenistão nos jogos olímpicos`
+- `info/turnê` (catálogo parcial)
+- `info/tv` (catálogo parcial)
+- `info/tv de internet`
+- `info/twitch` (catálogo parcial)
+- `info/txt`
+- `info/táxi` (catálogo parcial)
+- `info/técnica de grappling`
+- `info/título`
+- `info/título cardinalício`
+- `info/título nobiliárquico`
+- `info/túnel` (catálogo parcial)
+- `info/u.s. route`
+- `info/unidade` (catálogo parcial)
+- `info/unidade de conservação.css`
+- `info/unidade geológica`
+- `info/unidade militar` (catálogo parcial)
+- `info/unidade pm` (catálogo parcial)
+- `info/unidades da força aérea brasileira` (catálogo parcial)
+- `info/unidades do exército brasileiro`
+- `info/universidade` (catálogo parcial)
+- `info/universidade 2` (catálogo parcial)
+- `info/universidade de portugal` (catálogo parcial)
+- `info/universidade do brasil` (catálogo parcial)
+- `info/unk`
+- `info/user`
+- `info/usuário`
+- `info/usuário da wikipédia`
+- `info/uva`
+- `info/uzbequistão nos jogos olímpicos`
+- `info/vacina` (catálogo parcial)
+- `info/valor nutricional` (catálogo parcial)
+- `info/variantecovid`
+- `info/veia`
+- `info/vestuário` (catálogo parcial)
+- `info/veículo fictício`
+- `info/veículos fictícios`
+- `info/vg serviço online` (catálogo parcial)
+- `info/via` (catálogo parcial)
+- `info/via de transporte` (catálogo parcial)
+- `info/viagem` (catálogo parcial)
+- `info/viagem apostólica`
+- `info/vicariato`
+- `info/video game (requisitos)`
+- `info/videojogo` (catálogo parcial)
+- `info/vietnã nos jogos olímpicos`
+- `info/vinho`
+- `info/visita diplomática` (catálogo parcial)
+- `info/voivodias da polónia`
+- `info/voleibol/campeonato`
+- `info/voleibol/campeonato estadual/principal`
+- `info/voleibol/campeonato nacional`
+- `info/voleibol/campeonato nacional/edição`
+- `info/voleibol/campeonato/edição`
+- `info/voleibol/jogador`
+- `info/voleibol/seleção`
+- `info/vulcão`
+- `info/vírus` (catálogo parcial)
+- `info/vírus de computador`
+- `info/web summit`
+- `info/web summit principal`
+- `info/webgame`
+- `info/website` (catálogo parcial)
+- `info/wikidataprop` (catálogo parcial)
+- `info/wikidataprop2`
+- `info/wikipedista`
+- `info/wikiprojeto`
+- `info/wikipédia`
+- `info/wilaya da argélia`
+- `info/wrestler`
+- `info/wrestling event`
+- `info/wrestling team`
+- `info/xadrezista` (catálogo parcial)
+- `info/xi jinping`
+- `info/youth olympics afeganistão`
+- `info/youth olympics albânia`
+- `info/youth olympics alemanha`
+- `info/youth olympics andorra`
+- `info/youth olympics angola`
+- `info/youth olympics antilhas holandesas`
+- `info/youth olympics antilhas neerlandesas`
+- `info/youth olympics antígua e barbuda`
+- `info/youth olympics argentina`
+- `info/youth olympics argélia`
+- `info/youth olympics arménia`
+- `info/youth olympics armênia`
+- `info/youth olympics arábia saudita`
+- `info/youth olympics austrália`
+- `info/youth olympics azerbaijão`
+- `info/youth olympics bielorrússia`
+- `info/youth olympics brasil`
+- `info/youth olympics canadá`
+- `info/youth olympics colômbia`
+- `info/youth olympics croácia`
+- `info/youth olympics eritreia`
+- `info/youth olympics eslováquia`
+- `info/youth olympics estados unidos`
+- `info/youth olympics estônia`
+- `info/youth olympics finlândia`
+- `info/youth olympics grã-bretanha`
+- `info/youth olympics jamaica`
+- `info/youth olympics liechtenstein`
+- `info/youth olympics lituânia`
+- `info/youth olympics luxemburgo`
+- `info/youth olympics líbano`
+- `info/youth olympics malásia`
+- `info/youth olympics marrocos`
+- `info/youth olympics méxico`
+- `info/youth olympics polônia`
+- `info/youth olympics portugal`
+- `info/youth olympics quênia`
+- `info/youth olympics rússia`
+- `info/youth olympics áfrica do sul`
+- `info/youth olympics áustria`
+- `info/youtuber` (catálogo parcial)
+- `info/zoo`
+- `info/álbum` (catálogo parcial)
+- `info/álbum de estúdio`
+- `info/árbitro`
+- `info/área metropolitana dos estados unidos`
+- `info/área protegida` (catálogo parcial)
+- `info/área protegida da austrália` (catálogo parcial)
+- `info/árvore` (catálogo parcial)
+- `info/ásiavisão`
+- `info/átomo`
+- `info/época de equipa ciclista` (catálogo parcial)
+- `info/índia nos jogos olímpicos`
+- `info/índice` (catálogo parcial)
+- `info/ópera`
+- `info/órgão governamental`
+- `info/órgão judiciário` (catálogo parcial)
+- `info/órgão legislativo` (catálogo parcial)
+- `info/órgão público`
+- `info/ônibus espacial`
+
+## Predefinições auxiliares
+
+- `-fim`
+- `about` (catálogo parcial)
+- `afi`
+- `análises de jogo`
+- `ap` (catálogo parcial)
+- `artigo principal` (catálogo parcial)
+- `bloco de navegação`
+- `cabeçalho de discussão` (catálogo parcial)
+- `caixa de citação`
+- `carece de fontes` (catálogo parcial)
+- `citar arxiv` (catálogo parcial)
+- `citar box office mojo`
+- `citar comunicado de imprensa` (catálogo parcial)
+- `citar conferência` (catálogo parcial)
+- `citar discurso` (catálogo parcial)
+- `citar dissertação` (catálogo parcial)
+- `citar enciclopédia` (catálogo parcial)
+- `citar entrevista` (catálogo parcial)
+- `citar episódio` (catálogo parcial)
+- `citar grupo de notícias` (catálogo parcial)
+- `citar iucn`
+- `citar jogo eletrônico` (catálogo parcial)
+- `citar jornal` (catálogo parcial)
+- `citar lista de discussão` (catálogo parcial)
+- `citar livro` (catálogo parcial)
+- `citar magazine` (catálogo parcial)
+- `citar mapa` (catálogo parcial)
+- `citar mc`
+- `citar metacritic`
+- `citar notícia` (catálogo parcial)
+- `citar patente`
+- `citar periodico` (catálogo parcial)
+- `citar periódico` (catálogo parcial)
+- `citar podcast` (catálogo parcial)
+- `citar publicação` (catálogo parcial)
+- `citar relatório` (catálogo parcial)
+- `citar relatório técnico` (catálogo parcial)
+- `citar revista` (catálogo parcial)
+- `citar rotten tomatoes`
+- `citar rt`
+- `citar série` (catálogo parcial)
+- `citar tese` (catálogo parcial)
+- `citar the numbers`
+- `citar tweet` (catálogo parcial)
+- `citar vídeo` (catálogo parcial)
+- `citar vídeo notas` (catálogo parcial)
+- `citar web` (catálogo parcial)
+- `citation` (catálogo parcial)
+- `citação`
+- `citação em bloco`
+- `ciências-vertical`
+- `colunas` (catálogo parcial)
+- `colunas-lista`
+- `commons`
+- `commonscat`
+- `consistório`
+- `controle de autoridade` (catálogo parcial)
+- `convert`
+- `converter`
+- `coord` (catálogo parcial)
+- `coordenadas`
+- `dataext`
+- `desambig`
+- `desambiguação`
+- `dica de contexto` (catálogo parcial)
+- `distinguish`
+- `div col`
+- `div col fim`
+- `dni`
+- `doi`
+- `efn`
+- `facebook`
+- `fontes primárias`
+- `football squad lastplayer`
+- `formatar número` (catálogo parcial)
+- `formatnum` (catálogo parcial)
+- `galeria` (catálogo parcial)
+- `grande`
+- `harv` (catálogo parcial)
+- `harvcol` (catálogo parcial)
+- `harvcolnb`
+- `harvcoltxt` (catálogo parcial)
+- `harvid`
+- `harvnb`
+- `harvref` (catálogo parcial)
+- `harvtxt` (catálogo parcial)
+- `hlist`
+- `idade`
+- `imagem dupla`
+- `imagem múltipla` (catálogo parcial)
+- `info usuário`
+- `infobox paralympics maurício`
+- `instagram`
+- `inícioref`
+- `ipa`
+- `ipac-en`
+- `isbn` (catálogo parcial)
+- `issn` (catálogo parcial)
+- `lang`
+- `ligação inativa`
+- `linkedin`
+- `lista horizontal`
+- `lista simples`
+- `listanota`
+- `língua`
+- `mais fontes` (catálogo parcial)
+- `mais notas` (catálogo parcial)
+- `marca de projeto` (catálogo parcial)
+- `maría mercedes`
+- `menu lateral ocultável` (catálogo parcial)
+- `meta/persondata`
+- `mitologia ibo`
+- `multicol`
+- `multicol-break`
+- `multicol-end`
+- `navbox`
+- `navbox com colunas`
+- `navbox com grupos desmontáveis` (catálogo parcial)
+- `navbox with collapsible groups` (catálogo parcial)
+- `navbox with columns`
+- `navbox/core`
+- `navcaixa/time2`
+- `navecaixa lateral/idade do bronze`
+- `navecaixa lateral/idade do ferro`
+- `navegação`
+- `nota`
+- `notas`
+- `notas e referências`
+- `notelist`
+- `nowrap`
+- `nre`
+- `não confundir`
+- `não confundir com`
+- `oficial`
+- `outros significados`
+- `outros usos`
+- `parcial` (catálogo parcial)
+- `pd` (catálogo parcial)
+- `pdf`
+- `pdflink`
+- `pequeno`
+- `plainlist`
+- `pmc`
+- `pmid`
+- `portal` (catálogo parcial)
+- `portal3`
+- `publicidade`
+- `quote`
+- `quote box`
+- `reciclagem` (catálogo parcial)
+- `referências`
+- `reflist`
+- `refn`
+- `religião na roma antiga`
+- `resultados de wrestling profissional`
+- `sem fontes` (catálogo parcial)
+- `sfn` (catálogo parcial)
+- `sfnm`
+- `sfnmp`
+- `sfnp` (catálogo parcial)
+- `sfnref`
+- `sidebar` (catálogo parcial)
+- `sidebar with collapsible lists` (catálogo parcial)
+- `site oficial`
+- `small`
+- `sobre`
+- `time`
+- `time3`
+- `time4`
+- `tooltip` (catálogo parcial)
+- `traduzido` (catálogo parcial)
+- `tradução/ref`
+- `tradução/ref2`
+- `transl`
+- `twitter`
+- `ver artigo principal` (catálogo parcial)
+- `ver desambig`
+- `ver também` (catálogo parcial)
+- `vt` (catálogo parcial)
+- `wayback` (catálogo parcial)
+- `webarchive` (catálogo parcial)
+- `website oficial` (catálogo parcial)
+- `wikcionário`
+- `wikibooks`
+- `wikidata`
+- `wikificação` (catálogo parcial)
+- `wikilivros`
+- `wikinews`
+- `wikinotícias`
+- `wikiquote`
+- `wikisource`
+- `wikispecies`
+- `wikiversidade`
+- `wikiversity`
+- `wikivoyage`
+- `youtube` (catálogo parcial)
+
+## Modelos estrangeiros e seus destinos
+
+- `ap` → `Artigo principal` [es]
+- `article` → `Citation` [fr]
+- `article principal` → `Artigo principal` [fr]
+- `auktoriteettitunnisteet` → `Controle de autoridade` [fi]
+- `auktoritetsdata` → `Controle de autoridade` [sv]
+- `authority control` → `Controle de autoridade` [en]
+- `autoritetsdata` → `Controle de autoridade` [da]
+- `autorité` → `Controle de autoridade` [fr]
+- `bibliografische informatie` → `Controle de autoridade` [nl]
+- `bokref` → `Citar livro` [sv]
+- `bản mẫu:chú thích báo` → `Citation` [vi]
+- `bản mẫu:chú thích sách` → `Citar livro` [vi]
+- `bản mẫu:chú thích tạp chí` → `Citar revista` [vi]
+- `bản mẫu:chú thích web` → `Citar web` [vi]
+- `bản mẫu:kiểm soát tính nhất quán` → `Controle de autoridade` [vi]
+- `bản mẫu:tham khảo` → `Referências` [vi]
+- `chapitre` → `Citar livro` [fr]
+- `chú thích báo` → `Citation` [vi]
+- `chú thích sách` → `Citar livro` [vi]
+- `chú thích tạp chí` → `Citar revista` [vi]
+- `chú thích web` → `Citar web` [vi]
+- `cita conferencia` → `Citar conferência` [es]
+- `cita libro` → `Citar livro` [es]
+- `cita news` → `Citation` [it]
+- `cita noticia` → `Citation` [es]
+- `cita pubblicazione` → `Citar periódico` [it]
+- `cita publicación` → `Citar periódico` [es]
+- `cita tesis` → `Citar tese` [es]
+- `cita web` → `Citar web` [es]
+- `citat carte` → `Citar livro` [ro]
+- `citat revistă` → `Citar periódico` [ro]
+- `citat web` → `Citar web` [ro]
+- `citat știre` → `Citation` [ro]
+- `citeer boek` → `Citar livro` [nl]
+- `citeer journal` → `Citar periódico` [nl]
+- `citeer nieuws` → `Citation` [nl]
+- `citeer web` → `Citar web` [nl]
+- `commons category` → `Commonscat` [en]
+- `commonscat` → `Commonscat` [de]
+- `control de autoridades` → `Controle de autoridade` [es]
+- `control de autoritate` → `Controle de autoridade` [ro]
+- `controllo di autorità` → `Controle de autoridade` [it]
+- `date` → `DataExt` [fr]
+- `date de décès` → `DataExt` [fr]
+- `date de naissance` → `DataExt` [fr]
+- `dergi kaynağı` → `Citar periódico` [tr]
+- `efn` → `Nre` [en]
+- `ficha de científico` → `Info/Cientista` [es]
+- `ficha de película` → `Info/Filme` [es]
+- `ficha de persona` → `Info/Biografia` [es]
+- `format:citat carte` → `Citar livro` [ro]
+- `format:citat revistă` → `Citar periódico` [ro]
+- `format:citat web` → `Citar web` [ro]
+- `format:citat știre` → `Citation` [ro]
+- `format:control de autoritate` → `Controle de autoridade` [ro]
+- `format:listănote` → `Referências` [ro]
+- `format:reflist` → `Referências` [ro]
+- `further` → `Ver também` [en]
+- `haber kaynağı` → `Citation` [tr]
+- `hauptartikel` → `Artigo principal` [de]
+- `infobox biographie` → `Info/Biografia` [fr]
+- `infobox biographie2` → `Info/Biografia` [fr]
+- `infobox cinéma (film)` → `Info/Filme` [fr]
+- `infobox film` → `Info/Filme` [en]
+- `infobox person` → `Info/Biografia` [en]
+- `infobox scientist` → `Info/Cientista` [en]
+- `internetquelle` → `Citar web` [de]
+- `kaynakça` → `Referências` [tr]
+- `kilde artikkel` → `Citar periódico` [no]
+- `kilde bok` → `Citar livro` [no]
+- `kilde nyheder` → `Citation` [da]
+- `kilde www` → `Citar web` [no]
+- `kirjaviite` → `Citar livro` [fi]
+- `kitap kaynağı` → `Citar livro` [tr]
+- `kiểm soát tính nhất quán` → `Controle de autoridade` [vi]
+- `langue` → `Lang` [fr]
+- `lehtiviite` → `Citation` [fi]
+- `lien web` → `Citar web` [fr]
+- `lista simple` → `Lista simples` [es]
+- `listaref` → `Referências` [es]
+- `listănote` → `Referências` [ro]
+- `literatur` → `Citar livro` [de]
+- `main` → `Artigo principal` [en]
+- `mal:autoritetsdata` → `Controle de autoridade` [nn]
+- `mal:cite book` → `Citar livro` [nn]
+- `mal:cite journal` → `Citar periódico` [nn]
+- `mal:cite news` → `Citation` [nn]
+- `mal:cite web` → `Citar web` [nn]
+- `mal:kilde artikkel` → `Citar periódico` [no]
+- `mal:kilde bok` → `Citar livro` [no]
+- `mal:kilde www` → `Citar web` [no]
+- `mal:referansar` → `Referências` [nn]
+- `mal:referanser` → `Referências` [no]
+- `mall:auktoritetsdata` → `Controle de autoridade` [sv]
+- `mall:bokref` → `Citar livro` [sv]
+- `mall:tidningsref` → `Citation` [sv]
+- `mall:tidskriftsref` → `Citar periódico` [sv]
+- `mall:webbref` → `Citar web` [sv]
+- `malline:auktoriteettitunnisteet` → `Controle de autoridade` [fi]
+- `malline:kirjaviite` → `Citar livro` [fi]
+- `malline:lehtiviite` → `Citation` [fi]
+- `malline:verkkoviite` → `Citar web` [fi]
+- `malline:viitteet` → `Referências` [fi]
+- `modèle:article` → `Citation` [fr]
+- `modèle:article principal` → `Artigo principal` [fr]
+- `modèle:autorité` → `Controle de autoridade` [fr]
+- `modèle:chapitre` → `Citar livro` [fr]
+- `modèle:date` → `DataExt` [fr]
+- `modèle:date de décès` → `DataExt` [fr]
+- `modèle:date de naissance` → `DataExt` [fr]
+- `modèle:infobox biographie` → `Info/Biografia` [fr]
+- `modèle:infobox biographie2` → `Info/Biografia` [fr]
+- `modèle:infobox cinéma (film)` → `Info/Filme` [fr]
+- `modèle:langue` → `Lang` [fr]
+- `modèle:lien web` → `Citar web` [fr]
+- `modèle:notes` → `Referências` [fr]
+- `modèle:ouvrage` → `Citar livro` [fr]
+- `modèle:références` → `Referências` [fr]
+- `modèle:sfn` → `Sfn` [fr]
+- `modèle:site officiel` → `Oficial` [fr]
+- `modèle:voir aussi` → `Ver também` [fr]
+- `normdaten` → `Controle de autoridade` [de]
+- `notelist` → `Notas` [en]
+- `notes` → `Referências` [fr]
+- `official website` → `Oficial` [en]
+- `otorite kontrolü` → `Controle de autoridade` [tr]
+- `ouvrage` → `Citar livro` [fr]
+- `plainlist` → `Lista simples` [en]
+- `plantilla:ap` → `Artigo principal` [es]
+- `plantilla:cita conferencia` → `Citar conferência` [es]
+- `plantilla:cita libro` → `Citar livro` [es]
+- `plantilla:cita noticia` → `Citation` [es]
+- `plantilla:cita publicación` → `Citar periódico` [es]
+- `plantilla:cita tesis` → `Citar tese` [es]
+- `plantilla:cita web` → `Citar web` [es]
+- `plantilla:commonscat` → `Commonscat` [es]
+- `plantilla:control de autoridades` → `Controle de autoridade` [es]
+- `plantilla:ficha de científico` → `Info/Cientista` [es]
+- `plantilla:ficha de película` → `Info/Filme` [es]
+- `plantilla:ficha de persona` → `Info/Biografia` [es]
+- `plantilla:lista simple` → `Lista simples` [es]
+- `plantilla:listaref` → `Referências` [es]
+- `plantilla:sfn` → `Sfn` [es]
+- `plantilla:sitio web oficial` → `Oficial` [es]
+- `referansar` → `Referências` [nn]
+- `referanser` → `Referências` [no]
+- `références` → `Referências` [fr]
+- `see also` → `Ver também` [en]
+- `sfn` → `Sfn` [en]
+- `siehe auch` → `Ver também` [de]
+- `site officiel` → `Oficial` [fr]
+- `sitio web oficial` → `Oficial` [es]
+- `sjabloon:bibliografische informatie` → `Controle de autoridade` [nl]
+- `sjabloon:citeer boek` → `Citar livro` [nl]
+- `sjabloon:citeer journal` → `Citar periódico` [nl]
+- `sjabloon:citeer nieuws` → `Citation` [nl]
+- `sjabloon:citeer web` → `Citar web` [nl]
+- `sjabloon:references` → `Referências` [nl]
+- `skabelon:autoritetsdata` → `Controle de autoridade` [da]
+- `skabelon:cite book` → `Citar livro` [da]
+- `skabelon:cite journal` → `Citar periódico` [da]
+- `skabelon:cite news` → `Citation` [da]
+- `skabelon:cite web` → `Citar web` [da]
+- `skabelon:kilde nyheder` → `Citation` [da]
+- `skabelon:reflist` → `Referências` [da]
+- `template:auktoriteettitunnisteet` → `Controle de autoridade` [fi]
+- `template:auktoritetsdata` → `Controle de autoridade` [sv]
+- `template:authority control` → `Controle de autoridade` [zh-yue]
+- `template:autoritetsdata` → `Controle de autoridade` [da]
+- `template:bibliografische informatie` → `Controle de autoridade` [nl]
+- `template:bokref` → `Citar livro` [sv]
+- `template:chú thích báo` → `Citation` [vi]
+- `template:chú thích sách` → `Citar livro` [vi]
+- `template:chú thích tạp chí` → `Citar revista` [vi]
+- `template:chú thích web` → `Citar web` [vi]
+- `template:cita libro` → `Citar livro` [it]
+- `template:cita news` → `Citation` [it]
+- `template:cita pubblicazione` → `Citar periódico` [it]
+- `template:cita web` → `Citar web` [it]
+- `template:citat carte` → `Citar livro` [ro]
+- `template:citat revistă` → `Citar periódico` [ro]
+- `template:citat web` → `Citar web` [ro]
+- `template:citat știre` → `Citation` [ro]
+- `template:cite book` → `Citar livro` [zh-yue]
+- `template:cite journal` → `Citar periódico` [zh-yue]
+- `template:cite news` → `Citation` [zh-yue]
+- `template:cite web` → `Citar web` [zh-yue]
+- `template:citeer boek` → `Citar livro` [nl]
+- `template:citeer journal` → `Citar periódico` [nl]
+- `template:citeer nieuws` → `Citation` [nl]
+- `template:citeer web` → `Citar web` [nl]
+- `template:commons category` → `Commonscat` [en]
+- `template:control de autoritate` → `Controle de autoridade` [ro]
+- `template:controllo di autorità` → `Controle de autoridade` [it]
+- `template:dergi kaynağı` → `Citar periódico` [tr]
+- `template:efn` → `Nre` [en]
+- `template:further` → `Ver também` [en]
+- `template:haber kaynağı` → `Citation` [tr]
+- `template:infobox film` → `Info/Filme` [en]
+- `template:infobox person` → `Info/Biografia` [en]
+- `template:infobox scientist` → `Info/Cientista` [en]
+- `template:kaynakça` → `Referências` [tr]
+- `template:kilde artikkel` → `Citar periódico` [no]
+- `template:kilde bok` → `Citar livro` [no]
+- `template:kilde nyheder` → `Citation` [da]
+- `template:kilde www` → `Citar web` [no]
+- `template:kirjaviite` → `Citar livro` [fi]
+- `template:kitap kaynağı` → `Citar livro` [tr]
+- `template:kiểm soát tính nhất quán` → `Controle de autoridade` [vi]
+- `template:lehtiviite` → `Citation` [fi]
+- `template:listănote` → `Referências` [ro]
+- `template:main` → `Artigo principal` [en]
+- `template:normdaten` → `Controle de autoridade` [ja]
+- `template:notelist` → `Notas` [en]
+- `template:official website` → `Oficial` [en]
+- `template:otorite kontrolü` → `Controle de autoridade` [tr]
+- `template:plainlist` → `Lista simples` [en]
+- `template:referansar` → `Referências` [nn]
+- `template:referanser` → `Referências` [no]
+- `template:reflist` → `Referências` [zh-yue]
+- `template:see also` → `Ver também` [en]
+- `template:sfn` → `Sfn` [en]
+- `template:tham khảo` → `Referências` [vi]
+- `template:tidningsref` → `Citation` [sv]
+- `template:tidskriftsref` → `Citar periódico` [sv]
+- `template:unbulleted list` → `Lista simples` [en]
+- `template:verkkoviite` → `Citar web` [fi]
+- `template:viitteet` → `Referências` [fi]
+- `template:web kaynağı` → `Citar web` [tr]
+- `template:webbref` → `Citar web` [sv]
+- `template:книга` → `Citar livro` [ru]
+- `template:примечания` → `Referências` [ru]
+- `template:примітки` → `Referências` [uk]
+- `template:стаття` → `Citar periódico` [uk]
+- `template:статья` → `Citar periódico` [ru]
+- `template:בקרת זהויות` → `Controle de autoridade` [he]
+- `template:הערות שוליים` → `Referências` [he]
+- `template:קישור כללי` → `Citar web` [he]
+- `template:استشهاد بخبر` → `Citation` [ar]
+- `template:استشهاد بدورية` → `Citar periódico` [ar]
+- `template:استشهاد بدورية محكمة` → `Citar periódico` [ar]
+- `template:استشهاد بكتاب` → `Citar livro` [ar]
+- `template:استشهاد بويب` → `Citar web` [ar]
+- `template:استشهاد ويب` → `Citar web` [ar]
+- `template:ضبط استنادي` → `Controle de autoridade` [ar]
+- `template:مراجع` → `Referências` [ar]
+- `template:รายการอ้างอิง` → `Referências` [th]
+- `template:引書` → `Citar livro` [zh-yue]
+- `template:引網` → `Citar web` [zh-yue]
+- `template:각주` → `Referências` [ko]
+- `template:뉴스 인용` → `Citation` [ko]
+- `template:서적 인용` → `Citar livro` [ko]
+- `template:웹 인용` → `Citar web` [ko]
+- `template:저널 인용` → `Citar periódico` [ko]
+- `template:전거 통제` → `Controle de autoridade` [ko]
+- `tham khảo` → `Referências` [vi]
+- `tidningsref` → `Citation` [sv]
+- `tidskriftsref` → `Citar periódico` [sv]
+- `unbulleted list` → `Lista simples` [en]
+- `verkkoviite` → `Citar web` [fi]
+- `viitteet` → `Referências` [fi]
+- `voir aussi` → `Ver também` [fr]
+- `vorlage:commonscat` → `Commonscat` [de]
+- `vorlage:hauptartikel` → `Artigo principal` [de]
+- `vorlage:infobox film` → `Info/Filme` [de]
+- `vorlage:internetquelle` → `Citar web` [de]
+- `vorlage:literatur` → `Citar livro` [de]
+- `vorlage:normdaten` → `Controle de autoridade` [de]
+- `vorlage:sfn` → `Sfn` [de]
+- `vorlage:siehe auch` → `Ver também` [de]
+- `web kaynağı` → `Citar web` [tr]
+- `webbref` → `Citar web` [sv]
+- `şablon:dergi kaynağı` → `Citar periódico` [tr]
+- `şablon:haber kaynağı` → `Citation` [tr]
+- `şablon:kaynakça` → `Referências` [tr]
+- `şablon:kitap kaynağı` → `Citar livro` [tr]
+- `şablon:otorite kontrolü` → `Controle de autoridade` [tr]
+- `şablon:web kaynağı` → `Citar web` [tr]
+- `книга` → `Citar livro` [ru]
+- `примечания` → `Referências` [ru]
+- `примітки` → `Referências` [uk]
+- `стаття` → `Citar periódico` [uk]
+- `статья` → `Citar periódico` [ru]
+- `шаблон:cite book` → `Citar livro` [uk]
+- `шаблон:cite journal` → `Citar periódico` [uk]
+- `шаблон:cite news` → `Citation` [uk]
+- `шаблон:cite web` → `Citar web` [uk]
+- `шаблон:reflist` → `Referências` [uk]
+- `шаблон:книга` → `Citar livro` [uk]
+- `шаблон:примечания` → `Referências` [ru]
+- `шаблон:примітки` → `Referências` [uk]
+- `шаблон:стаття` → `Citar periódico` [uk]
+- `шаблон:статья` → `Citar periódico` [ru]
+- `בקרת זהויות` → `Controle de autoridade` [he]
+- `הערות שוליים` → `Referências` [he]
+- `קישור כללי` → `Citar web` [he]
+- `תבנית:cite book` → `Citar livro` [he]
+- `תבנית:cite journal` → `Citar periódico` [he]
+- `תבנית:cite news` → `Citation` [he]
+- `תבנית:cite web` → `Citar web` [he]
+- `תבנית:בקרת זהויות` → `Controle de autoridade` [he]
+- `תבנית:הערות שוליים` → `Referências` [he]
+- `תבנית:קישור כללי` → `Citar web` [he]
+- `استشهاد بخبر` → `Citation` [ar]
+- `استشهاد بدورية` → `Citar periódico` [ar]
+- `استشهاد بدورية محكمة` → `Citar periódico` [ar]
+- `استشهاد بكتاب` → `Citar livro` [ar]
+- `استشهاد بويب` → `Citar web` [ar]
+- `استشهاد ويب` → `Citar web` [ar]
+- `ضبط استنادي` → `Controle de autoridade` [ar]
+- `قالب:استشهاد بخبر` → `Citation` [ar]
+- `قالب:استشهاد بدورية` → `Citar periódico` [ar]
+- `قالب:استشهاد بدورية محكمة` → `Citar periódico` [ar]
+- `قالب:استشهاد بكتاب` → `Citar livro` [ar]
+- `قالب:استشهاد بويب` → `Citar web` [ar]
+- `قالب:استشهاد ويب` → `Citar web` [ar]
+- `قالب:ضبط استنادي` → `Controle de autoridade` [ar]
+- `قالب:مراجع` → `Referências` [ar]
+- `مراجع` → `Referências` [ar]
+- `รายการอ้างอิง` → `Referências` [th]
+- `แม่แบบ:authority control` → `Controle de autoridade` [th]
+- `แม่แบบ:cite book` → `Citar livro` [th]
+- `แม่แบบ:cite journal` → `Citar periódico` [th]
+- `แม่แบบ:cite news` → `Citation` [th]
+- `แม่แบบ:cite web` → `Citar web` [th]
+- `แม่แบบ:รายการอ้างอิง` → `Referências` [th]
+- `引書` → `Citar livro` [zh-yue]
+- `引網` → `Citar web` [zh-yue]
+- `각주` → `Referências` [ko]
+- `뉴스 인용` → `Citation` [ko]
+- `서적 인용` → `Citar livro` [ko]
+- `웹 인용` → `Citar web` [ko]
+- `저널 인용` → `Citar periódico` [ko]
+- `전거 통제` → `Controle de autoridade` [ko]
+- `틀:각주` → `Referências` [ko]
+- `틀:뉴스 인용` → `Citation` [ko]
+- `틀:서적 인용` → `Citar livro` [ko]
+- `틀:웹 인용` → `Citar web` [ko]
+- `틀:저널 인용` → `Citar periódico` [ko]
+- `틀:전거 통제` → `Controle de autoridade` [ko]
+
+## Tratamentos explícitos de modelos obsoletos
+
+- `azul`: replace → `Cor do texto`.
+- `birth date`: replace → `Dni`.
+- `birth date and age`: replace → `Dni`.
+- `birth date and age2`: manual → `Dni plus Idade`.
+- `branco`: replace → `Cor do texto`.
+- `cite doi`: manual → `Citar periódico`.
+- `cite jstor`: manual → `Citar periódico`.
+- `código língua`: manual → `Língua-meta`.
+- `d.`: manual → `Lknb`.
+- `death date`: replace → `Morte`.
+- `death date and age`: replace → `Morte`.
+- `desambigexplicada`: replace → `Ver desambig`.
+- `descrição curta`: remove_top_level.
+- `destaque`: manual → `Destaca`.
+- `divref-ini`: manual → `Referências`.
+- `falecimento`: replace → `Morte`.
+- `falecimento e idade`: replace → `Morte`.
+- `língua`: replace → `Língua-meta`.
+- `minidesambig`: replace → `Ver desambig`.
+- `morte e idade`: replace → `Morte`.
+- `nascimento`: replace → `Dni`.
+- `nota`: manual → `ref/references tags`.
+- `outrosusos`: replace → `Ver desambig`.
+- `politônico`: replace → `Lang`.
+- `preto`: replace → `Cor do texto`.
+- `ref`: manual → `ref/references tags`.
+- `ref label`: manual → `ref/references tags`.
+- `reflist`: replace → `Referências`.
+- `sem imagem-biografia`: replace_maintenance → `Sem imagem`.
+- `sem interwiki`: remove_top_level.
+- `tabela bonita`: replace_literal → `class="wikitable"`.
+- `tradução integral`: manual → `Traduzido on talk page`.
+- `ver desambiguação2`: replace → `Ver desambig`.
+
+## Opções técnicas padrão
+
+A interface agrupa essas opções por finalidade. Desligar uma opção não autoriza ignorar a preservação.
+
+- `automaticInfoboxValues`: ligada.
+- `automaticReferenceCollectorHeadings`: ligada.
+- `automaticSourceCompatibility`: ligada.
+- `automaticCitationIslands`: ligada.
+- `automaticProseGaps`: ligada.
+- `automaticCitationDateValues`: ligada.
+- `automaticCitationKeyRepairs`: ligada.
+- `automaticLegacyMarkup`: ligada.
+- `automaticBiographyFields`: ligada.
+- `automaticInfoboxOrder`: ligada.
+- `automaticFieldSyntax`: ligada.
+- `automaticInfoboxImages`: ligada.
+- `automaticBiographyLead`: ligada.
+- `templateDefinitionRepairs`: ligada.
+- `templateReadableFormatting`: ligada.
+- `syntaxRepairs`: ligada.
+- `partialSyntaxRecovery`: ligada.
+- `structuralRepairs`: ligada.
+- `translationResidues`: ligada.
+- `autoPreview`: ligada.
+- `registryDoiCheck`: ligada.
+- `biographyStyleChecks`: ligada.
+- `automaticTableRepairs`: ligada.
+- `tableAccessibility`: ligada.
+- `referenceGraphRepairs`: ligada.
+- `harvardAnchorRepairs`: ligada.
+- `tableSyntaxRepairs`: ligada.
+- `responsiveTableWrappers`: ligada.
+- `independentRepairGroups`: ligada.
+- `automaticReferenceRepairs`: ligada.
+- `identifierUrlRepairs`: ligada.
+- `redundantBirthCategories`: ligada.
+- `historicalCitationRepairs`: ligada.
+- `citations`: ligada.
+- `dates`: ligada.
+- `links`: ligada.
+- `references`: ligada.
+- `auxiliaryTemplates`: ligada.
+- `headings`: ligada.
+- `shortDescriptions`: ligada.
+- `portals`: ligada.
+- `biographyPortal`: ligada.
+- `multilingual`: ligada.
+- `authorityControl`: ligada.
+- `endTemplateOrder`: ligada.
+- `endSectionOrder`: ligada.
+- `unifiedNotesReferences`: ligada.
+- `externalLinkColumns`: ligada.
+- `endMatterColumns`: ligada.
+- `occupationCase`: ligada.
+- `automaticSpelling`: ligada.
+- `automaticBiographyPortals`: ligada.
+- `automaticTopicPortals`: ligada.
+- `livingBirthAge`: ligada.
+- `neutralReferenceNames`: ligada.
+- `automaticIdenticalReferences`: ligada.
+- `automaticParameterDuplicates`: ligada.
+- `automaticParameterNames`: ligada.
+- `automaticEmptyParameters`: ligada.
+- `autoMinor`: ligada.
+- `numericRefNames`: ligada.
+- `citationRepairs`: ligada.
+- `referenceColumns`: ligada.
+- `shortCitationChecks`: ligada.
+- `tableChecks`: ligada.
+- `dateChecks`: ligada.
+- `singleLineCitations`: ligada.
+- `moveNamedRefs`: ligada.
+- `birthDates`: ligada.
+- `obsoleteTemplates`: ligada.
+- `infoboxes`: ligada.
+- `authors`: ligada.
+- `bareReferences`: ligada.
+- `markup`: ligada.
+- `categories`: ligada.
+- `endMatter`: ligada.
+- `maintenance`: ligada.
+- `shortcuts`: ligada.
+- `review`: ligada.
+- `autoSummary`: ligada.

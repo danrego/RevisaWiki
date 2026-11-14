@@ -1,0 +1,45 @@
+RevisaWiki 2.22.0: relatório de testes
+
+Validação concluída com limites de desempenho documentados. As capturas interrompidas permanecem inconclusivas e não contam como aprovações.
+
+As verificações descritas aqui correspondem aos arquivos finais da versão 2.22.0. Os testes dirigidos, os testes herdados, as capturas reais, a interface nos navegadores, os exemplos da documentação e o pré-salvamento nativo examinam aspectos diferentes. Suas contagens se sobrepõem e não devem ser somadas como um total de casos únicos.
+
+Testes dirigidos e verificações herdadas
+
+O executor final concluiu 127 grupos, com 269.929 verificações e 3.876 casos informados, nas distribuições modular e completa. Os recibos focados e de inferência selecionam execuções dessa mesma rodada e não representam novas execuções adicionais.
+
+Foram preservados os resultados originais das 34 execuções herdadas: 26 passaram diretamente e oito registraram falhas de expectativas antigas. As oito receberam revisões específicas e limitadas às mudanças aprovadas, sem apagar as falhas originais ou afrouxar as verificações de integridade. Essas revisões registraram 41.584 verificações, com 2.154 chamadas na versão atual e 790 na base histórica. Recusas seguras que mantiveram o texto não receberam crédito de correção automática.
+
+A comparação entre os planos de reparo e a ação completa confirmou 1.323 casos em cada distribuição. Um controle com evidência deliberadamente inválida foi recusado como esperado e permaneceu separado das aprovações de normalização. Essa comparação não afirma que provas externas continuam válidas depois de alterar o rascunho.
+
+Os 52 testes unitários das ferramentas de construção e verificação passaram. Essa contagem pertence às ferramentas e não substitui os testes do programa.
+
+Interface e demonstração
+
+A interface passou em Chrome, Firefox e Safari, com 997 verificações em cada navegador. Uma espera real de 61.953 ms, cerca de 62 segundos, confirmou a aplicação do resultado sem prazo fixo introduzido no programa. Também foram conferidos desfazer, cancelar e preservar um rascunho editado durante a espera.
+
+A demonstração contém 170 exemplos. Houve seis execuções em navegadores reais: três por endereço local e três abrindo diretamente o arquivo portátil. Cada execução abriu 36 exemplos, em larguras de 390 e 1.280 pixels. Isso não equivale a testar visualmente todos os 170 exemplos nem a certificar artigos reais.
+
+Documentação e pré-salvamento
+
+O manual conserva os 190 comportamentos documentados, os 170 IDs anteriores e o histórico. Seus 422 blocos de exemplos mantiveram o texto literal exato na saída nativa e no navegador. A prévia completa não apresentou erro de citação ou avisos. Essa prova verifica a apresentação dos exemplos, sem atribuir a cada regra uma equivalência nativa que não tenha sido examinada separadamente.
+
+Oito scripts instaláveis passaram pelo pré-salvamento nativo, preservando o conteúdo com a única diferença admitida de uma quebra de linha final. O arquivo de dados também conservou seu conteúdo decodificado. Foram usadas prévias anônimas, sem salvar páginas.
+
+Capturas reais e limites
+
+A rodada final concluiu as 1.919 capturas ativas: 1.918 passaram e uma ficou inconclusiva ao atingir o prazo externo do teste. Nenhuma falha de integridade foi registrada. Entre as aprovadas, 1.904 receberam ajustes e 14 permaneceram inalteradas. As duas distribuições foram comparadas quanto ao resultado, às referências e aos trechos literais, com repetição da ação para conferir que ela não acrescenta novas mudanças.
+
+Foram registradas 70.969 verificações. Das 15.352 chamadas de API previstas, 15.345 foram tentadas e 15.344 terminaram; a chamada que atingiu o prazo não produziu saída, e as sete restantes daquela captura não foram executadas. Elas não receberam crédito de aprovação. Esses números descrevem a rodada de capturas reais e não são somados aos testes dirigidos.
+
+Das 2.000 capturas selecionadas originalmente, 81 já haviam atingido limites externos de recursos: três na primeira separação e outras 78 na rodada observada depois. Essas 81 não foram repetidas nem substituídas por outras e não contam como aprovadas. O limite protege o processo de teste e não é um prazo global do RevisaWiki. O conjunto examinado inclui textos complexos de aproximadamente 80 a 348 KB; seus resultados individuais continuam sujeitos ao registro de cada tentativa.
+
+As falhas encontradas nas tentativas anteriores permanecem nos comprovantes. As correções foram verificadas em casos dirigidos e em capturas preservadas, inclusive quanto à associação das referências, à manutenção de definições nomeadas e à repetição da ação sem novas mudanças. Os arquivos de entrada, o executor e os componentes testados conservaram os mesmos hashes durante a rodada final.
+
+Escopo da conclusão
+
+Os 408 registros do plano são rastreabilidade, não 408 funcionalidades. A conferência de milhares de entradas de catálogo verifica seus dados e condições, sem significar milhares de aplicações reais aprovadas. A categorização factual permanece restrita aos casos com evidência e reconhecedor previstos; os demais perfis continuam condicionais ou retidos.
+
+As verificações técnicas não certificam a veracidade ou a relevância enciclopédica de todo texto que possa ser editado. Nenhuma publicação na Wikipédia ou alteração no Wikidata foi feita por esses testes.
+
+Comprovantes detalhados disponíveis no repositório, em tests/evidence/2.22.0: DIRECTED_QA.json, LEGACY_QA.json, FOCUSED_REFERENCES_FOOTER_STRUCTURE.json, INFERENCE_AND_DEMO.json, NATIVE_EDITOR_UI.json, FILE_DEMONSTRATION.json, NATIVE_DOCUMENTATION.json, NATIVE_INSTALLABLE_SCRIPTS.json, PRESAVE_ROUNDTRIP.json e CORPUS_QA.json. O pacote traz QA_SUMMARY.json com os resultados e as referências aos comprovantes, além dos registros de pré-salvamento e de cobertura do plano.

@@ -1,0 +1,7 @@
+(function RevisaWikiCompleteStart(root,start){'use strict';
+const expectedData='@@PACKED_HASH@@',expectedCatalog='@@CATALOG_HASH@@',expectedRules='@@RULES_HASH@@';
+function canonical(value){if(value===null||typeof value!=='object')return JSON.stringify(value);if(Array.isArray(value))return '['+value.map(canonical).join(',')+']';return '{'+Object.keys(value).sort().map(key=>JSON.stringify(key)+':'+canonical(value[key])).join(',')+'}';}
+const inputs=[[canonical(root.RevisaWikiDataV2.packed),expectedData],[canonical(root.RevisaWikiCatalogV222.data),expectedCatalog],[root.RevisaWikiRulesV222.factory.toString(),expectedRules]];
+if(typeof module==='object'&&module.exports){const crypto=require('node:crypto');if(inputs.some(([raw,expected])=>crypto.createHash('sha256').update(raw).digest('hex')!==expected))throw new Error('Distribuição local do RevisaWiki incompatível');start(root);return;}
+root.RevisaWikiRulesBootPromise=Promise.resolve().then(async()=>{for(const[raw,expected]of inputs){const digest=await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)),hash=Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');if(hash!==expected)throw new Error('Distribuição local do RevisaWiki incompatível');}start(root);});
+})(typeof window==='undefined'?globalThis:window,@@BOOT@@);
