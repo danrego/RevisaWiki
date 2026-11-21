@@ -1,0 +1,3007 @@
+{
+  "schema": 1,
+  "version": "2.22.1",
+  "kind": "finite-fictional-regular-legacy-qualification",
+  "purpose": "Keep original tests and raw statuses; admit only enumerated source/old-expected/current-output triples backed by the approved current native contracts.",
+  "suitePins": {
+    "tests/v221/citation_writer_guards.cjs": {
+      "bytes": 4487,
+      "sha256": "fe6639341970518da701817afdf199b7608fa5cfd109271b617ed73bf2a506b5"
+    },
+    "tests/v221/citation_collector_scope.cjs": {
+      "bytes": 3892,
+      "sha256": "a7c5a6756422c5d807dcf4d6119b9ed0afc5f7bfca2d656d90093fc61e390987"
+    },
+    "tests/v221_integrity/archive_state_activation.cjs": {
+      "bytes": 10238,
+      "sha256": "3a02ef2a606fd29f8b9997448760c38ef3b42497061d15e8d9149315e5da344d"
+    },
+    "tests/v221/biography_cases.cjs": {
+      "bytes": 23987,
+      "sha256": "38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51"
+    }
+  },
+  "nativeSourcePins": {
+    "src/v2_21_5/aliases_parameters.js": {
+      "bytes": 37875,
+      "sha256": "48d5f768e2b17da84c2edf0168e014db1bf9314dca7518425f8275ca738683d3"
+    },
+    "src/v2_21_7/citation_state.js": {
+      "bytes": 1094,
+      "sha256": "8f499fa6c3ffe8a32c70eebba358d30bd1f7a99bf3cfe404ae5e25520c757d4e"
+    },
+    "src/v2_22_1/focused_infobox_data.json": {
+      "bytes": 146997,
+      "sha256": "f950ecfe376914991c54bbe1afdee4df667aea3ff3040dccb9d12b5ffd545fe6"
+    },
+    "src/v2_22_1/focused_infoboxes.js": {
+      "bytes": 41445,
+      "sha256": "8e7f73791ed5549d9c46eaa232bc180b7da04fcfc9f39b02b471860ab509e2f2"
+    }
+  },
+  "writer": [
+    {
+      "id": "case-space-0-0-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t=Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a16e81db5395a254647e8559be7dd501d8da711c0ced93becc5a6ea0738c704c",
+      "expectedSha256": "a16e81db5395a254647e8559be7dd501d8da711c0ced93becc5a6ea0738c704c",
+      "allowedOutputSha256": "8768cfe6f3cf02792ea62bf8b9c608b019616c3f48b1bb98665714c322ff5db1",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-0-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último =Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "359f744522036ed34d6d83e229b8a7d61f322febf6b87cdbeb90d93d710ddde4",
+      "expectedSha256": "359f744522036ed34d6d83e229b8a7d61f322febf6b87cdbeb90d93d710ddde4",
+      "allowedOutputSha256": "7dafe745cd08c431f59ba9aa2cd4e5ad965644fbdeb3ffd359f6d7312f5942d1",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-0-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tEditor-Último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "02248e3cbf0a6946dface498b0f1eeee55a275775051bcab810ff2f5abe75d0e",
+      "expectedSha256": "02248e3cbf0a6946dface498b0f1eeee55a275775051bcab810ff2f5abe75d0e",
+      "allowedOutputSha256": "5182df21c3c91dfd9db60dc7f88e59b6758f1d5620ed8ffa6823fdbbf305310a",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-0-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| Editor-Último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "360ddead9ec059171224dda732a7e1f32d4a39b3c26dc5a9d627cf707336dcea",
+      "expectedSha256": "360ddead9ec059171224dda732a7e1f32d4a39b3c26dc5a9d627cf707336dcea",
+      "allowedOutputSha256": "63c140753f3c8f3f5a82f4767c311e79322bba032ea92fd2d5d1cd155be606ad",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-0-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|Editor-Último=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|Editor-Último=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|Editor-Último=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "396fdc72a6a53f820c347cb5aac4801452d094287a7bef93c2a138365a7eea0a",
+      "expectedSha256": "396fdc72a6a53f820c347cb5aac4801452d094287a7bef93c2a138365a7eea0a",
+      "allowedOutputSha256": "51eb9365d1a15b9cd8679baef7f883a209c8c30c58101509d7cdcd90e20e5daf",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "cfdebdea74bb7bf53909cdd0a32d7bc1eaced3ab5c53fe02c67684c1e4fddfa1",
+      "expectedSha256": "cfdebdea74bb7bf53909cdd0a32d7bc1eaced3ab5c53fe02c67684c1e4fddfa1",
+      "allowedOutputSha256": "b5feb48ca95f7a43ada364ab1712bfd283861d92ed3e5bca64a6a47e9a8324f7",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último =Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "ad21596d7dc6edaf846e66ac6d38eb5e37f3f22f3d949b3ee772f42a44687c3d",
+      "expectedSha256": "ad21596d7dc6edaf846e66ac6d38eb5e37f3f22f3d949b3ee772f42a44687c3d",
+      "allowedOutputSha256": "5cd44f34e51188c90d78b6299866b24e67dc88c1a41b71428d8c64a594a4ddad",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-1-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |Editor-Último=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |Editor-Último=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=|Editor-Último=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "86dc4c4bd789585a2b5fe11375deaf3b1b5dee3f57749ea853f87d3f0f67c487",
+      "expectedSha256": "86dc4c4bd789585a2b5fe11375deaf3b1b5dee3f57749ea853f87d3f0f67c487",
+      "allowedOutputSha256": "ec988874f7b650117e647753ca85ec70938f322130dde8e11b7b7def8e9fd9c0",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| \tEditor-Último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "1c18cd68b5de3cce68c3cf8d11bab1aae6a43b64918b2659cd2cab1273f43a90",
+      "expectedSha256": "1c18cd68b5de3cce68c3cf8d11bab1aae6a43b64918b2659cd2cab1273f43a90",
+      "allowedOutputSha256": "6dc7830e6cf20dca43d24a8951cb0321cc1bd0c3dbb10b400de62066d6845453",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-1-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| Editor-Último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "b8ce269b3f0c414480519f66d5e68585188baaf3175e5fe95959ec9f221f9579",
+      "expectedSha256": "b8ce269b3f0c414480519f66d5e68585188baaf3175e5fe95959ec9f221f9579",
+      "allowedOutputSha256": "6805b0dfa4abdd9fd77eaaabe12e5ea7da2caf7471ada364d752c9f886caaabb",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-2-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t=Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "44aa73715d5fb05a4aed019e1f9d83ff7ea8e2e6381f358c416c6c7fdd6b468c",
+      "expectedSha256": "44aa73715d5fb05a4aed019e1f9d83ff7ea8e2e6381f358c416c6c7fdd6b468c",
+      "allowedOutputSha256": "49a7099219a5458217b09c495ac9d74965ef95312a1b9d648a284a67bfd1dbfe",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-2-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último =Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "cb5d63ad6cca4320e0e5f342463de1bcaeeba6bebd932a93e0f12b06007a655a",
+      "expectedSha256": "cb5d63ad6cca4320e0e5f342463de1bcaeeba6bebd932a93e0f12b06007a655a",
+      "allowedOutputSha256": "ec1e7b5cbefba0c4d3e0856e08b37abec71806320bfbc776aa98fcda6f116ef5",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-2-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tEditor-Último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "27ca76d59b8dc665f8ab797d1bd81030a7bf6cb27636cf95ffb36265fa65f8f7",
+      "expectedSha256": "27ca76d59b8dc665f8ab797d1bd81030a7bf6cb27636cf95ffb36265fa65f8f7",
+      "allowedOutputSha256": "9ec8c475a109be6f9936e8f2e433f585bcca7a61a2cef8973fcaed929068b864",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-2-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| Editor-Último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "7d4eb26210ce2b200658b203359b9aaee16b14b2fa7874e2181973f92e3d26a3",
+      "expectedSha256": "7d4eb26210ce2b200658b203359b9aaee16b14b2fa7874e2181973f92e3d26a3",
+      "allowedOutputSha256": "846515f6b5b0409b5e55ced102c26dc566a8787369797baa4fac19a527d3279e",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-3-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tEditor-Último \t=Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "ba84909a00581eb02aa3acaeec63bcbd5ffce5ab35586a49717504c4d731707c",
+      "expectedSha256": "ba84909a00581eb02aa3acaeec63bcbd5ffce5ab35586a49717504c4d731707c",
+      "allowedOutputSha256": "7f9551b3d305e307878cebc2d25c81cdac4fc1c74ce00712c6a9f275a3bc9f97",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-3-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| Editor-Último =Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "5ca95cc738ed79d8957d52fabe87218a5be78a70bc349f3ac0dd0831c3578cd6",
+      "expectedSha256": "5ca95cc738ed79d8957d52fabe87218a5be78a70bc349f3ac0dd0831c3578cd6",
+      "allowedOutputSha256": "68e167d7ecad518225e3e5ce1c1a78ac186471198e5e39a7ddfefbc76a82b94e",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-3-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tEditor-Último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tEditor-Último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "502880461db71274a23156b54cb3ae66e68b2c9a103898762b5c7a82b9e6105d",
+      "expectedSha256": "502880461db71274a23156b54cb3ae66e68b2c9a103898762b5c7a82b9e6105d",
+      "allowedOutputSha256": "97f6b3b65c1593879ced1881dfcca2384775c940acf66032e4e620530ff6bea8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-0-3-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| Editor-Último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| Editor-Último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "beb7d4bec33b02578015b1849630ea60545cd90f37e38e55a82be96b8f2c0472",
+      "expectedSha256": "beb7d4bec33b02578015b1849630ea60545cd90f37e38e55a82be96b8f2c0472",
+      "allowedOutputSha256": "a16798fc97c7dd89834320b08ad295a53c55e8c50a8423e84dbb71fa122c2b5a",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-0-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t=Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a23d4f0ce23603505cf0f682bf73bef4c53ca1843c45a132b3b191ad0702fc2f",
+      "expectedSha256": "a23d4f0ce23603505cf0f682bf73bef4c53ca1843c45a132b3b191ad0702fc2f",
+      "allowedOutputSha256": "372a256a3ee11d54a9538d5844b575053208641d8192905ceb7f50c4515bb571",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-0-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR =Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "b9d3485b9ac1ef44ba617308b27df8c74db7545562d675eed29fb19984324102",
+      "expectedSha256": "b9d3485b9ac1ef44ba617308b27df8c74db7545562d675eed29fb19984324102",
+      "allowedOutputSha256": "096b0085421dd82485c4ea047563d6518f55ebe0aa6c8f88c475b9772b764caa",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-0-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \tULTIMO-EDITOR \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a514e3038eb3096ccdef9ccb3ee96c471914d1748955f834be3872d6fba5d3d7",
+      "expectedSha256": "a514e3038eb3096ccdef9ccb3ee96c471914d1748955f834be3872d6fba5d3d7",
+      "allowedOutputSha256": "fc4a496fc8b24478827e0868adee1906eb5162cf8c884745e8128ca3eb51d6c3",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-0-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| ULTIMO-EDITOR =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "ee64a93867a510c98f174a973ca9f0958b72c8dce61d26d376f01757996c3079",
+      "expectedSha256": "ee64a93867a510c98f174a973ca9f0958b72c8dce61d26d376f01757996c3079",
+      "allowedOutputSha256": "7dfa34291966b35053fc0db9e2415ca508c1ea68ad5fd23aec434e5964e384f3",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-0-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ULTIMO-EDITOR=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ULTIMO-EDITOR=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ULTIMO-EDITOR=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "d9cebfa1bee8f8c9ac518453ba9c7bca77242b90a4e0c36f2e7a0c40562e27dc",
+      "expectedSha256": "d9cebfa1bee8f8c9ac518453ba9c7bca77242b90a4e0c36f2e7a0c40562e27dc",
+      "allowedOutputSha256": "c96c4b65054d8624900c7f09d81fb727ca167a099bcfed556a2b2d3a6c9bb629",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "7b18c41da850df0eabf04c0e8d41e873a5f656e03751855e4b6915ab698f4b68",
+      "expectedSha256": "7b18c41da850df0eabf04c0e8d41e873a5f656e03751855e4b6915ab698f4b68",
+      "allowedOutputSha256": "4078a1d82e13c028894c5485b945fde4d93bf2b4de370524c7c7a6cadd81899e",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR =Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "d71584035af176d50f0a7bd5a5ca8621e3e488027107541256e6bcb34f2ad3fd",
+      "expectedSha256": "d71584035af176d50f0a7bd5a5ca8621e3e488027107541256e6bcb34f2ad3fd",
+      "allowedOutputSha256": "8dcda60d29a615f45b8e563158a7b91f44b9f22789243111e7ccb605ba9be73d",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-1-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |ULTIMO-EDITOR=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |ULTIMO-EDITOR=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=|ULTIMO-EDITOR=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "b912d61469e2592286bb0cff015914f5684a045859e208fe6386d7a52673e844",
+      "expectedSha256": "b912d61469e2592286bb0cff015914f5684a045859e208fe6386d7a52673e844",
+      "allowedOutputSha256": "4f221940fb035d2f201f9e1a751bb7f518fd9c1bfba66a336c3c523eea05cf65",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| \tULTIMO-EDITOR \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "7e6db2634716b8b9a2d5731915fc7d5a0ea5a1b1cb330744975b732877d5b54e",
+      "expectedSha256": "7e6db2634716b8b9a2d5731915fc7d5a0ea5a1b1cb330744975b732877d5b54e",
+      "allowedOutputSha256": "6aca2a936a2c76c39dc206a4186ac212582f574564e28750684a9f5c742e499b",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-1-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| ULTIMO-EDITOR =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "3dd9fefe5a75f07e1b90481b0c44dfdcfed988ec9b8f730f756fdc0d37e6fbcf",
+      "expectedSha256": "3dd9fefe5a75f07e1b90481b0c44dfdcfed988ec9b8f730f756fdc0d37e6fbcf",
+      "allowedOutputSha256": "1662befab77ccc6a3bbb7986623f5efbeec5839f991c00f91c5c36ccddeaca5f",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-2-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t=Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "48e7ef7c114f27d7470249bf15f86ed47f7ce25d087be34ab3c283a1aa38303f",
+      "expectedSha256": "48e7ef7c114f27d7470249bf15f86ed47f7ce25d087be34ab3c283a1aa38303f",
+      "allowedOutputSha256": "579afc3f1c484565a047fe4fe9d6021432f5117cbcba9378008784e4c52ca1c8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-2-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR =Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "c0980276efce0b704c828542ba47c3adb3e419e176c72b4ae19cd6c044199d50",
+      "expectedSha256": "c0980276efce0b704c828542ba47c3adb3e419e176c72b4ae19cd6c044199d50",
+      "allowedOutputSha256": "57a741fc09abd8c7a5ab4a3b6529fa3b2522d1d99624ad338de158d8c3a12eeb",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-2-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \tULTIMO-EDITOR \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "01b1fa71fa54738fa9c7461ccccfb6e63af77237a329ad2cd1b44001fa4ebb27",
+      "expectedSha256": "01b1fa71fa54738fa9c7461ccccfb6e63af77237a329ad2cd1b44001fa4ebb27",
+      "allowedOutputSha256": "10a5b85862d8f5456b892a72b4ae2b810fae8cd31867e975c4ac9f640f63ff78",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-2-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| ULTIMO-EDITOR =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a7784975b1db695e66eeadfee2090e5aef8af15c5bff05e652fbe407dec4e684",
+      "expectedSha256": "a7784975b1db695e66eeadfee2090e5aef8af15c5bff05e652fbe407dec4e684",
+      "allowedOutputSha256": "9c3f5139291e1d9ecc74860bde47991afa536082841873cf240e3eb946e14b57",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-3-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \tULTIMO-EDITOR \t=Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "9ba6b6bb53d86832669514ca3891c3d0b21eaa2acb66549637317ac953babaed",
+      "expectedSha256": "9ba6b6bb53d86832669514ca3891c3d0b21eaa2acb66549637317ac953babaed",
+      "allowedOutputSha256": "3719d7592f536af38235e1ea56bf6d399f0a45e33fdf2afa3d231ddaab5a8799",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-3-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| ULTIMO-EDITOR =Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "c50f373651944be7ce716495ecd08e83cfbfd5c593188300957efa4451e1d812",
+      "expectedSha256": "c50f373651944be7ce716495ecd08e83cfbfd5c593188300957efa4451e1d812",
+      "allowedOutputSha256": "eda925b95810bf2001f472761ea0ed4d61957359782e4bda9ece2ce4c12688eb",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-3-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tULTIMO-EDITOR \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \tULTIMO-EDITOR \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "04a54c330f5dae9a78ae94036625da2a33208cb7d188e8c58f67631721ca2b23",
+      "expectedSha256": "04a54c330f5dae9a78ae94036625da2a33208cb7d188e8c58f67631721ca2b23",
+      "allowedOutputSha256": "7ab233c720104cc07bb856cc61fc2b37e8e9da57f4a162511c1acdbff0980041",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-1-3-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| ULTIMO-EDITOR = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| ULTIMO-EDITOR =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "edccf218aca55bffdf030f10021ee91e7331c1429ff8e0db4fb1adf1468c66ce",
+      "expectedSha256": "edccf218aca55bffdf030f10021ee91e7331c1429ff8e0db4fb1adf1468c66ce",
+      "allowedOutputSha256": "09246d2c5cc79431770ddf9e33b1cec0c12a0880e7058ac1c4c28cb60b6c4e4c",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-0-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t=Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "fd9d341eeae6733afacf93114225d99052bf3b9401ef424b38e2aae92ae4492b",
+      "expectedSha256": "fd9d341eeae6733afacf93114225d99052bf3b9401ef424b38e2aae92ae4492b",
+      "allowedOutputSha256": "8e309360e88da798517f5c989ec3187b0adef63ec7670c1c890fd46551f1b648",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-0-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 =Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "73a0bb9870155bdfda3026619d848c29c0aacd878f8461dc73a5c7d4e5cf22b9",
+      "expectedSha256": "73a0bb9870155bdfda3026619d848c29c0aacd878f8461dc73a5c7d4e5cf22b9",
+      "allowedOutputSha256": "60f5c20b8d555a49d0bc4c33032e97bd21de0385d8598f6f198a0663c684d4e1",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-0-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor-último1 \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "c99cc913c9eeb5e64a250ac264fa935961e3522caf89fc99d575c84292dc3e1a",
+      "expectedSha256": "c99cc913c9eeb5e64a250ac264fa935961e3522caf89fc99d575c84292dc3e1a",
+      "allowedOutputSha256": "2ad30e040312a6701ca1d48cb9d0544e2514bd9361585c21bfcb84419dfdd9d6",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-0-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor-último1 =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "8cce86567f09f1919808848d20c43495aabb0f46c377b6e7bd9b365cd6de79ce",
+      "expectedSha256": "8cce86567f09f1919808848d20c43495aabb0f46c377b6e7bd9b365cd6de79ce",
+      "allowedOutputSha256": "cc4ce6120b515a937a49c0b6db53be3d74365b0edadc1f518c54a9f689e21581",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-0-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-último1=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-último1=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-último1=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "eeffcb62284cd3103e14fe94ac4f1a5db4760e88551eba107f72e341a8abffb4",
+      "expectedSha256": "eeffcb62284cd3103e14fe94ac4f1a5db4760e88551eba107f72e341a8abffb4",
+      "allowedOutputSha256": "941e918bbab9673dadb0cc7f750a6f788c06d79478e2473a8ccb97bc764907f3",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "9a478710cbe715630b8c1b9a2a22339c4dc8387e9099dc8effd9560bd46f380a",
+      "expectedSha256": "9a478710cbe715630b8c1b9a2a22339c4dc8387e9099dc8effd9560bd46f380a",
+      "allowedOutputSha256": "ba2601db7ded1b1b1ebdcc6204bfc8e27069772ad0e9248ff35bd0b343512fee",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 =Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "8228f292afce1e13421c21668f9ce195c9fd34e1fefbcee98e76a0e5b0125d93",
+      "expectedSha256": "8228f292afce1e13421c21668f9ce195c9fd34e1fefbcee98e76a0e5b0125d93",
+      "allowedOutputSha256": "6b6293d227530f3ccc3105a2a2031e551a758c69cc0f5667b354487d17ab40f8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-1-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |editor-último1=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |editor-último1=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=|editor-último1=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "6a47cb48e65dbddddbb78e18285b805918bd271ac4646ba6781574863b87e12e",
+      "expectedSha256": "6a47cb48e65dbddddbb78e18285b805918bd271ac4646ba6781574863b87e12e",
+      "allowedOutputSha256": "b6ca03755c29eaa2abe8cc9afbe2e48324f169695de739ed945d210f45dd1ad1",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| \teditor-último1 \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "70a5ac58953c1a2cc98b5999d5aa3e2281ef7459528fe535b991ee838aa3bb75",
+      "expectedSha256": "70a5ac58953c1a2cc98b5999d5aa3e2281ef7459528fe535b991ee838aa3bb75",
+      "allowedOutputSha256": "d7f43301964cd951e198656f25712603a68580f31a15ef800ea68fdfa423162b",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-1-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| editor-último1 =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "1b29c1bce1d017f44a3c2972a4b5b4eea73269654a3e9609ef4450bb97d05790",
+      "expectedSha256": "1b29c1bce1d017f44a3c2972a4b5b4eea73269654a3e9609ef4450bb97d05790",
+      "allowedOutputSha256": "ce0b8019e7cf623acd1e62dc6bfbd6c6b491c8eb1baf347d7ad56a74906800ad",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-2-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t=Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "8d415cb46e174e0c1e038e4b9ae815fb9043435dbae617aa1ac37933b36ac29d",
+      "expectedSha256": "8d415cb46e174e0c1e038e4b9ae815fb9043435dbae617aa1ac37933b36ac29d",
+      "allowedOutputSha256": "ecc6d37812315b34f4fda1e5965705ceb61209be61d97fed5084e8af2e1c5d8e",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-2-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 =Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "01eaa62541190e4ed4395b493f8a12f21549193146ef7fe1a4402561153a42db",
+      "expectedSha256": "01eaa62541190e4ed4395b493f8a12f21549193146ef7fe1a4402561153a42db",
+      "allowedOutputSha256": "43b9e9174f534435ce53b53e381900d6bf8d1c2f718f0580ad23f54188ebfddc",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-2-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor-último1 \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "aa04cce84bc3215e1d4975577c6d586ac36a9c120da721679219f3c6941ab908",
+      "expectedSha256": "aa04cce84bc3215e1d4975577c6d586ac36a9c120da721679219f3c6941ab908",
+      "allowedOutputSha256": "285932aa7381e13f690db9cd8cdf8fa31a6e65bc7c0cdac1fcaf907b1d840463",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-2-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor-último1 =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a93f4d0a2a7ad32d1c1dab27ab0163a2d433df30ed1d5e5f380660cc5bdbc899",
+      "expectedSha256": "a93f4d0a2a7ad32d1c1dab27ab0163a2d433df30ed1d5e5f380660cc5bdbc899",
+      "allowedOutputSha256": "f316046507030c4a4066f6ae17dae501251a6cde84a1f76886723c0534cde6f0",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-3-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor-último1 \t=Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "66db944b80ca7aa98fbcbebcc874eaaad29b2fc2506c467adc8599f00c69910c",
+      "expectedSha256": "66db944b80ca7aa98fbcbebcc874eaaad29b2fc2506c467adc8599f00c69910c",
+      "allowedOutputSha256": "bd95790b64addc091582870d692cfe06f464388a25889f42cd97acd4e8c1ca7d",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-3-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor-último1 =Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "0c57163322abfa8e9db165d153913630782d005d5cee86a997aba7d4d2aee640",
+      "expectedSha256": "0c57163322abfa8e9db165d153913630782d005d5cee86a997aba7d4d2aee640",
+      "allowedOutputSha256": "d3ac80af866e0bfa6952b952c346b106b54e9ddd971725f5f8d11ff5a79a53ea",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-3-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor-último1 \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor-último1 \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "2c002cb1257dd3d5e2c60340cfb03f0637e86b30fbcc150ea6757a6586d7a9b8",
+      "expectedSha256": "2c002cb1257dd3d5e2c60340cfb03f0637e86b30fbcc150ea6757a6586d7a9b8",
+      "allowedOutputSha256": "fa27522b3bea058e969bf429df214fcfc2fb816f38be6e5fe2896f6495abde29",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-2-3-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor-último1 = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor-último1 =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "eb327e013cd5ee3544f3e1459c09dc9116248ff6aaaec8dae92a7f9fec069e21",
+      "expectedSha256": "eb327e013cd5ee3544f3e1459c09dc9116248ff6aaaec8dae92a7f9fec069e21",
+      "allowedOutputSha256": "9369481b269ee9444af0cff781e0911e52cedaf4841e4a6723d5c96515f11a57",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-0-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t=Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "735280ed0191f2ea58bd93604b84bd5b060a5baa1e8ae2af3fb61f29cb4b5c8c",
+      "expectedSha256": "735280ed0191f2ea58bd93604b84bd5b060a5baa1e8ae2af3fb61f29cb4b5c8c",
+      "allowedOutputSha256": "63d37706fec0ef44d791e37fceec985abf0d31a60088731f1632c3c320551480",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-0-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último =Silva|ultimo-editor=Souza}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "a7e1f7d12e969b14f0b7f240f918041aa4b8f207363b6b70d7ab23c8147ae04d",
+      "expectedSha256": "a7e1f7d12e969b14f0b7f240f918041aa4b8f207363b6b70d7ab23c8147ae04d",
+      "allowedOutputSha256": "eb662958c6c210d4832f56f477343fe20535f7793ab6706e75b7cd912419a3a8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-0-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| \teditor1-último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "31cc67012bbf5e4c7e8957b4104649a0fd77d8bf8667bca17db01d36946af910",
+      "expectedSha256": "31cc67012bbf5e4c7e8957b4104649a0fd77d8bf8667bca17db01d36946af910",
+      "allowedOutputSha256": "42eb45f99f0f25e1bc2032ac863ed9005fe70b62d602cf0fe15b8ac854733192",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-0-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Souza| editor1-último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "e5788cb5bbb6f8739dfa12253a43f0dd6f76615e83c5584127a628cd346c0faa",
+      "expectedSha256": "e5788cb5bbb6f8739dfa12253a43f0dd6f76615e83c5584127a628cd346c0faa",
+      "allowedOutputSha256": "a90a7f920db26106a583a6115af1c6f9851e7f8560230dc448724b09e7f33750",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-0-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor1-último=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor1-último=Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor1-último=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "407cd54d6ce1de5b38e9e904c193eac66cdeff5a04b4f04ff651ed33eba759e2",
+      "expectedSha256": "407cd54d6ce1de5b38e9e904c193eac66cdeff5a04b4f04ff651ed33eba759e2",
+      "allowedOutputSha256": "cb49bf30612aead8896d46a3421d4d27acb1e46ccb74a0fe54e8e75e09b60f31",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t=Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "85c5a6855d7d924b6d170d1db0d3fc199aaa7268b9c0eed251a9abcff1b785d7",
+      "expectedSha256": "85c5a6855d7d924b6d170d1db0d3fc199aaa7268b9c0eed251a9abcff1b785d7",
+      "allowedOutputSha256": "3fae4b922f91e63ca25ebaa972c75dc80f6387bc1f94bc5fc5c2e015133abf8c",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último =Silva|ultimo-editor=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "82c8cc3a4a55b5352f59f9724367d40353d6a49bf562bc90e61f1db5c08fdc17",
+      "expectedSha256": "82c8cc3a4a55b5352f59f9724367d40353d6a49bf562bc90e61f1db5c08fdc17",
+      "allowedOutputSha256": "fee4e9e1d63ad5113914c76c3ca8a22c1de06f26301c58933f955757b2ec8d23",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        },
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-1-0",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |editor1-último=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= |editor1-último=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=|editor1-último=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "e3b508188b46fac70596ac55dbf884b81182f4d750fb75d59b9e467931a8ef64",
+      "expectedSha256": "e3b508188b46fac70596ac55dbf884b81182f4d750fb75d59b9e467931a8ef64",
+      "allowedOutputSha256": "25253680d3dfc7ce21ee7bd8305c4511cff0eaffe03aed26be48b0cabc94354b",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| \teditor1-último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "7cce1fea9b2831d9cedfe797542bf85e498694a829d3f4dc9c4845059d3005e2",
+      "expectedSha256": "7cce1fea9b2831d9cedfe797542bf85e498694a829d3f4dc9c4845059d3005e2",
+      "allowedOutputSha256": "476c48b0479177c22e346501637711e1ff97fd6fa0aaf41d9f14444912fd285d",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-1-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor= | editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=| editor1-último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "d1759f1e40e47964d0425dfbfa4157e0f6371d6b6949d656464fecfb30ed8c7e",
+      "expectedSha256": "d1759f1e40e47964d0425dfbfa4157e0f6371d6b6949d656464fecfb30ed8c7e",
+      "allowedOutputSha256": "31db9a6c2628dc0a13c67ffdcc38ffb8994037c47094935140b19d627f90e3e8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " ",
+          "after": ""
+        },
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-2-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t=Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "6064faa192b5242a4676a42a70805e465fbffdb6953d218dfced387caaf25cb0",
+      "expectedSha256": "6064faa192b5242a4676a42a70805e465fbffdb6953d218dfced387caaf25cb0",
+      "allowedOutputSha256": "9e4ddcd9cd84fa45dd095b61c6967442dbdc9ff7b71c35f1b6d26aa91533ecf6",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-2-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último =Silva|ultimo-editor={{Valor fictício}}}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "22c15a454ea504c9ca1e77a5241ba504d53a5ec603179e1ba44fe7c40b2397e0",
+      "expectedSha256": "22c15a454ea504c9ca1e77a5241ba504d53a5ec603179e1ba44fe7c40b2397e0",
+      "allowedOutputSha256": "d3a2b8b164d26ceb01870dfc6d9cebee706409cd602b123fbca5e5b8004d45ef",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-2-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| \teditor1-último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "9f39345425688988af741eee1cb5ebc41c94475e6b2598065aa9044ff090f63c",
+      "expectedSha256": "9f39345425688988af741eee1cb5ebc41c94475e6b2598065aa9044ff090f63c",
+      "allowedOutputSha256": "f272de303a03d44742968818535c0eed4f3cc6aa21d6ac2f235e3024d8feefd8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-2-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor={{Valor fictício}}| editor1-último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "990b03f36794b13759e5a0104c98165a3abefdc1fba957d152fbcd7da84cbb03",
+      "expectedSha256": "990b03f36794b13759e5a0104c98165a3abefdc1fba957d152fbcd7da84cbb03",
+      "allowedOutputSha256": "5db3e39a67832014207bb89983c0d39f50ad038aa9e9dc8bc162d881e5ea6d62",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-3-0-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t= \tSilva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| \teditor1-último \t=Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "ded6221d4d9972591bb87087fabcecf067e0ab6dafc998fa38e79ec53ae3a8ed",
+      "expectedSha256": "ded6221d4d9972591bb87087fabcecf067e0ab6dafc998fa38e79ec53ae3a8ed",
+      "allowedOutputSha256": "7eaf6222627dcd92010208a521b8ab1b46f8cb9241fec20efa8bc6221cf0fbf2",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-3-0-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último = Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra| editor1-último =Silva|ultimo-editor=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "fc90708076d58c8f22b177e702e5e0eb66c16adf921645c705c3d3ff029801fa",
+      "expectedSha256": "fc90708076d58c8f22b177e702e5e0eb66c16adf921645c705c3d3ff029801fa",
+      "allowedOutputSha256": "aa55042371175e4b8eb2e5b4377384a9e22eb242021a0a869680e3681148d94b",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 1,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-3-1-1",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor1-último \t= \tSilva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| \teditor1-último \t=Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "71aa9407f45723766c18f2d710de3ab8041b362bf0ebb75bf7fcdb689a6c3993",
+      "expectedSha256": "71aa9407f45723766c18f2d710de3ab8041b362bf0ebb75bf7fcdb689a6c3993",
+      "allowedOutputSha256": "62a45a228536ab5ec8797986f37eefa6e7088d2a9063434c4e55d44b869a0fa7",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " \tSilva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "case-space-3-3-1-2",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor1-último = Silva}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|ultimo-editor=Silva| editor1-último =Silva}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "93564f5771fb777b2b7f43e6d88bb90475aee71799e8775114b594c5c9f2fad6",
+      "expectedSha256": "93564f5771fb777b2b7f43e6d88bb90475aee71799e8775114b594c5c9f2fad6",
+      "allowedOutputSha256": "e349f10581e1126edb155c7fb34d2442e8906ea68999580c6c391543ff0d29f9",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " Silva",
+          "after": "Silva"
+        }
+      ]
+    },
+    {
+      "id": "generic-fields-97",
+      "source": "Texto de controle.<ref>{{Citar livro|argumento|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|argumento|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|argumento|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "fb6cd2900f29ea9c4107835b389f116cfc526f837cca3f54effee905effd0673",
+      "expectedSha256": "fb6cd2900f29ea9c4107835b389f116cfc526f837cca3f54effee905effd0673",
+      "allowedOutputSha256": "b753ff509e29cb0507819323f4a2372590aadfaf6d4c2547c6857a2bb0598e0b",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 2,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "generic-fields-100",
+      "source": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "c666cb38d0a8882506b339d57378debe2159ce9bf4d51ae48d0292b087049b9a",
+      "expectedSha256": "c666cb38d0a8882506b339d57378debe2159ce9bf4d51ae48d0292b087049b9a",
+      "allowedOutputSha256": "ee56b81a07366c4d5d20bcabfdb4cc834df5d01303f8a65a36b1824c549ed8bc",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "generic-fields-103",
+      "source": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|editor-sobrenome=Outra|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|editor-sobrenome=Outra|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|editor-sobrenome=Pessoa|editor-sobrenome=Outra|título=Obra|Editor-Último=Silva|ULTIMO-EDITOR=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "405ff892314a760df410a9b442d4a236acb51cdcc3a4ecafa491df8603bdc525",
+      "expectedSha256": "405ff892314a760df410a9b442d4a236acb51cdcc3a4ecafa491df8603bdc525",
+      "allowedOutputSha256": "cc46f717532bdd8bf253ff0000cb697592a9fbd28d09cf593bfc206e5ace01a6",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 4,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-105",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-first=Maria}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-first=Maria}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-nome=Maria}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "cc93b7d05ec6d07b5570f559f2ccbc2b0f55cac005595ab2a30f45c5f8a0a935",
+      "expectedSha256": "cc93b7d05ec6d07b5570f559f2ccbc2b0f55cac005595ab2a30f45c5f8a0a935",
+      "allowedOutputSha256": "3810a201e5e5f7bb12b87353240f2fb022ef79bc4c42236b71a41fe79512466c",
+      "proofKinds": [
+        "native-role-preserved-alias"
+      ],
+      "allowedChangeIds": [
+        "v221Repair"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": []
+    },
+    {
+      "id": "first-peers-106",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-nome=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "9cbc6043e83f838d013ff8dc7844bfbffe12d522bc02f21b1d551c6c593b23b8",
+      "expectedSha256": "9cbc6043e83f838d013ff8dc7844bfbffe12d522bc02f21b1d551c6c593b23b8",
+      "allowedOutputSha256": "e493465b6eaf57c6d9de4562aa955bca5c8231fe0a870a11f817f4c0fe344bdc",
+      "proofKinds": [
+        "ASCII-named-value-margin",
+        "native-role-preserved-alias"
+      ],
+      "allowedChangeIds": [
+        "v221Repair",
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-108",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|editor-nome1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "241148135fc33e0b4eea17b4baa92bf47bfe848e54397feeada8c6f9c566f710",
+      "expectedSha256": "241148135fc33e0b4eea17b4baa92bf47bfe848e54397feeada8c6f9c566f710",
+      "allowedOutputSha256": "b76ad75f1a426ec0824da6b4893f68edb183e4d96f74fafc9a3e338ba67e0b4e",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing",
+        "v221Repair"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ],
+      "nativeValueRoleProofs": [
+        {
+          "fieldIndex": 3,
+          "key": "editor-nome1",
+          "role": "EditorList-First:1"
+        }
+      ]
+    },
+    {
+      "id": "first-peers-110",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|primeiro-editor=Ana|primeiro-editor1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "bc3828131fb50a8d90c83e53d1bd50de803bbc9cc2a65a8a9c60f5e79af8e158",
+      "expectedSha256": "bc3828131fb50a8d90c83e53d1bd50de803bbc9cc2a65a8a9c60f5e79af8e158",
+      "allowedOutputSha256": "8558a51f4f022252c62e5735ac0baa4001ba65f0badc9b2b8b750809f17283a0",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-111",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-first=Maria}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-first=Maria}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-nome=Maria}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "d587e692b09a706252d0267db39a900459bac2ca1fbc298d3ff8687af8152293",
+      "expectedSha256": "d587e692b09a706252d0267db39a900459bac2ca1fbc298d3ff8687af8152293",
+      "allowedOutputSha256": "13f45dbbc653c6a612ca11aa5a9dbeb831447561856ca26d2566b3bbe8805520",
+      "proofKinds": [
+        "native-role-preserved-alias"
+      ],
+      "allowedChangeIds": [
+        "v221Repair"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": []
+    },
+    {
+      "id": "first-peers-112",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-nome=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "bddf28f20de731727b34d2e1e95c74c546d32a36199cd16ddea0e923d921be5b",
+      "expectedSha256": "bddf28f20de731727b34d2e1e95c74c546d32a36199cd16ddea0e923d921be5b",
+      "allowedOutputSha256": "9c2c06e6958f8cad25f4107d805981276bff8b4f35cca86496064f99d4651d4c",
+      "proofKinds": [
+        "ASCII-named-value-margin",
+        "native-role-preserved-alias"
+      ],
+      "allowedChangeIds": [
+        "v221Repair",
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-114",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|editor-nome1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "3b3c0117d0bb4e1b3538b27503a288a52add597cecc196484573a4b2d4d8f413",
+      "expectedSha256": "3b3c0117d0bb4e1b3538b27503a288a52add597cecc196484573a4b2d4d8f413",
+      "allowedOutputSha256": "03a664fa098ec6ff58fac433a264768ddbff6c4d2e673bb917f04f31faa99be8",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing",
+        "v221Repair"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ],
+      "nativeValueRoleProofs": [
+        {
+          "fieldIndex": 3,
+          "key": "editor-nome1",
+          "role": "EditorList-First:1"
+        }
+      ]
+    },
+    {
+      "id": "first-peers-116",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|PRIMEIRO-EDITOR=Ana|primeiro-editor1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "117c30aabf4c8e4ec173ba1eabe1912a2582118975a6f4481d4fff2a5c4d24f6",
+      "expectedSha256": "117c30aabf4c8e4ec173ba1eabe1912a2582118975a6f4481d4fff2a5c4d24f6",
+      "allowedOutputSha256": "ac8f7591bb08a3c6211cd3baa07febea81d4fcd3f4a9477d3c1767d762b2f41f",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-118",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-first= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-first=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "c49e968178010445359b5f1d5406816cd6230db7b365547b614a416afceacb6b",
+      "expectedSha256": "c49e968178010445359b5f1d5406816cd6230db7b365547b614a416afceacb6b",
+      "allowedOutputSha256": "4a08ea08c5b7da687d42311971a8304249f4f1f809a8a0f76bb38d31ed79f9db",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-120",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-nome1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|editor-nome1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "e513645cdc326a1767addacc8114604dbbfe1af0e9c2467c2d792afa0a2cf04f",
+      "expectedSha256": "e513645cdc326a1767addacc8114604dbbfe1af0e9c2467c2d792afa0a2cf04f",
+      "allowedOutputSha256": "e419064e5be886fc77e2bc913bbfa4ef91594aba89751a010e83a082c0567c41",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "first-peers-122",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|primeiro-editor1= }}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-primeiro=Ana|primeiro-editor1=}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "52f336df6232d19dcb1cf7ffaf440c1e36ccbe1458dae22ffffc02620b78dfcc",
+      "expectedSha256": "52f336df6232d19dcb1cf7ffaf440c1e36ccbe1458dae22ffffc02620b78dfcc",
+      "allowedOutputSha256": "139bc19653df981523df31385328de1b37bfba46b38b38f48d811abd617fc025",
+      "proofKinds": [
+        "ASCII-named-value-margin"
+      ],
+      "allowedChangeIds": [
+        "v2215ParameterSpacing"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": [
+        {
+          "fieldIndex": 3,
+          "before": " ",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "id": "native-accepted-aliases-stay",
+      "source": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-last=Silva|editor-first=Ana}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-last=Silva|editor-first=Ana}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto de controle.<ref>{{Citar livro|título=Obra|editor-sobrenome=Silva|editor-nome=Ana}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "43978a5cf6e6a655cffcc63a269471fa8d72e5455eaf7f9648f4197d33aa6235",
+      "expectedSha256": "43978a5cf6e6a655cffcc63a269471fa8d72e5455eaf7f9648f4197d33aa6235",
+      "allowedOutputSha256": "cd9519ec824587d7a9d3750ff44e0b2d077b05b027c6ac98e13dac5165911813",
+      "proofKinds": [
+        "native-role-preserved-alias"
+      ],
+      "allowedChangeIds": [
+        "v221Repair"
+      ],
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactValuePairs": []
+    }
+  ],
+  "collector": [
+    {
+      "id": "conditional-consumed-alone",
+      "source": "{{Info/Político|nome=Tema fictício|vice_título2=Rótulo<ref name=\"A\">Fonte.</ref>}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "expected": "{{Info/Político|nome=Tema fictício|vice_título2=Rótulo<ref name=\"A\">Fonte.</ref>}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "allowedOutput": "{{Info/Político\n|nome                  = Tema fictício\n|vice_título2          = Rótulo<ref name=\"A\">Fonte.</ref>\n}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "sourceSha256": "5a25dcc516a4445e244334dea5a55bfe864ee8bb49a4452469882d074b00643b",
+      "expectedSha256": "5a25dcc516a4445e244334dea5a55bfe864ee8bb49a4452469882d074b00643b",
+      "allowedOutputSha256": "a7b2adb47981f53dd3a8d5d1a7a12efeddb68214d0417889bb410326b3cc07e5"
+    },
+    {
+      "id": "ignored-alias-conflict-alone",
+      "source": "{{Info/Político|nome=Tema fictício|vice-título2=Rótulo<ref name=\"A\">Fonte.</ref>|vice_título2=Outro}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "expected": "{{Info/Político|nome=Tema fictício|vice-título2=Rótulo<ref name=\"A\">Fonte.</ref>|vice_título2=Outro}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "allowedOutput": "{{Info/Político\n|nome                  = Tema fictício\n|vice-título2          = Rótulo<ref name=\"A\">Fonte.</ref>\n|vice_título2          = Outro\n}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "sourceSha256": "1c5d27f5453a4d040871adbe307e4e96136e1f3117981f2784304991394eae93",
+      "expectedSha256": "1c5d27f5453a4d040871adbe307e4e96136e1f3117981f2784304991394eae93",
+      "allowedOutputSha256": "f2e9eb2d144c84f401cd053ba7161e092892920d040614f919cf2a0349a2809a"
+    },
+    {
+      "id": "visible-native-field-alone",
+      "source": "{{Info/Biografia|nome=Tema fictício|ocupação=Profissão<ref name=\"A\">Fonte.</ref>}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "expected": "{{Info/Biografia|nome=Tema fictício|ocupação=Profissão<ref name=\"A\">Fonte.</ref>}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "allowedOutput": "{{Info/Biografia\n|nome                  = Tema fictício\n|ocupação              = Profissão<ref name=\"A\">Fonte.</ref>\n}}\n\nTexto.\n\n[[Categoria:Exemplos]]",
+      "sourceSha256": "47df4ed8327289371a8eaa2a5c9f86f9fae76a74b56e1e6b1609f650759b4982",
+      "expectedSha256": "47df4ed8327289371a8eaa2a5c9f86f9fae76a74b56e1e6b1609f650759b4982",
+      "allowedOutputSha256": "bd77f7697c5c7b13420e1ce9d4cb7c4c4e3a896327aa129fb77ee0c3d557268e"
+    }
+  ],
+  "archive": [
+    {
+      "id": "Citar web:url-status:dead:free",
+      "source": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "expected": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=free}}",
+      "allowedOutput": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "sourceSha256": "c533783ceced047c59e95f6215d2d0d9796aa2c06510d8dd135d95ff7e13ba79",
+      "expectedSha256": "36f0eaa7d54a39e649ea76c9c10200f2819969120f6e0201ad5f66495df331fe",
+      "allowedOutputSha256": "c533783ceced047c59e95f6215d2d0d9796aa2c06510d8dd135d95ff7e13ba79",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar web:url-status:dead:subscription",
+      "source": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "expected": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=subscription}}",
+      "allowedOutput": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "sourceSha256": "2733e8c3ace0ab15996480315599b147bbbe07f784577a9544ab961c531f9c54",
+      "expectedSha256": "e25b92e3aa002f46341200fe45347ce2fee2a8b1e2331eba046771f137a54512",
+      "allowedOutputSha256": "2733e8c3ace0ab15996480315599b147bbbe07f784577a9544ab961c531f9c54",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar web:url-status:dead:registration",
+      "source": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "expected": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registration}}",
+      "allowedOutput": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "sourceSha256": "e72f0e0bbc3dc36e030087f657c4cc6ec51bbd59beda7cc626ebfc4c979aa394",
+      "expectedSha256": "b9653e9358e89d23422bfbf9c5fc78590029f847b7b02ebf66075b3fbb01aca9",
+      "allowedOutputSha256": "e72f0e0bbc3dc36e030087f657c4cc6ec51bbd59beda7cc626ebfc4c979aa394",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar web:url-status:dead:limited",
+      "source": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "expected": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=limited}}",
+      "allowedOutput": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "sourceSha256": "89ea638d82261d9cfafb1c855540bcb3cb4a032bcf622d16940f22a890b8211d",
+      "expectedSha256": "78b91afb7230ae2d6280d766e04c660f1cc90e6e8c352f110d0e39f2616e029d",
+      "allowedOutputSha256": "89ea638d82261d9cfafb1c855540bcb3cb4a032bcf622d16940f22a890b8211d",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar web:url-status:dead:",
+      "source": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "expected": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=}}",
+      "allowedOutput": "{{Citar web|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "sourceSha256": "7cd4ad9edc0e7b8de1a516eac1d6d67e53d4be04d173dab9502d18fc9059ed59",
+      "expectedSha256": "f275086c8dbeca13abb83bba461a9284fd7ac0308387279f2043a08719b90892",
+      "allowedOutputSha256": "7cd4ad9edc0e7b8de1a516eac1d6d67e53d4be04d173dab9502d18fc9059ed59",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar livro:url-status:dead:free",
+      "source": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "expected": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=free}}",
+      "allowedOutput": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "sourceSha256": "5894af259314d06ddb9428f76c6079623580361bb044494aff4a024a7d43ff1b",
+      "expectedSha256": "62ddd33bc0b170d09b1635f4a394574d8ec1eef31321357b84c6cd360035418c",
+      "allowedOutputSha256": "5894af259314d06ddb9428f76c6079623580361bb044494aff4a024a7d43ff1b",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar livro:url-status:dead:subscription",
+      "source": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "expected": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=subscription}}",
+      "allowedOutput": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "sourceSha256": "06017d0d1fb60a90767e455b9e4cfc6449164ec23587963290274e28aadb3362",
+      "expectedSha256": "b1bc3358f48a3a03175854fdf4db2d84456cb2b57a8acc6b20747e4863464029",
+      "allowedOutputSha256": "06017d0d1fb60a90767e455b9e4cfc6449164ec23587963290274e28aadb3362",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar livro:url-status:dead:registration",
+      "source": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "expected": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registration}}",
+      "allowedOutput": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "sourceSha256": "c1821f9362b6bed32788898eb4ff851a78acebfbd96690dc91d5c40468c4c50b",
+      "expectedSha256": "8ef52758e8056a4010b74265920cdc909d54f9dd8bffd32f167eeb86ced3b296",
+      "allowedOutputSha256": "c1821f9362b6bed32788898eb4ff851a78acebfbd96690dc91d5c40468c4c50b",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar livro:url-status:dead:limited",
+      "source": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "expected": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=limited}}",
+      "allowedOutput": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "sourceSha256": "7dea27ca1ef63624cd9f584b3495c38a950f98835a67e0fe0d9df5fee96cddef",
+      "expectedSha256": "72a6a3a274d325cb1b28080e753a05cd9cd479d8bc437ee360ce1676e59c38ef",
+      "allowedOutputSha256": "7dea27ca1ef63624cd9f584b3495c38a950f98835a67e0fe0d9df5fee96cddef",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar livro:url-status:dead:",
+      "source": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "expected": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=}}",
+      "allowedOutput": "{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "sourceSha256": "746a2f28b902922019f72111e159e0e9e0dc895dc16dc945576b417db86bb852",
+      "expectedSha256": "33db8e789ca6a2e5aa4eb7eee43c395e73d0f620d94d24be6d5a1a59c53f83c1",
+      "allowedOutputSha256": "746a2f28b902922019f72111e159e0e9e0dc895dc16dc945576b417db86bb852",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar jornal:url-status:dead:free",
+      "source": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "expected": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=free}}",
+      "allowedOutput": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "sourceSha256": "e4625073e01c929d2c8c2cbaef6baabea11c6f288c5405ba3c946cadc9d05bbc",
+      "expectedSha256": "6a7036889e466bcb1789d9f007f73261001efcb44403f8c4cba374e6f24b2e8d",
+      "allowedOutputSha256": "e4625073e01c929d2c8c2cbaef6baabea11c6f288c5405ba3c946cadc9d05bbc",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar jornal:url-status:dead:subscription",
+      "source": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "expected": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=subscription}}",
+      "allowedOutput": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "sourceSha256": "7352d8ef726380f9765df460311cd7c5a25d2248bb18bcf74327e38b846541d6",
+      "expectedSha256": "d97b864d3f0cfd2a1a6113cb593dde63039290320f1e7eeb5631596bcb1c0005",
+      "allowedOutputSha256": "7352d8ef726380f9765df460311cd7c5a25d2248bb18bcf74327e38b846541d6",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar jornal:url-status:dead:registration",
+      "source": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "expected": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registration}}",
+      "allowedOutput": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "sourceSha256": "3008b98fd312d447457ef57c87048629c19658786b453ba68f0fc3ad1912d33c",
+      "expectedSha256": "acf9396da16242e6d18f48d40995e3d236c14a0fad8cb8e1908340e7d4d9b694",
+      "allowedOutputSha256": "3008b98fd312d447457ef57c87048629c19658786b453ba68f0fc3ad1912d33c",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar jornal:url-status:dead:limited",
+      "source": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "expected": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=limited}}",
+      "allowedOutput": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "sourceSha256": "2f8b34ddb7521a92052cda1c01118a879a3fd6f2fa6990e871404e3e9f3df916",
+      "expectedSha256": "aee54318995b61e4f010f97374652c9093b22bebcb7f696a5ceddfb7fe81aa42",
+      "allowedOutputSha256": "2f8b34ddb7521a92052cda1c01118a879a3fd6f2fa6990e871404e3e9f3df916",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar jornal:url-status:dead:",
+      "source": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "expected": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=}}",
+      "allowedOutput": "{{Citar jornal|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "sourceSha256": "79223912f2e079ee7132ddbfc94dcdd0d2d28471183ef7ecb944e5f190efe20a",
+      "expectedSha256": "14f5bf438de3c1143027d32029c3f6bd8a3fbc138a609b81c9b520df518e9c79",
+      "allowedOutputSha256": "79223912f2e079ee7132ddbfc94dcdd0d2d28471183ef7ecb944e5f190efe20a",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar periódico:url-status:dead:free",
+      "source": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "expected": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=free}}",
+      "allowedOutput": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "sourceSha256": "fa760481c274f44762f9926915698b45ac6204875c66f4ce649b272580b1ff2a",
+      "expectedSha256": "a905df1e2537c00e285e60d83677618a5eb8b29ea433a069b2ee2101f03a5f93",
+      "allowedOutputSha256": "fa760481c274f44762f9926915698b45ac6204875c66f4ce649b272580b1ff2a",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar periódico:url-status:dead:subscription",
+      "source": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "expected": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=subscription}}",
+      "allowedOutput": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "sourceSha256": "d083924f069a8ce5b2a6707de8cf4f90a0dd54dc709d0c58c322470ce40abf60",
+      "expectedSha256": "3bfde554ddb443ab42c674e66449fc2268d4f3b44508a525245a3e1a9df0ebe2",
+      "allowedOutputSha256": "d083924f069a8ce5b2a6707de8cf4f90a0dd54dc709d0c58c322470ce40abf60",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar periódico:url-status:dead:registration",
+      "source": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "expected": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registration}}",
+      "allowedOutput": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "sourceSha256": "523516f46f0ef2c34e3bfdb6f9db41395ac6d3a8687d10c89f4a96fa3ebf502f",
+      "expectedSha256": "af39cc12fc01f8c4a131081e84a0600d3220e94e837b553756b9502b6a8a33e9",
+      "allowedOutputSha256": "523516f46f0ef2c34e3bfdb6f9db41395ac6d3a8687d10c89f4a96fa3ebf502f",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar periódico:url-status:dead:limited",
+      "source": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "expected": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=limited}}",
+      "allowedOutput": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "sourceSha256": "0e91352f5e8f8b3a936ff3bda8ebc3a9bcaecd6904524ae9bd889304d5a534af",
+      "expectedSha256": "a091a0c105d5762e20918625f0c1cc12257f91c75e9da94951f65104444c3f0d",
+      "allowedOutputSha256": "0e91352f5e8f8b3a936ff3bda8ebc3a9bcaecd6904524ae9bd889304d5a534af",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar periódico:url-status:dead:",
+      "source": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "expected": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=}}",
+      "allowedOutput": "{{Citar periódico|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "sourceSha256": "d204808ade77af8c1061bda1815115a603a3bc31841656426cf6f7867bda04ee",
+      "expectedSha256": "180711d79b3f355b0a6bae2b7ce6275df02ecaa18d030b3ff968bf8b8d2f409c",
+      "allowedOutputSha256": "d204808ade77af8c1061bda1815115a603a3bc31841656426cf6f7867bda04ee",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar revista:url-status:dead:free",
+      "source": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "expected": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=free}}",
+      "allowedOutput": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=free}}",
+      "sourceSha256": "629693c8e624e4a957daa5246670c16ed9af5015d996c034d716e6ce117998bb",
+      "expectedSha256": "0335a4a9abe349203c5eb4a5bd44dd8d3573869fd48352a34d96d7c3b8d8cb37",
+      "allowedOutputSha256": "629693c8e624e4a957daa5246670c16ed9af5015d996c034d716e6ce117998bb",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar revista:url-status:dead:subscription",
+      "source": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "expected": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=subscription}}",
+      "allowedOutput": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=subscription}}",
+      "sourceSha256": "0322d27c4198d0dce0768d562537e822164262efd9b7f17250d199c8f4fb00e1",
+      "expectedSha256": "db9cae592d9162ab33c04fcc1d964bf5c7c1de4214d50e705e156b95e0d80dfe",
+      "allowedOutputSha256": "0322d27c4198d0dce0768d562537e822164262efd9b7f17250d199c8f4fb00e1",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar revista:url-status:dead:registration",
+      "source": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "expected": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registration}}",
+      "allowedOutput": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=registration}}",
+      "sourceSha256": "7dc65c51fb8b5253bab78d24227732e4e1dcae923577c95932d5ffe43d5ee72f",
+      "expectedSha256": "5d36d9d005c4f025f2c7d0fcb3851503558434337da3b8c3643c42e39768785f",
+      "allowedOutputSha256": "7dc65c51fb8b5253bab78d24227732e4e1dcae923577c95932d5ffe43d5ee72f",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar revista:url-status:dead:limited",
+      "source": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "expected": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=limited}}",
+      "allowedOutput": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=limited}}",
+      "sourceSha256": "9d7d502fa751d52c98a79a1c499fcdd8cadd89595c057d7ace4f7a04c2ae4e0d",
+      "expectedSha256": "946da55e04e0e6b3752e8fa16f13024a1e961542c10480e72ee6077cf180a605",
+      "allowedOutputSha256": "9d7d502fa751d52c98a79a1c499fcdd8cadd89595c057d7ace4f7a04c2ae4e0d",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    },
+    {
+      "id": "Citar revista:url-status:dead:",
+      "source": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "expected": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=}}",
+      "allowedOutput": "{{Citar revista|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-status=dead|acessourl=}}",
+      "sourceSha256": "3890a8f231e1c3c2bbbe6e6713bba30b35221d32490bb6680954a0b131dcfbdd",
+      "expectedSha256": "15b04baf1b021bae96ad5355295eeb40cfcaa3abb7961a1758327e8d9795af5e",
+      "allowedOutputSha256": "3890a8f231e1c3c2bbbe6e6713bba30b35221d32490bb6680954a0b131dcfbdd",
+      "label": "Four actual access-format keys and empty access remain eligible",
+      "nativeField": "url-status",
+      "nativeRole": "UrlStatus",
+      "retainedValue": "dead"
+    }
+  ],
+  "explicitlyNotQualified": [
+    "tests/v221_integrity/frozen_runtime_guards.cjs"
+  ],
+  "fictionalFixturesOnly": true,
+  "wikipediaWrites": 0,
+  "archiveFull": [
+    {
+      "id": "archive-full-chapter-roles-only",
+      "source": "Texto.<ref>{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|url-estado=dead|acessourl=registro|chapter-url=https://example.invalid/a|chapter=Parte}}</ref>\n\n{{Referências}}\n",
+      "expected": "Texto.<ref>{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registro|chapter-url=https://example.invalid/a|chapter=Parte}}</ref>\n\n{{Referências}}\n",
+      "allowedOutput": "Texto.<ref>{{Citar livro|url=https://example.invalid/a|título=Obra|arquivourl=https://web.archive.org/web/20240101000000/https://example.invalid/a|arquivodata=2024-01-01|urlmorta=sim|acessourl=registro|capítulourl=https://example.invalid/a|capítulo=Parte}}</ref>\n\n{{Referências}}\n",
+      "sourceSha256": "ad43114a61f74216cb763fb8e124e40d4e25c12811515ccce1dec70f5424160b",
+      "expectedSha256": "102b2667439295ee524dc22ca09290da964c8d8f987bb0219e5e65aefb6bc874",
+      "allowedOutputSha256": "575829f22e60a55f1f4df46dc3ec18d8e41512ef6b49194473e001a276406eb8",
+      "label": "Full calculation cannot reactivate a declined native transition",
+      "reader": {
+        "title": "Citar livro",
+        "module": "Módulo:Citar livro",
+        "revision": 49448102
+      },
+      "exactKeyPairs": [
+        {
+          "fieldIndex": 6,
+          "before": "chapter-url",
+          "after": "capítulourl",
+          "role": "ChapterURL"
+        },
+        {
+          "fieldIndex": 7,
+          "before": "chapter",
+          "after": "capítulo",
+          "role": "Chapter"
+        }
+      ],
+      "allValuesMustRemainExact": true,
+      "originalStateProducerProofMustPass": true
+    }
+  ],
+  "biography": [
+    {
+      "id": "map-108-alias-filled-morte_país",
+      "source": "{{Info/Futebolista|nome=Exemplo|cidade_morte=Valor preservado<ref name=\"A\">Fonte.</ref>|morte_país=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "expected": "{{Info/Futebolista|nome=Exemplo|cidade_morte=Valor preservado<ref name=\"A\">Fonte.</ref>|morte_país=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "allowedOutput": "{{Info/Futebolista|nome=Exemplo|morte_cidade=Valor preservado<ref name=\"A\">Fonte.</ref>|morte_país=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "sourceSha256": "0514a0e13031d5201ff50c66ed2a89c0b9102b7f937a950cdcf4eb0cb500a792",
+      "expectedSha256": "0514a0e13031d5201ff50c66ed2a89c0b9102b7f937a950cdcf4eb0cb500a792",
+      "allowedOutputSha256": "3c1c0619eb3d3f39217f23703802755ffee166b10424cba5a2b0cda2de543452",
+      "optionsSha256": "492f5379f2f7604f6f6deb1be65d603842f77939a892eaec66f98a03a7356a74",
+      "owner": "Info/Futebolista",
+      "from": "cidade_morte",
+      "to": "morte_cidade",
+      "fieldValue": "Valor preservado<ref name=\"A\">Fonte.</ref>",
+      "countryKey": "morte_país",
+      "countryValue": "Outro",
+      "nativeConsumer": {
+        "owner": "Info/Futebolista",
+        "key": "morte_cidade",
+        "sourceKeys": [
+          "cidade_morte"
+        ],
+        "role": "conditional-visible-native-text",
+        "aliases": [
+          "cidade_morte",
+          "cidadedamorte",
+          "morte_cidade",
+          "morte_local"
+        ],
+        "forbiddenNonemptyKeys": [],
+        "native": {
+          "title": "Predefinição:Info/Futebolista",
+          "revision": 73340185,
+          "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+        },
+        "reader": {
+          "path": "native table/Morte/cidade",
+          "expressionSha256": "43ea0b1d7a0724ae89b528302673599604320e94df96b4ed6d5d75573e9aed2a",
+          "priority": "independent",
+          "literalDefaultRefs": true,
+          "conditions": {
+            "absentKeys": [
+              "morte_local"
+            ],
+            "selectedNonempty": [
+              [
+                "morte_país",
+                "paisdamorte"
+              ]
+            ]
+          }
+        }
+      },
+      "nativeReaderLines": [
+        36,
+        38
+      ],
+      "requiresOriginalSourceBoundProof": true,
+      "requiresOneExactKeyEdit": true,
+      "allValuesMustRemainExact": true
+    },
+    {
+      "id": "map-108-alias-filled-paisdamorte",
+      "source": "{{Info/Futebolista|nome=Exemplo|cidade_morte=Valor preservado<ref name=\"A\">Fonte.</ref>|paisdamorte=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "expected": "{{Info/Futebolista|nome=Exemplo|cidade_morte=Valor preservado<ref name=\"A\">Fonte.</ref>|paisdamorte=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "allowedOutput": "{{Info/Futebolista|nome=Exemplo|morte_cidade=Valor preservado<ref name=\"A\">Fonte.</ref>|paisdamorte=Outro}}\n\nExemplo.\n\n[[Categoria:Exemplos]]",
+      "sourceSha256": "7f1f921c99658d9070ae17678d021f819f74626dbb05c6dad0a0b58452a8701d",
+      "expectedSha256": "7f1f921c99658d9070ae17678d021f819f74626dbb05c6dad0a0b58452a8701d",
+      "allowedOutputSha256": "52d73463453286c17e9b1c0fccecc73644fb8369ceefba9a4ae6685464694783",
+      "optionsSha256": "492f5379f2f7604f6f6deb1be65d603842f77939a892eaec66f98a03a7356a74",
+      "owner": "Info/Futebolista",
+      "from": "cidade_morte",
+      "to": "morte_cidade",
+      "fieldValue": "Valor preservado<ref name=\"A\">Fonte.</ref>",
+      "countryKey": "paisdamorte",
+      "countryValue": "Outro",
+      "nativeConsumer": {
+        "owner": "Info/Futebolista",
+        "key": "morte_cidade",
+        "sourceKeys": [
+          "cidade_morte"
+        ],
+        "role": "conditional-visible-native-text",
+        "aliases": [
+          "cidade_morte",
+          "cidadedamorte",
+          "morte_cidade",
+          "morte_local"
+        ],
+        "forbiddenNonemptyKeys": [],
+        "native": {
+          "title": "Predefinição:Info/Futebolista",
+          "revision": 73340185,
+          "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+        },
+        "reader": {
+          "path": "native table/Morte/cidade",
+          "expressionSha256": "43ea0b1d7a0724ae89b528302673599604320e94df96b4ed6d5d75573e9aed2a",
+          "priority": "independent",
+          "literalDefaultRefs": true,
+          "conditions": {
+            "absentKeys": [
+              "morte_local"
+            ],
+            "selectedNonempty": [
+              [
+                "morte_país",
+                "paisdamorte"
+              ]
+            ]
+          }
+        }
+      },
+      "nativeReaderLines": [
+        36,
+        38
+      ],
+      "requiresOriginalSourceBoundProof": true,
+      "requiresOneExactKeyEdit": true,
+      "allValuesMustRemainExact": true
+    }
+  ],
+  "biographyNativePositiveAmendment": {
+    "previousMetadataSha256": "39e118a4a2c19277e61ee815cfb9eaf117655edad6ea41805e2b6b56387a0da1",
+    "reason": "Exactly two old alias-conflict expectations now reach the separately proved native death-city reader. Country keys open that row and are separate values, rather than competing city aliases. All other original assertions execute unchanged.",
+    "oldTestsModified": false,
+    "productionChanged": false
+  },
+  "biographyLoaderPins": {
+    "tests/v221/biography_harness.cjs": {
+      "bytes": 1863,
+      "sha256": "2f37fa8cd5598cc1fca61fbcdff061773440dd6a0ac5230652ed1f2779117293"
+    },
+    "tests/v2215/legacy_minified_bindings.cjs": {
+      "bytes": 4507,
+      "sha256": "45915d3a4d2085571ea2ffe33b4f1fdc1fa63ce0cc54ad9ee4d7475613e49ac1"
+    }
+  }
+}

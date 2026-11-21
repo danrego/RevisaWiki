@@ -1,0 +1,41 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),{load}=require('./layout_talk_repairs_harness.cjs');
+const api=load({portalReader:true}),cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Tema fictício',sectionOnly:false,autoPreview:false,registryDoiCheck:false},hash=x=>crypto.createHash('sha256').update(x).digest('hex'),rows=[];let checks=0;
+const eq=(a,b,m)=>{checks++;assert.deepEqual(a,b,m);},ok=(a,m)=>{checks++;assert(a,m);};
+const ref='<ref name="A">{{harvsp|Autor|2009|p=15.</ref>',closed='<ref name="A">{{harvsp|Autor|2009|p=15}}.</ref>',lead="'''Pessoa fictícia''' (1900–1980) foi uma pessoa.",tail='\n\n{{Referências}}\n\n{{Portal3|História|Guerra}}\n[[Categoria:Exemplos]]';
+function append(input,portals){let count=0;const output=api.v211AppendConfirmedPortals(input,cfg,()=>count++,portals,'diagnostic');return{output,count};}
+for(const body of [ref,closed,'<ref name="A" group="nota">{{Modelo incompleto|texto.</ref>','<ref name="A">Texto {{Portal3|Astronomia}} preservado.</ref>']){
+ const input=lead+body+tail,presence=api.v2221LayoutPortalPresence(input),same=append(input,['Guerra']),added=append(input,['Guerra','Ciência']);
+ eq(presence.loose.length,1,'The existing loose portal survives a complete reference owner');eq(presence.uncertain,false,'An incomplete inner template does not cross the complete reference boundary');eq(same.output,input,'Already present evidence cannot create another portal');eq(same.count,0,'No change receives no adjustment credit');
+ eq((added.output.match(/\{\{Portal3\|História\|Guerra\|Ciência\}\}/g)||[]).length,1,'A new confirmed theme updates the existing call once');eq(added.count,1,'One added confirmed theme is one adjustment');ok(added.output.includes(body),'The complete reference is preserved byte for byte');
+ eq(append(added.output,['Guerra','Ciência']).output,added.output,'The portal append operation is idempotent');eq(append(added.output,['Guerra','Ciência']).count,0,'An unchanged repeat has no phantom credit');
+ const footer=api.v2221LayoutPortalFooter(input,cfg.footerProfiles,presence);for(const token of footer.tokens)eq(token.raw,input.slice(token.start,token.end),'Footer token offsets retain original raw text');
+ rows.push({id:'complete-reference-owner-'+rows.length,inputSha256:hash(input),outputSha256:hash(added.output)});
+}
+for(const body of [ref,closed]){
+ const input=lead+body+'\n\n{{Referências}}\n[[Categoria:Exemplos]]',result=append(input,['Ciência']);eq(result.count,1,'A complete reference does not block a confirmed portal when none exists');ok(result.output.includes('{{Portal3|Ciência}}'),'The confirmed portal is appended');ok(result.output.includes(body),'An unrelated complete reference is untouched');rows.push({id:'no-portal-complete-reference-'+rows.length});
+}
+for(const input of [lead+'<ref name="A">Fonte incompleta.\n[[Categoria:Exemplos]]',lead+'\n{{Modelo incompleto|texto\n[[Categoria:Exemplos]]',lead+'\n<ref name="A"\nFonte.',lead+'\n</ref>\n[[Categoria:Exemplos]]']){
+ const result=append(input,['Ciência']);eq(result.output,input,'A genuine unclosed owner cannot prove portal absence');eq(result.count,0,'An uncertain source is preserved with zero credit');ok(api.v2221LayoutPortalPresence(input).uncertain,'The genuine incomplete boundary is recorded internally');rows.push({id:'uncertain-owner-held-'+rows.length});
+}
+for(const wrapper of ['<div>{{Portal3|Guerra}}</div>','{|\n| {{Portal3|Guerra}}\n|}','[[Tema|{{Portal3|Guerra}}]]','[https://example.org {{Portal3|Guerra}}]']){
+ const input=lead+'\n'+wrapper+'\n[[Categoria:Exemplos]]',result=append(input,['Ciência']);eq(result.output,input,'An existing nested structural portal is not duplicated');eq(result.count,0,'A structural portal hold receives zero credit');rows.push({id:'structural-portal-held-'+rows.length});
+}
+for(const example of ['<nowiki>{{Portal3|Guerra}}</nowiki>','<!-- {{Portal3|Guerra}} -->','<syntaxhighlight lang="wikitext">{{Portal3|Guerra}}</syntaxhighlight>']){
+ const input=lead+'\n'+example+'\n[[Categoria:Exemplos]]',presence=api.v2221LayoutPortalPresence(input),result=append(input,['Ciência']);eq(presence.any.length,0,'Literal code and comments do not impersonate a live portal');ok(result.output.includes(example),'The example is preserved');ok(result.output.includes('{{Portal3|Ciência}}'),'A confirmed real portal can be added independently');rows.push({id:'literal-example-'+rows.length});
+}
+for(const raw of ['{{Portal3|{{Tema dinâmico}}}}','{{Portal3|Guerra|1=História}}','{{Portal3|Guerra|campo=valor}}']){
+ const input=lead+'\n'+raw+'\n[[Categoria:Exemplos]]',result=append(input,['Ciência']);eq(result.output,input,'Dynamic, duplicate or unknown portal arguments remain untouched');eq(result.count,0,'No unsafe portal argument receives credit');rows.push({id:'unproved-slot-held-'+rows.length});
+}
+const biography='{{Info/Biografia|nome=Pessoa fictícia}}\n'+lead+ref+tail,biocfg={...cfg,biographyPortal:true,portals:true,endMatter:true};let biocount=0;const bio=api.addBiographyPortal(biography,biocfg,()=>biocount++,()=>{});
+ok(api.biographyDetection(biography,biocfg),'The biography control really reaches its writer');eq(biocount,1,'One biography theme is appended to the existing call');ok(bio.includes('{{Portal3|História|Guerra|Biografias}}'),'The existing portal receives the biography theme');eq((bio.match(/\{\{Portal3/g)||[]).length,1,'Biography portal detection uses the same complete-reference boundary');ok(bio.includes(ref),'Biography detection does not repair or rewrite the source reference');rows.push({id:'biography-reader-shared-boundary'});
+for(const body of ['<ref>{{Portal3|Guerra}}</ref>','<ref>{{Modelo|{{Portal3|Guerra}}}}</ref>']){
+ const input='{{Info/Biografia|nome=Pessoa fictícia}}\n'+lead+body+'\n{{Referências}}\n[[Categoria:Exemplos]]',result=append(input,['Ciência']);eq(result.output,input,'A real portal inside a complete reference still blocks a second call');eq(result.count,0,'A preserved inner portal receives no append credit');let count=0;eq(api.addBiographyPortal(input,biocfg,()=>count++,()=>{}),input,'The biography writer keeps the same inner-portal absence guard');eq(count,0,'No biography append is credited inside an ambiguous reference owner');rows.push({id:'real-inner-portal-held-'+rows.length});
+}
+for(const body of [ref,closed]){
+ const input=lead+body+tail.replace('}}\n[[Categoria','}}\n\n[[Categoria')+'\n',plan=api.v2212PortalPlan(input,cfg);eq(plan.text,input,'The existing footer portal is not falsely relocated because of a reference body');eq(plan.edits.length,0,'An already positioned portal has no transient relocation credit');const layout=api.v2216LayoutPlan(plan.text,cfg);eq(layout.text,input,'The native footer writer has no inverse separator adjustment');rows.push({id:'portal-relocation-footer-reader-'+rows.length});
+}
+if(process.env.REVISAWIKI_CURRENT_CORE){
+ const input=lead+ref+tail,result=api.calculate({kind:'adjust',source:input,originalSource:input,options:cfg});ok(api.v219AutomaticResultSafety(input,result).accepted,'The full action keeps automatic result checks');eq(api.preservationAudit(input,result.text,cfg).length,0,'Independent preservation remains enabled');ok(!api.safeComposition(input,result.text,cfg),'Independent composition remains enabled');eq((result.text.match(/\{\{Portal3/g)||[]).length,1,'The actual action creates no portal copy');ok(result.text.includes(ref),'The incomplete inner reference template remains byte-exact');const repeat=api.calculate({kind:'adjust',source:result.text,originalSource:result.text,options:cfg});eq(repeat.text,result.text,'The full action needs no second click');eq(api.v211RetainedAdjustments(result.text,repeat.text,[],cfg).count,0,'An unchanged full replay has zero adjustments');rows.push({id:'actual-action-and-replay'});
+}
+const report={suite:'portal-presence-complete-reference-boundary',cases:rows.length,checks,passed:true,actualBundle:!!process.env.REVISAWIKI_CURRENT_CORE,referenceBodyRewritten:false,preservationChecksRemoved:false,wikipediaWrites:0,rows};if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({...report,rows:undefined}));

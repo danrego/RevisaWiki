@@ -21,7 +21,38 @@ RULES={
  'secret-token':re.compile(r'(?:github_pat_[A-Za-z0-9_]{15,}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----|central'+r'authLoginToken=|Bearer\s+[A-Za-z0-9._-]{20,})'),
 }
 URL=re.compile(r'https?://[^\s"<>]+',re.I)
-EMAIL=re.compile(r'\b[A-Za-z0-9.!#$%&*+/?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.(?:[A-Za-z]{2,63}|xn--[A-Za-z0-9-]{2,59})(?![A-Za-z0-9-])')
+EMAIL_GRAMMAR=re.compile(r'\b[A-Za-z0-9.!#$%&*+/?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.(?:[A-Za-z]{2,63}|xn--[A-Za-z0-9-]{2,59})(?![A-Za-z0-9-])')
+EMAIL_LOCAL_CHARS=frozenset('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.!#$%&*+/?^_`{|}~-')
+EMAIL_DOMAIN_CHARS=frozenset('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-')
+
+def email_matches(text):
+ # Locate actual separators first: a long address-free string is scanned once.
+ # Keep the original grammar, Unicode word boundary, spans and nonoverlap rule.
+ cursor=0
+ for separator in re.finditer('@',text):
+  at=separator.start()
+  if at<cursor:continue
+  left=at
+  while left>cursor and text[left-1]in EMAIL_LOCAL_CHARS:left-=1
+  start=left
+  while start<at:
+   before=text[start-1]if start else ''
+   current=text[start]
+   if bool(before and(before.isalnum()or before=='_'))!=(current.isalnum()or current=='_'):break
+   start+=1
+  if start==at:continue
+  end=at+1
+  while end<len(text)and text[end]in EMAIL_DOMAIN_CHARS:end+=1
+  found=EMAIL_GRAMMAR.match(text,start,end)
+  if found:
+   cursor=found.end()
+   yield found
+
+class EmailReader:
+ def finditer(self,text):return email_matches(text)
+ def __getattr__(self,name):return getattr(EMAIL_GRAMMAR,name)
+
+EMAIL=EmailReader()
 # Exact reviewed public vendor bytes, with the same two original credit emails.
 APPROVED_PUBLIC_CREDIT_FILES={
  'c28d1b9e6e83901da233beffb0524866165746e46c050a53467a40ae2fd13a6a':{
@@ -173,9 +204,14 @@ APPROVED_RUNTIME_OBJECT_KEYS={
  },
  'f96bdb5dfbe6f727df343eca5b472ebcbf9e7f088ba10663b657b38423c2ea23':{'bytes':1840874,'tokens':{'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
  'cb2bf27faa2aa1f51093ac4f2eba10c50d5d5422fbb616d73f858166272744fc':{'bytes':3927414,'tokens':{'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '2c0d3739cf6c81255e9296d5743117ae21ff0508ee59a53fa6526cda906443d2':{'bytes': 2067247, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ 'a7a4041802941319631170ee85d7be9f87c8bbd08afb76c633de82b7027974a2':{'bytes': 6517932, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ '90e0e10539365e11c7bd24a9f9184484bf14ca5e7faf0e61354505371adcfddf':{'bytes': 2067375, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
+ 'a4a9651159637acfd85c5d5230e15b54145577b966afb82950e4957f2116e927':{'bytes': 6520065, 'tokens': {'91d9e76f01c6f79c6e51863de4ae799613ac1027ea4587fc51c69bc990d3249d': 1, 'ffbfe426853ca74b959ba5f96b1be6132490f940a72da0905aa2168df997775b': 1}},
 }
 # Exact fictional URL-userinfo fixtures exercise URL grammar without real accounts.
-# Only reviewed complete source files and exact reserved-domain URLs qualify.
+# Only reviewed complete source bytes and exact fictional URL literals qualify.
+# Some authority-spoofing negatives use public hostnames as userinfo; no personal identity is present.
 # Reserved documentation/test domains: https://www.rfc-editor.org/rfc/rfc2606.html
 APPROVED_SYNTHETIC_URL_FIXTURES={
  '38702d29d0060cb3afde61abe591812a86058fce33682cd93139b3366cd72b51':{'410504aa598cc37372f0ff9d9c9859d1e0803df4ddf8b9c43d6556f86f070fd9'},
@@ -183,6 +219,8 @@ APPROVED_SYNTHETIC_URL_FIXTURES={
  '5b18d685c06a5bbcd2f3e3c07188bdd7ab5194ed891b5b40d4dd435ecb946894':{'88ea6f85d62ab24778c7ef01b8859a64270ab74f74dd49933de1261f850ce07c'},
  'ea4dbbedfc166655bb5cfe6865371afc9d1c251b4050e520f1674b055e0002cb':{'da2dcf3acd0c4547e70094e71d173ecea4fa55e11f92964341b79d76094f2051'},
  '0343f9f07debc32a87954a2cf59a3adae3ba18f577891af13a8825bdd86fb709':{'a692a7ec69ebe3d4ec689358982cfcb744e5c4aca3a51eaecbe735ae2fb1cdbf'},
+ 'b28dd7494340a2bb160b9b82728f15f290480fc1073e4030f4a77623e048023f':{'b8d9c14d7ef8344ce6504afb66c08c682e3516be3f88005b637730c529434752'},
+ 'd4fe1b0666f7e760b90cf0357e66a72d2f80ca6183f87e5f89c4336a5cac208c':{'fad4a52f13cdf2c676bcd11791670f4144922ff0c923de042cb34f60318288b8', '5348ba074302193f007726c9f495e009528a9daf2725ce976ebe7dfe00591a10', 'afb5cda965d1c45bc7516055faa5175df700b61d05666ccd503933fd5b860a40'},
 }
 APPROVED_SYNTHETIC_WIKI_NAMESPACE_FIXTURES={
  '1c1f745f2e8adc81df35fd9cf9fd4f339fa2be998f0fbe027049af9f5f636502':{'8d23e4f465673ff8a69aad160a76a5cffc13b3ce9dc5a5f50e1e565ba54f897f','d5b366ddea4e0ad2b4e278cff09240d55fbeef61406d790d923e6091a9d6a14e'}
@@ -200,7 +238,7 @@ def identity_findings(text,reviewed_css=frozenset()):
  decoded=unquote(text).replace('+',' ')
  owner=TECHNICAL_SCRIPT_TITLE.split(':',1)[1].split('/',1)[0]
  owner_pattern=r'[ _]+'.join(re.escape(part)for part in owner.split())
- technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador|Catalogo|Regras)\\.js)?|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
+ technical=re.compile(r'(?:User|Usuário|Usuária):'+owner_pattern+'/(?:RevisaWiki(?:\\.js|/(?:Dados|Carregador|Catalogo|Regras)\\.js)?|(?-i:RevisaWiki/Infocaixas/parte[0-9]{4}\\.json)|common\\.js)(?=$|[\\s\\]\\[<>"\\\'`|}?&#,]|\\.(?=\\s|$))',re.I)
  masked=technical.sub(lambda m:' '*len(m.group()),decoded)
  css_property=re.compile(r'--image-size-'+r'user'+r':var\(--image-size-(?:standard|small|large)\)(?=[;}])')
  masked=css_property.sub(lambda m:' '*len(m.group())if hashlib.sha256(m.group().encode()).hexdigest()in reviewed_css else m.group(),masked)

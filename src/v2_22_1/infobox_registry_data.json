@@ -1,0 +1,1564 @@
+{
+  "schema": 1,
+  "snapshotId": "focused-native-readers-20261120-r1",
+  "nativeAliases": [
+    {
+      "title": "Info/Biografia",
+      "aliases": [],
+      "revision": 73325613,
+      "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+    },
+    {
+      "title": "Infobox person",
+      "aliases": [],
+      "revision": 63097825,
+      "sha256": "8837c3d380be59d1fad2ef5f710b4529f14ed263414e15d82d25d6bf0e9d1e89"
+    },
+    {
+      "title": "Info/Futebolista",
+      "aliases": [],
+      "revision": 70095373,
+      "sha256": "25df2174220fbaa5aeffa9a4a3eff35a1fdaa440986d789b62f6bebe864981b4"
+    }
+  ],
+  "records": [
+    {
+      "id": "pt-native-biography-foreign-key-repair",
+      "state": "active",
+      "source": {
+        "wiki": "pt",
+        "title": "Predefinição:Info/Biografia",
+        "aliases": [],
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "target": {
+        "wiki": "pt",
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d",
+        "accepted": [
+          "alma_mater",
+          "assinatura",
+          "cônjuge",
+          "data_morte",
+          "data_nascimento",
+          "educação",
+          "filhos",
+          "imagem",
+          "imagem_alt",
+          "imagem_legenda",
+          "legenda",
+          "local_morte",
+          "local_nascimento",
+          "morte_data",
+          "morte_local",
+          "nacionalidade",
+          "nascimento_data",
+          "nascimento_local",
+          "nome",
+          "nome_completo",
+          "ocupação",
+          "outros_nomes",
+          "progenitores",
+          "prêmios"
+        ]
+      },
+      "proof": {
+        "kind": "native-contract",
+        "defaults": "equivalent",
+        "suppressions": "equivalent",
+        "aliasPrecedence": "equivalent",
+        "dynamic": "equivalent",
+        "embedding": "standalone",
+        "defaultScope": "explicit-facts",
+        "presentation": "native-target-layout",
+        "nativeSideEffects": [
+          {
+            "kind": "maintenance-categories",
+            "evidence": "native-existing-entity-badges-or-local-template-tracking",
+            "explicitFactsUnchanged": true
+          }
+        ],
+        "nativeRepair": {
+          "status": "verified",
+          "originIndependent": true,
+          "unconsumedKeys": [
+            "name",
+            "image",
+            "caption",
+            "birth_place",
+            "death_place",
+            "other_names",
+            "education",
+            "spouse",
+            "children",
+            "occupation",
+            "awards",
+            "signature",
+            "birth_date",
+            "death_date",
+            "parents"
+          ],
+          "nativeReader": {
+            "status": "verified",
+            "coverage": "complete",
+            "forwarding": "resolved",
+            "lua": "resolved",
+            "revision": 73325613,
+            "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "target": "nome",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.display.name",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "name",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.display.name",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "nome": {
+          "target": "nome",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.display.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "image": {
+          "target": "imagem",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.file",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "image",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.image.file",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "imagem": {
+          "target": "imagem",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "caption": {
+          "target": "legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "caption",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.image.caption",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "legenda": {
+          "target": "legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_place": {
+          "target": "nascimento_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "birth_place",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.birth.place",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "nascimento_local": {
+          "target": "nascimento_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "death_place": {
+          "target": "morte_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "death_place",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.death.place",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "morte_local": {
+          "target": "morte_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "other_names": {
+          "target": "outros_nomes",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.other.names",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "other_names",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.other.names",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "outros_nomes": {
+          "target": "outros_nomes",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.other.names",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "education": {
+          "target": "educação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "education",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.education.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "educação": {
+          "target": "educação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "alma_mater": {
+          "target": "alma_mater",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.institution",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "spouse": {
+          "target": "cônjuge",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.spouse.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "spouse",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.spouse.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "cônjuge": {
+          "target": "cônjuge",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.spouse.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "children": {
+          "target": "filhos",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.children.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "children",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.children.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "filhos": {
+          "target": "filhos",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.children.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "occupation": {
+          "target": "ocupação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.occupation.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "occupation",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.occupation.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "ocupação": {
+          "target": "ocupação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.occupation.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "awards": {
+          "target": "prêmios",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.awards.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "awards",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.awards.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "prêmios": {
+          "target": "prêmios",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.awards.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "signature": {
+          "target": "assinatura",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.signature.file",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "signature",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.signature.file",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "assinatura": {
+          "target": "assinatura",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.signature.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_date": {
+          "target": "nascimento_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "birth_date",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.birth.date",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ],
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "nascimento_data": {
+          "target": "nascimento_data",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "death_date": {
+          "target": "morte_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "death_date",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.death.date",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ],
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "morte_data": {
+          "target": "morte_data",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "parents": {
+          "target": "progenitores",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.parents.information",
+            "sourceConsumed": false,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "foreignEvidence": [
+            {
+              "wiki": "en",
+              "title": "Template:Infobox person",
+              "key": "parents",
+              "revision": 1377571195,
+              "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+              "role": "person.parents.information",
+              "consumed": true,
+              "semantics": "equivalent"
+            }
+          ]
+        },
+        "progenitores": {
+          "target": "progenitores",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.parents.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "local_nascimento": {
+          "target": "local_nascimento",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "local_morte": {
+          "target": "local_morte",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "data_nascimento": {
+          "target": "data_nascimento",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "data_morte": {
+          "target": "data_morte",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "imagem_legenda": {
+          "target": "imagem_legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "imagem_alt": {
+          "target": "imagem_alt",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.alternative-text",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "nacionalidade": {
+          "target": "nacionalidade",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.nationality.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "nome_completo": {
+          "target": "nome_completo",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.full.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        }
+      },
+      "preconditions": {
+        "literalNonemptyWhenPresentKeys": [
+          "name"
+        ],
+        "positional": "reject"
+      },
+      "mode": "native-repair"
+    },
+    {
+      "id": "pt-native-person-wrapper",
+      "state": "active",
+      "source": {
+        "wiki": "pt",
+        "title": "Predefinição:Infobox person",
+        "aliases": [],
+        "revision": 63097825,
+        "sha256": "8837c3d380be59d1fad2ef5f710b4529f14ed263414e15d82d25d6bf0e9d1e89"
+      },
+      "target": {
+        "wiki": "pt",
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d",
+        "accepted": [
+          "alma_mater",
+          "assinatura",
+          "cônjuge",
+          "educação",
+          "filhos",
+          "imagem",
+          "legenda",
+          "morte_data",
+          "morte_local",
+          "nacionalidade",
+          "nascimento_data",
+          "nascimento_local",
+          "nome",
+          "nome_de_batismo",
+          "ocupação",
+          "outros_nomes",
+          "parentesco",
+          "prêmios"
+        ]
+      },
+      "proof": {
+        "kind": "native-contract",
+        "defaults": "equivalent",
+        "suppressions": "equivalent",
+        "aliasPrecedence": "equivalent",
+        "dynamic": "equivalent",
+        "embedding": "standalone",
+        "defaultScope": "explicit-facts",
+        "presentation": "native-target-layout",
+        "nativeSideEffects": [
+          {
+            "kind": "maintenance-categories",
+            "evidence": "native-existing-entity-badges-or-local-template-tracking",
+            "explicitFactsUnchanged": true
+          }
+        ],
+        "nativeWrapper": {
+          "status": "verified",
+          "originIndependent": true,
+          "unconsumedKeys": [],
+          "sourceReader": {
+            "status": "verified",
+            "coverage": "complete",
+            "forwarding": "resolved",
+            "lua": "absent",
+            "revision": 63097825,
+            "sha256": "8837c3d380be59d1fad2ef5f710b4529f14ed263414e15d82d25d6bf0e9d1e89"
+          },
+          "targetReader": {
+            "status": "verified",
+            "coverage": "complete",
+            "forwarding": "resolved",
+            "lua": "resolved",
+            "revision": 73325613,
+            "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "target": "nome",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.display.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "image": {
+          "target": "imagem",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "caption": {
+          "target": "legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_place": {
+          "target": "nascimento_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "death_place": {
+          "target": "morte_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "other_names": {
+          "target": "outros_nomes",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.other.names",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "education": {
+          "target": "educação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "alma_mater": {
+          "target": "alma_mater",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.institution",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "spouse": {
+          "target": "cônjuge",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.spouse.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "children": {
+          "target": "filhos",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.children.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "occupation": {
+          "target": "ocupação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.occupation.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "awards": {
+          "target": "prêmios",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.awards.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "signature": {
+          "target": "assinatura",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.signature.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_date": {
+          "target": "nascimento_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "death_date": {
+          "target": "morte_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "birth_name": {
+          "target": "nome_de_batismo",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.native-wrapper.full-name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "nationality": {
+          "target": "nacionalidade",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.nationality.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "parents": {
+          "target": "parentesco",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.native-wrapper.kinship",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "ocupation": {
+          "target": "ocupação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.occupation.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        }
+      },
+      "preconditions": {
+        "requiredKeys": [
+          "name"
+        ],
+        "literalNonemptyKeys": [
+          "name"
+        ],
+        "positional": "reject",
+        "mutuallyExclusiveNonempty": [
+          [
+            "education",
+            "alma_mater"
+          ]
+        ]
+      },
+      "mode": "native-wrapper"
+    },
+    {
+      "id": "en-person-explicit-subset",
+      "state": "active",
+      "source": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "aliases": [],
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1"
+      },
+      "target": {
+        "wiki": "pt",
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d",
+        "accepted": [
+          "alma_mater",
+          "assinatura",
+          "cônjuge",
+          "educação",
+          "filhos",
+          "imagem",
+          "legenda",
+          "morte_data",
+          "morte_local",
+          "nascimento_data",
+          "nascimento_local",
+          "nome",
+          "ocupação",
+          "outros_nomes",
+          "progenitores",
+          "prêmios"
+        ]
+      },
+      "proof": {
+        "kind": "native-contract",
+        "defaults": "equivalent",
+        "suppressions": "equivalent",
+        "aliasPrecedence": "equivalent",
+        "dynamic": "equivalent",
+        "embedding": "standalone",
+        "defaultScope": "explicit-facts",
+        "presentation": "native-target-layout",
+        "nativeSideEffects": [
+          {
+            "kind": "maintenance-categories",
+            "evidence": "native-existing-entity-badges-or-local-template-tracking",
+            "explicitFactsUnchanged": true
+          }
+        ],
+        "sourceConsumers": [
+          {
+            "title": "Module:Person date",
+            "revision": 1325970701,
+            "sha256": "5a0321bd7f13b9a0f1919d3b1767202d717a6c4852b1fae465286fb09c30311e",
+            "contract": "complete valid ISO dates return the original scalar without calculating an age"
+          }
+        ]
+      },
+      "fields": {
+        "name": {
+          "target": "nome",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.display.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "image": {
+          "target": "imagem",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "caption": {
+          "target": "legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_place": {
+          "target": "nascimento_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "death_place": {
+          "target": "morte_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "other_names": {
+          "target": "outros_nomes",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.other.names",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "education": {
+          "target": "educação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "alma_mater": {
+          "target": "alma_mater",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.education.institution",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "spouse": {
+          "target": "cônjuge",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.spouse.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "children": {
+          "target": "filhos",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.children.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "occupation": {
+          "target": "ocupação",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.occupation.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "awards": {
+          "target": "prêmios",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.awards.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "signature": {
+          "target": "assinatura",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.signature.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_date": {
+          "target": "nascimento_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "death_date": {
+          "target": "morte_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "parents": {
+          "target": "progenitores",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.parents.information",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        }
+      },
+      "preconditions": {
+        "requiredKeys": [
+          "name"
+        ],
+        "literalNonemptyKeys": [
+          "name"
+        ],
+        "positional": "reject",
+        "mutuallyExclusiveNonempty": [
+          [
+            "education",
+            "alma_mater"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "en-football-literal-subset",
+      "state": "active",
+      "source": {
+        "wiki": "en",
+        "title": "Template:Infobox football biography",
+        "aliases": [],
+        "revision": 1375474059,
+        "sha256": "82f2de1249f37b830a8ea72555e8007a7fa5810a4a37ac9c0fef80800c2e589a"
+      },
+      "target": {
+        "wiki": "pt",
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 70095373,
+        "sha256": "25df2174220fbaa5aeffa9a4a3eff35a1fdaa440986d789b62f6bebe864981b4",
+        "accepted": [
+          "data_nascimento",
+          "imagem",
+          "imagem_legenda",
+          "imagem_tamanho",
+          "morte_data",
+          "morte_local",
+          "nascimento_local",
+          "nome",
+          "nomecompleto",
+          "posição"
+        ]
+      },
+      "proof": {
+        "kind": "native-contract",
+        "defaults": "equivalent",
+        "suppressions": "equivalent",
+        "aliasPrecedence": "equivalent",
+        "dynamic": "equivalent",
+        "embedding": "standalone",
+        "defaultScope": "explicit-facts",
+        "presentation": "native-target-layout",
+        "nativeSideEffects": [
+          {
+            "kind": "maintenance-categories",
+            "evidence": "native-existing-entity-badges-or-local-template-tracking",
+            "explicitFactsUnchanged": true
+          }
+        ],
+        "sourceConsumers": [
+          {
+            "title": "Module:Person date",
+            "revision": 1325970701,
+            "sha256": "5a0321bd7f13b9a0f1919d3b1767202d717a6c4852b1fae465286fb09c30311e",
+            "contract": "complete valid ISO dates return the original scalar without calculating an age"
+          },
+          {
+            "title": "Module:Footballer positions",
+            "revision": 1329576279,
+            "sha256": "811339da2ab9e41b22b16d292b8be2f48049f5e5aac2b84999656c987c84607c",
+            "contract": "only four fixed canonical playing roles; no free-text translation or career-statistic reconstruction"
+          }
+        ]
+      },
+      "fields": {
+        "name": {
+          "target": "nome",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.display.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "full_name": {
+          "target": "nomecompleto",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.full.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "fullname": {
+          "target": "nomecompleto",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.full.name",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "image": {
+          "target": "imagem",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.file",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "caption": {
+          "target": "imagem_legenda",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.caption",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "image_size": {
+          "target": "imagem_tamanho",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.image.size",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "birth_date": {
+          "target": "data_nascimento",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "birth_place": {
+          "target": "nascimento_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.birth.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "death_date": {
+          "target": "morte_data",
+          "transform": "date-ymd-to-dmy",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.date",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "transformEvidence": {
+            "source": "gregorian-iso-date",
+            "target": "gregorian-pt-long-date",
+            "age": false,
+            "categorySideEffects": false
+          }
+        },
+        "death_place": {
+          "target": "morte_local",
+          "transform": "identity",
+          "evidence": {
+            "status": "verified",
+            "role": "person.death.place",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          }
+        },
+        "position": {
+          "target": "posição",
+          "transform": "literal-map",
+          "evidence": {
+            "status": "verified",
+            "role": "football.playing.position",
+            "sourceConsumed": true,
+            "targetConsumed": true,
+            "semantics": "equivalent"
+          },
+          "values": {
+            "goalkeeper": "goleiro",
+            "Goalkeeper": "goleiro",
+            "defender": "defensor",
+            "Defender": "defensor",
+            "midfielder": "meio-campista",
+            "Midfielder": "meio-campista",
+            "forward": "atacante",
+            "Forward": "atacante"
+          }
+        }
+      },
+      "preconditions": {
+        "requiredKeys": [
+          "name"
+        ],
+        "literalNonemptyKeys": [
+          "name"
+        ],
+        "bareFileKeys": [
+          "image"
+        ],
+        "requiresNonemptyWhenPresent": {
+          "image": [
+            "caption"
+          ],
+          "caption": [
+            "image"
+          ]
+        },
+        "positional": "reject"
+      }
+    },
+    {
+      "id": "ca-internal-person-header-collision",
+      "state": "unresolved",
+      "source": {
+        "wiki": "ca",
+        "title": "Plantilla:Infobox person",
+        "aliases": [],
+        "revision": 39124816,
+        "sha256": "93ea6ecbfe101e2c1de5f85fdfb03947ba50381a99116cf9c2fe4eff6eda84bd"
+      },
+      "discovery": {
+        "status": "different-native-reader-and-wikidata-fallback",
+        "activation": "never-by-title-or-key-resemblance"
+      }
+    }
+  ]
+}

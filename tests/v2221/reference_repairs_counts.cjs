@@ -1,0 +1,31 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {api,cfg,sha,baselineSha256,helperSha256}=require('./reference_repairs_harness.cjs').load();
+let checks=0;const results=[],body='Texto.<ref>Fonte.</ref>',notes='Texto.<ref group="nota">Nota.</ref><ref>Fonte.</ref>';
+global.fetch=()=>{throw Error('No network in retained-operation count tests');};
+function run(id,source,expected){
+ const plan=api.v2221ReferencePlan(source,cfg),retained=api.v211RetainedAdjustments(source,plan.text,[],cfg);
+ checks++;assert.equal(retained.exact,true,id+' exact retained counter');checks++;assert.equal(retained.count,expected,id+' retained source operations');
+ const result=api.calculate({kind:'adjust',source,originalSource:source,options:cfg}),actual=api.v211RetainedAdjustments(source,result.text,[],cfg);
+ checks++;assert.equal(actual.exact,true,id+' complete action exact counter');checks++;assert.equal(actual.count,expected,id+' complete action retained source operations');
+ const again=api.v211RetainedAdjustments(result.text,result.text,[],cfg);checks++;assert.equal(again.count,0,id+' no repeat count');
+ results.push({id,inputSha256:sha(source),outputSha256:sha(result.text),expected,retained:retained.count,completeActionRetained:actual.count,unit:actual.unit});
+}
+for(const n of [1,2,3,5])run('canonical-default-'+n,body+'\n\n'+Array(n).fill('{{Referências}}').join('\n\n'),n-1);
+for(const n of [2,3])run('canonical-combined-'+n,notes+'\n\n'+Array(n).fill('{{Notas e referências}}').join('\n\n'),n-1);
+run('canonical-heading-only',body+'\n\n== Referências ==\n{{Referências}}',1);
+run('duplicate-call-and-headings',body+'\n\n== Referências ==\n{{Referências}}\n\n== Referências ==\n{{Referências}}',3);
+run('one-column-argument',body+'\n\n{{Referências|col=2}}',1);
+run('two-column-arguments',body+'\n\n{{Referências|col=2|colwidth=30em}}',2);
+run('alias-plus-width',body+'\n\n{{Reflist|30em}}',2);
+run('alias-only',body+'\n\n{{Reflist}}',1);
+run('canonical-keeper-discarded-alias',body+'\n\n{{Referências}}\n\n{{Reflist|30em}}',1);
+run('notes-default-to-combined',notes+'\n\n{{Notas}}\n\n{{Referências}}',2);
+run('default-notes-to-combined',notes+'\n\n{{Referências}}\n\n{{Notas}}',2);
+run('combined-keeper-default-removed',notes+'\n\n{{Notas e referências}}\n\n{{Referências}}',1);
+run('canonical-collector-wrapper-only',body+'\n\n{{Colunas-lista|2|2={{Referências}}}}',1);
+run('native-tag-conversion',body+'\n\n<references/>',1);
+run('inline-collector-boundary',body+'{{Referências}}',1);
+run('single-note-group-and-collector-convergence','Texto.<ref group="x">Nota.</ref><ref>Fonte.</ref>\n== Notas ==\n{{Reflist|group=x}}\n{{Reflist}}\n',6);
+const report={suite:'v2221-reference-retained-operation-counts',baselineSha256,helperSha256,engineVersion:api.version,cases:results.length,checks,results,passed:true,networkRequests:0,wikipediaWrites:0};
+if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({cases:results.length,checks,passed:true}));

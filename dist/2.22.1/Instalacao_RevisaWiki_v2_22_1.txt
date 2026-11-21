@@ -1,0 +1,36 @@
+RevisaWiki 2.22.1: instalação
+
+Comece pelo INDICE.md para copiar os arquivos completos, seus destinos e os resumos. Quem já usa a chamada fixa da distribuição compartilhada mantém o common.js e recarrega sem cache depois da atualização.
+
+Para quem mantém a distribuição
+
+Atualize com todos os arquivos do mesmo pacote, nesta ordem:
+1. Dados: Usuário:Daniel G Rego/RevisaWiki/Dados.js
+2. Catálogo adicional: Usuário:Daniel G Rego/RevisaWiki/Catalogo.js
+3. Partes JSON: Usuário:Daniel G Rego/RevisaWiki/Infocaixas/parte0001.json e demais partes listadas no índice.
+4. Regras: Usuário:Daniel G Rego/RevisaWiki/Regras.js
+5. Programa: Usuário:Daniel G Rego/RevisaWiki.js
+6. Carregador central: Usuário:Daniel G Rego/RevisaWiki/Carregador.js
+7. Documentação: Usuário:Daniel G Rego/RevisaWiki
+
+As partes JSON são novas nesta distribuição e ficam disponíveis antes de Regras.js e do programa. O índice lista cada parte separadamente. Elas contêm contratos de infocaixas, não o texto dos artigos.
+
+A página de uma parte pode usar conteúdo wikitexto preservado ou o modelo JSON. O modelo JSON pode reindentar e desescapar strings ao salvar: a conferência usa o conteúdo JSON canônico, não sua formatação externa. Código e dados JavaScript continuam exigindo identidade, salvo a quebra de linha terminal.
+
+Primeira instalação compartilhada
+
+Acrescente o bloco de Chamada_fixa_RevisaWiki_common.js a Especial:Minha página/common.js sem apagar seus outros scripts. Mantenha somente uma instalação do RevisaWiki por vez. Esse bloco fixo não precisa ser trocado em toda versão.
+
+Cópia própria
+
+Use os mesmos arquivos nos destinos da sua cópia, conservando Dados.js, Catalogo.js, Regras.js e a subpasta Infocaixas. O carregador deriva os destinos desse conjunto. O índice também fornece a chamada fixa e o carregador da cópia própria.
+
+Conferir a instalação
+
+Abra Editar código-fonte em um artigo e procure Ajustar código. Confira o resultado em Mostrar alterações e use Desfazer ajustes se quiser voltar. Nas discussões de artigos, o mesmo botão prepara as adições comprovadas e organiza o cabeçalho.
+
+Firefox e Chrome no Mac usam Command + Shift + R para recarregar sem cache. Safari usa Option + Command + R. Não é necessário fechar o navegador.
+
+Se houver incompatibilidade entre partes, copie novamente os arquivos completos do mesmo pacote e recarregue. Não altere os hashes para forçar o carregamento. O arquivo RevisaWiki_v2_22_1_completo.js serve apenas para demonstração e testes locais, não para instalar numa página da Wikipédia.
+
+Código e versões: https://github.com/danrego/RevisaWiki

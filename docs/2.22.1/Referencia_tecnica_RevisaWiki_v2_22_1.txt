@@ -1,0 +1,39 @@
+RevisaWiki 2.22.1: referência técnica
+
+Distribuição
+
+O programa conserva a base publicada e acrescenta leitores e reparos ligados à fonte. Dados.js mantém os dados de base, Catalogo.js contém os mapas adicionais, as partes Infocaixas/parteNNNN.json contêm os contratos de migração e Regras.js traz o índice e os reparos. Versões e hashes são conferidos antes do uso. A chamada fixa do common.js continua igual.
+
+As partes são aceitas em conteúdo wikitexto preservado e no modelo JSON. O pré-save JSON pode reindentar e desescapar strings; o catálogo autentica seu conteúdo JSON canônico. Para código e dados JavaScript, permanece a exigência de identidade, salvo a quebra de linha terminal. A comprovação nativa do pacote final precisa corresponder às partes finais e aos dois modelos.
+
+Cada parte JSON é instalada antes de Regras.js e do programa. O carregamento consulta apenas as partes necessárias aos cabeçalhos encontrados. A ausência ou incompatibilidade de uma parte conserva a infocaixa afetada e deixa os componentes independentes continuarem. O catálogo não é uma autorização para converter um modelo só por ter o mesmo nome ou uma ligação de idioma.
+
+Aplicação e preservação
+
+Cada componente cria posições de alteração sobre o texto exato, confere o plano e sua prova e só depois compõe o resultado. Uma recusa fica no componente afetado. A versão do editor e o rascunho são conferidos de novo antes da escrita, impedindo que uma resposta antiga substitua uma edição em andamento.
+
+O cache de leitura do novo módulo de layout usa o texto exato e os offsets, com estados clonados. Seus limites são oito textos e 16 MiB. Ele não reutiliza resultados por aproximação, não retira proteções e não muda o prazo de análise.
+
+Referências
+
+Coletores, bancos, grupos, auxiliares e identidades de referências são conferidos como partes do mesmo conjunto. A ausência de uma definição só é usada para retirar uma chamada quando os possíveis produtores estão fechados. Unicode não é normalizado para unir nomes de fontes. Bancos preenchidos e grupos especiais podem impedir a união de coletores sem impedir reparos locais.
+
+Referências|30em usa um título nativo, portanto não é tratado como Reflist|30em. Os invólucros visuais só saem nos formatos exatos que não têm IDs, conteúdo próprio ou opções funcionais adicionais.
+
+Infocaixas
+
+Aliases nativos, reparos de campos ignorados, wrappers e migrações estrangeiras têm contratos distintos. As provas incluem o consumidor, os valores, a prioridade dos aliases, os padrões factuais e a incorporação. Um campo desconhecido não é apagado. A migração da chamada completa fica retida quando não cobre todos os argumentos.
+
+A composição finita de campo e coletor cobre 137 destinos de 25 modelos nativos e 154 grafias de origem. São 116 destinos de texto direto, 11 condicionais, quatro em subinfocaixas, quatro de legendas com registro de referência pela avaliação dos argumentos, um numérico inteiro e um seletor textual. Cada ramo mantém suas condições e a prioridade dos aliases. Uma chave vazia não substitui a prova de uma chave ausente; uma legenda pode registrar uma fonte mesmo sem aparecer na imagem. Valores opacos, produtores desconhecidos, grupos diferentes e papéis de atributo ou de dimensão não são liberados por essa contagem.
+
+Nos 25 casos sintéticos retidos, 20 não alcançam o ramo nativo exigido e cinco fornecem referência num papel de largura ou de texto alternativo de imagem. Eles conservam os dados e recebem zero crédito de reparo. As contrapartidas condicionais e os comprovantes nativos são verificados separadamente; isso não equivale à aprovação do pacote final.
+
+As migrações completas continuam limitadas a quatro contratos ativos: dois subconjuntos ingleses, um wrapper português e um reparo português. O reconhecimento de 170 cabeçalhos não promete 170 conversões nem cobertura universal.
+
+Discussão
+
+O cabeçalho usa PD, Marca de projeto, Traduzido e OKA, uma chamada por linha. O campo bot explícito permite retirar a avaliação automática gravada e sua revisão, preservando importâncias e notas humanas. O sinal ? continua sujeito ao fallback do módulo nativo, que pode calcular uma estimativa. A ferramenta não inventa um parâmetro para desligá-la.
+
+Comprovação
+
+Manifesto, entradas de construção, fontes da documentação e resultados técnicos usam hashes separados. O pacote só pode ser montado quando os comprovantes correspondem aos arquivos finais. Uma prévia sem salvamento não equivale a publicação, e um teste interrompido conserva seu estado histórico.

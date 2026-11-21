@@ -1,0 +1,42 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{patch}=require('../../scripts/v2221_layout_patch.cjs');
+const root=path.resolve(__dirname,'../..'),hash=s=>crypto.createHash('sha256').update(s).digest('hex');let checks=0;const rows=[];
+for(const file of ['src/v2_20/structure_repairs.js','src/v2_21_5/aliases_parameters.js','src/v2_21_6/layout.js','src/v2_21_7/talk.js','src/v2_22/talk_footer.js']){const source=fs.readFileSync(path.join(root,file),'utf8'),before=hash(source),result=patch(source),again=patch(result.code);assert(result.proof.changes.length>0,file+' has an explicit writer correction');checks++;assert.equal(again.code,result.code,'writer patch is idempotent');checks++;assert.equal(again.proof.changes.length,0,'no second patch');checks++;assert.equal(hash(fs.readFileSync(path.join(root,file),'utf8')),before,'historical source unmodified');checks++;rows.push({file,beforeSha256:before,candidateSha256:hash(result.code),changes:result.proof.changes});}
+const bad='function v2217TalkOrderedHeader(){ const priority={header:9}; }';assert.throws(()=>patch(bad),/Pinned writer anchor/,'unrecognized writer refuses a guessed replacement');checks++;
+const footer='function v222FooterOrderEdits(){ const text=ordered.map(n=>n.raw).join(newline); return text; }';
+const fixed=patch(footer);assert(fixed.code.includes("index&&n.role==='portal'"),'footer writer adopts a blank line before portals');checks++;
+assert.throws(()=>patch(footer.replace('ordered.map(n=>n.raw)','ordered.map(n=>n.other)')),/Pinned writer anchor/,'footer writer refuses an unknown implementation');checks++;
+const authoritySource=fs.readFileSync(path.join(root,'src/v2_21_6/layout.js'),'utf8'),authorityFixed=patch(authoritySource).code;
+assert(authorityFixed.includes("!/^\\r?\\n\\r?\\n$/.test(gap)"),'authority adjacency agrees with preferred blank line');checks++;
+assert(authorityFixed.includes("text:raw+'\\n\\n',kind:'authority-before-portals-insert'"),'authority writer emits the same preferred blank line');checks++;
+const pdSource=fs.readFileSync(path.join(root,'src/v2_21_5/aliases_parameters.js'),'utf8'),pdFixed=patch(pdSource).code;
+assert(pdFixed.includes("text=banner+(body?newline+body:'')"),'empty discussion banner has no inverse trailing-newline writer');checks++;
+assert.throws(()=>patch("function v2215PdPlan(){const text=banner+'unknown';}"),/Pinned writer anchor/,'unknown PD writer anchor rejected');checks++;
+assert(authorityFixed.includes('!v2221LayoutAuthorityTaxonGap(source,node,portal)'),'authority writer respects an already ordered native taxonomy bar');checks++;
+const descriptionSource=fs.readFileSync(path.join(root,'src/v2_20/structure_repairs.js'),'utf8'),descriptionFixed=patch(descriptionSource).code;
+assert(!descriptionFixed.includes("'v220DescriptionLeadingGap'"),'retained description does not trigger anticipatory blank removal');checks++;
+assert(descriptionFixed.includes("'v220LeadingBlank'"),'actual absolute leading blank cleanup remains');checks++;
+assert.throws(()=>patch('function v220LeadingBlankEdits(){return [];}'),/Pinned description-gap/,'unrecognized description writer rejected');checks++;
+assert(authorityFixed.includes('cfg.categories===false||v2221LayoutUnprovedCategory(source)'),'native metadata writer does not relocate an unproved category title');checks++;
+const prose='function preservationFormattingText(raw){const p=parsedTemplate(raw),fields=preservationTemplateFields(p.parts);return null;}';
+const proseFixed=patch(prose);assert(proseFixed.code.includes('const v2221ColumnProse=v2221LayoutProseColumns(raw);if(v2221ColumnProse!==null)return v2221ColumnProse;'),'the visible prose reader retains the native column body');checks++;
+assert.equal(patch(proseFixed.code).code,proseFixed.code,'native column reader patch is idempotent');checks++;
+assert.throws(()=>patch(prose.replace('fields=preservationTemplateFields','fields=unknownFields')),/Pinned prose-column reader/,'unknown prose reader implementation is rejected');checks++;
+for(const name of ['v211AppendConfirmedPortals','addBiographyPortal']){
+ const portal='function '+name+'(e,cfg,bump){const{nodes:r}=biographyNodes(e),footer=footerTokens(e,cfg.footerProfiles);if(topNodes(protectedView(e)).some(n=>n.portal))return e;return e;}';
+ const fixed=patch(portal);assert.equal(fixed.proof.changes.length,1,'Both native writers receive the same bounded reader');checks++;
+ assert(fixed.code.includes('const v2221PortalContext=v2221LayoutPortalPresence(e);'),'The actual source parameter is used');checks++;
+ assert(fixed.code.includes('({nodes:v2221PortalContext.loose})'),'Only loose metadata portals are considered mutable');checks++;
+ assert(fixed.code.includes('v2221LayoutPortalFooter(e,cfg.footerProfiles,v2221PortalContext)'),'The footer reader uses matching source offsets');checks++;
+ assert(fixed.code.includes('(v2221PortalContext.any.length||v2221PortalContext.uncertain)'),'Existing or uncertain structural ownership blocks a new call');checks++;
+ assert.equal(patch(fixed.code).code,fixed.code,'The reader adapter is idempotent');checks++;
+ assert.throws(()=>patch(portal.replace('footerTokens(e,cfg.footerProfiles)','footerTokens(e,cfg.otherProfiles)')),/Pinned portal footer profiles/,'An unknown footer contract is rejected');checks++;
+ assert.throws(()=>patch(portal.replace('biographyNodes(e)','unknownNodes(e)')),/Pinned portal reader/,'An unknown node reader is rejected');checks++;
+}
+const relocation='function v2212PortalRelocate(e,cfg){const profiles=cfg.footerProfiles,footer=footerTokens(e,profiles);let text=e,tail=footerTokens(text,profiles);return text;}';
+const relocated=patch(relocation);assert.equal(relocated.proof.changes.length,1,'The relocation writer receives one pinned reader adapter');checks++;
+assert.equal((relocated.code.match(/v2221LayoutPortalFooter\(/g)||[]).length,2,'Both original and transformed footer positions use the same reference boundary');checks++;
+assert.equal(patch(relocated.code).code,relocated.code,'The relocation reader adapter is idempotent');checks++;
+assert.throws(()=>patch(relocation.replace('footerTokens(text,profiles)','footerTokens(text,otherProfiles)')),/Shared portal relocation profiles/,'Unknown transformed footer profiles are rejected');checks++;
+assert.throws(()=>patch(relocation.replace('footerTokens(text,profiles)','unknownReader(text,profiles)')),/Pinned portal relocation footer readers/,'An unknown relocation implementation is rejected');checks++;
+const report={suite:'v2221-layout-talk-writer-patch',files:rows.length,checks,passed:true,rows};if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({suite:report.suite,files:rows.length,checks,passed:true}));

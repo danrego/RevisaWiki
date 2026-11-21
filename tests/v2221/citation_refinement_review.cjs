@@ -1,0 +1,9 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');const{load,cfg}=require('./harness.cjs'),api=process.env.REVISAWIKI_CURRENT_CORE?require(path.resolve(process.env.REVISAWIKI_CURRENT_CORE)):load(['citation_repairs']),options={...api.defaults,...cfg},scope=JSON.parse(fs.readFileSync(process.env.REVISAWIKI_REFERENCE_SCOPE,'utf8')),results=[];
+global.fetch=()=>{throw Error('No network in local refinement review');};
+for(const item of [...scope.refinementsNotNewFamilies,...scope.laterEvidenceAndRefinements]){
+ const r=item.record||{},source=[r.sourceExample,r.runtimeFixture,r.before].find(x=>typeof x==='string'&&(x.includes('{{')||x.includes('<ref')));
+ if(!source){results.push({id:item.id,executed:false,reason:'No literal fixture in this frozen record; referenced source pins and invariants remain recorded.'});continue;}
+ const result=api.calculate({kind:'adjust',source,originalSource:source,options});results.push({id:item.id,executed:true,source,output:result.text,expected:r.desiredExample??r.desired??null,changed:result.text!==source,safety:api.v219AutomaticResultSafety(source,result),rule:r.safeRule??r.safety??null,doNotChange:r.doNotChange??r.negativeControl??null});
+}
+const report={kind:'citation-refinement-and-later-evidence-observation',engineVersion:api.version,explicitCoreSha256:process.env.REVISAWIKI_CURRENT_CORE?crypto.createHash('sha256').update(fs.readFileSync(process.env.REVISAWIKI_CURRENT_CORE)).digest('hex'):null,records:results.length,executed:results.filter(r=>r.executed).length,results,networkRequests:0,wikipediaWrites:0};if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({records:report.records,executed:report.executed,rejected:results.filter(r=>r.executed&&!r.safety.accepted).map(r=>r.id)}));

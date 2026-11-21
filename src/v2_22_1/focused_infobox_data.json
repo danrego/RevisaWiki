@@ -1,0 +1,4995 @@
+{
+  "schema": 1,
+  "scope": "observed-native-families",
+  "keyRules": [
+    {
+      "owner": "Info/Álbum",
+      "source": "lançamento",
+      "target": "lançado",
+      "conflicts": [
+        "lançado",
+        "Lançado"
+      ],
+      "native": {
+        "revision": 72967282,
+        "sha256": "86ad27909b5606de25d2ac51562f650c9843f3e11228cfc344e79991493d3608"
+      }
+    },
+    {
+      "owner": "Info/Museu",
+      "source": "localidade",
+      "target": "localização",
+      "conflicts": [
+        "localização"
+      ],
+      "native": {
+        "revision": 68740014,
+        "sha256": "b08b3f0f9cebe0c893cf527da0f2ebc79d65750e618a5f2d1ec849276da2912f"
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "source": "tipo",
+      "target": "missao",
+      "conflicts": [
+        "missao"
+      ],
+      "native": {
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "source": "introducao",
+      "target": "integraçao",
+      "conflicts": [
+        "integraçao"
+      ],
+      "native": {
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "source": "aposentadoria",
+      "target": "aposentado",
+      "conflicts": [
+        "aposentado"
+      ],
+      "native": {
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "source": "producao",
+      "target": "produção",
+      "conflicts": [
+        "produção"
+      ],
+      "native": {
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      }
+    },
+    {
+      "owner": "Info",
+      "source": "estilo_titulo",
+      "target": "título-estilo",
+      "conflicts": [
+        "título-estilo"
+      ],
+      "native": {
+        "revision": 73035397,
+        "sha256": "b69c573849b1e91054cf0c4f3cfcd2728fab44cdc67c0df23d93018b20ecb766"
+      }
+    },
+    {
+      "owner": "Infocaixa",
+      "source": "estilo_titulo",
+      "target": "título-estilo",
+      "conflicts": [
+        "título-estilo"
+      ],
+      "native": {
+        "revision": 70262218,
+        "sha256": "bb4027b93e2204eca74ba57387235111451d43ecb91c25d8eef962c835d036cb"
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "source": "website",
+      "target": "site",
+      "conflicts": [
+        "site",
+        "website",
+        "homepage",
+        "pagina",
+        "página"
+      ],
+      "native": {
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "source": "homepage",
+      "target": "site",
+      "conflicts": [
+        "site",
+        "website",
+        "homepage",
+        "pagina",
+        "página"
+      ],
+      "native": {
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "source": "pagina",
+      "target": "site",
+      "conflicts": [
+        "site",
+        "website",
+        "homepage",
+        "pagina",
+        "página"
+      ],
+      "native": {
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "source": "página",
+      "target": "site",
+      "conflicts": [
+        "site",
+        "website",
+        "homepage",
+        "pagina",
+        "página"
+      ],
+      "native": {
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "name",
+      "target": "nome",
+      "conflicts": [
+        "nome"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "name",
+        "role": "person.display.name",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.display.name",
+      "literalNonempty": true
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "image",
+      "target": "imagem",
+      "conflicts": [
+        "imagem",
+        "foto"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "image",
+        "role": "person.image.file",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.image.file"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "caption",
+      "target": "legenda",
+      "conflicts": [
+        "legenda",
+        "imagem_legenda",
+        "desc"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "caption",
+        "role": "person.image.caption",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.image.caption"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "alt",
+      "target": "imagem_alt",
+      "conflicts": [
+        "imagem_alt"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "alt",
+        "role": "person.image.alternative-text",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.image.alternative-text"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "birth_place",
+      "target": "local_nascimento",
+      "conflicts": [
+        "local_nascimento",
+        "nascimento_local",
+        "nascimento_cidade",
+        "cidade natal",
+        "localnasc"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "birth_place",
+        "role": "person.birth.place",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.birth.place"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "death_place",
+      "target": "local_morte",
+      "conflicts": [
+        "local_morte",
+        "morte_local",
+        "local_falecimento",
+        "localfaleceu"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "death_place",
+        "role": "person.death.place",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.death.place"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "other_names",
+      "target": "outros_nomes",
+      "conflicts": [
+        "outros_nomes",
+        "nome_outros",
+        "nomes_outros",
+        "apelido",
+        "apelidos"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "other_names",
+        "role": "person.other.names",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.other.names"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "education",
+      "target": "educação",
+      "conflicts": [
+        "educação"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "education",
+        "role": "person.education.information",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.education.information"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "spouse",
+      "target": "cônjuge",
+      "conflicts": [
+        "cônjuge",
+        "conjuge",
+        "cônjuges"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "spouse",
+        "role": "person.spouse.information",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.spouse.information"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "children",
+      "target": "filhos",
+      "conflicts": [
+        "filhos",
+        "nome_filhos",
+        "filho",
+        "filhas",
+        "nome_filhas",
+        "filha",
+        "prole"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "children",
+        "role": "person.children.information",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.children.information"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "occupation",
+      "target": "ocupação",
+      "conflicts": [
+        "ocupação",
+        "ocupações",
+        "ocupacao",
+        "trabalho civil",
+        "Ocupação"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "occupation",
+        "role": "person.occupation.information",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.occupation.information"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "parents",
+      "target": "progenitores",
+      "conflicts": [
+        "progenitores",
+        "nome_mãe",
+        "mãe",
+        "nome_pai",
+        "pai"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "parents",
+        "role": "person.parents.information",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.parents.information"
+    },
+    {
+      "owner": "Info/Biografia",
+      "source": "signature",
+      "target": "assinatura",
+      "conflicts": [
+        "assinatura"
+      ],
+      "native": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "foreignEvidence": {
+        "wiki": "en",
+        "title": "Template:Infobox person",
+        "revision": 1377571195,
+        "sha256": "cc45e87d74d05111aca4a333291854320a264553a3f7a6b227d14ff8be244ef1",
+        "key": "signature",
+        "role": "person.signature.file",
+        "consumed": true,
+        "semantics": "equivalent"
+      },
+      "targetRole": "person.signature.file"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "name",
+      "target": "nome",
+      "conflicts": [
+        "nome"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.display.name"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "image",
+      "target": "imagem",
+      "conflicts": [
+        "imagem"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.image.file"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "image_size",
+      "target": "imagem_tamanho",
+      "conflicts": [
+        "imagem_tamanho"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.image.size"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "caption",
+      "target": "legenda",
+      "conflicts": [
+        "legenda",
+        "descrição",
+        "Legenda",
+        "Caption"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.image.caption"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "birth_name",
+      "target": "nome_nascimento",
+      "conflicts": [
+        "nome_nascimento",
+        "birthname",
+        "nome de nascimento",
+        "nome completo",
+        "nome_completo"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.native-wrapper.full-name"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "birth_date",
+      "target": "nascimento_data",
+      "conflicts": [
+        "nascimento_data",
+        "data de nascimento"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.birth.date"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "birth_place",
+      "target": "nascimento_local",
+      "conflicts": [
+        "nascimento_local",
+        "local de nascimento"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.birth.place"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "death_date",
+      "target": "morte_data",
+      "conflicts": [
+        "morte_data",
+        "data da morte"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.death.date"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "death_place",
+      "target": "morte_local",
+      "conflicts": [
+        "morte_local",
+        "local da morte"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.death.place"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "resides",
+      "target": "residência",
+      "conflicts": [
+        "residência",
+        "residencia"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.residence.information"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "spouse",
+      "target": "cônjuge",
+      "conflicts": [
+        "cônjuge",
+        "conjuge"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.spouse.information"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "children",
+      "target": "filhos",
+      "conflicts": [
+        "filhos"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.children.information"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "family",
+      "target": "família",
+      "conflicts": [
+        "família",
+        "familia"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.family.information"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "names",
+      "target": "nomes",
+      "conflicts": [
+        "nomes",
+        "nomes no ringue"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.ring.names"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "height",
+      "target": "altura",
+      "conflicts": [
+        "altura"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.billed.height"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "weight",
+      "target": "peso",
+      "conflicts": [
+        "peso"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.billed.weight"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "billed",
+      "target": "anunciado de",
+      "conflicts": [
+        "anunciado de"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.billed.origin"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "trainer",
+      "target": "treinador",
+      "conflicts": [
+        "treinador",
+        "treinado por"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.trainer.information"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "debut",
+      "target": "estreia",
+      "conflicts": [
+        "estreia"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.debut.date"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "retired",
+      "target": "aposentadoria",
+      "conflicts": [
+        "retirada",
+        "aposentadoria"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "wrestling.retirement.date"
+    },
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "source": "website",
+      "target": "site",
+      "conflicts": [
+        "site"
+      ],
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "nativeAliasRole": "person.website.information"
+    }
+  ],
+  "genericLabelOwners": [
+    "Info",
+    "Infocaixa"
+  ],
+  "genericLabelMaxIndex": 200,
+  "websiteOwners": {
+    "Info/Empresa": [
+      "website",
+      "homepage",
+      "site",
+      "pagina",
+      "página"
+    ],
+    "Info/Organização": [
+      "website"
+    ],
+    "Info/Museu": [
+      "website",
+      "site"
+    ]
+  },
+  "occupationKeys": [
+    "ocupação",
+    "ocupações",
+    "ocupacao",
+    "Ocupação",
+    "profissão",
+    "profissao"
+  ],
+  "topicBoxes": {
+    "Info/Álbum": [
+      "Música"
+    ],
+    "Info/Artista de histórias em quadrinhos": [
+      "Banda desenhada"
+    ],
+    "Info/Filme": [
+      "Cinema",
+      "Entretenimento"
+    ]
+  },
+  "filmCountryKeys": [
+    "país"
+  ],
+  "stubs": [
+    {
+      "owner": "Esboço-botânica",
+      "portal": "Botânica",
+      "revision": 54379869,
+      "sha256": "6da0e9711b6554079b7fe71df01fc581f01fac0ce4cd23af59de5ebd3eca2ea2"
+    },
+    {
+      "owner": "Esboço-ecologia",
+      "portal": "Ecologia",
+      "revision": 48524757,
+      "sha256": "2ba02b5f5bca588194cba64796622b899494c92002ddb70a76134a1f5683e83a"
+    },
+    {
+      "owner": "Esboço-matemática",
+      "portal": "Matemática",
+      "revision": 46265143,
+      "sha256": "4630fa8291afc4cebeb3c3b31bc4631eb8c7afe87fea2c659226e77c2e67c403"
+    },
+    {
+      "owner": "Esboço-física",
+      "portal": "Física",
+      "revision": 46265044,
+      "sha256": "f2fb3d7c85a6ea7ce273cf1151a19508d0c7b3235ed6c61a7b33b7f0f81aeede"
+    },
+    {
+      "owner": "Esboço-política",
+      "portal": "Política",
+      "revision": 62119729,
+      "sha256": "463ba9ae486085f4489d49cd51839969dd307453a36cd4daccbbce6c30c93d8d"
+    },
+    {
+      "owner": "Esboço-informática",
+      "portal": "Tecnologias de informação",
+      "revision": 61967606,
+      "sha256": "0905c381df10cd836caf447dd2301e0b78d24974818b286e0a56d48a35d0ba74"
+    },
+    {
+      "owner": "Esboço-música",
+      "portal": "Música",
+      "revision": 31616580,
+      "sha256": "93dcee43f5089cb49bc04249847ef7735d9da4eb8b15da28aefcbc9e6b9a21e5"
+    },
+    {
+      "owner": "Esboço-livro",
+      "portal": "Literatura",
+      "revision": 61945426,
+      "sha256": "ec7f3d6305c71520cbd7320a315baab63f3e15fe69341d5912dc96540cdcd9af"
+    }
+  ],
+  "nativePins": {
+    "Predefinição:Info": {
+      "revision": 73035397,
+      "sha256": "b69c573849b1e91054cf0c4f3cfcd2728fab44cdc67c0df23d93018b20ecb766"
+    },
+    "Predefinição:Info/Aeronave": {
+      "revision": 70468097,
+      "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+    },
+    "Predefinição:Info/Empresa": {
+      "revision": 71838243,
+      "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+    },
+    "Predefinição:Info/Filme": {
+      "revision": 73333197,
+      "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+    },
+    "Predefinição:Info/Museu": {
+      "revision": 68740014,
+      "sha256": "b08b3f0f9cebe0c893cf527da0f2ebc79d65750e618a5f2d1ec849276da2912f"
+    },
+    "Predefinição:Info/Álbum": {
+      "revision": 72967282,
+      "sha256": "86ad27909b5606de25d2ac51562f650c9843f3e11228cfc344e79991493d3608"
+    },
+    "Predefinição:Infocaixa": {
+      "revision": 70262218,
+      "sha256": "bb4027b93e2204eca74ba57387235111451d43ecb91c25d8eef962c835d036cb"
+    },
+    "Predefinição:Info/Artista de histórias em quadrinhos": {
+      "revision": 70849460,
+      "sha256": "36bfb500485ea4cb16cc53f1735daf4c651c51c84e3060159601fb8ea414682a"
+    },
+    "Predefinição:Info/Biografia": {
+      "revision": 73325613,
+      "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+    },
+    "Predefinição:Info/Lutador de wrestling profissional": {
+      "revision": 69488735,
+      "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+    },
+    "Predefinição:Ficha de persona": {
+      "revision": 50341076,
+      "sha256": "8dfc12f053840e727bf6215c76703c05002eccc824c5e2650566c2cd2d73e4b7"
+    }
+  },
+  "preserveFilledObsolete": {
+    "Info/Álbum": [
+      "formato",
+      "Formato"
+    ],
+    "Info/Filme": [
+      "código-IMDB",
+      "imdb_id",
+      "imdb",
+      "IMDb"
+    ]
+  },
+  "personOwners": [
+    {
+      "owner": "Info/Lutador de wrestling profissional",
+      "native": {
+        "revision": 69488735,
+        "sha256": "7a1c290e4695328fafe63b5baaffcee8b85d2f99eae09bddf99fd73b276e5267"
+      },
+      "contract": "Native named slots cover a professional human wrestler; subject-contradiction guard remains mandatory."
+    }
+  ],
+  "literalNameRedirects": [
+    {
+      "owner": "Ficha de persona",
+      "sourceKey": "nombre",
+      "targetOwner": "Info/Biografia",
+      "targetKey": "nome",
+      "nativeAlias": {
+        "revision": 50341076,
+        "sha256": "8dfc12f053840e727bf6215c76703c05002eccc824c5e2650566c2cd2d73e4b7"
+      },
+      "targetNative": {
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "role": "person.display.name",
+      "contract": "Exact local redirect plus the previously verified single literal supplied-name repair; every field represented; no generic foreign-translator continuation."
+    }
+  ],
+  "nativeReferenceConsumers": [
+    {
+      "owner": "Info/Filme",
+      "key": "cinematografia",
+      "sourceKeys": [
+        "cinematography"
+      ],
+      "role": "direct-visible-infobox-data-text",
+      "aliases": [
+        "cinematografia"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "reader": {
+        "path": "Infocaixa/dados27",
+        "expression": "{{{cinematografia|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "período_atividade",
+      "sourceKeys": [
+        "anos_atividade"
+      ],
+      "role": "direct-visible-infobox-data-text",
+      "aliases": [
+        "período_atividade",
+        "atividade",
+        "actividade",
+        "atividade_período"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados43",
+        "expression": "{{se vazio|{{{período_atividade|}}}|{{{atividade|}}}|{{{actividade|}}}|{{{atividade_período|}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "subclasse",
+      "sourceKeys": [
+        "subclase"
+      ],
+      "role": "direct-visible-infobox-data-text",
+      "aliases": [
+        "subclasse",
+        "subclassis"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "taxonomic-table/subclasse",
+        "expression": "{{{subclasse|{{{subclassis|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "história",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "aliases": [
+        "história"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "historia"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados20",
+        "expression": "{{{história|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "música",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "aliases": [
+        "música"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "Música"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados26",
+        "expression": "{{{música|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "roteiro",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "aliases": [
+        "roteiro",
+        "argumento",
+        "guião"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "Roteiro"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados18",
+        "expression": "{{{roteiro|{{{argumento|{{{guião|}}} }}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "distribuição",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "aliases": [
+        "distribuição",
+        "distribuidor"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "destribuição",
+        "distribuidora"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados35",
+        "expression": "{{{distribuição|{{{distribuidor|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "nome_completo",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "aliases": [
+        "nome_completo",
+        "nome_de_batismo"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "nome completo"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados1",
+        "expression": "{{se vazio|{{{nome_completo|}}}|{{{nome_de_batismo|}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "outros_nomes",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "aliases": [
+        "outros_nomes",
+        "nome_outros",
+        "nomes_outros",
+        "apelido",
+        "apelidos"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "outros nomes"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados3",
+        "expression": "{{se vazio|{{{outros_nomes|}}}|{{{nome_outros|}}}|{{{nomes_outros|}}}|{{{apelido|}}}|{{{apelidos|}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "cônjuge",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "aliases": [
+        "cônjuge",
+        "conjuge",
+        "cônjuges"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "Cônjuge"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados34",
+        "expression": "{{se vazio|{{{cônjuge|}}}|{{{conjuge|}}}|{{{cônjuges|}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "principais_trabalhos",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "aliases": [
+        "principais_trabalhos",
+        "trabalhos"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "obras_destaque",
+        "obras_destacadas",
+        "obrasdestacadas",
+        "trabalhos_notáveis"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados50",
+        "expression": "{{se vazio|{{{principais_trabalhos|}}}|{{{trabalhos|}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "parvordem",
+      "role": "direct-visible-table-cell-text",
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "aliases": [
+        "parvordem",
+        "parvordo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "pavordem"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados6/table/parvordem/value-cell",
+        "expression": "{{{parvordem|{{{parvordo|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "superordem",
+      "role": "direct-visible-table-cell-text",
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "aliases": [
+        "superordem",
+        "superordo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "superodem",
+        "supeordem"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados6/table/superordem/value-cell",
+        "expression": "{{{superordem|{{{superordo|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "subfamília",
+      "role": "direct-visible-table-cell-text",
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "aliases": [
+        "subfamília",
+        "sufamilia"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "subfamilia"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados6/table/subfamília/value-cell",
+        "expression": "{{{subfamília|{{{sufamilia|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "família",
+      "role": "direct-visible-table-cell-text",
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "aliases": [
+        "família",
+        "unranked_familia"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "familia"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados6/table/família/value-cell",
+        "expression": "{{{família|{{{unranked_familia|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Livro",
+      "key": "gênero",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Livro",
+        "revision": 73335923,
+        "sha256": "dfb2cbe84ebe73a5cca9f6fc98b61a3223bebdc1d97939e2b2aaa7cb2c755b49"
+      },
+      "aliases": [
+        "gênero"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "genero"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados6",
+        "expression": "{{{gênero|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "linguagem",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "aliases": [
+        "linguagem"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "programming language"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados7",
+        "expression": "{{{linguagem|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "licença",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "aliases": [
+        "licença"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "license"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados22",
+        "expression": "{{{licença|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Organização",
+      "key": "filiação",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Organização",
+        "revision": 73276841,
+        "sha256": "4b3f9cc122a5d1c148158533172e543e01c6ce98e25921b00f27f04b95d039ef"
+      },
+      "aliases": [
+        "filiação"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "afiliacao",
+        "afiliações"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados17",
+        "expression": "{{{filiação|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "produtor_executivo",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "aliases": [
+        "produtor_executivo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "produtores executivos",
+        "produtor-executivo"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados32",
+        "expression": "{{{produtor_executivo|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Clube de futebol",
+      "key": "local",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Clube de futebol",
+        "revision": 73378505,
+        "sha256": "0410d13acce1b10a7c8ed6905cf7968180bd14f3bcfe98555beac73581f88485"
+      },
+      "aliases": [
+        "local"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "localidade",
+        "localização"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados10",
+        "expression": "{{{local|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "cônjuge",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "aliases": [
+        "cônjuge"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "Cônjuge"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados13",
+        "expression": "{{{cônjuge|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "instrumento",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "aliases": [
+        "instrumento"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "instrumentos"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados17",
+        "expression": "{{{instrumento|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "apelido",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "aliases": [
+        "apelido"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "apelidos"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados3",
+        "expression": "{{{apelido|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "nomecompleto",
+      "role": "direct-visible-table-cell-text",
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "aliases": [
+        "nomecompleto"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "sourceKeys": [
+        "nomemecompleto"
+      ],
+      "reader": {
+        "path": "direct-table/nome-completo/value-cell",
+        "expression": "{{{nomecompleto}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "fundador",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "aliases": [
+        "fundador",
+        "fundadores"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "fundadores"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados11",
+        "expression": "{{{fundador|}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "principais_pessoas",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "aliases": [
+        "Pessoas Chave",
+        "pessoas-chave",
+        "pessoas_chave",
+        "principais pessoas",
+        "principais_pessoas"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "Pessoas Chave",
+        "pessoas-chave",
+        "pessoas_chave"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados20",
+        "expression": "{{{principais_pessoas|{{{principais pessoas|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "área_servida",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "aliases": [
+        "area servida",
+        "area_servida",
+        "área atendida",
+        "área servida",
+        "área_atuação",
+        "área_servida",
+        "área_serviço"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "área atendida",
+        "área_serviço"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados15",
+        "expression": "{{{área_servida|{{{area_servida|{{{area servida|{{{área servida|{{{área_atuação|}}}}}}}}}}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "form_áudio",
+      "role": "direct-visible-infobox-data-text",
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "aliases": [
+        "form_audio",
+        "form_áudio",
+        "formato_áudio"
+      ],
+      "forbiddenNonemptyKeys": [
+        "child",
+        "embed",
+        "embutido",
+        "subcaixa",
+        "nested"
+      ],
+      "sourceKeys": [
+        "form_audio"
+      ],
+      "reader": {
+        "path": "Infocaixa/dados52",
+        "expression": "{{{form_áudio|{{{formato_áudio|}}}}}}",
+        "priority": "first",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Político",
+      "key": "vice_título2",
+      "sourceKeys": [
+        "vice-título2"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "vice-título2",
+        "vice_título2"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Político",
+        "revision": 72931974,
+        "sha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a"
+      },
+      "reader": {
+        "path": "rótulo11 -> dados11-dependent generic row",
+        "expressionSha256": "324f3dcea88512ad87e7e0a4018f19be92b88fc5e8d2f575abe2e32543c988ae",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "vice-presidente2"
+          ],
+          "emptyOrAbsentKeys": [
+            "vice_presidente2"
+          ],
+          "selectedNonempty": [
+            [
+              "vice2"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Político",
+      "key": "data_nascimento",
+      "sourceKeys": [
+        "data de nascimento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "data de nascimento",
+        "data_nascimento",
+        "nascimento_data"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Político",
+        "revision": 72931974,
+        "sha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a"
+      },
+      "reader": {
+        "path": "dados55 -> generic data-cell wikitext",
+        "expressionSha256": "b476e2e77fc27a64fd1b35b064d1f46a62b24d19c978e630226048ae80a57377",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "local_nascimento",
+            "nascimento_local"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "gênero",
+      "sourceKeys": [
+        "genero"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "genero",
+        "genus",
+        "género",
+        "gênero"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados6 nested table: own-if gênero -> span text",
+        "expressionSha256": "650856fe842e43542516ec2705f5c872b8de3a873c9d1404f95515f9b6bdb058",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "domínio",
+      "sourceKeys": [
+        "dominio"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "domain",
+        "dominio",
+        "domínio"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados6 nested table: own-if domínio/domain -> raw table-cell text",
+        "expressionSha256": "5a257653dc2042a02334295fd7ac221e90518fb241623b3b144eb106000db552",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "binomial",
+      "sourceKeys": [
+        "binominal"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "binomial",
+        "binominal"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados12: own-if binomial -> bold/italic span text",
+        "expressionSha256": "be792eb21d6dcac009e1ed928dba1e40c42606bf3a4d205dcf994aaa9ce204b1",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "binomial_autoridade",
+      "sourceKeys": [
+        "binomial_autoritdade"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "binomial_authority",
+        "binomial_autoridade",
+        "binomial_autoritdade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados12: outer binomial -> own authority-if -> small text",
+        "expressionSha256": "be792eb21d6dcac009e1ed928dba1e40c42606bf3a4d205dcf994aaa9ce204b1",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "selectedNonempty": [
+            [
+              "binomial"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "família_autoridade",
+      "sourceKeys": [
+        "família_autporidade"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "family_authority",
+        "família_autoridade",
+        "família_autporidade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados6: família/unranked_familia guard -> small authority text",
+        "expressionSha256": "b3c81e5060471a7ffca166da8a1a8c20394903baa52260fc0bbd03a806833ee3",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "selectedNonempty": [
+            [
+              "família",
+              "unranked_familia"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "género_autoridade",
+      "sourceKeys": [
+        "género_autotidade"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "genus_authority",
+        "género_autoridade",
+        "género_autotidade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados6: género/genus guard -> small authority text",
+        "expressionSha256": "f2fc845181e499de76c644c07b2911c85ca6f283af1babe8856d613fcca23be0",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "selectedNonempty": [
+            [
+              "género",
+              "genus"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "sistema_estado",
+      "sourceKeys": [
+        "estado_sistema",
+        "status_system"
+      ],
+      "role": "native-selector-reference-text",
+      "aliases": [
+        "estado_sistema",
+        "sistema_estado",
+        "state_system",
+        "status_system"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "native status selector + literal lowercase fallback + Cite",
+        "expressionSha256": "e90d3b98c34bbae1f8e239876ac2cc501f0795d5f2e706410685bc083105bad3",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "valueProof": {
+          "kind": "native-selector-literal-fallback",
+          "nativePairSha256": "76062a4b34210c12d67ad09812e1acde91d4b6d21c38d7a9449af403c7006f71",
+          "dependencies": [
+            "Módulo:Infocaixa",
+            "Módulo:Check for unknown parameters"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "estado_ref",
+      "sourceKeys": [
+        "status_ref"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "estado_ref",
+        "state_ref",
+        "status_ref"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados4 suffix: own estado_ref/status_ref-if -> small raw text",
+        "expressionSha256": "8dae24d94159f4d994695f4ecee62568968a036e349d35cf5ae047418bbaae4b",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "sinônimos",
+      "sourceKeys": [
+        "sinonimos",
+        "sinônimo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "sinonimos",
+        "sinónimos",
+        "sinônimo",
+        "sinônimos",
+        "synonyms"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "dados37: default chain sinónimos > sinônimos > synonyms -> div text",
+        "expressionSha256": "5774bee30e0876246fc727ee9cd18293de5464edb98c3236ab0cac03adebfad5",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "sinónimos"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Taxonomia",
+      "key": "imagem_legenda",
+      "sourceKeys": [
+        "legenda_imagem"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "image_caption",
+        "imagem_legenda",
+        "legenda_imagem"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Taxonomia",
+        "revision": 73483333,
+        "sha256": "1b5407486c3b952afbaeb13aee4dd27a87c5bb5b6c697269695a6a1b554ba1cb"
+      },
+      "reader": {
+        "path": "raw File-link caption AND explicit caption span",
+        "expressionSha256": "27fbca4450f36243c719c2d3697ef19f9e108d9f9025832d0f4decbbc4785be4",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "selectedNonempty": [
+            [
+              "imagem",
+              "image"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "criação original",
+      "sourceKeys": [
+        "criação_original"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "baseado em",
+        "baseado_em",
+        "criação original",
+        "criação_original"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "reader": {
+        "path": "dados21: baseado_em > baseado em > criação original -> text",
+        "expressionSha256": "57b82e178ad027abfebcf2fd505ff8ddceae92884de0d032681fcf8cc1688d79",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "baseado_em",
+            "baseado em"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "direção de arte",
+      "sourceKeys": [
+        "direcção de arte"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "direcção de arte",
+        "diretor de arte",
+        "diretor_arte",
+        "diretor_de_arte",
+        "direção de arte",
+        "direção_de_arte"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "reader": {
+        "path": "dados29: native default chain -> raw text",
+        "expressionSha256": "d932897d50d84e21db518c2cbee755df0a4cc21623703775d1bac29b267562fd",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "diretor_arte",
+            "diretor_de_arte",
+            "diretor de arte"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "direção_de_arte",
+      "sourceKeys": [
+        "direção_arte"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "diretor de arte",
+        "diretor_arte",
+        "diretor_de_arte",
+        "direção de arte",
+        "direção_arte",
+        "direção_de_arte"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "reader": {
+        "path": "dados29: native default chain -> raw text",
+        "expressionSha256": "d932897d50d84e21db518c2cbee755df0a4cc21623703775d1bac29b267562fd",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "diretor_arte",
+            "diretor_de_arte",
+            "diretor de arte",
+            "direção de arte"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Filme",
+      "key": "imagem_legenda",
+      "sourceKeys": [
+        "iamgem_legenda"
+      ],
+      "role": "native-caption-reference-registration",
+      "aliases": [
+        "descrição",
+        "iamgem_legenda",
+        "imagem_legenda",
+        "legenda",
+        "legenda imagem",
+        "legenda_imagem"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Filme",
+        "revision": 73333197,
+        "sha256": "4d118633aa991a29c440e27f493e58b2dfada636e5390d43bf6beb38e298fcd4"
+      },
+      "reader": {
+        "path": "native caption argument / Check for unknown parameters / Cite registration",
+        "expressionSha256": "0c55637be6236fc3849543fe1415961fedab953395d14863879a6bac2f500c95",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "legenda",
+            "descrição"
+          ]
+        },
+        "registrationProof": {
+          "kind": "native-caption-argument-expansion",
+          "nativePairSha256": "9d5edd23e3e80bcc4d44ef35170e382a2dd55f8c5a21d233f88b941bc99a13b6",
+          "dependencies": [
+            "Módulo:Infocaixa",
+            "Módulo:InfoboxImage",
+            "Módulo:InfoboxImage/data",
+            "Módulo:Check for unknown parameters"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "baseado_em",
+      "sourceKeys": [
+        "baseado em"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "baseado em",
+        "baseado_em",
+        "criação original",
+        "criação_original",
+        "inspirado",
+        "inspirado_em"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados11: Se vazio(default chain criação_original > criação original > baseado_em, inspirado fallback)",
+        "expressionSha256": "1cd398973ba3fe9714014da5ec9e4d7e65bd509889cf0601ac5bcd32dc3adcc5",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "criação_original",
+            "criação original"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "tema_de_abertura",
+      "sourceKeys": [
+        "tema de abertura"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "abertura",
+        "tema de abertura",
+        "tema_de_abertura"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados24: abertura > tema_de_abertura -> text",
+        "expressionSha256": "ccffbee2734027ed217f3b5ec518fb59b61bbe279fe1293426665b2b053b62e3",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "abertura"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "tema_de_encerramento",
+      "sourceKeys": [
+        "tema de encerramento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "encerramento",
+        "tema de encerramento",
+        "tema_de_encerramento"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados25: encerramento > tema_de_encerramento -> text",
+        "expressionSha256": "581cdfe7e648aeaaacd3fe8bf5bfd06522ef266ed73a64d46180dc88274f1cc4",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "encerramento"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "empresas_produção",
+      "sourceKeys": [
+        "empresa_produção"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "emp_produção",
+        "empresa_produção",
+        "empresas_produção"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados46: emp_produção > empresas_produção -> text",
+        "expressionSha256": "41d879603d98870ba6303f457750e42e3e976debc950276fa68cb0ff0a3f2c5c",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "emp_produção"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "roteirista",
+      "sourceKeys": [
+        "roteiristas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "guionista",
+        "roteirista",
+        "roteiristas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados15: Se vazio(guionista, roteirista) -> text",
+        "expressionSha256": "f3c0c499d8f45c70b9fb1aaebd42851c9758485b9ef15295e4fe6ea740a24ffd",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "guionista"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "título-br",
+      "sourceKeys": [
+        "título-bra"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "título-br",
+        "título-bra"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados1/dados2: regional-title comparison -> raw selected title",
+        "expressionSha256": "4b231c4d7a417ca965811cef2624be2f14f35841a65a0cfd6d83d4b11a45f2c7",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "título-pt"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "título-pt",
+      "sourceKeys": [
+        "título-prt"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "título-prt",
+        "título-pt"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados1/dados2: regional-title comparison -> raw selected title",
+        "expressionSha256": "4b231c4d7a417ca965811cef2624be2f14f35841a65a0cfd6d83d4b11a45f2c7",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "título-br"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Televisão",
+      "key": "formato_áudio",
+      "sourceKeys": [
+        "formato_de_áudio"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "form_áudio",
+        "formato_de_áudio",
+        "formato_áudio"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Televisão",
+        "revision": 73097989,
+        "sha256": "17d1d0a7c8ee1c78eaa20285676208addaf2de1814c5e97d9abc795f7bd8b9b0"
+      },
+      "reader": {
+        "path": "dados52: form_áudio > formato_áudio -> raw text",
+        "expressionSha256": "afb4b33cdd2ab7673bf9fefcc5343a9b84f27eee792c4aae4d238da93e2dd72e",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "form_áudio"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Livro",
+      "key": "idioma",
+      "sourceKeys": [
+        "idiona"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "idioma",
+        "idiona",
+        "língua"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Livro",
+        "revision": 73335923,
+        "sha256": "dfb2cbe84ebe73a5cca9f6fc98b61a3223bebdc1d97939e2b2aaa7cb2c755b49"
+      },
+      "reader": {
+        "path": "dados2: absent idioma2/língua2 => raw idioma/língua branch",
+        "expressionSha256": "fc3b0bc163b5340f761ef1f0ab5f5876b9bc1b4ac63232a9b99950afadeb7517",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "idioma2",
+            "língua2"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Livro",
+      "key": "título_br",
+      "sourceKeys": [
+        "titulo_br",
+        "título-br"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "titulo_br",
+        "título-br",
+        "título_br"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Livro",
+        "revision": 73335923,
+        "sha256": "dfb2cbe84ebe73a5cca9f6fc98b61a3223bebdc1d97939e2b2aaa7cb2c755b49"
+      },
+      "reader": {
+        "path": "subtítulo2: regional-title equality and own-if -> raw italic text",
+        "expressionSha256": "df79efc49cfbc99a0d3b37e08bbd9d8a49aa185c89303bd8cfc19173e465a08e",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "título_pt"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Livro",
+      "key": "título_pt",
+      "sourceKeys": [
+        "titulo_pt"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "titulo_pt",
+        "título_pt"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Livro",
+        "revision": 73335923,
+        "sha256": "dfb2cbe84ebe73a5cca9f6fc98b61a3223bebdc1d97939e2b2aaa7cb2c755b49"
+      },
+      "reader": {
+        "path": "subtítulo2: regional-title equality and own-if -> raw italic text",
+        "expressionSha256": "df79efc49cfbc99a0d3b37e08bbd9d8a49aa185c89303bd8cfc19173e465a08e",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "título_br"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Jogo eletrônico",
+      "key": "publicadora",
+      "sourceKeys": [
+        "pulicadora"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "publicadora",
+        "pulicadora"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jogo eletrônico",
+        "revision": 73510529,
+        "sha256": "a5030818a551de18d89364f4d04c95d1b56f24c7258280d4b7c724ec39a13e42"
+      },
+      "reader": {
+        "path": "dados row: Ifempty/Se vazio first-nonempty -> raw text",
+        "expressionSha256": "d744c0f6ba6f06b78d92d33c5eb7f6d8464c421c836a8039ab6a47bf1965721c",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Jogo eletrônico",
+      "key": "gênero",
+      "sourceKeys": [
+        "genero"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "gen",
+        "genero",
+        "género",
+        "gênero"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jogo eletrônico",
+        "revision": 73510529,
+        "sha256": "a5030818a551de18d89364f4d04c95d1b56f24c7258280d4b7c724ec39a13e42"
+      },
+      "reader": {
+        "path": "dados row: Ifempty/Se vazio first-nonempty -> raw text",
+        "expressionSha256": "f4984b65f13eae50e37c2e46623e5a4fa91c15b53c6ad45d3be7413b1dcd9531",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "gen"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Jogo eletrônico",
+      "key": "série",
+      "sourceKeys": [
+        "serie"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "franquia",
+        "serie",
+        "série"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jogo eletrônico",
+        "revision": 73510529,
+        "sha256": "a5030818a551de18d89364f4d04c95d1b56f24c7258280d4b7c724ec39a13e42"
+      },
+      "reader": {
+        "path": "dados row: Ifempty/Se vazio first-nonempty -> raw text",
+        "expressionSha256": "665480c5147bad720b6a66ecc0f987b18ceeddb2463d1408fd18755aa7fbb7d8",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Jogo eletrônico",
+      "key": "imagem_legenda",
+      "sourceKeys": [
+        "legenda-imagem"
+      ],
+      "role": "native-caption-reference-registration",
+      "aliases": [
+        "imagem_des",
+        "imagem_legenda",
+        "img-des",
+        "legenda",
+        "legenda-imagem"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jogo eletrônico",
+        "revision": 73510529,
+        "sha256": "a5030818a551de18d89364f4d04c95d1b56f24c7258280d4b7c724ec39a13e42"
+      },
+      "reader": {
+        "path": "native caption argument / Check for unknown parameters / Cite registration",
+        "expressionSha256": "c9766513e4631f235f93380c10cba3907b5e1dae3948e47bc9b4a048b4b3cc96",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "registrationProof": {
+          "kind": "native-caption-argument-expansion",
+          "nativePairSha256": "9d5edd23e3e80bcc4d44ef35170e382a2dd55f8c5a21d233f88b941bc99a13b6",
+          "dependencies": [
+            "Módulo:Infocaixa",
+            "Módulo:InfoboxImage",
+            "Módulo:InfoboxImage/data",
+            "Módulo:Check for unknown parameters"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "título",
+      "sourceKeys": [
+        "title"
+      ],
+      "role": "nested-visible-native-text",
+      "aliases": [
+        "nome",
+        "title",
+        "título"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "Infocaixa/título; explicit stable+beta children prevent ULE/ULI transclusion",
+        "expressionSha256": "b99abced8672ca84b1a31d83a3a8cebd26a1b27dafaa644a2e0ca4b31b61398a",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "branchProof": {
+          "kind": "native-explicit-version-branches",
+          "nativePairSha256": "438fd0731976e723eca4122f8b352049b9f2a3fd244e2285aefb84760c1e224b",
+          "dependencies": [
+            "Predefinição:Info/Software/simples",
+            "Predefinição:Info/Software/empilhado",
+            "Módulo:Infocaixa"
+          ]
+        },
+        "conditions": {
+          "absentKeys": [
+            "nome",
+            "layout_versão",
+            "descontinuado",
+            "última versão",
+            "versão beta"
+          ],
+          "anyNonempty": [
+            [
+              "última_versão"
+            ],
+            [
+              "versão_beta"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "desenvolvedor",
+      "sourceKeys": [
+        "developer"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "desenvolvedor",
+        "developer",
+        "programador"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "dados row: If empty/Se vazio -> raw selected text",
+        "expressionSha256": "e4112e869cce208ed90b131354ea6ac24160eff9e89e1736a35c7411fee9ed43",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "gênero",
+      "sourceKeys": [
+        "genre"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "genre",
+        "género",
+        "gênero"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "dados row: If empty/Se vazio -> raw selected text",
+        "expressionSha256": "bb78d933793cd4c8674abfe37fd8b4cb4b934006544ec5891026c58ae7dd4d2b",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "data_versão_beta",
+      "sourceKeys": [
+        "data_da_versão_beta"
+      ],
+      "role": "nested-visible-native-text",
+      "aliases": [
+        "data versão beta",
+        "data_da_versão_beta",
+        "data_versão_beta"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "Software child arg6: explicit version branch -> raw date suffix",
+        "expressionSha256": "687e7c94e8fa347997bf15472947cf7339a3234bd2275045b423d2e7762ff068",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "descontinuado",
+            "layout_versão"
+          ],
+          "emptyOrAbsentKeys": [
+            "data versão beta"
+          ],
+          "firstNonempty": [
+            [
+              "versão_beta",
+              "versão beta"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "última_versão",
+      "sourceKeys": [
+        "latest release version"
+      ],
+      "role": "nested-visible-native-text",
+      "aliases": [
+        "latest release version",
+        "última versão",
+        "última_versão"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "Software/simples arg3 -> child dados1 -> generic wikitext",
+        "expressionSha256": "687e7c94e8fa347997bf15472947cf7339a3234bd2275045b423d2e7762ff068",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "descontinuado",
+            "layout_versão"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Software",
+      "key": "data_última_versão",
+      "sourceKeys": [
+        "latest release date"
+      ],
+      "role": "nested-visible-native-text",
+      "aliases": [
+        "data última versão",
+        "data_da_última_versão",
+        "data_última_versão",
+        "latest release date"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Software",
+        "revision": 73457420,
+        "sha256": "bdc35ed05403a896e7d3e100bd1ee823963bc7dfd59669fe41d098d1b3782d9f"
+      },
+      "reader": {
+        "path": "Software child arg4: explicit version branch -> raw date suffix",
+        "expressionSha256": "687e7c94e8fa347997bf15472947cf7339a3234bd2275045b423d2e7762ff068",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "descontinuado",
+            "layout_versão"
+          ],
+          "emptyOrAbsentKeys": [
+            "data última versão",
+            "data_da_última_versão"
+          ],
+          "firstNonempty": [
+            [
+              "última_versão",
+              "última versão"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "nome_empresa",
+      "sourceKeys": [
+        "nome empresa"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nome",
+        "nome empresa",
+        "nome_empresa"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "reader": {
+        "path": "título: nome > nome_empresa > PAGENAME -> generic title text",
+        "expressionSha256": "e3d33c547493d37b99a1f1cb246582ee745d7f9b9f0807b638b4047fe10b2a70",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "nome"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "empresa_mae",
+      "sourceKeys": [
+        "empresa-mãe"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "empresa-mãe",
+        "empresa_mae",
+        "holding",
+        "parente"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "reader": {
+        "path": "dados29: holding > parente > empresa_mae -> raw text",
+        "expressionSha256": "d2c571c827d6d1da6ffcf604e489bdffa76a9948dbd0814e03071e9cc489181e",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "holding",
+            "parente"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Empresa",
+      "key": "predecessora",
+      "sourceKeys": [
+        "predecessor"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "predecessor",
+        "predecessora"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Empresa",
+        "revision": 71838243,
+        "sha256": "9192854d3979b93b58782ae90c7c320d5c87dd6e321af487ada546d43f816968"
+      },
+      "reader": {
+        "path": "dados41: antecessora concatenated with predecessora -> raw text",
+        "expressionSha256": "de5312617a2bf072ed0af91a3c7099314bd5c91bf7babdb94d8d68bb5bdc1bab",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "antecessora"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Organização",
+      "key": "fundação",
+      "sourceKeys": [
+        "fundacao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "fundacao",
+        "fundação"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Organização",
+        "revision": 73276841,
+        "sha256": "4b3f9cc122a5d1c148158533172e543e01c6ce98e25921b00f27f04b95d039ef"
+      },
+      "reader": {
+        "path": "dados4 -> raw generic table-cell text",
+        "expressionSha256": "1eb9b616ead3c33dbf2ea350bab0b2062847415fc0e7cde0290dfecf965625a9",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Organização",
+      "key": "sigla",
+      "sourceKeys": [
+        "abreviação"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "abreviação",
+        "sigla"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Organização",
+        "revision": 73276841,
+        "sha256": "4b3f9cc122a5d1c148158533172e543e01c6ce98e25921b00f27f04b95d039ef"
+      },
+      "reader": {
+        "path": "título: own-if sigla -> small text beside nome",
+        "expressionSha256": "6f03082ef5844950b87af9bb108ce8c307f5427e59b0d5aa7c9ec34956f6fb04",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Organização",
+      "key": "líder_título",
+      "sourceKeys": [
+        "líder_tipo"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "líder_tipo",
+        "líder_título"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Organização",
+        "revision": 73276841,
+        "sha256": "4b3f9cc122a5d1c148158533172e543e01c6ce98e25921b00f27f04b95d039ef"
+      },
+      "reader": {
+        "path": "rótulo18 with paired dados18=líder_nome -> generic row guard",
+        "expressionSha256": "7e3537d7e511956c394d6139481b524f488e66e2e5f28bd0585fa6990bf7f3e7",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "anyNonempty": [
+            [
+              "líder_nome"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Organização",
+      "key": "num_empreg",
+      "sourceKeys": [
+        "empregados"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "empregados",
+        "num_empreg"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Organização",
+        "revision": 73276841,
+        "sha256": "4b3f9cc122a5d1c148158533172e543e01c6ce98e25921b00f27f04b95d039ef"
+      },
+      "reader": {
+        "path": "dados26 -> raw generic table-cell text",
+        "expressionSha256": "3f5051d827fed03e84508993f1a1b85478400469dc44f297d8f3c3f18f80af6f",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Patologia",
+      "key": "sintomas",
+      "sourceKeys": [
+        "simtomas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Sintomas",
+        "simtomas",
+        "sintomas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Patologia",
+        "revision": 72368456,
+        "sha256": "80d09b72ee51413e24f7c8279d28888b9654f067b2571afb38e98675cf380c3a"
+      },
+      "reader": {
+        "path": "dados12: Sintomas > sintomas -> raw text",
+        "expressionSha256": "1e29f95975324db8189368234ea129672c1c88fa53563e7933af48b64968f98c",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "Sintomas"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Patologia",
+      "key": "complicações",
+      "sourceKeys": [
+        "complications"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Complicações",
+        "complications",
+        "complicações"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Patologia",
+        "revision": 72368456,
+        "sha256": "80d09b72ee51413e24f7c8279d28888b9654f067b2571afb38e98675cf380c3a"
+      },
+      "reader": {
+        "path": "dados13: complicações > Complicações -> raw text",
+        "expressionSha256": "dd7ea77033173387842bfb83b2129f5cf987c00feaeb7ed69bfea7eea8e54d49",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "key": "primeirovoo",
+      "sourceKeys": [
+        "primeiro_voo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "primeiro_voo",
+        "primeirovoo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeronave",
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      },
+      "reader": {
+        "path": "Info dados9 own-if -> Info/txt arg1 -> raw table-cell text",
+        "expressionSha256": "673f6befba4ed815b2c94f55d94c1666fa31b33c2e70472d2163e3e09bec0386",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "key": "produção",
+      "sourceKeys": [
+        "produzido"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "produzido",
+        "produção"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeronave",
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      },
+      "reader": {
+        "path": "Info dados4 own-if -> Info/txt arg1 -> raw table-cell text",
+        "expressionSha256": "45345d63109009941ef98391f2faec658c98e634dffb1a87477ec09c4a7d2999",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "key": "quantidade",
+      "sourceKeys": [
+        "número_construído"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "número_construído",
+        "quantidade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeronave",
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      },
+      "reader": {
+        "path": "Info dados5 own-if -> Info/txt arg1 -> raw table-cell text",
+        "expressionSha256": "31d1eb5a42bf2d5cbad47dadb95a0c25641bb5694505af87776b7ebc01a949fa",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeronave",
+      "key": "aposentado",
+      "sourceKeys": [
+        "retirado"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "aposentado",
+        "retirado"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeronave",
+        "revision": 70468097,
+        "sha256": "c4bf046e9df2ceae5a95ea0517b22372cdf0060a2bc0c13a31b2d7562563a4c2"
+      },
+      "reader": {
+        "path": "Info dados11 own-if -> Info/txt arg1 -> raw table-cell text",
+        "expressionSha256": "25bdb96d81a3643e6fee3e81584425fb284e92b8da1fceeac6ae24001c6b9928",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Político",
+      "key": "nome_comp",
+      "sourceKeys": [
+        "nome completo",
+        "nome_completo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nome completo",
+        "nome_comp",
+        "nome_completo",
+        "nome_de_nascimento"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Político",
+        "revision": 72931974,
+        "sha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a"
+      },
+      "reader": {
+        "path": "dados53 -> generic data-cell wikitext",
+        "expressionSha256": "13fa30a976dcff768afa6455848b9fd9d2548c1f235b23db36dbcd2a0e3441a5",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Político",
+      "key": "ocupação",
+      "sourceKeys": [
+        "ocupacao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ocupacao",
+        "ocupação"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Político",
+        "revision": 72931974,
+        "sha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a"
+      },
+      "reader": {
+        "path": "dados71 -> generic data-cell wikitext",
+        "expressionSha256": "d38bd0cb495a9e937c444e8753dd834b83fe0736d0f0f061606b4aaae496d410",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Ator",
+      "key": "cônjuge",
+      "sourceKeys": [
+        "cônjugue"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "cônjuge",
+        "cônjugue"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Ator",
+        "revision": 72882232,
+        "sha256": "64980d263d78828e6ca072d269cf836ff63f7647c6d01cce21ac862328db4da3"
+      },
+      "reader": {
+        "path": "dados14 -> generic data-cell wikitext",
+        "expressionSha256": "f62a2f017cbd44455983dc03c59e7619a0b86825d7be558e3d04691236e585a9",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "ResultadoOpenEUADuplasMistas",
+      "sourceKeys": [
+        "ResultadoOpenEUAMistas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ResultadoOpenEUADuplasMistas",
+        "ResultadoOpenEUAMistas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "ea73fc4e1fc30e5f8ed6ac29c10027cbc63263a052806f95f30ea2a9d5f5d77c",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "ResultadoWimbledonDuplasMistas",
+      "sourceKeys": [
+        "ResultadoWimbledonMistas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ResultadoWimbledonDuplasMistas",
+        "ResultadoWimbledonMistas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "fe0a52b18305b910fc1c6f57fe73dbf271b2b60ba0589f5f0b784e35623498ae",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "ResultadoOpenFrancaDuplasMistas",
+      "sourceKeys": [
+        "ResultadoOpenFrancaMistas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ResultadoOpenFrancaDuplasMistas",
+        "ResultadoOpenFrancaMistas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "fa9c974fd6c95f52c57dd100d0b6d3669c90e845af1cced25e1eba3855ff043e",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "ResultadoOpenAustraliaDuplasMistas",
+      "sourceKeys": [
+        "ResultadoOpenAustraliaMistas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ResultadoOpenAustraliaDuplasMistas",
+        "ResultadoOpenAustraliaMistas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "7e6617ed88c6c2bd1c12eccf8bbddc55a3389409b0d9b1b94ed7234274378e83",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "nomecompleto",
+      "sourceKeys": [
+        "nome_completo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nome_completo",
+        "nomecompleto"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "9deed7cdfed135f13f5de9bd703ffcb7cf92eb854e970aed9b8316399af166c4",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "cidadenatal",
+      "sourceKeys": [
+        "cidade_nascimento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "cidade_nascimento",
+        "cidadenatal"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "526e1e81594482be30fee157390fa1028fc21563a19b5fc554ac4a74e0967961",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "premiosganhos",
+      "sourceKeys": [
+        "premiacao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "premiacao",
+        "premiosganhos"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "dd4a1c795cdc7f8fae372b58bc648af3d9f5d9f99c0d98f0c41ce15d3741f431",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "titulossimples",
+      "sourceKeys": [
+        "titulos_simples"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "titulos_simples",
+        "titulossimples"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "372fcb7713d8eb5ce8aaa2ab405533d5509cb08f71cecdc6e754b9118b7f20ce",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "melhorrankingsimples",
+      "sourceKeys": [
+        "melhor_ranking_simples"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "melhor_ranking_simples",
+        "melhorrankingsimples"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "df10952280d52a5b450867a5db9ff6b4c91c956988bbe4bfb389d97004a7c8bd",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "rankingatualsimples",
+      "sourceKeys": [
+        "ranking_atual_simples"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "ranking_atual_simples",
+        "rankingatualsimples"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "da955e0c3d1203174bb5613db3f4cc5fb9182f975930ce1e647da5a76abcde61",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "titulosduplas",
+      "sourceKeys": [
+        "titulos_duplas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "titulos_duplas",
+        "titulosduplas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "f255452a521caa6879b12aeaa758b8294e337315c2ef6b5b99fed441ce053e17",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Tenista",
+      "key": "atualizado",
+      "sourceKeys": [
+        "atualizacao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "atualizacao",
+        "atualizado"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Tenista",
+        "revision": 68053869,
+        "sha256": "75d633a97676bd95d80f4d5fd1aeb0549d8124798752b64176b0bd7a912c308a"
+      },
+      "reader": {
+        "path": "Info/Tenista / native wikitable cell",
+        "expressionSha256": "0b4b2c31ee89f279a408533094d388ee7709093a2664130c82229ce5dd86272f",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/esporte/atleta",
+      "key": "esporte",
+      "sourceKeys": [
+        "desporto"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "desporto",
+        "esporte"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/esporte/atleta",
+        "revision": 72386980,
+        "sha256": "55e49d2eb9f23518d4fb3a9b3a8156a0cd5d930d84e6dcdd68666bdbd55f5b50"
+      },
+      "reader": {
+        "path": "Info/esporte/atleta / Infocaixa tópico1 / Módulo:Infocaixa renderRows.header / addRow -> th:wikitext(fixChildBoxes(rowArgs.header))",
+        "expressionSha256": "1bd6bc27281e759763e9e8e98e5de2a860ff25dafb1e0f508a483e3cd9e9d187",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Jogo de cartas",
+      "key": "tempo",
+      "sourceKeys": [
+        "tempo de jogo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "tempo",
+        "tempo de jogo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jogo de cartas",
+        "revision": 72592947,
+        "sha256": "4edb2837aedcebc2adb2b91a16cacad27b4cd7d9f4cf670232abdc08cf535884"
+      },
+      "reader": {
+        "path": "Info/Jogo de cartas / Info dados22 / Predefinição:Info if dados22 -> Info/txt|1=dados22 / Predefinição:Info/txt prints {{{1}}} in table cell",
+        "expressionSha256": "7d4b227473f05a5d38472cc05265baca380aeef7bb1ed7a0579f9b83b2b0693e",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeroporto",
+      "key": "código_ICAO",
+      "sourceKeys": [
+        "icao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "código_ICAO",
+        "icao"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeroporto",
+        "revision": 71844736,
+        "sha256": "324f32eeaee4ba34e4b9b4092a1cc20ea86314692098c40e61a272964170b41a"
+      },
+      "reader": {
+        "path": "Info/Aeroporto / Infocaixa dados1 -> hlist item2 / Predefinição:Hlist -> Módulo:Lista horizontal / makeListData item.content=args[num] -> renderList li:wikitext(t.content) / Módulo:Infocaixa dados1 -> td:wikitext",
+        "expressionSha256": "6982b11b0269a23ad3167cba1dfaeda38bd6847ab5e347dbacab7f33f82b1579",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Aeroporto",
+      "key": "website",
+      "sourceKeys": [
+        "site"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "site",
+        "website"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Aeroporto",
+        "revision": 71844736,
+        "sha256": "324f32eeaee4ba34e4b9b4092a1cc20ea86314692098c40e61a272964170b41a"
+      },
+      "reader": {
+        "path": "Info/Aeroporto / Infocaixa dados18 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "0191a678c61b0e9071c52b22bb744cb19223d718a02c09167d687e62775a2356",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Foguete",
+      "key": "níveis",
+      "sourceKeys": [
+        "estágios"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "estágios",
+        "níveis"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Foguete",
+        "revision": 62404173,
+        "sha256": "eaf76c83f40c5d9c4647c7399b79e25506e135466f833ecfc5a8b9cf6f8add0b"
+      },
+      "reader": {
+        "path": "Info/Foguete / native wikitable cell",
+        "expressionSha256": "08d4a02f7a7005141752c1dc25a9cc7101a4015f5f52d23bcb956769fa5a4a0d",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "anyNonempty": [
+            [
+              "altura",
+              "diâmetro",
+              "massa",
+              "andares"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Foguete",
+      "key": "falhanços",
+      "sourceKeys": [
+        "falhas"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "falhanços",
+        "falhas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Foguete",
+        "revision": 62404173,
+        "sha256": "eaf76c83f40c5d9c4647c7399b79e25506e135466f833ecfc5a8b9cf6f8add0b"
+      },
+      "reader": {
+        "path": "Info/Foguete / native wikitable cell",
+        "expressionSha256": "b0f98bdde28675fc4bb5e3b494a4237795f6140743b05c40e9fd07317862a746",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Foguete",
+      "key": "carga útil-localização",
+      "sourceKeys": [
+        "payload-location"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "carga útil-localização",
+        "payload-location"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Foguete",
+        "revision": 62404173,
+        "sha256": "eaf76c83f40c5d9c4647c7399b79e25506e135466f833ecfc5a8b9cf6f8add0b"
+      },
+      "reader": {
+        "path": "Info/Foguete / native wikitable cell",
+        "expressionSha256": "d7bfe1705c283577f3a42e34c30931ab744f8670db761d2856757ffb6f74c434",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "capacidades"
+          ],
+          "anyNonempty": [
+            [
+              "carga útil-LEO",
+              "carga útil",
+              "capacidades"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Condado dos Estados Unidos",
+      "key": "populacao",
+      "sourceKeys": [
+        "população"
+      ],
+      "role": "native-number-reference-text",
+      "aliases": [
+        "populacao",
+        "população"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Condado dos Estados Unidos",
+        "revision": 72445204,
+        "sha256": "e6e3b3e3cea21c60dd900d3d30ed589515147507e872f867bc8db4eb03643aea"
+      },
+      "reader": {
+        "path": "Info/Assentamento/dados74 → Fmtn/native formatnum, literal integer + Cite",
+        "expressionSha256": "95f080a28712f26e02a81abd11d5d9e2a0229f05ae73cdfc2b5d9e3e5f96996e",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "área",
+            "área_terra",
+            "área_água",
+            "área_metropolitana",
+            "densidade"
+          ]
+        },
+        "valueProof": {
+          "kind": "native-integer-reference-format",
+          "nativePairSha256": "76062a4b34210c12d67ad09812e1acde91d4b6d21c38d7a9449af403c7006f71",
+          "dependencies": [
+            "Predefinição:Info/Assentamento",
+            "Predefinição:Fmtn",
+            "Predefinição:Formatar número",
+            "Módulo:Fmtn",
+            "Predefinição:Densidade populacional3"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Condado dos Estados Unidos",
+      "key": "perc_água",
+      "sourceKeys": [
+        "área_água_p"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "perc_água",
+        "área_água_p"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Condado dos Estados Unidos",
+        "revision": 72445204,
+        "sha256": "e6e3b3e3cea21c60dd900d3d30ed589515147507e872f867bc8db4eb03643aea"
+      },
+      "reader": {
+        "path": "Info/Condado dos Estados Unidos / área_água_percent -> Info/Assentamento rev73457360 / Info/Assentamento dados62 / Infocaixa -> Módulo:Infocaixa td:wikitext",
+        "expressionSha256": "b790e479a9b0036996db6c207a274e1c75662cd48b8b1365b093ea625bacaaad",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Jornal",
+      "key": "proprietário",
+      "sourceKeys": [
+        "proprietario"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "pertence a",
+        "proprietario",
+        "proprietário"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jornal",
+        "revision": 71209271,
+        "sha256": "8d706a8bad46514aa1a7ae0919020aa6ccd7021a5c4058658cbbd4a94fb466c1"
+      },
+      "reader": {
+        "path": "Info/Jornal / Infocaixa dados13 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "b81038d675b44a8105b1ec27843f9c9bdf43c9fefd46bd4eb19a0da80d0b6a55",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Jornal",
+      "key": "circulação",
+      "sourceKeys": [
+        "circulacao"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "circulacao",
+        "circulação"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Jornal",
+        "revision": 71209271,
+        "sha256": "8d706a8bad46514aa1a7ae0919020aa6ccd7021a5c4058658cbbd4a94fb466c1"
+      },
+      "reader": {
+        "path": "Info/Jornal / Infocaixa dados29 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "9652a053de490ce00234c521c25de19c443ed989bbb40bf35cc1f46ed5464e4e",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Clube de futebol",
+      "key": "fundadoem",
+      "sourceKeys": [
+        "fundação"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "fundadoem",
+        "fundação"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Clube de futebol",
+        "revision": 73378505,
+        "sha256": "0410d13acce1b10a7c8ed6905cf7968180bd14f3bcfe98555beac73581f88485"
+      },
+      "reader": {
+        "path": "Info/Clube de futebol / Infocaixa dados6 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "2cfffebf38f657dc094e41969ace103d00279f0f8c7d58348d9610755fd5205f",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Clube de futebol",
+      "key": "imagem_legenda",
+      "sourceKeys": [
+        "legenda"
+      ],
+      "role": "native-caption-reference-registration",
+      "aliases": [
+        "imagem_legenda",
+        "legenda",
+        "nome_img"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Clube de futebol",
+        "revision": 73378505,
+        "sha256": "0410d13acce1b10a7c8ed6905cf7968180bd14f3bcfe98555beac73581f88485"
+      },
+      "reader": {
+        "path": "native caption argument / Check for unknown parameters / Cite registration",
+        "expressionSha256": "d4e2e5809697b1383b886e3ec5b90f6be4cafab41b41dc5b27d3fddc0c26c7f3",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "registrationProof": {
+          "kind": "native-caption-argument-expansion",
+          "nativePairSha256": "cb6de644390819a49029f8a25f71006ad66c2f95e38e662a31ee769aeb740b9e",
+          "dependencies": [
+            "Módulo:Infocaixa",
+            "Módulo:InfoboxImage",
+            "Módulo:InfoboxImage/data",
+            "Módulo:Check for unknown parameters"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Canal de televisão",
+      "key": "canais_irmãos",
+      "sourceKeys": [
+        "canais irmãos"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "canais irmãos",
+        "canais_irmãos"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Canal de televisão",
+        "revision": 72270233,
+        "sha256": "bf86d5f876ab0cc70251d35d1d40e28c5c14f9091641a5adb1c9671d2d0ce093"
+      },
+      "reader": {
+        "path": "Info/Canal de televisão / Infocaixa dados24 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "ac9f7ed9728749be974f7f3449207800ec533217c66a84a7c64b7f62ac8bd1f7",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Canal de televisão",
+      "key": "empresa_mãe",
+      "sourceKeys": [
+        "empresa-mãe"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "empresa-mãe",
+        "empresa_mãe"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Canal de televisão",
+        "revision": 72270233,
+        "sha256": "bf86d5f876ab0cc70251d35d1d40e28c5c14f9091641a5adb1c9671d2d0ce093"
+      },
+      "reader": {
+        "path": "Info/Canal de televisão / Infocaixa dados22 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "ce06ddadb2526859baad2e0355c78691254907fbb269703de60aa2b42ac0a07f",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Canal de televisão",
+      "key": "formato_imagem",
+      "sourceKeys": [
+        "formato de imagem"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "formato de imagem",
+        "formato_imagem"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Canal de televisão",
+        "revision": 72270233,
+        "sha256": "bf86d5f876ab0cc70251d35d1d40e28c5c14f9091641a5adb1c9671d2d0ce093"
+      },
+      "reader": {
+        "path": "Info/Canal de televisão / Infocaixa dados17 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "e6e69a44ed59e3927649b6ecb034b16202a4f03ce848df08647c4e1fb3707bcc",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Canal de televisão",
+      "key": "data_lançamento",
+      "sourceKeys": [
+        "lançamento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "data_lançamento",
+        "lançamento"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Canal de televisão",
+        "revision": 72270233,
+        "sha256": "bf86d5f876ab0cc70251d35d1d40e28c5c14f9091641a5adb1c9671d2d0ce093"
+      },
+      "reader": {
+        "path": "Info/Canal de televisão / Infocaixa dados30 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "b0e2128dbf9c8d285d345189495b41f6afbae99a7083107405def500eeaabc17",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Canal de televisão",
+      "key": "data_encerramento",
+      "sourceKeys": [
+        "extinção"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "data_encerramento",
+        "extinção"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Canal de televisão",
+        "revision": 72270233,
+        "sha256": "bf86d5f876ab0cc70251d35d1d40e28c5c14f9091641a5adb1c9671d2d0ce093"
+      },
+      "reader": {
+        "path": "Info/Canal de televisão / Infocaixa dados33 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "7618c035b32ce6175c3761fa45ad6017f3dc9031e5044c21c2c4d2b94ddc19e2",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Partido político",
+      "key": "número_eleitoral",
+      "sourceKeys": [
+        "numero_eleitoral"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "código",
+        "numero_eleitoral",
+        "numero_tse",
+        "número_eleitoral"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Partido político",
+        "revision": 73174876,
+        "sha256": "ccf62d63e6ce214473063305728f2ca3e05762c50f976c175bf989720980e6d3"
+      },
+      "reader": {
+        "path": "Info/Partido político / Infocaixa dados2 / Módulo:Infocaixa renderRows.data -> addRow td:wikitext",
+        "expressionSha256": "20e6a77db67bcaed28952ad894101d996eb3577606e5ac772f0cb55e15de1056",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "batalhas/guerras",
+      "sourceKeys": [
+        "Batalhas/Guerras"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Batalhas/Guerras",
+        "batalhas",
+        "batalhas/guerras",
+        "conflitos"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados97",
+        "expressionSha256": "e734d96570f86de249f1ed450b1a386aa5a694ad288bf7dbd2dc48fbcd4f424c",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "condecorações",
+      "sourceKeys": [
+        "Condecorações"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Condecorações",
+        "condecorações",
+        "honrarias",
+        "medalhas"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados98",
+        "expressionSha256": "52ce0fb18584c0ef5f7f3895849127b467d13f0fec01db18d2df8bb08dad9032",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "unidades",
+      "sourceKeys": [
+        "Unidades"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Unidades",
+        "unidade",
+        "unidades"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados95",
+        "expressionSha256": "da916b71024c17e77e058c9fc5a1a84556e7e65d32479e1472f53920103297c3",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "tempo de serviço",
+      "sourceKeys": [
+        "Tempo de Serviço"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Tempo de Serviço",
+        "anos em serviço",
+        "anos_de_serviço",
+        "tempo de serviço"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados93",
+        "expressionSha256": "5a6d125a6bd24f49f2a0f4b4c507c0186f7c1b62bc0ecf599dbdf02872f85f58",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "comando",
+      "sourceKeys": [
+        "Comando"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Comando",
+        "comando",
+        "comandos"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados96",
+        "expressionSha256": "3aac081325a98502eb0717c2583d3971a183839c79164e4df40b9eee4a4ce1df",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "lealdade",
+      "sourceKeys": [
+        "Lealdade"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Lealdade",
+        "lealdade",
+        "país"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados91",
+        "expressionSha256": "636bbeb5f486de8edb7598c07e7bb0a3037b3b7fe176f00475e16881c85ae8ad",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "serviço",
+      "sourceKeys": [
+        "Serviço"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Serviço",
+        "força",
+        "serviço"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados92",
+        "expressionSha256": "475a80d1f7d1c9bd10a1b9f48668ec070dcf2f31c25e7bf37ac236de2e0c8d2d",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "nome_nascimento",
+      "sourceKeys": [
+        "nome_denascimento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nome de nascimento",
+        "nome_denascimento",
+        "nome_nascimento"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados9 → br separated entries/1 → nickname",
+        "expressionSha256": "917890439a8023fd9c2e030f77bb1f9b6accc900d8a72a5a6ddef5b055480865",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "nome_completo",
+      "sourceKeys": [
+        "nome Completo"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nome Completo",
+        "nome_completo"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "reader": {
+        "path": "Infocaixa/dados2",
+        "expressionSha256": "0be81c0f6f2f00be75b09d7892eaf2b6f6fe877b80a76b616067d08ec49fc4be",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "nascimento_cidade",
+      "sourceKeys": [
+        "nascimentocidade"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "cidadenatal",
+        "nascimento_cidade",
+        "nascimento_local",
+        "nascimentocidade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/Nascimento/cidade",
+        "expressionSha256": "06ac15196c5b88627d3515cf4af2339fd1820288eaa2e01e3f9ca57b6c40b013",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "nascimento_local",
+            "cidadenatal"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "morte_cidade",
+      "sourceKeys": [
+        "cidade_morte"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "cidade_morte",
+        "cidadedamorte",
+        "morte_cidade",
+        "morte_local"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/Morte/cidade",
+        "expressionSha256": "43ea0b1d7a0724ae89b528302673599604320e94df96b4ed6d5d75573e9aed2a",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "morte_local"
+          ],
+          "selectedNonempty": [
+            [
+              "morte_país",
+              "paisdamorte"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Ator",
+      "key": "morte_local",
+      "sourceKeys": [
+        "local_falecimento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "local_falecimento",
+        "localidadef",
+        "morte_local"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Ator",
+        "revision": 72882232,
+        "sha256": "64980d263d78828e6ca072d269cf836ff63f7647c6d01cce21ac862328db4da3"
+      },
+      "reader": {
+        "path": "Infocaixa/dados6",
+        "expressionSha256": "0aa36d73c9623914dad4f7ed07c497fabd0c5a48762be0ebf64dee3791bf32e2",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Político",
+      "key": "local_nascimento",
+      "sourceKeys": [
+        "local de nascimento"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "local de nascimento",
+        "local_nascimento",
+        "nascimento_local"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Político",
+        "revision": 72931974,
+        "sha256": "82b3a8198d5dcfee45857069ae13fab1c5df16dc36c3e440a5edfd259be5a35a"
+      },
+      "reader": {
+        "path": "Infocaixa/dados55",
+        "expressionSha256": "26ee26b968ae8ba4ff5d3191545cee2e7129f766c4f59a2635c713bde403da97",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "instituicoes_trabalho",
+      "sourceKeys": [
+        "institições_trabalho"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "institições_trabalho",
+        "instituicao_trabalho",
+        "instituicoes_trabalho",
+        "local_trabalho"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "Infocaixa/dados145 → br separated entries/1",
+        "expressionSha256": "cbe4012ff3ec0eba53590c26676c97a4d9d80deaea9d04fd09c187672ecd2ece",
+        "priority": "first-nonempty",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "emptyOrAbsentKeys": [
+            "instituicao_trabalho"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Biografia",
+      "key": "magnum_opus",
+      "sourceKeys": [
+        "obra-prima"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "magnum_opus",
+        "obra-prima"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "reader": {
+        "path": "exact redirect → Info/Biografia/Infocaixa/dados85",
+        "expressionSha256": "7947b46209476cf41bec0ac66f95be831cabbda552c73b7b0764e04859b516a0",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      },
+      "sourceOwners": [
+        "Info/Escritor"
+      ]
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "gênero",
+      "sourceKeys": [
+        "genero",
+        "gêneros"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Gênero",
+        "genero",
+        "género",
+        "gênero",
+        "gêneros"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "reader": {
+        "path": "Infocaixa/dados10",
+        "expressionSha256": "40a9539d7888de2eea8a254338e80f3d214d144363769d8edbc904181a9aac02",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "gravadora",
+      "sourceKeys": [
+        "gravadoras"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "Gravadora",
+        "editora",
+        "gravadora",
+        "gravadoras"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "reader": {
+        "path": "Infocaixa/dados23",
+        "expressionSha256": "5db7a683dd5f74cecbd756f3d81dbe92b25c43374557b690ee4d6e470f368468",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "atividade",
+      "sourceKeys": [
+        "período em atividade",
+        "período_atividade"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "actividade",
+        "atividade",
+        "período",
+        "período em atividade",
+        "período_atividade"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "reader": {
+        "path": "Infocaixa/dados21",
+        "expressionSha256": "2e2205711e7e20b1e31c3b89443ca25732c03c2c00af90dbfc22e3f87f916d0b",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Música/artista",
+      "key": "legenda",
+      "sourceKeys": [
+        "didascalia"
+      ],
+      "role": "native-caption-reference-registration",
+      "aliases": [
+        "didascalia",
+        "imagem_legenda",
+        "legenda"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Música/artista",
+        "revision": 73357003,
+        "sha256": "717a88a33e30922a23bcbeb46d737c53863729949a5d3deac1b33700bcc46ba7"
+      },
+      "reader": {
+        "path": "native caption argument / Check for unknown parameters / Cite registration",
+        "expressionSha256": "2f6d2461388fd7739b535904fc90d6ed94abe0f0b52d26938e34c3397fdb47e8",
+        "priority": "independent",
+        "literalDefaultRefs": true,
+        "registrationProof": {
+          "kind": "native-caption-argument-expansion",
+          "nativePairSha256": "0a515a51d2cbf1b5633ca4a6336ae5dfb84bba94787f1247db14224248a30dd1",
+          "dependencies": [
+            "Módulo:Infocaixa",
+            "Módulo:InfoboxImage",
+            "Módulo:InfoboxImage/data",
+            "Módulo:Check for unknown parameters",
+            "Módulo:Check for conflicting parameters"
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "imagem_legenda",
+      "sourceKeys": [
+        "legenda"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "imagem_legenda",
+        "legenda"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "raw Ficheiro/image + following native caption row",
+        "expressionSha256": "0ab3ee1843ac1d550e7b5c4f8f25d82576da6829a3e28ca40bcf9ef53ecd04d8",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "selectedNonempty": [
+            [
+              "imagem"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "pcupdate",
+      "sourceKeys": [
+        "club-update"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "club-update",
+        "pcupdate"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/footer/pcupdate",
+        "expressionSha256": "8e8afa501c4a8418ffdcfd5895397d7794bcd275227c685fc3e1cc32a4c1be5f",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "ntupdate",
+      "sourceKeys": [
+        "nationalteam-update"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "nationalteam-update",
+        "ntupdate"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/footer/ntupdate",
+        "expressionSha256": "2d1a10ba0d8f7d7aad7349927dc3a50b6044c3d555d59147c5bb70f5a5371903",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "jogos(golos)",
+      "sourceKeys": [
+        "jogos (golos)"
+      ],
+      "role": "conditional-visible-native-text",
+      "aliases": [
+        "jogos (golos)",
+        "jogos(golos)",
+        "jogos(gols)"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/club record/jogos(golos)",
+        "expressionSha256": "bf74bd1730e7dc352d7e218c7d624ff5e95208451997fe838940010ca3dfec6b",
+        "priority": "first-present",
+        "literalDefaultRefs": true,
+        "conditions": {
+          "absentKeys": [
+            "jogos(gols)"
+          ],
+          "anyNonempty": [
+            [
+              "clubes"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "owner": "Info/Futebolista",
+      "key": "jovemclubes",
+      "sourceKeys": [
+        "jovemclube"
+      ],
+      "role": "direct-visible-native-text",
+      "aliases": [
+        "jovemclube",
+        "jovemclubes"
+      ],
+      "forbiddenNonemptyKeys": [],
+      "native": {
+        "title": "Predefinição:Info/Futebolista",
+        "revision": 73340185,
+        "sha256": "9a2ef626202052d72c6f0348f4d53026095592e4b7aadc2eac1f4d35b4ac4524"
+      },
+      "reader": {
+        "path": "native table/youth club",
+        "expressionSha256": "0caf670efd14f845b077737bf58d20d6c1197a8b8a4ae394827fa75457a1ef31",
+        "priority": "independent",
+        "literalDefaultRefs": true
+      }
+    }
+  ],
+  "nativeReferenceRedirects": [
+    {
+      "status": "verified",
+      "source": {
+        "title": "Predefinição:Info/Cientista",
+        "revision": 55468951,
+        "sha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0"
+      },
+      "sourceText": "#REDIRECIONAMENTO [[Predefinição:Info/Biografia]]",
+      "target": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "chain": [
+        "Predefinição:Info/Biografia"
+      ],
+      "keys": [
+        "batalhas/guerras",
+        "comando",
+        "condecorações",
+        "cônjuge",
+        "instituicoes_trabalho",
+        "lealdade",
+        "magnum_opus",
+        "nome_completo",
+        "nome_nascimento",
+        "outros_nomes",
+        "período_atividade",
+        "principais_trabalhos",
+        "serviço",
+        "tempo de serviço",
+        "unidades"
+      ]
+    },
+    {
+      "status": "verified",
+      "source": {
+        "title": "Predefinição:Info/Escritor",
+        "revision": 46988224,
+        "sha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0"
+      },
+      "sourceText": "#REDIRECIONAMENTO [[Predefinição:Info/Biografia]]",
+      "target": {
+        "title": "Predefinição:Info/Biografia",
+        "revision": 73325613,
+        "sha256": "3cfd020fb6674b0f637d15e167b1654cf7977c778331371804974924d8bf489d"
+      },
+      "chain": [
+        "Predefinição:Info/Biografia"
+      ],
+      "keys": [
+        "batalhas/guerras",
+        "comando",
+        "condecorações",
+        "cônjuge",
+        "instituicoes_trabalho",
+        "lealdade",
+        "magnum_opus",
+        "nome_completo",
+        "nome_nascimento",
+        "outros_nomes",
+        "período_atividade",
+        "principais_trabalhos",
+        "serviço",
+        "tempo de serviço",
+        "unidades"
+      ]
+    }
+  ],
+  "nativeReferenceRedirectPins": {
+    "Predefinição:Info/Cientista": {
+      "revision": 55468951,
+      "sha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0"
+    },
+    "Predefinição:Info/Escritor": {
+      "revision": 46988224,
+      "sha256": "6f3e48559cabf0b1b108f882361802d0e5585b15db386ec7f1d4532332e913c0"
+    }
+  },
+  "nativeReferenceDependencyPins": {
+    "Predefinição:Infocaixa": {
+      "revision": 70262218,
+      "sha256": "bb4027b93e2204eca74ba57387235111451d43ecb91c25d8eef962c835d036cb"
+    },
+    "Módulo:Infocaixa": {
+      "revision": 72782381,
+      "sha256": "364bfac2ed4123da0c8169f3379916f44ff9c8c7b71b3b3824bf58139cbca947"
+    },
+    "Predefinição:Info": {
+      "revision": 73035397,
+      "sha256": "b69c573849b1e91054cf0c4f3cfcd2728fab44cdc67c0df23d93018b20ecb766"
+    },
+    "Predefinição:Info/txt": {
+      "revision": 41860041,
+      "sha256": "80d8211039d6781d90a7dd3714e9f94c7a71def49b376f532da0c1752f67fa8d"
+    },
+    "Predefinição:Ifempty": {
+      "revision": 48427889,
+      "sha256": "950fe20d951fefb0fd19a8b81dfe76532dd6f681509343788446c2f502ab5512"
+    },
+    "Predefinição:If empty": {
+      "revision": 67884368,
+      "sha256": "ddab84b08840374ac495f3a009efb7d57cd35b9678e2d891a12541e913101527"
+    },
+    "Predefinição:Se vazio": {
+      "revision": 48428091,
+      "sha256": "58c4eebf5d684d6a06ba3e2f6dad79c6d928d4132b871f2f27d2f15904fedc50"
+    },
+    "Predefinição:Info/Software/simples": {
+      "revision": 72778832,
+      "sha256": "945b008aacc38fb0fb13b3e3e5bf52020ba21690b565cd1e684e463eecc54eb7"
+    },
+    "Predefinição:Info/Software/empilhado": {
+      "revision": 71400205,
+      "sha256": "8241f59c9594e986c57e80a2fad72825622f547c9905eaf9694157e2789bbc13"
+    },
+    "Módulo:Se vazio": {
+      "revision": 49700098,
+      "sha256": "cd2baf6ca77e8807dc62bdcd263876eb9bd94114917e6ba0137556835d5ddb6a"
+    },
+    "Predefinição:Info/Taxonomia/cor": {
+      "revision": 58221632,
+      "sha256": "1444f6ced3c03deb53379c281a99eac4ade18b5f491302e2a8d7468dcfaefa02"
+    },
+    "Módulo:Arguments": {
+      "revision": 69236077,
+      "sha256": "9ef64bd19aabc638c219e0453359756a68884b1a891cc82008737aa43474c911"
+    },
+    "Módulo:InfoboxImage": {
+      "revision": 72932632,
+      "sha256": "8dd398d625774293c9b1ae766cdccd1dcda3dec574e7365036cdc12feef2a4b7"
+    },
+    "Módulo:InfoboxImage/data": {
+      "revision": 72932557,
+      "sha256": "b7b0af2cda3152b13f04814d3bcf96378840f02c1e194427ff348187774f6831"
+    },
+    "Módulo:Check for unknown parameters": {
+      "revision": 69236305,
+      "sha256": "5e820615f08b57c50e5ece18e93e560574b87a25d460204a258cd0f47889282c"
+    },
+    "Módulo:Check for conflicting parameters": {
+      "revision": 73446371,
+      "sha256": "927b9d527514519e030bfc06a8f3cf53930484461b53a90914098684dccb484b"
+    },
+    "Predefinição:Valor Wikidata": {
+      "revision": 53503255,
+      "sha256": "4afe2888a4892cc5d514b63f623fe04368a6aafd65f71feda7f063fa8f464afc"
+    },
+    "Módulo:Interface Wikidata": {
+      "revision": 53508236,
+      "sha256": "b9771361047a42faa30779443a791178d4bbb06d9b4d512e08cd0a134f905777"
+    },
+    "Módulo:Infobox/Wikidata": {
+      "revision": 66449778,
+      "sha256": "9ac787f3f0b4bbb1175029e6b46813f50ce4ee57d8e8f5526b0441a0ac903d5a"
+    },
+    "Predefinição:Fmtn": {
+      "revision": 72998068,
+      "sha256": "654f9ab5b7e67658034a79e83d90a95a8b76cccde4689e579b659fd29e421a4a"
+    },
+    "Predefinição:Nobold": {
+      "revision": 67425931,
+      "sha256": "f68224039c4b89236aed1bc3e47877497ae4bd377284252f825d3c7e6db5b90f"
+    },
+    "Predefinição:Info/Partido político": {
+      "revision": 73174876,
+      "sha256": "ccf62d63e6ce214473063305728f2ca3e05762c50f976c175bf989720980e6d3"
+    },
+    "Predefinição:Hlist": {
+      "revision": 69207558,
+      "sha256": "abf4ec6db6f566ef3309c7a7fd51907baa7ee3f2d0cdefee885321fc47a77335"
+    },
+    "Módulo:Lista": {
+      "revision": 69290215,
+      "sha256": "c5819dd773c3a3891acad938beec36df3ffa86540cbac3bd6599a32d69d7da73"
+    },
+    "Predefinição:Infobox": {
+      "revision": 73035411,
+      "sha256": "21b33a7ac96eca69c61d0f995f7d06732764c441aa6b2ea15643656833e3ff2b"
+    },
+    "Módulo:Fmtn": {
+      "revision": 46212213,
+      "sha256": "e7422ebcb2b82754c7be88833a40abf3ae9d13629f9f6bbf0212910f50d223a5"
+    },
+    "Predefinição:Formatar número": {
+      "revision": 72998067,
+      "sha256": "6b8e432e5302681dc4b3757624eeb5169c1aa4ad21659dced6a628b1d6582c64"
+    },
+    "Predefinição:Densidade populacional3": {
+      "revision": 52548647,
+      "sha256": "fa3557da339f9cde7eb23c3ae94352a78b81649948e4a275e67e315208eddccb"
+    },
+    "Predefinição:Info/Assentamento": {
+      "revision": 73457360,
+      "sha256": "bba0da494ff15ecf822e06608f99d556bd72f3d60aa289f6f2a1d56433b895b5"
+    },
+    "Módulo:Infobox": {
+      "revision": 72931711,
+      "sha256": "c709fe1581bb93148928f226df0760852d43338b04b9f82c114d3496a054fec1"
+    },
+    "Predefinição:Br separated entries": {
+      "revision": 73367869,
+      "sha256": "60d851e0783eaaf9e0786a49bdcc692d40a83d3c5ef84daa019ee1f9d05f7291"
+    },
+    "Módulo:Separated entries": {
+      "revision": 71193045,
+      "sha256": "26efe80e1912dea518166aaca0ba4f89817129c3d539ba0071cd4444ab3f6957"
+    }
+  }
+}
