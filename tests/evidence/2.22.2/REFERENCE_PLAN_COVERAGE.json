@@ -1,0 +1,1245 @@
+{
+  "version": "2.22.2",
+  "candidate": "028",
+  "records": [
+    {
+      "id": "RW2222-001",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "001-bracket",
+        "001-label-conflict",
+        "001-multiple-links"
+      ],
+      "summary": "URLs bibliográficas escritas como ligações completas",
+      "condition": "Rótulo idêntico ao título, endereço único, sem perda de texto ou conflito de aliases.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 104,
+        "sha256": "9baa9db350c25439acad22d02a6db9e18e6cc4356c62faf5636164bbe20bd9ec"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 92,
+        "sha256": "82294dc2aaaca7cf07923b075b0179d0e3f7191b6f5c52b3534b0c78d31a1902"
+      }
+    },
+    {
+      "id": "RW2222-002",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "002-one-slash",
+        "002-no-credentials",
+        "002-not-host"
+      ],
+      "summary": "Barra ausente em protocolo de URL",
+      "condition": "Hostname válido e preservação exata de caminho, consulta e fragmento.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 105,
+        "sha256": "5ca19fea5138017e14cbd48e07a8d8b5240616776af0c8cc2a8cef2f47eb4e78"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 106,
+        "sha256": "ccf77346a32ee95ef59bde85ec85a17adb085647fab83c1fa18229a5e2a10a84"
+      }
+    },
+    {
+      "id": "RW2222-003",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222ReferenceSyntaxPlan"
+      ],
+      "actualTestIds": [
+        "003-early-close",
+        "003-real-reuse",
+        "003-prose-between"
+      ],
+      "summary": "Referência fechada antes de sua citação",
+      "condition": "Uma citação completa, sem texto intermediário, produtor desconhecido ou definição concorrente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 81,
+        "sha256": "74f5e451bfd41ab7c06be3f96e7d5cbb76bc21f6386c95e39d299ce63d17a6ef"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 81,
+        "sha256": "b5d076085039c125479ef5014c8930b88fadd37bcb1a1fc14bcfdeed4695e0b4"
+      }
+    },
+    {
+      "id": "RW2222-004",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValuesPlan"
+      ],
+      "actualTestIds": [
+        "004-wayback",
+        "004-date-conflict",
+        "004-existing-original",
+        "chapter-url-is-not-book-url",
+        "unicode-empty-main-url-recovered"
+      ],
+      "summary": "URL original recuperada de captura Wayback",
+      "condition": "A captura e a data precisam concordar, sem URL concorrente. Preserva arquivo, data e acesso; não cria a URL geral de um livro a partir do endereço próprio de um capítulo.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 175,
+        "sha256": "4ceb729ba0fe2ddad42152a4d52c88e472ba925c75594f0d55172827f6e5fd8c"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 201,
+        "sha256": "f4d67397979513464850518ea08fd41d490f42526bb4c7d7c361808f215842ba"
+      }
+    },
+    {
+      "id": "RW2222-005",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationArxiv"
+      ],
+      "actualTestIds": [
+        "005-arxiv",
+        "005-arxiv-foreign",
+        "005-arxiv-query"
+      ],
+      "summary": "PDF oficial do arXiv em campo de identificador",
+      "condition": "Host, rota e gramática oficiais; sem ID concorrente ou extração de nomes arbitrários.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 118,
+        "sha256": "9172043eaa5d143f1c98497ce563a94135e27cc250a88a5c885de6d76d058917"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 92,
+        "sha256": "cb0c0b63bd069eab033c242685960fe4ff2bb4a2365ebdf20364b42aa2fe3d8f"
+      }
+    },
+    {
+      "id": "RW2222-006",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationISSN"
+      ],
+      "actualTestIds": [
+        "006-issn",
+        "006-bad-checksum"
+      ],
+      "summary": "Separador de ISSN validado",
+      "condition": "Preservar os oito caracteres e distinguir ISSN de eISSN.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 88,
+        "sha256": "a15d7e822752e7b30f0316cb6f3565423683f1e165f1585a0db1de0f4e3ee7ad"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 88,
+        "sha256": "b377e428bf9edb09935ffae3f2d255da39bf7a1ea8e78e4121c2c20ba051015b"
+      }
+    },
+    {
+      "id": "RW2222-013",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValuesPlan"
+      ],
+      "actualTestIds": [
+        "013-swap",
+        "013-incomplete-swap"
+      ],
+      "summary": "Troca recíproca inequívoca de ISBN e ISSN",
+      "condition": "Ambos os valores integrais devem ser válidos exclusivamente no papel oposto, com checksums e campos únicos.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 107,
+        "sha256": "95efc2b33da1fa7703366639308cb1e15b3935367397541dbdaa8f1602bbf18a"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 107,
+        "sha256": "efe316da6ceba70c02c4f1751b0d1c342bdc3fb70a00af62b1d064b69ff1ec76"
+      }
+    },
+    {
+      "id": "RW2222-014",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationIdentifierTypography"
+      ],
+      "actualTestIds": [
+        "014-fullwidth",
+        "014-title-protected"
+      ],
+      "summary": "Tipografia Unicode em identificadores verificáveis",
+      "condition": "Lista finita de dígitos de largura completa/separadores dentro de identificador integral; gramática e checksum final válidos.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 113,
+        "sha256": "03721a95d0e4b4002d2dbeceeef6070a4993e80aef456cb9ae57ad235d037a12"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 87,
+        "sha256": "722f3bcceabf59bd1e63f875e914a50cb950e5af9dd3fea10c6d427adb084a06"
+      }
+    },
+    {
+      "id": "RW2222-015",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "015-repeat",
+        "015-different",
+        "015-semicolon-doi"
+      ],
+      "summary": "Identificador singular literalmente repetido",
+      "condition": "Mesmo identificador completo em campo singular e separador inequívoco.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 114,
+        "sha256": "ed1a40849952e57f7710389c0c951767b16411e256f1ce61299b482181295398"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 95,
+        "sha256": "d0a290961a2f96beb53171d30e95f25d7503c5130a209125eb17a64fd4301779"
+      }
+    },
+    {
+      "id": "RW2222-016",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "016-jstor",
+        "016-search"
+      ],
+      "summary": "Resolvedores bibliográficos oficiais adicionais",
+      "condition": "Apenas host/caminho oficial integral conferido e consumidor tipado comprovado; qualificar cada resolvedor separadamente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 116,
+        "sha256": "d5ca36bb0d648ff8182262182a0453b5a29c8fc3470a5da9ad6423b3b29cdba0"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 87,
+        "sha256": "e20f4d1c6f5d22dcd8840a260e26f268cec5193d4f7f49a1a523aa721239441c"
+      }
+    },
+    {
+      "id": "RW2222-017",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValuesPlan"
+      ],
+      "actualTestIds": [
+        "017-class",
+        "017-class-conflict",
+        "017-class-unknown"
+      ],
+      "summary": "arXiv explicitamente rotulado com classe de assunto",
+      "condition": "Código e classe integralmente validados, preservando versão, sem classe concorrente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 107,
+        "sha256": "bfe60d0c2d742b5985f5809991e3ea67c7a205e7c160715df37a56d6298704e1"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 106,
+        "sha256": "7e18b9a0a3247230a89ff6ccc10d1fe81db179222b18a093444b608aff372c24"
+      }
+    },
+    {
+      "id": "RW2222-018",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValuesPlan"
+      ],
+      "actualTestIds": [
+        "018-generic-doi",
+        "018-conflict"
+      ],
+      "summary": "DOI explicitamente rotulado no campo id",
+      "condition": "Identificador único integral explicitamente rotulado e destino tipado ausente/equivalente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 98,
+        "sha256": "ce9d341bb257270c268c1b11a784833a28565f3862256fdb2c91f2c94e8aeb9d"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 95,
+        "sha256": "d0a290961a2f96beb53171d30e95f25d7503c5130a209125eb17a64fd4301779"
+      }
+    },
+    {
+      "id": "RW2222-019",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationPageList"
+      ],
+      "actualTestIds": [
+        "019-locators",
+        "019-prose-locator"
+      ],
+      "summary": "Prefixos de paginação alfanumérica e descontínua",
+      "condition": "Retirar somente rótulo redundante sob gramática explícita, conservando todos os localizadores/separadores/ordem.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 98,
+        "sha256": "77bc94727df5ca23bc1860632fe77151d9923cb8b96229dfdb076ce9aa0c0bf6"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 94,
+        "sha256": "2587001ded3df14c9d8ab3c076bc2d16806d3696505f1976a311e7b9ee27fe28"
+      }
+    },
+    {
+      "id": "RW2222-020",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationLanguagesPlan"
+      ],
+      "actualTestIds": [
+        "020-language-three",
+        "020-unknown-language"
+      ],
+      "summary": "Três ou mais campos de língua explícitos",
+      "condition": "Estender composição existente com prioridade real do leitor, códigos aceitos e ordem preservada.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 3,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 101,
+        "sha256": "d61044a87bd9f2fae4895e5bd619dd4150a1bfe659d53ef2a773eeecb4096833"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 85,
+        "sha256": "7ac26eb5fe7995415189a0f3b47603b20a9d6c0b8b8bcae2d07164e7862fd608"
+      }
+    },
+    {
+      "id": "RW2222-021",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "021-physical-qualifier",
+        "021-unrecognized-qualifier"
+      ],
+      "summary": "ISBN com qualificador físico explícito",
+      "condition": "Um único ISBN válido, qualificador de vocabulário fechado e representação nativa que preserve associação; nenhum id concorrente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 98,
+        "sha256": "70c861c16579917c42705d9d19d1d6145d74615e887fe524558113c8e058a486"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 98,
+        "sha256": "93e37147129f5c521866cd4e7053a4a25f149c6409a2df0a1e19c235fc883d00"
+      }
+    },
+    {
+      "id": "RW2222-022",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "022-mode",
+        "022-negative"
+      ],
+      "summary": "Enumerações e positivos explícitos de flags",
+      "condition": "Mapeamentos finitos só em papel efetivamente lido pelo consumidor; confirmar leitor atual.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 104,
+        "sha256": "6dcfa234f4011a222780af300482307cf2b72fec4baf89966581f4ffc74366ca"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 97,
+        "sha256": "7966b2a85cb2c274425b7a7711bec6068d169840428c2e1024afeaccd04d5b95"
+      }
+    },
+    {
+      "id": "RW2222-023",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "023-format",
+        "023-prose-format"
+      ],
+      "summary": "Parênteses redundantes de apresentação no formato",
+      "condition": "Um par externo envolvendo integralmente rótulo conhecido quando consumidor já acrescenta o par.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 110,
+        "sha256": "07b6bbba4f40432daa6968820c5ea8be23db46c6f5a53e76b59f959c3608a7a2"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 108,
+        "sha256": "662106b80e2a7896f548908841243930acbb630493f99e5d9999b69c153c3a3a"
+      }
+    },
+    {
+      "id": "RW2222-024",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "024-script",
+        "024-title-equals"
+      ],
+      "summary": "Separador incorreto no prefixo de título original",
+      "condition": "Prefixo explícito de língua aceita e conteúdo original preservado integralmente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 95,
+        "sha256": "f810ba36dae1e74e24cf9e503e2094ca5a3f07c792941dbabd22d8a8705db701"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 95,
+        "sha256": "aae0398ebeeca0c9967695a3c8ca0e485d6ae6c3174a87265595861bd81a0a11"
+      }
+    },
+    {
+      "id": "RW2222-040",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationFieldsPlan"
+      ],
+      "actualTestIds": [
+        "040-editor-indices",
+        "040-editor-conflict"
+      ],
+      "summary": "Índices portugueses de editores",
+      "condition": "editor1-sobrenome/editor1-nome/editor2-sobrenome/editor2-nome para editor-sobrenome1/editor-nome1 etc. A regra já existe, mas não alcança este leitor. Preservar os pares e autores separados. Sem aliases concorrentes.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 4,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 166,
+        "sha256": "2c26ce2ef2923cab9c19aa67080645b6d609a6bb8f27f94eb12de72cf0cf2646"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 166,
+        "sha256": "36372442962c57c2da6e2c1288b6cef05958d4dd45476a48e1fe083485462770"
+      }
+    },
+    {
+      "id": "RW2222-041",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationFieldsPlan"
+      ],
+      "actualTestIds": [
+        "041-translated-title",
+        "041-translated-conflict"
+      ],
+      "summary": "Título traduzido guardado em tradtítulo",
+      "condition": "Mapear chave preenchida para TransTitle/títulotrad somente com consumidor confirmado e sem concorrente. Conservar título original e tradução integral. Não traduzir texto nem confundir subtítulo.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 90,
+        "sha256": "bbf95edaa2b4c515f1f99db136bfc7d87e997c3fb163595909a0a6fcb496e15e"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 90,
+        "sha256": "33f9bb839d56365f81a185d4b7e9ef308d6502876587b8df21aa578755e71c25"
+      }
+    },
+    {
+      "id": "RW2222-042",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationFieldsPlan"
+      ],
+      "actualTestIds": [
+        "042-conference"
+      ],
+      "summary": "Cobertura da família de citações de conferências",
+      "condition": "Fechar o leitor para normalizar campos conhecidos independentes. Os dois corpos ficaram integrais. Conservar título dos anais, título do trabalho, evento e URL em papéis próprios. Não converter automaticamente para livro; data numérica ambígua permanece.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 4,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 149,
+        "sha256": "d14ebc1bfefd65b124a0b6efbc940d34ce84555743a5ac2b473cd6e2e343a2ef"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 157,
+        "sha256": "4a1040c8d793a6a7b47ec08d008498affc08553adeff744d723574b2c24fd0c2"
+      }
+    },
+    {
+      "id": "RW2222-043",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "043-elocator-literal",
+        "043-elocator-outside-ref",
+        "043-elocator-conflict",
+        "043-elocator-pages"
+      ],
+      "summary": "Preserva o número eletrônico de um artigo de periódico",
+      "condition": "Usa a forma literal \"Artigo\" e mantém o código exato dentro da mesma referência. A conversão exige uma única citação de periódico, sem páginas nem localizador concorrente. Não transforma esse código em número de página.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 95,
+        "sha256": "1c0024ef1b8c7212eb35bfd8377d8c6243896a7b83c88818cd21b17f54b3b7a0"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 87,
+        "sha256": "d4f7fbfb49cb51b86385e36cfabae537f89a511d2bf061c4ad364418be473ccd"
+      }
+    },
+    {
+      "id": "RW2222-044",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationValue"
+      ],
+      "actualTestIds": [
+        "044-word-edition",
+        "044-edition-prose"
+      ],
+      "summary": "Ordinais por extenso no campo de edição",
+      "condition": "Vocabulário finito de ordinais como Third→3.ª dentro de Edition único. Não alterar editoras/títulos com Third nem adivinhar edições especiais ou compostas.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 82,
+        "sha256": "d4f1617c32d2ec134fe8f2deb4c49766cb454fe677b4d6d4de0fa7d1dad6d7f6"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 82,
+        "sha256": "0e2d4bc293e5085d593ec7d89652dda46ba3abbb99d46e452e27c18a0f60638f"
+      }
+    },
+    {
+      "id": "RW2222-045",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "045-original-date",
+        "045-original-date-conflict"
+      ],
+      "summary": "Data original importada",
+      "condition": "Mantém a data original completa no campo nativo correspondente, sem substituir a data de publicação. Datas originais conflitantes ou sem correspondência comprovada ficam preservadas.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 119,
+        "sha256": "199d8ab79259b4726cd325c1346a0c7dea7febde3cc26287b81d01f4b4a46fad"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 121,
+        "sha256": "8b376071783d3aa8ae2de3f6b6960fc4b677728975a65e0f1bb8f4e59f5a2be3"
+      }
+    },
+    {
+      "id": "RW2222-046",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationImport"
+      ],
+      "actualTestIds": [
+        "046-apod",
+        "046-apod-conflict",
+        "046-instagram",
+        "046-instagram-extra-author"
+      ],
+      "summary": "Chamadas bibliográficas especializadas importadas",
+      "condition": "Converte chamadas simples e conferidas de APOD e Instagram para o modelo local, preservando título, datas, endereço e créditos. Chamadas com campos adicionais ou concorrentes permanecem intactas.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 14,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 121,
+        "sha256": "05cb97554eaa70f5a1bc2875d18f570ce798c91b5dd11788b6251a705e44920a"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 309,
+        "sha256": "fae769beeff930a090030ba3bf267cfdb925106a8cb42fdf387647d437e25d00"
+      }
+    },
+    {
+      "id": "RW2222-047",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationGoogleBooks"
+      ],
+      "actualTestIds": [
+        "047-googlebooks",
+        "047-googlebooks-not-plain"
+      ],
+      "summary": "Gerador de URL estrangeiro dentro de url",
+      "condition": "Converte o auxiliar Google books somente quando plainurl pede um endereço simples e seus argumentos foram conferidos. Preserva o identificador, a página e toda a consulta.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 141,
+        "sha256": "f618d653afcd5694c0c83dc2b6a764f64ef3e3318ec81a9c70d9ee8c6ed1b094"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 146,
+        "sha256": "8a590b8be9e591f91b7fece89f246c94e2a403b311195929fd0748f914ef6ad5"
+      }
+    },
+    {
+      "id": "RW2222-053",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2221ReferenceCollectorEdits + v2222ReferenceCollectorPlan"
+      ],
+      "actualTestIds": [
+        "053-combined-notes",
+        "053-custom-group"
+      ],
+      "summary": "Mantém notas e referências reunidas quando a chamada já está correta",
+      "condition": "A chamada combinada permanece quando há notas compatíveis e referências. O problema de separação relatado não foi reproduzido nos testes desta versão, e esta entrada documenta a preservação desse comportamento.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 0,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": false,
+      "literalBeforeExamplePin": {
+        "bytes": 78,
+        "sha256": "e55816e07a3e57422b8513b2687313cccb63de26f5b74a2f0e0bdbf3bdc19786"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 78,
+        "sha256": "e55816e07a3e57422b8513b2687313cccb63de26f5b74a2f0e0bdbf3bdc19786"
+      }
+    },
+    {
+      "id": "RW2222-054",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222ReferenceCollectorPlan"
+      ],
+      "actualTestIds": [
+        "054-empty-notes",
+        "054-custom-arguments"
+      ],
+      "summary": "Limpeza de notas vazias não alcança o coletor combinado",
+      "condition": "Converter a chamada unificada em Referências somente quando o grafo fechado comprovar ausência de notas, grupos especiais, argumentos personalizados e âncoras. Preservar a chamada unificada quando houver notas convencionais e referências. Não gerar duas chamadas para resolver este caso.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 47,
+        "sha256": "9beb58260e226bc6acc28a52818f44fe1e919d520f6ff9af2d356e7d269c27c5"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 40,
+        "sha256": "5acacaa9ed9fc131e94e11adc6d0fb74f27ed6bc8a1071cc2c30f97e66f0bf70"
+      }
+    },
+    {
+      "id": "RW2222-062",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationFieldsPlan"
+      ],
+      "actualTestIds": [
+        "062-archive-date-duplicate",
+        "062-archive-date-conflict"
+      ],
+      "summary": "Data de arquivo em chave invertida com alias nativo preenchido",
+      "condition": "Tratar dataarquivo/data-arquivo independentemente do erro de URL antigo. Quando dataarquivo e arquivodata são o mesmo dia comprovado, consolidar sem perder data nem captura. Quando só a chave errada existe, mapear apenas se papel e par URL/data forem comprovados. Valores conflitantes, datas ambíguas, mudança de captura e aliases concorrentes retêm ambos. Não escolher data pela aparência nem inventar data de arquivo.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 1,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 224,
+        "sha256": "94e3eb1f7841e91a3e10e3c42cd151840dfcb61fa11149471aedc26878569ff1"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 191,
+        "sha256": "f72897c4d3c4a2442fb8b20dd9db22daec53222bd23798a83aea8facfc74d582"
+      }
+    },
+    {
+      "id": "RW2222-063",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationFieldsPlan"
+      ],
+      "actualTestIds": [
+        "063-translator",
+        "063-translator-conflict"
+      ],
+      "summary": "Crédito de tradutor em sinônimo não consumido",
+      "condition": "Qualificar tradutor-sobrenome e os índices/companheiros ao papel TranslatorList-Last efetivamente lido, preservando autoria original separada, nome do tradutor e índices. Conferir wrapper e leitor antes de renomear. Não transformar tradutor em autor nem completar nomes. O leitor final pode exigir mudança da predefinição; catálogo de nomes ou preferência de chave não comprova consumo.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 131,
+        "sha256": "8a3e62d5f4eac3f22c8fe134a0c05d05b48317f1e9b8c071b6085f20facdef68"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 132,
+        "sha256": "5831441630b30277f92e13f21550024dd29108124e3837e79c7913172da8d6f1"
+      }
+    },
+    {
+      "id": "RW2222-064",
+      "status": "protected-pending-native",
+      "entryPoints": [],
+      "actualTestIds": [
+        "064-unproved-header"
+      ],
+      "summary": "Cabeçalho de citação contaminado por url ou endereço",
+      "condition": "Preserva o cabeçalho incompleto quando não há indicação comprovada do tipo de fonte. Um endereço, por si só, não permite escolher o modelo bibliográfico.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 0,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": false,
+      "literalBeforeExamplePin": {
+        "bytes": 88,
+        "sha256": "670724a41c1b8ff10188cf53c2e8b09ab452b0f997d43542883d246b749bb7a2"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 88,
+        "sha256": "670724a41c1b8ff10188cf53c2e8b09ab452b0f997d43542883d246b749bb7a2"
+      }
+    },
+    {
+      "id": "RW2222-065",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222ReferenceBiblePlan"
+      ],
+      "actualTestIds": [
+        "065-bible-passage",
+        "065-bible-conflict"
+      ],
+      "summary": "Capítulo e intervalo de versículos no campo verso nativo",
+      "condition": "Estender a gramática já existente de passagem única capítulo:verso-final ao uso nomeado verso=28:1-10, quando livro é reconhecido e capítulo/verso_final estão ausentes, preservando ambos extremos e edição. Não atravessar capítulos, resolver livros ambíguos, descartar edição/citação ou sobrescrever capítulo/verso_final. Intervalos invertidos ou misturados retêm a chamada.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 3,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 93,
+        "sha256": "7c5f6506c4f80f6de2bde12617d9f3cf4fc46ddaf423f26e3d9621d723ed9398"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 115,
+        "sha256": "c97ff33177e79a05579a368cf2059ec8e88f7f1028720ff52ccf2a517d0d24f5"
+      }
+    },
+    {
+      "id": "RW2222-066",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationHeadersPlan"
+      ],
+      "actualTestIds": [
+        "066-news-native-wrapper"
+      ],
+      "summary": "Nome de citação jornalística com acento perdido",
+      "condition": "Qualificar a variante exata citar noticia contra o leitor da família Citar notícia/Citar jornal, com todos os argumentos conhecidos preservados. Sem reclassificar outra publicação pelo título. Cabeçalho atual não é reconhecido. Não extrapolar remoção de acentos a nomes arbitrários ou trocar modelo desconhecido por Citar web. Deve fechar o contrato do redirecionamento/modelo nativo. Conferir se a grafia sem acento já é um redirecionamento nativo válido antes de classificar a chamada como erro. O não reconhecimento pelo RevisaWiki não prova um erro de exibição na Wikipédia.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 94,
+        "sha256": "65f48acfdb3845e73ecbfd40313cbd949f9e95f19f628bfd9d04efc93c5a89ae"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 95,
+        "sha256": "35d7a45f6421c99fbbf26fcf478ebcab734bffe9f2f57daf6e28483c70362870"
+      }
+    },
+    {
+      "id": "RW2222-077",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222ReferenceDeadLinkPlan"
+      ],
+      "actualTestIds": [
+        "077-dead-newline",
+        "077-dead-redundant",
+        "077-dead-conflict"
+      ],
+      "summary": "Concluir a conversão de marcas de ligação inativa diante de quebras e redundância",
+      "condition": "Reconhecer apenas a mesma citação e a mesma marca associada quando uma quebra de linha substitui um espaço. Transportar somente data informada e válida, preservando URL e captura. Para marca sem data ao lado de datali já preenchido, retirar redundância só com equivalência comprovada do consumidor. Nunca inventar datas nem sobrescrever valores conflitantes.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 136,
+        "sha256": "b789a77ac2e956738031ff50b82dd258ce0b7f55955d3e4baa2aa63924f03fa3"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 116,
+        "sha256": "dd9c4fc1b2fa57129f4755a08efc2f5100afc1fa8c8c3fb22cdef00159d1fec0"
+      }
+    },
+    {
+      "id": "RW2222-080",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationScope + native-role field/value planners"
+      ],
+      "actualTestIds": [],
+      "summary": "Aplica os ajustes de citações em páginas de ajuda e de categoria",
+      "condition": "O exemplo representa texto ativo de uma página de ajuda. Exemplos protegidos por nowiki ou por blocos de código ficam como estão.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 3,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 123,
+        "sha256": "79e0a16182edf5777becf6fb437332c0c60e23ad9aae4fbf375bcea32cdef81d"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 122,
+        "sha256": "d114f42854f5b88638039a4969f5d57213e9e70c1286f4e191152e554af39f0d"
+      }
+    },
+    {
+      "id": "RW2222-HOLD-02",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "H02-locator",
+        "H02-locator-extra-prose"
+      ],
+      "summary": "Localizador explícito preservado com paginação estruturada",
+      "condition": "Uma citação completa isolada no mesmo ref, páginas estruturadas e localizador literal simples, sem texto concorrente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 87,
+        "sha256": "b5c437b55efbbadb513b4328b5da1d8a5212a3380b2c51dc34fbb5a7752f49fe"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 84,
+        "sha256": "1e954fd2010ec6da42069ef03992d831a7459857842bcdd93e58ae002b8e5e5f"
+      }
+    },
+    {
+      "id": "RW2222-HOLD-06",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "H06-lost-separator",
+        "H06-empty-link-alias",
+        "H06-field-label",
+        "H06-no-author-inference"
+      ],
+      "summary": "Separador ausente após campo autor explícito",
+      "condition": "Prefixo autor explícito com nome literal de várias palavras em chave vazia, sem alias conhecido após normalização, rótulo de campo ou autor concorrente.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 120,
+        "sha256": "883715eed720dd6650a6d518eb317e5bb03189db9dcd85d4cbb10054aed7d9d2"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 120,
+        "sha256": "0e762d8dd246fa24c32a7f55f831d18d95f83fe683ba5b488d574494095084c2"
+      }
+    },
+    {
+      "id": "RW2222-HOLD-07",
+      "status": "qualified-safe-subset",
+      "entryPoints": [
+        "v2222CitationStructuredPlan"
+      ],
+      "actualTestIds": [
+        "H07-etal",
+        "H07-etal-conflict"
+      ],
+      "summary": "Indicador explícito de outros autores",
+      "condition": "etal=sim com pelo menos um autor e sem controles de exibição concorrentes; mantém nomes e demais campos.",
+      "currentWholeActionEndpointExact": true,
+      "currentWholeActionPackages": [
+        "core",
+        "complete"
+      ],
+      "finalCountExact": true,
+      "finalCount": 2,
+      "finalCountDidNotAlterOutput": true,
+      "automaticCorrectionCredit": true,
+      "literalBeforeExamplePin": {
+        "bytes": 121,
+        "sha256": "094747868730153a1563e2072ec96978d34dcd7b8f0c190c094b5f047f20d4b6"
+      },
+      "literalAfterExamplePin": {
+        "bytes": 132,
+        "sha256": "f36e3ae6eb3fc68d533224c3aa68dce15f6e89c66bd2d32f0f291df2c6730b36"
+      }
+    }
+  ],
+  "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+  "historicalStatusesRewritten": false,
+  "wikipediaWrites": 0,
+  "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+  "sourcePins": [
+    {
+      "file": "src/v2_22_2/citation_count.js",
+      "bytes": 5792,
+      "sha256": "fc76fb488e907195c250b59928cfdbe4e0f8ee96f8b7271746c82d27b77a4231"
+    },
+    {
+      "file": "src/v2_22_2/citation_repairs.js",
+      "bytes": 39839,
+      "sha256": "29a6e5e4c8f1232b7ed60c1c40ee1252a020f1261f8851ee66aa7192c397089f"
+    },
+    {
+      "file": "src/v2_22_2/citation_retention.js",
+      "bytes": 8453,
+      "sha256": "74ec14858677118d058a1df5c0ee78b0c83e8e19f47d748ff8208d270c0b7206"
+    },
+    {
+      "file": "src/v2_22_2/citation_source_interface.js",
+      "bytes": 5203,
+      "sha256": "4d20f9c84f07b9c48888f41e2e68b808d0227d463b091c716163d0f24981af52"
+    },
+    {
+      "file": "src/v2_22_2/final_count.js",
+      "bytes": 70019,
+      "sha256": "b080e0342b618f1ca30840322bd8e3ebe7287b5d6ae806cb686e74e5f19db1d2"
+    },
+    {
+      "file": "src/v2_22_2/infobox_count.js",
+      "bytes": 7612,
+      "sha256": "37c129b9478076e35ab75cbc220b1bcc2257c698531d2d032f519429e35d1b94"
+    },
+    {
+      "file": "src/v2_22_2/layout_count.js",
+      "bytes": 29475,
+      "sha256": "cbbb8b33134917f8b31aa0c07fd2c0793a7cc72818b234282fa29ae2d6e7b795"
+    },
+    {
+      "file": "src/v2_22_2/reference_dead_link_retention.js",
+      "bytes": 4162,
+      "sha256": "b5c9382f004ad8787f1d588181179ee1f132c5628f50e5797ed6bf3ee719ff88"
+    },
+    {
+      "file": "src/v2_22_2/reference_infobox.js",
+      "bytes": 9624,
+      "sha256": "c8e6b9c1c5550e255b06f5e2d63693d620bf9c8bd7faab77a41cc338581a268e"
+    },
+    {
+      "file": "src/v2_22_2/reference_repairs.js",
+      "bytes": 7983,
+      "sha256": "43043a5d969cc6387f7e48c9c565da24db481e5adce8bdc19430d4939c5f4eba"
+    },
+    {
+      "file": "scripts/v2222_reference_patch.cjs",
+      "bytes": 7796,
+      "sha256": "85b09dede8c23563bcde55d84fe8a81d8bafda957983d11b774080a1a5c647ca"
+    }
+  ],
+  "releaseQualification": "focused-reference-scope-only",
+  "runtimeFiles": {
+    "RevisaWiki_v2_22_2.js": {
+      "bytes": 2091479,
+      "sha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f"
+    },
+    "RevisaWiki_v2_22_2_completo.js": {
+      "bytes": 6878388,
+      "sha256": "b00838e659e7586b2ad25996b67adf333a8b61231b622d2a579c131c556819b3"
+    }
+  },
+  "literalScopeExamples": {
+    "casesPerBundle": 38,
+    "additionalExamplesPerBundle": 1,
+    "independentFinalCountJobsPerBundle": 39,
+    "allCurrentEndpointsExact": true,
+    "allFinalCountsExact": true,
+    "unchangedExamplesAutomaticCorrectionCredit": 0,
+    "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4"
+  },
+  "currentQualification": {
+    "suiteCountPerBundle": 26,
+    "fixtureCasesPerBundle": 1144,
+    "calculateCallsPerBundle": 2342,
+    "status": "focused-pass-both-packages",
+    "historicalEvidencePreserved": true
+  },
+  "syntheticLiteralExamplesOmittedFromQAMetadata": true,
+  "fullSyntheticLiteralCoveragePrivateEvidenceSha256": "07c6036bd61f61daf38fca597b7775f4f4763aecb441d02be3fe213f7adbcdb7",
+  "exampleEndpointPinsRetained": 76
+}

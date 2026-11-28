@@ -1,0 +1,2221 @@
+{
+  "version": "2.22.2",
+  "kind": "complete-final-scope-tracking-with-actual-owner-evidence",
+  "status": "passed",
+  "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+  "manualSha256": "bca92bb3ca4b1994973704189e5f5e8bb71d79d9df6546509cfa7271d1bc1fb3",
+  "inventorySha256": "462b94f5145ccdf737c2a17be1635b0a5fc2e1c731c32763ce89c3f133881611",
+  "trackingRows": 97,
+  "originalScopeRows": 83,
+  "protectedHolds": 12,
+  "addendumRows": 2,
+  "rowsAreIndependentFeatureCount": false,
+  "trackingEntriesAreFeatureCount": false,
+  "unresolvedIntegrityDefects": 0,
+  "pins": {
+    "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+    "documentationManualSha256": "bca92bb3ca4b1994973704189e5f5e8bb71d79d9df6546509cfa7271d1bc1fb3",
+    "featureInventorySha256": "462b94f5145ccdf737c2a17be1635b0a5fc2e1c731c32763ce89c3f133881611"
+  },
+  "corpusValidationStatus": "passed",
+  "featureInventoryCount": 295,
+  "rows": [
+    {
+      "id": "ADDENDUM-EMPTY-PROJECT-BANNER",
+      "originalId": "POST-SCOPE-ARTICLE-TALK-HEADER",
+      "family": "talk",
+      "description": "Completa o cabeçalho das discussões de artigos com {{PD}} e uma {{Marca de projeto|?}} quando faltarem, mesmo sem portais no artigo.",
+      "condition": "Apenas discussões completas de artigos no domínio 1, em wikitext e com os ajustes de predefinições ativados. Preserva projetos e avaliações existentes, inclusive o redirecionamento português Marca de projecto, comentários e exemplos. Não acrescenta esta marca às discussões de usuários ou predefinições. A chamada usa ? no campo de qualidade. A própria predefinição da Wikipédia pode então mostrar uma qualidade estimada automaticamente, mesmo sem projetos específicos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "afterSha256": "2355b05efbc71dcd78af8a15704138cc0f7b1f905e0c5a375df04ec101157888",
+        "actualEndpointVerified": true
+      },
+      "before": "",
+      "after": "{{PD}}\n{{Marca de projeto|?}}",
+      "status": "validated-current-bounded-behavior",
+      "rootOperationalEvidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ]
+    },
+    {
+      "id": "ADDENDUM-WATCH-PAGE",
+      "originalId": "ADDENDUM-WATCH-PAGE",
+      "family": "interface",
+      "description": "Ativar Vigiar página no formulário disponível",
+      "condition": "Enabled native checkbox only; already checked or disabled checkbox preserved.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "actualNativeBrowserCasesPerBrowser": 122,
+        "universalPerformanceGuarantee": false
+      },
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "HOLD01",
+      "originalId": "HOLD01",
+      "family": "native-holds",
+      "description": "Formato sem papel bibliográfico comprovado",
+      "condition": "Mantém o valor quando não há prova de que descreve o capítulo ou a obra, sem trocar o papel por suposição.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b4503a141bb4fe996fe1ecfebc922adad8d5a3e725cba836488e2cbcd6f20656",
+        "afterSha256": "b4503a141bb4fe996fe1ecfebc922adad8d5a3e725cba836488e2cbcd6f20656",
+        "counterpartReceiptSha256": "53d3b3f45b41f728c9e134e36d028f70045a69ea3d1a2db01b9766779570d12e",
+        "bothBundleReceiptSha256": {
+          "CORE": "53d3b3f45b41f728c9e134e36d028f70045a69ea3d1a2db01b9766779570d12e",
+          "COMPLETE": "e0dccab9b8ea910fba5711410bbc2437291d9e8430f7f9ac51a76e5ee86b1e7b"
+        },
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a|formato=(edição especial)}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a|formato=(edição especial)}}</ref>\n\n{{Referências}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD02",
+      "originalId": "RW2222-HOLD-02",
+      "family": "references",
+      "description": "Localizador explícito preservado com paginação estruturada",
+      "condition": "Uma citação completa isolada no mesmo ref, páginas estruturadas e localizador literal simples, sem texto concorrente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b5c437b55efbbadb513b4328b5da1d8a5212a3380b2c51dc34fbb5a7752f49fe",
+        "afterSha256": "1e954fd2010ec6da42069ef03992d831a7459857842bcdd93e58ae002b8e5e5f",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|página=12|em=§ 3}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|página=12}} § 3</ref>\n\n{{Referências}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD03",
+      "originalId": "HOLD03",
+      "family": "native-holds",
+      "description": "Autoria sem separação comprovada",
+      "condition": "Não transforma quebras de linha em fronteiras de nomes por suposição.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "888d09bcef3bcd4eb704fd6015919aee32d1bc8cd19a3143be184f266f3d2c11",
+        "afterSha256": "888d09bcef3bcd4eb704fd6015919aee32d1bc8cd19a3143be184f266f3d2c11",
+        "counterpartReceiptSha256": "53d3b3f45b41f728c9e134e36d028f70045a69ea3d1a2db01b9766779570d12e",
+        "bothBundleReceiptSha256": {
+          "CORE": "53d3b3f45b41f728c9e134e36d028f70045a69ea3d1a2db01b9766779570d12e",
+          "COMPLETE": "e0dccab9b8ea910fba5711410bbc2437291d9e8430f7f9ac51a76e5ee86b1e7b"
+        },
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|autor=Pessoa de exemplo\nOutro nome ambíguo|ano=2000}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|autor=Pessoa de exemplo\nOutro nome ambíguo|ano=2000}}</ref>\n\n{{Referências}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD04",
+      "originalId": "RW2222-HOLD04",
+      "family": "infoboxes",
+      "description": "Fundador de museu continua preservado aguardando suporte nativo",
+      "condition": "Escolha expressa: continuar aguardando, sem proposta ou fallback.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "6c33419ef540c4e096f4075c8b929b358d83d4ddbce6511b5fc4ea9be9d3c8db",
+        "afterSha256": "ecda63ffa5209f9490a3f33a26aef98e6ce27f9027c298f16a911ce4e2451046",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{Info/Museu|nome=Exemplo|fundador=Pessoa}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Museu\n|nome                  = Exemplo\n|fundador              = Pessoa\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD05",
+      "originalId": "RW2222-HOLD05",
+      "family": "infoboxes",
+      "description": "Identificador de país em aeroporto com auxiliar explícito sem parâmetros",
+      "condition": "Somente {{GBR}} inequívoco e país ausente; auxiliares rotulados e outros países aguardam prova própria.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "3e6b7705f7e60d2e97f75951e3cbcf9908bc1512ebb010e770a53461a42f9144",
+        "afterSha256": "63998934838881bec26b9ac391903d8e66206c9866061d7a4d255afb11ccc7b8",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{Info/Aeroporto|nome=Exemplo|pais={{GBR}}}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Aeroporto\n|nome                  = Exemplo\n|país                  = GBR\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD06",
+      "originalId": "RW2222-HOLD-06",
+      "family": "references",
+      "description": "Separador ausente após campo autor explícito",
+      "condition": "Prefixo autor explícito com nome literal de várias palavras em chave vazia, sem alias conhecido após normalização, rótulo de campo ou autor concorrente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "883715eed720dd6650a6d518eb317e5bb03189db9dcd85d4cbb10054aed7d9d2",
+        "afterSha256": "0e762d8dd246fa24c32a7f55f831d18d95f83fe683ba5b488d574494095084c2",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|autorInstituição Exemplo=|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|autor=Instituição Exemplo|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD07",
+      "originalId": "RW2222-HOLD-07",
+      "family": "references",
+      "description": "Indicador explícito de outros autores",
+      "condition": "etal=sim com pelo menos um autor e sem controles de exibição concorrentes; mantém nomes e demais campos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "094747868730153a1563e2072ec96978d34dcd7b8f0c190c094b5f047f20d4b6",
+        "afterSha256": "f36e3ae6eb3fc68d533224c3aa68dce15f6e89c66bd2d32f0f291df2c6730b36",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "Texto.<ref>{{Citar relatório|título=Documento|autor=Exemplo|etal=sim|edição=Órgão emissor}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar relatório|título=Documento|autor=Exemplo|numero-autores=etal|edição=Órgão emissor}}</ref>\n\n{{Referências}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD08",
+      "originalId": "RW2222-HOLD08",
+      "family": "infoboxes",
+      "description": "SoC com rótulo próprio em observações, por escolha expressa do usuário",
+      "condition": "obs ausente ou vazio e sem outra informação; não substituir processador. Referência sem coletor depende do pré-requisito nativo comprovado.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "31040f26efc23ec848d38cc6d98e6c6a1064a0f083c39f7482b33c4f019cf497",
+        "afterSha256": "b998d51a1f2cd38a23a078cd06ee6504c2833f53bdb0ec2a97112908291fc079",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{Info/Computador|nome=Exemplo|soc=Chip X|obs=}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Computador\n|nome                  = Exemplo\n|obs                   = SoC: Chip X\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Tecnologias de informação}}\n",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD09",
+      "originalId": "RW2222-HOLD09",
+      "family": "infoboxes",
+      "description": "locator_x/y preservados",
+      "condition": "Não são convertidos em latitude/longitude nem substituídos por P625 com divergência espacial.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "4cee34c1f4616c6d65e5926812c5eea886eb949bca60aa3f135827f4647ef793",
+        "afterSha256": "8db9c42f4ad7f019d4f6dbc78a09385d3db4b7261c7a92b988e9c4e7ec10dc66",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{Info/Área protegida|nome=Exemplo|locator_x=40.178775|locator_y=-8.697013}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Área protegida\n|nome                  = Exemplo\n|locator_x             = 40.178775\n|locator_y             = -8.697013\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD10",
+      "originalId": "RW2222-HOLD10",
+      "family": "infoboxes",
+      "description": "Campos alt/image_upright preservados no programa. Proposta nativa local separada, testada e não publicada",
+      "condition": "Sem migração forçada para arquivo; proposta depende de alteração comunitária da predefinição.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b64ba57d8bfeaebce46e578bc3a30b76cc01afd5a30812856df12929b14ff755",
+        "afterSha256": "66afb709c5f1f77f7addcaabca178860e170750b59ccba1945c6937483994718",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{Info/Conflito militar|nome=Exemplo|imagem=Example.jpg|alt=Descrição|image_upright=0.5}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Conflito militar\n|nome                  = Exemplo\n|imagem                = Example.jpg\n|alt                   = Descrição\n|image_upright         = 0.5\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Guerra}}\n",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD11",
+      "originalId": "HOLD11",
+      "family": "structure",
+      "description": "Sintaxe de funções nativas com o espaço no lugar errado",
+      "condition": "Retira apenas o espaço entre o nome de uma função nativa confirmada e os dois-pontos, preservando seus argumentos. Exemplos, noinclude e chamadas dentro de programas desconhecidos permanecem protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "0c3b9ee75c6b95a4fb9e53b3a0b00026e39a041f6084f2f910342244e1e228d0",
+        "afterSha256": "ca1d5f47c1e59c61af3599dd3fd51073cd922fd2dd7f0e82f02b1c86f7366ad2",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{#se :1|A|B}}",
+      "after": "{{#se:1|A|B}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "HOLD12",
+      "originalId": "HOLD12",
+      "family": "structure",
+      "description": "Exemplos e páginas de testes continuam protegidos",
+      "condition": "O nome da página não comprova que o código seja uma implementação executável. Sem essa comprovação independente, os reparos próprios de definições não são ativados.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "3f6b3d51e801fa8f5bbbc074c46765609928972b8451bba15a8df1d2a6a0ae86",
+        "afterSha256": "3f6b3d51e801fa8f5bbbc074c46765609928972b8451bba15a8df1d2a6a0ae86",
+        "actualEndpointVerified": true,
+        "automaticRepairCredit": 0
+      },
+      "before": "{{{conteúdo|}}}\n{{#if :{{{p|}}}|A|B}}",
+      "after": "{{{conteúdo|}}}\n{{#if :{{{p|}}}|A|B}}",
+      "status": "protected-native-hold",
+      "automaticRepairCredit": 0,
+      "unsupportedBehaviorActivated": false
+    },
+    {
+      "id": "RW2222-001",
+      "originalId": "RW2222-001",
+      "family": "references",
+      "description": "URLs bibliográficas escritas como ligações completas",
+      "condition": "Rótulo idêntico ao título, endereço único, sem perda de texto ou conflito de aliases.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "9baa9db350c25439acad22d02a6db9e18e6cc4356c62faf5636164bbe20bd9ec",
+        "afterSha256": "82294dc2aaaca7cf07923b075b0179d0e3f7191b6f5c52b3534b0c78d31a1902",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=[https://example.org/a Documento]}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-002",
+      "originalId": "RW2222-002",
+      "family": "references",
+      "description": "Barra ausente em protocolo de URL",
+      "condition": "Hostname válido e preservação exata de caminho, consulta e fragmento.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "5ca19fea5138017e14cbd48e07a8d8b5240616776af0c8cc2a8cef2f47eb4e78",
+        "afterSha256": "ccf77346a32ee95ef59bde85ec85a17adb085647fab83c1fa18229a5e2a10a84",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=https:/example.org/a?x=1&y=2#parte}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a?x=1&y=2#parte}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-003",
+      "originalId": "RW2222-003",
+      "family": "references",
+      "description": "Referência fechada antes de sua citação",
+      "condition": "Uma citação completa, sem texto intermediário, produtor desconhecido ou definição concorrente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "74f5e451bfd41ab7c06be3f96e7d5cbb76bc21f6386c95e39d299ce63d17a6ef",
+        "afterSha256": "b5d076085039c125479ef5014c8930b88fadd37bcb1a1fc14bcfdeed4695e0b4",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref name=\"a\"/>{{Citar livro|título=Obra|ano=2020}}</ref>\n{{Referências}}",
+      "after": "Texto.<ref name=\"a\">{{Citar livro|título=Obra|ano=2020}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-004",
+      "originalId": "RW2222-004",
+      "family": "references",
+      "description": "URL original recuperada de captura Wayback",
+      "condition": "A captura e a data precisam concordar, sem URL concorrente. Preserva arquivo, data e acesso; não cria a URL geral de um livro a partir do endereço próprio de um capítulo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "4ceb729ba0fe2ddad42152a4d52c88e472ba925c75594f0d55172827f6e5fd8c",
+        "afterSha256": "f4d67397979513464850518ea08fd41d490f42526bb4c7d7c361808f215842ba",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=1 de janeiro de 2024}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=1 de janeiro de 2024|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-005",
+      "originalId": "RW2222-005",
+      "family": "references",
+      "description": "PDF oficial do arXiv em campo de identificador",
+      "condition": "Host, rota e gramática oficiais; sem ID concorrente ou extração de nomes arbitrários.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "9172043eaa5d143f1c98497ce563a94135e27cc250a88a5c885de6d76d058917",
+        "afterSha256": "cb0c0b63bd069eab033c242685960fe4ff2bb4a2365ebdf20364b42aa2fe3d8f",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|arxiv=https://arxiv.org/pdf/2301.01234v2.pdf}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|arxiv=2301.01234v2}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-006",
+      "originalId": "RW2222-006",
+      "family": "references",
+      "description": "Separador de ISSN validado",
+      "condition": "Preservar os oito caracteres e distinguir ISSN de eISSN.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "a15d7e822752e7b30f0316cb6f3565423683f1e165f1585a0db1de0f4e3ee7ad",
+        "afterSha256": "b377e428bf9edb09935ffae3f2d255da39bf7a1ea8e78e4121c2c20ba051015b",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|issn=0378 5955}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|issn=0378-5955}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-007",
+      "originalId": "RW2222-007",
+      "family": "infoboxes",
+      "description": "Grafias locais específicas de país de nascimento e atividade, mais fundador de empresa",
+      "condition": "Dono confirmado, sem qualquer alias concorrente, valor e referências preservados. Não é substituição genérica por remoção de acentos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "4aa60ec07cbac4d86450c75377eb2dfdf9867626ff51338efb6dd59a56d6ac29",
+        "afterSha256": "38f668b6943505895675986ce49d5587fd8d54fb27725f55c85070d34817e44e",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|nascimento_pais=Brasil|periodo_atividade=2000–2020}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|nascimento_país       = Brasil\n|período_atividade     = 2000–2020\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|Brasil}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-008",
+      "originalId": "RW2222-008",
+      "family": "infoboxes",
+      "description": "Instituições de trabalho, orientação, alunos e campo científico, incluindo subconjunto EN Infobox scientist",
+      "condition": "Cada papel tem destino próprio. Sem fundir orientador com aluno, formação com emprego ou campos conflitantes; blocos estrangeiros exigem todos os campos representados.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "a3f4a318b54cac3022e4c2bcadbb9ee276a6070c5b072c7423c2913881743838",
+        "afterSha256": "5a1066c3ea361be44daad405c08bf4bd43c5796eed7f8d73bd225ffbc8dcb66f",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Infobox scientist|name=Exemplo|workplaces=[[Instituição]]|doctoral_advisor=Pessoa A|doctoral_students=Pessoa B|fields=Física}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|instituicoes_trabalho = [[Instituição]]\n|orientador            = Pessoa A\n|orientados            = Pessoa B\n|campo                 = Física\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-009",
+      "originalId": "RW2222-009",
+      "family": "infoboxes",
+      "description": "Intervalos completos e cargos numerados em Info/Titular de cargo",
+      "condition": "Índices coerentes de 1 a 8, datas preservadas, aliases concorrentes preservados, sucedido em todas as linhas respeitado. Término não é inventado. Não é migração completa de toda Info officeholder.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "dd7485823b7489106b0e9a918d94b2dedab75ea8c944de63df74409f68b158f3",
+        "afterSha256": "260e31caebbb07301219555f18b6bb7fcdde3ac51f49b37457df42e04f721f64",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Titular de cargo|nome=Exemplo|office2=Prefeito|term_start2=2000|term_end2=2004|predecessor2=Pessoa A|successor2=Pessoa B}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Titular de cargo\n|nome                  = Exemplo\n|título2               = Prefeito\n|mandato2              = 2000 – 2004\n|antes2                = Pessoa A\n|depois2               = Pessoa B\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|Política}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-010",
+      "originalId": "RW2222-010",
+      "family": "infoboxes",
+      "description": "Carreiras profissionais, juventude e seleção com linhas alinhadas em futebolistas",
+      "condition": "Índices contíguos, pares completos, zeros e empréstimos preservados. Estatísticas literais numéricas. Blocos incompletos ficam intactos sem bloquear os demais.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "10d70d56323e43dcdce22fd25c6f0beacaa29acdd63992ffdf9a62866f6e73de",
+        "afterSha256": "7e131c37f5f548b5d5d558fdff715e68ae2468b594e47b05c0c3318ba6756f15",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Infobox football biography|name=Exemplo|years1=2000–2001|clubs1=[[Clube]]|caps1=0|goals1=0}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Futebolista\n|nome                  = Exemplo\n|ano                   = 2000–2001\n|clubes                = [[Clube]]\n|jogos(gols)           = 0 (0)\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|Esportes|Futebol}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-011",
+      "originalId": "RW2222-011",
+      "family": "infoboxes",
+      "description": "Preservar IMDb de filme por ligação na seção apropriada antes de retirar campo obsoleto",
+      "condition": "Um identificador inequívoco de 7 ou 8 dígitos, sem IDs conflitantes; usa IMDb título. Valores maiores ou ambíguos continuam preservados.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "0f94a02547b1c7c2719f30e293a8d6ee1b28880de1714f9b6866816eb77ac05f",
+        "afterSha256": "29c527a3aab3fc149afec9d757c612a2c098cbed59be35847748049478dbf118",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Filme|nome=Exemplo|imdb_id=1234567}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Filme\n|nome                  = Exemplo\n}}\n'''Exemplo''' é um assunto de teste.\n\n== Ligações externas ==\n* {{IMDb título|tt1234567}}\n\n{{Portal3|Cinema|Entretenimento}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-012",
+      "originalId": "RW2222-012",
+      "family": "performance",
+      "description": "Desempenho dos percursos de referências e infocaixas",
+      "condition": "Current final-runtime receipts must establish the existing behavior. Performance limits stay documented; no universal speed guarantee or unexecuted pass credit.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "actualNativeBrowserCasesPerBrowser": 122,
+        "universalPerformanceGuarantee": false
+      },
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-013",
+      "originalId": "RW2222-013",
+      "family": "references",
+      "description": "Troca recíproca inequívoca de ISBN e ISSN",
+      "condition": "Ambos os valores integrais devem ser válidos exclusivamente no papel oposto, com checksums e campos únicos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "95efc2b33da1fa7703366639308cb1e15b3935367397541dbdaa8f1602bbf18a",
+        "afterSha256": "efe316da6ceba70c02c4f1751b0d1c342bdc3fb70a00af62b1d064b69ff1ec76",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|isbn=0378-5955|issn=9780306406157}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|isbn=9780306406157|issn=0378-5955}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-014",
+      "originalId": "RW2222-014",
+      "family": "references",
+      "description": "Tipografia Unicode em identificadores verificáveis",
+      "condition": "Lista finita de dígitos de largura completa/separadores dentro de identificador integral; gramática e checksum final válidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "03721a95d0e4b4002d2dbeceeef6070a4993e80aef456cb9ae57ad235d037a12",
+        "afterSha256": "722f3bcceabf59bd1e63f875e914a50cb950e5af9dd3fea10c6d427adb084a06",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|isbn=９７８０３０６４０６１５７}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|isbn=9780306406157}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-015",
+      "originalId": "RW2222-015",
+      "family": "references",
+      "description": "Identificador singular literalmente repetido",
+      "condition": "Mesmo identificador completo em campo singular e separador inequívoco.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "ed1a40849952e57f7710389c0c951767b16411e256f1ce61299b482181295398",
+        "afterSha256": "d0a290961a2f96beb53171d30e95f25d7503c5130a209125eb17a64fd4301779",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|doi=10.1038/nphys1170; 10.1038/nphys1170}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|doi=10.1038/nphys1170}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-016",
+      "originalId": "RW2222-016",
+      "family": "references",
+      "description": "Resolvedores bibliográficos oficiais adicionais",
+      "condition": "Apenas host/caminho oficial integral conferido e consumidor tipado comprovado; qualificar cada resolvedor separadamente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "d5ca36bb0d648ff8182262182a0453b5a29c8fc3470a5da9ad6423b3b29cdba0",
+        "afterSha256": "e20f4d1c6f5d22dcd8840a260e26f268cec5193d4f7f49a1a523aa721239441c",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|jstor=https://www.jstor.org/stable/1234567}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|jstor=1234567}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-017",
+      "originalId": "RW2222-017",
+      "family": "references",
+      "description": "arXiv explicitamente rotulado com classe de assunto",
+      "condition": "Código e classe integralmente validados, preservando versão, sem classe concorrente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "bfe60d0c2d742b5985f5809991e3ea67c7a205e7c160715df37a56d6298704e1",
+        "afterSha256": "7e18b9a0a3247230a89ff6ccc10d1fe81db179222b18a093444b608aff372c24",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|arxiv=arXiv:2101.00001v2 [hep-th]}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|arxiv=2101.00001v2|classe=hep-th}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-018",
+      "originalId": "RW2222-018",
+      "family": "references",
+      "description": "DOI explicitamente rotulado no campo id",
+      "condition": "Identificador único integral explicitamente rotulado e destino tipado ausente/equivalente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "ce9d341bb257270c268c1b11a784833a28565f3862256fdb2c91f2c94e8aeb9d",
+        "afterSha256": "d0a290961a2f96beb53171d30e95f25d7503c5130a209125eb17a64fd4301779",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|id=DOI:10.1038/nphys1170}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|doi=10.1038/nphys1170}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-019",
+      "originalId": "RW2222-019",
+      "family": "references",
+      "description": "Prefixos de paginação alfanumérica e descontínua",
+      "condition": "Retirar somente rótulo redundante sob gramática explícita, conservando todos os localizadores/separadores/ordem.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "77bc94727df5ca23bc1860632fe77151d9923cb8b96229dfdb076ce9aa0c0bf6",
+        "afterSha256": "2587001ded3df14c9d8ab3c076bc2d16806d3696505f1976a311e7b9ee27fe28",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|páginas=pp. A1–A3, B5}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento|páginas=A1–A3, B5}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-020",
+      "originalId": "RW2222-020",
+      "family": "references",
+      "description": "Três ou mais campos de língua explícitos",
+      "condition": "Estender composição existente com prioridade real do leitor, códigos aceitos e ordem preservada.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "d61044a87bd9f2fae4895e5bd619dd4150a1bfe659d53ef2a773eeecb4096833",
+        "afterSha256": "7ac26eb5fe7995415189a0f3b47603b20a9d6c0b8b8bcae2d07164e7862fd608",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|língua=en|língua2=fr|língua3=de}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|língua=en, fr, de}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-021",
+      "originalId": "RW2222-021",
+      "family": "references",
+      "description": "ISBN com qualificador físico explícito",
+      "condition": "Um único ISBN válido, qualificador de vocabulário fechado e representação nativa que preserve associação; nenhum id concorrente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "70c861c16579917c42705d9d19d1d6145d74615e887fe524558113c8e058a486",
+        "afterSha256": "93e37147129f5c521866cd4e7053a4a25f149c6409a2df0a1e19c235fc883d00",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|isbn=9780306406157 (brochura)}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|isbn=9780306406157}} (brochura)</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-022",
+      "originalId": "RW2222-022",
+      "family": "references",
+      "description": "Enumerações e positivos explícitos de flags",
+      "condition": "Mapeamentos finitos só em papel efetivamente lido pelo consumidor; confirmar leitor atual.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "6dcfa234f4011a222780af300482307cf2b72fec4baf89966581f4ffc74366ca",
+        "afterSha256": "7966b2a85cb2c274425b7a7711bec6068d169840428c2e1024afeaccd04d5b95",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|modo=CS1|páginas=7|nopp=verdadeiro}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|modo=cs1|páginas=7|nopp=sim}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-023",
+      "originalId": "RW2222-023",
+      "family": "references",
+      "description": "Parênteses redundantes de apresentação no formato",
+      "condition": "Um par externo envolvendo integralmente rótulo conhecido quando consumidor já acrescenta o par.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "07b6bbba4f40432daa6968820c5ea8be23db46c6f5a53e76b59f959c3608a7a2",
+        "afterSha256": "662106b80e2a7896f548908841243930acbb630493f99e5d9999b69c153c3a3a",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a.pdf|formato=(PDF)}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a.pdf|formato=PDF}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-024",
+      "originalId": "RW2222-024",
+      "family": "references",
+      "description": "Separador incorreto no prefixo de título original",
+      "condition": "Prefixo explícito de língua aceita e conteúdo original preservado integralmente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "f810ba36dae1e74e24cf9e503e2094ca5a3f07c792941dbabd22d8a8705db701",
+        "afterSha256": "aae0398ebeeca0c9967695a3c8ca0e485d6ae6c3174a87265595861bd81a0a11",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|título-translit=ja=原題}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|título-translit=ja:原題}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-025",
+      "originalId": "RW2222-025",
+      "family": "infoboxes",
+      "description": "Compor a normalização de data já feita pelo programa com a migração biográfica",
+      "condition": "Helpers Dni/DataExt completos em nascimento e Morte/DataExt em falecimento, calendário gregoriano válido e origem EN confiável. Não muda idade, precisão nem interpreta data parcial.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "2404a885c1d671372fd094395dc414dd33a5de1343dc1ab68ed9135db580feac",
+        "afterSha256": "69e67b9030776c80eb1c953bdf21bdb830e6b50a1d90dc7a5f94eb68bfada05c",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Infobox person|name=Exemplo|birth_date={{Dni|29|2|2000}}}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|nascimento_data       = {{Dni|29|2|2000}}\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-026",
+      "originalId": "RW2222-026",
+      "family": "infoboxes",
+      "description": "Nome de nascimento no campo próprio",
+      "condition": "Origem EN confiável. Preservar batismo, nome completo e aliases nativos concorrentes como papéis distintos. Wrapper PT continua com sua interface anterior.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "2946a903e95cfae132d2f2168455394ff7d7c624630ae4112b2f3e264389bbdc",
+        "afterSha256": "f1db3cb81be5d2e03f8e62a8178ceb2a7dbe2bf34786a6c27a20167e3d0d0801",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Infobox person|name=Exemplo|birth_name=Nome anterior}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|nome_nascimento       = Nome anterior\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-027",
+      "originalId": "RW2222-027",
+      "family": "infoboxes",
+      "description": "Cidadania sem confundir com nacionalidade",
+      "condition": "Sem inferir um país nem substituir nacionalidade; não sobrescreve cidadania existente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "5c4d2793cd4f32c80593a8cdcb8163a84cf7111efa0cbe482ee2cd104fa152c0",
+        "afterSha256": "b60aa81fac11b643bfc6286ded3f10088c0e3b048b697c0c9eec6afe756bf0b6",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|citizenship=[[França]]}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|cidadania             = [[França]]\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|França}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-028",
+      "originalId": "RW2222-028",
+      "family": "infoboxes",
+      "description": "Sepultamento e causa de morte separados",
+      "condition": "Aliases e burial/resting concorrentes ficam preservados; não inventar data de enterro nem converter coordenadas. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "53d4c4af66a50950b7c95c624c987daac6b6c39f1f79a8e1876f17cd5c99e0d5",
+        "afterSha256": "10b1a7ee891fb626c1f8dfb82cc5ec47a05b738bde94c4f13a6016d4fab10541",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|resting_place=[[Cemitério]]}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|sepultamento          = [[Cemitério]]\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-029",
+      "originalId": "RW2222-029",
+      "family": "infoboxes",
+      "description": "Conhecido por, obras, obras notáveis e créditos mantêm funções distintas",
+      "condition": "Retém combinações que suprimem campos na origem, incluindo works/credits e aliases concorrentes; não ativa conteúdo oculto por troca de nome.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "fb9039d5ff309eb04b8081c586786aa7dc49daba0bb4838e047c1b63ffca02ba",
+        "afterSha256": "119cdd96d064eae757ab9163ee8845f2239def8469e91d5c9c2627430f7ef96f",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|known_for=Uma descoberta}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|conhecido_por         = Uma descoberta\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-030",
+      "originalId": "RW2222-030",
+      "family": "infoboxes",
+      "description": "Atividade, empregador e organização como campos separados",
+      "condition": "Não unir organizações distintas nem trocar prioridade de aliases; fontes diferentes para mesmo destino bloqueiam só a conversão daquele papel.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "cd64e152aa41f861bff524ea0b188611260552763de8248322bca9de15d63d8c",
+        "afterSha256": "6b2f51265b9238abaee906bd16f38c96f877ea401fd6df96eb8b3349ca96358f",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|years_active=2000–2020}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|período_atividade     = 2000–2020\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-031",
+      "originalId": "RW2222-031",
+      "family": "infoboxes",
+      "description": "Nome nativo e código de idioma em campos próprios",
+      "condition": "Idioma precisa ser código literal compatível; texto, ref ou programa nesse campo fica preservado, sem ativar atributo HTML inválido.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "855501028bea67ace21f71f5acf74719d1196de640cdf2099ea237c5799ef78d",
+        "afterSha256": "79f49558e3e0227c01305f0ee1b3e60e6150c4eba13668b9ed713933076de1fe",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|native_name=名前|native_name_lang=ja}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|nome_nativo           = 名前\n|nome_nativo_lang      = ja\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-032",
+      "originalId": "RW2222-032",
+      "family": "infoboxes",
+      "description": "Encaminhar módulos biográficos comprovados sem migrar uma filha estrangeira desconhecida",
+      "condition": "Somente filha nativa conhecida com child/embed positivo explícito, destino sem colisão e estrutura preservada; modo desconhecido fica intacto. Formatação previamente existente da filha pode ocorrer independentemente. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "6d2445883e20950020c1531a255510d9ab31b3228fdde8e7d5e39a8a8d5522cd",
+        "afterSha256": "3da5a95ffc183bbf09d95c99c61838075f341a637e717ad3bdf0baf3595a5f43",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|module={{Info/Biografia|child=sim|nome=Filha}}}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|módulo                = {{Info/Biografia\n|child                 = sim\n|nome                  = Filha\n}}\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-033",
+      "originalId": "RW2222-033",
+      "family": "infoboxes",
+      "description": "Sítio oficial isolado não impede migração simples",
+      "condition": "website→site mantém mesmo URL, rótulo, consultas e referências. Qualquer alias concorrente, mesmo vazio, conserva a prioridade existente.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "fd0a152386b36d64167e322032bbf07af25387d5ead1ab4069587fd140122cb3",
+        "afterSha256": "baab67a2678ce67e94311a56f71b0fb7c725c46616a2f6e3f3ef5abedce0e21c",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|website=https://example.org/?a=1&b=2}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|site                  = https://example.org/?a=1&b=2\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-034",
+      "originalId": "RW2222-034",
+      "family": "infoboxes",
+      "description": "Expandir troca de bandeiras por país escrito em biografias civis comprovadas",
+      "condition": "Novas famílias: Cientista e Escritor por redirecionamentos exatos, e nacionalidade de Titular de cargo. Mantém exceções militares, de conflito e esporte e o rótulo/ref do país. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "299055e375e96a5304d1ba9deb0e12d6c5101dbd905b145a76a3074cd8470f75",
+        "afterSha256": "23afdb7b97d4cadf76345ec8c01008f49db0136264d810ea261b24f733273859",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Cientista|nome=Exemplo|nacionalidade={{BRA}}|ocupação=cientista}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Cientista\n|nome                  = Exemplo\n|nacionalidade         = [[Brasil]]\n|ocupação              = cientista\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|Brasil|Ciência}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-035",
+      "originalId": "RW2222-035",
+      "family": "structure",
+      "description": "Rodapés biográficos com as chamadas compostas preservadas",
+      "condition": "Organiza portais e esboços existentes sem mover NM/NF nem alterar a ordem de classificação das categorias. Rodapés incompletos ou com efeitos incertos permanecem protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "630f4d235aac39528e4192ffdd816c3dab37aa84ffda8fbbc68225eeb0682dea",
+        "afterSha256": "f6c902013be3e606102efca29c23b5f722f5e8e30f4218281a1952b2eba612c8",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.\n{{Portal3|Biografias}}\n{{NM|1900|1980|Exemplo}}\n[[Categoria:Exemplos]]",
+      "after": "Texto.\n\n{{NM|1900|1980|Exemplo}}\n\n{{Portal3|Biografias}}\n\n[[Categoria:Exemplos]]\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-036",
+      "originalId": "RW2222-036",
+      "family": "inference",
+      "description": "Portais de Astronomia e Química a partir de esboços específicos",
+      "condition": "Reconhece uma única marca de esboço nativa, sem argumentos, com tema confirmado. Preserva a marca existente e acrescenta o portal apenas se o destino estiver disponível.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "929465b6604a8bde6677779ea5c6dcb09ef3d11872bd85674fd30146d5b60b7b",
+        "afterSha256": "b254f0a78d7e0e9e595e7b46da318d43895eccd495d4fb144bdd4ca6ae50454d",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.\n{{Esboço-astronomia}}",
+      "after": "Texto.\n\n{{Portal3|Astronomia}}\n\n{{Esboço-astronomia}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-037",
+      "originalId": "RW2222-037",
+      "family": "inference",
+      "description": "Evita acrescentar um país já coberto pelo portal de uma região",
+      "condition": "A nova cobertura inclui Califórnia, Ontário e Quebec, além das regras anteriores. Não retira países que já estavam no artigo nem aplica relações territoriais históricas ou disputadas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "148ab95bd8db9bbcda51dbf3e82db7196c0c656949d14a9dcb66ed84adefe49b",
+        "afterSha256": "148ab95bd8db9bbcda51dbf3e82db7196c0c656949d14a9dcb66ed84adefe49b",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.\n\n{{Portal3|Califórnia}}\n",
+      "after": "Texto.\n\n{{Portal3|Califórnia}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-038",
+      "originalId": "RW2222-038",
+      "family": "inference",
+      "description": "Categorias para romances e aberturas de xadrez com comprovação",
+      "condition": "Acrescenta a categoria nativa somente com definição, identidade do assunto, fontes compartilhadas e ausência de categorias confirmadas. Romances também precisam de comprovação de publicação passada. As demais famílias dependem de contratos próprios.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "d3f237522b58eab868066fa6b64b69bc9359021c54b6252a7c6416c5b0744ce7",
+        "afterSha256": "d971119c35180f6a2e0ee938b626e7e3eb4fd07456eb014bc5873c2b6591060b",
+        "actualEndpointVerified": true
+      },
+      "before": "'''Obra de teste''' é um [[Romance|romance]] publicado em 1950.<ref>{{citar web|url=https://example.org/fonte|título=Fonte}}</ref>\n\n{{Referências}}\n",
+      "after": "'''Obra de teste''' é um [[romance]] publicado em 1950.<ref>{{citar web|url=https://example.org/fonte|título=Fonte}}</ref>\n\n{{Referências}}\n\n[[Categoria:Romances]]\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-039",
+      "originalId": "RW2222-039",
+      "family": "structure",
+      "description": "Coordenadas gerais com variações válidas de display",
+      "condition": "Reconhece diferenças de maiúsculas nos valores nativos já aceitos. Mantém coordenadas explicativas no texto, nas tabelas e nas infocaixas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "479e01dbeadca6b893182bdeae866298a346c20d78ce3500b68aa50777544b11",
+        "afterSha256": "7c1ff1e03fd9dc29bcae1b68815a7a1476a714f9f016d2eb1235173f4e2eddd5",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Coord|1|N|2|E|display=TITLE}}\n{{Controle de autoridade}}\n{{Portal3|Geografia}}\n{{Esboço}}\n[[Categoria:Exemplos]]",
+      "after": "{{Controle de autoridade}}\n\n{{Portal3|Geografia}}\n\n{{Esboço}}\n\n{{Coord|1|N|2|E|display=TITLE}}\n\n[[Categoria:Exemplos]]\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-040",
+      "originalId": "RW2222-040",
+      "family": "references",
+      "description": "Índices portugueses de editores",
+      "condition": "editor1-sobrenome/editor1-nome/editor2-sobrenome/editor2-nome para editor-sobrenome1/editor-nome1 etc. A regra já existe, mas não alcança este leitor. Preservar os pares e autores separados. Sem aliases concorrentes.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "2c26ce2ef2923cab9c19aa67080645b6d609a6bb8f27f94eb12de72cf0cf2646",
+        "afterSha256": "36372442962c57c2da6e2c1288b6cef05958d4dd45476a48e1fe083485462770",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar enciclopédia|título=Documento|editor1-sobrenome=Exemplo|editor1-nome=Pessoa|editor2-sobrenome=Modelo|editor2-nome=Outra}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar enciclopédia|título=Documento|editor-sobrenome1=Exemplo|editor-nome1=Pessoa|editor-sobrenome2=Modelo|editor-nome2=Outra}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-041",
+      "originalId": "RW2222-041",
+      "family": "references",
+      "description": "Título traduzido guardado em tradtítulo",
+      "condition": "Mapear chave preenchida para TransTitle/títulotrad somente com consumidor confirmado e sem concorrente. Conservar título original e tradução integral. Não traduzir texto nem confundir subtítulo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "bbf95edaa2b4c515f1f99db136bfc7d87e997c3fb163595909a0a6fcb496e15e",
+        "afterSha256": "33f9bb839d56365f81a185d4b7e9ef308d6502876587b8df21aa578755e71c25",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Original|tradtítulo=Tradução}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Original|títulotrad=Tradução}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-042",
+      "originalId": "RW2222-042",
+      "family": "references",
+      "description": "Cobertura da família de citações de conferências",
+      "condition": "Fechar o leitor para normalizar campos conhecidos independentes. Os dois corpos ficaram integrais. Conservar título dos anais, título do trabalho, evento e URL em papéis próprios. Não converter automaticamente para livro; data numérica ambígua permanece.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "d14ebc1bfefd65b124a0b6efbc940d34ce84555743a5ac2b473cd6e2e343a2ef",
+        "afterSha256": "4a1040c8d793a6a7b47ec08d008498affc08553adeff744d723574b2c24fd0c2",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar conferência|title=Trabalho|booktitle=Anais|conference=Evento|conferencia-url=https://example.org/evento}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar conferência|título=Trabalho|títulolivro=Anais|conferência=Evento|conferência-url=https://example.org/evento}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-043",
+      "originalId": "RW2222-043",
+      "family": "references",
+      "description": "Preserva o número eletrônico de um artigo de periódico",
+      "condition": "Usa a forma literal \"Artigo\" e mantém o código exato dentro da mesma referência. A conversão exige uma única citação de periódico, sem páginas nem localizador concorrente. Não transforma esse código em número de página.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "1c0024ef1b8c7212eb35bfd8377d8c6243896a7b83c88818cd21b17f54b3b7a0",
+        "afterSha256": "d4f7fbfb49cb51b86385e36cfabae537f89a511d2bf061c4ad364418be473ccd",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar periódico|título=Documento|article-number=000123}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar periódico|título=Documento}} Artigo 000123</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-044",
+      "originalId": "RW2222-044",
+      "family": "references",
+      "description": "Ordinais por extenso no campo de edição",
+      "condition": "Vocabulário finito de ordinais como Third→3.ª dentro de Edition único. Não alterar editoras/títulos com Third nem adivinhar edições especiais ou compostas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "d4f1617c32d2ec134fe8f2deb4c49766cb454fe677b4d6d4de0fa7d1dad6d7f6",
+        "afterSha256": "0e2d4bc293e5085d593ec7d89652dda46ba3abbb99d46e452e27c18a0f60638f",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|edition=Third}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|edição=3.ª}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-045",
+      "originalId": "RW2222-045",
+      "family": "references",
+      "description": "Data original importada",
+      "condition": "Mantém a data original completa no campo nativo correspondente, sem substituir a data de publicação. Datas originais conflitantes ou sem correspondência comprovada ficam preservadas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "199d8ab79259b4726cd325c1346a0c7dea7febde3cc26287b81d01f4b4a46fad",
+        "afterSha256": "8b376071783d3aa8ae2de3f6b6960fc4b677728975a65e0f1bb8f4e59f5a2be3",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar jornal|título=Documento|orig-date=August 4, 2025|data=17 de junho de 2026}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar jornal|título=Documento|anooriginal=August 4, 2025|data=17 de junho de 2026}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-046",
+      "originalId": "RW2222-046",
+      "family": "references",
+      "description": "Chamadas bibliográficas especializadas importadas",
+      "condition": "Converte chamadas simples e conferidas de APOD e Instagram para o modelo local, preservando título, datas, endereço e créditos. Chamadas com campos adicionais ou concorrentes permanecem intactas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "05cb97554eaa70f5a1bc2875d18f570ce798c91b5dd11788b6251a705e44920a",
+        "afterSha256": "fae769beeff930a090030ba3bf267cfdb925106a8cb42fdf387647d437e25d00",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{cite APOD|title=Documento|date=24 Junho 2002|access-date=8 Março 2016|apod=020624}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|data=24 de junho de 2002|acessodata=8 de março de 2016|url=https://apod.nasa.gov/apod/ap020624.html|obra=[[Astronomy Picture of the Day]]|publicado=[[NASA]]|editor-sobrenome1=Nemiroff|editor-nome1=R.|editor-sobrenome2=Bonnell|editor-nome2=J.}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-047",
+      "originalId": "RW2222-047",
+      "family": "references",
+      "description": "Gerador de URL estrangeiro dentro de url",
+      "condition": "Converte o auxiliar Google books somente quando plainurl pede um endereço simples e seus argumentos foram conferidos. Preserva o identificador, a página e toda a consulta.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "f618d653afcd5694c0c83dc2b6a764f64ef3e3318ec81a9c70d9ee8c6ed1b094",
+        "afterSha256": "8a590b8be9e591f91b7fece89f246c94e2a403b311195929fd0748f914ef6ad5",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|url={{google books|id=ExampleId|page=152|text=texto exato|plainurl=yes}}}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|url=https://books.google.com/books?id=ExampleId&pg=PA152&dq=%22texto+exato%22}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-048",
+      "originalId": "RW2222-048",
+      "family": "infoboxes",
+      "description": "Campos náuticos sem acento",
+      "condition": "Somente Navio e destinos sem aliases concorrentes; não reinterpretar número, unidade, propulsão nem carreira.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "1fd99adf7f72a796517224e12d9fdd81795067c18db07b0b24edd6f8eeeb2ef7",
+        "afterSha256": "37652df63df790524f21ff3e7f9b911a021ae0a905d692adc8d957d50c0d3f56",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Navio|nome=Exemplo|propulsao=Vapor|tripulacao=300}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Navio\n|nome                  = Exemplo\n|propulsão             = Vapor\n|tripulação            = 300\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-049",
+      "originalId": "RW2222-049",
+      "family": "infoboxes",
+      "description": "Fechamento do museu no campo encaminhado ao edifício",
+      "condition": "Preservar data exata e aliases de encerramento/dissolução/extinção; fundador continua aguardando suporte nativo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "8a2d9714a06f7c41db0dd041ffaffd41746bf8105e5aa89c70e4e0daabf91fff",
+        "afterSha256": "ae65b0a6f3e1f7e38798474377b8ff1af4f9deab70d704bed7ed80d5a185b417",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Museu|nome=Exemplo|fechamento=2000}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Museu\n|nome                  = Exemplo\n|encerramento          = 2000\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-050",
+      "originalId": "RW2222-050",
+      "family": "infoboxes",
+      "description": "Nome local, administração, inauguração e altitude de aeroporto",
+      "condition": "Altitude só numérica em metros, sem unidade/ref/programa; cidade não é presumida como área servida.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "f5f6f2bdffa5d066f9860b9f658ece8bda0143d97117946ea3a9aca4c7b5cf3b",
+        "afterSha256": "fd478025899ee867ac3d216153042f4fbf82fe3ffaf342f1ab9171451caab2be",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Aeroporto|nome=Exemplo|elevacao_m=52}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Aeroporto\n|nome                  = Exemplo\n|altitude              = 52\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-051",
+      "originalId": "RW2222-051",
+      "family": "infoboxes",
+      "description": "Pistas completas em auxiliar nativo",
+      "condition": "Cabeceiras preservadas como texto; comprimento numérico em metros e superfície em mapa finito comprovado; índices alinhados, destino ausente, sem parâmetros adicionais ou referências no cálculo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "4555e71cd303968bad8da5b52729c17334030d0dee891e18b7c2f007b992edac",
+        "afterSha256": "1a96ca918ec459db7f96902711c767585453d1df29fc554501a78f982068d2f9",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Aeroporto|nome=Exemplo|pista1_numero=07/25|pista1_comprimento_m=1861|pista1_superficie=Asfalto/Concreto}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Aeroporto\n|nome                  = Exemplo\n|pistas                = {{Info/Aeroporto/Pistas\n|cabeceira             = 07/25\n|comprimento           = 1861\n|superfície            = ASPH/CONC\n}}\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-052",
+      "originalId": "RW2222-052",
+      "family": "structure",
+      "description": "Caixas de projetos irmãos no lugar escolhido",
+      "condition": "Move caixas independentes para Ver também, com as alternativas já definidas quando essa seção não existe. Inclui Wikiversidade, preserva caminhos completos e não arrasta as listas. Converte formas em linha de Commonscat somente quando seus destinos, rótulos e opções mantêm o mesmo efeito.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "33c029dee793e7c6f379038f47cce06313a902b711f235e3d9df0acc6404e34e",
+        "afterSha256": "d6e9d7ee9598fbee331f41260c0bb6e8558c8ad40a486f0f3c3509f8a655b8ab",
+        "actualEndpointVerified": true
+      },
+      "before": "== Ver também ==\n* [[Tema de exemplo]]\n\n== Ligações externas ==\n{{Wikiversidade|Curso de exemplo/Unidade introdutória}}\n* [https://example.org Recurso de exemplo]",
+      "after": "== Ver também ==\n{{Wikiversidade|Curso de exemplo/Unidade introdutória}}\n\n* [[Tema de exemplo]]\n\n== Ligações externas ==\n\n* [https://example.org Recurso de exemplo]",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-053",
+      "originalId": "RW2222-053",
+      "family": "references",
+      "description": "Mantém notas e referências reunidas quando a chamada já está correta",
+      "condition": "A chamada combinada permanece quando há notas compatíveis e referências. O problema de separação relatado não foi reproduzido nos testes desta versão, e esta entrada documenta a preservação desse comportamento.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "e55816e07a3e57422b8513b2687313cccb63de26f5b74a2f0e0bdbf3bdc19786",
+        "afterSha256": "e55816e07a3e57422b8513b2687313cccb63de26f5b74a2f0e0bdbf3bdc19786",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n\n{{Notas e referências}}",
+      "after": "Texto.<ref group=\"nota\">Nota.</ref><ref>Fonte.</ref>\n\n{{Notas e referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-054",
+      "originalId": "RW2222-054",
+      "family": "references",
+      "description": "Limpeza de notas vazias não alcança o coletor combinado",
+      "condition": "Converter a chamada unificada em Referências somente quando o grafo fechado comprovar ausência de notas, grupos especiais, argumentos personalizados e âncoras. Preservar a chamada unificada quando houver notas convencionais e referências. Não gerar duas chamadas para resolver este caso.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "9beb58260e226bc6acc28a52818f44fe1e919d520f6ff9af2d356e7d269c27c5",
+        "afterSha256": "5acacaa9ed9fc131e94e11adc6d0fb74f27ed6bc8a1071cc2c30f97e66f0bf70",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>Fonte</ref>\n{{Notas e referências}}",
+      "after": "Texto.<ref>Fonte</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-055",
+      "originalId": "RW2222-055",
+      "family": "interface e estados",
+      "description": "Retirar a atribuição incorreta de 60 segundos das mensagens operacionais",
+      "condition": "Current final-runtime receipts must establish the existing behavior. Performance limits stay documented; no universal speed guarantee or unexecuted pass credit.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "actualNativeBrowserCasesPerBrowser": 122,
+        "universalPerformanceGuarantee": false
+      },
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-056",
+      "originalId": "RW2222-056",
+      "family": "infoboxes",
+      "description": "Profissões femininas de mapa finito quando a identidade estiver confirmada",
+      "condition": "Categoria feminina verificada ou prova P21/Q5 já validada; não inferir pelo nome. Preservar títulos, nomes, aspas, variantes PT-PT e trilhas de ligação; não prometer flexão universal ou direção masculina não implementada.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "c4dbb477ccc706717f40258bed0107c1ba61dc9ed7f782d3bc9ae3c6b1d5d97b",
+        "afterSha256": "e798d086c77add9e232aab0b7a5e2bffd433a50ff7c6b3bc4e61043ab021e225",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|ocupação=Jornalista e Redator}}\n'''Exemplo''' é um assunto de teste.\n[[Categoria:Mulheres]]\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|ocupação              = jornalista e redatora\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias|Jornalismo|Mulheres}}\n\n[[Categoria:Mulheres]]\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-057",
+      "originalId": "RW2222-057",
+      "family": "infoboxes",
+      "description": "Formatação vertical sem escolher parâmetros duplicados",
+      "condition": "Mantém ambas as ocorrências, ordem, valores e prioridade efetiva. Só quebra linhas e padroniza espaçamento de apresentação.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "63e8475b2012e723a18bb2b918f3481973f67738ec1e0962acb6b25c8b55fd03",
+        "afterSha256": "1c3cb56abcb0cfcf012dd675a755017a3f0dae53293b80a1d7f8e6fd13dcf6f6",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Biografia|nome=Exemplo|ocupação=ator|ocupação=escritor}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Biografia\n|nome                  = Exemplo\n|ocupação              = ator\n|ocupação              = escritor\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Biografias}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-058",
+      "originalId": "RW2222-058",
+      "family": "structure",
+      "description": "Títulos de remissões reconhecidos antes das referências",
+      "condition": "Normaliza as grafias previstas de Ver também quando a seção contém apenas remissões. Reconhece a chamada de referências como limite da lista e preserva âncoras ou contextos ambíguos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "5393f8999cd7b13600727466d627a3bbac6975efaf6b9a2a0de2ead1a1f65747",
+        "afterSha256": "6f32d46c22e553a8419b4ca5298f6f84c32bb415b14e2664b0d2739b449655a5",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>Fonte.</ref>\n\n== Veja também ==\n* [[Tema de exemplo]]\n\n{{Referências}}",
+      "after": "Texto.<ref>Fonte.</ref>\n\n== Ver também ==\n* [[Tema de exemplo]]\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-059",
+      "originalId": "RW2222-059",
+      "family": "structure",
+      "description": "No máximo um esboço que já estava no artigo",
+      "condition": "Mantém o primeiro esboço específico, com seus parâmetros. Se houver apenas marcas genéricas, mantém a primeira. Não acrescenta esboços a artigos sem essa marca e preserva avisos de seção.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "3843abd787c25a767111520b2b266b5f36471badc4a6d455a1930527e0f72a11",
+        "afterSha256": "9a0f757cf52ccadbaef15a1775234c53c4f1e4a68410399a43610b56aae0965a",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Esboço}}\n{{Esboço-astronomia|data=2020}}\n{{Esboço-química}}",
+      "after": "{{Esboço-astronomia|data=2020}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-060",
+      "originalId": "RW2222-060",
+      "family": "structure",
+      "description": "Um Portal3 sem perder comentários",
+      "condition": "Reúne chamadas compatíveis, conserva a ordem dos temas e mantém cada comentário. Não mistura opções conflitantes nem argumentos dinâmicos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "ee56ce24b09a638f3907c57b3346b5d98af432e40278175edc2aab794091f3d8",
+        "afterSha256": "a918a1aa4f03f503f2d0ef007cd6f738d393b5b7c69fa36435f47e8124520682",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Portal3|Ciência<!-- comentário A -->}}\n<!-- comentário B -->\n{{Portal3|História}}",
+      "after": "<!-- comentário A -->\n<!-- comentário B -->\n\n{{Portal3|Ciência|História}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-061",
+      "originalId": "RW2222-061",
+      "family": "structure",
+      "description": "Fechamento incorreto de uma data biográfica",
+      "condition": "Corrige um fechamento inequívoco de uma chamada nativa com data numérica válida. Preserva os parênteses externos e mantém protegidos exemplos, referências e formas ambíguas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "0da78130f3ccd463169621494e9ae27d6749d747c87bcdbb4d096e0fa10e2522",
+        "afterSha256": "a3203cd685fa6f6934ba007e09a48f2780f513f7ddde4c291db891127a4f202d",
+        "actualEndpointVerified": true
+      },
+      "before": "'''Pessoa de exemplo''' ({{Dni|1|2|1900]]) é uma pessoa.",
+      "after": "'''Pessoa de exemplo''' ({{Dni|1|2|1900}}) é uma pessoa.",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-062",
+      "originalId": "RW2222-062",
+      "family": "references",
+      "description": "Data de arquivo em chave invertida com alias nativo preenchido",
+      "condition": "Tratar dataarquivo/data-arquivo independentemente do erro de URL antigo. Quando dataarquivo e arquivodata são o mesmo dia comprovado, consolidar sem perder data nem captura. Quando só a chave errada existe, mapear apenas se papel e par URL/data forem comprovados. Valores conflitantes, datas ambíguas, mudança de captura e aliases concorrentes retêm ambos. Não escolher data pela aparência nem inventar data de arquivo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "94e3eb1f7841e91a3e10e3c42cd151840dfcb61fa11149471aedc26878569ff1",
+        "afterSha256": "f72897c4d3c4a2442fb8b20dd9db22daec53222bd23798a83aea8facfc74d582",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20210109000000/https://example.org/a|dataarquivo=9 de janeiro de 2021|arquivodata=2021-01-09}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20210109000000/https://example.org/a|arquivodata=2021-01-09}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-063",
+      "originalId": "RW2222-063",
+      "family": "references",
+      "description": "Crédito de tradutor em sinônimo não consumido",
+      "condition": "Qualificar tradutor-sobrenome e os índices/companheiros ao papel TranslatorList-Last efetivamente lido, preservando autoria original separada, nome do tradutor e índices. Conferir wrapper e leitor antes de renomear. Não transformar tradutor em autor nem completar nomes. O leitor final pode exigir mudança da predefinição; catálogo de nomes ou preferência de chave não comprova consumo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "8a3e62d5f4eac3f22c8fe134a0c05d05b48317f1e9b8c071b6085f20facdef68",
+        "afterSha256": "5831441630b30277f92e13f21550024dd29108124e3837e79c7913172da8d6f1",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar livro|título=Documento|autor=Original|tradutor-sobrenome=Exemplo|tradutor-nome=Pessoa}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar livro|título=Documento|autor=Original|tradutor-ultimo=Exemplo|tradutor-primeiro=Pessoa}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-064",
+      "originalId": "RW2222-064",
+      "family": "references",
+      "description": "Cabeçalho de citação contaminado por url ou endereço",
+      "condition": "Preserva o cabeçalho incompleto quando não há indicação comprovada do tipo de fonte. Um endereço, por si só, não permite escolher o modelo bibliográfico.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "670724a41c1b8ff10188cf53c2e8b09ab452b0f997d43542883d246b749bb7a2",
+        "afterSha256": "670724a41c1b8ff10188cf53c2e8b09ab452b0f997d43542883d246b749bb7a2",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{citar url=https://example.org/a|título=Documento}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{citar url=https://example.org/a|título=Documento}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-065",
+      "originalId": "RW2222-065",
+      "family": "references",
+      "description": "Capítulo e intervalo de versículos no campo verso nativo",
+      "condition": "Estender a gramática já existente de passagem única capítulo:verso-final ao uso nomeado verso=28:1-10, quando livro é reconhecido e capítulo/verso_final estão ausentes, preservando ambos extremos e edição. Não atravessar capítulos, resolver livros ambíguos, descartar edição/citação ou sobrescrever capítulo/verso_final. Intervalos invertidos ou misturados retêm a chamada.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "7c5f6506c4f80f6de2bde12617d9f3cf4fc46ddaf423f26e3d9621d723ed9398",
+        "afterSha256": "c97ff33177e79a05579a368cf2059ec8e88f7f1028720ff52ccf2a517d0d24f5",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar bíblia|livro=Atos|verso=28:1-10|citação=Texto}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar bíblia|livro=Atos|verso=1|capítulo=28|verso_final=10|citação=Texto}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-066",
+      "originalId": "RW2222-066",
+      "family": "references",
+      "description": "Nome de citação jornalística com acento perdido",
+      "condition": "Qualificar a variante exata citar noticia contra o leitor da família Citar notícia/Citar jornal, com todos os argumentos conhecidos preservados. Sem reclassificar outra publicação pelo título. Cabeçalho atual não é reconhecido. Não extrapolar remoção de acentos a nomes arbitrários ou trocar modelo desconhecido por Citar web. Deve fechar o contrato do redirecionamento/modelo nativo. Conferir se a grafia sem acento já é um redirecionamento nativo válido antes de classificar a chamada como erro. O não reconhecimento pelo RevisaWiki não prova um erro de exibição na Wikipédia.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "65f48acfdb3845e73ecbfd40313cbd949f9e95f19f628bfd9d04efc93c5a89ae",
+        "afterSha256": "35d7a45f6421c99fbbf26fcf478ebcab734bffe9f2f57daf6e28483c70362870",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{citar noticia|title=Documento|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar jornal|título=Documento|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-067",
+      "originalId": "RW2222-067",
+      "family": "infoboxes",
+      "description": "Profundidades média e máxima separadas",
+      "condition": "Mesmo dono e destino correspondente, valores e unidades intactos; não calcular nem trocar média por máxima.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "8add51c5c42a3011f1f2a0cf392dd6ab0454a0e3b15055fb8a18834a61ffa7c2",
+        "afterSha256": "eea858533411e2c7e1a55938c88a48e43b02f36847e6115f29f30044609438e3",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Corpo de água|nome=Exemplo|prof_med=2600|prof_max=4694}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Corpo de água\n|nome                  = Exemplo\n|profundidade          = 2600\n|profundidade_max      = 4694\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-068",
+      "originalId": "RW2222-068",
+      "family": "infoboxes",
+      "description": "Mapa de corpo de água em campo consumido",
+      "condition": "Nome de arquivo simples, sem destino concorrente; foto principal e legendas/tamanhos já existentes continuam independentes.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b36f87114366fdd58a9e716c8d0ccff64fe53e05e9796122075b31e17274e67f",
+        "afterSha256": "de6e205305efada15f02a18f1ab6c414df8683926476576abb563bc3b07f3f4f",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Corpo de água|nome=Exemplo|mapa=Example.png}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Corpo de água\n|nome                  = Exemplo\n|imagem_mapa           = Example.png\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-069",
+      "originalId": "RW2222-069",
+      "family": "infoboxes",
+      "description": "Localidade mais próxima de área protegida",
+      "condition": "Somente uma localidade literal/ligação única, sem cidade/localidade concorrente. Não converter coordenadas ou localização administrativa.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "9ab70c588b532ce489e361c6239f194729d56c5921286fb869e6ac4857e6ea02",
+        "afterSha256": "6a605564897582847e6be835776338db512cec54ed691749dc3064f98a42b629",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Área protegida|nome=Exemplo|cidade_proxima=[[Localidade]]}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Área protegida\n|nome                  = Exemplo\n|localidade            = [[Localidade]]\n}}\n'''Exemplo''' é um assunto de teste.\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-070",
+      "originalId": "RW2222-070",
+      "family": "infoboxes",
+      "description": "Alimentação elétrica em energia",
+      "condition": "Só o papel explícito de alimentação, preservando conector, números e unidades. Entrada não é tratada como sinônimo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "03374cea9bfb0b785784a37f45e5f99a8546e17842c350c9ec21b121546f84ca",
+        "afterSha256": "d9c585c11b54aed5280fed66f3095a24dccc09fd33315fa8820605ce69cd7ee9",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Computador|nome=Exemplo|alimentacao=Micro USB}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Computador\n|nome                  = Exemplo\n|energia               = Micro USB\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Tecnologias de informação}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-071",
+      "originalId": "RW2222-071",
+      "family": "infoboxes",
+      "description": "Unidades militares numeradas em seus campos nativos",
+      "condition": "Preserva lados/listas; primeiro subconjunto de texto ou ligações completas. Auxiliares estrangeiros desconhecidos e suas refs permanecem protegidos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "84e8bbe01db2e5f6587ea808c7b3ace9096b9e0bb003b767fddb76f45e957802",
+        "afterSha256": "824360e1d628b90885d12a22d6760fe6935a8762240fae295e4a4f3c2adaeaa7",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Conflito militar|nome=Exemplo|units1=[[Unidade]]}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Conflito militar\n|nome                  = Exemplo\n|unidade1              = [[Unidade]]\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Guerra}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-072",
+      "originalId": "RW2222-072",
+      "family": "infoboxes",
+      "description": "Tamanho literal da imagem em conflito militar",
+      "condition": "Só corrige chave conhecida, sem redimensionamento nem prioridade nova. Conflito imagem-tamanho/imagens_tamanho impede a troca.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "843e2883f1bcb31913a611e3fba5d510eb6f8e831c647fedbe977ae0e3cc2bb5",
+        "afterSha256": "d2dceebce24fdf2e9a5d850801b9a515492bc9414693952717191ae7ea6aa445",
+        "actualEndpointVerified": true
+      },
+      "before": "{{Info/Conflito militar|nome=Exemplo|imagem_tamanho=300px}}\n'''Exemplo''' é um assunto de teste.\n",
+      "after": "{{Info/Conflito militar\n|nome                  = Exemplo\n|imagem-tamanho        = 300px\n}}\n'''Exemplo''' é um assunto de teste.\n\n{{Portal3|Guerra}}\n",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-073",
+      "originalId": "RW2222-073",
+      "family": "talk",
+      "description": "Revisão de origem em atribuições parciais",
+      "condition": "Reconhece ligações permanentes interwiki verificadas e preserva página, idioma, seção, revisão, data e comentários. Mantém também o suporte anterior às ligações permanentes externas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "92eb54b6a59a5b8ee2beed24c78188bccabdd7c14aa87ad57751f60dab3eb1c8",
+        "afterSha256": "90a572b00516c2c86415ee11c91928d42006d75bf3ccbe047170b167a2186b4d",
+        "actualEndpointVerified": true
+      },
+      "before": "{{PD}}\n{{Marca de projeto|?}}\n{{Traduzido|página=Página de exemplo#Parte|cód_idioma=en|oldid original=[[:en:Special:PermaLink/123#Parte|123]]|data=1 de janeiro de 2020}}",
+      "after": "{{PD}}\n{{Marca de projeto|?}}\n{{Traduzido|página=Página de exemplo#Parte|cód_idioma=en|data=1 de janeiro de 2020|oldid=123}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-074",
+      "originalId": "RW2222-074",
+      "family": "talk",
+      "description": "Estado das fontes no parâmetro que a predefinição lê",
+      "condition": "Reposiciona um código V, NV, SEM ou NT que já estava na atribuição, quando não existe conflito. Não inventa verificação de fontes nem interpreta datas ambíguas.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b36c1a61f176bc1e6e3cf497a48d374f439b72a7f482a06874d883c6e608023c",
+        "afterSha256": "ad849eee03bca4ecf7e9d3fc49dd74b931c39b16201035759763bb3dc151fb2e",
+        "actualEndpointVerified": true
+      },
+      "before": "{{PD}}\n{{Marca de projeto|?}}\n{{Traduzido|cód_idioma=en|página=Página de exemplo|NT}}",
+      "after": "{{PD}}\n{{Marca de projeto|?}}\n{{Traduzido|página=Página de exemplo|cód_idioma=en|fontes=NT}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-075",
+      "originalId": "RW2222-075",
+      "family": "talk",
+      "description": "Cabeçalho de discussão organizado, sem metadados de bot",
+      "condition": "Mantém PD, Marca de projeto, Traduzido e OKA em linhas separadas, nessa ordem. Remove bot e todas as ocorrências de rev no mesmo bloco com bot, preservando a importância dos projetos. Sem bot, retira apenas datas rev válidas anteriores a 2021. Converte uma marca antiga de projeto somente quando o encaminhamento nativo é equivalente. Preserva também os comentários desses campos, sem transformar seu conteúdo em código ativo.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "eccdab36e80f366ce353e646f33e081bb5d9d0c9ef6a4555b71ad00c77b7378a",
+        "afterSha256": "af698e5ebba5b1b199fc829820f855d07fe050a6e86717ca48bdfc978a998e47",
+        "actualEndpointVerified": true
+      },
+      "before": "{{PD}}\n{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid= 123\n|data= 1 de janeiro de 2020\n}}\n{{Marca de projeto|1|Ciência|4|bot=sim|rev=20190101|rev=20260101|Mulheres|4}}",
+      "after": "{{PD}}\n{{Marca de projeto|?|Ciência|4|Mulheres|4}}\n{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid=123|data=1 de janeiro de 2020}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-076",
+      "originalId": "RW2222-076",
+      "family": "structure",
+      "description": "JavaScript e Lua protegidos também fora da interface",
+      "condition": "A API de ajustes preserva integralmente o código quando o tipo declarado não é wikitexto, inclusive em recuperação e processamento em segundo plano. TemplateStyles continua com sua conferência própria de CSS.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "750cd2d04f7e993145a734fa207e4e49adb31d9197fc60eadaf8cfdcd95f82b0",
+        "afterSha256": "750cd2d04f7e993145a734fa207e4e49adb31d9197fc60eadaf8cfdcd95f82b0",
+        "actualEndpointVerified": true
+      },
+      "before": "// [[Brasil|Brasil]]\nconst exemplo=\"{{Cite web|title=Fonte}}\";",
+      "after": "// [[Brasil|Brasil]]\nconst exemplo=\"{{Cite web|title=Fonte}}\";",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-077",
+      "originalId": "RW2222-077",
+      "family": "references",
+      "description": "Concluir a conversão de marcas de ligação inativa diante de quebras e redundância",
+      "condition": "Reconhecer apenas a mesma citação e a mesma marca associada quando uma quebra de linha substitui um espaço. Transportar somente data informada e válida, preservando URL e captura. Para marca sem data ao lado de datali já preenchido, retirar redundância só com equivalência comprovada do consumidor. Nunca inventar datas nem sobrescrever valores conflitantes.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "b789a77ac2e956738031ff50b82dd258ce0b7f55955d3e4baa2aa63924f03fa3",
+        "afterSha256": "dd9c4fc1b2fa57129f4755a08efc2f5100afc1fa8c8c3fb22cdef00159d1fec0",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a}}\n{{Ligação inativa|data=novembro de 2026}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|url=https://example.org/a|datali=novembro de 2026}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-078",
+      "originalId": "RW2222-078",
+      "family": "prose",
+      "description": "Ortografia com proteção no trecho certo",
+      "condition": "Preserva os próprios nomes, destaques e exemplos, sem usar qualquer negrito posterior como autorização para ignorar a mesma grafia no artigo inteiro. Frases metalinguísticas só liberam uma continuação comum quando a separação é inequívoca.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "9b9fb14cc9fd13b9fc468adf0b9c28252a035c38412040bf52a22c59978611d9",
+        "afterSha256": "608622e56ac9a4c5ca173a30a338621178a1b88c115d2cfd970d3e0f39a4d2dd",
+        "actualEndpointVerified": true
+      },
+      "before": "Uma excessão foi registrada.\n\n'''excessão'''",
+      "after": "Uma exceção foi registrada.\n\n'''excessão'''",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-079",
+      "originalId": "RW2222-079",
+      "family": "prose",
+      "description": "Separação de palavras em um contexto confirmado",
+      "condition": "Corrige a sequência medicamento utilizado parao tratamento para medicamento utilizado para o tratamento em prosa comum. Não aplica uma troca genérica em nomes, citações, referências ou código.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "89c79a6252de51a3e795c184e334ba49c6fa195fa69017ceca33d88691726b20",
+        "afterSha256": "09c6b379d65ff3bb5d90e4d315e010a75837d6a961fd8d32cefb280c98f6ebc6",
+        "actualEndpointVerified": true
+      },
+      "before": "É um medicamento utilizado parao tratamento da condição.",
+      "after": "É um medicamento utilizado para o tratamento da condição.",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-080",
+      "originalId": "RW2222-080",
+      "family": "references",
+      "description": "Aplica os ajustes de citações em páginas de ajuda e de categoria",
+      "condition": "O exemplo representa texto ativo de uma página de ajuda. Exemplos protegidos por nowiki ou por blocos de código ficam como estão.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "79e0a16182edf5777becf6fb437332c0c60e23ad9aae4fbf375bcea32cdef81d",
+        "afterSha256": "d114f42854f5b88638039a4969f5d57213e9e70c1286f4e191152e554af39f0d",
+        "actualEndpointVerified": true
+      },
+      "before": "Texto.<ref>{{Citar web|title=Documento|website=Sítio|publisher=Editora|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "after": "Texto.<ref>{{Citar web|título=Documento|obra=Sítio|publicado=Editora|url=https://example.org/a}}</ref>\n\n{{Referências}}",
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-081",
+      "originalId": "RW2222-081",
+      "family": "desempenho e conclusão da interface",
+      "description": "Contagem final exata sem uma segunda espera obrigatória",
+      "condition": "Current final-runtime receipts must establish the existing behavior. Performance limits stay documented; no universal speed guarantee or unexecuted pass credit.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "actualNativeBrowserCasesPerBrowser": 122,
+        "universalPerformanceGuarantee": false
+      },
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-082",
+      "originalId": "RW2222-082",
+      "family": "discussão e resumo da edição",
+      "description": "Resumo da discussão conforme PD, Marca de projeto e Traduzido",
+      "condition": "Current final-runtime receipts must establish the existing behavior. Performance limits stay documented; no universal speed guarantee or unexecuted pass credit.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "NATIVE_EDITOR_UI.json",
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "actualNativeBrowserCasesPerBrowser": 122,
+        "universalPerformanceGuarantee": false
+      },
+      "status": "validated-current-bounded-behavior"
+    },
+    {
+      "id": "RW2222-083",
+      "originalId": "RW2222-083",
+      "family": "talk",
+      "description": "Atribuição antiga sem apagar sua função",
+      "condition": "Padroniza aliases nativos confirmados de Traduzido e conserva todos os dados da origem. Avisos independentes, mensagens humanas, créditos e traduções parciais permanecem distintos.",
+      "trackingRowIsIndependentFeature": false,
+      "evidenceClasses": [
+        "DIRECTED_QA.json"
+      ],
+      "validation": {
+        "runtimeManifestSha256": "87b51eea95a1a1199a116cf91c108ec75809077beacb0e7c5b26b5912b9ab5e4",
+        "status": "passed-current-final-evidence",
+        "runtimeSha256": "7b7d9e6e0c91da8e8bf999bb7b7c02077b842e6f60e9d7409d8892e4c60b4f3f",
+        "beforeSha256": "87abff2823980defa6e9c3c513439a774597ec86beddb74b701d9c1276ee960f",
+        "afterSha256": "a9cc1e90a8449206f3e67cdaeefcc7d73e21a5cab092f020570fdd96afc351a7",
+        "actualEndpointVerified": true
+      },
+      "before": "{{PD}}\n{{Marca de projeto|?}}\n{{Tradução|página=Página de exemplo|cód_idioma=en|oldid=123}}",
+      "after": "{{PD}}\n{{Marca de projeto|?}}\n{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid=123}}",
+      "status": "validated-current-bounded-behavior"
+    }
+  ],
+  "excludedIndependentSubcases": [
+    {
+      "id": "RW2222-075/native-projecto-composition",
+      "reason": "Subcase belongs to its parent tracking row; no independent feature credit."
+    }
+  ],
+  "sourceEvidenceSha256": {
+    "references": "07c6036bd61f61daf38fca597b7775f4f4763aecb441d02be3fe213f7adbcdb7",
+    "referenceBinding": "b64eaf45d8737500b3d9e984794a641c23f62afb15ad94caa25abc3095b2f3b9",
+    "infoboxDispositions": "991ce6e6dec197bc06723830a9a5cbba506fc251254cba549f00fa4dd5961877",
+    "infoboxEndpoints": "4354d8a52ba8fdc8c11d8965076fb47760898d3867e37d2a18afc07f2d4bb269",
+    "structure": "2010b8be9459f6c391433a0891495f23475132d5e0f5cc0751ca1ba3e72d6f9b",
+    "uiDefinitions": "aa03dbc3e65d0657a78bafdadf9e7bd3ff8e6ad45cbae825c89a32663cd19004",
+    "rootPreparedRows": "b4a4aa68c25175709f5cebb8f5a0956d2a64c8f249ace9b19cfe139ae0d3a122"
+  },
+  "finalEvidenceSha256": {
+    "DIRECTED_QA.json": "307c8e4fd0c246e211bd36688c3f00081f97976616d43d11f5c7708075898b57",
+    "LEGACY_QA.json": "820801985beb3d03b1e2e6e707534bd76f108cfe0fb3d099b08fddbc402a7649",
+    "NATIVE_EDITOR_UI.json": "bff965e09a46e82352fa3f9e362057401c74b69cff5d723e6d695375dc082c96",
+    "INFERENCE_AND_DEMO.json": "77258af0339f684c39151d4c494a75b5e84668ed18a12f5586d7fc5818202c01",
+    "FILE_DEMONSTRATION.json": "35d62e74c99f92d3e3e22169010c4fbba5bbd178376fdab52637c9c86dc4b446",
+    "BUILD_REPRODUCTION.json": "00f4234cf644f3df4d34fa87c8d5f9e9ff708fbd1df085ac8a66e197be76ec2a",
+    "NATIVE_DOCUMENTATION.json": "dedc2e7450ae026512fac228c0a0f95e432885350a6fa0b2c360ed5930c26217",
+    "CORPUS_QA.json": "c2ac21823628a989ec7778f1478b8b43286d0296b124fe2738ed765e91411ead"
+  },
+  "historicalRecordsModified": false,
+  "nativeAndSourceHoldsAutomaticRepairCredit": 0,
+  "wikipediaWrites": 0
+}

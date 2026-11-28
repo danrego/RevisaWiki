@@ -1,0 +1,63 @@
+--- a/Info_Conflito_militar.wiki
++++ b/Info_Conflito_militar.wiki
+@@ -8,15 +8,25 @@
+ 
+ |dados1        ={{#if:{{{arquivo|}}}|{{{arquivo|}}}{{#if:{{{legenda|{{{descr|}}}}}}|<br>{{{legenda|{{{descr|}}}}}}}}| {{#if: {{And2 |{{{imagem-esq|}}}|{{{imagem-dir|}}}}}
+   ||{{#if: {{{imagem|}}}{{{imagem-esq|}}}{{{imagem-dir|}}}
+-  |[[Imagem:{{{imagem|{{{imagem-esq|{{{imagem-dir|}}}}}}}}}|{{
+-	px|{{Se_vazio
+-	| {{{imagem-tamanho|}}} | {{{imagens_tamanho|}}} |300}}}}]]}}{{
++  |{{#invoke:InfoboxImage|InfoboxImage
++| image={{{imagem|{{{imagem-esq|{{{imagem-dir|}}}}}}}}}
++| size={{Se vazio|{{{imagem-tamanho|}}}|{{{imagens_tamanho|}}}}}
++| suppressplaceholder=no
++| sizedefault=300px
++| upright={{#if:{{Se vazio|{{{imagem-tamanho|}}}|{{{imagens_tamanho|}}}}}||{{Se vazio|{{{imagem_upright|}}}|{{{image_upright|}}}}}}}
++| alt={{Se vazio|{{{imagem_alt|}}}|{{{alt|}}}}}
++}}}}{{
+ 
+ #if: {{{imagem2|}}} |<br>}}{{
+ #if: {{{imagem2|}}}
+-|[[Imagem:{{{imagem2|}}}|{{
+-  px|{{Se_vazio
+-  | {{{imagem2-tamanho|}}} | {{{imagem-tamanho|}}} | {{{imagens_tamanho|}}} | 300}}}}]]}}{{
++|{{#invoke:InfoboxImage|InfoboxImage
++| image={{{imagem2|}}}
++| size={{Se vazio|{{{imagem2-tamanho|}}}|{{{imagem-tamanho|}}}|{{{imagens_tamanho|}}}}}
++| suppressplaceholder=no
++| sizedefault=300px
++| upright={{#if:{{Se vazio|{{{imagem2-tamanho|}}}|{{{imagem-tamanho|}}}|{{{imagens_tamanho|}}}}}||{{{imagem2_upright|}}}}}
++| alt={{{imagem2_alt|}}}
++}}}}{{
+ 
+ #if: {{And2 |{{{imagem|{{{imagem-esq|{{{imagem-dir|}}}}}}}}}{{{imagem2|}}}|{{{legenda|{{{descr|}}}}}}}}
+ |<br><div style="padding-top:0.1em;">{{{legenda|{{{descr|}}}}}}<hr></div>}}}}
+@@ -25,13 +35,21 @@
+ |dados2 = {{{imagem_múltipla|}}}
+ 
+ |dados3 ={{#if: {{And2 |{{{imagem-esq|}}}|{{{imagem-dir|}}}}}
+-  |{{nowrap |[[Imagem:{{{imagem-esq|}}}|top|{{
+-  px|{{Se_vazio
+-  | {{{imagem-esq-tamanho|}}} | {{#if: {{{imagens_tamanho|}}} | {{
+-  #expr: {{{imagens_tamanho|}}} / 2}}}} | 150}}}}]][[Imagem:{{{imagem-dir|}}}|top|{{
+-  px|{{Se_vazio
+-  | {{{imagem-dir-tamanho|}}} | {{#if: {{{imagens_tamanho|}}} | {{
+-  #expr: {{{imagens_tamanho|}}} / 2}}}} | 150}}}}]]}}}}
++  |{{nowrap |{{#invoke:InfoboxImage|InfoboxImage
++| image={{{imagem-esq|}}}
++| size={{Se vazio|{{{imagem-esq-tamanho|}}}|{{#if:{{{imagens_tamanho|}}}|{{#expr:{{{imagens_tamanho}}}/2}}}}}}
++| suppressplaceholder=no
++| sizedefault=150px
++| upright={{#if:{{Se vazio|{{{imagem-esq-tamanho|}}}|{{{imagens_tamanho|}}}}}||{{{imagem-esq-upright|}}}}}
++| alt={{{imagem-esq-alt|}}}
++}}{{#invoke:InfoboxImage|InfoboxImage
++| image={{{imagem-dir|}}}
++| size={{Se vazio|{{{imagem-dir-tamanho|}}}|{{#if:{{{imagens_tamanho|}}}|{{#expr:{{{imagens_tamanho}}}/2}}}}}}
++| suppressplaceholder=no
++| sizedefault=150px
++| upright={{#if:{{Se vazio|{{{imagem-dir-tamanho|}}}|{{{imagens_tamanho|}}}}}||{{{imagem-dir-upright|}}}}}
++| alt={{{imagem-dir-alt|}}}
++}}}}}}
+ 
+ |rótulo5 =Data
+ |dados5  ={{#if: {{{data|}}}|{{{data|}}}|{{#if: {{{data_início|}}}{{{data_fim|}}}|{{{data_início|}}} – {{{data_fim|}}} }} }}

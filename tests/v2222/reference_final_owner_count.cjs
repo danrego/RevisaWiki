@@ -1,0 +1,40 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+function run(api){const cfg={...api.defaults,namespaceNumber:0,contentModel:'wikitext',pageTitle:'Exemplo'},rows=[];let calculations=0;const check=(id,before,after,count)=>{const r=api.v2222FinalSourceCount(before,after,cfg);assert(r?.exact,id+' exact');assert.equal(r.count,count,id+' source components');const counted=api.version==='2.22.2'?api.calculate({kind:'final-count',source:after,originalSource:before,options:cfg}):api.v2222RetainedMetadata({kind:'final-count',source:after,originalSource:before,options:cfg},{kind:'final-count',text:after});if(api.version==='2.22.2')calculations++;assert.equal(counted.text,after,id+' read-only final count');assert(counted.retainedAdjustments?.exact,id+' metadata exact');assert.equal(counted.retainedAdjustments.count,count,id+' metadata policy agrees');rows.push({id,count,exact:true});};
+ check('native-owner-with-enclosed-comment','{{Info/Navio|nome=Exemplo|notas=Texto<!--Preservar-->}}','{{Info/Navio|nome=Exemplo|notas=Texto<!--Preservar-->|tipo=Navio}}',1);
+ check('two-anonymous-citation-title-keys','Texto.<ref>{{Citar livro|title=Primeiro}}</ref> Mais.<ref>{{Citar livro|title=Segundo}}</ref>','Texto.<ref>{{Citar livro|título=Primeiro}}</ref> Mais.<ref>{{Citar livro|título=Segundo}}</ref>',2);
+ check('raw-external-reference-to-native-call','Texto.<ref>[https://example.org/a Documento]</ref>','Texto.<ref>{{Citar web|url=https://example.org/a|título=Documento}}</ref>',3);
+ check('literal-isbn-helper','Fonte. ISBN 9780306406157.','Fonte. {{ISBN|9780306406157}}.',1);
+ check('default-native-collector-syntax','Texto.\n<references/>','Texto.\n{{Referências}}',1);
+ check('source-bound-category-move','[[Categoria:Exemplo]]\nTexto.','Texto.\n[[Categoria:Exemplo]]',1);
+ check('category-move-and-extra-paragraph-gap','[[Categoria:Exemplo]]\nTexto.','Texto.\n\n[[Categoria:Exemplo]]',2);
+ check('category-move-and-independent-prose','[[Categoria:Exemplo]]\nTexto.','Outro.\n[[Categoria:Exemplo]]',2);
+ const differentCategory=api.v2222FinalSourceCount('[[Categoria:Exemplo]]\nTexto.','Texto.\n[[Categoria:Outro]]',cfg);assert(differentCategory?.exact&&differentCategory.count>=2,'A changed category cannot hide inside the unchanged-line move proof');
+ const indented=api.v2222CountLineMargins(' [[Categoria:Exemplo]]\nTexto.',[{id:'a',start:1,end:22}],new Set(['a']));assert.equal(indented.get('a').start,1,'Leading-space preformatting remains in the body');
+ check('duplicate-citation-slot-removal','<ref>{{Citar web|título=Documento|arquivodata=2024-01-01|arquivodata=2024-01-01}}</ref>','<ref>{{Citar web|título=Documento|arquivodata=2024-01-01}}</ref>',1);
+ check('spaced-literal-article-locator','Texto.<ref>{{Citar periódico|título=Documento| article-number =0001 |ano=2024}}</ref>','Texto.<ref>{{Citar periódico|título=Documento|ano=2024}} Artigo 0001</ref>',2);
+ check('identical-definitions-new-name-and-reuse','<ref>Fonte.</ref><ref>Fonte.</ref>','<ref name="a">Fonte.</ref><ref name="a"/>',3);
+ check('punctuation-with-unchanged-native-reuse-helper','Texto<ref name="a">Fonte.</ref>. {{R|a}}','Texto.<ref name="a">Fonte.</ref> {{R|a}}',1);
+ const sourceHash=text=>api.v2222FinalCountJob({kind:'final-count',source:text,originalSource:text,options:cfg}).retainedAdjustments.sourceHash;
+ const tokenBefore='inglês',tokenAfter='en',fragment={start:0,end:1,newStart:0,newEnd:1,before:'i',after:'e',precise:true},event={sourceHash:sourceHash(tokenBefore),outputHash:sourceHash(tokenAfter),kind:'parameter-value',fragments:[fragment]},duplicate={exact:false,count:null,events:[event],unresolved:[fragment]},dedup=api.v2222CountHeadingRemainder(tokenBefore,tokenAfter,duplicate);assert(dedup?.exact);assert.equal(dedup.count,1,'An already owned lexical fragment receives no second count');rows.push({id:'duplicate-retained-lexical-fragment',count:1,exact:true});
+ assert.equal(api.v2222CountHeadingRemainder(tokenBefore,tokenAfter,{...duplicate,events:[{...event,sourceHash:'different'}]}),null,'A stale hash cannot hide an unresolved fragment');
+ assert.equal(api.v2222CountHeadingRemainder(tokenBefore,tokenAfter,{...duplicate,unresolved:[{...fragment,after:'x'}]}),null,'Different fragment text cannot borrow retained ownership');
+ for(const[owner,call]of [['category','[[Categoria:Exemplo]]'],['authority','{{Controle de autoridade}}'],['portal','{{Portal3|Ciência}}']]){
+  check('adjacent-identical-'+owner,'Texto.\n\n'+call+'\n'+call,'Texto.\n\n'+call,1);
+  check('four-adjacent-identical-'+owner,'Texto.\n\n'+Array(4).fill(call).join('\n'),'Texto.\n\n'+call,3);
+  check('duplicate-and-independent-paragraph-'+owner,'Texto.\n\n'+call+'\n'+call,'Texto.\n\n\n'+call,2);
+  check('duplicate-and-retained-line-move-'+owner,'Antes.\n'+call+'\n'+call+'\nDepois.','Antes.\nDepois.\n'+call,2);
+  assert.equal(api.v2222CountAdjacentDuplicateProjection('Antes.\n'+call+'\n\n'+call,'Antes.\n'+call,cfg),null,'Separate calls are not an adjacent duplicate-line proof');
+  assert.equal(api.v2222CountAdjacentDuplicateProjection('Antes.\n'+call+'\nIntervenção.\n'+call,'Antes.\nIntervenção.\n'+call,cfg),null,'Intervening prose is preserved as a separate source component');
+ }
+ assert.equal(api.v2222CountAdjacentDuplicateProjection('Texto.\n{{Portal3|Ciência}}\n{{Portal3|História}}','Texto.\n{{Portal3|Ciência}}',cfg),null,'Different portal parameters cannot borrow the identical-call proof');
+ const fields=api.v2222CountTemplateFields('{{Info/Exemplo|a=Sim|a=Não|b=}}','{{Info/Exemplo|a=Sim|a=Não|b=|c=Novo}}',cfg);assert(fields?.exact);assert.equal(fields.count,1);rows.push({id:'duplicate-native-occurrences-new-slot',exact:true,count:1});
+ const c=api.v2222CountReadContext('<nowiki>{{Info/Navio|nome=Exemplo}}</nowiki>');assert.equal(api.v2222CountIndependentOwners('<nowiki>{{Info/Navio|nome=Exemplo}}</nowiki>',cfg).length,0,'Literal code cannot become independent owner');
+ assert.equal(api.v2222CountIndependentOwners('<div>{{Info/Navio|nome=Exemplo}}</div>',cfg).length,0,'An outside HTML ancestor is not a sealed inner parameter');
+ assert.equal(api.v2222CountReferenceBodiesProjection('<ref>{{Citar livro|title=Mesmo}}</ref><ref>{{Citar livro|title=Mesmo}}</ref>','<ref>{{Citar livro|título=Mesmo}}</ref><ref>{{Citar livro|título=Mesmo}}</ref>',cfg),null,'Repeated indistinguishable anonymous titles do not authorize a unique body pair');
+ assert.equal(api.v2222CountReferenceBodyPair('[https://example.org/a Documento]','{{Citar web|url=https://example.org/outro|título=Documento}}',cfg),null,'Wrong URL cannot use the external-link shape count');
+ assert.equal(api.v2222CountISBNProjection('ISBN 9780306406157','{{ISBN|9780306406157|extra=Preservar}}'),null,'ISBN helper with additional data stays outside the finite projection');
+ assert.equal(api.v2222CountReferenceReuseProjection('<ref name="a">Fonte.</ref><ref name="a">Outra.</ref>','<ref name="a">Fonte.</ref><ref name="a"/>',cfg),null,'A different definition is not an identical-body reuse');
+ assert.equal(api.v2222CountReferenceReuseProjection('<ref name="a">Fonte.</ref>','<ref name="a"/>',cfg),null,'A sole definition cannot disappear into a reuse');
+ return{kind:'pure-source-bound-reference-owner-count',version:api.version,cases:rows.length,negativeCases:18,calculations,repairPipelineCalls:0,rows,wikipediaWrites:0};}
+if(require.main===module){const r=run(require(process.env.REVISAWIKI_CURRENT_CORE||path.resolve(__dirname,'../../dist/2.22.2/RevisaWiki_v2_22_2.js')));if(process.env.REVISAWIKI_TEST_RECEIPT)fs.writeFileSync(process.env.REVISAWIKI_TEST_RECEIPT,JSON.stringify(r,null,2)+'\n');console.log(JSON.stringify(r));}module.exports={run};

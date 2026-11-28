@@ -1,0 +1,4919 @@
+{{Info/Software
+|nome                  = RevisaWiki
+|última_versão         = 2.22.2
+|plataforma            = Wikipédia em português
+|linguagem             = JavaScript
+|idioma                = Português
+|gênero                = Ferramenta de revisão de código wiki
+|licença               = [[Creative Commons|CC BY-SA 4.0]]
+|repositório           = [https://github.com/danrego/RevisaWiki GitHub]
+}}
+O '''RevisaWiki''' cuida da marcação repetitiva enquanto você revisa o artigo, reunindo notas e referências, organizando infocaixas e acertando o rodapé para que sobre mais tempo para conferir o texto e suas fontes.
+
+Com o artigo aberto em '''Editar código-fonte''', clique em '''Ajustar código''' e confira o resultado em '''Mostrar alterações''' antes de publicar. Você continua no mesmo rascunho e pode escrever, cancelar a análise ou desfazer os ajustes. O painel informa o que foi aplicado, e o resumo automático preferido é '''Minúcias'''.
+
+__TOC__
+
+== Comece pela sua próxima revisão ==
+
+# Abra o artigo inteiro ou um rascunho de artigo reconhecido e clique em '''Ajustar código'''. Os botões superior e inferior fazem a mesma revisão.
+# Confira o resultado no editor ou em '''Mostrar alterações'''. Se preferir voltar ao texto anterior, use '''Desfazer ajustes'''.
+# Continue sua revisão e publique quando estiver pronto. Os ajustes feitos somente pelo RevisaWiki recebem a marcação de edição menor, sem substituir o resumo que você já escreveu. Ao concluir, a opção nativa Vigiar página é marcada se estiver disponível e desmarcada.
+
+A indicação de atividade acompanha a análise, com cancelamento disponível e sem corte global de 60 segundos. Uma mudança no rascunho durante a espera impede a aplicação de um resultado antigo. Nas discussões de artigos, o mesmo botão também prepara os projetos quando a leitura do artigo fornece os dados necessários.
+
+== Novidades da 2.22.2 ==
+
+* Preserva Notas e referências quando há notas e fontes compatíveis e retira apenas a lista de notas comprovadamente vazia.
+* Corrige mais URLs e identificadores de citações, incluindo protocolos, arXiv, ISBN e ISSN, sem apagar informações conflitantes.
+* Amplia as conversões comprovadas de infocaixas, com campos de carreira, mandatos, aeroportos e dados biográficos preservados.
+* Reúne portais separados por comentários e organiza projetos irmãos junto de Ver também, inclusive Correlatos e Wikiversidade.
+* Mantém no máximo um esboço existente, escolhendo o primeiro específico quando há mais de um.
+* Marca Vigiar página ao concluir Ajustar código quando a opção nativa do editor estiver desmarcada.
+* Acrescenta Marca de projeto com ? quando falta essa marcação na discussão de um artigo, permitindo a avaliação automática nativa.
+* Acerta datas e campos de Traduzido, reúne os cabeçalhos da discussão na ordem preferida e retira metadados antigos conforme a regra de revisão.
+* Preenche o resumo da discussão com PD, Marca de projeto e Traduzido conforme as famílias alteradas, conservando resumos manuais.
+* Aplica o texto e preenche o resumo sem esperar uma contagem residual; quando necessária, ela termina separadamente sem bloquear a edição.
+* Amplia correções pontuais de texto e sintaxe e mantém código JavaScript, Lua, CSS e JSON fora dos ajustes de wikitexto.
+
+== Onde os ajustes entram ==
+
+Cada regra confere o contexto antes de escrever, por isso uma caixa com campos desconhecidos pode permanecer enquanto uma referência ou uma lista em outra parte recebe seu ajuste. A ferramenta informa o que corrigiu e deixa os demais trechos para a sua revisão normal.
+
+Artigos completos, rascunhos reconhecidos em subpáginas Testes/Rascunho, discussões e definições de predefinição têm regras próprias. Isso não transforma qualquer página de usuário em artigo. Exemplos literais, assinaturas, fórmulas, unidades, tabelas e dados bibliográficos mantêm suas proteções.
+
+== Notas e referências sem surpresas ==
+
+O formato preferido é <code><nowiki>{{Referências}}</nowiki></code>, ou <code><nowiki>{{Notas e referências}}</nowiki></code> quando notas e fontes podem ser reunidas sem perder grupos ou definições. A chamada fica separada do texto e das navegações. Cabeçalhos repetidos e opções apenas visuais podem sair, mas um título próprio, um banco preenchido ou um grupo especial pode precisar continuar.
+
+Em <code><nowiki>{{Referências|30em}}</nowiki></code>, o valor <code>30em</code> ocupa o campo nativo de título e é preservado. Em <code><nowiki>{{Reflist|30em}}</nowiki></code>, ele é uma opção de apresentação que pode dar lugar ao coletor simples. Esses dois exemplos não têm a mesma função.
+
+Quando a lista pertence a um subtítulo, divide a seção com cabeçalhos irmãos ou possui uma âncora que precisa ficar no lugar, o cabeçalho existente pode ser conservado. Nessas situações, uma chamada com <code>nível=0</code> evita criar outro título e mantém a organização da página.
+
+== Infocaixas no modelo certo ==
+
+A revisão usa o leitor da predefinição para decidir se um campo pode mudar de nome, mantendo o valor e a prioridade dos dados já preenchidos. Uma caixa reconhecida pode ganhar campos em linhas separadas, com um espaço depois de <code>=</code> nos valores preenchidos, enquanto um campo vazio fica sem preenchimento artificial.
+
+As conversões de caixas estrangeiras usam perfis específicos, com origem, campos, valores e modo de incorporação conferidos. O mesmo nome pode existir em duas línguas e encaminhar os dados de modo diferente. Nessa situação, a ausência de origem comprovada conserva a chamada. O catálogo da distribuição mostra os perfis ativos e os casos que permanecem condicionais, sem prometer uma conversão universal.
+
+Uma referência só acompanha a mudança de um campo quando a ferramenta confirma que a predefinição o lê e que a lista de fontes vai recebê-la. Campos de imagem, dimensões e caixas incorporadas têm verificações próprias.
+
+As conversões completas de caixas estrangeiras seguem perfis conferidos. Outras famílias podem receber correções pontuais, sem que toda a infocaixa seja convertida. O catálogo de modelos e campos traz os nomes, os destinos e as condições.
+
+== Portais e categorias com apoio no artigo ==
+
+Uma infocaixa, categoria original ou esboço específico pode fornecer o assunto de um portal quando existe um mapeamento conferido. Os temas compatíveis entram numa só chamada de Portal3. Uma menção de passagem, o clube de uma pessoa ou uma categoria recém-inferida não servem como confirmação independente de nacionalidade ou outro fato.
+
+Acrescentar uma categoria exige as condições do produtor habilitado, com identidade do assunto, evidência referenciada e destino conferidos. A ausência dessa prova conserva as categorias existentes e não impede outros ajustes. O catálogo distingue os reconhecedores ativos dos perfis apenas catalogados.
+
+== Um rodapé mais fácil de ler ==
+
+Listas comuns com menos de oito itens principais ficam sem colunas. Nas elegíveis com oito ou mais, os itens seguem um fluxo contínuo em duas colunas. Subitens, caixas de projetos irmãos e listas separadas por subtítulos não são somados para atingir esse mínimo.
+
+As caixas de projetos irmãos procuram Ver também, Ligações externas ou Leitura adicional, nessa ordem. Sem essas seções, podem ficar junto das referências. O rodapé conserva as chamadas nativas de navegação e identificadores, preserva Controle de autoridade e Controlo de autoridade válidos e mantém portais, esboço existente, coordenadas gerais e categorias em seus lugares próprios.
+
+== Discussão no mesmo botão ==
+
+O cabeçalho segue a ordem PD, Marca de projeto, Traduzido e OKA, com uma chamada por linha e os demais avisos depois. Os projetos compatíveis podem ser reunidos sem apagar importâncias, avaliações humanas, datas de tradução ou conversa. A chamada ativa de AvançarDiscussão pode sair, enquanto exemplos e comentários permanecem.
+
+Quando Marca de projeto traz <code>bot=</code>, a limpeza retira esse campo e todas as ocorrências de <code>rev</code>. Sem bot, retira a revisão de data válida anterior a 2021, conservando avaliações humanas e importâncias separadas. Datas inválidas ou a partir de 2021 permanecem quando não existe bot. O sinal <code>?</code> não desliga a estimativa do módulo nativo.
+
+Uma discussão de artigo sem uma chamada ativa de Marca de projeto recebe <code><nowiki>{{Marca de projeto|?}}</nowiki></code> abaixo de <code><nowiki>{{PD}}</nowiki></code>. Chamadas válidas, inclusive Marca de projecto, projetos e avaliações já existentes são preservados. O valor ? permite que a própria Wikipédia estime a qualidade, sem o RevisaWiki atribuir uma nota.
+
+O resumo acompanha as famílias alteradas, por exemplo <code><nowiki>{{PD}}{{Marca de projeto}}{{Traduzido}}</nowiki></code>. Uma atribuição acrescentada manualmente só entra nesse resumo quando pode ser comparada com a revisão exata carregada no editor. Um resumo que você escreveu permanece.
+
+== Todos os recursos, com exemplos ==
+
+A lista reúne correções automáticas, condições e cuidados de preservação. Os exemplos são ilustrativos ou sintéticos e não verificam os fatos de um artigo. Cada regra depende do modelo e do contexto indicados.
+
+=== Referências e notas ===
+
+<span id="REF-01"></span>
+==== Lista de referências em linha própria ====
+
+Separa o coletor do parágrafo, sem mudar o texto ou as fontes.
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+A alteração exige uma ocorrência completa, reconhecida e sem conflito.
+
+<span id="REF-02"></span>
+==== Coletores repetidos ====
+
+Retira uma cópia equivalente do mesmo coletor.
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Referências}}
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Referências}}</pre>
+
+Listas com grupos, definições internas ou funções diferentes não são cópias intercambiáveis.
+
+<span id="REF-03"></span>
+==== Notas e referências juntas ====
+
+Reúne listas compatíveis em uma chamada de Notas e referências, mesmo com a ordem invertida ou com lacunas entre elas.
+
+'''Antes'''
+<pre>Texto{{Nre|Uma explicação.}}.&lt;ref&gt;Uma fonte.&lt;/ref&gt;
+{{Notas}}
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto{{Nre|Uma explicação.}}.&lt;ref&gt;Uma fonte.&lt;/ref&gt;
+{{Notas e referências}}</pre>
+
+Confere os grupos, bancos, definições e produtores de notas antes da união. Bancos preenchidos, grupos especiais e títulos com função própria podem exigir coletores separados.
+
+'''Antes'''
+<pre>Texto&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Notas}}</pre>
+'''Depois'''
+<pre>Texto&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Quando Notas é o único coletor simples e há fonte padrão real antes dele, restaura diretamente o coletor padrão. Inventário fechado, sem argumentos, banco, outro grupo ou título personalizado.
+
+'''Antes'''
+<pre>Texto&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Notas}}</pre>
+'''Depois'''
+<pre>Texto&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Notas e referências}}</pre>
+
+Mesma prova do coletor único, conservando nota/lower-alpha e as fontes. Outros grupos ou produtores posteriores ficam retidos.
+
+'''Antes'''
+<pre>Texto.
+== Notas ==
+{{Notas}}</pre>
+'''Depois'''
+<pre>Texto.
+</pre>
+
+Notas isolada sem argumentos, nenhuma chamada ref/helper e inventário completo de produtores conhecidos. Título personalizado e prosa permanecem, desconhecidos retêm a chamada.
+
+'''Antes'''
+<pre>Texto&lt;ref group="lower-alpha"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Notas}}
+{{Notelist|30em}}
+
+{{Referências}}
+{{Reflist|30em}}</pre>
+'''Depois'''
+<pre>Texto&lt;ref group="lower-alpha"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Notas e referências}}</pre>
+
+Os grupos já foram recolhidos pelos primeiros coletores, as listas com largura são posteriores e redundantes. Sem definições internas ou novos produtores entre elas.
+
+'''Antes'''
+<pre>Texto&lt;ref group="lower-alpha"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+== Notas ==
+&lt;div class="references"&gt;&lt;references group=lower-alpha/&gt;&lt;/div&gt;
+
+== Referência ==
+&lt;references /&gt;</pre>
+'''Depois'''
+<pre>Texto&lt;ref group="lower-alpha"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Notas e referências}}</pre>
+
+Somente div com a classe references, sem outros atributos, id, estilo, conteúdo extra ou definições. Grupos e chamadas conservados. Ligações a âncoras impedem a convergência quando não há prova para mantê-las.
+
+<span id="REF-04"></span>
+==== Formato nativo da lista ====
+
+Usa Referências nos coletores equivalentes e retira opções apenas de apresentação, sem perder grupos, bancos ou títulos próprios.
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+== Referências ==
+&lt;references/&gt;</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Referências}}</pre>
+
+Reflist|30em e opções como col=2 ou colwidth=30em podem dar lugar ao coletor simples. Em Referências|30em, o argumento 30em é um título nativo e permanece. Um título próprio conserva sua seção e pode exigir nível=0. Subtítulos de níveis 3 a 6, cabeçalhos irmãos ou âncoras podem exigir conservar o cabeçalho existente e usar nível=0.
+
+'''Antes'''
+<pre>== Referências ==
+{{Reflist|30em}}</pre>
+'''Depois'''
+<pre>{{Referências}}</pre>
+
+A largura herdada é uma opção de apresentação. A chamada não traz banco, título próprio ou grupo especial.
+
+'''Antes'''
+<pre>{{Referências|30em}}</pre>
+'''Depois'''
+<pre>{{Referências|30em}}</pre>
+
+Nesta predefinição nativa, o argumento posicional é o título da seção, não uma largura.
+
+<span id="REF-05"></span>
+==== Pontuação junto às referências ====
+
+Põe a pontuação existente antes de uma chamada ou sequência de chamadas, nos contextos sem ambiguidade.
+
+'''Antes'''
+<pre>Uma frase&lt;ref name="fonte" /&gt;.</pre>
+'''Depois'''
+<pre>Uma frase.&lt;ref name="fonte" /&gt;</pre>
+
+Não cria sinais, não muda o corpo das fontes e preserva casos ambíguos com aspas, abreviaturas ou reticências.
+
+'''Antes'''
+<pre>Texto. {{sfn|Autor|2020}}</pre>
+'''Depois'''
+<pre>Texto.{{sfn|Autor|2020}}</pre>
+
+Só espaço horizontal após pontuação e antes de sfn reconhecida. Não consome nova linha.
+
+<span id="REF-06"></span>
+==== Fontes anônimas idênticas ====
+
+Transforma repetições da mesma fonte em uma definição nomeada e reutilizações.
+
+'''Antes'''
+<pre>A.&lt;ref&gt;{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}&lt;/ref&gt;
+B.&lt;ref&gt;{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>A.&lt;ref name="Exemplo2001-1"&gt;{{citar livro|ultimo=Exemplo|primeiro=Ana|titulo=Obra fictícia|ano=2001}}&lt;/ref&gt;
+B.&lt;ref name="Exemplo2001-1" /&gt;</pre>
+
+O nome ilustrado depende dos campos presentes e da disponibilidade. Nomes ocupados recebem desambiguação, e definições divergentes não são fundidas. Nomes possíveis presentes como argumentos literais de outras chamadas ficam reservados, inclusive na forma NFC, para que uma definição nova não capture uma identidade existente.
+
+'''Antes'''
+<pre>A&lt;ref&gt; Fonte. &lt;/ref&gt; B&lt;ref&gt;Fonte.&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>A&lt;ref name="ref-auto-1"&gt; Fonte. &lt;/ref&gt; B&lt;ref name="ref-auto-1" /&gt;</pre>
+
+Mesmo grupo e região, corpo simples com diferença apenas em espaços externos sem significado. Conserva o corpo da primeira definição e evita nomes ocupados.
+
+<span id="REF-07"></span>
+==== Reutilizações adjacentes iguais ====
+
+Retira a segunda chamada consecutiva da mesma fonte.
+
+'''Antes'''
+<pre>Texto.&lt;ref name="a" /&gt;&lt;ref name="a" /&gt;</pre>
+'''Depois'''
+<pre>Texto.&lt;ref name="a" /&gt;</pre>
+
+Definições e reutilizações em pontos diferentes do texto ficam intactas.
+
+<span id="REF-08"></span>
+==== Aviso de ligação inativa no campo próprio ====
+
+Leva a data existente do aviso ao campo datali da citação.
+
+'''Antes'''
+<pre>&lt;ref&gt;{{citar web|url=https://example.invalid/|titulo=Documento}}{{Ligação inativa|data=novembro de 2026}}&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>&lt;ref&gt;{{citar web|url=https://example.invalid/|titulo=Documento|datali=novembro de 2026}}&lt;/ref&gt;</pre>
+
+Exige uma data de calendário reconhecida já informada, uma única citação web ou de jornal associada e URL principal inequívoca. Não inventa datas, remove arquivos ou sobrescreve campos divergentes.
+
+<span id="REF-09"></span>
+==== Grupo único de notas explicativas ====
+
+Adapta um grupo importado quando todos os seus produtores e coletores têm a mesma função.
+
+'''Antes'''
+<pre>Texto&lt;ref group="note"&gt;Explicação.&lt;/ref&gt;.&lt;ref&gt;Fonte.&lt;/ref&gt;
+== Notas ==
+&lt;references group="note"/&gt;
+
+&lt;references/&gt;</pre>
+'''Depois'''
+<pre>Texto&lt;ref group="nota"&gt;Explicação.&lt;/ref&gt;.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Notas e referências}}</pre>
+
+Apenas um grupo explicativo simples, com inventário completo dos seus usos, definições e coletores. Grupos misturados ou com significado próprio não são fundidos por semelhança.
+
+<span id="REF-10"></span>
+==== Coletor que falta para notas ====
+
+Acrescenta a lista de notas reconhecidas quando as chamadas existem e falta o coletor.
+
+'''Antes'''
+<pre>Texto{{Nre|Explicação.}}.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto{{Nre|Explicação.}}.&lt;ref&gt;Fonte.&lt;/ref&gt;
+{{Notas e referências}}</pre>
+
+Exige confirmar o tipo de nota e o lugar em que suas definições podem ser recolhidas.
+
+<span id="REF-11"></span>
+==== Referência definida na primeira chamada ====
+
+Leva uma definição única para sua primeira reutilização, mantendo as chamadas seguintes.
+
+'''Antes'''
+<pre>A.&lt;ref name="a" /&gt;
+B.&lt;ref name="a"&gt;Fonte.&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>A.&lt;ref name="a"&gt;Fonte.&lt;/ref&gt;
+B.&lt;ref name="a" /&gt;</pre>
+
+Exige a mesma identidade, grupo e conteúdo, sem produção dinâmica ou cópia protegida.
+
+<span id="REF-12"></span>
+==== Nomes numéricos inválidos ====
+
+Substitui nomes exclusivamente numéricos e todas as suas chamadas por um nome válido.
+
+'''Antes'''
+<pre>A.&lt;ref name="123"&gt;Fonte.&lt;/ref&gt; B.&lt;ref name="123" /&gt;</pre>
+'''Depois'''
+<pre>A.&lt;ref name="ref-123"&gt;Fonte.&lt;/ref&gt; B.&lt;ref name="ref-123" /&gt;</pre>
+
+O nome ilustrado pode receber outro sufixo se já existir. Não altera nomes não numéricos por semelhança. Um nome numérico, por si só, não demonstra ausência de definição, retirar uma reutilização exige outro inventário completo.
+
+<span id="REF-13"></span>
+==== Aspas quebradas no nome da fonte ====
+
+Corrige duplicação inequívoca do delimitador do nome.
+
+'''Antes'''
+<pre>Uma referência com delimitador de nome duplicado e família de chamadas conferida.</pre>
+'''Depois'''
+<pre>A mesma família com o delimitador corrigido, conservando definição e reutilizações.</pre>
+
+A correção precisa preservar o vínculo de todas as chamadas.
+
+<span id="REF-14"></span>
+==== Sintaxe local das etiquetas ref ====
+
+Repara grafias ou fechamentos finitos em limites confirmados.
+
+'''Antes'''
+<pre>Uma etiqueta ref com erro exato de sintaxe e limites inequívocos.</pre>
+'''Depois'''
+<pre>A mesma etiqueta com sintaxe válida, sem mudar o conteúdo da fonte.</pre>
+
+Não fecha uma referência a partir de uma suposição sobre onde termina a fonte.
+
+<span id="REF-15"></span>
+==== Referências com ligação simples ====
+
+Adapta uma referência que contém somente um endereço ou uma ligação simples quando há dados suficientes.
+
+'''Antes'''
+<pre>&lt;ref&gt;[https://example.invalid/ Documento fictício]&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>&lt;ref&gt;{{citar web|url=https://example.invalid/|titulo=Documento fictício}}&lt;/ref&gt;</pre>
+
+Não inventa autoria, data, editora ou data de acesso.
+
+<span id="REF-16"></span>
+==== Notas com referência interna ====
+
+Usa um invólucro nativo nos casos em que uma nota precisa conter outra referência.
+
+'''Antes'''
+<pre>&lt;ref group="nota"&gt;Explicação.&lt;ref&gt;Fonte da explicação.&lt;/ref&gt;&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>{{Refn|1=Explicação.&lt;ref&gt;Fonte da explicação.&lt;/ref&gt;|group=nota}}</pre>
+
+A transformação exige conferir o coletor, os atributos e a ligação com o grupo.
+
+<span id="REF-17"></span>
+==== Citações abreviadas e bibliografia ====
+
+Corrige destinos e campos de citações abreviadas nos contratos previstos.
+
+'''Antes'''
+<pre>{{harvnb|Exemplo|2001|loc=capítulo 2|pp=10–12}}</pre>
+'''Depois'''
+<pre>{{harvnb|Exemplo|2001|loc=capítulo 2|pp=10–12}}</pre>
+
+Uma chamada válida permanece. Só há reparo quando o destino ou parâmetro pode ser comprovado, sem inventar uma obra.
+
+<span id="REF-18"></span>
+==== Nomes descritivos de referências ====
+
+Pode trocar nomes automáticos pouco legíveis por nomes derivados dos dados já presentes na citação.
+
+'''Antes'''
+<pre>&lt;ref name=":0"&gt;{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}&lt;/ref&gt; Texto.&lt;ref name=":0" /&gt;</pre>
+'''Depois'''
+<pre>&lt;ref name="Exemplo2001-1"&gt;{{citar livro|ultimo=Exemplo|titulo=Obra fictícia|ano=2001}}&lt;/ref&gt; Texto.&lt;ref name="Exemplo2001-1" /&gt;</pre>
+
+Usa os dados da própria citação e evita nomes repetidos. Só muda os nomes quando consegue acompanhar todas as definições e chamadas da fonte. Mantém os nomes se uma predefinição ou um banco de referências impedir essa conferência. Quando reconhece uma chamada simples de URL com endereço externo e texto fixo, preserva a ligação e pode ajustar os nomes das referências.
+
+<span id="REF-19"></span>
+==== Nomes automáticos antigos ====
+
+Retira a identificação antiga do programa dos nomes de fontes e atualiza as chamadas.
+
+'''Antes'''
+<pre>A.&lt;ref name="RevisaWiki-auto-7"&gt;Fonte.&lt;/ref&gt; B.&lt;ref name="RevisaWiki-auto-7" /&gt;</pre>
+'''Depois'''
+<pre>A.&lt;ref name="ref-auto-7"&gt;Fonte.&lt;/ref&gt; B.&lt;ref name="ref-auto-7" /&gt;</pre>
+
+Pode usar um nome derivado da fonte quando há metadados reconhecidos. Na ausência deles, conserva a nomeação neutra e evita colisões.
+
+<span id="REF-20"></span>
+==== Mesma definição em toda a página ====
+
+Aplica reparos de uma definição nomeada junto das cópias que dependem dela.
+
+'''Antes'''
+<pre>Duas referências com o mesmo nome e corpos diferentes.</pre>
+'''Depois'''
+<pre>Os dois corpos continuam distintos, sem declarar fontes diferentes como iguais.</pre>
+
+Quando há prova suficiente, nomes conflitantes recebem desambiguação e chamadas relacionadas são conservadas. Uma cópia protegida impede alterações incompatíveis nas demais.
+
+<span id="REF-21"></span>
+==== Cabeçalhos vazios que repetem o coletor ====
+
+Retira uma cadeia vazia de títulos que apenas anuncia a mesma lista.
+
+'''Antes'''
+<pre>== Referências ==
+===Notas===
+{{Referências}}</pre>
+'''Depois'''
+<pre>{{Referências}}</pre>
+
+Os títulos precisam estar junto de seu coletor. Texto de notas, bibliografia e conteúdo entre títulos permanecem.
+
+<span id="REF-22"></span>
+==== Rodapé de notas importado ====
+
+Adapta um coletor de notas estrangeiro quando todas as notas daquele grupo podem ser conferidas.
+
+'''Antes'''
+<pre>Texto&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;
+{{NoteFoot}}</pre>
+'''Depois'''
+<pre>Texto&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;
+{{Notas}}</pre>
+
+Exige um grupo único observado, sem produtores opacos ou listas com funções diferentes. Não mistura grupos de propósito distinto.
+
+<span id="REF-23"></span>
+==== Definições nomeadas repetidas em pontos separados ====
+
+Mantém uma definição e usa chamadas no lugar de cópias idênticas da mesma fonte.
+
+'''Antes'''
+<pre>A.&lt;ref name="a"&gt;Fonte.&lt;/ref&gt;
+B.&lt;ref name="a"&gt;Fonte.&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>A.&lt;ref name="a"&gt;Fonte.&lt;/ref&gt;
+B.&lt;ref name="a" /&gt;</pre>
+
+Nome, grupo, atributos e corpo precisam ser equivalentes. A posição de cada chamada é preservada. Fontes com corpos diferentes não são declaradas iguais.
+
+<span id="REF-24"></span>
+==== Metadados complementares da mesma obra ====
+
+Reúne dados bibliográficos complementares em referências comprovadamente da mesma obra.
+
+'''Antes'''
+<pre>Duas referências com título, ano, editora, ISBN válido e autoria iguais, uma delas com idioma ou ligação adicional.</pre>
+'''Depois'''
+<pre>Uma definição com os dados complementares e as mesmas chamadas nos pontos de citação.</pre>
+
+A união é restrita a livros com identidade exata. Páginas, capítulos, edições ou outros localizadores conflitantes impedem a união.
+
+<span id="REF-25"></span>
+==== Atributos nativos de referência ====
+
+Adapta nome/grupo para name/group em etiquetas ref literais.
+
+'''Antes'''
+<pre>A&lt;ref nome="a" grupo="nota"&gt;Fonte.&lt;/ref&gt; B&lt;ref nome="a" grupo="nota"/&gt;</pre>
+'''Depois'''
+<pre>A&lt;ref name="a" group="nota"&gt;Fonte.&lt;/ref&gt; B&lt;ref name="a" group="nota"/&gt;</pre>
+
+Definição e reutilizações coerentes, sem colisões ou atributos desconhecidos. Conserva corpo e grupo.
+
+<span id="REF-26"></span>
+==== Operadores finitos nos atributos ====
+
+Repara dois operadores incorretos em atributos conhecidos.
+
+'''Antes'''
+<pre>A&lt;ref name:"a"&gt;Fonte.&lt;/ref&gt; B&lt;ref name=="a"/&gt;</pre>
+'''Depois'''
+<pre>A&lt;ref name="a"&gt;Fonte.&lt;/ref&gt; B&lt;ref name="a"/&gt;</pre>
+
+Somente : e == na estrutura comprovada. Exemplos citados, nomes dinâmicos e conflitos permanecem.
+
+<span id="REF-27"></span>
+==== Reutilização sem definição comprovada ====
+
+Retira só uma chamada cuja falta de definição foi confirmada.
+
+'''Antes'''
+<pre>Texto&lt;ref name="ausente"/&gt; continua.</pre>
+'''Depois'''
+<pre>Texto continua.</pre>
+
+A retirada exige inventário fechado de todos os possíveis produtores, incluindo bancos e auxiliares R. Uma definição possível em modelo não reconhecido ou um trecho incompleto conserva a chamada.
+
+<span id="REF-28"></span>
+==== Coletores sem invólucros apenas visuais ====
+
+Retira uma coluna ou div simples que envolve somente o coletor de referências.
+
+'''Antes'''
+<pre>{{Colunas-lista|2|2=&lt;references /&gt;}}</pre>
+'''Depois'''
+<pre>{{Referências}}</pre>
+
+Só aceita o contêiner conhecido com um único coletor. IDs, prosa, conteúdo extra e estilos com outras funções permanecem.
+
+<span id="REF-29"></span>
+==== Identidades Unicode preservadas ====
+
+Mantém nomes de referências distintos, mesmo quando têm aparência parecida.
+
+'''Antes'''
+<pre>&lt;ref name="fonte-α"&gt;Fonte A.&lt;/ref&gt;&lt;ref name="fonte-a"&gt;Fonte B.&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>&lt;ref name="fonte-α"&gt;Fonte A.&lt;/ref&gt;&lt;ref name="fonte-a"&gt;Fonte B.&lt;/ref&gt;</pre>
+
+Não une identidades por semelhança visual nem por normalização Unicode. Definições e reutilizações precisam continuar ligadas à mesma fonte.
+
+<span id="RW2222-001"></span>
+==== URLs bibliográficas escritas como ligações completas ====
+
+URLs bibliográficas escritas como ligações completas
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=[https://example.org/a Documento]}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Rótulo idêntico ao título, endereço único, sem perda de texto ou conflito de aliases.
+
+<span id="RW2222-002"></span>
+==== Barra ausente em protocolo de URL ====
+
+Barra ausente em protocolo de URL
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https:/example.org/a?x=1&amp;y=2#parte}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a?x=1&amp;y=2#parte}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Hostname válido e preservação exata de caminho, consulta e fragmento.
+
+<span id="RW2222-003"></span>
+==== Referência fechada antes de sua citação ====
+
+Referência fechada antes de sua citação
+
+'''Antes'''
+<pre>Texto.&lt;ref name="a"/&gt;{{Citar livro|título=Obra|ano=2020}}&lt;/ref&gt;
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref name="a"&gt;{{Citar livro|título=Obra|ano=2020}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Uma citação completa, sem texto intermediário, produtor desconhecido ou definição concorrente.
+
+<span id="RW2222-004"></span>
+==== URL original recuperada de captura Wayback ====
+
+URL original recuperada de captura Wayback
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=1 de janeiro de 2024}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=1 de janeiro de 2024|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+A captura e a data precisam concordar, sem URL concorrente. Preserva arquivo, data e acesso; não cria a URL geral de um livro a partir do endereço próprio de um capítulo.
+
+<span id="RW2222-005"></span>
+==== PDF oficial do arXiv em campo de identificador ====
+
+PDF oficial do arXiv em campo de identificador
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|arxiv=https://arxiv.org/pdf/2301.01234v2.pdf}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|arxiv=2301.01234v2}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Host, rota e gramática oficiais; sem ID concorrente ou extração de nomes arbitrários.
+
+<span id="RW2222-006"></span>
+==== Separador de ISSN validado ====
+
+Separador de ISSN validado
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|issn=0378 5955}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|issn=0378-5955}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Preservar os oito caracteres e distinguir ISSN de eISSN.
+
+<span id="RW2222-013"></span>
+==== Troca recíproca inequívoca de ISBN e ISSN ====
+
+Troca recíproca inequívoca de ISBN e ISSN
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|isbn=0378-5955|issn=9780306406157}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|isbn=9780306406157|issn=0378-5955}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Ambos os valores integrais devem ser válidos exclusivamente no papel oposto, com checksums e campos únicos.
+
+<span id="RW2222-014"></span>
+==== Tipografia Unicode em identificadores verificáveis ====
+
+Tipografia Unicode em identificadores verificáveis
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|isbn=９７８０３０６４０６１５７}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|isbn=9780306406157}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Lista finita de dígitos de largura completa/separadores dentro de identificador integral; gramática e checksum final válidos.
+
+<span id="RW2222-015"></span>
+==== Identificador singular literalmente repetido ====
+
+Identificador singular literalmente repetido
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|doi=10.1038/nphys1170; 10.1038/nphys1170}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|doi=10.1038/nphys1170}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Mesmo identificador completo em campo singular e separador inequívoco.
+
+<span id="RW2222-016"></span>
+==== Resolvedores bibliográficos oficiais adicionais ====
+
+Resolvedores bibliográficos oficiais adicionais
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|jstor=https://www.jstor.org/stable/1234567}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|jstor=1234567}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Apenas host/caminho oficial integral conferido e consumidor tipado comprovado; qualificar cada resolvedor separadamente.
+
+<span id="RW2222-017"></span>
+==== arXiv explicitamente rotulado com classe de assunto ====
+
+arXiv explicitamente rotulado com classe de assunto
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|arxiv=arXiv:2101.00001v2 [hep-th]}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|arxiv=2101.00001v2|classe=hep-th}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Código e classe integralmente validados, preservando versão, sem classe concorrente.
+
+<span id="RW2222-018"></span>
+==== DOI explicitamente rotulado no campo id ====
+
+DOI explicitamente rotulado no campo id
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|id=DOI:10.1038/nphys1170}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|doi=10.1038/nphys1170}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Identificador único integral explicitamente rotulado e destino tipado ausente/equivalente.
+
+<span id="RW2222-019"></span>
+==== Prefixos de paginação alfanumérica e descontínua ====
+
+Prefixos de paginação alfanumérica e descontínua
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|páginas=pp. A1–A3, B5}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|páginas=A1–A3, B5}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Retirar somente rótulo redundante sob gramática explícita, conservando todos os localizadores/separadores/ordem.
+
+<span id="RW2222-020"></span>
+==== Três ou mais campos de língua explícitos ====
+
+Três ou mais campos de língua explícitos
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|língua=en|língua2=fr|língua3=de}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|língua=en, fr, de}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Estender composição existente com prioridade real do leitor, códigos aceitos e ordem preservada.
+
+<span id="RW2222-021"></span>
+==== ISBN com qualificador físico explícito ====
+
+ISBN com qualificador físico explícito
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|isbn=9780306406157 (brochura)}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|isbn=9780306406157}} (brochura)&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Um único ISBN válido, qualificador de vocabulário fechado e representação nativa que preserve associação; nenhum id concorrente.
+
+<span id="RW2222-022"></span>
+==== Enumerações e positivos explícitos de flags ====
+
+Enumerações e positivos explícitos de flags
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|modo=CS1|páginas=7|nopp=verdadeiro}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|modo=cs1|páginas=7|nopp=sim}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Mapeamentos finitos só em papel efetivamente lido pelo consumidor; confirmar leitor atual.
+
+<span id="RW2222-023"></span>
+==== Parênteses redundantes de apresentação no formato ====
+
+Parênteses redundantes de apresentação no formato
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a.pdf|formato=(PDF)}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a.pdf|formato=PDF}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Um par externo envolvendo integralmente rótulo conhecido quando consumidor já acrescenta o par.
+
+<span id="RW2222-024"></span>
+==== Separador incorreto no prefixo de título original ====
+
+Separador incorreto no prefixo de título original
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|título-translit=ja=原題}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|título-translit=ja:原題}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Prefixo explícito de língua aceita e conteúdo original preservado integralmente.
+
+<span id="RW2222-040"></span>
+==== Índices portugueses de editores ====
+
+Índices portugueses de editores
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar enciclopédia|título=Documento|editor1-sobrenome=Exemplo|editor1-nome=Pessoa|editor2-sobrenome=Modelo|editor2-nome=Outra}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar enciclopédia|título=Documento|editor-sobrenome1=Exemplo|editor-nome1=Pessoa|editor-sobrenome2=Modelo|editor-nome2=Outra}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+editor1-sobrenome/editor1-nome/editor2-sobrenome/editor2-nome para editor-sobrenome1/editor-nome1 etc. A regra já existe, mas não alcança este leitor. Preservar os pares e autores separados. Sem aliases concorrentes.
+
+<span id="RW2222-041"></span>
+==== Título traduzido guardado em tradtítulo ====
+
+Título traduzido guardado em tradtítulo
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Original|tradtítulo=Tradução}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Original|títulotrad=Tradução}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Mapear chave preenchida para TransTitle/títulotrad somente com consumidor confirmado e sem concorrente. Conservar título original e tradução integral. Não traduzir texto nem confundir subtítulo.
+
+<span id="RW2222-042"></span>
+==== Cobertura da família de citações de conferências ====
+
+Cobertura da família de citações de conferências
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar conferência|title=Trabalho|booktitle=Anais|conference=Evento|conferencia-url=https://example.org/evento}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar conferência|título=Trabalho|títulolivro=Anais|conferência=Evento|conferência-url=https://example.org/evento}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Fechar o leitor para normalizar campos conhecidos independentes. Os dois corpos ficaram integrais. Conservar título dos anais, título do trabalho, evento e URL em papéis próprios. Não converter automaticamente para livro; data numérica ambígua permanece.
+
+<span id="RW2222-043"></span>
+==== Preserva o número eletrônico de um artigo de periódico ====
+
+Preserva o número eletrônico de um artigo de periódico
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento|article-number=000123}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar periódico|título=Documento}} Artigo 000123&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Usa a forma literal "Artigo" e mantém o código exato dentro da mesma referência. A conversão exige uma única citação de periódico, sem páginas nem localizador concorrente. Não transforma esse código em número de página.
+
+<span id="RW2222-044"></span>
+==== Ordinais por extenso no campo de edição ====
+
+Ordinais por extenso no campo de edição
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|edition=Third}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|edição=3.ª}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Vocabulário finito de ordinais como Third→3.ª dentro de Edition único. Não alterar editoras/títulos com Third nem adivinhar edições especiais ou compostas.
+
+<span id="RW2222-045"></span>
+==== Data original importada ====
+
+Data original importada
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar jornal|título=Documento|orig-date=August 4, 2025|data=17 de junho de 2026}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar jornal|título=Documento|anooriginal=August 4, 2025|data=17 de junho de 2026}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Mantém a data original completa no campo nativo correspondente, sem substituir a data de publicação. Datas originais conflitantes ou sem correspondência comprovada ficam preservadas.
+
+<span id="RW2222-046"></span>
+==== Chamadas bibliográficas especializadas importadas ====
+
+Chamadas bibliográficas especializadas importadas
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{cite APOD|title=Documento|date=24 Junho 2002|access-date=8 Março 2016|apod=020624}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|data=24 de junho de 2002|acessodata=8 de março de 2016|url=https://apod.nasa.gov/apod/ap020624.html|obra=[[Astronomy Picture of the Day]]|publicado=[[NASA]]|editor-sobrenome1=Nemiroff|editor-nome1=R.|editor-sobrenome2=Bonnell|editor-nome2=J.}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Converte chamadas simples e conferidas de APOD e Instagram para o modelo local, preservando título, datas, endereço e créditos. Chamadas com campos adicionais ou concorrentes permanecem intactas.
+
+<span id="RW2222-047"></span>
+==== Gerador de URL estrangeiro dentro de url ====
+
+Gerador de URL estrangeiro dentro de url
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|url={{google books|id=ExampleId|page=152|text=texto exato|plainurl=yes}}}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|url=https://books.google.com/books?id=ExampleId&amp;pg=PA152&amp;dq=%22texto+exato%22}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Converte o auxiliar Google books somente quando plainurl pede um endereço simples e seus argumentos foram conferidos. Preserva o identificador, a página e toda a consulta.
+
+<span id="RW2222-053"></span>
+==== Mantém notas e referências reunidas quando a chamada já está correta ====
+
+Mantém notas e referências reunidas quando a chamada já está correta
+
+'''Antes'''
+<pre>Texto.&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Notas e referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref group="nota"&gt;Nota.&lt;/ref&gt;&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+{{Notas e referências}}</pre>
+
+A chamada combinada permanece quando há notas compatíveis e referências. O problema de separação relatado não foi reproduzido nos testes desta versão, e esta entrada documenta a preservação desse comportamento.
+
+<span id="RW2222-054"></span>
+==== Limpeza de notas vazias não alcança o coletor combinado ====
+
+Limpeza de notas vazias não alcança o coletor combinado
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;Fonte&lt;/ref&gt;
+{{Notas e referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;Fonte&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Converter a chamada unificada em Referências somente quando o grafo fechado comprovar ausência de notas, grupos especiais, argumentos personalizados e âncoras. Preservar a chamada unificada quando houver notas convencionais e referências. Não gerar duas chamadas para resolver este caso.
+
+<span id="RW2222-062"></span>
+==== Data de arquivo em chave invertida com alias nativo preenchido ====
+
+Data de arquivo em chave invertida com alias nativo preenchido
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20210109000000/https://example.org/a|dataarquivo=9 de janeiro de 2021|arquivodata=2021-01-09}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20210109000000/https://example.org/a|arquivodata=2021-01-09}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Tratar dataarquivo/data-arquivo independentemente do erro de URL antigo. Quando dataarquivo e arquivodata são o mesmo dia comprovado, consolidar sem perder data nem captura. Quando só a chave errada existe, mapear apenas se papel e par URL/data forem comprovados. Valores conflitantes, datas ambíguas, mudança de captura e aliases concorrentes retêm ambos. Não escolher data pela aparência nem inventar data de arquivo.
+
+<span id="RW2222-063"></span>
+==== Crédito de tradutor em sinônimo não consumido ====
+
+Crédito de tradutor em sinônimo não consumido
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|autor=Original|tradutor-sobrenome=Exemplo|tradutor-nome=Pessoa}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|autor=Original|tradutor-ultimo=Exemplo|tradutor-primeiro=Pessoa}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Qualificar tradutor-sobrenome e os índices/companheiros ao papel TranslatorList-Last efetivamente lido, preservando autoria original separada, nome do tradutor e índices. Conferir wrapper e leitor antes de renomear. Não transformar tradutor em autor nem completar nomes. O leitor final pode exigir mudança da predefinição; catálogo de nomes ou preferência de chave não comprova consumo.
+
+<span id="RW2222-064"></span>
+==== Cabeçalho de citação contaminado por url ou endereço ====
+
+Cabeçalho de citação contaminado por url ou endereço
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{citar url=https://example.org/a|título=Documento}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{citar url=https://example.org/a|título=Documento}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Preserva o cabeçalho incompleto quando não há indicação comprovada do tipo de fonte. Um endereço, por si só, não permite escolher o modelo bibliográfico.
+
+<span id="RW2222-065"></span>
+==== Capítulo e intervalo de versículos no campo verso nativo ====
+
+Capítulo e intervalo de versículos no campo verso nativo
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar bíblia|livro=Atos|verso=28:1-10|citação=Texto}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar bíblia|livro=Atos|verso=1|capítulo=28|verso_final=10|citação=Texto}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Estender a gramática já existente de passagem única capítulo:verso-final ao uso nomeado verso=28:1-10, quando livro é reconhecido e capítulo/verso_final estão ausentes, preservando ambos extremos e edição. Não atravessar capítulos, resolver livros ambíguos, descartar edição/citação ou sobrescrever capítulo/verso_final. Intervalos invertidos ou misturados retêm a chamada.
+
+<span id="RW2222-066"></span>
+==== Nome de citação jornalística com acento perdido ====
+
+Nome de citação jornalística com acento perdido
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{citar noticia|title=Documento|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar jornal|título=Documento|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Qualificar a variante exata citar noticia contra o leitor da família Citar notícia/Citar jornal, com todos os argumentos conhecidos preservados. Sem reclassificar outra publicação pelo título. Cabeçalho atual não é reconhecido. Não extrapolar remoção de acentos a nomes arbitrários ou trocar modelo desconhecido por Citar web. Deve fechar o contrato do redirecionamento/modelo nativo. Conferir se a grafia sem acento já é um redirecionamento nativo válido antes de classificar a chamada como erro. O não reconhecimento pelo RevisaWiki não prova um erro de exibição na Wikipédia.
+
+<span id="RW2222-077"></span>
+==== Concluir a conversão de marcas de ligação inativa diante de quebras e redundância ====
+
+Concluir a conversão de marcas de ligação inativa diante de quebras e redundância
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a}}
+{{Ligação inativa|data=novembro de 2026}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a|datali=novembro de 2026}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Reconhecer apenas a mesma citação e a mesma marca associada quando uma quebra de linha substitui um espaço. Transportar somente data informada e válida, preservando URL e captura. Para marca sem data ao lado de datali já preenchido, retirar redundância só com equivalência comprovada do consumidor. Nunca inventar datas nem sobrescrever valores conflitantes.
+
+<span id="RW2222-080"></span>
+==== Aplica os ajustes de citações em páginas de ajuda e de categoria ====
+
+Aplica os ajustes de citações em páginas de ajuda e de categoria
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|title=Documento|website=Sítio|publisher=Editora|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|obra=Sítio|publicado=Editora|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+O exemplo representa texto ativo de uma página de ajuda. Exemplos protegidos por nowiki ou por blocos de código ficam como estão.
+
+<span id="RW2222-HOLD-02"></span>
+==== Localizador explícito preservado com paginação estruturada ====
+
+Localizador explícito preservado com paginação estruturada
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|página=12|em=§ 3}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar livro|título=Documento|página=12}} § 3&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Uma citação completa isolada no mesmo ref, páginas estruturadas e localizador literal simples, sem texto concorrente.
+
+<span id="RW2222-HOLD-06"></span>
+==== Separador ausente após campo autor explícito ====
+
+Separador ausente após campo autor explícito
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|autorInstituição Exemplo=|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|autor=Instituição Exemplo|url=https://example.org/a}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Prefixo autor explícito com nome literal de várias palavras em chave vazia, sem alias conhecido após normalização, rótulo de campo ou autor concorrente.
+
+<span id="RW2222-HOLD-07"></span>
+==== Indicador explícito de outros autores ====
+
+Indicador explícito de outros autores
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar relatório|título=Documento|autor=Exemplo|etal=sim|edição=Órgão emissor}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar relatório|título=Documento|autor=Exemplo|numero-autores=etal|edição=Órgão emissor}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+etal=sim com pelo menos um autor e sem controles de exibição concorrentes; mantém nomes e demais campos.
+
+=== Parâmetros e conteúdo das citações ===
+
+<span id="CIT-01"></span>
+==== Predefinições bibliográficas em português ====
+
+Adapta nomes estrangeiros aos modelos nativos com função equivalente.
+
+'''Antes'''
+<pre>{{cite web|url=https://example.invalid/|title=Documento|access-date=November 1, 2026}}</pre>
+'''Depois'''
+<pre>{{Citar web|url=https://example.invalid/|título=Documento|acessodata=1 de novembro de 2026}}</pre>
+
+O nome exato e a capitalização da saída seguem o mapa conferido. Não transforma indistintamente toda Citation em Citar web. Um argumento opaco vizinho não impede reparos conhecidos e independentes, seu conteúdo permanece.
+
+<span id="CIT-02"></span>
+==== Chaves inglesas também aceitas ====
+
+Prefere os nomes portugueses conferidos, mesmo quando o alias inglês continua funcionando.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/|title=Documento|access-date=November 1, 2026}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|título=Documento|acessodata=1 de novembro de 2026}}</pre>
+
+O papel de cada campo é conferido no leitor da família. Funções especializadas, como developer em Citar jogo eletrônico, usam seu próprio campo nativo e não são transformadas em autoria. website corresponde a obra e publisher a publicado nos leitores compatíveis. Chaves de estado da URL permanecem ligadas aos seus valores e conflitos.
+
+'''Antes'''
+<pre>|developer=Estúdio Exemplo</pre>
+'''Depois'''
+<pre>|desenvolvedor=Estúdio Exemplo</pre>
+
+O exemplo pertence a Citar jogo eletrônico e usa o leitor nativo conferido. O valor é mantido.
+
+<span id="CIT-03"></span>
+==== Autores numerados ====
+
+Conserva os índices ao adaptar sobrenome, prenome e ligação de autores.
+
+'''Antes'''
+<pre>{{citar livro|last1=Exemplo|first1=Ana|last2=Modelo|first2=Bruno|title=Obra}}</pre>
+'''Depois'''
+<pre>{{citar livro|ultimo1=Exemplo|primeiro1=Ana|ultimo2=Modelo|primeiro2=Bruno|título=Obra}}</pre>
+
+Só usa campos reconhecidos pela família bibliográfica.
+
+<span id="CIT-04"></span>
+==== Campos repetidos idênticos ====
+
+Consolida um parâmetro repetido com o mesmo valor.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento|titulo=Documento}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento}}</pre>
+
+Valores divergentes ou com prioridades diferentes permanecem.
+
+<span id="CIT-05"></span>
+==== Parâmetros inválidos vazios ====
+
+Retira um campo vazio que o modelo conhecido não utiliza.
+
+'''Antes'''
+<pre>Um campo vazio comprovadamente inexistente em um modelo cujo catálogo está completo.</pre>
+'''Depois'''
+<pre>A mesma chamada sem o campo vazio.</pre>
+
+Não apaga campos preenchidos para eliminar um aviso. Catálogos parciais não autorizam exclusão genérica.
+
+<span id="CIT-06"></span>
+==== Erros exatos no nome dos campos ====
+
+Corrige uma chave com correspondência única no modelo.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/|títutlo=Documento}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento}}</pre>
+
+Usa mapas finitos e o leitor nativo, sem substituir palavras por aproximação livre.
+
+'''Antes'''
+<pre>{{Citar livro|url_seção=https://example.invalid/capitulo}}</pre>
+'''Depois'''
+<pre>{{Citar livro|capítulourl=https://example.invalid/capitulo}}</pre>
+
+Modelo e papel nativo comprovados, sem inventar capitulo-url ou sobrescrever alvo conflitante.
+
+'''Antes'''
+<pre>{{Citar web|status-url=dead}}</pre>
+'''Depois'''
+<pre>{{Citar web|urlmorta=sim}}</pre>
+
+Caso finito status-url=dead. Não é substituição geral de url-status ou nomes parecidos.
+
+<span id="CIT-07"></span>
+==== Barra literal no título ====
+
+Recupera um trecho de título partido por uma barra vertical quando os limites são inequívocos.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento | ciência aplicada |data=2024}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento {{!}} ciência aplicada |data=2024}}</pre>
+
+Um argumento que também pode ser um parâmetro ou campo separado não é absorvido por suposição.
+
+<span id="CIT-08"></span>
+==== Campo caderno e localizadores ====
+
+Migra um campo de caderno somente para o campo nativo que mantém sua função.
+
+'''Antes'''
+<pre>|caderno=Ciência</pre>
+'''Depois'''
+<pre>|departamento=Ciência</pre>
+
+Exige jornal e domínio concordantes, caderno previsto e campo de destino aceito. Não migra um caderno de publicação desconhecida nem trata capítulo, página, seção e número de artigo como sinônimos.
+
+'''Antes'''
+<pre>{{Citar livro|páginas=pág. 12–14}}</pre>
+'''Depois'''
+<pre>{{Citar livro|páginas=12–14}}</pre>
+
+Rótulo inequívoco e localizador numérico ou romano aceito, intervalo e outros localizadores permanecem.
+
+<span id="CIT-09"></span>
+==== Datas bibliográficas literais ====
+
+Normaliza datas completas ou parciais reconhecidas e mantém sua precisão.
+
+'''Antes'''
+<pre>{{citar web|titulo=Documento|data=April 3, 2020}}</pre>
+'''Depois'''
+<pre>{{citar web|titulo=Documento|data=3 de abril de 2020}}</pre>
+
+Datas impossíveis ou numéricas ambíguas permanecem. O campo de embargo pode exigir ISO.
+
+<span id="CIT-10"></span>
+==== Acesso e assinatura ====
+
+Adapta a chave e os valores de acesso reconhecidos quando o ramo do leitor nativo conserva a informação de assinatura.
+
+'''Antes'''
+<pre>|url-access=subscription</pre>
+'''Depois'''
+<pre>|acessourl=subscrição</pre>
+
+Nos ramos conferidos de web e periódico que aceitam os valores localizados, subscription ou assinatura usa subscrição, registration usa registro, e limited ou limitado usa limitada. Em citações arquivadas, um ramo nativo pode exigir o token original em inglês; a proteção de acesso original conserva esse token. Um valor não reconhecido permanece. A chave de estado da URL não é confundida com o tipo de acesso.
+
+<span id="CIT-11"></span>
+==== Endereços e datas de arquivo ====
+
+Adapta campos de arquivamento, preservando os endereços e a data informada. Estado explícito de ligação arquivada em português.
+
+'''Antes'''
+<pre>{{citar web|title=Documento|archive-url=https://example.invalid/arquivo|archive-date=April 3, 2020}}</pre>
+'''Depois'''
+<pre>{{citar web|título=Documento|arquivourl=https://example.invalid/arquivo|arquivodata=3 de abril de 2020}}</pre>
+
+Não substitui uma data de arquivo por uma data de publicação.
+
+'''Antes'''
+<pre>{{Citar web|arquivodata=https://example.invalid/arquivo|arquivourl=2020-04-03}}</pre>
+'''Depois'''
+<pre>{{Citar web|arquivodata=2020-04-03|arquivourl=https://example.invalid/arquivo}}</pre>
+
+Par complementar na mesma citação, com valores preservados e sem conflito. Não inventa datas.
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=2024-01-01|url-status=dead}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;{{Citar web|título=Documento|url=https://example.org/a|arquivourl=https://web.archive.org/web/20240101000000/https://example.org/a|arquivodata=2024-01-01|urlmorta=sim}}&lt;/ref&gt;
+
+{{Referências}}</pre>
+
+Em citar web, citar livro e citar periódico, converte um estado explícito importado em urlmorta=sim ou urlmorta=não quando a URL original, o arquivo Wayback e a data comprovada coincidem. Preserva endereços, datas de consulta e valores de acesso. Âncoras ou modos dinâmicos, datas ambíguas, conflitos e estados desconhecidos impedem apenas essa conversão; os outros ajustes seguros continuam. A ativação de um estado antes ignorado pode passar a exibir o arquivo como destino principal.
+
+<span id="CIT-12"></span>
+==== Data de captura já escrita na URL ====
+
+Aproveita um carimbo Wayback completo e válido quando o endereço original corresponde.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/a|titulo=Documento|arquivourl=https://web.archive.org/web/20200403000000/https://example.invalid/a}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/a|titulo=Documento|arquivourl=https://web.archive.org/web/20200403000000/https://example.invalid/a|arquivodata=2020-04-03}}</pre>
+
+Sem carimbo completo, correspondência de endereço e ausência de conflito, nenhuma data é preenchida.
+
+<span id="CIT-13"></span>
+==== DOI com pontuação excedente ====
+
+Retira pontuação final apenas quando o identificador correto é confirmado.
+
+'''Antes'''
+<pre>|doi=10.0000/exemplo.</pre>
+'''Depois'''
+<pre>|doi=10.0000/exemplo</pre>
+
+O exemplo representa o campo. Exige confirmação do identificador, não elimina pontuação válida de DOI.
+
+<span id="CIT-14"></span>
+==== ISBN e repetições ====
+
+Retira um ponto final ou uma repetição quando resta um ISBN válido.
+
+'''Antes'''
+<pre>|isbn=9780306406157.</pre>
+'''Depois'''
+<pre>|isbn=9780306406157</pre>
+
+Pares válidos de ISBN-10 e ISBN-13 e números diferentes não são eliminados.
+
+'''Antes'''
+<pre>[[ISBN]] [[Special:BookSources/9780306406157|978-0-306-40615-7]]</pre>
+'''Depois'''
+<pre>{{ISBN|978-0-306-40615-7}}</pre>
+
+Mesmo número nas duas ligações e dígito verificador válido, mantém a grafia exibida.
+
+<span id="CIT-15"></span>
+==== Identificadores em ligações ====
+
+Reconhece as formas previstas de DOI, PMID, PMC, arXiv e identificadores bibliográficos sem alterar seus valores.
+
+'''Antes'''
+<pre>|doi=https://doi.org/10.0000/exemplo</pre>
+'''Depois'''
+<pre>|doi=10.0000/exemplo</pre>
+
+Só normaliza uma forma literal cuja equivalência é confirmada.
+
+<span id="CIT-16"></span>
+==== Campo título recuperável localmente ====
+
+Recupera um título ausente de outra citação compatível da mesma fonte na página.
+
+'''Antes'''
+<pre>{{citar web|url=https://example.invalid/a}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/a|titulo=Documento fictício}}</pre>
+
+Exige uma ocorrência local inequívoca com esse título e os mesmos campos de identidade. Não cria o título a partir do endereço.
+
+<span id="CIT-17"></span>
+==== Lista Vancouver e falha Lua ====
+
+Usa a chave que o módulo nativo realmente lê para listas Vancouver.
+
+'''Antes'''
+<pre>{{citar periódico|vautores=Exemplo A|titulo=Artigo}}</pre>
+'''Depois'''
+<pre>{{citar periódico|vauthors=Exemplo A|titulo=Artigo}}</pre>
+
+A exceção em inglês evita a falha conferida do módulo. Não troca autoria por inferência.
+
+<span id="CIT-18"></span>
+==== Limites perdidos entre campos ====
+
+Recupera separadores e rótulos de campo colados nos casos finitos previstos.
+
+'''Antes'''
+<pre>{{citar web url=https://example.invalid/|titulo=Documento}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento}}</pre>
+
+Só há reparo quando modelo, chave e limites são únicos.
+
+<span id="CIT-19"></span>
+==== Formatação compacta de citações ====
+
+Coloca citações reconhecidas em uma linha sem juntar conteúdo que depende de quebras.
+
+'''Antes'''
+<pre>{{citar web
+|url=https://example.invalid/
+|titulo=Documento
+}}</pre>
+'''Depois'''
+<pre>{{citar web|url=https://example.invalid/|titulo=Documento}}</pre>
+
+Protege listas, comentários, código e valores em que a quebra tem função.
+
+<span id="CIT-20"></span>
+==== Obras históricas e modelos importados ====
+
+Migra as famílias históricas conferidas sem manter categorias técnicas inglesas indevidas.
+
+'''Antes'''
+<pre>Uma citação histórica importada com obra, verbete e ano completos.</pre>
+'''Depois'''
+<pre>Uma citação nativa equivalente, com os mesmos dados bibliográficos.</pre>
+
+A família e os campos precisam constar do catálogo. Não é uma remoção geral de categorias desconhecidas.
+
+<span id="CIT-21"></span>
+==== Citation com consumidor português confirmado ====
+
+Converte a chamada genérica para o modelo nativo do tipo de publicação identificado.
+
+'''Antes'''
+<pre>{{Citation|titulo=Obra|publicado=Editora|ano=2005}}</pre>
+'''Depois'''
+<pre>{{Citar livro|titulo=Obra|publicado=Editora|ano=2005|ref=harv}}</pre>
+
+Exige dados suficientes para distinguir livro, web, jornal, periódico ou revista, sem perder a função de campos. Mantém as âncoras Harvard implícitas por ref=harv quando necessário.
+
+<span id="CIT-22"></span>
+==== Edição bibliográfica em português ====
+
+Adapta ordinais estrangeiros reconhecidos ao valor português.
+
+'''Antes'''
+<pre>|edição=2nd</pre>
+'''Depois'''
+<pre>|edição=2.ª</pre>
+
+O número e o sufixo precisam formar um ordinal válido no campo de edição de uma citação reconhecida. Texto livre e combinações inválidas permanecem.
+
+<span id="CIT-23"></span>
+==== Referências bíblicas com intervalos preservados ====
+
+Adapta livros e intervalos de versículos previstos para Citar bíblia.
+
+'''Antes'''
+<pre>{{Bibleverse|Titus|2:1–3}}</pre>
+'''Depois'''
+<pre>{{Citar bíblia|livro=Tito|capítulo=2|verso=1|verso_final=3}}</pre>
+
+O mapeamento é finito e conserva os dois extremos no mesmo capítulo. Versões sem equivalente, intervalos entre capítulos e chamadas ambíguas permanecem.
+
+<span id="CIT-24"></span>
+==== Destinos bibliográficos com identidade confirmada ====
+
+Corrige um destino importado de autor, editor ou obra quando o equivalente português foi conferido.
+
+'''Antes'''
+<pre>Ligação bibliográfica com homônimo cujo destino e identidade já foram comprovados.</pre>
+'''Depois'''
+<pre>A mesma ligação com o destino canônico conferido.</pre>
+
+Somente destinos finitos de identidade confirmada. Não escolhe homônimos pelo nome nem inventa identidade para o exemplo.
+
+<span id="CIT-25"></span>
+==== Resíduos acidentais no título simples ====
+
+Troca quebra acidental por espaço e retira U+200B acidental no contexto confirmado.
+
+'''Antes'''
+<pre>{{Citar web|título=Parte
+seguinte}}</pre>
+'''Depois'''
+<pre>{{Citar web|título=Parte seguinte}}</pre>
+
+Títulos latinos simples, marcação, URLs, múltiplos parágrafos e separadores de outras escritas ficam. Sem limpeza global de invisíveis.
+
+<span id="CIT-26"></span>
+==== Campos conhecidos junto de um campo opaco ====
+
+Completa reparos independentes conservando o argumento desconhecido.
+
+'''Antes'''
+<pre>{{Ouvrage|titre=Obra|année=2024|champinconnu=valor}}</pre>
+'''Depois'''
+<pre>{{Citar livro|título=Obra|ano=2024|champinconnu=valor}}</pre>
+
+Exemplo ilustrativo. Só campos com papel comprovado mudam, valores opacos e conflitos permanecem.
+
+<span id="CIT-27"></span>
+==== Prefixo PMC sem o teto antigo ====
+
+Normaliza o prefixo literal mantendo todos os dígitos.
+
+'''Antes'''
+<pre>{{Citar periódico|pmc=PMC10730720}}</pre>
+'''Depois'''
+<pre>{{Citar periódico|pmc=10730720}}</pre>
+
+Normalização do código, não prova existência ou correção bibliográfica do identificador.
+
+<span id="CIT-28"></span>
+==== Endereço sem invólucro redundante ====
+
+Retira aspas pareadas ou um auxiliar URL exato usado no lugar de um endereço literal.
+
+'''Antes'''
+<pre>|url={{URL|https://example.org/fonte}}</pre>
+'''Depois'''
+<pre>|url=https://example.org/fonte</pre>
+
+Exige uma URL inteira de HTTP ou HTTPS, sem rótulo, credenciais, fragmento incompleto ou argumentos adicionais. Não recorta apenas uma parte do endereço.
+
+<span id="CIT-29"></span>
+==== Chamada vazia diante de uma fonte completa ====
+
+Retira uma chamada de citação inteiramente vazia quando a mesma referência já contém a fonte completa.
+
+'''Antes'''
+<pre>&lt;ref&gt;{{Citar web}}[https://example.org/fonte Fonte de exemplo]&lt;/ref&gt;</pre>
+'''Depois'''
+<pre>&lt;ref&gt;[https://example.org/fonte Fonte de exemplo]&lt;/ref&gt;</pre>
+
+O conteúdo restante precisa trazer um endereço completo e rótulo, ou uma citação compatível preenchida. A definição, o nome da referência e todo o texto da fonte são preservados.
+
+=== Infocaixas e biografias ===
+
+<span id="BIO-01"></span>
+==== Campos de infocaixas conforme cada modelo ====
+
+Adapta chaves estrangeiras ou traduzidas incorretamente ao nome aceito pela caixa específica.
+
+'''Antes'''
+<pre>{{Info/Biografia|birth_place=Cidade fictícia}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|local_nascimento=Cidade fictícia}}</pre>
+
+O mesmo campo inglês pode ter destinos diferentes em caixas diferentes. Nenhum valor preenchido é descartado para silenciar um aviso. O reparo de campo com referências literais do grupo padrão e a inclusão do coletor que falta formam uma alteração dependente. O conjunto finito abrange 137 destinos de 25 modelos nativos e 154 grafias de origem: 116 destinos de texto direto, 11 com ramos condicionais, quatro em subinfocaixas, quatro de legendas cuja avaliação registra referências, um de número inteiro e um seletor com saída textual. Cada destino conserva seu leitor, prioridade e condições; esses números não são conversões de caixas inteiras nem títulos de seção. As condições seguem o leitor nativo: comentários completos podem equivaler a vazio; uma chave fisicamente presente pode suprimir o alias seguinte, enquanto Se vazio permite a alternativa quando o primeiro valor é comprovadamente vazio. Valores dinâmicos sem prova mantêm a composição retida. Rótulos, autoridades taxonômicas e datas de versão exigem os dados que abrem seu ramo. O título de Software com referências exige as versões estável e beta canônicas e ausência dos aliases e opções que acionariam outros consumidores. O contrato numérico não interpreta separadores de milhar ou decimais; referências em largura de imagem ou texto alternativo não viram legendas. Os redirecionamentos nativos conferidos Info/Cientista e Info/Escritor para Info/Biografia usam somente os 15 destinos finitos de Biografia listados no catálogo, com os mesmos aliases e condições. Isso não autoriza outros campos nem conversão de chamadas inteiras. Exige inventário fechado dos produtores e fontes literais conferidas; produtor desconhecido impede essa composição. Uma legenda suprimida ainda pode registrar a fonte, mas isso não a transforma em texto visível nem autoriza um coletor vazio. Os 25 casos sintéticos retidos têm critérios por entrada: 20 dependem de um ramo não alcançado e cinco têm valor inadequado ao papel nativo. A retenção recebe zero crédito de correção; a validação da distribuição final consta do relatório separado.
+
+<span id="BIO-02"></span>
+==== Prioridade dos nomes alternativos ====
+
+Preserva o valor que a caixa nativa efetivamente escolhe.
+
+'''Antes'''
+<pre>{{Info/Biografia|ocupação=pesquisadora|ocupações=}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|ocupação=pesquisadora}}</pre>
+
+Campos conflitantes ou alternativas com função diferente não são fundidos.
+
+<span id="BIO-03"></span>
+==== Infocaixa antes da introdução ====
+
+Move uma única caixa principal que ficou depois da abertura para o começo do artigo.
+
+'''Antes'''
+<pre>'''Pessoa fictícia''' foi pesquisadora.
+{{Info/Biografia|nome=Pessoa fictícia}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia}}
+'''Pessoa fictícia''' foi pesquisadora.</pre>
+
+Não reorganiza uma caixa que pertence a outra pessoa, outra seção ou a uma sequência de caixas com função distinta.
+
+<span id="BIO-04"></span>
+==== Linha própria depois da infocaixa ====
+
+Separa uma caixa fechada do texto da abertura.
+
+'''Antes'''
+<pre>{{Info/Biografia/Wikidata}}'''Pessoa fictícia''' foi pesquisadora.</pre>
+'''Depois'''
+<pre>{{Info/Biografia/Wikidata}}
+'''Pessoa fictícia''' foi pesquisadora.</pre>
+
+Não altera o conteúdo da caixa ou da frase.
+
+<span id="BIO-05"></span>
+==== Infocaixa legível em linhas ====
+
+Distribui os campos de uma infocaixa reconhecida em linhas próprias, mantendo a ordem e os valores.
+
+'''Antes'''
+<pre>{{Info/Assentamento/Marrocos|com|nome=Local fictício|população_total=1000}}</pre>
+'''Depois'''
+<pre>{{Info/Assentamento/Marrocos|com
+|nome=Local fictício
+|população_total=1000
+}}</pre>
+
+A chamada precisa estar completa e o modelo precisa ter leitor conhecido. Caixas filhas, campos dinâmicos e funções de inclusão mantêm seu contexto.
+
+<span id="BIO-06"></span>
+==== Alinhamento e espaço depois do igual ====
+
+Alinha os campos previstos e usa um espaço depois de = quando o valor está preenchido.
+
+'''Antes'''
+<pre>|nome                  =Pessoa Exemplo</pre>
+'''Depois'''
+<pre>|nome                  = Pessoa Exemplo</pre>
+
+O espaço é de formatação de um argumento nomeado reconhecido. Campo vazio não ganha preenchimento artificial. Espaços funcionais, referências e o conteúdo do valor são preservados.
+
+<span id="BIO-07"></span>
+==== Cabeçalho sem negrito redundante ====
+
+Retira negrito do nome quando a caixa já o aplica.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome='''Pessoa fictícia'''}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia}}</pre>
+
+Só alcança o campo de cabeçalho conferido, não o nome em negrito da introdução.
+
+<span id="BIO-08"></span>
+==== Profissões comuns com inicial minúscula ====
+
+Põe em minúscula o rótulo de profissões comuns reconhecidas, inclusive quando há uma ligação com rótulo próprio.
+
+'''Antes'''
+<pre>|ocupação = [[Maquiagem|Maquilhadora]]</pre>
+'''Depois'''
+<pre>|ocupação = [[Maquiagem|maquilhadora]]</pre>
+
+Mantém o destino da ligação, as referências e a variante portuguesa do rótulo. Nomes próprios e ocupações não comprovadas permanecem.
+
+<span id="BIO-09"></span>
+==== Flexão de profissões confirmada ====
+
+Corrige formas comuns incompatíveis com a identidade feminina ou masculina explicitamente confirmada.
+
+'''Antes'''
+<pre>|ocupação=jornalista e redator</pre>
+'''Depois'''
+<pre>|ocupação=jornalista e redatora</pre>
+
+O exemplo exige identidade feminina confirmada e profissão prevista no mapa. Não deduz gênero só pelo nome.
+
+<span id="BIO-10"></span>
+==== Listas de ocupações e campos ====
+
+Organiza listas simples que foram coladas em um campo.
+
+'''Antes'''
+<pre>|ocupação=ator, cantor</pre>
+'''Depois'''
+<pre>|ocupação=ator&lt;br /&gt;cantor</pre>
+
+Exige uma lista de termos reconhecidos, sem transformar uma frase explicativa.
+
+<span id="BIO-11"></span>
+==== Datas de nascimento e morte ====
+
+Adapta formatos literais e predefinições estrangeiras de data ao campo nativo.
+
+'''Antes'''
+<pre>|nascimento_data=1900-01-02</pre>
+'''Depois'''
+<pre>|nascimento_data={{DataExt|2|1|1900}}</pre>
+
+Conserva precisão, calendário, referências e incertezas. Não inventa dia ou mês. Ani e grafias válidas de dni/Dni não mudam por preferência de estilo, uma conversão de data também precisa preservar idade e efeitos de categorização.
+
+<span id="BIO-12"></span>
+==== Idade de pessoa viva ====
+
+Retira a supressão de idade quando a condição de pessoa viva está confirmada.
+
+'''Antes'''
+<pre>{{Dni|2|1|1990|si}}</pre>
+'''Depois'''
+<pre>{{Dni|2|1|1990}}</pre>
+
+Não altera uma pessoa morta ou de estado vital incerto. Não muda dni para Dni apenas por capitalização.
+
+<span id="BIO-13"></span>
+==== Nascimento e morte na abertura ====
+
+Leva dados já presentes e referenciados da infocaixa à abertura quando falta a apresentação biográfica.
+
+'''Antes'''
+<pre>'''Pessoa fictícia''' foi pesquisadora.</pre>
+'''Depois'''
+<pre>'''Pessoa fictícia''' ({{DataExt|2|1|1900}}&lt;ref&gt;Fonte da data.&lt;/ref&gt;) foi pesquisadora.</pre>
+
+O exemplo exige a data e a mesma referência na caixa principal. Sem fonte, com conflito ou caixa filha de outra pessoa, o dado não é copiado.
+
+<span id="BIO-14"></span>
+==== Dados da abertura em campos separados ====
+
+Separa data e local que foram unidos em um campo e aproveita dados inequívocos da abertura.
+
+'''Antes'''
+<pre>|nascimento_data={{DataExt|2|1|1900}}, [[Cidade fictícia]]</pre>
+'''Depois'''
+<pre>|nascimento_data={{DataExt|2|1|1900}}
+|nascimento_local=[[Cidade fictícia]]</pre>
+
+Preserva as referências de cada componente e não substitui um campo preenchido divergente.
+
+<span id="BIO-15"></span>
+==== Categoria de nascimento redundante ====
+
+Retira a categoria anual escrita à mão quando a chamada de data já a produz.
+
+'''Antes'''
+<pre>{{Dni|2|1|1900|si}}
+[[Categoria:Nascidos em 1900]]</pre>
+'''Depois'''
+<pre>{{Dni|2|1|1900|si}}</pre>
+
+Exige confirmar a categorização nativa no mesmo contexto e preservar chave de ordenação ou diferença funcional.
+
+<span id="BIO-16"></span>
+==== Casamento com datas e estado civil ====
+
+Usa Casamento para formatos literais completos previstos, sem alterar nome, datas ou motivo do término.
+
+'''Antes'''
+<pre>|cônjuge=Pessoa Exemplo (casamento em 2000; divórcio em 2010)</pre>
+'''Depois'''
+<pre>|cônjuge={{casamento|Pessoa Exemplo|2000|2010|fim=divórcio}}</pre>
+
+Só converte as formas e os campos conferidos. Relações incertas, datas ambíguas ou múltiplas pessoas sem limites ficam como estão.
+
+<span id="BIO-17"></span>
+==== Site oficial conforme o leitor da caixa ====
+
+Corrige sintaxe de endereço, protocolo repetido e apresentação conforme o campo nativo.
+
+'''Antes'''
+<pre>|website=[[https://example.invalid/|Sítio oficial]]</pre>
+'''Depois'''
+<pre>|site=[https://example.invalid/ Sítio oficial]</pre>
+
+Usa o campo realmente lido em cada família. Nas caixas de empresa previstas, website, homepage, pagina ou página podem dar lugar a site quando esse destino está ausente. Endereços, rótulos, múltiplos sites e conflitos não são apagados.
+
+<span id="BIO-18"></span>
+==== Arquivo, tamanho e legenda em campos próprios ====
+
+Separa uma imagem completa colocada no campo que espera o nome do arquivo.
+
+'''Antes'''
+<pre>|imagem=[[Ficheiro:Retrato fictício.jpg|220px|Retrato em 2000]]</pre>
+'''Depois'''
+<pre>|imagem=Retrato fictício.jpg
+|imagem_tamanho=220px
+|imagem_legenda=Retrato em 2000</pre>
+
+Exige campos de destino conferidos e ausência de legenda ou tamanho concorrente.
+
+<span id="BIO-19"></span>
+==== Texto alternativo da imagem ====
+
+Conserva e, quando possível, separa alt para o campo nativo equivalente.
+
+'''Antes'''
+<pre>|imagem=[[Ficheiro:Retrato fictício.jpg|220px|alt=Retrato frontal]]</pre>
+'''Depois'''
+<pre>|imagem=Retrato fictício.jpg
+|alt=Retrato frontal
+|imagem_tamanho=220px</pre>
+
+Não redige uma descrição visual nova nem a infere do arquivo.
+
+<span id="BIO-20"></span>
+==== Tamanho de imagem com unidade repetida ====
+
+Corrige unidades repetidas em campos confirmados.
+
+'''Antes'''
+<pre>|imagem_tamanho=220pxpx</pre>
+'''Depois'''
+<pre>|imagem_tamanho=220px</pre>
+
+Não impõe uma largura universal nem altera um valor válido só por preferência.
+
+<span id="BIO-21"></span>
+==== Campos de unidades nativas ====
+
+Retira uma unidade repetida quando a caixa a acrescenta por conta própria.
+
+'''Antes'''
+<pre>{{Info/Piloto de automóvel|altura=1,80 m}}</pre>
+'''Depois'''
+<pre>{{Info/Piloto de automóvel|altura=1,80}}</pre>
+
+A unidade deve ser confirmada para o campo, sem converter o valor numérico.
+
+<span id="BIO-22"></span>
+==== Caixas incorporadas ====
+
+Reconhece módulos internos compatíveis e mantém os dados de cada caixa.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia|módulo={{Info/Cientista|child=sim}}}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia|módulo={{Info/Cientista|child=sim}}}}</pre>
+
+A filha precisa aceitar o modo incorporado. A Info/Biografia lê child ou embed e usa módulo e módulo2 a módulo6, sem módulo1. O conteúdo e o modo da filha são preservados. O programa pode formatar seus campos em linhas separadas sem retirá-la do módulo.
+
+<span id="BIO-23"></span>
+==== Caixas principais repetidas ====
+
+Retira uma cópia de infocaixa comprovadamente redundante.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia}}
+{{Info/Biografia|nome=Pessoa fictícia}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia}}</pre>
+
+Não escolhe entre caixas com fatos diferentes nem remove caixas de assuntos diferentes.
+
+<span id="BIO-24"></span>
+==== Campos com significado próprio ====
+
+Mantém campos cuja migração mudaria o fato descrito.
+
+'''Antes'''
+<pre>|batismo=2 de janeiro de 1900
+|instituições=Instituição fictícia</pre>
+'''Depois'''
+<pre>|batismo=2 de janeiro de 1900
+|instituições=Instituição fictícia</pre>
+
+Batismo não vira nascimento. Instituição, empregador, gênero literário, influência e sepultamento dependem do contrato de cada modelo.
+
+<span id="BIO-25"></span>
+==== Cabeçalho e campos estrangeiros migrados juntos ====
+
+Pode migrar uma chamada estrangeira completa quando há um contrato específico que cobre todos os seus argumentos.
+
+'''Antes'''
+<pre>{{Infobox football biography|name=Pessoa Exemplo|position=Forward}}</pre>
+'''Depois'''
+<pre>{{Info/Futebolista|nome=Pessoa Exemplo|posição=atacante}}</pre>
+
+O catálogo de migração reúne seis registros: cinco ativos e uma colisão de cabeçalho preservada. Dos ativos, dois cuidam da interface portuguesa, um reparo de Info/Biografia e um wrapper Infobox person, e três descrevem subconjuntos ingleses de pessoa, cientista e futebolista. O reconhecimento de 170 cabeçalhos serve para localizar contratos, sem prometer 170 conversões. Uma caixa estrangeira só migra quando o contrato cobre todos os seus argumentos e o contexto de uso. Campo desconhecido, fonte ambígua, referência sem coletor comprovado ou modo de incorporação incompatível conserva a caixa afetada. Os demais ajustes independentes continuam.
+
+'''Antes'''
+<pre>{{Infobox person|name=Pessoa Exemplo|birth_name=Nome anterior}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa Exemplo|nome_nascimento=Nome anterior}}</pre>
+
+Exige origem inglesa comprovada. Sem essa origem, mantém birth_name. O wrapper português tem interface própria e não recebe o significado do modelo inglês.
+
+<span id="BIO-26"></span>
+==== Grupos étnicos com todos os dados visíveis ====
+
+Usa uma infocaixa genérica nos formatos estrangeiros certificados em que uma caixa específica deixaria campos sem exibição.
+
+'''Antes'''
+<pre>{{Infobox ethnic group|grupo=Grupo Exemplo|image=|população=20,074|regiões=[[Região Exemplo]]}}</pre>
+'''Depois'''
+<pre>Uma Infocaixa com Grupo Exemplo no cabeçalho e linhas próprias de População e Regiões, conservando 20,074 e a ligação.</pre>
+
+A forma precisa corresponder ao padrão conferido, com imagem vazia e sem campos adicionais desconhecidos. Não interpreta separadores numéricos nem descarta regiões.
+
+<span id="BIO-27"></span>
+==== Infocaixa manual com estrutura certificada ====
+
+Adapta um padrão restrito de tabela manual para Infocaixa, mantendo os dados apresentados.
+
+'''Antes'''
+<pre>Uma tabela infobox vcard com cabeçalho, âncora e pares simples de rótulo e dado.</pre>
+'''Depois'''
+<pre>A mesma informação em Infocaixa, com âncora, rótulos, dados e ligações preservados.</pre>
+
+Não converte qualquer tabela ou HTML parecido com uma caixa. Atributos, mesclagens, tabelas internas ou linhas fora do padrão impedem a conversão.
+
+<span id="BIO-28"></span>
+==== Ani e efeitos da data preservados ====
+
+Mantém uma chamada Ani válida quando a troca alteraria idade, categorias ou outro efeito do modelo.
+
+'''Antes'''
+<pre>{{Info/Biografia|data_nascimento={{Ani|1972|5|24}}}}</pre>
+'''Depois'''
+<pre>A chamada Ani permanece no campo, mesmo se a formatação externa da infocaixa mudar.</pre>
+
+Uma semelhança visual não prova equivalência. As formas nativas de datas de pessoas falecidas também precisam conservar o estado vital e a idade ao falecer.
+
+<span id="BIO-29"></span>
+==== Campos nativos recuperados na família certa ====
+
+Corrige aliases específicos quando a implementação nativa confirma o campo de destino.
+
+'''Antes'''
+<pre>|lançamento = 2010</pre>
+'''Depois'''
+<pre>|lançado = 2010</pre>
+
+Neste exemplo, o modelo é Info/Álbum. O destino não pode conflitar com um valor já preenchido. O catálogo também contém reparos próprios de Museu, Aeronave, empresas, lutador e caixas genéricas.
+
+<span id="BIO-30"></span>
+==== Contratos separados para origens diferentes ====
+
+Distingue uma caixa nativa de uma chamada estrangeira que usa o mesmo nome.
+
+'''Antes'''
+<pre>{{Infobox person|name=Pessoa Exemplo|occupation=escritor}}</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa Exemplo|ocupação=escritor}}</pre>
+
+Este resultado exige origem e perfil comprovados. Sem essa confirmação, a colisão entre nomes conserva a chamada. A cobertura ativa é finita e não equivale a converter todas as caixas de seis Wikipédias.
+
+<span id="RW2222-007"></span>
+==== Grafias locais específicas de país de nascimento e atividade, mais fundador de empresa ====
+
+Grafias locais específicas de país de nascimento e atividade, mais fundador de empresa.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|nascimento_pais=Brasil|periodo_atividade=2000–2020}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|nascimento_país       = Brasil
+|período_atividade     = 2000–2020
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|Brasil}}
+</pre>
+
+Dono confirmado, sem qualquer alias concorrente, valor e referências preservados. Não é substituição genérica por remoção de acentos.
+
+<span id="RW2222-008"></span>
+==== Instituições de trabalho, orientação, alunos e campo científico, incluindo subconjunto EN Infobox scientist ====
+
+Instituições de trabalho, orientação, alunos e campo científico, incluindo subconjunto EN Infobox scientist.
+
+'''Antes'''
+<pre>{{Infobox scientist|name=Exemplo|workplaces=[[Instituição]]|doctoral_advisor=Pessoa A|doctoral_students=Pessoa B|fields=Física}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|instituicoes_trabalho = [[Instituição]]
+|orientador            = Pessoa A
+|orientados            = Pessoa B
+|campo                 = Física
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Cada papel tem destino próprio. Sem fundir orientador com aluno, formação com emprego ou campos conflitantes; blocos estrangeiros exigem todos os campos representados.
+
+<span id="RW2222-009"></span>
+==== Intervalos completos e cargos numerados em Info/Titular de cargo ====
+
+Intervalos completos e cargos numerados em Info/Titular de cargo.
+
+'''Antes'''
+<pre>{{Info/Titular de cargo|nome=Exemplo|office2=Prefeito|term_start2=2000|term_end2=2004|predecessor2=Pessoa A|successor2=Pessoa B}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Titular de cargo
+|nome                  = Exemplo
+|título2               = Prefeito
+|mandato2              = 2000 – 2004
+|antes2                = Pessoa A
+|depois2               = Pessoa B
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|Política}}
+</pre>
+
+Índices coerentes de 1 a 8, datas preservadas, aliases concorrentes preservados, sucedido em todas as linhas respeitado. Término não é inventado. Não é migração completa de toda Info officeholder.
+
+<span id="RW2222-010"></span>
+==== Carreiras profissionais, juventude e seleção com linhas alinhadas em futebolistas ====
+
+Carreiras profissionais, juventude e seleção com linhas alinhadas em futebolistas.
+
+'''Antes'''
+<pre>{{Infobox football biography|name=Exemplo|years1=2000–2001|clubs1=[[Clube]]|caps1=0|goals1=0}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Futebolista
+|nome                  = Exemplo
+|ano                   = 2000–2001
+|clubes                = [[Clube]]
+|jogos(gols)           = 0 (0)
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|Esportes|Futebol}}
+</pre>
+
+Índices contíguos, pares completos, zeros e empréstimos preservados. Estatísticas literais numéricas. Blocos incompletos ficam intactos sem bloquear os demais.
+
+<span id="RW2222-011"></span>
+==== Preservar IMDb de filme por ligação na seção apropriada antes de retirar campo obsoleto ====
+
+Preservar IMDb de filme por ligação na seção apropriada antes de retirar campo obsoleto.
+
+'''Antes'''
+<pre>{{Info/Filme|nome=Exemplo|imdb_id=1234567}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Filme
+|nome                  = Exemplo
+}}
+'''Exemplo''' é um assunto de teste.
+
+== Ligações externas ==
+* {{IMDb título|tt1234567}}
+
+{{Portal3|Cinema|Entretenimento}}
+</pre>
+
+Um identificador inequívoco de 7 ou 8 dígitos, sem IDs conflitantes; usa IMDb título. Valores maiores ou ambíguos continuam preservados.
+
+<span id="RW2222-025"></span>
+==== Compor a normalização de data já feita pelo programa com a migração biográfica ====
+
+Compor a normalização de data já feita pelo programa com a migração biográfica.
+
+'''Antes'''
+<pre>{{Infobox person|name=Exemplo|birth_date={{Dni|29|2|2000}}}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|nascimento_data       = {{Dni|29|2|2000}}
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Helpers Dni/DataExt completos em nascimento e Morte/DataExt em falecimento, calendário gregoriano válido e origem EN confiável. Não muda idade, precisão nem interpreta data parcial.
+
+<span id="RW2222-026"></span>
+==== Nome de nascimento no campo próprio ====
+
+Nome de nascimento no campo próprio.
+
+'''Antes'''
+<pre>{{Infobox person|name=Exemplo|birth_name=Nome anterior}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|nome_nascimento       = Nome anterior
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Origem EN confiável. Preservar batismo, nome completo e aliases nativos concorrentes como papéis distintos. Wrapper PT continua com sua interface anterior.
+
+<span id="RW2222-027"></span>
+==== Cidadania sem confundir com nacionalidade ====
+
+Cidadania sem confundir com nacionalidade.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|citizenship=[[França]]}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|cidadania             = [[França]]
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|França}}
+</pre>
+
+Sem inferir um país nem substituir nacionalidade; não sobrescreve cidadania existente.
+
+<span id="RW2222-028"></span>
+==== Sepultamento e causa de morte separados ====
+
+Sepultamento e causa de morte separados.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|resting_place=[[Cemitério]]}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|sepultamento          = [[Cemitério]]
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Aliases e burial/resting concorrentes ficam preservados; não inventar data de enterro nem converter coordenadas. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.
+
+<span id="RW2222-029"></span>
+==== Conhecido por, obras, obras notáveis e créditos mantêm funções distintas ====
+
+Conhecido por, obras, obras notáveis e créditos mantêm funções distintas.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|known_for=Uma descoberta}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|conhecido_por         = Uma descoberta
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Retém combinações que suprimem campos na origem, incluindo works/credits e aliases concorrentes; não ativa conteúdo oculto por troca de nome.
+
+<span id="RW2222-030"></span>
+==== Atividade, empregador e organização como campos separados ====
+
+Atividade, empregador e organização como campos separados.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|years_active=2000–2020}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|período_atividade     = 2000–2020
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Não unir organizações distintas nem trocar prioridade de aliases; fontes diferentes para mesmo destino bloqueiam só a conversão daquele papel.
+
+<span id="RW2222-031"></span>
+==== Nome nativo e código de idioma em campos próprios ====
+
+Nome nativo e código de idioma em campos próprios.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|native_name=名前|native_name_lang=ja}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|nome_nativo           = 名前
+|nome_nativo_lang      = ja
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Idioma precisa ser código literal compatível; texto, ref ou programa nesse campo fica preservado, sem ativar atributo HTML inválido.
+
+<span id="RW2222-032"></span>
+==== Encaminhar módulos biográficos comprovados sem migrar uma filha estrangeira desconhecida ====
+
+Encaminhar módulos biográficos comprovados sem migrar uma filha estrangeira desconhecida.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|module={{Info/Biografia|child=sim|nome=Filha}}}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|módulo                = {{Info/Biografia
+|child                 = sim
+|nome                  = Filha
+}}
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Somente filha nativa conhecida com child/embed positivo explícito, destino sem colisão e estrutura preservada; modo desconhecido fica intacto. Formatação previamente existente da filha pode ocorrer independentemente. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.
+
+<span id="RW2222-033"></span>
+==== Sítio oficial isolado não impede migração simples ====
+
+Sítio oficial isolado não impede migração simples.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|website=https://example.org/?a=1&amp;b=2}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|site                  = https://example.org/?a=1&amp;b=2
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+website→site mantém mesmo URL, rótulo, consultas e referências. Qualquer alias concorrente, mesmo vazio, conserva a prioridade existente.
+
+<span id="RW2222-034"></span>
+==== Expandir troca de bandeiras por país escrito em biografias civis comprovadas ====
+
+Expandir troca de bandeiras por país escrito em biografias civis comprovadas.
+
+'''Antes'''
+<pre>{{Info/Cientista|nome=Exemplo|nacionalidade={{BRA}}|ocupação=cientista}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Cientista
+|nome                  = Exemplo
+|nacionalidade         = [[Brasil]]
+|ocupação              = cientista
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|Brasil|Ciência}}
+</pre>
+
+Novas famílias: Cientista e Escritor por redirecionamentos exatos, e nacionalidade de Titular de cargo. Mantém exceções militares, de conflito e esporte e o rótulo/ref do país. Campos que ativariam programas desconhecidos, auxiliares aninhados não demonstrados ou HTML com atributos de apresentação permanecem no campo original. Comentários e conteúdo realmente literal continuam protegidos.
+
+<span id="RW2222-048"></span>
+==== Campos náuticos sem acento ====
+
+Campos náuticos sem acento.
+
+'''Antes'''
+<pre>{{Info/Navio|nome=Exemplo|propulsao=Vapor|tripulacao=300}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Navio
+|nome                  = Exemplo
+|propulsão             = Vapor
+|tripulação            = 300
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Somente Navio e destinos sem aliases concorrentes; não reinterpretar número, unidade, propulsão nem carreira.
+
+<span id="RW2222-049"></span>
+==== Fechamento do museu no campo encaminhado ao edifício ====
+
+Fechamento do museu no campo encaminhado ao edifício.
+
+'''Antes'''
+<pre>{{Info/Museu|nome=Exemplo|fechamento=2000}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Museu
+|nome                  = Exemplo
+|encerramento          = 2000
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Preservar data exata e aliases de encerramento/dissolução/extinção; fundador continua aguardando suporte nativo.
+
+<span id="RW2222-050"></span>
+==== Nome local, administração, inauguração e altitude de aeroporto ====
+
+Nome local, administração, inauguração e altitude de aeroporto.
+
+'''Antes'''
+<pre>{{Info/Aeroporto|nome=Exemplo|elevacao_m=52}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Aeroporto
+|nome                  = Exemplo
+|altitude              = 52
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Altitude só numérica em metros, sem unidade/ref/programa; cidade não é presumida como área servida.
+
+<span id="RW2222-051"></span>
+==== Pistas completas em auxiliar nativo ====
+
+Pistas completas em auxiliar nativo.
+
+'''Antes'''
+<pre>{{Info/Aeroporto|nome=Exemplo|pista1_numero=07/25|pista1_comprimento_m=1861|pista1_superficie=Asfalto/Concreto}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Aeroporto
+|nome                  = Exemplo
+|pistas                = {{Info/Aeroporto/Pistas
+|cabeceira             = 07/25
+|comprimento           = 1861
+|superfície            = ASPH/CONC
+}}
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Cabeceiras preservadas como texto; comprimento numérico em metros e superfície em mapa finito comprovado; índices alinhados, destino ausente, sem parâmetros adicionais ou referências no cálculo.
+
+<span id="RW2222-056"></span>
+==== Profissões femininas de mapa finito quando a identidade estiver confirmada ====
+
+Profissões femininas de mapa finito quando a identidade estiver confirmada.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|ocupação=Jornalista e Redator}}
+'''Exemplo''' é um assunto de teste.
+[[Categoria:Mulheres]]
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|ocupação              = jornalista e redatora
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias|Jornalismo|Mulheres}}
+
+[[Categoria:Mulheres]]
+</pre>
+
+Categoria feminina verificada ou prova P21/Q5 já validada; não inferir pelo nome. Preservar títulos, nomes, aspas, variantes PT-PT e trilhas de ligação; não prometer flexão universal ou direção masculina não implementada.
+
+<span id="RW2222-057"></span>
+==== Formatação vertical sem escolher parâmetros duplicados ====
+
+Formatação vertical sem escolher parâmetros duplicados.
+
+'''Antes'''
+<pre>{{Info/Biografia|nome=Exemplo|ocupação=ator|ocupação=escritor}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Biografia
+|nome                  = Exemplo
+|ocupação              = ator
+|ocupação              = escritor
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Biografias}}
+</pre>
+
+Mantém ambas as ocorrências, ordem, valores e prioridade efetiva. Só quebra linhas e padroniza espaçamento de apresentação.
+
+<span id="RW2222-067"></span>
+==== Profundidades média e máxima separadas ====
+
+Profundidades média e máxima separadas.
+
+'''Antes'''
+<pre>{{Info/Corpo de água|nome=Exemplo|prof_med=2600|prof_max=4694}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Corpo de água
+|nome                  = Exemplo
+|profundidade          = 2600
+|profundidade_max      = 4694
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Mesmo dono e destino correspondente, valores e unidades intactos; não calcular nem trocar média por máxima.
+
+<span id="RW2222-068"></span>
+==== Mapa de corpo de água em campo consumido ====
+
+Mapa de corpo de água em campo consumido.
+
+'''Antes'''
+<pre>{{Info/Corpo de água|nome=Exemplo|mapa=Example.png}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Corpo de água
+|nome                  = Exemplo
+|imagem_mapa           = Example.png
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Nome de arquivo simples, sem destino concorrente; foto principal e legendas/tamanhos já existentes continuam independentes.
+
+<span id="RW2222-069"></span>
+==== Localidade mais próxima de área protegida ====
+
+Localidade mais próxima de área protegida.
+
+'''Antes'''
+<pre>{{Info/Área protegida|nome=Exemplo|cidade_proxima=[[Localidade]]}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Área protegida
+|nome                  = Exemplo
+|localidade            = [[Localidade]]
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Somente uma localidade literal/ligação única, sem cidade/localidade concorrente. Não converter coordenadas ou localização administrativa.
+
+<span id="RW2222-070"></span>
+==== Alimentação elétrica em energia ====
+
+Alimentação elétrica em energia.
+
+'''Antes'''
+<pre>{{Info/Computador|nome=Exemplo|alimentacao=Micro USB}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Computador
+|nome                  = Exemplo
+|energia               = Micro USB
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Tecnologias de informação}}
+</pre>
+
+Só o papel explícito de alimentação, preservando conector, números e unidades. Entrada não é tratada como sinônimo.
+
+<span id="RW2222-071"></span>
+==== Unidades militares numeradas em seus campos nativos ====
+
+Unidades militares numeradas em seus campos nativos.
+
+'''Antes'''
+<pre>{{Info/Conflito militar|nome=Exemplo|units1=[[Unidade]]}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Conflito militar
+|nome                  = Exemplo
+|unidade1              = [[Unidade]]
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Guerra}}
+</pre>
+
+Preserva lados/listas; primeiro subconjunto de texto ou ligações completas. Auxiliares estrangeiros desconhecidos e suas refs permanecem protegidos.
+
+<span id="RW2222-072"></span>
+==== Tamanho literal da imagem em conflito militar ====
+
+Tamanho literal da imagem em conflito militar.
+
+'''Antes'''
+<pre>{{Info/Conflito militar|nome=Exemplo|imagem_tamanho=300px}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Conflito militar
+|nome                  = Exemplo
+|imagem-tamanho        = 300px
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Guerra}}
+</pre>
+
+Só corrige chave conhecida, sem redimensionamento nem prioridade nova. Conflito imagem-tamanho/imagens_tamanho impede a troca.
+
+<span id="RW2222-HOLD05"></span>
+==== Identificador de país em aeroporto com auxiliar explícito sem parâmetros ====
+
+Identificador de país em aeroporto com auxiliar explícito sem parâmetros.
+
+'''Antes'''
+<pre>{{Info/Aeroporto|nome=Exemplo|pais={{GBR}}}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Aeroporto
+|nome                  = Exemplo
+|país                  = GBR
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Somente <code><nowiki>{{GBR}}</nowiki></code> inequívoco e país ausente; auxiliares rotulados e outros países aguardam prova própria.
+
+<span id="RW2222-HOLD08"></span>
+==== SoC com rótulo próprio em observações, por escolha expressa do usuário ====
+
+SoC com rótulo próprio em observações, por escolha expressa do usuário.
+
+'''Antes'''
+<pre>{{Info/Computador|nome=Exemplo|soc=Chip X|obs=}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Computador
+|nome                  = Exemplo
+|obs                   = SoC: Chip X
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Tecnologias de informação}}
+</pre>
+
+obs ausente ou vazio e sem outra informação; não substituir processador. Referência sem coletor depende do pré-requisito nativo comprovado.
+
+<span id="RW2222-HOLD04"></span>
+==== Fundador de museu continua preservado aguardando suporte nativo ====
+
+Fundador de museu continua preservado aguardando suporte nativo.
+
+'''Antes'''
+<pre>{{Info/Museu|nome=Exemplo|fundador=Pessoa}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Museu
+|nome                  = Exemplo
+|fundador              = Pessoa
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Escolha expressa: continuar aguardando, sem proposta ou fallback.
+
+<span id="RW2222-HOLD09"></span>
+==== locator_x/y preservados ====
+
+locator_x/y preservados.
+
+'''Antes'''
+<pre>{{Info/Área protegida|nome=Exemplo|locator_x=40.178775|locator_y=-8.697013}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Área protegida
+|nome                  = Exemplo
+|locator_x             = 40.178775
+|locator_y             = -8.697013
+}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+
+Não são convertidos em latitude/longitude nem substituídos por P625 com divergência espacial.
+
+<span id="RW2222-HOLD10"></span>
+==== Campos alt/image_upright preservados no programa. Proposta nativa local separada, testada e não publicada ====
+
+Campos alt/image_upright preservados no programa. Proposta nativa local separada, testada e não publicada.
+
+'''Antes'''
+<pre>{{Info/Conflito militar|nome=Exemplo|imagem=Example.jpg|alt=Descrição|image_upright=0.5}}
+'''Exemplo''' é um assunto de teste.
+</pre>
+'''Depois'''
+<pre>{{Info/Conflito militar
+|nome                  = Exemplo
+|imagem                = Example.jpg
+|alt                   = Descrição
+|image_upright         = 0.5
+}}
+'''Exemplo''' é um assunto de teste.
+
+{{Portal3|Guerra}}
+</pre>
+
+Sem migração forçada para arquivo; proposta depende de alteração comunitária da predefinição.
+
+=== Portais e controle de autoridade ===
+
+<span id="POR-01"></span>
+==== Biografias confirmadas ====
+
+Acrescenta Biografias quando há uma pessoa e um perfil confirmado, inclusive caixas Wikidata.
+
+'''Antes'''
+<pre>{{Portal3|Política}}</pre>
+'''Depois'''
+<pre>{{Portal3|Política|Biografias}}</pre>
+
+Usa as famílias individuais verificadas e os aliases cadastrados, inclusive Info/Titular de cargo e caixas Wikidata elegíveis. Uma caixa genérica ou um título parecido não bastam. O reconhecimento da pessoa não depende de migrar todos os campos da caixa.
+
+<span id="POR-02"></span>
+==== País sem duplicar o estado ====
+
+Acrescenta o país apenas quando o dado é explícito e não há um portal regional que o torne redundante.
+
+'''Antes'''
+<pre>{{Portal3|Biografias|Goiás}}</pre>
+'''Depois'''
+<pre>{{Portal3|Biografias|Goiás}}</pre>
+
+Usa campos explícitos de cidadania, nacionalidade ou nascimento conforme a infocaixa. Países homônimos e abreviaturas ambíguas de estados não são inferidos. Um portal regional reconhecido pode tornar o país redundante.
+
+<span id="POR-03"></span>
+==== Mulheres ====
+
+Acrescenta o portal nos perfis em que a identidade está confirmada.
+
+'''Antes'''
+<pre>{{Portal3|Biografias}}</pre>
+'''Depois'''
+<pre>{{Portal3|Biografias|Mulheres}}</pre>
+
+Não deduz a identidade pelo prenome ou por uma palavra isolada.
+
+<span id="POR-04"></span>
+==== Profissão e esporte ====
+
+Acrescenta os portais previstos por profissão, área de trabalho ou modalidade explicitamente indicada.
+
+'''Antes'''
+<pre>Uma pessoa com caixa individual de futebolista, modalidade e país confirmados.</pre>
+'''Depois'''
+<pre>Portal3 com Biografias, Esportes, Futebol e o país elegível, além dos portais já existentes.</pre>
+
+Preserva portais mais específicos e não classifica uma banda como uma pessoa.
+
+<span id="POR-05"></span>
+==== Artes e ciências ====
+
+Reconhece os perfis conferidos de artistas, músicos, escritores, militares e cientistas.
+
+'''Antes'''
+<pre>Uma caixa principal de cientista com disciplina confirmada.</pre>
+'''Depois'''
+<pre>Acrescenta somente os portais previstos para essa disciplina e Biografias.</pre>
+
+Profissão, gênero artístico e instituição não são tratados como a mesma evidência.
+
+<span id="POR-06"></span>
+==== Filmes, séries e obras musicais ====
+
+Usa os modelos próprios de obras para reconhecer Cinema, Televisão e Música.
+
+'''Antes'''
+<pre>Um artigo com uma caixa nativa de álbum ou episódio de televisão.</pre>
+'''Depois'''
+<pre>Acrescenta os portais temáticos correspondentes, sem Biografias para a obra.</pre>
+
+Exige uma infocaixa principal e um assunto comprovados. Info/Álbum pode indicar Música. Um filme pode indicar Cinema e Entretenimento, com o país explícito de produção. Não deduz o país de uma obra pela nacionalidade de uma pessoa citada.
+
+<span id="POR-07"></span>
+==== Biologia e saúde ====
+
+Usa perfis de taxonomia, medicamentos, doenças e demais caixas conferidas.
+
+'''Antes'''
+<pre>Uma caixa taxonômica de animal com classe confirmada.</pre>
+'''Depois'''
+<pre>Acrescenta os portais compatíveis, como Animais e a classe prevista no mapa.</pre>
+
+Não identifica classe biológica, indicação clínica ou especialidade pela aparência do nome.
+
+<span id="POR-08"></span>
+==== Demais assuntos ====
+
+Reconhece livros, universidades, jornais, revistas científicas, municípios, rios, ilhas, conflitos, software, empresas, clubes, estádios, automóveis, moedas, partidos, eventos meteorológicos, cerveja e veículos espaciais nos perfis cadastrados.
+
+'''Antes'''
+<pre>Uma caixa nativa de rio ou software sem Portal3.</pre>
+'''Depois'''
+<pre>Acrescenta o portal específico previsto e conserva os já presentes.</pre>
+
+O catálogo de perfis indica exatamente os modelos e condições ativados.
+
+<span id="POR-09"></span>
+==== Esboço com assunto confirmado ====
+
+Aproveita combinações conferidas de esboço e categoria para um portal temático.
+
+'''Antes'''
+<pre>Um artigo sem infocaixa, com esboço temático e categoria concordantes.</pre>
+'''Depois'''
+<pre>Acrescenta somente o portal que essa combinação confirma.</pre>
+
+Apenas esboços específicos incluídos no mapa conferido. Não cria um esboço para obter um portal nem usa uma inferência nova como segunda confirmação.
+
+<span id="POR-10"></span>
+==== Nomes de portais importados ====
+
+Troca nomes estrangeiros ou erros previstos por destinos portugueses existentes.
+
+'''Antes'''
+<pre>{{Portal3|Biography|Football}}</pre>
+'''Depois'''
+<pre>{{Portal3|Biografias|Futebol}}</pre>
+
+Não traduz nomes ambíguos nem inventa portais inexistentes.
+
+<span id="POR-11"></span>
+==== Posições e repetições em Portal3 ====
+
+Reúne chamadas compatíveis de Portal3 em uma lista contínua de temas, preservando os portais já presentes.
+
+'''Antes'''
+<pre>{{Portal3|Biografias|Futebol|3=Brasil}}</pre>
+'''Depois'''
+<pre>{{Portal3|Biografias|Futebol|Brasil}}</pre>
+
+Mantém todos os temas existentes e opções compatíveis. Uma mesma opção com valores diferentes impede somente essa união. Não usa uma lista nova de exclusão para apagar portais.
+
+<span id="POR-12"></span>
+==== Posição do portal no rodapé ====
+
+Move uma chamada isolada fora de lugar para o rodapé confirmado.
+
+'''Antes'''
+<pre>Texto.
+{{Portal3|Ciência}}
+== Referências ==
+&lt;references/&gt;</pre>
+'''Depois'''
+<pre>Texto.
+{{Referências}}
+
+{{Portal3|Ciência}}</pre>
+
+Não atravessa uma estrutura desconhecida, bloco protegido ou limite de seção sem prova.
+
+<span id="POR-13"></span>
+==== Autoridade com algo para exibir ====
+
+Acrescenta o controle apenas após confirmar identificadores que a chamada mostrará.
+
+'''Antes'''
+<pre>Rodapé de artigo com identificadores de autoridade confirmados no item correspondente.</pre>
+'''Depois'''
+<pre>{{Controle de autoridade}}
+{{Portal3|Biografias}}</pre>
+
+A presença de um item do Wikidata não basta. Sem identificadores exibíveis, não acrescenta uma caixa vazia.
+
+<span id="FOOT-04"></span>
+==== Uma chamada efetiva de autoridade ====
+
+Remove duplicatas equivalentes do controle de autoridade e mantém a grafia portuguesa da chamada conservada.
+
+'''Antes'''
+<pre>{{Controle de autoridade}}
+{{Authority control}}
+{{Portal3|Biografias}}</pre>
+'''Depois'''
+<pre>{{Controle de autoridade}}
+{{Portal3|Biografias}}</pre>
+
+Controle de autoridade e Controlo de autoridade são formas válidas preservadas. IDs e opções diferentes permanecem. NM/NF podem gerar categorias e ordenação, por isso não são apagados como controles puros.
+
+'''Antes'''
+<pre>{{Controlo de autoria|VIAF=00123}}</pre>
+'''Depois'''
+<pre>{{Controle de autoridade|VIAF=00123}}</pre>
+
+Alias exato, com identificadores, zeros e opções preservados. NM/NF conservam seus efeitos próprios.
+
+<span id="POR-14"></span>
+==== Biografia reconhecida sem depender da tradução inteira ====
+
+Permite que as regras biográficas atuem nas famílias pessoais e aliases verificados, ainda que outros campos estrangeiros precisem permanecer.
+
+'''Antes'''
+<pre>Uma Info/Titular de cargo individual reconhecida, sem Portal3.</pre>
+'''Depois'''
+<pre>O rodapé recebe Biografias e outros temas que os campos explícitos confirmarem.</pre>
+
+As famílias são classificadas pelo modelo e sua identidade. Empresa, unidade militar, grupo étnico, animal e personagem não viram pessoa por terem campos parecidos.
+
+<span id="POR-15"></span>
+==== Países em vários idiomas e escritas ====
+
+Reconhece nomes portugueses, estrangeiros, endônimos, códigos e variantes conferidas para portais de países e territórios existentes.
+
+'''Antes'''
+<pre>Uma pessoa com cidadania=日本 em campo reconhecido, sem portal do país.</pre>
+'''Depois'''
+<pre>O rodapé pode receber Japão, além de Biografias e dos temas já existentes.</pre>
+
+O mapa contém 197 destinos de países e territórios, não 197 países soberanos. Gentílicos são lidos em nacionalidade ou cidadania. Cidades, estados, abreviaturas postais e nomes ambíguos não bastam. Erros de uma letra só são aceitos no campo apropriado quando o destino é único.
+
+<span id="POR-16"></span>
+==== País e guerra de uma unidade militar ====
+
+Acrescenta o país da unidade e um conflito explicitamente indicado nos campos pertinentes.
+
+'''Antes'''
+<pre>{{Info/Unidade Militar|nome=Unidade Exemplo|país=Austrália|guerras/batalhas=[[Segunda Guerra Mundial]]}}</pre>
+'''Depois'''
+<pre>A unidade conserva seus dados e recebe Portal3 com Guerra, Austrália e Segunda Guerra Mundial.</pre>
+
+O país deve estar no campo da unidade e o conflito no campo de guerras ou batalhas. Datas de atividade e países mencionados em legendas ou campanhas não servem como prova. Não acrescenta Biografias à unidade.
+
+<span id="POR-17"></span>
+==== Portais por categorias exatas ====
+
+Reúne portais compatíveis a partir da categoria real do assunto.
+
+'''Antes'''
+<pre>Artigo sobre futebol com [[Categoria:Futebol]], sem portal final.</pre>
+'''Depois'''
+<pre>Mesmo artigo com {{Portal3|Futebol|Esportes}} e a categoria preservada.</pre>
+
+8337 categorias/540 destinos, não palavras soltas. Biografias exige categoria humana individual, equipes, organizações, listas e personagens não viram pessoas. Ambiguidade ou redirecionamento insuficiente retém o candidato.
+
+<span id="CAT-01"></span>
+==== Categorias com prova referenciada ====
+
+Acrescenta categoria existente com todos os critérios ancorados ao rascunho.
+
+'''Antes'''
+<pre>Artigo sem categorias temáticas, com tópico e fonte comprovados no perfil habilitado.</pre>
+'''Depois'''
+<pre>Mesmo artigo com a categoria existente específica permitida.</pre>
+
+Exige ausência de qualquer categoria nativa reconhecida, incluindo as geradas por modelos. 10359 contratos/9913 destinos/43 perfis, só 171 contratos de 9 perfis possuem produtor P19/P31 materializado. Os demais, inclusive livros/filmes/esportes, ficam condicionais. A informação citada, a entidade e o tipo de categoria precisam coincidir com uma declaração referenciada do Wikidata que use o mesmo endereço de fonte. Essa comparação não inclui a leitura automática do corpo externo da referência. Não inverte o mapa de portais.
+
+=== Imagens e ligações ===
+
+<span id="IMG-01"></span>
+==== Espaços de nomes e opções de imagem ====
+
+Adapta Image e thumb no contexto de uma imagem reconhecida.
+
+'''Antes'''
+<pre>[[Image:Exemplo.jpg|thumb|220px|Uma paisagem.]]</pre>
+'''Depois'''
+<pre>[[Ficheiro:Exemplo.jpg|miniatura|220px|Uma paisagem.]]</pre>
+
+Conserva arquivo, largura, legenda, alt e destino. File/Image locais podem usar Ficheiro. Ficheiro/Imagem/Arquivo portugueses válidos permanecem. Opções mudam apenas no consumidor verificado, galerias e texto livre não herdam tradução genérica.
+
+<span id="IMG-02"></span>
+==== Miniaturada e erros previstos ====
+
+Corrige opções digitadas incorretamente quando não são parte da legenda.
+
+'''Antes'''
+<pre>[[Imagem:Exemplo.jpg|miniaturada|220px|Uma paisagem.]]</pre>
+'''Depois'''
+<pre>[[Imagem:Exemplo.jpg|miniatura|220px|Uma paisagem.]]</pre>
+
+Um termo dentro da legenda não é tratado como opção.
+
+<span id="IMG-03"></span>
+==== Arquivo importado como endereço ====
+
+Reconhece endereços de página de arquivo nos campos conferidos.
+
+'''Antes'''
+<pre>|imagem=https://commons.wikimedia.org/wiki/File:Exemplo.jpg</pre>
+'''Depois'''
+<pre>|imagem=Exemplo.jpg</pre>
+
+Exige confirmar o mesmo arquivo e o formato esperado pelo campo.
+
+<span id="IMG-04"></span>
+==== Tamanhos e sintaxe de opção ====
+
+Repara unidades duplicadas e delimitadores previstos sem impor um tamanho a todas as imagens.
+
+'''Antes'''
+<pre>[[Imagem:Exemplo.jpg|miniatura|220pxpx|Legenda]]</pre>
+'''Depois'''
+<pre>[[Imagem:Exemplo.jpg|miniatura|220px|Legenda]]</pre>
+
+Mantém opções funcionais e tamanhos válidos.
+
+'''Antes'''
+<pre>[[Ficheiro:Exemplo.svg|３００px|Legenda ３００]]</pre>
+'''Depois'''
+<pre>[[Ficheiro:Exemplo.svg|300px|Legenda ３００]]</pre>
+
+Somente a dimensão reconhecida muda, nome, legenda e demais dígitos permanecem.
+
+<span id="LNK-01"></span>
+==== Ligações internas sem pipe redundante ====
+
+Simplifica uma ligação cujo rótulo é igual ao destino.
+
+'''Antes'''
+<pre>[[Ecossistema|Ecossistema]]</pre>
+'''Depois'''
+<pre>[[Ecossistema]]</pre>
+
+Não retira rótulos com capitalização, flexão ou sentido diferente.
+
+<span id="LNK-02"></span>
+==== Flexão simples fora da ligação ====
+
+Põe uma terminação simples depois do link quando a leitura e o destino não mudam.
+
+'''Antes'''
+<pre>[[ecossistema|ecossistemas]]</pre>
+'''Depois'''
+<pre>[[ecossistema]]s</pre>
+
+Depende do padrão confirmado. Não aplica um algoritmo livre de flexão.
+
+<span id="LNK-03"></span>
+==== Fechamento único de ligação ====
+
+Recupera um colchete faltante quando o limite é único.
+
+'''Antes'''
+<pre>Consulte [[Tema fictício] neste exemplo.</pre>
+'''Depois'''
+<pre>Consulte [[Tema fictício]] neste exemplo.</pre>
+
+Várias aberturas ou limites concorrentes impedem a correção.
+
+<span id="LNK-04"></span>
+==== Ligações externas com sintaxe interna ====
+
+Corrige a marcação inequívoca de um endereço externo.
+
+'''Antes'''
+<pre>[[https://example.invalid/|Sítio oficial]]</pre>
+'''Depois'''
+<pre>[https://example.invalid/ Sítio oficial]</pre>
+
+Uma barra que pertence à consulta da URL não é separador de rótulo.
+
+<span id="LNK-05"></span>
+==== Rótulo externo partido ====
+
+Substitui uma quebra indevida por espaço quando endereço e rótulo estão completos.
+
+'''Antes'''
+<pre>[https://example.invalid/
+Documento fictício]</pre>
+'''Depois'''
+<pre>[https://example.invalid/ Documento fictício]</pre>
+
+Não funde uma lista ou uma URL com limites incertos.
+
+<span id="LNK-06"></span>
+==== Protocolos e ampersands previstos ====
+
+Corrige repetições e codificação duplicada em padrões literais.
+
+'''Antes'''
+<pre>https://https://example.invalid/</pre>
+'''Depois'''
+<pre>https://example.invalid/</pre>
+
+Não reescreve caminhos, parâmetros ou protocolos desconhecidos.
+
+'''Antes'''
+<pre>[https://https://example.invalid/a?id=2#sec Rótulo]</pre>
+'''Depois'''
+<pre>[https://example.invalid/a?id=2#sec Rótulo]</pre>
+
+Protocolo igual repetido, preserva rótulo, consulta e fragmento, sem reinterpretar URLs aninhadas ou de arquivo.
+
+<span id="LNK-07"></span>
+==== Título de seção com ligação ====
+
+Retira a ligação do título e usa uma remissão principal quando essa equivalência está confirmada.
+
+'''Antes'''
+<pre>== [[Tema fictício]] ==</pre>
+'''Depois'''
+<pre>== Tema fictício ==
+{{Artigo principal|Tema fictício}}</pre>
+
+Exige destino existente, não ambíguo e diferente do próprio artigo, com equivalência confirmada. Não duplica remissão já presente, nem presume que todo link misturado no título seja o assunto principal.
+
+<span id="IMG-05"></span>
+==== Uma imagem por linha ====
+
+Separa incorporações de imagem no corpo e mantém uma linha vazia entre o conjunto e a prosa.
+
+'''Antes'''
+<pre>Texto.
+[[Ficheiro:Example.jpg]] [[Ficheiro:Example2.jpg]]Outro texto.
+</pre>
+'''Depois'''
+<pre>Texto.
+
+[[Ficheiro:Example.jpg]]
+[[Ficheiro:Example2.jpg]]
+
+Outro texto.
+</pre>
+
+Não insere linha vazia entre imagens consecutivas. Preserva opções, legendas e imagens funcionais em galerias, tabelas, campos, listas e ícones em linha. Uma imagem ligada a referência ou auxiliar adjacente conserva o contexto.
+
+<span id="IMG-06"></span>
+==== Bandeira decorativa para nome ligado ====
+
+Substitui formas exatas de país nos campos civis habilitados.
+
+'''Antes'''
+<pre>Na Info/Biografia: |nacionalidade={{BRA}}</pre>
+'''Depois'''
+<pre>Na Info/Biografia: |nacionalidade=[[Brasil]]</pre>
+
+Piloto: nacionalidade/cidadania em Info/Biografia, nacionalidade em Info/Político e Info/Ator. 1928 formas/195 entradas não são todas as variantes. Preserva contextos militares, esportivos, navais, históricos, geográficos ou disputados. Flag|BRA mantém BRA em [[Brasil|BRA]].
+
+<span id="LNK-08"></span>
+==== Destino UTF-8 com rótulo conservado ====
+
+Decodifica escapes não ASCII do destino sem alterar o rótulo.
+
+'''Antes'''
+<pre>[[Hist%C3%B3ria#Idade_M%C3%A9dia|Idade Média]]</pre>
+'''Depois'''
+<pre>[[História#Idade_Média|Idade Média]]</pre>
+
+Só destino de artigo, rótulo explícito não vazio e UTF-8 válido. Preserva fragmento/rótulo. Não altera unpiped, arquivo, categoria, interwiki, ASCII codificado ou delimitador reservado. Quatro pares nativos tiveram HTML igual.
+
+=== Tabelas e sintaxe ===
+
+<span id="TAB-01"></span>
+==== Aberturas e fechamentos de tabelas ====
+
+Corrige erros finitos nos delimitadores quando cada tabela e cada célula continuam identificáveis.
+
+'''Antes'''
+<pre>Uma tabela completa com um delimitador digitado incorretamente e fechamento único.</pre>
+'''Depois'''
+<pre>A mesma tabela com o delimitador correto e as mesmas células.</pre>
+
+Não fecha uma tabela arbitrariamente no fim do artigo nem corta células para caber na tela.
+
+<span id="TAB-02"></span>
+==== Aspas dos atributos ====
+
+Troca aspas tipográficas por delimitadores válidos de atributo.
+
+'''Antes'''
+<pre>! scope=“col” | Nome</pre>
+'''Depois'''
+<pre>! scope="col" | Nome</pre>
+
+Conserva o texto das células e as strings em que as aspas são conteúdo.
+
+<span id="TAB-03"></span>
+==== Cabeçalhos simples acessíveis ====
+
+Acrescenta scope aos cabeçalhos elegíveis.
+
+'''Antes'''
+<pre>! Nome&#32;!! Valor</pre>
+'''Depois'''
+<pre>! scope="col" | Nome&#32;!! scope="col" | Valor</pre>
+
+Exige uma grade simples e papel de cabeçalho inequívoco. Tabelas complexas não recebem suposições de alcance.
+
+<span id="TAB-04"></span>
+==== Atributos antigos equivalentes ====
+
+Retira um atributo redundante quando o CSS existente já fornece exatamente o mesmo valor.
+
+'''Antes'''
+<pre>|- style="text-align:left;" align="left"</pre>
+'''Depois'''
+<pre>|- style="text-align:left;"</pre>
+
+Conflitos de valores e regras com apresentação não equivalente permanecem.
+
+<span id="TAB-05"></span>
+==== Formatação esquecida dentro da célula ====
+
+Fecha marcação local quando o limite da célula prova onde deve terminar.
+
+'''Antes'''
+<pre>| &lt;small&gt;Alfa
+| Beta</pre>
+'''Depois'''
+<pre>| &lt;small&gt;Alfa&lt;/small&gt;
+| Beta</pre>
+
+Se o fechamento posterior for intencional ou o limite for incerto, preserva a marcação.
+
+<span id="TAB-06"></span>
+==== Texto deslocado pelo leitor de tabelas ====
+
+Tira de dentro da abertura uma legenda de lista que já seria exibida antes da tabela.
+
+'''Antes'''
+<pre>{| class="wikitable"
+;Explicação
+! Nome
+| Alfa
+|}</pre>
+'''Depois'''
+<pre>;Explicação
+{| class="wikitable"
+! Nome
+| Alfa
+|}</pre>
+
+Exige confirmação do resultado nativo, sem mover texto de uma célula legítima.
+
+<span id="TAB-07"></span>
+==== Mesclagens e atributos com erro finito ====
+
+Corrige atributos previstos de linha e coluna sem alterar a grade lógica.
+
+'''Antes'''
+<pre>Uma célula com grafia incorreta inequívoca de um atributo conhecido.</pre>
+'''Depois'''
+<pre>A mesma célula com atributo aceito, conservando conteúdo e extensão.</pre>
+
+A grade antes e depois precisa corresponder. Não reorganiza dados para forçar uma comparação.
+
+<span id="TAB-08"></span>
+==== Tabelas largas e apresentação responsiva ====
+
+Trata estilos e contenção nos perfis de tabela confirmados, sem aplicar invólucros genéricos ao artigo.
+
+'''Antes'''
+<pre>Uma tabela com configuração de largura comprovadamente defeituosa e perfil suportado.</pre>
+'''Depois'''
+<pre>A mesma tabela com apresentação corrigida, conservando fórmulas, unidades e células.</pre>
+
+Largura grande não basta para autorizar mudança. Infocaixas, navecaixas e portais continuam usando suas chamadas nativas.
+
+<span id="SYN-01"></span>
+==== Chaves e colchetes em limites únicos ====
+
+Repara trocas previstas de fechamentos quando há uma única estrutura reconhecida.
+
+'''Antes'''
+<pre>Uma chamada conhecida com fechamento trocado e limites inequívocos.</pre>
+'''Depois'''
+<pre>A mesma chamada com fechamento correspondente.</pre>
+
+O reparo usa nomes e estruturas conhecidas e precisa de limites inequívocos. Não substitui chaves, colchetes ou parênteses globalmente e preserva fórmulas, ligações, código e exemplos.
+
+<span id="SYN-02"></span>
+==== Trecho completo anterior a marcação incerta ====
+
+Aplica correções locais independentes em trechos verificáveis.
+
+'''Antes'''
+<pre>Uma ligação simples com erro antes de um bloco incompleto independente.</pre>
+'''Depois'''
+<pre>A ligação corrigida e o bloco incompleto preservado.</pre>
+
+Trechos independentes continuam elegíveis mesmo se outro ponto contiver marcação incerta. Um fechamento HTML isolado pode ser ignorado apenas na leitura estrutural, mantendo os bytes originais do texto.
+
+<span id="SYN-03"></span>
+==== Resíduos de cópia de chat ====
+
+Retira cercas Markdown que envolvem somente o artigo completo e marcas técnicas conhecidas de cópia.
+
+'''Antes'''
+<pre>```wikitext
+'''Vila Aurora''' é uma povoação.
+
+== Geografia ==
+Texto da seção.
+{{Referências}}
+```</pre>
+'''Depois'''
+<pre>'''Vila Aurora''' é uma povoação.
+
+== Geografia ==
+Texto da seção.
+{{Referências}}</pre>
+
+Exige abertura de artigo, seção e elementos de estrutura confirmados. Exemplos de código, citações literais e artigos sobre a própria marcação ficam intactos.
+
+<span id="SYN-04"></span>
+==== Negrito e itálico Markdown ====
+
+Converte ênfase inequívoca para a marcação wiki.
+
+'''Antes'''
+<pre>O termo **rede óptica** aparece no texto.</pre>
+'''Depois'''
+<pre>O termo '''rede óptica''' aparece no texto.</pre>
+
+Não modifica listas aninhadas, fórmulas, código ou exemplos sobre a marcação.
+
+<span id="SYN-05"></span>
+==== Múltiplas linhas vazias ====
+
+Reduz espaçamento redundante em trechos de prosa e entre estruturas completas.
+
+'''Antes'''
+<pre>Primeiro parágrafo.
+
+ 	
+Segundo parágrafo.</pre>
+'''Depois'''
+<pre>Primeiro parágrafo.
+
+Segundo parágrafo.</pre>
+
+Protege poemas, blocos preformatados, código, listas e contextos em que a quebra tem função.
+
+<span id="SYN-06"></span>
+==== Começo sem linhas vazias ====
+
+Retira linhas vazias do começo do artigo, inclusive após remover Descrição curta.
+
+'''Antes'''
+<pre>
+
+
+Texto do artigo.</pre>
+'''Depois'''
+<pre>Texto do artigo.</pre>
+
+Retira apenas linhas iniciais sem conteúdo em artigos. Não remove indentação funcional nem conteúdo de exemplos protegidos.
+
+<span id="SYN-07"></span>
+==== Título redundante na abertura ====
+
+Retira o título inicial que apenas repete o título da página.
+
+'''Antes'''
+<pre>== Tema fictício ==
+Texto da introdução.</pre>
+'''Depois'''
+<pre>Texto da introdução.</pre>
+
+Exige correspondência com a página e abertura normal, sem apagar uma seção legítima.
+
+<span id="SYN-08"></span>
+==== Lista com itens vazios no final ====
+
+Retira marcadores vazios que não têm subitens ou outra função.
+
+'''Antes'''
+<pre>* Primeiro item
+*
+*</pre>
+'''Depois'''
+<pre>* Primeiro item</pre>
+
+Um marcador com filhos ou efeito de estrutura permanece.
+
+<span id="SYN-09"></span>
+==== Erros ortográficos exatos ====
+
+Corrige grafias previstas por uma lista finita, sem reescrever frases.
+
+'''Antes'''
+<pre>As espectativas cresceram quando o filme estreiou.</pre>
+'''Depois'''
+<pre>As expectativas cresceram quando o filme estreou.</pre>
+
+Protege nomes próprios, links, títulos bibliográficos, citações, itálico, parênteses e exemplos nos contextos previstos.
+
+<span id="SYN-10"></span>
+==== Descrição curta e modelos obsoletos ====
+
+Retira Descrição curta do artigo e trata os modelos obsoletos com ação expressa no catálogo.
+
+'''Antes'''
+<pre>{{Descrição curta|Um tema fictício}}
+
+Texto do artigo.</pre>
+'''Depois'''
+<pre>Texto do artigo.</pre>
+
+Uma chamada interna que possa definir categorias, ordenação ou outros metadados impede a remoção da predefinição inteira. Programas ou chamadas internas sem equivalência confirmada ficam preservados, sem impedir ajustes independentes. Um modelo desconhecido não é considerado obsoleto só por não constar do catálogo.
+
+<span id="SYN-11"></span>
+==== Categorias e palavras mágicas importadas ====
+
+Adapta as palavras mágicas e os prefixos previstos, conservando seus argumentos.
+
+'''Antes'''
+<pre>{{DEFAULTSORT:Exemplo, Tema}}</pre>
+'''Depois'''
+<pre>{{DEFAULTSORT:Exemplo, Tema}}</pre>
+
+Uma chamada nativa válida permanece. Só há adaptação com alias ou palavra mágica de origem confirmada. Palavras mágicas exigem o mesmo ID nativo ativo e a forma de chamada correta. Operandos, valores e efeitos permanecem. A preferência de ordenação é ORDENAÇÃOPADRÃO. PAGESINNAMESPACE/PAGESINNS ficam retidos sem consumidor ativo comprovado, prefixos de homônimos não transformam modelos em comandos.
+
+<span id="SYN-12"></span>
+==== Coordenadas duplicadas ====
+
+Retira uma chamada de título redundante sem perder a mais completa.
+
+'''Antes'''
+<pre>{{Coord|1|2|N|3|4|E|display=title}}
+{{Coord|1|2|N|3|4|E|display=title|type=city}}</pre>
+'''Depois'''
+<pre>{{Coord|1|2|N|3|4|E|display=title|type=city}}</pre>
+
+Coordenadas, opções ou funções conflitantes permanecem.
+
+<span id="TAB-09"></span>
+==== Tabelas abertas por predefinição nativa ====
+
+Reconhece pares conferidos que abrem uma tabela por predefinição e a fecham com marcação literal ou um auxiliar nativo.
+
+'''Antes'''
+<pre>{{Começa caixa}}
+{{S-inc|recente}}
+|}</pre>
+'''Depois'''
+<pre>O bloco continua intacto e ajustes independentes depois dele podem ser aplicados.</pre>
+
+A leitura depende do par nativo conhecido. Não inventa uma abertura para um fechamento avulso nem reescreve qualquer produtor de tabela.
+
+<span id="TAB-10"></span>
+==== Célula já produzida pela predefinição ====
+
+Retira um separador de célula redundante antes de um produtor nativo conferido.
+
+'''Antes'''
+<pre>{| class="wikitable"
+|-
+|{{Td fmtn|1}}
+|}</pre>
+'''Depois'''
+<pre>{| class="wikitable"
+|-
+{{Td fmtn|1}}
+|}</pre>
+
+Exige tabela literal reconhecida e Td fmtn com um único número literal. Atributos concorrentes, valores dinâmicos e outros produtores permanecem.
+
+<span id="TAB-11"></span>
+==== Partido no consumidor eleitoral correto ====
+
+Usa o nome português previsto no campo de partido de modelos eleitorais conferidos.
+
+'''Antes'''
+<pre>{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Democratic Party (United States)|votes=12,345|percentage=4.5}}</pre>
+'''Depois'''
+<pre>{{Election box candidate with party link no change|candidate=Pessoa Exemplo|party=Partido Democrata (Estados Unidos)|votes=12,345|percentage=4.5}}</pre>
+
+O mapeamento é específico do consumidor e do valor. Preserva candidato, votos, porcentagem e cores. Não traduz party em uma predefinição desconhecida.
+
+<span id="SYN-13"></span>
+==== Modelos de bloco em linhas próprias ====
+
+Separa chamadas independentes coladas para facilitar a leitura do código.
+
+'''Antes'''
+<pre>{{Em construção}}{{Evento atual|Este artigo}}
+Texto.</pre>
+'''Depois'''
+<pre>{{Em construção}}
+{{Evento atual|Este artigo}}
+Texto.</pre>
+
+Usa os papéis de bloco reconhecidos. Datas, idiomas e outros auxiliares de frase continuam em linha, valores de campos, referências, tabelas e exemplos protegidos conservam seu contexto.
+
+<span id="SYN-14"></span>
+==== Noinclude vazio sem função no artigo ====
+
+Retira um par vazio de noinclude no artigo e as linhas iniciais sem conteúdo que sobrarem.
+
+'''Antes'''
+<pre>&lt;noinclude&gt;
+ &lt;/noinclude&gt;
+
+Texto.</pre>
+'''Depois'''
+<pre>Texto.</pre>
+
+O bloco só pode conter espaços. Controles de inclusão com conteúdo, definições de predefinição e exemplos protegidos permanecem.
+
+<span id="SYN-15"></span>
+==== Espaços horizontais em prosa ====
+
+Ajusta espaços antes de vírgula/ponto e dentro de parênteses simples.
+
+'''Antes'''
+<pre>Uma frase , outra ( palavra ).</pre>
+'''Depois'''
+<pre>Uma frase, outra (palavra).</pre>
+
+Somente espaços horizontais acidentais na prosa. Mantém referências, fórmulas, código, títulos, URLs, números e unidades. Pontos finais bibliográficos não são apagados genericamente.
+
+<span id="SYN-16"></span>
+==== BR entre itens comuns ====
+
+Retira BR final antes do próximo item comum do mesmo nível.
+
+'''Antes'''
+<pre>* Alfa&lt;br&gt;
+* Beta</pre>
+'''Depois'''
+<pre>* Alfa
+* Beta</pre>
+
+Não atravessa sublistas, prefixos de definição, modelos, tabelas, versos ou exemplos.
+
+<span id="SYN-17"></span>
+==== Fechamento small inequívoco ====
+
+Repara a forma autocontida usada como fechamento.
+
+'''Antes'''
+<pre>&lt;small&gt;Texto&lt;small/&gt;</pre>
+'''Depois'''
+<pre>&lt;small&gt;Texto&lt;/small&gt;</pre>
+
+Uma abertura correspondente, fechamento sem atributos e nenhum small posterior ambíguo. Atributos da abertura ficam.
+
+<span id="SYN-18"></span>
+==== Título HTML literal para sintaxe wiki ====
+
+Padroniza H2–H6 simples e únicos.
+
+'''Antes'''
+<pre>&lt;h2&gt;Seção simples&lt;/h2&gt;</pre>
+'''Depois'''
+<pre>== Seção simples ==</pre>
+
+Sem atributos, marcação ou proprietário protegido, título único. Pares nativos conservaram nível, texto, IDs e sumário. Invólucro e metadados de edição da seção mudam, não é HTML idêntico.
+
+<span id="SYN-19"></span>
+==== Prefixo de predefinição conhecida ====
+
+Retira namespace literal de citações/infocaixas nativas exatas.
+
+'''Antes'''
+<pre>{{Predefinição:Citar livro|título=Obra}}</pre>
+'''Depois'''
+<pre>{{Citar livro|título=Obra}}</pre>
+
+Modelo, argumentos, capitalização e espaços restantes conservados. Homônimos de palavras mágicas, nomes calculados e modelos desconhecidos mantêm o prefixo.
+
+<span id="SYN-20"></span>
+==== Lacunas entre itens simples ====
+
+Retira lacunas acidentais entre itens irmãos de Ver também, mantendo a sequência em uma lista contínua.
+
+'''Antes'''
+<pre>* item1
+
+* item2</pre>
+'''Depois'''
+<pre>* item1
+* item2</pre>
+
+Não soma subitens para alcançar o mínimo de colunas e não une listas separadas por prosa, subtítulos ou comentários funcionais.
+
+<span id="TAB-12"></span>
+==== Atributos indevidos no fechamento de tabela ====
+
+Retira atributos de fechamento cujo par está comprovado.
+
+'''Antes'''
+<pre>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Texto&lt;/td class="copiado"&gt;&lt;/tr&gt;&lt;/table&gt;</pre>
+'''Depois'''
+<pre>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Texto&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</pre>
+
+Abertura e pilha inequívocas, conserva atributos das aberturas, células, conteúdo e referências.
+
+=== Seções finais, colunas e projetos irmãos ===
+
+<span id="COL-01"></span>
+==== Duas colunas a partir de oito itens ====
+
+Usa Colunas-lista em listas simples de Ligações externas, Bibliografia ou Leitura adicional.
+
+'''Antes'''
+<pre>== Ligações externas ==
+* Item 1
+* Item 2
+* Item 3
+* Item 4
+* Item 5
+* Item 6
+* Item 7
+* Item 8</pre>
+'''Depois'''
+<pre>== Ligações externas ==
+{{Colunas-lista|2|2=
+* Item 1
+* Item 2
+* Item 3
+* Item 4
+* Item 5
+* Item 6
+* Item 7
+* Item 8
+}}</pre>
+
+Conta itens principais por seção ou subseção. Subitens não aumentam o total, e listas separadas não são somadas.
+
+<span id="COL-02"></span>
+==== Lista curta sem colunas ====
+
+Retira um invólucro simples de duas colunas quando há menos de oito itens.
+
+'''Antes'''
+<pre>== Bibliografia ==
+{{Colunas-lista|2|2=
+* Uma obra
+}}</pre>
+'''Depois'''
+<pre>== Bibliografia ==
+* Uma obra</pre>
+
+Preserva estilos e configurações com função própria, tabelas ou estruturas sem equivalência.
+
+<span id="COL-03"></span>
+==== Colunas manuais sem col1 e col2 ====
+
+Transforma blocos simples de colunas manuais em uma lista contínua.
+
+'''Antes'''
+<pre>{{Colunas|col1=
+* [https://example.invalid/a Item A]
+|col2=
+* [https://example.invalid/b Item B]
+}}</pre>
+'''Depois'''
+<pre>* [https://example.invalid/a Item A]
+* [https://example.invalid/b Item B]</pre>
+
+Exige colN consecutivos com uma mesma lista contínua. Preserva a ordem, trata corpo implícito ou 2= e mantém caixas de projetos irmãos e rodapé fora das colunas. Prosa e campos não reconhecidos permanecem. Parâmetros de coluna com texto bibliográfico ou URL são preservados; não são apagados para ajustar o leiaute. A pontuação pode ser corrigida de forma independente, quando as demais condições permitem.
+
+<span id="COL-04"></span>
+==== Apresentação nativa das referências ====
+
+Prefere o coletor Referências sem acrescentar opções manuais de colunas.
+
+'''Antes'''
+<pre>{{Referências|col=2}}</pre>
+'''Depois'''
+<pre>{{Referências}}</pre>
+
+O limiar de oito vale para listas comuns, não para contar chamadas repetidas de uma referência. Títulos nativos, grupos e bancos com função própria continuam na chamada.
+
+<span id="FOOT-01"></span>
+==== Ordem das seções e do rodapé ====
+
+Organiza o rodapé em navegações e identificadores, portal, esboço existente, coordenadas gerais, ordenação e categorias.
+
+'''Antes'''
+<pre>Categoria ou navecaixa inserida entre o título de Referências e seu coletor.</pre>
+'''Depois'''
+<pre>Coletor junto da seção e elementos de rodapé na posição correspondente.</pre>
+
+Só move chamadas soltas de papel comprovado. Conteúdo de tabelas, infocaixas, listas e exemplos mantém o seu contexto. Conflitos de ordenação ou dados exclusivos conservam o trecho afetado.
+
+<span id="FOOT-02"></span>
+==== Chave de ordenação antes das categorias ====
+
+Move DEFAULTSORT para antes do conjunto de categorias.
+
+'''Antes'''
+<pre>[[Categoria:Temas fictícios]]
+{{DEFAULTSORT:Tema fictício}}</pre>
+'''Depois'''
+<pre>{{DEFAULTSORT:Tema fictício}}
+[[Categoria:Temas fictícios]]</pre>
+
+Chaves literais idênticas podem ser reunidas. Chaves distintas, donos dinâmicos, NM/NF e programas que possam alterar a ordenação conservam sua ordem de avaliação.
+
+<span id="FOOT-03"></span>
+==== Categorias consecutivas ====
+
+Põe cada categoria ativa em sua própria linha e retira lacunas acidentais entre categorias consecutivas.
+
+'''Antes'''
+<pre>[[Categoria:Temas fictícios]]
+
+[[Categoria:Exemplos]]</pre>
+'''Depois'''
+<pre>[[Categoria:Temas fictícios]]
+[[Categoria:Exemplos]]</pre>
+
+Preserva o nome, a ordem e a chave local de cada categoria. Não transforma uma ligação explicativa para uma categoria em categorização.
+
+'''Antes'''
+<pre>{{Esboço-livro}}[[Categoria:Alfa]][[Categoria:Beta]]</pre>
+'''Depois'''
+<pre>{{Esboço-livro}}
+[[Categoria:Alfa]]
+[[Categoria:Beta]]</pre>
+
+Separa limites conservando nomes, ordem e chaves. O layout geral pode manter uma linha em branco antes do bloco, não entre categorias consecutivas.
+
+<span id="LAY-01"></span>
+==== Navecaixas e portais sem div redundante ====
+
+Retira um invólucro genérico de rolagem quando a chamada nativa já fornece o bloco.
+
+'''Antes'''
+<pre>&lt;div style="max-width:100%;overflow-x:auto" tabindex="0" role="region" aria-label="Navegação: Exemplo"&gt;
+{{Portal3|Ciência}}
+&lt;/div&gt;</pre>
+'''Depois'''
+<pre>{{Portal3|Ciência}}</pre>
+
+Só remove um contêiner equilibrado e demonstravelmente redundante. Contenção funcional permanece.
+
+<span id="LAY-02"></span>
+==== Infocaixa sem div redundante ====
+
+Retira o invólucro genérico de flutuação e rolagem em volta de uma caixa elegível.
+
+'''Antes'''
+<pre>&lt;div style="float:right;clear:right;max-width:100%;overflow-x:auto" tabindex="0" role="region" aria-label="Informações de Exemplo"&gt;
+{{Info/Biografia|nome=Pessoa fictícia}}
+&lt;/div&gt;</pre>
+'''Depois'''
+<pre>{{Info/Biografia|nome=Pessoa fictícia}}</pre>
+
+Não remove recipientes que controlam conteúdo adicional, alinhamento especial ou apresentação necessária.
+
+<span id="FOOT-05"></span>
+==== Projetos irmãos na seção disponível ====
+
+Move Commonscat, Correlatos e caixas de projetos irmãos previstas para a primeira seção adequada que já existe.
+
+'''Antes'''
+<pre>== Ver também ==
+* [[Tema fictício]]
+
+== Ligações externas ==
+{{Commonscat|Example}}
+* Ligação externa</pre>
+'''Depois'''
+<pre>== Ver também ==
+{{Commonscat|Example}}
+* [[Tema fictício]]
+
+== Ligações externas ==
+* Ligação externa</pre>
+
+Usa Ver também, depois Ligações externas, depois Leitura adicional. Sem essas seções, a caixa pode ficar junto do coletor principal de referências. Não cria uma seção vazia. Modelos dinâmicos e títulos ambíguos permanecem.
+
+'''Antes'''
+<pre>== Ver também ==
+* Item anterior.
+{{Correlatos|título=&lt;h2&gt;Outra seção&lt;/h2&gt;|commonscat=Example}}</pre>
+'''Depois'''
+<pre>== Ver também ==
+* Item anterior.
+{{Correlatos|título=&lt;h2&gt;Outra seção&lt;/h2&gt;|commonscat=Example}}</pre>
+
+HTML, títulos ou modelos dinâmicos podem alterar a estrutura. Nesses casos, a caixa mantém sua posição e os ajustes independentes continuam possíveis.
+
+<span id="FOOT-06"></span>
+==== Ligação de projeto irmão em caixa ====
+
+Converte as formas em linha previstas para a caixa correspondente.
+
+'''Antes'''
+<pre>{{Commonscat-inline|Example}}</pre>
+'''Depois'''
+<pre>{{Commonscat|Example}}</pre>
+
+As formas em linha conferidas são Commonscat, Commons, Wikiquote, Wikisource, Wikcionário e Wikivoyage. Exige par nativo equivalente, alvo e rótulo preservados. Não converte qualquer ligação interprojeto em caixa.
+
+<span id="QUAL-01"></span>
+==== Indicador de qualidade duplicado ====
+
+Mantém uma chamada válida do mesmo indicador de artigo bom ou destacado.
+
+'''Antes'''
+<pre>{{Artigo bom}}
+{{Artigo bom}}
+Texto fictício.</pre>
+'''Depois'''
+<pre>{{Artigo bom}}
+Texto fictício.</pre>
+
+Não promove, rebaixa ou escolhe entre estatutos conflitantes. Parâmetros com função diferente permanecem.
+
+<span id="FOOT-07"></span>
+==== Nomes das seções finais ====
+
+Adapta títulos estrangeiros e variantes previstos para o nome português.
+
+'''Antes'''
+<pre>== See also ==</pre>
+'''Depois'''
+<pre>== Ver também ==</pre>
+
+Exige uma correspondência explícita. Um título apenas parecido não é reescrito por inferência.
+
+'''Antes'''
+<pre>== {{Veja também}} ==</pre>
+'''Depois'''
+<pre>== Ver também ==</pre>
+
+Somente chamada inteira sem argumentos. Links externos prefere Ligações externas pelo mesmo contrato, coletores não viram simples texto de seção.
+
+<span id="FOOT-08"></span>
+==== Sucessão preservada como bloco do rodapé ====
+
+Reconhece o conjunto completo de sucessão ao organizar portais e outros elementos finais.
+
+'''Antes'''
+<pre>Uma caixa nativa de sucessão completa antes das categorias.</pre>
+'''Depois'''
+<pre>A sucessão permanece inteira, com os portais na posição elegível do rodapé.</pre>
+
+A abertura e o fechamento precisam corresponder aos auxiliares nativos conhecidos. O reconhecimento do bloco não altera os dados dos cargos.
+
+<span id="FOOT-09"></span>
+==== Taxonbar e autoridade no rodapé ====
+
+Mantém Taxonbar depois das navegações e antes do portal, como um bloco de identificadores.
+
+'''Antes'''
+<pre>Taxonbar, navegação e Portal3 num rodapé reconhecido.</pre>
+'''Depois'''
+<pre>Navegação, Taxonbar e Portal3, conservando os dados.</pre>
+
+Taxonbar e controle de autoridade não são aliases universais. Suas chamadas e argumentos permanecem distintos.
+
+<span id="FOOT-10"></span>
+==== Navegações reunidas em Navboxes ====
+
+Pode agrupar quatro ou mais navegações independentes em uma caixa nativa.
+
+'''Antes'''
+<pre>{{Navegação A}}
+{{Navegação B}}
+{{Navegação C}}
+{{Navegação D}}
+{{Controlo de autoridade}}</pre>
+'''Depois'''
+<pre>{{Navboxes|título=Tema|lista=
+{{Navegação A}}
+{{Navegação B}}
+{{Navegação C}}
+{{Navegação D}}
+{{Controlo de autoridade}}
+}}</pre>
+
+Os nomes do exemplo representam navegações com papel já comprovado. O agrupamento exige página de artigo e não usa o título de uma página de usuário. Mantém cada chamada, põe a autoridade por último dentro do grupo e deixa portais, esboço e coordenadas fora dele.
+
+<span id="FOOT-11"></span>
+==== Um esboço existente ====
+
+Mantém no máximo um esboço que já esteja na página. Havendo mais de um específico, conserva o primeiro; não acrescenta um esboço ausente.
+
+'''Antes'''
+<pre>{{Esboço-livro}}
+{{Esboço-livro}}</pre>
+'''Depois'''
+<pre>{{Esboço-livro}}</pre>
+
+Chamadas independentes, reconhecidas e completas. A escolha entre esboços existentes não fornece prova nova de portal ou categoria. As regras específicas de esboços verificados continuam independentes.
+
+<span id="FOOT-12"></span>
+==== Coordenadas gerais perto das categorias ====
+
+Move a chamada geral de coordenadas para depois do esboço existente.
+
+'''Antes'''
+<pre>{{Coord|1|2|display=title}}
+{{Portal3|Ciência}}
+{{Esboço-ciência}}</pre>
+'''Depois'''
+<pre>{{Portal3|Ciência}}
+
+{{Esboço-ciência}}
+
+{{Coord|1|2|display=title}}</pre>
+
+Só move uma chamada solta com exibição geral confirmada. Coordenadas de infocaixas, tabelas, listas, legendas e texto explicativo permanecem onde têm função.
+
+=== Discussões e predefinições ===
+
+<span id="TALK-01"></span>
+==== Um PD no início ====
+
+Reúne chamadas equivalentes conferidas e põe PD na primeira linha.
+
+'''Antes'''
+<pre>{{pd}}
+{{Página de discussão}}
+== Uma conversa ==
+Texto.</pre>
+'''Depois'''
+<pre>{{PD}}
+== Uma conversa ==
+Texto.</pre>
+
+Reconhece apenas os aliases válidos conferidos. Configurações incompatíveis e exemplos protegidos não são apagados. Discussões de usuário não recebem um cabeçalho de artigo inventado.
+
+<span id="TALK-02"></span>
+==== Uma Marca de projeto com todos os projetos ====
+
+Reúne os projetos e suas avaliações compatíveis em uma chamada.
+
+'''Antes'''
+<pre>{{Marca de projeto|?|Ciência|?}}
+{{Marca de projeto|?|Tecnologia|?}}</pre>
+'''Depois'''
+<pre>{{Marca de projeto|?|Ciência|?|Tecnologia|?}}</pre>
+
+Reúne projetos e parâmetros compatíveis, preservando importâncias e avaliações humanas. Valores humanos conflitantes ou dados exclusivos impedem somente a mescla que perderia informação.
+
+<span id="TALK-03"></span>
+==== Avaliação automática marcada por bot ====
+
+Retira bot e todas as ocorrências de rev quando existe bot. Sem bot, retira uma revisão de data válida anterior a 2021. Conserva as importâncias e avaliações humanas separadas.
+
+'''Antes'''
+<pre>{{PD}}
+{{Marca de projeto|1|Ciência|3|bot=?/20131103|rev=20140530}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?|Ciência|3}}</pre>
+
+O corte é estritamente anterior a 1 de janeiro de 2021. Datas inválidas ou atuais sem bot são preservadas.
+
+<span id="TALK-04"></span>
+==== Traduzido no formato nativo ====
+
+Adapta os campos e a ordem da chamada de tradução conforme a predefinição portuguesa.
+
+'''Antes'''
+<pre>{{Traduzido|en|Tema fictício|oldid=12345|data=1 de novembro de 2026}}</pre>
+'''Depois'''
+<pre>{{Traduzido|página=Tema fictício|cód_idioma=en|oldid=12345|data=1 de novembro de 2026}}</pre>
+
+A conversão usa somente idioma, página, revisão, data e autoria já presentes. Pode recuperar oldid de uma URL coerente com esses dados. Conflitos ficam no texto e nenhuma revisão ou data é inventada.
+
+<span id="TALK-05"></span>
+==== Projetos do artigo no mesmo Ajustar código ====
+
+Na discussão de um artigo, Ajustar código também pode ler os portais do artigo e preparar PD e Marca de projeto.
+
+'''Antes'''
+<pre>Discussão sem cabeçalho de projeto e artigo com Física, Tecnologia e Ciência.</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?|Física|?|Tecnologia|?|Ciência|?}}</pre>
+
+Requer uma discussão inteira de artigo e uma consulta de leitura bem-sucedida. Uma falha nessa consulta não impede a limpeza local do cabeçalho. O antigo botão Criar código deixa de ser necessário.
+
+<span id="TALK-06"></span>
+==== Variantes de portal coladas na discussão ====
+
+Converte os portais reconhecidos para a estrutura de projetos em discussão.
+
+'''Antes'''
+<pre>Portal da física Portal da tecnologia Portal da ciência</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?|Física|?|Tecnologia|?|Ciência|?}}</pre>
+
+Abrange os portais aceitos no mapa, não apenas esses exemplos. Texto de conversa e exemplos protegidos ficam intactos.
+
+<span id="TPL-01"></span>
+==== Definições de predefinição ====
+
+Aplica os reparos finitos previstos a includeonly, noinclude e chamadas conhecidas.
+
+'''Antes'''
+<pre>Uma definição com delimitador incorreto inequívoco em um bloco de inclusão.</pre>
+'''Depois'''
+<pre>A mesma definição com limites de inclusão preservados e sintaxe corrigida.</pre>
+
+Parâmetros triplos, funções parser, Lua e exemplos não são tratados como prosa de artigo.
+
+<span id="TPL-02"></span>
+==== Navecaixa com chamada duplicada de chaves ====
+
+Retira um nível redundante nas navecaixas literais expressamente reconhecidas.
+
+'''Antes'''
+<pre>{{{{Navecaixa reconhecida}}}}</pre>
+'''Depois'''
+<pre>{{Navecaixa reconhecida}}</pre>
+
+O nome deve estar no mapa. Indireção dinâmica ou uma predefinição desconhecida permanece.
+
+<span id="TPL-03"></span>
+==== TemplateStyles ====
+
+Ajusta CSS pelo fluxo próprio, conferido pelo sanitizador nativo.
+
+'''Antes'''
+<pre>Uma declaração CSS com um erro exato e reparo aceito pelo sanitizador.</pre>
+'''Depois'''
+<pre>A declaração corrigida, com as demais regras preservadas.</pre>
+
+Não converte propriedades rejeitadas para valores aleatórios nem altera o CSS geral de outra página.
+
+<span id="TPL-04"></span>
+==== Campos de sucessão com nomes nativos ====
+
+Adapta argumentos importados nos auxiliares de sucessão conferidos.
+
+'''Antes'''
+<pre>{{S-bef|before=Pessoa Exemplo}}
+{{S-inc|recent}}</pre>
+'''Depois'''
+<pre>{{S-bef|antes=Pessoa Exemplo}}
+{{S-inc|recente}}</pre>
+
+Before e suas posições numeradas só mudam quando não há parâmetro português concorrente. Recent precisa ser o único argumento posicional previsto. Reason e reason2 não são tratados como erros.
+
+<span id="TALK-07"></span>
+==== Avisos no topo da discussão ====
+
+Organiza o cabeçalho antes das conversas, preservando atribuições e avisos distintos.
+
+'''Antes'''
+<pre>{{OKA}}
+{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}
+{{Marca de projeto|3|Ciência|2|rev=20260101}}
+{{PD}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|3|Ciência|2|rev=20260101}}
+{{Traduzido|página=Tema Exemplo|cód_idioma=en|oldid=12345}}
+{{OKA}}</pre>
+
+Ordem atual, em linhas separadas: PD, Marca de projeto, Traduzido, OKA e outros avisos. Conserva a conversa, assinaturas, comentários, atribuições e avaliações humanas.
+
+<span id="TPL-05"></span>
+==== Título no ramo próprio de YouTube ====
+
+Usa titulo no vídeo comum que lê esse campo.
+
+'''Antes'''
+<pre>{{YouTube|abcdefghijk|título=Exemplo}}</pre>
+'''Depois'''
+<pre>{{YouTube|abcdefghijk|titulo=Exemplo}}</pre>
+
+ID comum de vídeo, sem canal/playlist ou título concorrente. Outros ramos não mudam por semelhança.
+
+<span id="TALK-08"></span>
+==== Marcadores vazios de avaliação ====
+
+Troca placeholders como x, "x" ou qualidade por ? no campo geral de Marca de projeto.
+
+'''Antes'''
+<pre>{{Marca de projeto|qualidade|Aviação|?|rev=20200709}}</pre>
+'''Depois'''
+<pre>{{Marca de projeto|?|Aviação|?}}</pre>
+
+Retira rev órfão quando não há avaliação humana válida. Qualidades humanas e parâmetros conflitantes permanecem.
+
+<span id="TALK-09"></span>
+==== AvançarDiscussão fora do cabeçalho ====
+
+Retira a chamada ativa de AvançarDiscussão.
+
+'''Antes'''
+<pre>{{PD}}
+{{AvançarDiscussão}}
+== Tema ==
+Mensagem.</pre>
+'''Depois'''
+<pre>{{PD}}
+== Tema ==
+Mensagem.</pre>
+
+Preserva exemplos literais, assinaturas, comentários e o restante da conversa.
+
+=== Uso, segurança e distribuição ===
+
+<span id="UI-01"></span>
+==== Um botão para ajustar ====
+
+Executa as correções escolhidas no rascunho aberto.
+
+'''Antes'''
+<pre>Rascunho ainda não analisado.</pre>
+'''Depois'''
+<pre>Correções confirmadas no mesmo rascunho.</pre>
+
+O botão superior e o botão junto de Publicar executam a mesma ação. Publicação continua manual.
+
+<span id="UI-02"></span>
+==== Contagem do que foi aplicado ====
+
+Mostra os ajustes mantidos e a diferença em bytes. Quando resta uma contagem mais trabalhosa, o texto já pode ser editado ou publicado enquanto ela termina separadamente, sem refazer os reparos.
+
+'''Antes'''
+<pre>Texto com várias correções independentes.</pre>
+'''Depois'''
+<pre>Número de ajustes e bytes quando a contagem é exata. Sem contagem confirmada, mensagem de ajustes aplicados e acesso à comparação.</pre>
+
+Quando a contagem exata não pode ser confirmada, informa que houve ajustes sem estimar um total. Não inclui propostas descartadas. Um bloco da comparação não é necessariamente um único ajuste.
+
+<span id="UI-03"></span>
+==== Mostrar alterações e desfazer ====
+
+Usa a comparação do editor e permite restaurar o rascunho anterior.
+
+'''Antes'''
+<pre>Rascunho ajustado.</pre>
+'''Depois'''
+<pre>Rascunho anterior restaurado por Desfazer ajustes.</pre>
+
+Uma alteração manual posterior impede restaurar uma versão que sobrescreveria esse trabalho.
+
+<span id="UI-04"></span>
+==== Evitar análise repetida sem mudanças ====
+
+Reconhece o texto já conferido e atualiza o estado dos botões.
+
+'''Antes'''
+<pre>Mesmo texto e mesmas opções depois da análise.</pre>
+'''Depois'''
+<pre>Botão indica o estado conferido.</pre>
+
+Uma edição ou mudança nas opções permite nova análise.
+
+<span id="UI-05"></span>
+==== Resumo Minúcias e edição menor ====
+
+Preenche o resumo padrão e marca os ajustes automáticos como edição menor.
+
+'''Antes'''
+<pre>Resumo vazio e aplicação automática confirmada.</pre>
+'''Depois'''
+<pre>Resumo: Minúcias. Edição menor marcada.</pre>
+
+Preserva resumo e escolha manuais, além da opção desligada. Não depende do tamanho da diferença. Nas discussões, Ajustar código reúne a preparação e a limpeza do cabeçalho na mesma ação e também marca as mudanças automáticas como menores, respeitando a escolha manual.
+
+<span id="UI-06"></span>
+==== Opções por família ====
+
+Permite escolher Todos os ajustes, Só referências ou Só infocaixas e desligar grupos específicos.
+
+'''Antes'''
+<pre>Opção de uma família desligada.</pre>
+'''Depois'''
+<pre>Essa família fica sem alteração; as demais continuam elegíveis.</pre>
+
+Uma opção técnica de segurança não pode ser removida para forçar uma correção.
+
+<span id="UI-07"></span>
+==== Andamento e cancelamento ====
+
+Mostra atividade e permite cancelar sem alterar o rascunho.
+
+'''Antes'''
+<pre>Análise em andamento.</pre>
+'''Depois'''
+<pre>Cancelamento encerra a aplicação e mantém o texto aberto.</pre>
+
+O indicador respeita a preferência de menos movimento. Não apresenta uma porcentagem inventada.
+
+<span id="UI-08"></span>
+==== Sem corte global de 60 segundos ====
+
+Permite que a análise continue além de um minuto enquanto trabalha.
+
+'''Antes'''
+<pre>Análise com mais de 60 segundos.</pre>
+'''Depois'''
+<pre>A execução continua, podendo ser cancelada.</pre>
+
+Consultas externas mantêm limites próprios. Cancelamento, mudança de contexto e alteração manual impedem respostas antigas de sobrescrever o rascunho.
+
+<span id="SAFE-01"></span>
+==== Uma falha local não cancela tudo ====
+
+Mantém correções independentes que passaram pela preservação.
+
+'''Antes'''
+<pre>Campo não elegível na infocaixa e erro de referência independente no corpo.</pre>
+'''Depois'''
+<pre>Campo preservado e referência corrigida.</pre>
+
+Cada componente confere seu próprio plano e rascunho. Um campo, modelo ou grupo não comprovado fica preservado sem cancelar correções independentes. O painel relata o que entrou, sem exigir um relatório de recusas para continuar.
+
+<span id="SAFE-02"></span>
+==== Preservação de conteúdo e referências ====
+
+Compara texto, campos, grupos, referências, células, fórmulas, unidades e destinos para impedir perdas na transformação.
+
+'''Antes'''
+<pre>Um plano eliminaria parte de uma fonte ou uma célula.</pre>
+'''Depois'''
+<pre>Esse plano não é aplicado.</pre>
+
+As verificações são de preservação do código e dos dados. Não verificam a veracidade das afirmações, a qualidade das fontes ou a notoriedade do tema.
+
+<span id="SAFE-03"></span>
+==== Resultado vinculado ao rascunho ====
+
+Evita que uma resposta atrasada substitua texto escrito depois.
+
+'''Antes'''
+<pre>A análise começou, mas o texto foi editado manualmente.</pre>
+'''Depois'''
+<pre>A resposta antiga não sobrescreve o novo texto.</pre>
+
+Também confere página, revisão, seção, editor e opções.
+
+<span id="SAFE-04"></span>
+==== Contextos e regiões protegidas ====
+
+Distingue artigo, rascunho, discussão, predefinição e CSS.
+
+'''Antes'''
+<pre>&lt;nowiki&gt;{{Reflist}}&lt;/nowiki&gt;</pre>
+'''Depois'''
+<pre>&lt;nowiki&gt;{{Reflist}}&lt;/nowiki&gt;</pre>
+
+Código, citações de marcação, comentários e trechos de exemplo não recebem as mesmas regras da prosa.
+
+<span id="DIST-01"></span>
+==== Carregador fixo ====
+
+Mantém a chamada de instalação no common.js entre as atualizações.
+
+'''Antes'''
+<pre>Chamada fixa já instalada corretamente.</pre>
+'''Depois'''
+<pre>A mesma chamada depois de atualizar núcleo, dados e carregador compartilhado.</pre>
+
+Não exige substituir o common.js inteiro nem apagar outros scripts.
+
+<span id="DIST-02"></span>
+==== Dados conferidos após o salvamento ====
+
+Confere a versão e o conteúdo do catálogo antes de iniciar.
+
+'''Antes'''
+<pre>Dados e núcleo de distribuições diferentes ou texto transformado no pré-salvamento.</pre>
+'''Depois'''
+<pre>O pacote incompatível não é iniciado.</pre>
+
+Não altera o hash para mascarar a diferença. Arquivos da mesma distribuição e destinos corretos resolvem a instalação.
+
+<span id="DIST-03"></span>
+==== Sem edições automáticas na Wikipédia ====
+
+As correções ficam no editor até a ação de publicação da pessoa.
+
+'''Antes'''
+<pre>Ajustar código concluído.</pre>
+'''Depois'''
+<pre>Rascunho aberto, sem publicação automática.</pre>
+
+A pré-visualização pode enviar o rascunho para processamento sem salvar uma edição. Não há edições periódicas.
+
+<span id="DIST-04"></span>
+==== Catálogo de infocaixas em partes ====
+
+Carrega somente as partes necessárias do catálogo de contratos conferidos.
+
+'''Antes'''
+<pre>Um arquivo único com todos os contratos.</pre>
+'''Depois'''
+<pre>Infocaixas/parte0001.json e índice conferido em Regras.js.</pre>
+
+Quem mantém a distribuição instala as partes antes de Regras.js e do programa. O índice, as versões e os hashes continuam sendo conferidos. A chamada fixa do common.js permanece. As partes funcionam tanto em uma página de conteúdo wikitexto preservado quanto no modelo JSON. Como o pré-save do modelo JSON pode reindentar e desescapar strings, sua autenticação usa o conteúdo JSON canônico, sem depender da formatação externa. Código e dados JavaScript continuam exigindo identidade, salvo a quebra de linha terminal.
+
+=== Organização do código ===
+
+<span id="RW2222-035"></span>
+==== Rodapés biográficos com as chamadas compostas preservadas ====
+
+Rodapés biográficos com as chamadas compostas preservadas
+
+'''Antes'''
+<pre>Texto.
+{{Portal3|Biografias}}
+{{NM|1900|1980|Exemplo}}
+[[Categoria:Exemplos]]</pre>
+'''Depois'''
+<pre>Texto.
+
+{{NM|1900|1980|Exemplo}}
+
+{{Portal3|Biografias}}
+
+[[Categoria:Exemplos]]
+</pre>
+
+Organiza portais e esboços existentes sem mover NM/NF nem alterar a ordem de classificação das categorias. Rodapés incompletos ou com efeitos incertos permanecem protegidos.
+
+<span id="RW2222-039"></span>
+==== Coordenadas gerais com variações válidas de display ====
+
+Coordenadas gerais com variações válidas de display
+
+'''Antes'''
+<pre>{{Coord|1|N|2|E|display=TITLE}}
+{{Controle de autoridade}}
+{{Portal3|Geografia}}
+{{Esboço}}
+[[Categoria:Exemplos]]</pre>
+'''Depois'''
+<pre>{{Controle de autoridade}}
+
+{{Portal3|Geografia}}
+
+{{Esboço}}
+
+{{Coord|1|N|2|E|display=TITLE}}
+
+[[Categoria:Exemplos]]
+</pre>
+
+Reconhece diferenças de maiúsculas nos valores nativos já aceitos. Mantém coordenadas explicativas no texto, nas tabelas e nas infocaixas.
+
+<span id="RW2222-052"></span>
+==== Caixas de projetos irmãos no lugar escolhido ====
+
+Caixas de projetos irmãos no lugar escolhido
+
+'''Antes'''
+<pre>== Ver também ==
+* [[Tema de exemplo]]
+
+== Ligações externas ==
+{{Wikiversidade|Curso de exemplo/Unidade introdutória}}
+* [https://example.org Recurso de exemplo]</pre>
+'''Depois'''
+<pre>== Ver também ==
+{{Wikiversidade|Curso de exemplo/Unidade introdutória}}
+
+* [[Tema de exemplo]]
+
+== Ligações externas ==
+
+* [https://example.org Recurso de exemplo]</pre>
+
+Move caixas independentes para Ver também, com as alternativas já definidas quando essa seção não existe. Inclui Wikiversidade, preserva caminhos completos e não arrasta as listas. Converte formas em linha de Commonscat somente quando seus destinos, rótulos e opções mantêm o mesmo efeito.
+
+<span id="RW2222-058"></span>
+==== Títulos de remissões reconhecidos antes das referências ====
+
+Títulos de remissões reconhecidos antes das referências
+
+'''Antes'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+== Veja também ==
+* [[Tema de exemplo]]
+
+{{Referências}}</pre>
+'''Depois'''
+<pre>Texto.&lt;ref&gt;Fonte.&lt;/ref&gt;
+
+== Ver também ==
+* [[Tema de exemplo]]
+
+{{Referências}}</pre>
+
+Normaliza as grafias previstas de Ver também quando a seção contém apenas remissões. Reconhece a chamada de referências como limite da lista e preserva âncoras ou contextos ambíguos.
+
+<span id="RW2222-059"></span>
+==== No máximo um esboço que já estava no artigo ====
+
+No máximo um esboço que já estava no artigo
+
+'''Antes'''
+<pre>{{Esboço}}
+{{Esboço-astronomia|data=2020}}
+{{Esboço-química}}</pre>
+'''Depois'''
+<pre>{{Esboço-astronomia|data=2020}}
+</pre>
+
+Mantém o primeiro esboço específico, com seus parâmetros. Se houver apenas marcas genéricas, mantém a primeira. Não acrescenta esboços a artigos sem essa marca e preserva avisos de seção.
+
+<span id="RW2222-060"></span>
+==== Um Portal3 sem perder comentários ====
+
+Um Portal3 sem perder comentários
+
+'''Antes'''
+<pre>{{Portal3|Ciência&lt;!-- comentário A --&gt;}}
+&lt;!-- comentário B --&gt;
+{{Portal3|História}}</pre>
+'''Depois'''
+<pre>&lt;!-- comentário A --&gt;
+&lt;!-- comentário B --&gt;
+
+{{Portal3|Ciência|História}}
+</pre>
+
+Reúne chamadas compatíveis, conserva a ordem dos temas e mantém cada comentário. Não mistura opções conflitantes nem argumentos dinâmicos.
+
+<span id="RW2222-061"></span>
+==== Fechamento incorreto de uma data biográfica ====
+
+Fechamento incorreto de uma data biográfica
+
+'''Antes'''
+<pre>'''Pessoa de exemplo''' ({{Dni|1|2|1900]]) é uma pessoa.</pre>
+'''Depois'''
+<pre>'''Pessoa de exemplo''' ({{Dni|1|2|1900}}) é uma pessoa.</pre>
+
+Corrige um fechamento inequívoco de uma chamada nativa com data numérica válida. Preserva os parênteses externos e mantém protegidos exemplos, referências e formas ambíguas.
+
+<span id="RW2222-076"></span>
+==== JavaScript e Lua protegidos também fora da interface ====
+
+JavaScript e Lua protegidos também fora da interface
+
+'''Antes'''
+<pre>// [[Brasil|Brasil]]
+const exemplo="{{Cite web|title=Fonte}}";</pre>
+'''Depois'''
+<pre>// [[Brasil|Brasil]]
+const exemplo="{{Cite web|title=Fonte}}";</pre>
+
+A API de ajustes preserva integralmente o código quando o tipo declarado não é wikitexto, inclusive em recuperação e processamento em segundo plano. TemplateStyles continua com sua conferência própria de CSS.
+
+<span id="HOLD11"></span>
+==== Sintaxe de funções nativas com o espaço no lugar errado ====
+
+Sintaxe de funções nativas com o espaço no lugar errado
+
+'''Antes'''
+<pre>{{#se :1|A|B}}</pre>
+'''Depois'''
+<pre>{{#se:1|A|B}}</pre>
+
+Retira apenas o espaço entre o nome de uma função nativa confirmada e os dois-pontos, preservando seus argumentos. Exemplos, noinclude e chamadas dentro de programas desconhecidos permanecem protegidos.
+
+=== Portais e categorias ===
+
+<span id="RW2222-036"></span>
+==== Portais de Astronomia e Química a partir de esboços específicos ====
+
+Portais de Astronomia e Química a partir de esboços específicos
+
+'''Antes'''
+<pre>Texto.
+{{Esboço-astronomia}}</pre>
+'''Depois'''
+<pre>Texto.
+
+{{Portal3|Astronomia}}
+
+{{Esboço-astronomia}}
+</pre>
+
+Reconhece uma única marca de esboço nativa, sem argumentos, com tema confirmado. Preserva a marca existente e acrescenta o portal apenas se o destino estiver disponível.
+
+<span id="RW2222-037"></span>
+==== Evita acrescentar um país já coberto pelo portal de uma região ====
+
+Evita acrescentar um país já coberto pelo portal de uma região
+
+'''Antes'''
+<pre>Texto.
+
+{{Portal3|Califórnia}}
+</pre>
+'''Depois'''
+<pre>Texto.
+
+{{Portal3|Califórnia}}
+</pre>
+
+A nova cobertura inclui Califórnia, Ontário e Quebec, além das regras anteriores. Não retira países que já estavam no artigo nem aplica relações territoriais históricas ou disputadas.
+
+<span id="RW2222-038"></span>
+==== Categorias para romances e aberturas de xadrez com comprovação ====
+
+Categorias para romances e aberturas de xadrez com comprovação
+
+'''Antes'''
+<pre>'''Obra de teste''' é um [[Romance|romance]] publicado em 1950.&lt;ref&gt;{{citar web|url=https://example.org/fonte|título=Fonte}}&lt;/ref&gt;
+
+{{Referências}}
+</pre>
+'''Depois'''
+<pre>'''Obra de teste''' é um [[romance]] publicado em 1950.&lt;ref&gt;{{citar web|url=https://example.org/fonte|título=Fonte}}&lt;/ref&gt;
+
+{{Referências}}
+
+[[Categoria:Romances]]
+</pre>
+
+Acrescenta a categoria nativa somente com definição, identidade do assunto, fontes compartilhadas e ausência de categorias confirmadas. Romances também precisam de comprovação de publicação passada. As demais famílias dependem de contratos próprios.
+
+=== Páginas de discussão ===
+
+<span id="RW2222-073"></span>
+==== Revisão de origem em atribuições parciais ====
+
+Revisão de origem em atribuições parciais
+
+'''Antes'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Traduzido|página=Página de exemplo#Parte|cód_idioma=en|oldid original=[[:en:Special:PermaLink/123#Parte|123]]|data=1 de janeiro de 2020}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Traduzido|página=Página de exemplo#Parte|cód_idioma=en|data=1 de janeiro de 2020|oldid=123}}</pre>
+
+Reconhece ligações permanentes interwiki verificadas e preserva página, idioma, seção, revisão, data e comentários. Mantém também o suporte anterior às ligações permanentes externas.
+
+<span id="RW2222-074"></span>
+==== Estado das fontes no parâmetro que a predefinição lê ====
+
+Estado das fontes no parâmetro que a predefinição lê
+
+'''Antes'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Traduzido|cód_idioma=en|página=Página de exemplo|NT}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Traduzido|página=Página de exemplo|cód_idioma=en|fontes=NT}}</pre>
+
+Reposiciona um código V, NV, SEM ou NT que já estava na atribuição, quando não existe conflito. Não inventa verificação de fontes nem interpreta datas ambíguas.
+
+<span id="RW2222-075"></span>
+==== Cabeçalho de discussão organizado, sem metadados de bot ====
+
+Cabeçalho de discussão organizado, sem metadados de bot
+
+'''Antes'''
+<pre>{{PD}}
+{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid= 123
+|data= 1 de janeiro de 2020
+}}
+{{Marca de projeto|1|Ciência|4|bot=sim|rev=20190101|rev=20260101|Mulheres|4}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?|Ciência|4|Mulheres|4}}
+{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid=123|data=1 de janeiro de 2020}}</pre>
+
+Mantém PD, Marca de projeto, Traduzido e OKA em linhas separadas, nessa ordem. Remove bot e todas as ocorrências de rev no mesmo bloco com bot, preservando a importância dos projetos. Sem bot, retira apenas datas rev válidas anteriores a 2021. Converte uma marca antiga de projeto somente quando o encaminhamento nativo é equivalente. Preserva também os comentários desses campos, sem transformar seu conteúdo em código ativo.
+
+<span id="RW2222-083"></span>
+==== Atribuição antiga sem apagar sua função ====
+
+Atribuição antiga sem apagar sua função
+
+'''Antes'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Tradução|página=Página de exemplo|cód_idioma=en|oldid=123}}</pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?}}
+{{Traduzido|página=Página de exemplo|cód_idioma=en|oldid=123}}</pre>
+
+Padroniza aliases nativos confirmados de Traduzido e conserva todos os dados da origem. Avisos independentes, mensagens humanas, créditos e traduções parciais permanecem distintos.
+
+<span id="POST-SCOPE-ARTICLE-TALK-HEADER"></span>
+==== Cabeçalho de discussão completo ====
+
+Completa o cabeçalho das discussões de artigos com <code><nowiki>{{PD}}</nowiki></code> e uma <code><nowiki>{{Marca de projeto|?}}</nowiki></code> quando faltarem, mesmo sem portais no artigo.
+
+'''Antes'''
+<pre></pre>
+'''Depois'''
+<pre>{{PD}}
+{{Marca de projeto|?}}</pre>
+
+Apenas discussões completas de artigos no domínio 1, em wikitext e com os ajustes de predefinições ativados. Preserva projetos e avaliações existentes, inclusive o redirecionamento português Marca de projecto, comentários e exemplos. Não acrescenta esta marca às discussões de usuários ou predefinições. A chamada usa ? no campo de qualidade. A própria predefinição da Wikipédia pode então mostrar uma qualidade estimada automaticamente, mesmo sem projetos específicos.
+
+=== Texto e sintaxe ===
+
+<span id="RW2222-078"></span>
+==== Ortografia com proteção no trecho certo ====
+
+Ortografia com proteção no trecho certo
+
+'''Antes'''
+<pre>Uma excessão foi registrada.
+
+'''excessão'''</pre>
+'''Depois'''
+<pre>Uma exceção foi registrada.
+
+'''excessão'''</pre>
+
+Preserva os próprios nomes, destaques e exemplos, sem usar qualquer negrito posterior como autorização para ignorar a mesma grafia no artigo inteiro. Frases metalinguísticas só liberam uma continuação comum quando a separação é inequívoca.
+
+<span id="RW2222-079"></span>
+==== Separação de palavras em um contexto confirmado ====
+
+Separação de palavras em um contexto confirmado
+
+'''Antes'''
+<pre>É um medicamento utilizado parao tratamento da condição.</pre>
+'''Depois'''
+<pre>É um medicamento utilizado para o tratamento da condição.</pre>
+
+Corrige a sequência medicamento utilizado parao tratamento para medicamento utilizado para o tratamento em prosa comum. Não aplica uma troca genérica em nomes, citações, referências ou código.
+
+=== Interface e resumo ===
+
+<span id="RW2222-012"></span>
+==== Reaproveitamento da análise na conclusão ====
+
+Reaproveitamento da análise na conclusão
+
+'''Antes'''
+<pre>Análise → aplicação → nova reconstrução dos reparos para contar</pre>
+'''Depois'''
+<pre>Análise → texto e resumo aplicados → contagem residual independente, quando necessária</pre>
+
+A contagem residual usa apenas os dois textos confirmados, sem reconstruir reparos. O texto e os controles ficam livres antes dela. As verificações de preservação anteriores à aplicação continuam; não há promessa de tempo fixo.
+
+<span id="RW2222-055"></span>
+==== Mensagem operacional sem atribuição incorreta de 60 segundos ====
+
+Mensagem operacional sem atribuição incorreta de 60 segundos
+
+'''Antes'''
+<pre>A análise atingiu o limite de 60 segundos.</pre>
+'''Depois'''
+<pre>A análise não terminou.</pre>
+
+Não há corte global de 60 segundos no produto. Limites externos dos testes e prazos próprios de requisições não são esse corte.
+
+<span id="RW2222-081"></span>
+==== Contagem junto do resultado, sem segunda espera obrigatória ====
+
+Contagem junto do resultado, sem segunda espera obrigatória
+
+'''Antes'''
+<pre>Resultado aplicado → segunda análise de contagem → resumo</pre>
+'''Depois'''
+<pre>Texto e resumo aplicados; contagem exata em separado quando necessária</pre>
+
+O número conta componentes efetivamente diferentes nos dois textos confirmados, sem somar propostas recusadas nem blocos da comparação. Se a contagem residual exigir mais trabalho, ela termina em separado sem impedir a edição, a publicação ou o desfazer. Uma resposta desatualizada é descartada.
+
+<span id="RW2222-082"></span>
+==== Resumo da discussão conforme os cabeçalhos alterados ====
+
+Resumo da discussão conforme os cabeçalhos alterados
+
+'''Antes'''
+<pre>PD e Marca de projeto alterados no rascunho</pre>
+'''Depois'''
+<pre>{{PD}}{{Marca de projeto}}</pre>
+
+Usa a revisão exata carregada para detectar atribuição acrescentada antes do clique. Conserva resumo manual, prefixo da seção e alterações manuais ao desfazer.
+
+<span id="UI-WATCH-01"></span>
+==== Vigiar página após o ajuste ====
+
+Vigiar página após o ajuste
+
+'''Antes'''
+<pre>Vigiar página: desmarcado</pre>
+'''Depois'''
+<pre>Vigiar página: marcado</pre>
+
+Marca a caixa nativa habilitada ao concluir Ajustar código, mesmo sem mudanças no texto. Conserva uma caixa já marcada. Cancelamento, resultado desatualizado ou recusado não marcam a caixa; desfazer o texto não a desmarca. Não envia ação de vigilância nem publica.
+
+== Histórico das versões ==
+
+=== 2.22.2 ===
+
+* Preserva Notas e referências quando há notas e fontes compatíveis e retira apenas a lista de notas comprovadamente vazia.
+* Corrige mais URLs e identificadores de citações, incluindo protocolos, arXiv, ISBN e ISSN, sem apagar informações conflitantes.
+* Amplia as conversões comprovadas de infocaixas, com campos de carreira, mandatos, aeroportos e dados biográficos preservados.
+* Reúne portais separados por comentários e organiza projetos irmãos junto de Ver também, inclusive Correlatos e Wikiversidade.
+* Mantém no máximo um esboço existente, escolhendo o primeiro específico quando há mais de um.
+* Marca Vigiar página ao concluir Ajustar código quando a opção nativa do editor estiver desmarcada.
+* Acrescenta Marca de projeto com ? quando falta essa marcação na discussão de um artigo, permitindo a avaliação automática nativa.
+* Acerta datas e campos de Traduzido, reúne os cabeçalhos da discussão na ordem preferida e retira metadados antigos conforme a regra de revisão.
+* Preenche o resumo da discussão com PD, Marca de projeto e Traduzido conforme as famílias alteradas, conservando resumos manuais.
+* Aplica o texto e preenche o resumo sem esperar uma contagem residual; quando necessária, ela termina separadamente sem bloquear a edição.
+* Amplia correções pontuais de texto e sintaxe e mantém código JavaScript, Lua, CSS e JSON fora dos ajustes de wikitexto.
+
+
+=== 2.22.1 ===
+
+* Reúne coletores compatíveis em Referências ou Notas e referências, com isolamento do texto e tratamento próprio de grupos, bancos e auxiliares.
+* Preserva identidades Unicode das fontes e só retira reutilizações sem definição quando o inventário confirma a ausência.
+* Corrige campos específicos de infocaixas conforme o leitor nativo, conserva dados conflitantes e usa espaço depois do sinal de igual nos valores preenchidos.
+* Acrescenta migrações por contratos finitos, com origem, campos e incorporação conferidos. Não promete converter todas as caixas estrangeiras.
+* Mantém listas curtas sem colunas, corrige corpos implícitos e retira caixas de projetos irmãos e rodapé que ficaram presas nas colunas.
+* Reúne Portal3 compatíveis, conserva variantes portuguesas de autoridade e organiza navegações, Taxonbar, esboço, coordenadas e categorias.
+* Usa o mesmo Ajustar código para preparar a discussão e ordenar PD, Marca de projeto, Traduzido e OKA, preservando avaliações humanas e conversa.
+* Mantém correções independentes quando outro trecho precisa permanecer, com resultado aplicado ligado ao rascunho e sem relatório obrigatório de recusas.
+
+O histórico resume cada versão da mais recente para a mais antiga. Recursos e controles antigos podem ter mudado. As instruções atuais são as seções anteriores, e os [https://github.com/danrego/RevisaWiki/tree/main/dist pacotes históricos] conservam sua documentação e seus resultados originais.
+
+=== 2.22.0 ===
+
+* Reúne listas de notas e referências que podem ser combinadas. Mantém grupos, fontes, títulos próprios e larguras que tenham efeito.
+* Corrige nomes e operadores dos atributos de referência. Retira chamadas sem definição quando consegue conferir a página inteira e tudo o que pode gerar notas.
+* Padroniza campos de citações e infocaixas conforme o modelo usado. Conserva valores conflitantes e argumentos que ainda não consegue interpretar.
+* Usa formas portuguesas de comandos, opções de imagem e espaços de nomes quando cumprem a mesma função. Valores, rótulos e efeitos permanecem.
+* Ajusta marcação simples de listas, títulos e tabelas. Mantém os trechos cuja apresentação ou conteúdo pede outra conferência.
+* Organiza modelos no rodapé e avisos da discussão. Em Marca de projeto, troca apenas x ou "x" por ?, mantendo as importâncias e as notas humanas.
+* Amplia os portais indicados pelas categorias existentes. Para acrescentar categorias, exige uma evidência específica e fica nos casos já habilitados.
+
+=== 2.21.7 ===
+
+* Normaliza coletores e cadeias vazias de notas e referências, preservando bancos, grupos e bibliografia.
+* Converte Citation quando o tipo de publicação é comprovado, mantém âncoras Harvard e amplia edições e referências bíblicas previstas.
+* Organiza campos de infocaixas biográficas e não biográficas, com migrações conjuntas e preservação de caixas filhas, auxiliares e dados desconhecidos.
+* Amplia o reconhecimento de pessoas e de países e territórios, com país e guerra explícitos em unidades militares.
+* Neutraliza a avaliação geral marcada por bot e organiza o cabeçalho de discussão antes das conversas.
+* Separa modelos de bloco e imagens no código, reconhece produtores nativos de tabelas e sucessão e conserva ajustes independentes.
+* Corrige a ordem entre preparação de coletores e adição de portais e mantém a edição menor nos ajustes automáticos de metadados de discussão.
+* Evita abrir uma seção repetida ao converter listas de referências sob títulos manuais, inclusive chamadas com número de colunas.
+* Atualiza a contagem de alterações e reúne 170 entradas de recursos, exemplos e condições no manual.
+
+=== 2.21.6 ===
+
+* Coletores isolados, referências com nomes descritivos e organização do rodapé, das colunas e das discussões.
+* Retirada do corte global de 60 segundos, com cancelamento, preservação do rascunho e verificações ligadas à fonte.
+
+=== 2.21.5 ===
+
+* Usa a chamada Referências nas listas equivalentes e reúne notas e referências quando o conjunto permite a chamada conjunta.
+* Corrige grafias previstas nas chamadas de referências e normaliza um grupo único de notas quando todas as chamadas e definições podem ser conferidas.
+
+=== 2.21.4 ===
+
+* Tenta manter correções de outros grupos quando a combinação inicial é recusada, sempre partindo do rascunho original.
+* Mantém a validação da fonte e da composição do resultado, com controles adicionais para valores literais e referências ativadas por campos de infocaixa.
+
+=== 2.21.3 ===
+
+* Atualiza os campos e nomes alternativos da Info/Biografia conforme a implementação nativa conferida.
+* Conserva a prioridade de valores preenchidos para evitar mudanças de local de nascimento, profissão, largura e legenda.
+
+=== 2.21.2 ===
+
+* Ampliação de regras de referências, infocaixas e portais, com itens ativados separados dos condicionais.
+* Resumo Minúcias, edição menor e opções de ajuste no painel principal.
+
+=== 2.21.1: revisão de instalação 1 ===
+
+* Protege as strings do arquivo de dados contra normalização Unicode e substituições durante o salvamento na Wikipédia.
+* Exige a comparação do catálogo completo após a transformação pré-salvamento antes de montar o pacote final.
+
+=== 2.21.1 ===
+
+* Acrescenta duas colunas às listas simples das seções finais somente a partir de oito itens do nível principal.
+* Conta os subitens junto do item a que pertencem, sem usá-los para atingir o mínimo.
+
+=== 2.21.0 ===
+
+* Amplia os nomes de campos reconhecidos em infocaixas, com equivalência conferida para cada predefinição.
+* Distribui em linhas os campos de infocaixas compactas de assentamentos de Marrocos, preservando a ordem e os valores.
+
+=== 2.20.0 ===
+
+* Amplia a leitura de definições de notas em blocos nativos e confere a movimentação de referências em títulos por pré-visualizações completas com preservação das âncoras.
+* Recompõe títulos de citação partidos por uma barra literal e trata campos específicos de páginas, autoria e ligações nas famílias nativas verificadas.
+
+=== 2.19.1 ===
+
+* Corrige o erro "cyclic object value" que podia interromper Ajustar código ao reconhecer o editor.
+* Mantém a conferência do editor e do rascunho sem tentar converter o objeto do editor em texto JSON.
+
+=== 2.19.0 ===
+
+* Revisão da execução conjunta, das regiões protegidas e da preservação de referências, dados e marcação.
+* Demonstração com exemplos e marcação de ajustes automáticos como edição menor.
+
+=== 2.18.0 ===
+
+* Traduz nomes e campos de citações completas em trechos que podem ser interpretados com segurança, mesmo quando outra parte da página está incompleta.
+* Lê as referências do trecho inicial com o contexto de aspas da página inteira, evitando que aspas de fechamento sejam confundidas com abertura ao cortar o texto.
+
+=== 2.17.0 ===
+
+* Mostra na revisão somente problemas confirmados no texto final e escolhas que ainda podem ser aplicadas à ocorrência correta.
+* Agrupa ocorrências do mesmo problema, mantendo todos os locais e as opções de cada trecho acessíveis.
+
+=== 2.16.0 ===
+
+* Completa campos pessoais ausentes com datas e locais explicitamente referenciados na abertura, mantendo o texto de origem.
+* Separa uma data seguida do local no mesmo campo quando cada parte tem sua referência e o destino foi conferido.
+
+=== 2.15.1 ===
+
+* Move a infocaixa pessoal para antes da abertura quando a posição pode ser confirmada e retira a indentação acidental antes da caixa.
+* Destaca o nome inicial exato do assunto e retira sua ligação para o próprio artigo.
+
+=== 2.15.0 ===
+
+* Reconhece construções válidas de chaves e nomes dinâmicos antes de procurar erros de sintaxe.
+* Confirma o nome da predefinição antes de aplicar regras de parâmetros. Nomes e aliases nativos aceitos permanecem iguais.
+
+=== 2.14.0 ===
+
+* Adapta chamadas reconhecidas de uma enciclopédia importada para Citar enciclopédia, preservando os dados da obra e as indicações de domínio público. A conversão evita as categorias de manutenção estrangeiras geradas pelo modelo antigo.
+* Corrige alinhar e alinhar_fonte em Caixa de citação para os nomes nativos correspondentes, quando o valor e a ausência de conflitos confirmam a mudança.
+
+=== 2.13.0 ===
+
+* Repõe uma aspa inicial ausente em rowspan ou colspan quando a tabela completa confirma o reparo.
+* Repara um sinal de igual ausente em rowspan ou colspan nos formatos reconhecidos.
+
+=== 2.12.0 ===
+
+* Corrige group para grupo nas listas nativas de Referências quando o campo é único e literal.
+* Retira campos equivalentes repetidos das citações quando os valores coincidem, sem misturar funções diferentes.
+
+=== 2.11.1 ===
+
+* Desbloqueia reparos de referências quando há estilos literais e chamadas nativas conferidas que não acrescentam fontes.
+* Separa nomes repetidos de fontes diferentes quando todas as ocorrências têm conteúdo completo, preservando cada referência.
+
+=== 2.11.0 ===
+
+* Acrescenta portais de biografias esportivas quando a infocaixa confirma a pessoa e a modalidade, com o país quando ele também está confirmado.
+* Reconhece infocaixas principais de filmes e formatos conferidos de programas de televisão, com critérios separados para notícias e entretenimento.
+
+=== 2.10.0 ===
+
+* Corrige separadores ausentes, aspas trocadas, linhas vazias repetidas e fechamentos incompatíveis em tabelas estáticas reconhecidas.
+* Acrescenta scope aos cabeçalhos individuais de tabelas com três ou quatro níveis completos e sem associações conflitantes.
+
+=== 2.9.0 ===
+
+* Reutiliza uma fonte sem nome quando todos os campos coincidem com uma referência já nomeada.
+* Retira chamadas repetidas da mesma referência no mesmo ponto do texto.
+
+=== 2.8.3 ===
+
+* Retira a categoria explícita de ano de nascimento quando uma chamada ativa e conferida de Dni já gera a mesma categoria.
+* Confirma a categoria por consulta anônima à ptwiki antes da retirada.
+
+=== 2.8.2 ===
+
+* Corrige trocas antigas de modelos de referência somente em casos previamente verificados e registrados no catálogo.
+* Escolhe o modelo nativo pela fonte original e recupera endereços apenas quando o vínculo com a mesma referência foi confirmado.
+
+=== 2.8.1 ===
+
+* Mantém chamadas nativas de citar web quando falta a URL, com os dados e a data de acesso preservados.
+* Conserva os endereços de arquivo e os demais campos, sem inventar dados para completar uma fonte.
+
+=== 2.8.0 ===
+
+* Separa arquivo, tamanho e legenda de imagens inseridas como ligações completas em campos de infocaixas conferidas.
+* Corrige uma lista conferida de erros nos nomes dos parâmetros e repara links malformados de sites oficiais.
+
+=== 2.7.3 ===
+
+* Formata dados explícitos de casamento com a predefinição nativa, conservando nomes, datas completas e estados civis.
+* Cobre 33 infocaixas e nomes alternativos de biografias, com campos de cônjuge conferidos.
+
+=== 2.7.2 ===
+
+* Fecha aspas ausentes em atributos numéricos de células quando a estrutura completa confirma o ponto do reparo.
+* Corrige a leitura de aspas que atravessam o limite do itálico ou negrito, sem alterar a redação ou a formatação do artigo.
+
+=== 2.7.1 ===
+
+* Corrige nomes químicos cuja notação fazia a infocaixa aparecer como código no artigo, nos campos IUPAC conferidos.
+* Quebra de linha de identificadores InChI literais muito longos em infocaixas genéricas, sem cortar nem modificar o identificador.
+
+=== 2.7.0 ===
+
+* Comparação de artigos grandes com mudanças locais separadas, sem contar um bloco extenso como se fosse uma única correção.
+* Resultado com os tipos de ajuste que permaneceram no texto. O número de blocos pertence à comparação e não é apresentado como total de correções.
+
+=== 2.6.2 ===
+
+* Leitura de aspas pelo contexto, com separação entre o texto de citações e ligações externas e os atributos de referências, etiquetas HTML e tabelas.
+* Correção de falsos limites de leitura que podiam marcar tabelas completas como incompletas e impedir ajustes no restante do artigo.
+
+=== 2.6.1 ===
+
+* O pacote 2.6.1-hotfix.1 corrige a instalação sem mudar a versão 2.6.1 do programa ou dos dados. O carregador usa sintaxe aceita pelo processamento do common.js na Wikipédia.
+* Chamada fixa no common.js, com carregador central separado. Nas próximas versões, a atualização fica nos dados, no núcleo e no carregador central.
+
+=== 2.6.0 ===
+
+* Ampliação dos fluxos do editor e das pré-visualizações vinculadas ao rascunho.
+* Conferência de respostas atrasadas, referências e chamadas nativas de discussão.
+
+=== 2.5.0 ===
+
+* Retirada do título repetido antes da introdução quando o assunto e a posição estão confirmados.
+* Reutilização de citações iguais com parâmetros em outra ordem e retirada de chamadas e listas imediatamente repetidas.
+
+=== 2.4.0 ===
+
+* Reparos de fechamento antes dos demais ajustes, 29 erros exatos de nomes de parâmetros e ajuste do trecho completo anterior a um trecho incompleto.
+* Referências nomeadas ficam protegidas nessa passagem.
+
+=== 2.3.0 ===
+
+* Retirada de cópias idênticas de infocaixas e chamadas finais, consolidação de listas globais redundantes e reparos de resíduos conhecidos de copiar e colar.
+* Conservação de separadores entre dígitos e das fontes no bloco final.
+
+=== 2.2.1 ===
+
+* Atalho Ajustar código antes do botão Publicar, com as mesmas regras e os mesmos catálogos da 2.2.0.
+
+=== 2.2.0 ===
+
+* Correção da conferência de tabelas, remissões depois de títulos de seções e redução de avisos sem ação necessária.
+* Reparos de apresentação conferidos em revisões públicas.
+
+=== 2.1.1 ===
+
+* Separação de subtítulos anuais em tabelas reconhecidas, mantendo os registros e as referências.
+
+=== 2.1.0 ===
+
+* Ampliação das profissões e dos portais de biografias, confirmação própria para Mulheres e revisão da leitura de notas e das respostas de pré-visualização.
+
+=== 2.0.1 ===
+
+* Reparo do argumento de Colunas-lista, conversão de Cite news para Citar jornal e proteção dos separadores de tabelas junto a referências.
+
+=== 2.0.0 ===
+
+* Reparos confirmados de citações e tabelas, conferência automática da pré-visualização e separação entre o programa e os catálogos na instalação.
+
+=== 1.9.1 ===
+
+* Preservação de dni e Dni, proteção contra a adição redundante de Brasil quando há portal de estado brasileiro e uso de parâmetros posicionais em chamadas simples de Portal3.
+
+=== 1.9.0 ===
+
+* Grafias exatas em Ajustar código, inicial minúscula nas profissões da infocaixa, portais pela infocaixa, idade com confirmação de pessoa viva, abertura nos espaços de wikitexto e nomes neutros para referências.
+
+=== 1.8.0 ===
+
+* Melhoria do processamento, reutilização de referências idênticas, reparos automáticos de parâmetros, contador de bytes e marcação de edição menor para mudanças mecânicas confirmadas.
+
+=== 1.7.0 ===
+
+* Ampliação do catálogo, colunas de referências a partir de seis entradas, preservação de nomes alternativos válidos e conferência de citações abreviadas.
+
+=== 1.6.0 ===
+
+* Reorganização da interface, revisão dos resumos e correções de estabilidade.
+
+=== 1.5.0 ===
+
+* Ampliação das verificações de tabelas e datas e primeiros testes do fluxo próprio de TemplateStyles.
+
+=== 1.4.0 ===
+
+* Ampliação da sintaxe importada, controle de autoridade e organização das seções finais.
+* A entrega de biografias com o mesmo número acrescentou Biografias em artigos com infocaixa individual reconhecida.
+
+=== 1.3.0 ===
+
+* Ampliação do catálogo ortográfico e das verificações de palavras.
+
+=== 1.2.1 ===
+
+* Revisão do uso de colunas nas referências e ajuste automático de colunas em listas compatíveis de Leitura adicional e Ligações externas.
+
+=== 1.2.0 ===
+
+* Reutilização da leitura de predefinições na pontuação das referências, processamento separado quando disponível, andamento visível e cancelamento.
+* Reorganização do painel.
+
+=== 1.1.0 ===
+
+* Primeiro fluxo de conferência ortográfica, mantendo as regras de código da 1.0.
+
+=== 1.0.0 ===
+
+* Adoção do nome RevisaWiki, com as regras de ajustes gerais, restauração e resumo automático neutro.
